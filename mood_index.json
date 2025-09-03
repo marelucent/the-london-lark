@@ -1,0 +1,98 @@
+{
+  "Folk & Intimate": {
+    "description": "Warm strings, low light, and stories that feel like home.",
+    "synonyms": ["folk", "acoustic", "candlelit", "intimate", "singer-songwriter"],
+    "vibe_notes": "Handheld heart music."
+  },
+  "Queer Revelry": {
+    "description": "Sequins, sweat, and chosen family.",
+    "synonyms": ["queer", "drag", "cabaret", "LGBT", "glitter"],
+    "vibe_notes": "A jubilant celebration of queer joy."
+  },
+  "Dreamlike & Hypnagogic": {
+    "description": "Time blurs. Your breath slows. Reality becomes suggestion.",
+    "synonyms": ["dreamlike", "surreal", "hypnotic", "ambient"],
+    "vibe_notes": "A waking dream."
+  },
+  "Wonder & Awe": {
+    "description": "For when you want to feel small and lit from within.",
+    "synonyms": ["awe", "mind-blown", "epic", "immersive"],
+    "vibe_notes": "A miracle in stage lights."
+  },
+  "Grief & Grace": {
+    "description": "For when you need to feel the ache, but also the holding.",
+    "synonyms": ["grief", "loss", "tender", "healing", "mourning"],
+    "vibe_notes": "A kind of catharsis."
+  },
+  "Playful & Weird": {
+    "description": "Unexpected, peculiar, oddly delightful.",
+    "synonyms": ["weird", "absurd", "clown", "strange", "offbeat"],
+    "vibe_notes": "Theatre that tilts the world."
+  },
+  "Punchy / Protest": {
+    "description": "Urgent, raw, and unafraid.",
+    "synonyms": ["protest", "activist", "radical", "feminist"],
+    "vibe_notes": "Voices raised, truth revealed."
+  },
+  "Poetic": {
+    "description": "Language that shimmers. Performances with soul-rhythm.",
+    "synonyms": ["poetic", "lyrical", "spoken word"],
+    "vibe_notes": "You’ll carry the words home."
+  },
+  "The Thoughtful Stage": {
+    "description": "Measured, textured, quietly brilliant.",
+    "synonyms": ["intelligent", "philosophical", "dialogue", "thoughtful"],
+    "vibe_notes": "Theatre that makes you lean in."
+  },
+   "Something I Wouldn’t Normally Pick": {
+    "description": "A gentle nudge outside the usual.",
+    "synonyms": ["surprise me", "different", "try something new"],
+    "vibe_notes": "You might just surprise yourself."
+  },
+,
+  "Cabaret & Glitter": {
+    "description": "Feathers, fire, wit and drag.",
+    "synonyms": ["cabaret", "drag", "glitter", "burlesque", "queer"],
+    "vibe_notes": "Where glamour meets rebellion."
+  },
+  "Late-Night Lark": {
+    "description": "Bold, cheeky, and twilight-tinged.",
+    "synonyms": ["late", "night", "after dark", "twilight"],
+    "vibe_notes": "For when the city stays up with you."
+  },
+  "Comic Relief": {
+    "description": "For the belly-laugh you didn’t know you needed.",
+    "synonyms": ["comedy", "funny", "stand-up", "laugh"],
+    "vibe_notes": "A tonic for the tense."
+  },
+  "Group Energy": {
+    "description": "Designed to be shared.",
+    "synonyms": ["group", "party", "dancing", "crowd", "big night"],
+    "vibe_notes": "Dancing, laughing, witnessing together."
+  },
+  "Word & Voice": {
+    "description": "Spoken word, storytelling, lyrical monologues.",
+    "synonyms": ["spoken word", "storytelling", "poetry", "voice"],
+    "vibe_notes": "The hush of the room, the lyric of the light."
+  },
+  "Salon & Spark": {
+    "description": "Curious minds gather. Come think with us.",
+    "synonyms": ["talk", "debate", "discussion", "ideas"],
+    "vibe_notes": "A little wine, a lot of questions."
+  },
+  "Rant & Rapture": {
+    "description": "Electrifying expression, righteous anger, ecstatic fervour.",
+    "synonyms": ["rant", "monologue", "explosive", "fervour"],
+    "vibe_notes": "A sermon of sorts."
+  },
+  "Big Night Out": {
+    "description": "Lights down, volume up.",
+    "synonyms": ["party", "DJ", "clubbing", "night out"],
+    "vibe_notes": "A crowd, a cocktail, a damn good night."
+  },
+  "Global Rhythms": {
+    "description": "Borders blur and culture sings.",
+    "synonyms": ["world music", "latin", "afrobeat", "international"],
+    "vibe_notes": "A passport for the soul."
+  }
+}
