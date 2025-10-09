@@ -13,6 +13,8 @@ Matches on:
 """
 
 import json
+from lark_poet import poetic_line_from_lexicon
+
 
 # Load parsed venue profiles (converted from venue_profiles.md)
 with open("venue_profiles.json", "r") as f:
@@ -43,7 +45,13 @@ def match_venues(filters):
 
         matches.append(venue)
 
-    return matches
+        # Compose poetic phrasing for top 3 matches
+    poetic_matches = []
+    for venue in matches[:3]:
+        poetic_matches.append(poetic_line_from_lexicon(venue, mood))
+
+    return poetic_matches
+
 
 # Example usage
 if __name__ == "__main__":
@@ -53,5 +61,6 @@ if __name__ == "__main__":
         "group": "solo"
     }
     result = match_venues(test_filters)
-    for r in result:
-        print(f"- {r['name']} ({r['area']})")
+        for line in result:
+        print(line)
+
