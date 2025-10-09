@@ -1,0 +1,662 @@
+[
+  {
+    "type": "Live music pub",
+    "location": "Brixton (Victoria line)",
+    "website": "hootanannybrixton.co.uk",
+    "mood_tags": [
+      "Global Rhythms",
+      "Group Energy",
+      "Big Night Out"
+    ],
+    "tone_notes": "A laidback Victorian boozer steeped in Brixton’s musical lifeblood — from reggae and ska to global fusion bands.",
+    "lark_fit_notes": "Good for sweaty, joyful dance nights with a local flair. Outdoors in summer, heaving indoors in winter.",
+    "tags": [
+      "🍻 Pub | 🎶 Multi-genre live | 🕺 Dancing | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Roofgarden bar & arts space",
+    "location": "Peckham (Overground)",
+    "website": "clfartlounge.com",
+    "mood_tags": [
+      "Dreamlike & Hypnagogic",
+      "Curious Encounters",
+      "Playful & Weird"
+    ],
+    "tone_notes": "Rooftop views, cocktails, and a softly eclectic programme — jazz, spoken word, indie cinema.",
+    "lark_fit_notes": "Sundown magic under the sky, then slip inside for something unexpected.",
+    "tags": [
+      "🌆 Rooftop | 🍸 Bar + Arts | 🌿 Outdoor | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Jazz club in church crypt",
+    "location": "Camberwell (Overground)",
+    "website": "jazzlive.org.uk",
+    "mood_tags": [
+      "Poetic",
+      "Melancholic Beauty",
+      "Wonder & Awe"
+    ],
+    "tone_notes": "Intimate, candle-lit jazz beneath gothic arches. Deep reverb, low light, and serious musicianship.",
+    "lark_fit_notes": "For nights of stillness and soul, with a drink in hand and the city far above you.",
+    "tags": [
+      "🎶 Jazz | 🕯️ Atmospheric | ⛪ Heritage | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Community music café & venue",
+    "location": "Tooting Broadway (Northern line)",
+    "website": "thesoundlounge.org.uk",
+    "mood_tags": [
+      "Folk & Intimate",
+      "Salon & Spark",
+      "Punchy / Protest"
+    ],
+    "tone_notes": "Vegan café by day, grassroots music venue by night. Ethical, heart-forward, and alive with conversation.",
+    "lark_fit_notes": "Where values meet verse — a home for activism, acoustic guitars, and slow listening.",
+    "tags": [
+      "🌱 Vegan | 🎶 Folk/Acoustic | 💬 Spoken Word | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Live music bar in former tram shed",
+    "location": "Tooting Broadway (Northern line)",
+    "website": "tootingtramandsocial.com",
+    "mood_tags": [
+      "Big Night Out",
+      "Comic Relief",
+      "Playful & Weird"
+    ],
+    "tone_notes": "Velvet sofas, high ceilings, DJs and bands in a quirky converted tram shed.",
+    "lark_fit_notes": "Chaotic charm meets club energy — perfect for a raucous weekend.",
+    "tags": [
+      "🍻 Pub-bar | 🎶 Live & DJs | 🪩 Clubby | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Fringe theatre & arts venue",
+    "location": "Streatham Hill Overground / Balham tube",
+    "website": "streathamspaceproject.co.uk",
+    "mood_tags": [
+      "The Thoughtful Stage",
+      "Punchy / Protest",
+      "Folk & Intimate"
+    ],
+    "tone_notes": "A 120-seat community-run theatre with a heart for local stories and diverse voices.",
+    "lark_fit_notes": "For nights of new ideas and local magic, just south of the obvious.",
+    "tags": [
+      "🎭 Fringe Theatre | 💬 Intimate | 🎶 Multi-arts | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Experimental theatre",
+    "location": "Camberwell / Oval (Northern line – 15 min walk)",
+    "website": "blueelephanttheatre.co.uk",
+    "mood_tags": [
+      "Dreamlike & Hypnagogic",
+      "Body-Based / Movement-Led",
+      "Poetic"
+    ],
+    "tone_notes": "A tiny, hidden stage with a taste for the surreal. Produces dance, movement, and bold theatrical experiments in a compact, off-road space.",
+    "lark_fit_notes": "For when you want something that wriggles into your subconscious.",
+    "tags": [
+      "🎭 Movement-led | 🐘 Fringe | 🌘 Experimental | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Community-owned pub & music venue",
+    "location": "Nunhead (Overground)",
+    "website": "ivyhousenunhead.com",
+    "mood_tags": [
+      "Punchy / Protest",
+      "Folk & Intimate",
+      "Queer Revelry"
+    ],
+    "tone_notes": "London’s first co-operatively owned pub, packed with punk gigs, folk nights, and radical spirit. Still dripping in heritage and old-school charm.",
+    "lark_fit_notes": "Your lefty uncle’s dreamland, but with better beer and guitars.",
+    "tags": [
+      "🍻 Pub | 🎶 Live Music | 🌈 Inclusive | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Pub & garden music venue",
+    "location": "Lewisham (DLR & rail)",
+    "website": "foxandfirkin.com",
+    "mood_tags": [
+      "Big Night Out",
+      "Global Rhythms",
+      "Witchy & Wild"
+    ],
+    "tone_notes": "Historic pub with a wild outdoor stage and a converted train carriage for gigs. Hosts live music and underground DJs under the stars.",
+    "lark_fit_notes": "A midsummer night’s rave in pub form. Flower crowns encouraged.",
+    "tags": [
+      "🍻 Pub | 🎶 Live/DJ | 🌿 Outdoor | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Community arts venue",
+    "location": "Deptford (rail)",
+    "website": "matchstickpiehouse.com",
+    "mood_tags": [
+      "Playful & Weird",
+      "Comic Relief",
+      "Curious Encounters"
+    ],
+    "tone_notes": "Under the railway arches, this not-for-profit art cave cooks up experimental theatre, comedy, and live music — with actual pies on the side.",
+    "lark_fit_notes": "For nights when you want to be surprised, and maybe fed.",
+    "tags": [
+      "🎭 Multi-arts | 🥧 Food on-site | 🌈 Inclusive | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Multi-arts centre",
+    "location": "Deptford (rail / DLR)",
+    "website": "thealbany.org.uk",
+    "mood_tags": [
+      "Rant & Rapture",
+      "Salon & Spark",
+      "Punchy / Protest"
+    ],
+    "tone_notes": "A round-stage theatre with an open heart — mixing community theatre, spoken word, dance, and music. Strong roots in social justice and local culture.",
+    "lark_fit_notes": "For soulful assemblies where stories shift things, not just stir them.",
+    "tags": [
+      "🎭 Multi-arts | 🎤 Spoken Word | 🌍 Cross-cultural | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Fringe theatre in former church",
+    "location": "Isle of Dogs (DLR)",
+    "website": "space.org.uk",
+    "mood_tags": [
+      "Grief & Grace",
+      "The Thoughtful Stage",
+      "Spiritual / Sacred / Mystical"
+    ],
+    "tone_notes": "A spiritual hush lingers here. This tiny theatre-in-the-round, set in a converted church, leans into new writing and meaningful drama.",
+    "lark_fit_notes": "When you want to sit in something tender and true, held by old stone.",
+    "tags": [
+      "🎭 Fringe Theatre | ⛪ Heritage | 🌙 Reflective | 🧭 East London"
+    ]
+  },
+  {
+    "type": "Pub-above-theatre (fringe)",
+    "location": "Earl’s Court / West Brompton (tube & rail)",
+    "website": "finboroughtheatre.co.uk",
+    "mood_tags": [
+      "The Thoughtful Stage",
+      "Poetic",
+      "Punchy / Protest"
+    ],
+    "tone_notes": "A West London legend perched above a classic boozer, staging hard-hitting new plays and overlooked gems. Proudly fringe and famously fierce.",
+    "lark_fit_notes": "Pint in hand, mind on fire. Theatre that doesn’t flinch.",
+    "tags": [
+      "🎭 Fringe Theatre | 🍻 Pub-based | 💥 Activist | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Restored Edwardian music hall",
+    "location": "Shepherd’s Bush (tube & Overground)",
+    "website": "bushhallmusic.co.uk",
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Big Night Out",
+      "Wonder & Awe"
+    ],
+    "tone_notes": "Once a ballroom, then a WWII soup kitchen, now a gleaming indie music hall with chandeliers and rock history.",
+    "lark_fit_notes": "For a night that feels like velvet and echoes with guitars.",
+    "tags": [
+      "🎶 Live Music | 🕯️ Atmospheric | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Grade II listed arts centre",
+    "location": "Notting Hill (tube)",
+    "website": "thetabernaclew11.com",
+    "mood_tags": [
+      "Global Rhythms",
+      "Word & Voice",
+      "Romanticised London"
+    ],
+    "tone_notes": "An old church turned creative sanctuary — home to Caribbean Carnival legends, art exhibitions, jazz, spoken word and film.",
+    "lark_fit_notes": "For history humming in brick and brass, culture dancing on air.",
+    "tags": [
+      "🎭 Multi-arts | 🌍 Cross-cultural | 🎶 Live Music | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Historic coffeehouse & music club",
+    "location": "Earl’s Court (tube & rail)",
+    "website": "troubadourlondon.com",
+    "mood_tags": [
+      "Folk & Intimate",
+      "Poetic",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "tone_notes": "Opened in 1954, this basement café hosted Bob Dylan and Joni Mitchell. Folk, jazz, poetry, and intimate gigs still echo in the candlelight.",
+    "lark_fit_notes": "For time travel via guitar string, in the cosiest of haunts.",
+    "tags": [
+      "🎶 Folk/Jazz | ☕ Café-based | 🧭 West London"
+    ]
+  },
+  {
+    "type": "International fringe theatre",
+    "location": "Notting Hill Gate (tube)",
+    "website": "gatetheatre.co.uk",
+    "mood_tags": [
+      "Global Rhythms",
+      "The Thoughtful Stage",
+      "Punchy / Protest"
+    ],
+    "tone_notes": "A 75-seat powerhouse above a pub, bringing radical international theatre to a West London postcode. Worldviews shift here.",
+    "lark_fit_notes": "For brave new work in a perfectly formed upper room.",
+    "tags": [
+      "🎭 Fringe Theatre | 🌍 International | 🧭 West London"
+    ]
+  },
+  {
+    "type": "New writing & community hub",
+    "location": "Shepherd’s Bush (tube & Overground)",
+    "website": "bushtheatre.co.uk",
+    "mood_tags": [
+      "Rant & Rapture",
+      "Salon & Spark",
+      "Punchy / Protest"
+    ],
+    "tone_notes": "A legend in London’s theatre scene, Bush champions emerging playwrights and local stories. Accessible, activist, and often electric.",
+    "lark_fit_notes": "For when you want your art freshly spoken and fiercely felt.",
+    "tags": [
+      "🎭 New Writing | 💥 Activist | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Polish community jazz club",
+    "location": "Hammersmith (tube)",
+    "website": "jazzcafeposk.org",
+    "mood_tags": [
+      "Melancholic Beauty",
+      "Global Rhythms",
+      "Word & Voice"
+    ],
+    "tone_notes": "A red-curtained basement under POSK, London’s Polish Centre. Hosts jazz quartets, Polish vocalists, and experimental improv.",
+    "lark_fit_notes": "For dusk-lit jazz and stories told in saxophone and Polish soul.",
+    "tags": [
+      "🎶 Jazz | 🎤 Spoken Word | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Indian arts & culture centre",
+    "location": "West Kensington (tube)",
+    "website": "bhavan.net",
+    "mood_tags": [
+      "Spiritual / Sacred / Mystical",
+      "Global Rhythms",
+      "Body-Based / Movement-Led"
+    ],
+    "tone_notes": "Since 1972, The Bhavan has taught, preserved, and celebrated classical Indian dance, music, and philosophy. Concerts, workshops, and sacred arts in one space.",
+    "lark_fit_notes": "For rhythm and reverence braided into heritage and heat.",
+    "tags": [
+      "🎶 Music/Dance | 🪔 Cultural Centre | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Folk club & café",
+    "location": "Tooting Broadway / Tooting Bec (Northern line)",
+    "website": "thesoundlounge.org.uk",
+    "mood_tags": [
+      "Folk & Intimate",
+      "Salon & Spark",
+      "Punchy / Protest"
+    ],
+    "tone_notes": "Community-run vegan café by day and an Americana/folk/blues venue by night. Grassroots, heart-forward, and rooted in values.",
+    "lark_fit_notes": "Where activism meets acoustic warmth — the kind of room where the lyrics linger.",
+    "tags": [
+      "🌱 Vegan | 🎶 Folk/Acoustic | 💬 Spoken Word | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Upstairs folk club",
+    "location": "Tooting Broadway (Northern line)",
+    "website": "(n/a — pub site or folk club listing)",
+    "mood_tags": [
+      "Folk & Intimate",
+      "Poetic",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "tone_notes": "An unplugged folk club above a historic pub, steeped in decades of song. Floor spots, guest acts, and the hum of old wood.",
+    "lark_fit_notes": "For those who love a chorus you can join, pint in hand, in a room that feels unchanged.",
+    "tags": [
+      "🍻 Pub | 🎶 Folk | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Community pub",
+    "location": "Streatham rail / Streatham Hill",
+    "website": "therebelinn.com",
+    "mood_tags": [
+      "Group Energy",
+      "Punchy / Protest",
+      "Salon & Spark"
+    ],
+    "tone_notes": "More than a pub — a community living-room for open-mic nights, films, and board games. Welcoming, creative, and a little rebellious.",
+    "lark_fit_notes": "For nights when you want to meet neighbours, share a laugh, and hatch ideas.",
+    "tags": [
+      "🍻 Pub | 🎤 Open Mic | 🎬 Film | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Fringe theatre & arts venue",
+    "location": "Streatham (Overground/tube nearby)",
+    "website": "streathamspaceproject.co.uk",
+    "mood_tags": [
+      "The Thoughtful Stage",
+      "Punchy / Protest",
+      "Folk & Intimate"
+    ],
+    "tone_notes": "A purpose-built 120-seat theatre run by locals, bringing diverse voices and intimate stories to south London.",
+    "lark_fit_notes": "A hub for fresh work, heartfelt performance, and community connection.",
+    "tags": [
+      "🎭 Fringe Theatre | 💬 Intimate | 🎶 Multi-arts | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Community arts centre",
+    "location": "Sydenham (Overground)",
+    "website": "sydenhamarts.co.uk",
+    "mood_tags": [
+      "Salon & Spark",
+      "Punchy / Protest",
+      "Family-Friendly"
+    ],
+    "tone_notes": "A year-round arts hub supporting emerging local talent and bringing high-quality performers to the neighbourhood.",
+    "lark_fit_notes": "For curious minds, community pride, and evenings that feel like shared ownership of the arts.",
+    "tags": [
+      "🎭 Multi-arts | 👨‍👩‍👧‍👦 Family | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Traditional pub",
+    "location": "Honor Oak Park rail / Crofton Park",
+    "website": "blythehilltavern.org.uk",
+    "mood_tags": [
+      "Folk & Intimate",
+      "Nostalgic / Vintage / Retro",
+      "Group Energy"
+    ],
+    "tone_notes": "A Victorian corner pub with roaring fires, friendly regulars, and Thursday night Irish music sessions.",
+    "lark_fit_notes": "For when you want warmth, tradition, and the lilt of a fiddle by the fire.",
+    "tags": [
+      "🍻 Pub | 🎶 Irish/Folk | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Pub & music garden",
+    "location": "Lewisham (DLR / Overground)",
+    "website": "foxandfirkin.com",
+    "mood_tags": [
+      "Big Night Out",
+      "Global Rhythms",
+      "Witchy & Wild"
+    ],
+    "tone_notes": "A historic pub turned open-air music playground, with a refurbished 1950s train carriage stage and underground DJ nights under the stars.",
+    "lark_fit_notes": "For midsummer dancing in the garden, surrounded by fairy lights and basslines.",
+    "tags": [
+      "🍻 Pub | 🎶 Live/DJ | 🌿 Outdoor | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Multi-arts centre",
+    "location": "Woolwich Arsenal (DLR / Elizabeth Line)",
+    "website": "woolwich.works",
+    "mood_tags": [
+      "Global Rhythms",
+      "Group Energy",
+      "Punchy / Protest"
+    ],
+    "tone_notes": "Riverside warehouses reborn as a vibrant arts campus — from cabaret and comedy to Caribbean music and dance.",
+    "lark_fit_notes": "For big nights that still feel personal, with a view to the river.",
+    "tags": [
+      "🎭 Multi-arts | 🌍 Cross-cultural | 🧭 South East London"
+    ]
+  },
+  {
+    "type": "Community theatre & arts hub",
+    "location": "Woolwich Arsenal (DLR / Elizabeth Line)",
+    "website": "tramshed.org",
+    "mood_tags": [
+      "Family-Friendly",
+      "Punchy / Protest",
+      "Salon & Spark"
+    ],
+    "tone_notes": "South-east London’s home of participation — theatre, music, and creative projects for all ages.",
+    "lark_fit_notes": "For cross-generational gatherings and art that sparks dialogue.",
+    "tags": [
+      "🎭 Community Theatre | 👨‍👩‍👧‍👦 Family | 🧭 South East London"
+    ]
+  },
+  {
+    "type": "Queer cabaret space",
+    "location": "Camberwell (rail / Northern line)",
+    "website": "(venue social media & press features)",
+    "mood_tags": [
+      "Queer Revelry",
+      "Cabaret & Glitter",
+      "Playful & Weird"
+    ],
+    "tone_notes": "A playful, stained-glass lit cabaret den for the local LGBTQ+ community — part performance art, part family living room.",
+    "lark_fit_notes": "For unapologetic glitter, camp performance, and chosen family warmth.",
+    "tags": [
+      "🌈 LGBTQ+ | 💃 Cabaret | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Fringe theatre",
+    "location": "Camberwell / Oval (Northern line – 15 min walk)",
+    "website": "blueelephanttheatre.co.uk",
+    "mood_tags": [
+      "Dreamlike & Hypnagogic",
+      "Body-Based / Movement-Led",
+      "Poetic"
+    ],
+    "tone_notes": "A micro-theatre with a taste for the surreal — movement, myth, and intimate risk-taking.",
+    "lark_fit_notes": "For seekers of the quietly extraordinary on a south London back street.",
+    "tags": [
+      "🎭 Fringe Theatre | 💫 Movement-led | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Pub with 96-seat theatre",
+    "location": "Chiswick (District line)",
+    "website": "tabard.org.uk (or pub site)",
+    "mood_tags": [
+      "Comic Relief",
+      "Folk & Intimate",
+      "The Thoughtful Stage"
+    ],
+    "tone_notes": "A historic pub with a cosy upstairs theatre, serving comedy, plays, and the odd panto.",
+    "lark_fit_notes": "For a pint downstairs and a play upstairs — a perfect local night.",
+    "tags": [
+      "🍻 Pub | 🎭 Theatre | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Pub & jazz room",
+    "location": "Chiswick (District line)",
+    "website": "chiswickcalendar.co.uk (jazz listings)",
+    "mood_tags": [
+      "Wonder & Awe",
+      "Poetic",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "tone_notes": "Table-service jazz in a Victorian pub’s Boston Room — intimate lighting, fine acoustics, and the warmth of live swing or standards.",
+    "lark_fit_notes": "For evenings where the music feels close enough to touch, and the past feels present.",
+    "tags": [
+      "🍻 Pub | 🎶 Jazz | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Music hall",
+    "location": "Shepherd’s Bush (Circle/Hammersmith & City lines)",
+    "website": "bushhallmusic.co.uk",
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Big Night Out",
+      "Wonder & Awe"
+    ],
+    "tone_notes": "Ornate 1904 ballroom with superb acoustics, restored to its former glory and brimming with energy from up-and-coming acts.",
+    "lark_fit_notes": "For a night of glamour and guitar echoes beneath chandeliers.",
+    "tags": [
+      "🎶 Live Music | 🕯️ Atmospheric | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Community cinema & café",
+    "location": "Acton Town (Piccadilly) / Acton Central (Overground)",
+    "website": "actonecinema.co.uk",
+    "mood_tags": [
+      "The Thoughtful Stage",
+      "Salon & Spark",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "tone_notes": "A rescued library turned into a two-screen arthouse cinema and café. Volunteer-run, community-minded, and full of character.",
+    "lark_fit_notes": "For film nights that feel like a shared secret.",
+    "tags": [
+      "🎥 Cinema | ☕ Café | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Community theatre",
+    "location": "Ealing Broadway (Central line)",
+    "website": "questors.org.uk",
+    "mood_tags": [
+      "Family-Friendly",
+      "Comic Relief",
+      "The Thoughtful Stage"
+    ],
+    "tone_notes": "One of the UK’s leading amateur theatres — from Shakespeare to pantos, staged with heart and skill.",
+    "lark_fit_notes": "For theatre lovers who care about craft and community in equal measure.",
+    "tags": [
+      "🎭 Amateur Theatre | 👨‍👩‍👧‍👦 Family | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Historic pub & comedy hall",
+    "location": "Boston Manor (Piccadilly) / Hanwell rail",
+    "website": "viaduct-hanwell.co.uk",
+    "mood_tags": [
+      "Comic Relief",
+      "Group Energy",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "tone_notes": "A coaching inn since 1737, now famed for Bearcat Comedy Nights in its upstairs hall.",
+    "lark_fit_notes": "For laughs in a room that’s seen centuries of stories.",
+    "tags": [
+      "🍻 Pub | 🎭 Comedy | 🧭 West London"
+    ]
+  },
+  {
+    "type": "Canal-side pub",
+    "location": "Harlesden (Bakerloo / Overground)",
+    "website": "grandjunctionarmsnw10.co.uk",
+    "mood_tags": [
+      "Group Energy",
+      "Big Night Out",
+      "Seasonal / Outdoor"
+    ],
+    "tone_notes": "Colourful pub with the largest beer garden in north London, right on the Grand Union Canal.",
+    "lark_fit_notes": "For lazy summer afternoons that slip into music-filled nights.",
+    "tags": [
+      "🍻 Pub | 🌿 Outdoor | 🧭 North West London"
+    ]
+  },
+  {
+    "type": "Irish pub & music venue",
+    "location": "Kilburn (Jubilee line)",
+    "website": "sircc.pub",
+    "mood_tags": [
+      "Folk & Intimate",
+      "Group Energy",
+      "Queer Revelry"
+    ],
+    "tone_notes": "Modern Irish pub with live trad sessions, LGBTQI-friendly ethos, and a big-hearted welcome.",
+    "lark_fit_notes": "For reels, pints, and a sense of belonging.",
+    "tags": [
+      "🍻 Pub | 🎶 Irish Music | 🌈 Inclusive | 🧭 North West London"
+    ]
+  },
+  {
+    "type": "Arts & community centre",
+    "location": "Island Gardens (DLR)",
+    "website": "space.org.uk",
+    "mood_tags": [
+      "Grief & Grace",
+      "The Thoughtful Stage",
+      "Spiritual / Sacred / Mystical"
+    ],
+    "tone_notes": "A converted 1859 chapel hosting theatre, music, and local arts in a hushed, intimate setting.",
+    "lark_fit_notes": "For performances that feel held in something timeless.",
+    "tags": [
+      "🎭 Fringe Theatre | ⛪ Heritage | 🧭 East London"
+    ]
+  },
+  {
+    "type": "Motor café & rock’n’roll bar",
+    "location": "Stonebridge Park (Bakerloo / National Rail)",
+    "website": "london.acecafe.com",
+    "mood_tags": [
+      "Big Night Out",
+      "Nostalgic / Vintage / Retro",
+      "Group Energy"
+    ],
+    "tone_notes": "The world’s most famous motor café — petrolheads, live rock’n’roll, and a rebellious edge.",
+    "lark_fit_notes": "For leather jackets, chrome glint, and jukebox nights.",
+    "tags": [
+      "☕ Café | 🎸 Rock’n’Roll | 🧭 North West London"
+    ]
+  },
+  {
+    "type": "Queer-owned coffee shop, bar & art space",
+    "location": "New Cross Gate (Overground)",
+    "website": "(artrabbit.com listing)",
+    "mood_tags": [
+      "Queer Revelry",
+      "Salon & Spark",
+      "Curious Encounters"
+    ],
+    "tone_notes": "Quality coffee, cocktails, and local art in a proudly inclusive, creative space.",
+    "lark_fit_notes": "For afternoons that turn into unexpected evenings.",
+    "tags": [
+      "☕ Café | 🍸 Bar | 🌈 Inclusive | 🧭 South East London"
+    ]
+  },
+  {
+    "type": "70-seat theatre & blues club",
+    "location": "Colliers Wood / South Wimbledon (Northern line)",
+    "website": "culturecalling.com (Colour House Theatre page)",
+    "mood_tags": [
+      "Family-Friendly",
+      "Nostalgic / Vintage / Retro",
+      "Comic Relief"
+    ],
+    "tone_notes": "A riverside mill turned tiny theatre, staging fairy tales, blues nights, and local productions.",
+    "lark_fit_notes": "For whimsical afternoons with the kids or bluesy nights for grown-ups.",
+    "tags": [
+      "🎭 Theatre | 🎶 Live Music | 🧭 South London"
+    ]
+  },
+  {
+    "type": "Pub with Irish music & film nights",
+    "location": "Gipsy Hill (National Rail)",
+    "website": "(local listings)",
+    "mood_tags": [
+      "Folk & Intimate",
+      "Group Energy",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "tone_notes": "Weekly trad sessions and local film screenings in a warm, community-led pub.",
+    "lark_fit_notes": "For Sunday tunes that spill into storytelling.",
+    "tags": [
+      "🍻 Pub | 🎶 Irish/Folk | 🎬 Film | 🧭 South London"
+    ]
+  }
+]
