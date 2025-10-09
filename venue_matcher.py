@@ -31,44 +31,62 @@ def _poetic_line(venue, mood):
 
 def match_venues(filters):
     """
-    Given a dict of filters (mood, location, group, etc), return matching venues.
+    Given a dict of filters (mood, location, group), return matching venues with poetic phrasing.
     """
     mood = filters.get("mood")
-    location = filters.get("location")  # Optional
+    location = filters.get("location")
     group = filters.get("group")
 
     matches = []
+
     for venue in venue_data:
+        # Get and parse mood tags from the new dataset format
+        mood_tags_raw = venue.get("Mapped Mood Tags", "")
+        mood_tags = [tag.strip() for tag in mood_tags_raw.split(",")]
+
         # Mood match (required)
-        if mood and mood not in venue.get("mood_tags", []):
+        if mood and mood not in mood_tags:
             continue
 
-        # Location match (if filter provided)
-        if location:
-            if location.lower() not in venue.get("area", "").lower():
-                continue
+        # Location match (optional)
+        area = venue.get("Area", "") or venue.get("name", "")
+        if location and location.lower() not in area.lower():
+            continue
 
-        # Group compatibility (optional logic — could expand later)
-        if group == "solo" and "rowdy" in venue.get("vibe_notes", ""):
-            continue  # skip overly loud venues for solo seekers
+        # Group compatibility (basic solo logic — can refine later)
+        vibe_notes = venue.get("Tone Notes", "")
+        if group == "solo" and any(word in vibe_notes.lower() for word in ["rowdy", "raucous", "heaving"]):
+            continue
 
         matches.append(venue)
 
-    # Return up to three matches with poetic phrasing
-    poetic_matches = []
+    # Generate poetic lines
+    poetic_lines = []
     for venue in matches[:3]:
-        poetic_matches.append(_poetic_line(venue, mood))
+        name = venue.get("name", "Unnamed venue")
+        area = venue.get("Area", "London")
+        note = venue.get("Tone Notes", "An experience beyond words")
+        time = venue.get("Typical Start Time", "")
+        mood_hint = f"for {mood.lower()} hearts" if mood else "for curious souls"
+        timing = f"— doors around {time}" if time else ""
 
-    return poetic_matches
+        line = f"• {name} in {area}: {note} {mood_hint}{timing}."
+        poetic_lines.append(line)
 
-# Example usage
+    return poetic_lines
+
 if __name__ == "__main__":
     test_filters = {
-        "mood": "Tender & Strange",
-        # "location": "Hackney",  # Optional
-        # "group": "solo"         # Optional
+        "mood": None,
+        "location": None,
+        "group": None
     }
+
+
     result = match_venues(test_filters)
     print("🕊️ The Lark offers these resonances:\n")
-    for line in result:
-        print(line)
+    if result:
+        for line in result:
+            print(line)
+    else:
+        print("No venues sang in harmony with your mood — try another mood or area?")
