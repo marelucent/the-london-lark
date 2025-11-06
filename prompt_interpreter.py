@@ -73,6 +73,32 @@ def interpret_prompt(prompt):
     else:
         group = None
 
+    # Location detection
+    location = None
+    if "north london" in prompt_lower:
+        location = "North London"
+    elif "south london" in prompt_lower:
+        location = "South London"
+    elif "east london" in prompt_lower:
+        location = "East London"
+    elif "west london" in prompt_lower:
+        location = "West London"
+    elif "central london" in prompt_lower:
+        location = "Central London"
+    # Also check for specific neighborhoods
+    elif "camden" in prompt_lower:
+        location = "Camden"
+    elif "islington" in prompt_lower:
+        location = "Islington"
+    elif "brixton" in prompt_lower:
+        location = "Brixton"
+    elif "peckham" in prompt_lower:
+        location = "Peckham"
+    elif "shoreditch" in prompt_lower or "hackney" in prompt_lower:
+        location = "East London"
+    elif "notting hill" in prompt_lower or "portobello" in prompt_lower:
+        location = "West London"
+
     # Genre/style stub (can be expanded)
     genre = None
     if "theatre" in prompt_lower:
@@ -87,9 +113,11 @@ def interpret_prompt(prompt):
         "time": time,
         "budget": budget,
         "group": group,
-        "genre": genre
+        "genre": genre,
+        "location": location
     }
 
 # Example usage
-test_prompt = "Something cheap and poetic in East London tonight?"
-print(interpret_prompt(test_prompt))
+if __name__ == "__main__":
+    test_prompt = "Something cheap and poetic in East London tonight?"
+    print(interpret_prompt(test_prompt))
