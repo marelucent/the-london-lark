@@ -13,11 +13,10 @@ Matches on:
 
 import json
 from pathlib import Path
+from parse_venues import load_parsed_venues
 
-# Load parsed venue profiles from the cleaned JSON dataset
-DATA_PATH = Path(__file__).with_name("lark_venues_clean.json")
-with DATA_PATH.open("r", encoding="utf-8") as f:
-    venue_data = json.load(f)
+# Load parsed venue profiles
+venue_data = load_parsed_venues()
 
 def _poetic_line(venue, mood):
     """Shape a lyrical sentence for the recommended venue."""
@@ -31,7 +30,8 @@ def _poetic_line(venue, mood):
 
 def match_venues(filters):
     """
-    Given a dict of filters (mood, location, group), return matching venues with poetic phrasing.
+    Given a dict of filters (mood, location, group), return matching venue dictionaries.
+    Returns up to 3 venues that match the filters.
     """
     mood = filters.get("mood")
     location = filters.get("location")
@@ -40,40 +40,37 @@ def match_venues(filters):
     matches = []
 
     for venue in venue_data:
-        # Get and parse mood tags from the new dataset format
-        mood_tags_raw = venue.get("Mapped Mood Tags", "")
-        mood_tags = [tag.strip() for tag in mood_tags_raw.split(",")]
+        # Get mood tags (already a list from parsed data)
+        mood_tags = venue.get("mood_tags", [])
 
-        # Mood match (required)
+        # Mood match (required if mood is specified)
         if mood and mood not in mood_tags:
             continue
 
         # Location match (optional)
-        area = venue.get("Area", "") or venue.get("name", "")
+        area = venue.get("area", "") or venue.get("location", "")
         if location and location.lower() not in area.lower():
             continue
 
         # Group compatibility (basic solo logic — can refine later)
-        vibe_notes = venue.get("Tone Notes", "")
+        vibe_notes = venue.get("tone_notes", "")
         if group == "solo" and any(word in vibe_notes.lower() for word in ["rowdy", "raucous", "heaving"]):
             continue
 
-        matches.append(venue)
+        # Normalize venue data to expected format
+        normalized_venue = {
+            "name": venue.get("name", "Unnamed venue"),
+            "area": venue.get("area", venue.get("location", "London")),
+            "vibe_note": venue.get("tone_notes", "An experience beyond words"),
+            "typical_start_time": venue.get("typical_start_time", ""),
+            "price": venue.get("price", "TBC"),
+            "mood_tags": mood_tags,
+            "raw_data": venue  # Keep original data for reference
+        }
+        matches.append(normalized_venue)
 
-    # Generate poetic lines
-    poetic_lines = []
-    for venue in matches[:3]:
-        name = venue.get("name", "Unnamed venue")
-        area = venue.get("Area", "London")
-        note = venue.get("Tone Notes", "An experience beyond words")
-        time = venue.get("Typical Start Time", "")
-        mood_hint = f"for {mood.lower()} hearts" if mood else "for curious souls"
-        timing = f"— doors around {time}" if time else ""
-
-        line = f"• {name} in {area}: {note} {mood_hint}{timing}."
-        poetic_lines.append(line)
-
-    return poetic_lines
+    # Return top 3 matches
+    return matches[:3]
 
 if __name__ == "__main__":
     test_filters = {
@@ -82,11 +79,14 @@ if __name__ == "__main__":
         "group": None
     }
 
-
     result = match_venues(test_filters)
     print("🕊️ The Lark offers these resonances:\n")
     if result:
-        for line in result:
-            print(line)
+        for venue in result:
+            print(f"• {venue['name']} in {venue['area']}")
+            print(f"  {venue['vibe_note']}")
+            if venue['typical_start_time']:
+                print(f"  Doors around {venue['typical_start_time']}")
+            print()
     else:
         print("No venues sang in harmony with your mood — try another mood or area?")

@@ -28,26 +28,39 @@ OPENINGS = [
 
 # Basic generator function
 def generate_response(venue, filters, response_type="Matchmaker"):
+    """
+    Generate a poetic response given a venue and filters.
+
+    Args:
+        venue: Dict with keys: name, vibe_note, price, typical_start_time, area
+        filters: Dict with mood, time, etc.
+        response_type: One of Matchmaker, MoodMirror, Wildcard, Shortlist, GentleRefusal
+    """
     if not venue:
         return RESPONSE_TEMPLATES["GentleRefusal"]
 
     mood = filters.get("mood", "something interesting")
-    price = venue.get("price", "unknown")
-    time = filters.get("time", "8pm")
+    price = venue.get("price", "TBC")
+    time = venue.get("typical_start_time") or filters.get("time", "8pm")
     vibe_note = venue.get("vibe_note", "It hums with something special.")
     venue_name = venue.get("name", "a hidden gem")
 
     opening = random.choice(OPENINGS)
 
     template = RESPONSE_TEMPLATES.get(response_type, RESPONSE_TEMPLATES["Matchmaker"])
-    return template.format(
-        opening=opening,
-        venue=venue_name,
-        mood=mood,
-        time=time,
-        price=price,
-        vibe_note=vibe_note
-    )
+
+    try:
+        return template.format(
+            opening=opening,
+            venue=venue_name,
+            mood=mood,
+            time=time,
+            price=price,
+            vibe_note=vibe_note
+        )
+    except KeyError as e:
+        # Fallback if template has unexpected placeholders
+        return f"{opening} {venue_name} awaits. {vibe_note}"
 
 # Example usage
 if __name__ == "__main__":
