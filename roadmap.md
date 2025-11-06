@@ -23,13 +23,41 @@ Foundational documents and poetic structure.
 ## 🔧 Phase 2 — MVP Logic Layer
 Basic matching engine and internal testing tools.
 
-- [ ] `prompt_interpreter.py` — Converts user input → filters (mood, time, location)
-- [ ] `mood_resolver.py` — Uses `mood_index.json` to resolve mood tags
-- [ ] `venue_matcher.py` — Filters venues from `venue_profiles.md`
-- [ ] `response_generator.py` — Assembles poetic output using template logic
-- [ ] `test_runner.ipynb` or CLI — Simulates test prompts + responses
+**Core Implementation (Complete):**
+- [x] `prompt_interpreter.py` — Converts user input → filters (mood, time, location)
+- [x] `mood_resolver.py` — Uses `mood_index.json` to resolve mood tags
+- [x] `venue_matcher.py` — Filters venues from `lark_venues_clean.json`
+- [x] `response_generator.py` — Assembles poetic output using template logic
+- [x] `test_runner.py` — Simulates test prompts + responses
+- [x] `lark_poet.py` — Main CLI entry point (interactive & command-line)
+- [x] `parse_venues.py` — Parses venue data into usable format
+- [x] **Expanded venue database to 73 venues** across all London regions
+- [x] **Expanded mood categories to 28 moods** with synonym mapping
 
-🎯 *Goal:* Full logic demo from prompt → poetic rec.
+**Refinement & Enhancement (Your new tasks):**
+- [ ] Harden prompt interpretation:
+  - [x] Grow the location lexicon beyond the current hard-coded borough list (North/South/East/West/Central + neighborhoods)
+  - [ ] Expand tokenisation to handle punctuation + multi-word moods
+  - [ ] Backfill mood synonyms and plural forms in `mood_index.json`
+- [ ] Put parsed filters to work in matching:
+  - [x] Location filtering working across all regions
+  - [ ] Teach `venue_matcher.py` to honour budget, time, genre, and group size hints
+  - [ ] Ensure fallbacks explain what could not be matched when data is missing
+- [ ] Enrich venue + event data:
+  - [x] 73 curated venues with mood tags and poetic descriptions
+  - [ ] Add dated events, indicative prices, and timings to venue data
+  - [ ] Extend response templates to surface concrete logistics ("tonight", price, duration)
+- [ ] Tighten mood resolution:
+  - [ ] Improve scoring logic so close moods still land on a poetic match
+  - [ ] Add regression examples covering edge moods in `prompt_tests.md`
+- [ ] Build an evaluation harness:
+  - [x] `test_runner.py` exists and works
+  - [ ] Wire `test_runner.py` into an automated CLI smoke test
+  - [ ] Log coverage stats (e.g. % prompts with confident mood + venue match)
+
+🎯 *Goal:* Full logic demo from prompt → poetic rec., with resilient parsing, richer data, and measurable confidence.
+
+**Status:** Core MVP working ✅ | Refinements in progress 🔄
 
 ---
 
