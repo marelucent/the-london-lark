@@ -68,7 +68,26 @@ def process_query(user_prompt):
     # Step 4: Generate poetic responses
     if not matches:
         print("\n" + generate_response(None, filters))
-        print("\nPerhaps try a different mood or area?")
+
+        # Provide helpful suggestions based on what filters were used
+        suggestions = []
+        if filters.get("mood"):
+            suggestions.append(f"✨ Try a different mood (you searched for: {filters['mood']})")
+        if filters.get("location"):
+            suggestions.append(f"📍 Try a different area (you searched for: {filters['location']})")
+        if filters.get("genre"):
+            suggestions.append(f"🎭 Try a different genre (you searched for: {filters['genre']})")
+        if filters.get("budget"):
+            suggestions.append(f"💷 Try adjusting your budget")
+        if filters.get("group"):
+            suggestions.append(f"👥 Try removing the {filters['group']} filter")
+
+        if suggestions:
+            print("\n💡 Suggestions:")
+            for suggestion in suggestions:
+                print(f"   {suggestion}")
+        else:
+            print("\n💡 Try adding more details - like a mood, location, or what kind of event you're after")
         return
 
     print(f"\nThe Lark found {len(matches)} place(s) that might resonate...\n")

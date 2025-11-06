@@ -1,12 +1,12 @@
 {
   "Folk & Intimate": {
     "description": "Warm strings, low light, and stories that feel like home.",
-    "synonyms": ["folk", "acoustic", "candlelit", "intimate", "singer-songwriter"],
+    "synonyms": ["folk", "folky", "folk-y", "acoustic", "candlelit", "intimate", "singer-songwriter", "singer songwriter", "cozy", "cosy", "warm", "close", "quiet", "unplugged"],
     "vibe_notes": "Handheld heart music."
   },
   "Queer Revelry": {
     "description": "Sequins, sweat, and chosen family.",
-    "synonyms": ["queer", "drag", "cabaret", "LGBT", "glitter"],
+    "synonyms": ["queer", "drag", "cabaret", "LGBT", "LGBTQ", "LGBTQ+", "glitter", "gay", "pride", "inclusive", "rainbow"],
     "vibe_notes": "A jubilant celebration of queer joy."
   },
   "Dreamlike & Hypnagogic": {
@@ -26,18 +26,18 @@
   },
   "Playful & Weird": {
     "description": "Unexpected, peculiar, oddly delightful.",
-    "synonyms": ["weird", "absurd", "clown", "strange", "offbeat"],
+    "synonyms": ["weird", "absurd", "clown", "strange", "offbeat", "quirky", "bizarre", "unusual", "odd", "peculiar", "surreal", "experimental"],
     "vibe_notes": "Theatre that tilts the world."
   },
   "Punchy / Protest": {
     "description": "Urgent, raw, and unafraid.",
-    "synonyms": ["protest", "activist", "radical", "feminist"],
+    "synonyms": ["protest", "activist", "radical", "feminist", "political", "rebellious", "revolution", "angry", "fierce", "bold"],
     "vibe_notes": "Voices raised, truth revealed."
   },
   "Poetic": {
     "description": "Language that shimmers. Performances with soul-rhythm.",
-    "synonyms": ["poetic", "lyrical", "spoken word"],
-    "vibe_notes": "You’ll carry the words home."
+    "synonyms": ["poetic", "lyrical", "spoken word", "poetry", "verse", "wordsmith", "literary"],
+    "vibe_notes": "You'll carry the words home."
   },
   "The Thoughtful Stage": {
     "description": "Measured, textured, quietly brilliant.",
@@ -60,13 +60,13 @@
     "vibe_notes": "For when the city stays up with you."
   },
   "Comic Relief": {
-    "description": "For the belly-laugh you didn’t know you needed.",
-    "synonyms": ["comedy", "funny", "stand-up", "laugh"],
+    "description": "For the belly-laugh you didn't know you needed.",
+    "synonyms": ["comedy", "funny", "stand-up", "standup", "stand up", "laugh", "hilarious", "humour", "humor", "comic", "jokes"],
     "vibe_notes": "A tonic for the tense."
   },
   "Group Energy": {
     "description": "Designed to be shared.",
-    "synonyms": ["group", "party", "dancing", "crowd", "big night"],
+    "synonyms": ["group", "party", "dancing", "crowd", "big night", "friends", "social", "lively", "energetic", "buzzing"],
     "vibe_notes": "Dancing, laughing, witnessing together."
   },
   "Word & Voice": {
