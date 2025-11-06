@@ -23,13 +23,24 @@ Foundational documents and poetic structure.
 ## 🔧 Phase 2 — MVP Logic Layer
 Basic matching engine and internal testing tools.
 
-- [ ] `prompt_interpreter.py` — Converts user input → filters (mood, time, location)
-- [ ] `mood_resolver.py` — Uses `mood_index.json` to resolve mood tags
-- [ ] `venue_matcher.py` — Filters venues from `venue_profiles.md`
-- [ ] `response_generator.py` — Assembles poetic output using template logic
-- [ ] `test_runner.ipynb` or CLI — Simulates test prompts + responses
+- [ ] Harden prompt interpretation:
+  - Expand tokenisation to handle punctuation + multi-word moods
+  - Backfill mood synonyms and plural forms in `mood_index.json`
+  - Grow the location lexicon beyond the current hard-coded borough list
+- [ ] Put parsed filters to work in matching:
+  - Teach `venue_matcher.py` to honour budget, time, genre, and group size hints
+  - Ensure fallbacks explain what could not be matched when data is missing
+- [ ] Enrich venue + event data:
+  - Add dated events, indicative prices, and timings to `venue_profiles.md`
+  - Extend response templates to surface concrete logistics ("tonight", price, duration)
+- [ ] Tighten mood resolution:
+  - Improve scoring logic so close moods still land on a poetic match
+  - Add regression examples covering edge moods in `prompt_tests.md`
+- [ ] Build an evaluation harness:
+  - Wire `test_runner.py` into an automated CLI smoke test
+  - Log coverage stats (e.g. % prompts with confident mood + venue match)
 
-🎯 *Goal:* Full logic demo from prompt → poetic rec.
+🎯 *Goal:* Full logic demo from prompt → poetic rec., with resilient parsing, richer data, and measurable confidence.
 
 ---
 
