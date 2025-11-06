@@ -48,9 +48,13 @@ def match_venues(filters):
             continue
 
         # Location match (optional)
+        # Check both the specific area and the tags field (which has broader regions like "North London")
         area = venue.get("area", "") or venue.get("location", "")
-        if location and location.lower() not in area.lower():
-            continue
+        tags = venue.get("tags", "")
+        if location:
+            location_lower = location.lower()
+            if location_lower not in area.lower() and location_lower not in tags.lower():
+                continue
 
         # Group compatibility (basic solo logic — can refine later)
         vibe_notes = venue.get("tone_notes", "")
