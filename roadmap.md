@@ -34,15 +34,15 @@ Basic matching engine and internal testing tools.
 - [x] **Expanded venue database to 73 venues** across all London regions
 - [x] **Expanded mood categories to 28 moods** with synonym mapping
 
-**Refinement & Enhancement (Your new tasks):**
-- [ ] Harden prompt interpretation:
+**Refinement & Enhancement:**
+- [x] Harden prompt interpretation:
+  - [x] Expand tokenisation to handle punctuation + multi-word moods ✅ (completed 2025-11-06)
+  - [x] Backfill mood synonyms and plural forms in `mood_index.json` ✅ (50+ new synonyms added)
   - [x] Grow the location lexicon beyond the current hard-coded borough list (North/South/East/West/Central + neighborhoods)
-  - [ ] Expand tokenisation to handle punctuation + multi-word moods
-  - [ ] Backfill mood synonyms and plural forms in `mood_index.json`
-- [ ] Put parsed filters to work in matching:
+- [x] Put parsed filters to work in matching:
   - [x] Location filtering working across all regions
-  - [ ] Teach `venue_matcher.py` to honour budget, time, genre, and group size hints
-  - [ ] Ensure fallbacks explain what could not be matched when data is missing
+  - [x] Teach `venue_matcher.py` to honour budget, time, genre, and group size hints ✅ (completed 2025-11-06)
+  - [x] Ensure fallbacks explain what could not be matched when data is missing ✅ (helpful suggestions added)
 - [ ] Enrich venue + event data:
   - [x] 73 curated venues with mood tags and poetic descriptions
   - [ ] Add dated events, indicative prices, and timings to venue data
@@ -57,7 +57,7 @@ Basic matching engine and internal testing tools.
 
 🎯 *Goal:* Full logic demo from prompt → poetic rec., with resilient parsing, richer data, and measurable confidence.
 
-**Status:** Core MVP working ✅ | Refinements in progress 🔄
+**Status:** Core MVP working ✅ | Most refinements complete ✅ | Event data & testing harness remain 🔄
 
 ---
 
@@ -88,6 +88,6 @@ Make the Lark visible, usable, and soulful.
 ## 📌 Notes
 - Each phase is modular — can be explored in sprints or spirals
 - Design with care, build with beauty, test with kindness
-- The Lark’s soul lives in her voice. Protect it always.
+- The Lark's soul lives in her voice. Protect it always.
 
 ---
