@@ -33,10 +33,13 @@ print(f"🏛️ Found {len(matches)} venue(s).")
 
 # Step 4: Generate poetic output
 if matches:
-    # For now, use first match only
-    response = generate_response(matches[0], filters)
+    print("\n🎭 Poetic Recommendations:\n")
+    for i, venue in enumerate(matches, 1):
+        print(f"\n--- Option {i} ---")
+        response = generate_response(venue, filters)
+        print(response)
+        print(f"\n📍 {venue['name']} in {venue['area']}")
 else:
+    print("\n🎭 Response:\n")
     response = generate_response(None, filters)
-
-print("\n🎭 Poetic Recommendation:\n")
-print(response)
+    print(response)
