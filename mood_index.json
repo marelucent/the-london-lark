@@ -1,12 +1,12 @@
 {
   "Folk & Intimate": {
     "description": "Warm strings, low light, and stories that feel like home.",
-    "synonyms": ["folk", "acoustic", "candlelit", "intimate", "singer-songwriter"],
+    "synonyms": ["folk", "folky", "folk-y", "acoustic", "candlelit", "intimate", "singer-songwriter", "singer songwriter", "cozy", "cosy", "warm", "close", "quiet", "unplugged"],
     "vibe_notes": "Handheld heart music."
   },
   "Queer Revelry": {
     "description": "Sequins, sweat, and chosen family.",
-    "synonyms": ["queer", "drag", "cabaret", "LGBT", "glitter"],
+    "synonyms": ["queer", "drag", "cabaret", "LGBT", "LGBTQ", "LGBTQ+", "glitter", "gay", "pride", "inclusive", "rainbow"],
     "vibe_notes": "A jubilant celebration of queer joy."
   },
   "Dreamlike & Hypnagogic": {
@@ -26,18 +26,18 @@
   },
   "Playful & Weird": {
     "description": "Unexpected, peculiar, oddly delightful.",
-    "synonyms": ["weird", "absurd", "clown", "strange", "offbeat"],
+    "synonyms": ["weird", "absurd", "clown", "strange", "offbeat", "quirky", "bizarre", "unusual", "odd", "peculiar", "surreal", "experimental"],
     "vibe_notes": "Theatre that tilts the world."
   },
   "Punchy / Protest": {
     "description": "Urgent, raw, and unafraid.",
-    "synonyms": ["protest", "activist", "radical", "feminist"],
+    "synonyms": ["protest", "activist", "radical", "feminist", "political", "rebellious", "revolution", "angry", "fierce", "bold"],
     "vibe_notes": "Voices raised, truth revealed."
   },
   "Poetic": {
     "description": "Language that shimmers. Performances with soul-rhythm.",
-    "synonyms": ["poetic", "lyrical", "spoken word"],
-    "vibe_notes": "You’ll carry the words home."
+    "synonyms": ["poetic", "lyrical", "spoken word", "poetry", "verse", "wordsmith", "literary"],
+    "vibe_notes": "You'll carry the words home."
   },
   "The Thoughtful Stage": {
     "description": "Measured, textured, quietly brilliant.",
@@ -60,13 +60,13 @@
     "vibe_notes": "For when the city stays up with you."
   },
   "Comic Relief": {
-    "description": "For the belly-laugh you didn’t know you needed.",
-    "synonyms": ["comedy", "funny", "stand-up", "laugh"],
+    "description": "For the belly-laugh you didn't know you needed.",
+    "synonyms": ["comedy", "funny", "stand-up", "standup", "stand up", "laugh", "hilarious", "humour", "humor", "comic", "jokes"],
     "vibe_notes": "A tonic for the tense."
   },
   "Group Energy": {
     "description": "Designed to be shared.",
-    "synonyms": ["group", "party", "dancing", "crowd", "big night"],
+    "synonyms": ["group", "party", "dancing", "crowd", "big night", "friends", "social", "lively", "energetic", "buzzing"],
     "vibe_notes": "Dancing, laughing, witnessing together."
   },
   "Word & Voice": {
@@ -93,5 +93,50 @@
     "description": "Borders blur and culture sings.",
     "synonyms": ["world music", "latin", "afrobeat", "international"],
     "vibe_notes": "A passport for the soul."
+  },
+  "Romanticised London": {
+    "description": "For gaslight nostalgia and Victorian dreams.",
+    "synonyms": ["romantic", "Victorian", "historic", "old London", "atmospheric", "candlelit"],
+    "vibe_notes": "London as you imagined it in books."
+  },
+  "Nostalgic / Vintage / Retro": {
+    "description": "Old glamour, faded elegance, time-worn beauty.",
+    "synonyms": ["vintage", "retro", "classic", "old-school", "nostalgic", "1920s", "art deco"],
+    "vibe_notes": "A portal to another era."
+  },
+  "Spiritual / Sacred / Mystical": {
+    "description": "Where the veil thins and reverence rises.",
+    "synonyms": ["spiritual", "sacred", "mystical", "church", "temple", "prayer"],
+    "vibe_notes": "A hush that feels holy."
+  },
+  "Body-Based / Movement-Led": {
+    "description": "Dance, circus, physical theatre — the body as language.",
+    "synonyms": ["dance", "movement", "physical theatre", "circus", "aerial", "choreography"],
+    "vibe_notes": "When words aren't enough."
+  },
+  "Melancholic Beauty": {
+    "description": "Bittersweet, tender, achingly lovely.",
+    "synonyms": ["melancholic", "bittersweet", "wistful", "sad", "tender", "longing"],
+    "vibe_notes": "Beauty that breaks your heart a little."
+  },
+  "Curious Encounters": {
+    "description": "For the experimentally-minded and perpetually curious.",
+    "synonyms": ["curious", "experimental", "unusual", "eclectic", "offbeat", "discovery"],
+    "vibe_notes": "You never quite know what you'll find."
+  },
+  "Seasonal / Outdoor": {
+    "description": "Under stars or sun, gardens and rooftops.",
+    "synonyms": ["outdoor", "garden", "rooftop", "summer", "alfresco", "open air"],
+    "vibe_notes": "For when the city needs sky."
+  },
+  "Witchy & Wild": {
+    "description": "Pagan, earthy, feral, moon-soaked.",
+    "synonyms": ["witchy", "pagan", "wild", "earthy", "folklore", "moon"],
+    "vibe_notes": "For when you want to howl at something."
+  },
+  "Family-Friendly": {
+    "description": "Magic for all ages.",
+    "synonyms": ["family", "kids", "children", "all ages"],
+    "vibe_notes": "Where wonder has no age limit."
   }
 }

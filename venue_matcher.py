@@ -30,14 +30,17 @@ def _poetic_line(venue, mood):
 
 def match_venues(filters):
     """
-    Given a dict of filters (mood, location, group), return matching venue dictionaries.
+    Given a dict of filters (mood, location, group, budget, genre), return matching venue dictionaries.
     Returns up to 3 venues that match the filters.
     """
     mood = filters.get("mood")
     location = filters.get("location")
     group = filters.get("group")
+    budget = filters.get("budget")
+    genre = filters.get("genre")
 
     matches = []
+    filtered_out_reasons = []  # Track why venues were filtered out
 
     for venue in venue_data:
         # Get mood tags (already a list from parsed data)
@@ -54,12 +57,56 @@ def match_venues(filters):
         if location:
             location_lower = location.lower()
             if location_lower not in area.lower() and location_lower not in tags.lower():
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by location")
                 continue
 
-        # Group compatibility (basic solo logic — can refine later)
+        # Genre match (optional) - check venue type and tags
+        if genre:
+            venue_type = venue.get("type", "").lower()
+            tags_lower = tags.lower()
+
+            if genre == "theatre" and not any(word in venue_type or word in tags_lower for word in ["theatre", "theater", "stage", "fringe"]):
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not theatre)")
+                continue
+            elif genre == "music" and not any(word in venue_type or word in tags_lower for word in ["music", "gig", "concert", "jazz", "folk"]):
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not music)")
+                continue
+            elif genre == "drag" and not any(word in venue_type or word in tags_lower for word in ["drag", "cabaret", "queer", "LGBTQ"]):
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not drag)")
+                continue
+
+        # Budget match (optional) - based on typical venue characteristics
+        if budget:
+            # Venues with "pub", "free", "community" tend to be cheaper
+            # Venues with "theatre", "concert hall", "club" might be pricier
+            venue_type_lower = venue.get("type", "").lower()
+            if budget == "low":
+                # Filter out expensive-sounding venues
+                if any(word in venue_type_lower for word in ["concert hall", "opera", "philharmonic"]):
+                    filtered_out_reasons.append(f"{venue.get('name', 'Venue')} might be too expensive")
+                    continue
+            elif budget == "high":
+                # User wants to splurge - no filtering needed, keep all venues
+                pass
+
+        # Group compatibility - improved logic
         vibe_notes = venue.get("tone_notes", "")
-        if group == "solo" and any(word in vibe_notes.lower() for word in ["rowdy", "raucous", "heaving"]):
-            continue
+        venue_type_lower = venue.get("type", "").lower()
+
+        if group == "solo":
+            # Filter out venues that are explicitly too rowdy/crowded for solo visits
+            if any(word in vibe_notes.lower() for word in ["rowdy", "raucous", "heaving", "packed", "sweaty crowd"]):
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} might be too crowded for solo visit")
+                continue
+            # Nightclubs are generally not great solo
+            if "nightclub" in venue_type_lower or "club night" in venue_type_lower:
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} not ideal for solo visit")
+                continue
+        elif group == "group":
+            # Filter out venues that are too intimate for groups
+            if any(word in vibe_notes.lower() for word in ["tiny", "intimate", "20-seat", "small space"]):
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} might be too small for group")
+                continue
 
         # Normalize venue data to expected format
         normalized_venue = {
