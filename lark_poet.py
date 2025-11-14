@@ -15,6 +15,7 @@ from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
 from venue_matcher import match_venues
 from response_generator import generate_response
+from lark_metrics import get_metrics
 
 
 def lark_header():
@@ -30,7 +31,7 @@ def lark_prompt():
     lark_header()
     print("Tell me what kind of evening you're dreaming of...")
     print("(e.g., 'Something quiet and folk-y in Camden tonight')")
-    print("(or type 'quit' to exit)\n")
+    print("(or type 'quit' to exit, 'stats' to see metrics)\n")
 
     while True:
         user_input = input("You: ").strip()
@@ -41,6 +42,11 @@ def lark_prompt():
         if user_input.lower() in ['quit', 'exit', 'q']:
             print("\nThe Lark bids you goodnight. Go gently into the city.\n")
             break
+
+        if user_input.lower() in ['stats', 'metrics', 'report']:
+            metrics = get_metrics()
+            metrics.print_report()
+            continue
 
         process_query(user_input)
         print("\n" + "-"*60 + "\n")
@@ -53,10 +59,12 @@ def process_query(user_prompt):
     filters = interpret_prompt(user_prompt)
 
     # Step 2: Resolve mood if not found
+    mood_confidence = 1.0  # Default for moods found by interpreter
     if not filters.get("mood"):
         keywords = user_prompt.lower().split()
         mood, confidence = resolve_from_keywords(keywords)
         filters["mood"] = mood
+        mood_confidence = confidence
 
         # Debug output showing confidence for fuzzy matches
         if mood and confidence < 1.0:
@@ -69,6 +77,10 @@ def process_query(user_prompt):
 
     # Step 3: Match venues
     matches = match_venues(filters)
+
+    # Log metrics
+    metrics = get_metrics()
+    metrics.log_query(filters, mood_confidence, len(matches))
 
     # Step 4: Generate poetic responses
     if not matches:

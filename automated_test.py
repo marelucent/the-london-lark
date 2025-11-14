@@ -12,6 +12,7 @@ from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
 from venue_matcher import match_venues
 from response_generator import generate_response
+from lark_metrics import get_metrics
 
 # ANSI color codes for terminal output
 GREEN = '\033[92m'
@@ -132,6 +133,10 @@ def run_test(test_case):
 
         # Step 3: Match venues
         matches = match_venues(filters)
+
+        # Log metrics
+        metrics = get_metrics()
+        metrics.log_query(filters, mood_confidence, len(matches))
 
         # Step 4: Generate response (test that it doesn't crash)
         if matches:
@@ -264,6 +269,10 @@ def main():
     """Run all smoke tests"""
     print_header()
 
+    # Reset metrics before test run (optional - comment out to accumulate)
+    # metrics = get_metrics()
+    # metrics.reset_metrics()
+
     results = []
 
     for i, test_case in enumerate(TEST_CASES, 1):
@@ -273,6 +282,20 @@ def main():
         print_test_result(test_case["name"], result)
 
     print_summary(results)
+
+    # Print coverage report
+    print("\n" + "="*70)
+    print("  COVERAGE REPORT (from this test run)")
+    print("="*70)
+    metrics = get_metrics()
+    stats = metrics.get_coverage_stats()
+    print(f"\n📊 Coverage Stats:")
+    print(f"   Total queries: {stats['total_queries']}")
+    print(f"   Mood resolution: {stats['mood_resolution_rate']:.1f}%")
+    print(f"   Venue match rate: {stats['venue_match_rate']:.1f}%")
+    print(f"   Exact match rate: {stats['exact_match_rate']:.1f}%")
+    print(f"\n💡 Run 'python lark_metrics.py' for full metrics report")
+    print("="*70 + "\n")
 
     # Exit with appropriate code
     failed_count = sum(1 for r in results if not r[1]["success"])
