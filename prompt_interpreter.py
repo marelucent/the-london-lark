@@ -85,17 +85,17 @@ def interpret_prompt(prompt):
             break
 
     # Budget detection
-    if any(word in prompt_lower for word in ["cheap", "free", "affordable"]):
+    if any(phrase in prompt_lower for phrase in ["not too expensive", "not expensive", "cheap", "free", "affordable", "budget-friendly", "inexpensive"]):
         budget = "low"
-    elif any(word in prompt_lower for word in ["expensive", "splurge", "fancy"]):
+    elif any(word in prompt_lower for word in ["expensive", "splurge", "fancy", "pricey", "upscale"]):
         budget = "high"
     else:
         budget = None
 
     # Solo/group
-    if "just me" in prompt_lower or "alone" in prompt_lower or "solo" in prompt_lower:
+    if any(phrase in prompt_lower for phrase in ["just me", "just for me", "alone", "solo", "on my own", "by myself"]):
         group = "solo"
-    elif "friends" in prompt_lower or "partner" in prompt_lower:
+    elif any(word in prompt_lower for word in ["friends", "partner", "group", "mates", "crowd"]):
         group = "group"
     else:
         group = None
