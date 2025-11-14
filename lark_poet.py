@@ -55,11 +55,16 @@ def process_query(user_prompt):
     # Step 2: Resolve mood if not found
     if not filters.get("mood"):
         keywords = user_prompt.lower().split()
-        mood = resolve_from_keywords(keywords)
+        mood, confidence = resolve_from_keywords(keywords)
         filters["mood"] = mood
 
-    # Debug output (optional)
-    if filters.get("mood"):
+        # Debug output showing confidence for fuzzy matches
+        if mood and confidence < 1.0:
+            print(f"\nThe Lark senses: {mood} (confidence: {confidence:.0%})")
+        elif mood:
+            print(f"\nThe Lark senses: {mood}")
+    else:
+        # Mood already found by prompt_interpreter
         print(f"\nThe Lark senses: {filters['mood']}")
 
     # Step 3: Match venues
