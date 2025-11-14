@@ -22,10 +22,14 @@ print("\n🎯 Filters:", filters)
 # Step 2: Confirm or refine mood
 if not filters.get("mood"):
     keywords = user_prompt.lower().split()
-    mood = resolve_from_keywords(keywords)
+    mood, confidence = resolve_from_keywords(keywords)
     filters["mood"] = mood
-
-print("🔮 Resolved Mood:", filters["mood"])
+    if mood:
+        print(f"🔮 Resolved Mood: {mood} (confidence: {confidence:.2f})")
+    else:
+        print("🔮 Resolved Mood: None")
+else:
+    print("🔮 Resolved Mood:", filters["mood"])
 
 # Step 3: Match venues
 matches = match_venues(filters)
