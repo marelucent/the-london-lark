@@ -66,7 +66,7 @@ GENRE_KEYWORDS_INCLUDE = {
 GENRE_KEYWORDS_EXCLUDE = {
     # Corporate/business
     'networking', 'business', 'corporate', 'conference', 'seminar', 'webinar',
-    'workshop' (unless paired with 'creative' or 'arts'),
+    'workshop',  # Note: creative workshops may be manually approved later
     'training', 'professional development', 'leadership',
     'startup', 'entrepreneur', 'pitch', 'investor',
 
