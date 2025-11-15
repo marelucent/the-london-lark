@@ -24,17 +24,3 @@ Any changes to these files must be:
 
 **Rule: Before making changes, read this file. When in doubt, ask Catherine.**
 ```
-
-Commit that to your repo.
-
----
-
-### **Step 2: Launch ClaudeCode for quick wins**
-
-Open ClaudeCode and give it these tasks (one session, should be relatively quick):
-
-**Brief for ClaudeCode:**
-```
-Context: The London Lark is a mood-driven cultural discovery tool with a working web UI. I've been testing it and need a few quick improvements before we tackle the bigger infrastructure work.
-
-CRITICAL: Read SACRED_FILES.md before you begin. Do not modify any files listed as SACRED.
