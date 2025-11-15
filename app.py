@@ -62,7 +62,8 @@ def ask_lark():
                 responses.append({
                     'text': response,
                     'venue_name': venue.get('name', ''),
-                    'area': venue.get('area', '')
+                    'area': venue.get('area', ''),
+                    'website': venue.get('website', '')
                 })
         else:
             # No matches
