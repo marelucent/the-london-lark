@@ -1,0 +1,126 @@
+[
+  {
+    "event_id": "mock_001",
+    "source": "mock",
+    "event_name": "An Evening of English Folk Songs",
+    "venue_name": "Cecil Sharp House",
+    "matched_venue_id": null,
+    "date": "2025-11-17",
+    "time": "19:30",
+    "area": "Camden",
+    "genre_tags": [
+      "folk",
+      "acoustic",
+      "traditional"
+    ],
+    "mood_tags": [
+      "Folk & Intimate"
+    ],
+    "price_range": "\u00a3\u00a3",
+    "price_min": 12,
+    "price_max": 15,
+    "url": "https://cecilsharphouse.org",
+    "description": "Traditional English folk songs in an intimate setting",
+    "fetched_at": "2025-11-15T16:31:40.701286"
+  },
+  {
+    "event_id": "mock_002",
+    "source": "mock",
+    "event_name": "Late Night Jazz Session",
+    "venue_name": "The Jazz Caf\u00e9",
+    "matched_venue_id": null,
+    "date": "2025-11-15",
+    "time": "21:00",
+    "area": "Camden",
+    "genre_tags": [
+      "jazz",
+      "live music",
+      "late night"
+    ],
+    "mood_tags": [
+      "Melancholic Beauty",
+      "Late-Night Lark"
+    ],
+    "price_range": "\u00a3\u00a3",
+    "price_min": 15,
+    "price_max": 20,
+    "url": "https://thejazzcafelondon.com",
+    "description": "Intimate jazz performances under low lights",
+    "fetched_at": "2025-11-15T16:31:40.701296"
+  },
+  {
+    "event_id": "mock_003",
+    "source": "mock",
+    "event_name": "Queer Cabaret Night",
+    "venue_name": "The Glory",
+    "matched_venue_id": null,
+    "date": "2025-11-16",
+    "time": "20:00",
+    "area": "Haggerston",
+    "genre_tags": [
+      "cabaret",
+      "drag",
+      "queer"
+    ],
+    "mood_tags": [
+      "Queer Revelry",
+      "Cabaret & Glitter"
+    ],
+    "price_range": "\u00a3",
+    "price_min": 8,
+    "price_max": 12,
+    "url": "https://www.theglory.co",
+    "description": "A night of glitter, performance art, and chosen family warmth",
+    "fetched_at": "2025-11-15T16:31:40.701313"
+  },
+  {
+    "event_id": "mock_004",
+    "source": "mock",
+    "event_name": "Experimental Theatre: The Quiet Room",
+    "venue_name": "Camden People's Theatre",
+    "matched_venue_id": null,
+    "date": "2025-11-18",
+    "time": "19:00",
+    "area": "Camden",
+    "genre_tags": [
+      "theatre",
+      "experimental",
+      "fringe"
+    ],
+    "mood_tags": [
+      "Curious Encounters",
+      "The Thoughtful Stage"
+    ],
+    "price_range": "\u00a3\u00a3",
+    "price_min": 10,
+    "price_max": 14,
+    "url": "https://cptheatre.co.uk",
+    "description": "Intimate experimental performance about silence and connection",
+    "fetched_at": "2025-11-15T16:31:40.701319"
+  },
+  {
+    "event_id": "mock_005",
+    "source": "mock",
+    "event_name": "Community Open Mic Night",
+    "venue_name": "The Sound Lounge",
+    "matched_venue_id": null,
+    "date": "2025-11-19",
+    "time": "19:30",
+    "area": "Tooting",
+    "genre_tags": [
+      "open mic",
+      "acoustic",
+      "community"
+    ],
+    "mood_tags": [
+      "Folk & Intimate",
+      "Salon & Spark"
+    ],
+    "price_range": "Free",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://thesoundlounge.org.uk",
+    "description": "Grassroots music and spoken word in a welcoming vegan caf\u00e9",
+    "fetched_at": "2025-11-15T16:31:40.701325"
+  }
+]
