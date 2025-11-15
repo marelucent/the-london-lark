@@ -53,17 +53,18 @@ def match_venues(filters):
         # Location match (optional)
         # Check both the specific area and the tags field (which has broader regions like "North London")
         area = venue.get("area", "") or venue.get("location", "")
-        tags = venue.get("tags", "")
+        tags = venue.get("tags", [])  # Now an array
+        tags_str = " ".join(tags) if isinstance(tags, list) else str(tags)  # Convert to string for searching
         if location:
             location_lower = location.lower()
-            if location_lower not in area.lower() and location_lower not in tags.lower():
+            if location_lower not in area.lower() and location_lower not in tags_str.lower():
                 filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by location")
                 continue
 
         # Genre match (optional) - check venue type and tags
         if genre:
             venue_type = venue.get("type", "").lower()
-            tags_lower = tags.lower()
+            tags_lower = tags_str.lower()
 
             if genre == "theatre" and not any(word in venue_type or word in tags_lower for word in ["theatre", "theater", "stage", "fringe"]):
                 filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not theatre)")
@@ -115,6 +116,7 @@ def match_venues(filters):
             "vibe_note": venue.get("tone_notes", "An experience beyond words"),
             "typical_start_time": venue.get("typical_start_time", ""),
             "price": venue.get("price", "TBC"),
+            "website": venue.get("website", ""),  # Added website field
             "mood_tags": mood_tags,
             "raw_data": venue  # Keep original data for reference
         }
