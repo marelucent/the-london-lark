@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The London Lark</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            color: #f0e68c;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #bbb;
+            letter-spacing: 0.05em;
+        }
+
+        .conversation {
+            margin-bottom: 2rem;
+            min-height: 200px;
+        }
+
+        .message {
+            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            background: rgba(240, 230, 140, 0.1);
+            border-left: 3px solid #f0e68c;
+            margin-left: 2rem;
+        }
+
+        .lark-message {
+            background: rgba(176, 196, 222, 0.1);
+            border-left: 3px solid #b0c4de;
+            margin-right: 2rem;
+        }
+
+        .message-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .message-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .venue-details {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .venue-link {
+            color: #f0e68c;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(240, 230, 140, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .venue-link:hover {
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+
+        .mood-badge {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(240, 230, 140, 0.2);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: #f0e68c;
+        }
+
+        .input-area {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(232, 232, 232, 0.2);
+            border-radius: 8px;
+            color: #e8e8e8;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #f0e68c;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        textarea::placeholder {
+            color: rgba(232, 232, 232, 0.4);
+            font-style: italic;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #f0e68c 0%, #daa520 100%);
+            border: none;
+            border-radius: 6px;
+            color: #1a1a2e;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(240, 230, 140, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-style: italic;
+            opacity: 0.6;
+        }
+
+        .error {
+            background: rgba(255, 100, 100, 0.1);
+            border-left: 3px solid #ff6464;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 3rem 2rem;
+            font-style: italic;
+            opacity: 0.7;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕊️ THE LONDON LARK</h1>
+            <p class="tagline">A poetic companion for London's cultural undercurrent</p>
+        </header>
+
+        <div class="conversation" id="conversation">
+            <div class="intro">
+                Tell me what kind of evening you're dreaming of...<br>
+                <small>(e.g., "I'm feeling melancholy and want somewhere quiet")</small>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <textarea
+                id="userInput"
+                placeholder="What kind of evening are you seeking, petal?"
+                rows="3"
+            ></textarea>
+            <button id="askButton" onclick="askLark()">Ask the Lark</button>
+        </div>
+    </div>
+
+    <script>
+        const conversation = document.getElementById('conversation');
+        const userInput = document.getElementById('userInput');
+        const askButton = document.getElementById('askButton');
+
+        // Focus input on load
+        userInput.focus();
+
+        // Allow Enter to submit (Shift+Enter for new line)
+        userInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                askLark();
+            }
+        });
+
+        function clearIntro() {
+            const intro = conversation.querySelector('.intro');
+            if (intro) {
+                intro.remove();
+            }
+        }
+
+        function addMessage(type, content, details = {}) {
+            clearIntro();
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}-message`;
+
+            let html = `<div class="message-label">${type === 'user' ? 'You' : 'The Lark'}</div>`;
+            html += `<div class="message-text">${content}</div>`;
+
+            if (details.venue_name) {
+                const venueName = details.venue_name;
+                const area = details.area ? ' in ' + details.area : '';
+                const website = details.website;
+
+                // Make venue name clickable if website exists
+                if (website && website !== '(n/a — pub site or folk club listing)' && website.trim()) {
+                    // Add https:// if not present
+                    let url = website;
+                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                        url = 'https://' + url;
+                    }
+                    html += `<div class="venue-details">📍 <a href="${url}" target="_blank" rel="noopener noreferrer" class="venue-link">${venueName}</a>${area}</div>`;
+                } else {
+                    html += `<div class="venue-details">📍 ${venueName}${area}</div>`;
+                }
+            }
+
+            if (details.mood) {
+                const confidenceText = details.confidence < 1.0 ? ` (${Math.round(details.confidence * 100)}%)` : '';
+                html += `<div class="mood-badge">${details.mood}${confidenceText}</div>`;
+            }
+
+            messageDiv.innerHTML = html;
+            conversation.appendChild(messageDiv);
+
+            // Scroll to bottom
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+
+        async function askLark() {
+            const prompt = userInput.value.trim();
+
+            if (!prompt) return;
+
+            // Disable input
+            askButton.disabled = true;
+            userInput.disabled = true;
+
+            // Add user message
+            addMessage('user', prompt);
+
+            // Clear input
+            userInput.value = '';
+
+            // Show loading
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'loading';
+            loadingDiv.textContent = 'The Lark listens...';
+            conversation.appendChild(loadingDiv);
+
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt })
+                });
+
+                const data = await response.json();
+
+                // Remove loading
+                loadingDiv.remove();
+
+                if (data.error) {
+                    addMessage('lark', data.error);
+                } else if (data.responses && data.responses.length > 0) {
+                    // Add each response with mood badge for all
+                    data.responses.forEach((resp, index) => {
+                        addMessage('lark', resp.text, {
+                            venue_name: resp.venue_name,
+                            area: resp.area,
+                            website: resp.website,
+                            mood: data.mood,
+                            confidence: data.confidence
+                        });
+                    });
+                } else {
+                    addMessage('lark', 'The Lark heard you, but found no words to offer.');
+                }
+
+            } catch (error) {
+                loadingDiv.remove();
+                addMessage('lark', `Something went awry: ${error.message}`);
+            }
+
+            // Re-enable input
+            askButton.disabled = false;
+            userInput.disabled = false;
+            userInput.focus();
+        }
+    </script>
+</body>
+</html>
