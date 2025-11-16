@@ -1,46 +1,33 @@
 {
-  "total_queries": 16,
-  "mood_found": 16,
+  "total_queries": 26,
+  "mood_found": 26,
   "mood_not_found": 0,
   "confidence_distribution": {
-    "exact_match": 15,
+    "exact_match": 25,
     "high_confidence": 0,
     "medium_confidence": 1,
     "low_confidence": 0
   },
   "venue_matches": {
-    "found_venues": 15,
-    "no_venues": 1
+    "found_venues": 19,
+    "no_venues": 7
   },
   "filter_usage": {
-    "mood": 16,
+    "mood": 26,
     "location": 6,
-    "time": 8,
+    "time": 10,
     "budget": 2,
     "group": 2,
     "genre": 1
   },
   "session_history": [
     {
-      "timestamp": "2025-11-14T11:01:45.349148",
+      "timestamp": "2025-11-16T16:41:23.730032",
       "filters": {
-        "mood": "Poetic",
-        "time": "tonight",
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": "East London"
-      },
-      "confidence": 1.0,
-      "venue_count": 2
-    },
-    {
-      "timestamp": "2025-11-14T11:01:45.349600",
-      "filters": {
-        "mood": "Late-Night Lark",
+        "mood": "Folk & Intimate",
         "time": null,
         "budget": null,
-        "group": "solo",
+        "group": null,
         "genre": null,
         "location": null
       },
@@ -48,59 +35,7 @@
       "venue_count": 0
     },
     {
-      "timestamp": "2025-11-16T11:48:35.264034",
-      "filters": {
-        "mood": "Folk & Intimate",
-        "time": "tonight",
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 3
-    },
-    {
-      "timestamp": "2025-11-16T11:48:45.064930",
-      "filters": {
-        "mood": "Cabaret & Glitter",
-        "time": "weekend",
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 3
-    },
-    {
-      "timestamp": "2025-11-16T11:48:55.376084",
-      "filters": {
-        "mood": "Melancholic Beauty",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": "South London"
-      },
-      "confidence": 1.0,
-      "venue_count": 1
-    },
-    {
-      "timestamp": "2025-11-16T16:04:52.337536",
-      "filters": {
-        "mood": "Witchy & Wild",
-        "time": "tonight",
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 2
-    },
-    {
-      "timestamp": "2025-11-16T16:05:13.443729",
+      "timestamp": "2025-11-16T16:41:30.231070",
       "filters": {
         "mood": "Melancholic Beauty",
         "time": null,
@@ -110,10 +45,10 @@
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 3
+      "venue_count": 0
     },
     {
-      "timestamp": "2025-11-16T16:05:34.762854",
+      "timestamp": "2025-11-16T16:41:36.277014",
       "filters": {
         "mood": "Punchy / Protest",
         "time": null,
@@ -123,10 +58,36 @@
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 3
+      "venue_count": 0
     },
     {
-      "timestamp": "2025-11-16T16:05:59.708875",
+      "timestamp": "2025-11-16T16:41:43.047190",
+      "filters": {
+        "mood": "Curious Encounters",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 0
+    },
+    {
+      "timestamp": "2025-11-16T16:41:50.574895",
+      "filters": {
+        "mood": "Witchy & Wild",
+        "time": "tonight",
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 0
+    },
+    {
+      "timestamp": "2025-11-16T16:50:35.458856",
       "filters": {
         "mood": "Folk & Intimate",
         "time": null,
@@ -139,10 +100,49 @@
       "venue_count": 3
     },
     {
-      "timestamp": "2025-11-16T16:06:14.303546",
+      "timestamp": "2025-11-16T16:50:44.954292",
+      "filters": {
+        "mood": "Melancholic Beauty",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 0
+    },
+    {
+      "timestamp": "2025-11-16T16:50:53.834030",
+      "filters": {
+        "mood": "Punchy / Protest",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 2
+    },
+    {
+      "timestamp": "2025-11-16T16:51:02.054465",
       "filters": {
         "mood": "Curious Encounters",
         "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 3
+    },
+    {
+      "timestamp": "2025-11-16T16:51:08.394063",
+      "filters": {
+        "mood": "Witchy & Wild",
+        "time": "tonight",
         "budget": null,
         "group": null,
         "genre": null,

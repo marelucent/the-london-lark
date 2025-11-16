@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # 🕊️ Venue Data Parser
 """
-Loads the structured venue data from lark_venues_structured.json.
+Loads the structured venue data from lark_venues_clean.json.
 Previously parsed messy format; now just loads clean structured JSON.
 """
 
 import json
 
 def load_parsed_venues():
-    """Load structured venues from lark_venues_structured.json"""
-    with open('lark_venues_structured.json', 'r', encoding='utf-8') as f:
+    """Load structured venues from lark_venues_clean.json"""
+    with open('lark_venues_clean.json', 'r', encoding='utf-8') as f:
         venues = json.load(f)
     return venues
 
