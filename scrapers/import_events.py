@@ -112,31 +112,37 @@ def import_from_json(json_file):
     """
     Import events from a JSON file.
 
-    Expected format:
-    [
-        {
-            "name": "Event Name",
-            "venue": "Venue Name",
-            "date": "2025-11-20",
-            "time": "20:00",
-            "description": "Optional description",
-            "url": "https://..."
-        }
-    ]
+    Supports two formats:
+    1. Direct list of events:
+       [{"event_name": ..., "venue_name": ..., "date": ...}, ...]
+
+    2. Wrapped with metadata (from local_scraper.py):
+       {"scraped_at": ..., "events": [...]}
     """
     with open(json_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    # Handle wrapped format (from local_scraper.py)
+    if isinstance(data, dict) and "events" in data:
+        raw_events = data["events"]
+        print(f"  Detected scraper output format (scraped at {data.get('scraped_at', 'unknown')})")
+    elif isinstance(data, list):
+        raw_events = data
+    else:
+        raise ValueError("Unsupported JSON format. Expected list or dict with 'events' key.")
+
     events = []
-    for item in data:
+    for item in raw_events:
+        # Support multiple field name conventions
         events.append({
-            "event_name": item.get("name", item.get("title", "Unknown")),
-            "venue_name": item.get("venue", item.get("venue_name", "")),
+            "event_name": item.get("event_name", item.get("name", item.get("title", "Unknown"))),
+            "venue_name": item.get("venue_name", item.get("venue", "")),
             "date": item.get("date", ""),
-            "time": item.get("time", item.get("start_time", "")),
+            "time": item.get("time", item.get("start_time", "20:00")),
             "description": item.get("description", ""),
             "url": item.get("url", item.get("link", "")),
-            "source": "json_import"
+            "source": item.get("source", "json_import"),
+            "mood_tags": item.get("mood_tags", [])  # Preserve if already set
         })
 
     return events
@@ -191,10 +197,14 @@ def match_and_enrich_events(raw_events, curated_venues):
             description = event.get("description", "") + " " + matched_venue.get("tone_notes", "")
             mood_tags, mood_confidence = infer_mood_from_text(description)
 
-            # If venue has mood tags, prefer those
+            # Priority: 1. Venue mood tags, 2. Scraper mood tags, 3. Inferred
             if matched_venue.get("mood_tags"):
                 mood_tags = matched_venue["mood_tags"][:2]
                 mood_confidence = 0.9
+            elif event.get("mood_tags") and len(event.get("mood_tags", [])) > 0:
+                # Use mood tags from scraper if no venue tags
+                mood_tags = event["mood_tags"][:2]
+                mood_confidence = 0.8
 
             enriched_event = {
                 "event_id": f"import_{hash(event['event_name'] + event['date']) % 100000}",
@@ -316,30 +326,79 @@ def create_sample_import_data():
 
 
 if __name__ == "__main__":
-    print("=" * 70)
-    print("  EVENT IMPORT SYSTEM - DEMO")
-    print("=" * 70)
-    print()
+    import argparse
 
-    # Create sample data
-    print("Creating sample import data (simulated real events)...")
-    sample_events = create_sample_import_data()
+    parser = argparse.ArgumentParser(
+        description="Import events from JSON/CSV files into The London Lark",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python scrapers/import_events.py scraped_events.json     # Import from scraper output
+  python scrapers/import_events.py events.csv             # Import from CSV
+  python scrapers/import_events.py --demo                 # Run demo with sample data
+        """
+    )
 
-    # Save sample for inspection
-    with open("sample_import_data.json", "w", encoding="utf-8") as f:
-        json.dump(sample_events, f, indent=2, ensure_ascii=False)
-    print(f"✓ Created {len(sample_events)} sample events")
-    print("  Saved to sample_import_data.json")
+    parser.add_argument(
+        'input_file',
+        nargs='?',
+        help='JSON or CSV file to import (or use --demo for sample data)'
+    )
+    parser.add_argument(
+        '--demo',
+        action='store_true',
+        help='Run demo with generated sample data'
+    )
+    parser.add_argument(
+        '--output',
+        type=str,
+        default='imported_real_events.json',
+        help='Output file for matched events (default: imported_real_events.json)'
+    )
+
+    args = parser.parse_args()
+
+    # Run demo mode or import from file
+    if args.demo or not args.input_file:
+        print("=" * 70)
+        print("  EVENT IMPORT SYSTEM - DEMO")
+        print("=" * 70)
+        print()
+
+        # Create sample data
+        print("Creating sample import data (simulated real events)...")
+        sample_events = create_sample_import_data()
+
+        # Save sample for inspection
+        with open("sample_import_data.json", "w", encoding="utf-8") as f:
+            json.dump(sample_events, f, indent=2, ensure_ascii=False)
+        print(f"✓ Created {len(sample_events)} sample events")
+        print("  Saved to sample_import_data.json")
+
+        input_file = "sample_import_data.json"
+    else:
+        input_file = args.input_file
+        print("=" * 70)
+        print("  EVENT IMPORT SYSTEM")
+        print("=" * 70)
+        print()
 
     # Load curated venues
-    print("\nLoading curated venues...")
+    print("Loading curated venues...")
     venues = load_venues()
     print(f"✓ Loaded {len(venues)} curated venues")
 
-    # Import the sample data
-    print("\nImporting events...")
-    imported_events = import_from_json("sample_import_data.json")
+    # Import the data
+    print(f"\nImporting events from {input_file}...")
+    if input_file.endswith('.csv'):
+        imported_events = import_from_csv(input_file)
+    else:
+        imported_events = import_from_json(input_file)
     print(f"✓ Imported {len(imported_events)} events")
+
+    if not imported_events:
+        print("❌ No events found in file!")
+        sys.exit(1)
 
     # Match to venues
     print("\nMatching to curated venues...")
@@ -347,41 +406,46 @@ if __name__ == "__main__":
     print(f"✓ Matched: {len(matched)} events")
     print(f"  Unmatched: {len(unmatched)} events")
 
+    if unmatched:
+        print(f"\n⚠️ Unmatched venues (not in curated list):")
+        for i, event in enumerate(unmatched[:10], 1):
+            print(f"  {i}. {event.get('venue_name', 'Unknown')} - {event.get('event_name', 'Unknown')}")
+        if len(unmatched) > 10:
+            print(f"  ... and {len(unmatched) - 10} more")
+
     # Save matched events
-    with open("imported_real_events.json", "w", encoding="utf-8") as f:
+    with open(args.output, "w", encoding="utf-8") as f:
         json.dump(matched, f, indent=2, ensure_ascii=False)
-    print(f"\n✓ Saved matched events to imported_real_events.json")
+    print(f"\n✓ Saved matched events to {args.output}")
 
     # Show sample
-    print("\n" + "=" * 70)
-    print("  MATCHED REAL EVENTS (first 10)")
-    print("=" * 70)
+    if matched:
+        print("\n" + "=" * 70)
+        print("  MATCHED REAL EVENTS (first 10)")
+        print("=" * 70)
 
-    for i, event in enumerate(matched[:10], 1):
-        print(f"\n{i}. {event['venue_emoji']} {event['event_name']}")
-        print(f"   Venue: {event['venue_name']} (match: {event['venue_match_score']})")
-        print(f"   Date: {event['date']} at {event['time']}")
-        print(f"   Area: {event['area']}")
-        print(f"   Mood: {', '.join(event['mood_tags'])} (conf: {event['mood_confidence']})")
+        for i, event in enumerate(matched[:10], 1):
+            print(f"\n{i}. {event['venue_emoji']} {event['event_name']}")
+            print(f"   Venue: {event['venue_name']} (match: {event['venue_match_score']})")
+            print(f"   Date: {event['date']} at {event['time']}")
+            print(f"   Area: {event['area']}")
+            print(f"   Mood: {', '.join(event['mood_tags'])} (conf: {event['mood_confidence']})")
 
-    # Show mood distribution
-    print("\n" + "=" * 70)
-    print("  MOOD DISTRIBUTION")
-    print("=" * 70)
+        # Show mood distribution
+        print("\n" + "=" * 70)
+        print("  MOOD DISTRIBUTION")
+        print("=" * 70)
 
-    mood_counts = {}
-    for event in matched:
-        for mood in event.get("mood_tags", []):
-            mood_counts[mood] = mood_counts.get(mood, 0) + 1
+        mood_counts = {}
+        for event in matched:
+            for mood in event.get("mood_tags", []):
+                mood_counts[mood] = mood_counts.get(mood, 0) + 1
 
-    for mood, count in sorted(mood_counts.items(), key=lambda x: x[1], reverse=True)[:10]:
-        print(f"  - {mood}: {count}")
+        for mood, count in sorted(mood_counts.items(), key=lambda x: x[1], reverse=True)[:10]:
+            print(f"  - {mood}: {count}")
 
     print("\n" + "=" * 70)
     print("  IMPORT COMPLETE - REAL DATA READY")
     print("=" * 70)
-    print("\nNext steps:")
-    print("1. Copy events from sites (Resident Advisor, Dice, Time Out)")
-    print("2. Format as JSON (see sample_import_data.json)")
-    print("3. Run: python import_events.py your_events.json")
-    print("4. Matched events will be enriched with venue mood tags")
+    print(f"\n✅ The Lark can now use events from {args.output}")
+    print("   Start app.py and test queries to see real event recommendations!")

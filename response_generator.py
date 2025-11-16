@@ -5,13 +5,34 @@ The London Lark — Poetic Response Generator
 
 Takes user filters + matched venue, and generates a poetic recommendation.
 Dynamically builds responses with real logistics (time, price, location).
+
+Now uses voice profiles from poetic_templates.py for mood-aware responses:
+- MYTHIC_NIGHTS: Sacred, ritualistic moods
+- NOSTALGIC_NEON: Vintage, melancholic moods
+- WILD_BECOMING: Rebellious, ecstatic moods
+- TENDER_BELONGING: Folk, intimate moods
+- CURIOUS_WONDER: Playful, experimental moods
 """
 
 import random
 from datetime import datetime
 
-# Expanded poetic opening lines
-OPENINGS = [
+# Import voice profile system
+try:
+    from poetic_templates import (
+        get_opening,
+        get_venue_intro,
+        get_rejection_message,
+        get_profile_name,
+        VOICE_PROFILES,
+        MOOD_TO_PROFILE
+    )
+    HAS_VOICE_PROFILES = True
+except ImportError:
+    HAS_VOICE_PROFILES = False
+
+# Fallback opening lines (used if poetic_templates not available)
+FALLBACK_OPENINGS = [
     "A hush in the streets, a rustle in the fringe...",
     "The city's heart beats softer tonight...",
     "If your mood were a room, this might be it...",
@@ -22,8 +43,8 @@ OPENINGS = [
     "Tonight, the city offers this...",
 ]
 
-# Mood-specific transition phrases
-MOOD_PHRASES = {
+# Fallback mood-specific transition phrases
+FALLBACK_MOOD_PHRASES = {
     "Folk & Intimate": ["Something warm", "Something tender", "Something close"],
     "Queer Revelry": ["Something glittering", "Something jubilant", "Something fierce"],
     "Playful & Weird": ["Something peculiar", "Something delightfully odd", "Something off-kilter"],
@@ -81,6 +102,8 @@ def generate_response(venue, filters, response_type="Matchmaker"):
     """
     Generate a poetic response with real logistics.
 
+    The Lark's voice shifts based on the detected mood using voice profiles.
+
     Args:
         venue: Dict with keys: name, vibe_note, price, typical_start_time, area
         filters: Dict with mood, time, location, budget, genre, group
@@ -100,8 +123,11 @@ def generate_response(venue, filters, response_type="Matchmaker"):
     price_phrase = _format_price(venue.get("price"))
     location_phrase = _format_location(venue)
 
-    # Choose opening
-    opening = random.choice(OPENINGS)
+    # Choose opening (voice-profile aware)
+    if HAS_VOICE_PROFILES:
+        opening = get_opening(mood)
+    else:
+        opening = random.choice(FALLBACK_OPENINGS)
 
     # Build response dynamically
     response_parts = []
@@ -109,9 +135,12 @@ def generate_response(venue, filters, response_type="Matchmaker"):
     # Opening
     response_parts.append(opening)
 
-    # Mood-specific phrase if we have one
-    if mood and mood in MOOD_PHRASES:
-        intro = random.choice(MOOD_PHRASES[mood])
+    # Mood-specific venue introduction (voice-profile aware)
+    if HAS_VOICE_PROFILES:
+        intro = get_venue_intro("warm", mood)
+        response_parts.append(f"{intro} {venue_name}.")
+    elif mood and mood in FALLBACK_MOOD_PHRASES:
+        intro = random.choice(FALLBACK_MOOD_PHRASES[mood])
         response_parts.append(f"{intro}: {venue_name}.")
     else:
         response_parts.append(f"Try {venue_name}.")
@@ -135,30 +164,60 @@ def generate_response(venue, filters, response_type="Matchmaker"):
     return " ".join(response_parts)
 
 def _generate_gentle_refusal(filters):
-    """Generate a gentle refusal when no venues match"""
+    """
+    Generate a gentle refusal when no venues match.
+
+    Uses voice-profile-aware rejection messages.
+    """
     mood = filters.get("mood")
     location = filters.get("location")
 
-    refusals = [
-        "The city's quiet on that front tonight, petal.",
-        "The Lark's found nothing quite right just yet.",
-        "Hmm, the city's being shy about this one.",
-        "Nothing's singing in quite that key tonight.",
-    ]
+    # Use voice profile rejection if available
+    if HAS_VOICE_PROFILES:
+        response = get_rejection_message(mood)
+    else:
+        refusals = [
+            "The city's quiet on that front tonight, petal.",
+            "The Lark's found nothing quite right just yet.",
+            "Hmm, the city's being shy about this one.",
+            "Nothing's singing in quite that key tonight.",
+        ]
+        response = random.choice(refusals)
 
-    response = random.choice(refusals)
+    # Add specific guidance (only if not using voice profiles)
+    if not HAS_VOICE_PROFILES:
+        if mood and location:
+            response += f" (Looking for {mood} in {location} proved tricky.)"
+        elif mood:
+            response += f" (No {mood} vibes turning up just now.)"
+        elif location:
+            response += f" (Nothing in {location} matched your ask.)"
 
-    # Add specific guidance
-    if mood and location:
-        response += f" (Looking for {mood} in {location} proved tricky.)"
-    elif mood:
-        response += f" (No {mood} vibes turning up just now.)"
-    elif location:
-        response += f" (Nothing in {location} matched your ask.)"
-
-    response += " Try broadening your search, or ask me something else?"
+        response += " Try broadening your search, or ask me something else?"
 
     return response
+
+
+def get_current_voice_profile(mood):
+    """
+    Get information about the current voice profile being used.
+
+    Args:
+        mood: The mood tag
+
+    Returns:
+        Dict with profile name and description, or None
+    """
+    if not HAS_VOICE_PROFILES:
+        return None
+
+    profile_name = get_profile_name(mood)
+    if profile_name in VOICE_PROFILES:
+        return {
+            "name": profile_name,
+            "description": VOICE_PROFILES[profile_name]["description"]
+        }
+    return {"name": "GENERAL", "description": "Default Lark voice"}
 
 # Example usage
 if __name__ == "__main__":
