@@ -240,6 +240,14 @@ button:disabled {
     line-height: 2;
 }
 
+.intro .time-greeting {
+    font-size: 1.3rem;
+    color: #f0e68c;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+}
+
 .intro small {
     display: block;
     margin-top: 1rem;
