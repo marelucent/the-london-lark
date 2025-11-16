@@ -47,8 +47,11 @@ def match_venues(filters):
         mood_tags = venue.get("mood_tags", [])
 
         # Mood match (required if mood is specified)
-        if mood and mood not in mood_tags:
-            continue
+        # Use first 8 characters for stem matching (e.g., "melancholic" matches "melancholy")
+        if mood:
+            mood_stem = mood.lower()[:8]
+            if not any(tag.lower()[:8] == mood_stem for tag in mood_tags):
+                continue
 
         # Location match (optional)
         # Check both the specific area and the tags field (which has broader regions like "North London")
