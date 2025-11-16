@@ -44,7 +44,7 @@ def match_venues(filters):
 
     for venue in venue_data:
         # Get mood tags (already a list from parsed data)
-        mood_tags = venue.get("mood_tags", []) or venue.get("moods", [])
+        mood_tags = venue.get("moods", []) or venue.get("mood_tags", [])
 
         # Mood match (required if mood is specified)
         # Normalize and match moods flexibly
@@ -55,10 +55,18 @@ def match_venues(filters):
             # Lowercase all venue mood tags
             venue_moods_lower = [m.lower() for m in mood_tags]
             
-            # Check if ANY mood word matches ANY venue mood tag (partial match)
+            # Check if ANY mood word matches ANY venue mood tag
+            # Uses exact match, substring match, OR stem match (first 8 chars)
             mood_match = any(
-                any(mood_word in venue_mood or venue_mood in mood_word 
-                    for venue_mood in venue_moods_lower)
+                any(
+                    # Exact match
+                    mood_word == venue_mood or
+                    # Substring match
+                    mood_word in venue_mood or venue_mood in mood_word or
+                    # Stem match (first 8 characters for words like melancholic/melancholy)
+                    (len(mood_word) >= 8 and len(venue_mood) >= 8 and mood_word[:8] == venue_mood[:8])
+                    for venue_mood in venue_moods_lower
+                )
                 for mood_word in mood_words
             )
             

@@ -1,19 +1,19 @@
 {
-  "total_queries": 26,
-  "mood_found": 26,
+  "total_queries": 29,
+  "mood_found": 29,
   "mood_not_found": 0,
   "confidence_distribution": {
-    "exact_match": 25,
+    "exact_match": 28,
     "high_confidence": 0,
     "medium_confidence": 1,
     "low_confidence": 0
   },
   "venue_matches": {
-    "found_venues": 19,
-    "no_venues": 7
+    "found_venues": 20,
+    "no_venues": 9
   },
   "filter_usage": {
-    "mood": 26,
+    "mood": 29,
     "location": 6,
     "time": 10,
     "budget": 2,
@@ -21,45 +21,6 @@
     "genre": 1
   },
   "session_history": [
-    {
-      "timestamp": "2025-11-16T16:41:23.730032",
-      "filters": {
-        "mood": "Folk & Intimate",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 0
-    },
-    {
-      "timestamp": "2025-11-16T16:41:30.231070",
-      "filters": {
-        "mood": "Melancholic Beauty",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 0
-    },
-    {
-      "timestamp": "2025-11-16T16:41:36.277014",
-      "filters": {
-        "mood": "Punchy / Protest",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 0
-    },
     {
       "timestamp": "2025-11-16T16:41:43.047190",
       "filters": {
@@ -143,6 +104,45 @@
       "filters": {
         "mood": "Witchy & Wild",
         "time": "tonight",
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 3
+    },
+    {
+      "timestamp": "2025-11-16T17:30:12.902775",
+      "filters": {
+        "mood": "Melancholic Beauty",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 0
+    },
+    {
+      "timestamp": "2025-11-16T17:39:51.133870",
+      "filters": {
+        "mood": "Melancholic Beauty",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 0
+    },
+    {
+      "timestamp": "2025-11-16T17:50:00.481216",
+      "filters": {
+        "mood": "Melancholic Beauty",
+        "time": null,
         "budget": null,
         "group": null,
         "genre": null,
