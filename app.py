@@ -11,8 +11,16 @@ from flask import Flask, render_template, request, jsonify
 from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
 from venue_matcher import match_venues
-from response_generator import generate_response
+from response_generator import generate_response, get_current_voice_profile
 from lark_metrics import get_metrics
+
+# Import voice profile system for debug info
+try:
+    from poetic_templates import get_profile_name
+    HAS_VOICE_PROFILES = True
+except ImportError:
+    HAS_VOICE_PROFILES = False
+    get_profile_name = lambda x: "GENERAL"
 
 app = Flask(__name__)
 
@@ -98,6 +106,11 @@ def ask_lark():
         if mood_confidence < 0.5:
             print(f"   ⚠️ Moderate confidence ({mood_confidence}), proceeding with caution")
 
+        # Get voice profile for the mood
+        voice_profile_name = get_profile_name(filters.get("mood"))
+        voice_profile_info = get_current_voice_profile(filters.get("mood"))
+        print(f"   🎭 Voice profile: {voice_profile_name}")
+
         # Match venues
         matches = match_venues(filters)
         print(f"   Matched {len(matches)} venues")
@@ -134,10 +147,12 @@ def ask_lark():
             'confidence': mood_confidence,
             'venue_count': len(matches),
             'filters': filters,
+            'voice_profile': voice_profile_info,
             'debug': {
                 'mood_detected': filters.get('mood'),
                 'confidence': mood_confidence,
-                'matches_found': len(matches)
+                'matches_found': len(matches),
+                'voice_profile': voice_profile_name
             }
         })
 
