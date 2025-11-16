@@ -1,7 +1,7 @@
-# 📍 venue_matcher.py
+# 🔍 venue_matcher.py
 
 """
-The London Lark — Venue Matcher
+The London Lark – Venue Matcher
 
 Matches venue profiles to interpreted prompt filters.
 Draws from `lark_venues_clean.json`, a curated dataset of venues.
@@ -44,11 +44,34 @@ def match_venues(filters):
 
     for venue in venue_data:
         # Get mood tags (already a list from parsed data)
-        mood_tags = venue.get("mood_tags", [])
+        mood_tags = venue.get("moods", []) or venue.get("mood_tags", [])
 
         # Mood match (required if mood is specified)
-        if mood and mood not in mood_tags:
-            continue
+        # Normalize and match moods flexibly
+        if mood:
+            # Split mood filter into words and lowercase (handles "Folk & Intimate" -> ["folk", "intimate"])
+            mood_words = [w.strip().lower() for w in mood.replace('&', ' ').replace('/', ' ').split() if len(w.strip()) > 2]
+            
+            # Lowercase all venue mood tags
+            venue_moods_lower = [m.lower() for m in mood_tags]
+            
+            # Check if ANY mood word matches ANY venue mood tag
+            # Uses exact match, substring match, OR stem match (first 8 chars)
+            mood_match = any(
+                any(
+                    # Exact match
+                    mood_word == venue_mood or
+                    # Substring match
+                    mood_word in venue_mood or venue_mood in mood_word or
+                    # Stem match (first 8 characters for words like melancholic/melancholy)
+                    (len(mood_word) >= 8 and len(venue_mood) >= 8 and mood_word[:8] == venue_mood[:8])
+                    for venue_mood in venue_moods_lower
+                )
+                for mood_word in mood_words
+            )
+            
+            if not mood_match:
+                continue
 
         # Location match (optional)
         # Check both the specific area and the tags field (which has broader regions like "North London")
@@ -113,10 +136,10 @@ def match_venues(filters):
         normalized_venue = {
             "name": venue.get("name", "Unnamed venue"),
             "area": venue.get("area", venue.get("location", "London")),
-            "vibe_note": venue.get("tone_notes", "An experience beyond words"),
+            "vibe_note": venue.get("tone_notes", venue.get("blurb", "An experience beyond words")),
             "typical_start_time": venue.get("typical_start_time", ""),
             "price": venue.get("price", "TBC"),
-            "website": venue.get("website", ""),  # Added website field
+            "website": venue.get("website", venue.get("url", "")),  # Added website field
             "mood_tags": mood_tags,
             "raw_data": venue  # Keep original data for reference
         }
@@ -151,4 +174,4 @@ if __name__ == "__main__":
                 print(f"  Doors around {venue['typical_start_time']}")
             print()
     else:
-        print("No venues sang in harmony with your mood — try another mood or area?")
+        print("No venues sang in harmony with your mood – try another mood or area?")

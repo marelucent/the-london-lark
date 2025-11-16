@@ -1,0 +1,85 @@
+
+/* Poetic UI: The London Lark */
+body {
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  background-color: #fcfbf9;
+  color: #2f2f2f;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Georgia', serif;
+  color: #4a2d2e;
+}
+
+a {
+  color: #6a4f4b;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Mood badges */
+.badge {
+  display: inline-block;
+  padding: 0.4em 0.7em;
+  margin: 0.3em;
+  border-radius: 12px;
+  background-color: #eee7df;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+/* Slide-in animations for venue list */
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.venue-entry {
+  animation: slideIn 0.6s ease forwards;
+}
+
+/* Feather Loader */
+.loader-feather {
+  width: 60px;
+  height: 60px;
+  background: url('🪶') no-repeat center center;
+  animation: featherFloat 2s ease-in-out infinite;
+  margin: auto;
+}
+
+@keyframes featherFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+/* Mood Tuner Panel */
+#mood-tuner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: #fffdf9;
+  border: 1px solid #d8cfc4;
+  padding: 1em;
+  width: 280px;
+  max-height: 400px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  font-family: 'Georgia', serif;
+  font-size: 0.95em;
+  display: none;
+}
+
+#mood-tuner.active {
+  display: block;
+  animation: slideIn 0.4s ease-out;
+}
+
+#mood-tuner button {
+  margin-top: 0.5em;
+}

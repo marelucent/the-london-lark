@@ -1,0 +1,188 @@
+body {
+  font-family: 'Georgia', serif;
+  background-color: #fefdfb;
+  color: #2c2c2c;
+  padding: 2rem;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+input[type="text"] {
+  width: 60%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  margin-left: 1rem;
+  font-size: 1rem;
+  background-color: #dcd3e8;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #c4b6dc;
+}
+
+#results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.venue {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.6s forwards;
+}
+
+.venue:nth-child(1) { animation-delay: 0.1s; }
+.venue:nth-child(2) { animation-delay: 0.2s; }
+.venue:nth-child(3) { animation-delay: 0.3s; }
+.venue:nth-child(4) { animation-delay: 0.4s; }
+.venue:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.venue a {
+  color: #6a4c93;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.venue a:hover {
+  text-decoration: underline;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #f0e9fc;
+  color: #5a3f87;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.7rem;
+  margin-right: 0.5rem;
+  border-radius: 20px;
+}
+
+#empty-message {
+  font-style: italic;
+  text-align: center;
+  margin-top: 2rem;
+  color: #999;
+}
+
+#loading-feather {
+  text-align: center;
+  font-size: 2rem;
+  animation: flutter 1s ease-in-out infinite alternate;
+  margin-top: 2rem;
+  color: #aa88cc;
+}
+
+@keyframes flutter {
+  from { transform: translateY(0); opacity: 0.8; }
+  to { transform: translateY(-8px); opacity: 1; }
+}
+
+/* Mood Tuner Panel */
+#mood-tuner {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #f8f3ff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 300px;
+  max-width: 80%;
+  z-index: 1000;
+  display: none;
+  animation: slideInPanel 0.4s ease-out forwards;
+}
+
+@keyframes slideInPanel {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#mood-tuner h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.mood-button {
+  padding: 0.4rem 0.8rem;
+  background-color: #e0d1f9;
+  color: #4c3470;
+  border: none;
+  border-radius: 5px;
+  margin: 0.2rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.mood-button:hover {
+  background-color: #d5c2f0;
+}
+
+#toggle-tuner {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: #fef7ff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 0.6rem 0.9rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1001;
+}
+
+#tuner-close {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.4rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #888;
+}
