@@ -29,6 +29,14 @@ except ImportError:
     HAS_MOCK_GENERATOR = False
     print("Note: Mock event generator not available")
 
+# Real event importer (uses imported JSON data)
+try:
+    from scrapers.import_events import import_from_json, match_and_enrich_events
+    HAS_REAL_IMPORTER = True
+except ImportError:
+    HAS_REAL_IMPORTER = False
+    print("Note: Real event importer not available")
+
 # Resident Advisor fetcher (Apify) - disabled for now
 HAS_RA_FETCHER = False
 
@@ -64,9 +72,29 @@ class EventPipeline:
 
         all_events = []
 
-        # Source 1: Mock events from 71-venue list (primary source)
-        if HAS_MOCK_GENERATOR:
-            print("📡 Generating events from 71-venue list...")
+        # Source 0: Real imported events (highest priority)
+        imported_file = Path("imported_real_events.json")
+        if imported_file.exists():
+            print("📡 Loading imported real events...")
+            try:
+                with open(imported_file, "r", encoding="utf-8") as f:
+                    imported_events = json.load(f)
+                all_events.extend(imported_events)
+                self.sources_status["imported_real"] = {
+                    "status": "success",
+                    "count": len(imported_events)
+                }
+                print(f"   ✓ Imported Real Events: {len(imported_events)} events")
+            except Exception as e:
+                self.sources_status["imported_real"] = {
+                    "status": "error",
+                    "error": str(e)
+                }
+                print(f"   ✗ Import error: {e}")
+
+        # Source 1: Mock events from 71-venue list (fallback)
+        if HAS_MOCK_GENERATOR and len(all_events) < 10:
+            print("\n📡 Generating mock events from 71-venue list...")
             try:
                 mock_events = generate_mock_events(num_events=30, days_ahead=14)
                 all_events.extend(mock_events)
@@ -74,13 +102,15 @@ class EventPipeline:
                     "status": "success",
                     "count": len(mock_events)
                 }
-                print(f"   ✓ Lark Venues: {len(mock_events)} events")
+                print(f"   ✓ Lark Venues (mock): {len(mock_events)} events")
             except Exception as e:
                 self.sources_status["lark_venues"] = {
                     "status": "error",
                     "error": str(e)
                 }
                 print(f"   ✗ Lark Venues error: {e}")
+        elif HAS_MOCK_GENERATOR:
+            print("\n⏭️  Skipping mock events (have enough real events)")
         else:
             # Fallback to Eventbrite mock if no generator
             print("📡 Fetching from Eventbrite (mock)...")
