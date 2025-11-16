@@ -1,0 +1,633 @@
+[
+  {
+    "event_id": "import_84650",
+    "event_name": "Acoustic Sessions",
+    "venue_name": "️ EartH Hackney",
+    "venue_emoji": "🏛",
+    "date": "2025-11-22",
+    "time": "20:30",
+    "area": "East London",
+    "region": "East London",
+    "location": "Dalston (Overground)",
+    "genre_tags": [
+      "folk",
+      "rock",
+      "world music"
+    ],
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://earthackney.co.uk",
+    "description": "An evening at ️ EartH Hackney. A restored 1930s art deco cinema with soaring ceilings and ornate details. Now hosting live music from indie to Afrobeat.",
+    "lark_fit": "For gigs that feel like events. Grand, gorgeous, and worth dressing up for.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.393909",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_91690",
+    "event_name": "DJ Set",
+    "venue_name": "️ EartH Hackney",
+    "venue_emoji": "🏛",
+    "date": "2025-11-24",
+    "time": "20:00",
+    "area": "East London",
+    "region": "East London",
+    "location": "Dalston (Overground)",
+    "genre_tags": [
+      "rock",
+      "world music"
+    ],
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://earthackney.co.uk",
+    "description": "An evening at ️ EartH Hackney. A restored 1930s art deco cinema with soaring ceilings and ornate details. Now hosting live music from indie to Afrobeat.",
+    "lark_fit": "For gigs that feel like events. Grand, gorgeous, and worth dressing up for.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.395213",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_59409",
+    "event_name": "Live Music Night",
+    "venue_name": "Oslo Hackney",
+    "venue_emoji": "🎸",
+    "date": "2025-11-25",
+    "time": "19:30",
+    "area": "East London",
+    "region": "East London",
+    "location": "Hackney Central (Overground)",
+    "genre_tags": [
+      "folk",
+      "rock"
+    ],
+    "mood_tags": [
+      "Folk & Intimate",
+      "Big Night Out"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://oslohackney.com",
+    "description": "An evening at Oslo Hackney. A café by day, gig venue by night, tucked under railway arches. Hosts indie darlings, folk acts, and late-night DJ sets.",
+    "lark_fit": "For post-work pints that turn into dancing. Warm, inclusive, effortlessly cool.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.396252",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_73002",
+    "event_name": "New Writing Showcase",
+    "venue_name": "King's Head Theatre",
+    "venue_emoji": "👑",
+    "date": "2025-11-26",
+    "time": "20:30",
+    "area": "North London",
+    "region": "North London",
+    "location": "Angel, Islington (Northern line)",
+    "genre_tags": [
+      "theatre",
+      "comedy"
+    ],
+    "mood_tags": [
+      "The Thoughtful Stage",
+      "Comic Relief"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://kingsheadtheatre.com",
+    "description": "An evening at King's Head Theatre. Britain's first pub theatre, tucked above a Victorian boozer. Hosting musicals, comedy, and new writing with charm and wit.",
+    "lark_fit": "Pint in hand, laughter in the air. Perfect for musical theatre lovers and those seeking cleverness with warmth.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.397174",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_80140",
+    "event_name": "Devised Theatre",
+    "venue_name": "King's Head Theatre",
+    "venue_emoji": "👑",
+    "date": "2025-11-19",
+    "time": "20:00",
+    "area": "North London",
+    "region": "North London",
+    "location": "Angel, Islington (Northern line)",
+    "genre_tags": [
+      "theatre",
+      "comedy"
+    ],
+    "mood_tags": [
+      "The Thoughtful Stage",
+      "Comic Relief"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://kingsheadtheatre.com",
+    "description": "An evening at King's Head Theatre. Britain's first pub theatre, tucked above a Victorian boozer. Hosting musicals, comedy, and new writing with charm and wit.",
+    "lark_fit": "Pint in hand, laughter in the air. Perfect for musical theatre lovers and those seeking cleverness with warmth.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.398105",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_8844",
+    "event_name": "Band Showcase",
+    "venue_name": "Hootananny Brixton",
+    "venue_emoji": "🌿",
+    "date": "2025-11-26",
+    "time": "20:00",
+    "area": "South London",
+    "region": "South London",
+    "location": "Brixton (Victoria line)",
+    "genre_tags": [
+      "live performance"
+    ],
+    "mood_tags": [
+      "Global Rhythms",
+      "Group Energy"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://hootanannybrixton.co.uk",
+    "description": "An evening at Hootananny Brixton. A laidback Victorian boozer steeped in Brixton’s musical lifeblood — from reggae and ska to global fusion bands.",
+    "lark_fit": "Good for sweaty, joyful dance nights with a local flair. Outdoors in summer, heaving indoors in winter.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.398139",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_32002",
+    "event_name": "Poetry Reading",
+    "venue_name": "Bush Hall",
+    "venue_emoji": "🎼",
+    "date": "2025-11-22",
+    "time": "19:30",
+    "area": "West London",
+    "region": "West London",
+    "location": "Shepherd’s Bush (tube & Overground)",
+    "genre_tags": [
+      "rock",
+      "poetry"
+    ],
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Big Night Out"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://bushhallmusic.co.uk",
+    "description": "An evening at Bush Hall. Once a ballroom, then a WWII soup kitchen, now a gleaming indie music hall with chandeliers and rock history.",
+    "lark_fit": "For a night that feels like velvet and echoes with guitars.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.398354",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_84650",
+    "event_name": "Acoustic Sessions",
+    "venue_name": "️ The Tabernacle",
+    "venue_emoji": "🕊",
+    "date": "2025-11-22",
+    "time": "21:00",
+    "area": "West London",
+    "region": "West London",
+    "location": "Notting Hill (tube)",
+    "genre_tags": [
+      "folk",
+      "jazz",
+      "poetry"
+    ],
+    "mood_tags": [
+      "Global Rhythms",
+      "Word & Voice"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://thetabernaclew11.com",
+    "description": "An evening at ️ The Tabernacle. An old church turned creative sanctuary — home to Caribbean Carnival legends, art exhibitions, jazz, spoken word and film.",
+    "lark_fit": "For history humming in brick and brass, culture dancing on air.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.398898",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_30302",
+    "event_name": "Folk Acoustic Set",
+    "venue_name": "The Viaduct",
+    "venue_emoji": "🍻",
+    "date": "2025-11-21",
+    "time": "21:00",
+    "area": "West London",
+    "region": "West London",
+    "location": "Boston Manor (Piccadilly) / Hanwell rail",
+    "genre_tags": [
+      "folk",
+      "comedy"
+    ],
+    "mood_tags": [
+      "Comic Relief",
+      "Group Energy"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://viaduct-hanwell.co.uk",
+    "description": "An evening at The Viaduct. A coaching inn since 1737, now famed for Bearcat Comedy Nights in its upstairs hall.",
+    "lark_fit": "For laughs in a room that’s seen centuries of stories.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.399521",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_75838",
+    "event_name": "One-Act Plays",
+    "venue_name": "Jacksons Lane",
+    "venue_emoji": "🎪",
+    "date": "2025-11-24",
+    "time": "20:30",
+    "area": "North London",
+    "region": "North London",
+    "location": "Highgate (Northern line + bus)",
+    "genre_tags": [
+      "theatre"
+    ],
+    "mood_tags": [
+      "Body-Based / Movement-Led",
+      "Curious Encounters"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://jacksonslane.org.uk",
+    "description": "An evening at Jacksons Lane. A converted church hosting circus, dance, aerial work, and movement-based performance. Joyful, inventive, gravity-defying.",
+    "lark_fit": "For nights of pure physical wonder. Great for families, dates, or solo marvelling.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.400743",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_96683",
+    "event_name": "Theatre Performance",
+    "venue_name": "️ Ace Cafe London",
+    "venue_emoji": "🏍",
+    "date": "2025-11-16",
+    "time": "19:30",
+    "area": "North West London",
+    "region": "North West London",
+    "location": "Stonebridge Park (Bakerloo / National Rail)",
+    "genre_tags": [
+      "theatre",
+      "rock",
+      "world music"
+    ],
+    "mood_tags": [
+      "Big Night Out",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://london.acecafe.com",
+    "description": "An evening at ️ Ace Cafe London. The world’s most famous motor café — petrolheads, live rock’n’roll, and a rebellious edge.",
+    "lark_fit": "For leather jackets, chrome glint, and jukebox nights.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.401552",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_90027",
+    "event_name": "Theatre Performance",
+    "venue_name": "Bethnal Green Working Men's Club",
+    "venue_emoji": "💃",
+    "date": "2025-11-19",
+    "time": "20:30",
+    "area": "East London",
+    "region": "East London",
+    "location": "Bethnal Green (Central line)",
+    "genre_tags": [
+      "theatre"
+    ],
+    "mood_tags": [
+      "Queer Revelry",
+      "Cabaret & Glitter"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://workersplaytime.net",
+    "description": "An evening at Bethnal Green Working Men's Club. A faded East End social club reborn as London's queer cabaret heart. Sequins, sweat, disco balls, and absolute joy.",
+    "lark_fit": "For nights of full-throttle fabulousness. Expect drag, voguing, and dancing till your feet give out.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.403222",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_6155",
+    "event_name": "Comedy Night",
+    "venue_name": "Bethnal Green Working Men's Club",
+    "venue_emoji": "💃",
+    "date": "2025-11-24",
+    "time": "19:00",
+    "area": "East London",
+    "region": "East London",
+    "location": "Bethnal Green (Central line)",
+    "genre_tags": [
+      "comedy"
+    ],
+    "mood_tags": [
+      "Queer Revelry",
+      "Cabaret & Glitter"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://workersplaytime.net",
+    "description": "An evening at Bethnal Green Working Men's Club. A faded East End social club reborn as London's queer cabaret heart. Sequins, sweat, disco balls, and absolute joy.",
+    "lark_fit": "For nights of full-throttle fabulousness. Expect drag, voguing, and dancing till your feet give out.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.405089",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_50892",
+    "event_name": "Comedy Night",
+    "venue_name": "Roundhouse",
+    "venue_emoji": "🎪",
+    "date": "2025-11-26",
+    "time": "21:00",
+    "area": "North London",
+    "region": "North London",
+    "location": "Chalk Farm (Northern line)",
+    "genre_tags": [
+      "comedy",
+      "electronic"
+    ],
+    "mood_tags": [
+      "Big Night Out",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://roundhouse.org.uk",
+    "description": "An evening at Roundhouse. A vast Victorian engine shed turned iconic music venue. Circular, industrial, unforgettable. Home to legends and future legends alike.",
+    "lark_fit": "For big gigs, immersive theatre, and nights that feel like cultural events. Go with a crowd.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.406011",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_62045",
+    "event_name": "Comedy Night",
+    "venue_name": "Roundhouse",
+    "venue_emoji": "🎪",
+    "date": "2025-11-19",
+    "time": "20:30",
+    "area": "North London",
+    "region": "North London",
+    "location": "Chalk Farm (Northern line)",
+    "genre_tags": [
+      "comedy",
+      "electronic"
+    ],
+    "mood_tags": [
+      "Big Night Out",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://roundhouse.org.uk",
+    "description": "An evening at Roundhouse. A vast Victorian engine shed turned iconic music venue. Circular, industrial, unforgettable. Home to legends and future legends alike.",
+    "lark_fit": "For big gigs, immersive theatre, and nights that feel like cultural events. Go with a crowd.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.406890",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_19557",
+    "event_name": "DJ Set",
+    "venue_name": "Matchstick Piehouse",
+    "venue_emoji": "🥧",
+    "date": "2025-11-25",
+    "time": "20:00",
+    "area": "South London",
+    "region": "South London",
+    "location": "Deptford (rail)",
+    "genre_tags": [
+      "theatre",
+      "comedy",
+      "electronic"
+    ],
+    "mood_tags": [
+      "Playful & Weird",
+      "Comic Relief"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://matchstickpiehouse.com",
+    "description": "An evening at Matchstick Piehouse. Under the railway arches, this not-for-profit art cave cooks up experimental theatre, comedy, and live music — with actual pies on the side.",
+    "lark_fit": "For nights when you want to be surprised, and maybe fed.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.407149",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_44389",
+    "event_name": "Poetry Reading",
+    "venue_name": "Matchstick Piehouse",
+    "venue_emoji": "🥧",
+    "date": "2025-11-25",
+    "time": "21:00",
+    "area": "South London",
+    "region": "South London",
+    "location": "Deptford (rail)",
+    "genre_tags": [
+      "theatre",
+      "comedy",
+      "electronic",
+      "poetry"
+    ],
+    "mood_tags": [
+      "Playful & Weird",
+      "Comic Relief"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://matchstickpiehouse.com",
+    "description": "An evening at Matchstick Piehouse. Under the railway arches, this not-for-profit art cave cooks up experimental theatre, comedy, and live music — with actual pies on the side.",
+    "lark_fit": "For nights when you want to be surprised, and maybe fed.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.407370",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_75227",
+    "event_name": "One-Act Plays",
+    "venue_name": "Finborough Theatre",
+    "venue_emoji": "🍻",
+    "date": "2025-11-16",
+    "time": "20:00",
+    "area": "West London",
+    "region": "West London",
+    "location": "Earl’s Court / West Brompton (tube & rail)",
+    "genre_tags": [
+      "theatre"
+    ],
+    "mood_tags": [
+      "The Thoughtful Stage",
+      "Poetic"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://finboroughtheatre.co.uk",
+    "description": "An evening at Finborough Theatre. A West London legend perched above a classic boozer, staging hard-hitting new plays and overlooked gems. Proudly fringe and famously fierce.",
+    "lark_fit": "Pint in hand, mind on fire. Theatre that doesn’t flinch.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.407615",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_97265",
+    "event_name": "One-Act Plays",
+    "venue_name": "The Sebright Arms",
+    "venue_emoji": "🍺",
+    "date": "2025-11-19",
+    "time": "19:00",
+    "area": "East London",
+    "region": "East London",
+    "location": "Hackney / Bethnal Green (Overground)",
+    "genre_tags": [
+      "theatre",
+      "comedy"
+    ],
+    "mood_tags": [
+      "Playful & Weird",
+      "Comic Relief"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://thesebrightarms.com",
+    "description": "An evening at The Sebright Arms. A scruffy East End boozer with a scrappy theatre upstairs. Comedy, drag, experimental one-acts — often brilliant, sometimes baffling.",
+    "lark_fit": "For cheap thrills and unpretentious nights. BYOB creativity.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.408632",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_2070",
+    "event_name": "Devised Theatre",
+    "venue_name": "Hackney Empire",
+    "venue_emoji": "🎭",
+    "date": "2025-11-22",
+    "time": "21:00",
+    "area": "East London",
+    "region": "East London",
+    "location": "Hackney Central (Overground)",
+    "genre_tags": [
+      "theatre",
+      "comedy"
+    ],
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://hackneyempire.co.uk",
+    "description": "An evening at Hackney Empire. A gilded Victorian music hall dripping in red velvet and gold leaf. Hosts everything from stand-up to panto, opera to hip-hop theatre.",
+    "lark_fit": "For nights that feel like stepping into old London glamour — but with fresh energy and East End grit.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.409600",
+    "filter_passed": true
+  },
+  {
+    "event_id": "import_57209",
+    "event_name": "New Writing Showcase",
+    "venue_name": "Hackney Empire",
+    "venue_emoji": "🎭",
+    "date": "2025-11-20",
+    "time": "20:00",
+    "area": "East London",
+    "region": "East London",
+    "location": "Hackney Central (Overground)",
+    "genre_tags": [
+      "theatre",
+      "comedy"
+    ],
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.9,
+    "price_range": "TBC",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://hackneyempire.co.uk",
+    "description": "An evening at Hackney Empire. A gilded Victorian music hall dripping in red velvet and gold leaf. Hosts everything from stand-up to panto, opera to hip-hop theatre.",
+    "lark_fit": "For nights that feel like stepping into old London glamour — but with fresh energy and East End grit.",
+    "source": "imported_real",
+    "venue_match_score": 1.0,
+    "fetched_at": "2025-11-16T12:26:43.410561",
+    "filter_passed": true
+  }
+]
