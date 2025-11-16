@@ -1,0 +1,22 @@
+# The London Lark - Local Scraper Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core HTTP library
+requests>=2.31.0
+
+# HTML parsing
+beautifulsoup4>=4.12.0
+
+# HTML parser backend (faster than default)
+lxml>=4.9.0
+
+# For better date parsing (optional but helpful)
+python-dateutil>=2.8.0
+
+# For colored terminal output (optional)
+colorama>=0.4.6
+
+# For testing
+pytest>=7.0.0
+pytest-mock>=3.10.0
+responses>=0.23.0
