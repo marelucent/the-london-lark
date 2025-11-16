@@ -4,201 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The London Lark</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #e8e8e8;
-            min-height: 100vh;
-            padding: 2rem;
-            line-height: 1.7;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(232, 232, 232, 0.2);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-            color: #f0e68c;
-        }
-
-        .tagline {
-            font-size: 0.95rem;
-            font-style: italic;
-            color: #bbb;
-            letter-spacing: 0.05em;
-        }
-
-        .conversation {
-            margin-bottom: 2rem;
-            min-height: 200px;
-        }
-
-        .message {
-            margin-bottom: 1.5rem;
-            padding: 1.2rem;
-            border-radius: 8px;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .user-message {
-            background: rgba(240, 230, 140, 0.1);
-            border-left: 3px solid #f0e68c;
-            margin-left: 2rem;
-        }
-
-        .lark-message {
-            background: rgba(176, 196, 222, 0.1);
-            border-left: 3px solid #b0c4de;
-            margin-right: 2rem;
-        }
-
-        .message-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-            opacity: 0.7;
-        }
-
-        .message-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .venue-details {
-            margin-top: 0.8rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            font-style: italic;
-        }
-
-        .venue-link {
-            color: #f0e68c;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(240, 230, 140, 0.3);
-            transition: all 0.2s ease;
-        }
-
-        .venue-link:hover {
-            color: #ffd700;
-            border-bottom-color: #ffd700;
-        }
-
-        .mood-badge {
-            display: inline-block;
-            margin-top: 0.5rem;
-            padding: 0.3rem 0.8rem;
-            background: rgba(240, 230, 140, 0.2);
-            border-radius: 12px;
-            font-size: 0.75rem;
-            color: #f0e68c;
-        }
-
-        .input-area {
-            position: relative;
-            margin-top: 2rem;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 1.2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(232, 232, 232, 0.2);
-            border-radius: 8px;
-            color: #e8e8e8;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 1rem;
-            resize: vertical;
-            min-height: 100px;
-            transition: all 0.3s ease;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: #f0e68c;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        textarea::placeholder {
-            color: rgba(232, 232, 232, 0.4);
-            font-style: italic;
-        }
-
-        button {
-            margin-top: 1rem;
-            padding: 0.8rem 2rem;
-            background: linear-gradient(135deg, #f0e68c 0%, #daa520 100%);
-            border: none;
-            border-radius: 6px;
-            color: #1a1a2e;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 0.05em;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(240, 230, 140, 0.3);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            font-style: italic;
-            opacity: 0.6;
-        }
-
-        .error {
-            background: rgba(255, 100, 100, 0.1);
-            border-left: 3px solid #ff6464;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-
-        .intro {
-            text-align: center;
-            padding: 3rem 2rem;
-            font-style: italic;
-            opacity: 0.7;
-            font-size: 1.1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
@@ -210,7 +16,7 @@
         <div class="conversation" id="conversation">
             <div class="intro">
                 Tell me what kind of evening you're dreaming of...<br>
-                <small>(e.g., "I'm feeling melancholy and want somewhere quiet")</small>
+                <small>Perhaps a tender night of folk songs, or somewhere strange and candlelit?</small>
             </div>
         </div>
 
@@ -224,10 +30,76 @@
         </div>
     </div>
 
+    <!-- Dev Mood Tuner Toggle -->
+    <button class="dev-toggle" onclick="toggleMoodTuner()">🔧 Mood Tuner</button>
+
+    <!-- Mood Tuner Panel -->
+    <div class="mood-tuner" id="moodTuner">
+        <button class="close-btn" onclick="toggleMoodTuner()">×</button>
+        <h3>🎭 Mood Tuner</h3>
+
+        <div class="parse-result">
+            <strong>Last Parse Result:</strong>
+            <pre id="parseResult">No query yet...</pre>
+        </div>
+
+        <div class="test-moods">
+            <strong style="font-size: 0.85rem; color: #b0c4de;">Test Moods:</strong><br>
+            <button class="test-mood-btn" onclick="testMood('Folk & Intimate')">Folk & Intimate</button>
+            <button class="test-mood-btn" onclick="testMood('Queer Revelry')">Queer Revelry</button>
+            <button class="test-mood-btn" onclick="testMood('Melancholic Beauty')">Melancholic Beauty</button>
+            <button class="test-mood-btn" onclick="testMood('Late-Night Lark')">Late-Night Lark</button>
+            <button class="test-mood-btn" onclick="testMood('Curious Encounters')">Curious Encounters</button>
+            <button class="test-mood-btn" onclick="testMood('The Thoughtful Stage')">The Thoughtful Stage</button>
+            <button class="test-mood-btn" onclick="testMood('Global Rhythms')">Global Rhythms</button>
+            <button class="test-mood-btn" onclick="testMood('Cabaret & Glitter')">Cabaret & Glitter</button>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+            <strong style="font-size: 0.85rem; color: #b0c4de;">Current Filters:</strong>
+            <pre id="currentFilters" style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; margin-top: 0.5rem; font-size: 0.8rem;">None</pre>
+        </div>
+    </div>
+
     <script>
         const conversation = document.getElementById('conversation');
         const userInput = document.getElementById('userInput');
         const askButton = document.getElementById('askButton');
+        const parseResult = document.getElementById('parseResult');
+        const currentFilters = document.getElementById('currentFilters');
+
+        // Mood to icon mapping
+        const moodIcons = {
+            'Folk & Intimate': '🌿',
+            'Queer Revelry': '🌈',
+            'Melancholic Beauty': '🌙',
+            'Late-Night Lark': '🦉',
+            'Curious Encounters': '✨',
+            'The Thoughtful Stage': '🎭',
+            'Global Rhythms': '🌍',
+            'Cabaret & Glitter': '💫',
+            'Poetic': '📜',
+            'Punchy / Protest': '🔥',
+            'Big Night Out': '🎉',
+            'Comic Relief': '😄',
+            'Dreamlike & Hypnagogic': '💭',
+            'Wonder & Awe': '🌟',
+            'Spiritual / Sacred / Mystical': '🕯️',
+            'Playful & Weird': '🎪',
+            'Nostalgic / Vintage / Retro': '📻',
+            'Body-Based / Movement-Led': '💃',
+            'Grief & Grace': '🕊️',
+            'Witchy & Wild': '🌛'
+        };
+
+        // Poetic empty state messages
+        const emptyStateMessages = [
+            "The wind found no doors tonight, petal. Try another path.",
+            "Even the Lark must sometimes rest her wings. No matches found.",
+            "The city hums, but not in that key tonight. Seek elsewhere.",
+            "No feathers stirred for this request. Perhaps rephrase your longing?",
+            "The map is vast, but this corner lies silent. Ask again differently."
+        ];
 
         // Focus input on load
         userInput.focus();
@@ -247,6 +119,10 @@
             }
         }
 
+        function getMoodIcon(mood) {
+            return moodIcons[mood] || '🎵';
+        }
+
         function addMessage(type, content, details = {}) {
             clearIntro();
 
@@ -262,8 +138,7 @@
                 const website = details.website;
 
                 // Make venue name clickable if website exists
-                if (website && website !== '(n/a — pub site or folk club listing)' && website.trim()) {
-                    // Add https:// if not present
+                if (website && website !== '(n/a — pub site or folk club listing)' && website.trim() && !website.startsWith('(')) {
                     let url = website;
                     if (!url.startsWith('http://') && !url.startsWith('https://')) {
                         url = 'https://' + url;
@@ -275,15 +150,47 @@
             }
 
             if (details.mood) {
-                const confidenceText = details.confidence < 1.0 ? ` (${Math.round(details.confidence * 100)}%)` : '';
-                html += `<div class="mood-badge">${details.mood}${confidenceText}</div>`;
+                const icon = getMoodIcon(details.mood);
+                const confidenceText = details.confidence < 1.0 ? ` · ${Math.round(details.confidence * 100)}%` : '';
+                html += `<div class="mood-badge"><span class="mood-icon">${icon}</span>${details.mood}${confidenceText}</div>`;
             }
 
             messageDiv.innerHTML = html;
             conversation.appendChild(messageDiv);
 
             // Scroll to bottom
-            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            setTimeout(() => {
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 100);
+        }
+
+        function showLoader() {
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'loading';
+            loadingDiv.id = 'currentLoader';
+            loadingDiv.innerHTML = `
+                <div class="feather-loader">🪶</div>
+                <div class="loading-text">The Lark is composing...</div>
+            `;
+            conversation.appendChild(loadingDiv);
+            loadingDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            return loadingDiv;
+        }
+
+        function removeLoader() {
+            const loader = document.getElementById('currentLoader');
+            if (loader) loader.remove();
+        }
+
+        function showEmptyState() {
+            const message = emptyStateMessages[Math.floor(Math.random() * emptyStateMessages.length)];
+            const emptyDiv = document.createElement('div');
+            emptyDiv.className = 'lark-message message empty-state';
+            emptyDiv.innerHTML = `
+                <div class="message-label">The Lark</div>
+                <div class="message-text">${message}</div>
+            `;
+            conversation.appendChild(emptyDiv);
         }
 
         async function askLark() {
@@ -301,11 +208,8 @@
             // Clear input
             userInput.value = '';
 
-            // Show loading
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'loading';
-            loadingDiv.textContent = 'The Lark listens...';
-            conversation.appendChild(loadingDiv);
+            // Show fluttering feather loader
+            showLoader();
 
             try {
                 const response = await fetch('/ask', {
@@ -318,28 +222,36 @@
 
                 const data = await response.json();
 
-                // Remove loading
-                loadingDiv.remove();
+                // Update dev panel
+                if (data.filters) {
+                    parseResult.textContent = JSON.stringify(data.filters, null, 2);
+                    currentFilters.textContent = JSON.stringify(data.filters, null, 2);
+                }
+
+                // Remove loader
+                removeLoader();
 
                 if (data.error) {
                     addMessage('lark', data.error);
                 } else if (data.responses && data.responses.length > 0) {
-                    // Add each response with mood badge for all
+                    // Add each response with mood badge
                     data.responses.forEach((resp, index) => {
-                        addMessage('lark', resp.text, {
-                            venue_name: resp.venue_name,
-                            area: resp.area,
-                            website: resp.website,
-                            mood: data.mood,
-                            confidence: data.confidence
-                        });
+                        setTimeout(() => {
+                            addMessage('lark', resp.text, {
+                                venue_name: resp.venue_name,
+                                area: resp.area,
+                                website: resp.website,
+                                mood: data.mood,
+                                confidence: data.confidence
+                            });
+                        }, index * 300); // Stagger animations
                     });
                 } else {
-                    addMessage('lark', 'The Lark heard you, but found no words to offer.');
+                    showEmptyState();
                 }
 
             } catch (error) {
-                loadingDiv.remove();
+                removeLoader();
                 addMessage('lark', `Something went awry: ${error.message}`);
             }
 
@@ -348,6 +260,36 @@
             userInput.disabled = false;
             userInput.focus();
         }
+
+        // Mood Tuner functions
+        function toggleMoodTuner() {
+            const panel = document.getElementById('moodTuner');
+            panel.classList.toggle('open');
+        }
+
+        function testMood(mood) {
+            // Update button states
+            document.querySelectorAll('.test-mood-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === mood) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Set a test query
+            userInput.value = `I want something ${mood.toLowerCase()}`;
+            userInput.focus();
+        }
+
+        // Close mood tuner with Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const panel = document.getElementById('moodTuner');
+                if (panel.classList.contains('open')) {
+                    panel.classList.remove('open');
+                }
+            }
+        });
     </script>
 </body>
 </html>

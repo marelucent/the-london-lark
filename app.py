@@ -38,6 +38,10 @@ def ask_lark():
         # Process through the pipeline
         filters = interpret_prompt(user_prompt)
 
+        # Debug: Log what was extracted
+        print(f"\n🔍 DEBUG: Interpreting '{user_prompt}'")
+        print(f"   Initial filters: {filters}")
+
         # Resolve mood if not found
         mood_confidence = 1.0
         if not filters.get("mood"):
@@ -45,9 +49,58 @@ def ask_lark():
             mood, confidence = resolve_from_keywords(keywords)
             filters["mood"] = mood
             mood_confidence = confidence
+            print(f"   Mood resolution: mood={mood}, confidence={confidence}")
+        else:
+            print(f"   Direct mood match: {filters.get('mood')}")
+
+        # CONFIDENCE THRESHOLD CHECKS
+        # If no mood detected at all (None with 0.0 confidence), reject
+        if filters.get("mood") is None and mood_confidence == 0.0:
+            print(f"   ❌ No recognizable mood keywords found")
+            return jsonify({
+                'responses': [{
+                    'text': "The Lark tilts her head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night?",
+                    'venue_name': None,
+                    'area': None,
+                    'website': None
+                }],
+                'mood': None,
+                'confidence': 0.0,
+                'venue_count': 0,
+                'filters': filters,
+                'debug': {
+                    'reason': 'no_mood_detected',
+                    'keywords_checked': user_prompt.lower().split()
+                }
+            })
+
+        # If confidence is very low (< 0.3), ask for clarification
+        if mood_confidence < 0.3:
+            print(f"   ⚠️ Very low confidence ({mood_confidence}), asking for clarification")
+            return jsonify({
+                'responses': [{
+                    'text': f"The Lark senses a whisper of '{filters.get('mood', 'something')}' in your words, but she's not certain. Could you tell me more about the evening you're dreaming of?",
+                    'venue_name': None,
+                    'area': None,
+                    'website': None
+                }],
+                'mood': filters.get('mood'),
+                'confidence': mood_confidence,
+                'venue_count': 0,
+                'filters': filters,
+                'debug': {
+                    'reason': 'low_confidence',
+                    'threshold': 0.3
+                }
+            })
+
+        # If confidence is moderate (0.3-0.5), warn but proceed cautiously
+        if mood_confidence < 0.5:
+            print(f"   ⚠️ Moderate confidence ({mood_confidence}), proceeding with caution")
 
         # Match venues
         matches = match_venues(filters)
+        print(f"   Matched {len(matches)} venues")
 
         # Log metrics
         metrics = get_metrics()
@@ -71,7 +124,8 @@ def ask_lark():
             responses.append({
                 'text': response,
                 'venue_name': None,
-                'area': None
+                'area': None,
+                'website': None
             })
 
         return jsonify({
@@ -79,7 +133,12 @@ def ask_lark():
             'mood': filters.get('mood'),
             'confidence': mood_confidence,
             'venue_count': len(matches),
-            'filters': filters
+            'filters': filters,
+            'debug': {
+                'mood_detected': filters.get('mood'),
+                'confidence': mood_confidence,
+                'matches_found': len(matches)
+            }
         })
 
     except Exception as e:
