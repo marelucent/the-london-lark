@@ -1,98 +1,266 @@
 [
   {
-    "event_id": "mock_003",
-    "event_name": "Fireside Folk Songs",
-    "venue_name": "The Sound Lounge",
+    "event_id": "mock_015",
+    "event_name": "Folk & Ale Evening",
+    "venue_name": "The Troubadour",
     "venue_emoji": "☕",
     "date": "2025-11-16",
-    "time": "20:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Tooting Broadway (Northern line)",
+    "time": "19:00",
+    "area": "West London",
+    "region": "West London",
+    "location": "Earl’s Court (tube & rail)",
     "genre_tags": [
       "live music"
     ],
     "mood_tags": [
       "Folk & Intimate",
-      "Salon & Spark"
+      "Poetic"
     ],
-    "mood_confidence": 0.77,
-    "price_range": "£££",
-    "price_min": 18,
-    "price_max": 25,
-    "url": "https://thesoundlounge.org.uk",
-    "description": "Vegan café by day, grassroots music venue by night. Ethical, heart-forward, and alive with conversation.",
-    "lark_fit": "Where values meet verse — a home for activism, acoustic guitars, and slow listening.",
+    "mood_confidence": 0.95,
+    "price_range": "Free",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://troubadourlondon.com",
+    "description": "Opened in 1954, this basement café hosted Bob Dylan and Joni Mitchell. Folk, jazz, poetry, and intimate gigs still echo in the candlelight.",
+    "lark_fit": "For time travel via guitar string, in the cosiest of haunts.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081196",
+    "fetched_at": "2025-11-16T12:14:44.028786",
     "filter_passed": true
   },
   {
-    "event_id": "mock_019",
-    "event_name": "Queer Open Mic Night",
-    "venue_name": "The Glory",
-    "venue_emoji": "👑",
+    "event_id": "mock_014",
+    "event_name": "Afrobeat Live",
+    "venue_name": "The Jazz Café",
+    "venue_emoji": "🎷",
     "date": "2025-11-16",
-    "time": "20:00",
+    "time": "20:30",
+    "area": "North London",
+    "region": "North London",
+    "location": "Camden Town (Northern line)",
+    "genre_tags": [
+      "jazz"
+    ],
+    "mood_tags": [
+      "Global Rhythms",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "mood_confidence": 0.88,
+    "price_range": "£££",
+    "price_min": 18,
+    "price_max": 25,
+    "url": "https://thejazzcafelondon.com",
+    "description": "Brick arches, moody lighting, and world-class jazz, soul, and Afrobeat. An institution that's kept Camden's musical soul intact.",
+    "lark_fit": "For late nights soaked in brass and groove. Dress up a little, stay for every encore.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028775",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_027",
+    "event_name": "Experimental Sound Night",
+    "venue_name": "️ EartH Hackney",
+    "venue_emoji": "🏛",
+    "date": "2025-11-16",
+    "time": "21:00",
     "area": "East London",
     "region": "East London",
-    "location": "Haggerston / Hoxton (Overground)",
+    "location": "Dalston (Overground)",
+    "genre_tags": [
+      "live performance"
+    ],
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.75,
+    "price_range": "£££",
+    "price_min": 18,
+    "price_max": 25,
+    "url": "https://earthackney.co.uk",
+    "description": "A restored 1930s art deco cinema with soaring ceilings and ornate details. Now hosting live music from indie to Afrobeat.",
+    "lark_fit": "For gigs that feel like events. Grand, gorgeous, and worth dressing up for.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028928",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_004",
+    "event_name": "Avant-Garde Showcase",
+    "venue_name": "The Bhavan (Bharatiya Vidya Bhavan)",
+    "venue_emoji": "🪕",
+    "date": "2025-11-17",
+    "time": "20:00",
+    "area": "West London",
+    "region": "West London",
+    "location": "West Kensington (tube)",
+    "genre_tags": [
+      "live performance"
+    ],
+    "mood_tags": [
+      "Spiritual / Sacred / Mystical",
+      "Global Rhythms"
+    ],
+    "mood_confidence": 0.88,
+    "price_range": "££",
+    "price_min": 12,
+    "price_max": 18,
+    "url": "https://bhavan.net",
+    "description": "Since 1972, The Bhavan has taught, preserved, and celebrated classical Indian dance, music, and philosophy. Concerts, workshops, and sacred arts in one space.",
+    "lark_fit": "For rhythm and reverence braided into heritage and heat.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028628",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_022",
+    "event_name": "Comedy Night",
+    "venue_name": "Soho Theatre",
+    "venue_emoji": "🎤",
+    "date": "2025-11-17",
+    "time": "20:00",
+    "area": "Central London",
+    "region": "Central London",
+    "location": "Tottenham Court Road (Northern/Central lines)",
+    "genre_tags": [
+      "theatre"
+    ],
+    "mood_tags": [
+      "Comic Relief",
+      "The Thoughtful Stage"
+    ],
+    "mood_confidence": 0.76,
+    "price_range": "£££",
+    "price_min": 18,
+    "price_max": 25,
+    "url": "https://sohotheatre.com",
+    "description": "A buzzy Soho hub for sharp comedy, bold new plays, and late-night cabaret. Smart, edgy, and often hilarious.",
+    "lark_fit": "For laughs that land hard and plays that punch. The bar stays open late.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028871",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_020",
+    "event_name": "Candlelit Folk Session",
+    "venue_name": "Blythe Hill Tavern",
+    "venue_emoji": "🍻",
+    "date": "2025-11-17",
+    "time": "20:30",
+    "area": "South London",
+    "region": "South London",
+    "location": "Honor Oak Park rail / Crofton Park",
+    "genre_tags": [
+      "live performance"
+    ],
+    "mood_tags": [
+      "Folk & Intimate",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "mood_confidence": 0.85,
+    "price_range": "Free",
+    "price_min": 0,
+    "price_max": 0,
+    "url": "https://blythehilltavern.org.uk",
+    "description": "A Victorian corner pub with roaring fires, friendly regulars, and Thursday night Irish music sessions.",
+    "lark_fit": "For when you want warmth, tradition, and the lilt of a fiddle by the fire.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028844",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_002",
+    "event_name": "Queer Variety Show",
+    "venue_name": "Corner New Cross",
+    "venue_emoji": "☕",
+    "date": "2025-11-18",
+    "time": "19:00",
+    "area": "South East London",
+    "region": "South East London",
+    "location": "New Cross Gate (Overground)",
     "genre_tags": [
       "live performance"
     ],
     "mood_tags": [
       "Queer Revelry",
-      "Cabaret & Glitter"
+      "Salon & Spark"
     ],
-    "mood_confidence": 0.94,
-    "price_range": "£££",
-    "price_min": 18,
-    "price_max": 25,
-    "url": "https://theglory.co",
-    "description": "A glittery queer haven with drag, cabaret, comedy, and club nights. Unapologetically loud, loving, and radical.",
-    "lark_fit": "For chosen family hangs and fierce performances. Safe, celebratory, and sparkling with rebellion.",
+    "mood_confidence": 0.96,
+    "price_range": "££",
+    "price_min": 10,
+    "price_max": 15,
+    "url": "(artrabbit.com listing)",
+    "description": "Quality coffee, cocktails, and local art in a proudly inclusive, creative space.",
+    "lark_fit": "For afternoons that turn into unexpected evenings.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081438",
+    "fetched_at": "2025-11-16T12:14:44.028584",
     "filter_passed": true
   },
   {
-    "event_id": "mock_006",
-    "event_name": "Experimental Sound Night",
-    "venue_name": "Bush Hall",
-    "venue_emoji": "🎼",
-    "date": "2025-11-16",
-    "time": "20:30",
-    "area": "West London",
-    "region": "West London",
-    "location": "Shepherd’s Bush (tube & Overground)",
+    "event_id": "mock_005",
+    "event_name": "Acoustic Night: Singer-Songwriters",
+    "venue_name": "Cecil Sharp House",
+    "venue_emoji": "🎻",
+    "date": "2025-11-18",
+    "time": "19:30",
+    "area": "North London",
+    "region": "North London",
+    "location": "Camden Town / Regent's Park (Northern line)",
+    "genre_tags": [
+      "folk"
+    ],
+    "mood_tags": [
+      "Folk & Intimate",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "mood_confidence": 0.76,
+    "price_range": "££",
+    "price_min": 10,
+    "price_max": 15,
+    "url": "https://cecilsharphouse.org",
+    "description": "The beating heart of English folk music. From ceilidhs to intimate song circles, this is where tradition breathes and stomps.",
+    "lark_fit": "For fiddles, reels, and the kind of dancing where everyone's welcome. Warm, unpretentious, alive with heritage.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028642",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_029",
+    "event_name": "Saturday Night Live Music Marathon",
+    "venue_name": "Fox & Firkin",
+    "venue_emoji": "🌳",
+    "date": "2025-11-18",
+    "time": "20:00",
+    "area": "South London",
+    "region": "South London",
+    "location": "Lewisham (DLR & rail)",
     "genre_tags": [
       "live music"
     ],
     "mood_tags": [
-      "Nostalgic / Vintage / Retro",
-      "Big Night Out"
+      "Big Night Out",
+      "Global Rhythms"
     ],
-    "mood_confidence": 0.88,
-    "price_range": "£",
-    "price_min": 5,
-    "price_max": 8,
-    "url": "https://bushhallmusic.co.uk",
-    "description": "Once a ballroom, then a WWII soup kitchen, now a gleaming indie music hall with chandeliers and rock history.",
-    "lark_fit": "For a night that feels like velvet and echoes with guitars.",
+    "mood_confidence": 0.84,
+    "price_range": "££",
+    "price_min": 12,
+    "price_max": 18,
+    "url": "https://foxandfirkin.com",
+    "description": "Historic pub with a wild outdoor stage and a converted train carriage for gigs. Hosts live music and underground DJs under the stars.",
+    "lark_fit": "A midsummer night’s rave in pub form. Flower crowns encouraged.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081248",
+    "fetched_at": "2025-11-16T12:14:44.028949",
     "filter_passed": true
   },
   {
-    "event_id": "mock_010",
-    "event_name": "Sound Art Installation Opening",
-    "venue_name": "St Martin-in-the-Fields",
+    "event_id": "mock_024",
+    "event_name": "Experimental Sound Night",
+    "venue_name": "Union Chapel",
     "venue_emoji": "⛪",
-    "date": "2025-11-17",
-    "time": "19:30",
-    "area": "Central London",
-    "region": "Central London",
-    "location": "Trafalgar Square (Charing Cross tube)",
+    "date": "2025-11-18",
+    "time": "21:00",
+    "area": "North London",
+    "region": "North London",
+    "location": "Islington (Victoria line)",
     "genre_tags": [
       "live performance"
     ],
@@ -100,192 +268,24 @@
       "Spiritual / Sacred / Mystical",
       "Wonder & Awe"
     ],
-    "mood_confidence": 0.79,
-    "price_range": "£",
-    "price_min": 5,
-    "price_max": 8,
-    "url": "https://stmartin-in-the-fields.org",
-    "description": "A Georgian church in the heart of London hosting candlelit concerts, jazz, and baroque music. Acoustics that feel like prayer.",
-    "lark_fit": "For evenings of beauty and stillness amidst the city's roar. Often by candlelight.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081321",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_008",
-    "event_name": "Pride in Song: Community Showcase",
-    "venue_name": "The Château",
-    "venue_emoji": "💃",
-    "date": "2025-11-17",
-    "time": "20:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Camberwell (rail / Northern line)",
-    "genre_tags": [
-      "live performance"
-    ],
-    "mood_tags": [
-      "Queer Revelry",
-      "Cabaret & Glitter"
-    ],
-    "mood_confidence": 0.97,
+    "mood_confidence": 0.91,
     "price_range": "£",
     "price_min": 8,
     "price_max": 10,
-    "url": "https://(venue social media & press features)",
-    "description": "A playful, stained-glass lit cabaret den for the local LGBTQ+ community — part performance art, part family living room.",
-    "lark_fit": "For unapologetic glitter, camp performance, and chosen family warmth.",
+    "url": "https://unionchapel.org.uk",
+    "description": "Gothic spires, stained glass, and acoustics that make your heart stop. Hosting everyone from folk legends to indie darlings in a space that feels like prayer.",
+    "lark_fit": "For nights when you want music to feel like something holy. Reverent, beautiful, deeply moving.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081286",
+    "fetched_at": "2025-11-16T12:14:44.028893",
     "filter_passed": true
   },
   {
-    "event_id": "mock_015",
-    "event_name": "Laugh & Listen: Comedy & Music",
-    "venue_name": "Tabard Pub & Theatre",
-    "venue_emoji": "🍻",
-    "date": "2025-11-17",
-    "time": "21:00",
-    "area": "West London",
-    "region": "West London",
-    "location": "Chiswick (District line)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "Comic Relief",
-      "Folk & Intimate"
-    ],
-    "mood_confidence": 0.81,
-    "price_range": "££",
-    "price_min": 12,
-    "price_max": 18,
-    "url": "https://tabard.org.uk (or pub site)",
-    "description": "A historic pub with a cosy upstairs theatre, serving comedy, plays, and the odd panto.",
-    "lark_fit": "For a pint downstairs and a play upstairs — a perfect local night.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081381",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_021",
-    "event_name": "Multi-Genre Music Festival",
-    "venue_name": "Tooting Tram & Social",
-    "venue_emoji": "🚋",
-    "date": "2025-11-17",
-    "time": "21:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Tooting Broadway (Northern line)",
-    "genre_tags": [
-      "live music"
-    ],
-    "mood_tags": [
-      "Big Night Out",
-      "Comic Relief"
-    ],
-    "mood_confidence": 0.89,
-    "price_range": "Free",
-    "price_min": 0,
-    "price_max": 0,
-    "url": "https://tootingtramandsocial.com",
-    "description": "Velvet sofas, high ceilings, DJs and bands in a quirky converted tram shed.",
-    "lark_fit": "Chaotic charm meets club energy — perfect for a raucous weekend.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081460",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_030",
-    "event_name": "Experimental Sound Night",
-    "venue_name": "Jacksons Lane",
-    "venue_emoji": "🎪",
-    "date": "2025-11-17",
-    "time": "21:00",
-    "area": "North London",
-    "region": "North London",
-    "location": "Highgate (Northern line + bus)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "Body-Based / Movement-Led",
-      "Curious Encounters"
-    ],
-    "mood_confidence": 0.9,
-    "price_range": "££",
-    "price_min": 12,
-    "price_max": 18,
-    "url": "https://jacksonslane.org.uk",
-    "description": "A converted church hosting circus, dance, aerial work, and movement-based performance. Joyful, inventive, gravity-defying.",
-    "lark_fit": "For nights of pure physical wonder. Great for families, dates, or solo marvelling.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081560",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_002",
-    "event_name": "Experimental Comedy",
-    "venue_name": "The Sebright Arms",
-    "venue_emoji": "🍺",
-    "date": "2025-11-18",
-    "time": "19:00",
-    "area": "East London",
-    "region": "East London",
-    "location": "Hackney / Bethnal Green (Overground)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "Playful & Weird",
-      "Comic Relief"
-    ],
-    "mood_confidence": 0.87,
-    "price_range": "Free",
-    "price_min": 0,
-    "price_max": 0,
-    "url": "https://thesebrightarms.com",
-    "description": "A scruffy East End boozer with a scrappy theatre upstairs. Comedy, drag, experimental one-acts — often brilliant, sometimes baffling.",
-    "lark_fit": "For cheap thrills and unpretentious nights. BYOB creativity.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081177",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_017",
-    "event_name": "Avant-Garde Showcase",
-    "venue_name": "The Space",
-    "venue_emoji": "🎭",
-    "date": "2025-11-18",
-    "time": "19:00",
-    "area": "East London",
-    "region": "East London",
-    "location": "Island Gardens (DLR)",
-    "genre_tags": [
-      "live performance"
-    ],
-    "mood_tags": [
-      "Grief & Grace",
-      "The Thoughtful Stage"
-    ],
-    "mood_confidence": 0.95,
-    "price_range": "££",
-    "price_min": 12,
-    "price_max": 18,
-    "url": "https://space.org.uk",
-    "description": "A converted 1859 chapel hosting theatre, music, and local arts in a hushed, intimate setting.",
-    "lark_fit": "For performances that feel held in something timeless.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081402",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_012",
-    "event_name": "Folk & Ale Evening",
+    "event_id": "mock_006",
+    "event_name": "Candlelit Folk Session",
     "venue_name": "The Islington",
     "venue_emoji": "🎵",
-    "date": "2025-11-18",
-    "time": "20:00",
+    "date": "2025-11-19",
+    "time": "19:30",
     "area": "North London",
     "region": "North London",
     "location": "Angel, Islington (Northern line)",
@@ -296,443 +296,51 @@
       "Folk & Intimate",
       "Nostalgic / Vintage / Retro"
     ],
-    "mood_confidence": 0.94,
-    "price_range": "£",
-    "price_min": 8,
-    "price_max": 10,
+    "mood_confidence": 0.78,
+    "price_range": "Free",
+    "price_min": 0,
+    "price_max": 0,
     "url": "https://theislington.com",
     "description": "A Victorian pub turned music venue, hosting acoustic acts and indie bands in a wood-panelled room that feels like someone's particularly cool living room.",
     "lark_fit": "Perfect for intimate gigs with a pint in hand. Local legends and rising folk stars share the stage.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081347",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_020",
-    "event_name": "Fireside Folk Songs",
-    "venue_name": "Tooting Folk @ the Selkirk",
-    "venue_emoji": "🎻",
-    "date": "2025-11-18",
-    "time": "20:30",
-    "area": "South London",
-    "region": "South London",
-    "location": "Tooting Broadway (Northern line)",
-    "genre_tags": [
-      "folk"
-    ],
-    "mood_tags": [
-      "Folk & Intimate",
-      "Poetic"
-    ],
-    "mood_confidence": 0.85,
-    "price_range": "Free",
-    "price_min": 0,
-    "price_max": 0,
-    "url": "",
-    "description": "An unplugged folk club above a historic pub, steeped in decades of song. Floor spots, guest acts, and the hum of old wood.",
-    "lark_fit": "For those who love a chorus you can join, pint in hand, in a room that feels unchanged.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081449",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_018",
-    "event_name": "New Writing Night",
-    "venue_name": "Streatham Space Project",
-    "venue_emoji": "🎭",
-    "date": "2025-11-19",
-    "time": "20:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Streatham (Overground/tube nearby)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "The Thoughtful Stage",
-      "Punchy / Protest"
-    ],
-    "mood_confidence": 0.85,
-    "price_range": "££",
-    "price_min": 12,
-    "price_max": 18,
-    "url": "https://streathamspaceproject.co.uk",
-    "description": "A purpose-built 120-seat theatre run by locals, bringing diverse voices and intimate stories to south London.",
-    "lark_fit": "A hub for fresh work, heartfelt performance, and community connection.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081413",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_026",
-    "event_name": "Avant-Garde Showcase",
-    "venue_name": "Colour House Theatre",
-    "venue_emoji": "🎭",
-    "date": "2025-11-20",
-    "time": "19:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Colliers Wood / South Wimbledon (Northern line)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "Family-Friendly",
-      "Nostalgic / Vintage / Retro"
-    ],
-    "mood_confidence": 0.87,
-    "price_range": "££",
-    "price_min": 10,
-    "price_max": 15,
-    "url": "https://culturecalling.com (Colour House Theatre page)",
-    "description": "A riverside mill turned tiny theatre, staging fairy tales, blues nights, and local productions.",
-    "lark_fit": "For whimsical afternoons with the kids or bluesy nights for grown-ups.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081516",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_029",
-    "event_name": "The Unexpected: Mystery Performance",
-    "venue_name": "The Albany",
-    "venue_emoji": "🌀",
-    "date": "2025-11-20",
-    "time": "20:30",
-    "area": "South London",
-    "region": "South London",
-    "location": "Deptford (rail / DLR)",
-    "genre_tags": [
-      "live performance"
-    ],
-    "mood_tags": [
-      "Rant & Rapture",
-      "Salon & Spark"
-    ],
-    "mood_confidence": 0.75,
-    "price_range": "Free",
-    "price_min": 0,
-    "price_max": 0,
-    "url": "https://thealbany.org.uk",
-    "description": "A round-stage theatre with an open heart — mixing community theatre, spoken word, dance, and music. Strong roots in social justice and local culture.",
-    "lark_fit": "For soulful assemblies where stories shift things, not just stir them.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081549",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_009",
-    "event_name": "Twilight Performance Art",
-    "venue_name": "Blue Elephant Theatre",
-    "venue_emoji": "🐘",
-    "date": "2025-11-20",
-    "time": "21:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Camberwell / Oval (Northern line – 15 min walk)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "Dreamlike & Hypnagogic",
-      "Body-Based / Movement-Led"
-    ],
-    "mood_confidence": 0.9,
-    "price_range": "££",
-    "price_min": 10,
-    "price_max": 15,
-    "url": "https://blueelephanttheatre.co.uk",
-    "description": "A tiny, hidden stage with a taste for the surreal. Produces dance, movement, and bold theatrical experiments in a compact, off-road space.",
-    "lark_fit": "For when you want something that wriggles into your subconscious.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081306",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_011",
-    "event_name": "Sound Art Installation Opening",
-    "venue_name": "Questors Theatre",
-    "venue_emoji": "🎭",
-    "date": "2025-11-20",
-    "time": "21:00",
-    "area": "West London",
-    "region": "West London",
-    "location": "Ealing Broadway (Central line)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "Family-Friendly",
-      "Comic Relief"
-    ],
-    "mood_confidence": 0.97,
-    "price_range": "£",
-    "price_min": 8,
-    "price_max": 10,
-    "url": "https://questors.org.uk",
-    "description": "One of the UK’s leading amateur theatres — from Shakespeare to pantos, staged with heart and skill.",
-    "lark_fit": "For theatre lovers who care about craft and community in equal measure.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081335",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_014",
-    "event_name": "Candlelit Folk Session",
-    "venue_name": "Tooting Folk @ the Selkirk",
-    "venue_emoji": "🎻",
-    "date": "2025-11-20",
-    "time": "21:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Tooting Broadway (Northern line)",
-    "genre_tags": [
-      "folk"
-    ],
-    "mood_tags": [
-      "Folk & Intimate",
-      "Poetic"
-    ],
-    "mood_confidence": 0.76,
-    "price_range": "££",
-    "price_min": 10,
-    "price_max": 15,
-    "url": "",
-    "description": "An unplugged folk club above a historic pub, steeped in decades of song. Floor spots, guest acts, and the hum of old wood.",
-    "lark_fit": "For those who love a chorus you can join, pint in hand, in a room that feels unchanged.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081370",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_023",
-    "event_name": "Queer Variety Show",
-    "venue_name": "The Château",
-    "venue_emoji": "💃",
-    "date": "2025-11-21",
-    "time": "20:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Camberwell (rail / Northern line)",
-    "genre_tags": [
-      "live performance"
-    ],
-    "mood_tags": [
-      "Queer Revelry",
-      "Cabaret & Glitter"
-    ],
-    "mood_confidence": 0.78,
-    "price_range": "££",
-    "price_min": 10,
-    "price_max": 15,
-    "url": "https://(venue social media & press features)",
-    "description": "A playful, stained-glass lit cabaret den for the local LGBTQ+ community — part performance art, part family living room.",
-    "lark_fit": "For unapologetic glitter, camp performance, and chosen family warmth.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081484",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_028",
-    "event_name": "Strange Frequencies: Electronic Exploration",
-    "venue_name": "Wilton's Music Hall",
-    "venue_emoji": "🕯️",
-    "date": "2025-11-21",
-    "time": "20:30",
-    "area": "East London",
-    "region": "East London",
-    "location": "Tower Hill / Aldgate East (District/Circle lines)",
-    "genre_tags": [
-      "live music"
-    ],
-    "mood_tags": [
-      "Romanticised London",
-      "Nostalgic / Vintage / Retro"
-    ],
-    "mood_confidence": 0.78,
-    "price_range": "£££",
-    "price_min": 18,
-    "price_max": 25,
-    "url": "https://wiltons.org.uk",
-    "description": "Peeling plaster, twisted columns, candlelight flickering on Victorian bones. A shipwreck of a building hosting opera, folk, theatre, and chamber music.",
-    "lark_fit": "For nights when you want to feel like a Victorian ghost. Haunting, atmospheric, utterly transportive.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081537",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_005",
-    "event_name": "Fireside Folk Songs",
-    "venue_name": "Tooting Folk @ the Selkirk",
-    "venue_emoji": "🎻",
-    "date": "2025-11-21",
-    "time": "21:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Tooting Broadway (Northern line)",
-    "genre_tags": [
-      "folk"
-    ],
-    "mood_tags": [
-      "Folk & Intimate",
-      "Poetic"
-    ],
-    "mood_confidence": 0.78,
-    "price_range": "££",
-    "price_min": 12,
-    "price_max": 18,
-    "url": "",
-    "description": "An unplugged folk club above a historic pub, steeped in decades of song. Floor spots, guest acts, and the hum of old wood.",
-    "lark_fit": "For those who love a chorus you can join, pint in hand, in a room that feels unchanged.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081235",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_027",
-    "event_name": "Intimate Storytelling Circle",
-    "venue_name": "The Sound Lounge",
-    "venue_emoji": "☕",
-    "date": "2025-11-22",
-    "time": "19:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Tooting Broadway (Northern line)",
-    "genre_tags": [
-      "live music"
-    ],
-    "mood_tags": [
-      "Folk & Intimate",
-      "Salon & Spark"
-    ],
-    "mood_confidence": 0.78,
-    "price_range": "£££",
-    "price_min": 18,
-    "price_max": 25,
-    "url": "https://thesoundlounge.org.uk",
-    "description": "Vegan café by day, grassroots music venue by night. Ethical, heart-forward, and alive with conversation.",
-    "lark_fit": "Where values meet verse — a home for activism, acoustic guitars, and slow listening.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081526",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_024",
-    "event_name": "Strange Frequencies: Electronic Exploration",
-    "venue_name": "Conway Hall",
-    "venue_emoji": "🏛️",
-    "date": "2025-11-23",
-    "time": "19:00",
-    "area": "Central London",
-    "region": "Central London",
-    "location": "Holborn (Piccadilly/Central lines)",
-    "genre_tags": [
-      "live performance"
-    ],
-    "mood_tags": [
-      "Salon & Spark",
-      "Poetic"
-    ],
-    "mood_confidence": 0.93,
-    "price_range": "£££",
-    "price_min": 18,
-    "price_max": 25,
-    "url": "https://conwayhall.org.uk",
-    "description": "A secular humanist hall hosting philosophy talks, folk concerts, and ethical debates since 1929. Thoughtful, progressive, welcoming.",
-    "lark_fit": "For Sunday morning lectures or Sunday evening song circles. Ideas and ideals in equal measure.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081495",
+    "fetched_at": "2025-11-16T12:14:44.028659",
     "filter_passed": true
   },
   {
     "event_id": "mock_007",
-    "event_name": "Monologue Night",
-    "venue_name": "Park Theatre",
-    "venue_emoji": "🌳",
-    "date": "2025-11-23",
-    "time": "20:00",
-    "area": "North London",
-    "region": "North London",
-    "location": "Finsbury Park (Victoria & Piccadilly lines)",
+    "event_name": "Theatre Workshop: Stories from the Margins",
+    "venue_name": "ActOne Cinema / Acton Arts Project",
+    "venue_emoji": "🎬",
+    "date": "2025-11-19",
+    "time": "20:30",
+    "area": "West London",
+    "region": "West London",
+    "location": "Acton Town (Piccadilly) / Acton Central (Overground)",
     "genre_tags": [
-      "theatre"
+      "live performance"
     ],
     "mood_tags": [
       "The Thoughtful Stage",
-      "Poetic"
+      "Salon & Spark"
     ],
-    "mood_confidence": 0.9,
-    "price_range": "Free",
-    "price_min": 0,
-    "price_max": 0,
-    "url": "https://parktheatre.co.uk",
-    "description": "A neighbourhood theatre with national ambitions. Staging bold new plays and reimagined classics with care, intelligence, and soul.",
-    "lark_fit": "For contemporary drama that lingers. Sharp writing, strong performances, intimate spaces.",
+    "mood_confidence": 0.95,
+    "price_range": "£",
+    "price_min": 8,
+    "price_max": 10,
+    "url": "https://actonecinema.co.uk",
+    "description": "A rescued library turned into a two-screen arthouse cinema and café. Volunteer-run, community-minded, and full of character.",
+    "lark_fit": "For film nights that feel like a shared secret.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081261",
+    "fetched_at": "2025-11-16T12:14:44.028673",
     "filter_passed": true
   },
   {
-    "event_id": "mock_004",
-    "event_name": "Avant-Garde Showcase",
-    "venue_name": "Colour House Theatre",
-    "venue_emoji": "🎭",
-    "date": "2025-11-24",
-    "time": "20:00",
-    "area": "South London",
-    "region": "South London",
-    "location": "Colliers Wood / South Wimbledon (Northern line)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "Family-Friendly",
-      "Nostalgic / Vintage / Retro"
-    ],
-    "mood_confidence": 0.93,
-    "price_range": "£££",
-    "price_min": 18,
-    "price_max": 25,
-    "url": "https://culturecalling.com (Colour House Theatre page)",
-    "description": "A riverside mill turned tiny theatre, staging fairy tales, blues nights, and local productions.",
-    "lark_fit": "For whimsical afternoons with the kids or bluesy nights for grown-ups.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081221",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_001",
-    "event_name": "The Unexpected: Mystery Performance",
-    "venue_name": "Jacksons Lane",
-    "venue_emoji": "🎪",
-    "date": "2025-11-24",
-    "time": "20:30",
-    "area": "North London",
-    "region": "North London",
-    "location": "Highgate (Northern line + bus)",
-    "genre_tags": [
-      "theatre"
-    ],
-    "mood_tags": [
-      "Body-Based / Movement-Led",
-      "Curious Encounters"
-    ],
-    "mood_confidence": 0.92,
-    "price_range": "££",
-    "price_min": 10,
-    "price_max": 15,
-    "url": "https://jacksonslane.org.uk",
-    "description": "A converted church hosting circus, dance, aerial work, and movement-based performance. Joyful, inventive, gravity-defying.",
-    "lark_fit": "For nights of pure physical wonder. Great for families, dates, or solo marvelling.",
-    "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081149",
-    "filter_passed": true
-  },
-  {
-    "event_id": "mock_013",
-    "event_name": "The Unexpected: Mystery Performance",
+    "event_id": "mock_017",
+    "event_name": "Experimental Sound Night",
     "venue_name": "The Space",
     "venue_emoji": "✨",
-    "date": "2025-11-24",
+    "date": "2025-11-19",
     "time": "21:30",
     "area": "East London",
     "region": "East London",
@@ -744,55 +352,139 @@
       "Grief & Grace",
       "The Thoughtful Stage"
     ],
-    "mood_confidence": 0.76,
-    "price_range": "£££",
-    "price_min": 18,
-    "price_max": 25,
+    "mood_confidence": 0.92,
+    "price_range": "££",
+    "price_min": 12,
+    "price_max": 18,
     "url": "https://space.org.uk",
     "description": "A spiritual hush lingers here. This tiny theatre-in-the-round, set in a converted church, leans into new writing and meaningful drama.",
     "lark_fit": "When you want to sit in something tender and true, held by old stone.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081359",
+    "fetched_at": "2025-11-16T12:14:44.028810",
     "filter_passed": true
   },
   {
-    "event_id": "mock_016",
-    "event_name": "Sound Art Installation Opening",
-    "venue_name": "Rebel Inn",
-    "venue_emoji": "🍺",
-    "date": "2025-11-25",
+    "event_id": "mock_030",
+    "event_name": "Radical Folk Night",
+    "venue_name": "The Ivy House",
+    "venue_emoji": "🍻",
+    "date": "2025-11-20",
     "time": "19:00",
     "area": "South London",
     "region": "South London",
-    "location": "Streatham rail / Streatham Hill",
+    "location": "Nunhead (Overground)",
     "genre_tags": [
-      "live performance"
+      "live music"
     ],
     "mood_tags": [
-      "Group Energy",
-      "Punchy / Protest"
+      "Punchy / Protest",
+      "Folk & Intimate"
     ],
-    "mood_confidence": 0.82,
+    "mood_confidence": 0.76,
     "price_range": "Free",
     "price_min": 0,
     "price_max": 0,
-    "url": "https://therebelinn.com",
-    "description": "More than a pub — a community living-room for open-mic nights, films, and board games. Welcoming, creative, and a little rebellious.",
-    "lark_fit": "For nights when you want to meet neighbours, share a laugh, and hatch ideas.",
+    "url": "https://ivyhousenunhead.com",
+    "description": "London’s first co-operatively owned pub, packed with punk gigs, folk nights, and radical spirit. Still dripping in heritage and old-school charm.",
+    "lark_fit": "Your lefty uncle’s dreamland, but with better beer and guitars.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081392",
+    "fetched_at": "2025-11-16T12:14:44.028959",
     "filter_passed": true
   },
   {
     "event_id": "mock_025",
-    "event_name": "Acoustic Night: Singer-Songwriters",
-    "venue_name": "Sir Colin Campbell",
-    "venue_emoji": "🍀",
-    "date": "2025-11-25",
-    "time": "21:00",
-    "area": "North West London",
-    "region": "North West London",
-    "location": "Kilburn (Jubilee line)",
+    "event_name": "Folk & Ale Evening",
+    "venue_name": "The Islington",
+    "venue_emoji": "🎵",
+    "date": "2025-11-20",
+    "time": "20:00",
+    "area": "North London",
+    "region": "North London",
+    "location": "Angel, Islington (Northern line)",
+    "genre_tags": [
+      "live music"
+    ],
+    "mood_tags": [
+      "Folk & Intimate",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "mood_confidence": 0.81,
+    "price_range": "£",
+    "price_min": 8,
+    "price_max": 10,
+    "url": "https://theislington.com",
+    "description": "A Victorian pub turned music venue, hosting acoustic acts and indie bands in a wood-panelled room that feels like someone's particularly cool living room.",
+    "lark_fit": "Perfect for intimate gigs with a pint in hand. Local legends and rising folk stars share the stage.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028903",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_001",
+    "event_name": "Experimental Sound Night",
+    "venue_name": "The Place",
+    "venue_emoji": "💃",
+    "date": "2025-11-20",
+    "time": "20:30",
+    "area": "Central London",
+    "region": "Central London",
+    "location": "King's Cross (multiple lines)",
+    "genre_tags": [
+      "theatre"
+    ],
+    "mood_tags": [
+      "Body-Based / Movement-Led",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.92,
+    "price_range": "£",
+    "price_min": 8,
+    "price_max": 10,
+    "url": "https://theplace.org.uk",
+    "description": "Britain's premier contemporary dance hub. Bold choreography, experimental movement, bodies speaking what words cannot.",
+    "lark_fit": "For nights of pure physical expression. Often abstract, always moving.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028537",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_011",
+    "event_name": "Experimental Sound Night",
+    "venue_name": "The Space",
+    "venue_emoji": "✨",
+    "date": "2025-11-21",
+    "time": "19:30",
+    "area": "East London",
+    "region": "East London",
+    "location": "Isle of Dogs (DLR)",
+    "genre_tags": [
+      "theatre"
+    ],
+    "mood_tags": [
+      "Grief & Grace",
+      "The Thoughtful Stage"
+    ],
+    "mood_confidence": 0.97,
+    "price_range": "£",
+    "price_min": 5,
+    "price_max": 8,
+    "url": "https://space.org.uk",
+    "description": "A spiritual hush lingers here. This tiny theatre-in-the-round, set in a converted church, leans into new writing and meaningful drama.",
+    "lark_fit": "When you want to sit in something tender and true, held by old stone.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028742",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_028",
+    "event_name": "Intimate Storytelling Circle",
+    "venue_name": "Gipsy Hill Tavern",
+    "venue_emoji": "🍻",
+    "date": "2025-11-21",
+    "time": "20:00",
+    "area": "South London",
+    "region": "South London",
+    "location": "Gipsy Hill (National Rail)",
     "genre_tags": [
       "live music"
     ],
@@ -800,43 +492,351 @@
       "Folk & Intimate",
       "Group Energy"
     ],
-    "mood_confidence": 0.92,
-    "price_range": "££",
-    "price_min": 12,
-    "price_max": 18,
-    "url": "https://sircc.pub",
-    "description": "Modern Irish pub with live trad sessions, LGBTQI-friendly ethos, and a big-hearted welcome.",
-    "lark_fit": "For reels, pints, and a sense of belonging.",
+    "mood_confidence": 0.76,
+    "price_range": "£",
+    "price_min": 8,
+    "price_max": 10,
+    "url": "(local listings)",
+    "description": "Weekly trad sessions and local film screenings in a warm, community-led pub.",
+    "lark_fit": "For Sunday tunes that spill into storytelling.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081505",
+    "fetched_at": "2025-11-16T12:14:44.028939",
     "filter_passed": true
   },
   {
-    "event_id": "mock_022",
-    "event_name": "Sound Art Installation Opening",
-    "venue_name": "Tramshed",
-    "venue_emoji": "🎭",
-    "date": "2025-11-26",
+    "event_id": "mock_010",
+    "event_name": "Caribbean Rhythms",
+    "venue_name": "Rich Mix",
+    "venue_emoji": "🌍",
+    "date": "2025-11-21",
+    "time": "20:30",
+    "area": "East London",
+    "region": "East London",
+    "location": "Shoreditch (Overground)",
+    "genre_tags": [
+      "live performance"
+    ],
+    "mood_tags": [
+      "Global Rhythms",
+      "Curious Encounters"
+    ],
+    "mood_confidence": 0.94,
+    "price_range": "£££",
+    "price_min": 18,
+    "price_max": 25,
+    "url": "https://richmix.org.uk",
+    "description": "A bold, diverse arts hub showcasing world cinema, live music, spoken word, and visual art from London's many communities.",
+    "lark_fit": "For discovering cultures and voices you didn't know you were missing. Open-hearted and endlessly curious.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028730",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_008",
+    "event_name": "Stand-Up Showcase",
+    "venue_name": "Tabard Pub & Theatre",
+    "venue_emoji": "🍻",
+    "date": "2025-11-23",
     "time": "20:00",
-    "area": "South East London",
-    "region": "South East London",
-    "location": "Woolwich Arsenal (DLR / Elizabeth Line)",
+    "area": "West London",
+    "region": "West London",
+    "location": "Chiswick (District line)",
     "genre_tags": [
       "theatre"
     ],
     "mood_tags": [
-      "Family-Friendly",
-      "Punchy / Protest"
+      "Comic Relief",
+      "Folk & Intimate"
     ],
     "mood_confidence": 0.96,
+    "price_range": "£££",
+    "price_min": 18,
+    "price_max": 25,
+    "url": "https://tabard.org.uk (or pub site)",
+    "description": "A historic pub with a cosy upstairs theatre, serving comedy, plays, and the odd panto.",
+    "lark_fit": "For a pint downstairs and a play upstairs — a perfect local night.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028700",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_023",
+    "event_name": "Immersive Theatre Experience",
+    "venue_name": "George IV Boston Room",
+    "venue_emoji": "🎷",
+    "date": "2025-11-23",
+    "time": "20:30",
+    "area": "West London",
+    "region": "West London",
+    "location": "Chiswick (District line)",
+    "genre_tags": [
+      "jazz"
+    ],
+    "mood_tags": [
+      "Wonder & Awe",
+      "Poetic"
+    ],
+    "mood_confidence": 0.86,
+    "price_range": "£",
+    "price_min": 5,
+    "price_max": 8,
+    "url": "https://chiswickcalendar.co.uk (jazz listings)",
+    "description": "Table-service jazz in a Victorian pub’s Boston Room — intimate lighting, fine acoustics, and the warmth of live swing or standards.",
+    "lark_fit": "For evenings where the music feels close enough to touch, and the past feels present.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028882",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_003",
+    "event_name": "Acoustic Night: Singer-Songwriters",
+    "venue_name": "Oslo Hackney",
+    "venue_emoji": "🎸",
+    "date": "2025-11-23",
+    "time": "21:30",
+    "area": "East London",
+    "region": "East London",
+    "location": "Hackney Central (Overground)",
+    "genre_tags": [
+      "live performance"
+    ],
+    "mood_tags": [
+      "Folk & Intimate",
+      "Big Night Out"
+    ],
+    "mood_confidence": 0.93,
+    "price_range": "££",
+    "price_min": 12,
+    "price_max": 18,
+    "url": "https://oslohackney.com",
+    "description": "A café by day, gig venue by night, tucked under railway arches. Hosts indie darlings, folk acts, and late-night DJ sets.",
+    "lark_fit": "For post-work pints that turn into dancing. Warm, inclusive, effortlessly cool.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028612",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_009",
+    "event_name": "Avant-Garde Showcase",
+    "venue_name": "The Space",
+    "venue_emoji": "✨",
+    "date": "2025-11-24",
+    "time": "19:00",
+    "area": "East London",
+    "region": "East London",
+    "location": "Isle of Dogs (DLR)",
+    "genre_tags": [
+      "theatre"
+    ],
+    "mood_tags": [
+      "Grief & Grace",
+      "The Thoughtful Stage"
+    ],
+    "mood_confidence": 0.8,
+    "price_range": "££",
+    "price_min": 12,
+    "price_max": 18,
+    "url": "https://space.org.uk",
+    "description": "A spiritual hush lingers here. This tiny theatre-in-the-round, set in a converted church, leans into new writing and meaningful drama.",
+    "lark_fit": "When you want to sit in something tender and true, held by old stone.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028717",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_013",
+    "event_name": "Global Sounds Collective",
+    "venue_name": "The Jazz Café",
+    "venue_emoji": "🎷",
+    "date": "2025-11-24",
+    "time": "19:00",
+    "area": "North London",
+    "region": "North London",
+    "location": "Camden Town (Northern line)",
+    "genre_tags": [
+      "jazz"
+    ],
+    "mood_tags": [
+      "Global Rhythms",
+      "Nostalgic / Vintage / Retro"
+    ],
+    "mood_confidence": 0.97,
+    "price_range": "££",
+    "price_min": 12,
+    "price_max": 18,
+    "url": "https://thejazzcafelondon.com",
+    "description": "Brick arches, moody lighting, and world-class jazz, soul, and Afrobeat. An institution that's kept Camden's musical soul intact.",
+    "lark_fit": "For late nights soaked in brass and groove. Dress up a little, stay for every encore.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028764",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_018",
+    "event_name": "Dance Floor Sessions",
+    "venue_name": "Tooting Tram & Social",
+    "venue_emoji": "🚋",
+    "date": "2025-11-24",
+    "time": "19:30",
+    "area": "South London",
+    "region": "South London",
+    "location": "Tooting Broadway (Northern line)",
+    "genre_tags": [
+      "live music"
+    ],
+    "mood_tags": [
+      "Big Night Out",
+      "Comic Relief"
+    ],
+    "mood_confidence": 0.88,
+    "price_range": "££",
+    "price_min": 10,
+    "price_max": 15,
+    "url": "https://tootingtramandsocial.com",
+    "description": "Velvet sofas, high ceilings, DJs and bands in a quirky converted tram shed.",
+    "lark_fit": "Chaotic charm meets club energy — perfect for a raucous weekend.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028821",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_012",
+    "event_name": "The Unexpected: Mystery Performance",
+    "venue_name": "Bush Hall",
+    "venue_emoji": "🎼",
+    "date": "2025-11-24",
+    "time": "21:30",
+    "area": "West London",
+    "region": "West London",
+    "location": "Shepherd’s Bush (tube & Overground)",
+    "genre_tags": [
+      "live music"
+    ],
+    "mood_tags": [
+      "Nostalgic / Vintage / Retro",
+      "Big Night Out"
+    ],
+    "mood_confidence": 0.91,
+    "price_range": "££",
+    "price_min": 12,
+    "price_max": 18,
+    "url": "https://bushhallmusic.co.uk",
+    "description": "Once a ballroom, then a WWII soup kitchen, now a gleaming indie music hall with chandeliers and rock history.",
+    "lark_fit": "For a night that feels like velvet and echoes with guitars.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028753",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_019",
+    "event_name": "Experimental Sound Night",
+    "venue_name": "Union Chapel",
+    "venue_emoji": "⛪",
+    "date": "2025-11-25",
+    "time": "20:00",
+    "area": "North London",
+    "region": "North London",
+    "location": "Islington (Victoria line)",
+    "genre_tags": [
+      "live performance"
+    ],
+    "mood_tags": [
+      "Spiritual / Sacred / Mystical",
+      "Wonder & Awe"
+    ],
+    "mood_confidence": 0.86,
+    "price_range": "£££",
+    "price_min": 18,
+    "price_max": 25,
+    "url": "https://unionchapel.org.uk",
+    "description": "Gothic spires, stained glass, and acoustics that make your heart stop. Hosting everyone from folk legends to indie darlings in a space that feels like prayer.",
+    "lark_fit": "For nights when you want music to feel like something holy. Reverent, beautiful, deeply moving.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028832",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_016",
+    "event_name": "Activist Voices Open Mic",
+    "venue_name": "The Ivy House",
+    "venue_emoji": "🍻",
+    "date": "2025-11-26",
+    "time": "20:00",
+    "area": "South London",
+    "region": "South London",
+    "location": "Nunhead (Overground)",
+    "genre_tags": [
+      "live music"
+    ],
+    "mood_tags": [
+      "Punchy / Protest",
+      "Folk & Intimate"
+    ],
+    "mood_confidence": 0.88,
+    "price_range": "££",
+    "price_min": 12,
+    "price_max": 18,
+    "url": "https://ivyhousenunhead.com",
+    "description": "London’s first co-operatively owned pub, packed with punk gigs, folk nights, and radical spirit. Still dripping in heritage and old-school charm.",
+    "lark_fit": "Your lefty uncle’s dreamland, but with better beer and guitars.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028799",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_026",
+    "event_name": "Strange Frequencies: Electronic Exploration",
+    "venue_name": "️ Bush Theatre",
+    "venue_emoji": "✍",
+    "date": "2025-11-27",
+    "time": "20:00",
+    "area": "West London",
+    "region": "West London",
+    "location": "Shepherd’s Bush (tube & Overground)",
+    "genre_tags": [
+      "live performance"
+    ],
+    "mood_tags": [
+      "Rant & Rapture",
+      "Salon & Spark"
+    ],
+    "mood_confidence": 0.91,
+    "price_range": "£",
+    "price_min": 8,
+    "price_max": 10,
+    "url": "https://bushtheatre.co.uk",
+    "description": "A legend in London’s theatre scene, Bush champions emerging playwrights and local stories. Accessible, activist, and often electric.",
+    "lark_fit": "For when you want your art freshly spoken and fiercely felt.",
+    "source": "lark_venues",
+    "fetched_at": "2025-11-16T12:14:44.028917",
+    "filter_passed": true
+  },
+  {
+    "event_id": "mock_021",
+    "event_name": "Weird & Wonderful Variety Night",
+    "venue_name": "Camden People's Theatre",
+    "venue_emoji": "🤹",
+    "date": "2025-11-27",
+    "time": "21:30",
+    "area": "North London",
+    "region": "North London",
+    "location": "Camden Town (Northern line)",
+    "genre_tags": [
+      "theatre"
+    ],
+    "mood_tags": [
+      "Playful & Weird",
+      "The Thoughtful Stage"
+    ],
+    "mood_confidence": 0.77,
     "price_range": "Free",
     "price_min": 0,
     "price_max": 0,
-    "url": "https://tramshed.org",
-    "description": "South-east London’s home of participation — theatre, music, and creative projects for all ages.",
-    "lark_fit": "For cross-generational gatherings and art that sparks dialogue.",
+    "url": "https://cptheatre.co.uk",
+    "description": "A tiny black box theatre championing bold, queer, radical, and downright strange performance. Fearless and unapologetically odd.",
+    "lark_fit": "For when you want theatre that challenges, surprises, and doesn't hold back. Expect the unexpected.",
     "source": "lark_venues",
-    "fetched_at": "2025-11-16T11:42:15.081473",
+    "fetched_at": "2025-11-16T12:14:44.028860",
     "filter_passed": true
   }
 ]

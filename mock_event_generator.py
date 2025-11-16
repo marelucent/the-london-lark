@@ -2,27 +2,146 @@
 """
 Mock Event Generator for The London Lark
 
-Generates realistic mock events using our 71-venue list.
+Generates realistic mock events using venues from lark_venues_clean.json.
 Creates diverse events with proper mood tags, dates, and prices.
 """
 
 import json
 import random
+import re
 from datetime import datetime, timedelta
 from pathlib import Path
 
-# Load structured venues
-VENUES_FILE = Path(__file__).parent / "lark_venues_structured.json"
+# Load from the CLEAN venue list
+VENUES_FILE = Path(__file__).parent / "lark_venues_clean.json"
+
+# Venues to EXCLUDE (removed from curation)
+EXCLUDED_VENUES = [
+    "Streatham Space Project",
+    "The Château",
+    "Château",
+]
+
+
+def parse_multiline_venue(venue_obj):
+    """
+    Parse a venue from lark_venues_clean.json format.
+
+    The format is:
+    {
+      "name": "🌿 Hootananny Brixton\nType: Live music pub\nLocation: ..."
+    }
+    """
+    if not venue_obj or "name" not in venue_obj:
+        return None
+
+    raw_text = venue_obj["name"]
+    lines = raw_text.split("\n")
+
+    if not lines:
+        return None
+
+    # First line is the full name with emoji
+    full_name = lines[0].strip()
+
+    # Extract emoji from the start
+    emoji = ""
+    display_name = full_name
+    if full_name and len(full_name) > 0:
+        # Check if first character is an emoji (non-ASCII)
+        first_char = full_name[0]
+        if ord(first_char) > 127:
+            emoji = first_char
+            display_name = full_name[1:].strip()
+        elif len(full_name) > 1 and ord(full_name[1]) > 127:
+            # Sometimes emoji is second char
+            emoji = full_name[:2]
+            display_name = full_name[2:].strip()
+
+    # Parse other fields
+    venue_data = {
+        "name": full_name,
+        "emoji": emoji,
+        "display_name": display_name,
+        "type": "",
+        "location": "",
+        "website": "",
+        "mood_tags": [],
+        "tone_notes": "",
+        "lark_fit_notes": "",
+        "tags": [],
+        "area": "London"
+    }
+
+    for line in lines[1:]:
+        line = line.strip()
+        if line.startswith("Type:"):
+            venue_data["type"] = line.replace("Type:", "").strip()
+        elif line.startswith("Location:"):
+            venue_data["location"] = line.replace("Location:", "").strip()
+        elif line.startswith("Website:"):
+            website = line.replace("Website:", "").strip()
+            # Clean up website
+            if website and not website.startswith("http"):
+                if not website.startswith("("):  # Skip placeholders like "(venue social media...)"
+                    website = "https://" + website
+            venue_data["website"] = website
+        elif line.startswith("Mapped Mood Tags:"):
+            tags_str = line.replace("Mapped Mood Tags:", "").strip()
+            venue_data["mood_tags"] = [t.strip() for t in tags_str.split(",")]
+        elif line.startswith("Tone Notes:"):
+            venue_data["tone_notes"] = line.replace("Tone Notes:", "").strip()
+        elif line.startswith("Lark Fit Notes:"):
+            venue_data["lark_fit_notes"] = line.replace("Lark Fit Notes:", "").strip()
+        elif line.startswith("Tags:"):
+            tags_str = line.replace("Tags:", "").strip()
+            venue_data["tags"] = [t.strip() for t in tags_str.split("|")]
+
+    # Extract area from tags (look for "🧭 South London" etc.)
+    for tag in venue_data["tags"]:
+        if "🧭" in tag:
+            area = tag.replace("🧭", "").strip()
+            venue_data["area"] = area
+            break
+
+    return venue_data
 
 
 def load_venues():
-    """Load the 71-venue structured list."""
+    """Load and parse venues from lark_venues_clean.json."""
     if not VENUES_FILE.exists():
         print(f"Error: {VENUES_FILE} not found")
         return []
 
     with open(VENUES_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+        raw_venues = json.load(f)
+
+    parsed_venues = []
+    seen_names = set()  # Track duplicates
+
+    for raw_venue in raw_venues:
+        parsed = parse_multiline_venue(raw_venue)
+        if not parsed:
+            continue
+
+        # Check for excluded venues
+        is_excluded = False
+        for excluded in EXCLUDED_VENUES:
+            if excluded.lower() in parsed["display_name"].lower():
+                is_excluded = True
+                break
+
+        if is_excluded:
+            continue
+
+        # Check for duplicates
+        if parsed["display_name"] in seen_names:
+            continue
+        seen_names.add(parsed["display_name"])
+
+        parsed_venues.append(parsed)
+
+    return parsed_venues
 
 
 # Event templates by mood/genre
@@ -147,7 +266,7 @@ PRICE_OPTIONS = [
 
 def generate_mock_events(num_events=30, days_ahead=14):
     """
-    Generate mock events using real venues.
+    Generate mock events using real venues from lark_venues_clean.json.
 
     Args:
         num_events: Number of events to generate
@@ -159,6 +278,8 @@ def generate_mock_events(num_events=30, days_ahead=14):
     venues = load_venues()
     if not venues:
         return []
+
+    print(f"   Loaded {len(venues)} venues from lark_venues_clean.json")
 
     events = []
     today = datetime.now()
@@ -277,14 +398,33 @@ if __name__ == "__main__":
     print("  LONDON LARK - MOCK EVENT GENERATOR")
     print("=" * 70)
     print()
+    print(f"  Loading from: {VENUES_FILE}")
+    print(f"  Excluding: {', '.join(EXCLUDED_VENUES)}")
+    print()
 
     # Generate events
     events = generate_mock_events(num_events=30, days_ahead=14)
-    print(f"✓ Generated {len(events)} mock events from 71 venues")
+    print(f"✓ Generated {len(events)} mock events")
+
+    # Verify excluded venues are NOT present
+    excluded_found = []
+    for event in events:
+        for excluded in EXCLUDED_VENUES:
+            if excluded.lower() in event["venue_name"].lower():
+                excluded_found.append(event["venue_name"])
+
+    if excluded_found:
+        print(f"⚠️  WARNING: Found excluded venues in events: {excluded_found}")
+    else:
+        print("✓ Confirmed: No excluded venues in generated events")
 
     # Save events
     output_file = save_events(events)
     print(f"✓ Saved to {output_file}")
+
+    # Show unique venues used
+    unique_venues = set(e["venue_name"] for e in events)
+    print(f"✓ Used {len(unique_venues)} unique venues")
 
     # Show sample
     print("\n" + "=" * 70)
