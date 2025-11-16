@@ -20,12 +20,20 @@ sys.path.insert(0, str(Path(__file__).parent / "events"))
 
 # Import fetchers
 from event_fetcher import EventFetcher
+
+# Mock event generator (uses 71-venue list)
 try:
-    from events.fetch_ra_events import fetch_ra_events, filter_for_lark_vibe as filter_ra_events
-    HAS_RA_FETCHER = True
+    from mock_event_generator import generate_mock_events, get_tonight_events, get_weekend_events, get_events_by_mood
+    HAS_MOCK_GENERATOR = True
 except ImportError:
-    HAS_RA_FETCHER = False
-    print("Note: Resident Advisor fetcher not available")
+    HAS_MOCK_GENERATOR = False
+    print("Note: Mock event generator not available")
+
+# Resident Advisor fetcher (Apify) - disabled for now
+HAS_RA_FETCHER = False
+
+# Dice.fm fetcher (Apify) - disabled for now
+HAS_DICE_FETCHER = False
 
 
 class EventPipeline:
@@ -56,45 +64,61 @@ class EventPipeline:
 
         all_events = []
 
-        # Source 1: Eventbrite (filtered)
-        print("📡 Fetching from Eventbrite...")
-        try:
-            eb_fetcher = EventFetcher(use_mock=use_mock)
-            eb_events = eb_fetcher.fetch_all_events()
-            all_events.extend(eb_events)
-            self.sources_status["eventbrite"] = {
-                "status": "success",
-                "count": len(eb_events),
-                "mock": use_mock
-            }
-            print(f"   ✓ Eventbrite: {len(eb_events)} events")
-        except Exception as e:
-            self.sources_status["eventbrite"] = {
-                "status": "error",
-                "error": str(e)
-            }
-            print(f"   ✗ Eventbrite error: {e}")
-
-        # Source 2: Resident Advisor
-        if HAS_RA_FETCHER:
-            print("\n📡 Fetching from Resident Advisor...")
+        # Source 1: Mock events from 71-venue list (primary source)
+        if HAS_MOCK_GENERATOR:
+            print("📡 Generating events from 71-venue list...")
             try:
-                raw_ra_events = fetch_ra_events(days_ahead=14)
-                if raw_ra_events:
-                    ra_events = filter_ra_events(raw_ra_events)
+                mock_events = generate_mock_events(num_events=30, days_ahead=14)
+                all_events.extend(mock_events)
+                self.sources_status["lark_venues"] = {
+                    "status": "success",
+                    "count": len(mock_events)
+                }
+                print(f"   ✓ Lark Venues: {len(mock_events)} events")
+            except Exception as e:
+                self.sources_status["lark_venues"] = {
+                    "status": "error",
+                    "error": str(e)
+                }
+                print(f"   ✗ Lark Venues error: {e}")
+        else:
+            # Fallback to Eventbrite mock if no generator
+            print("📡 Fetching from Eventbrite (mock)...")
+            try:
+                eb_fetcher = EventFetcher(use_mock=use_mock)
+                eb_events = eb_fetcher.fetch_all_events()
+                all_events.extend(eb_events)
+                self.sources_status["eventbrite"] = {
+                    "status": "success",
+                    "count": len(eb_events),
+                    "mock": use_mock
+                }
+                print(f"   ✓ Eventbrite: {len(eb_events)} events")
+            except Exception as e:
+                self.sources_status["eventbrite"] = {
+                    "status": "error",
+                    "error": str(e)
+                }
+                print(f"   ✗ Eventbrite error: {e}")
+
+        # Source 2: Resident Advisor (via Apify)
+        if HAS_RA_FETCHER:
+            print("\n📡 Fetching from Resident Advisor (Apify)...")
+            try:
+                ra_events = fetch_and_filter_ra_events(days_ahead=14, max_events=50)
+                if ra_events:
                     all_events.extend(ra_events)
                     self.sources_status["resident_advisor"] = {
                         "status": "success",
-                        "count": len(ra_events),
-                        "raw_count": len(raw_ra_events)
+                        "count": len(ra_events)
                     }
-                    print(f"   ✓ Resident Advisor: {len(ra_events)} events (filtered from {len(raw_ra_events)})")
+                    print(f"   ✓ Resident Advisor: {len(ra_events)} events")
                 else:
                     self.sources_status["resident_advisor"] = {
                         "status": "no_data",
                         "count": 0
                     }
-                    print("   ⚠ Resident Advisor: No events (API may require auth)")
+                    print("   ⚠ Resident Advisor: No events returned")
             except Exception as e:
                 self.sources_status["resident_advisor"] = {
                     "status": "error",
@@ -108,14 +132,55 @@ class EventPipeline:
             }
             print("\n⚠ Resident Advisor fetcher not available")
 
-        # Deduplicate events (by event_id)
+        # Source 3: Dice.fm (via Apify)
+        if HAS_DICE_FETCHER:
+            print("\n📡 Fetching from Dice.fm (Apify)...")
+            try:
+                dice_events = fetch_and_filter_dice_events(days_ahead=14, max_events=50)
+                if dice_events:
+                    all_events.extend(dice_events)
+                    self.sources_status["dice_fm"] = {
+                        "status": "success",
+                        "count": len(dice_events)
+                    }
+                    print(f"   ✓ Dice.fm: {len(dice_events)} events")
+                else:
+                    self.sources_status["dice_fm"] = {
+                        "status": "no_data",
+                        "count": 0
+                    }
+                    print("   ⚠ Dice.fm: No events returned")
+            except Exception as e:
+                self.sources_status["dice_fm"] = {
+                    "status": "error",
+                    "error": str(e)
+                }
+                print(f"   ✗ Dice.fm error: {e}")
+        else:
+            self.sources_status["dice_fm"] = {
+                "status": "not_available",
+                "count": 0
+            }
+            print("\n⚠ Dice.fm fetcher not available")
+
+        # Deduplicate events (by event_id and title+date)
         seen_ids = set()
+        seen_title_dates = set()
         unique_events = []
         for event in all_events:
             event_id = event.get("event_id", event.get("id", ""))
-            if event_id and event_id not in seen_ids:
+            title_date = f"{event.get('event_name', '').lower()}_{event.get('date', '')}"
+
+            # Skip if we've seen this event_id or title+date combo
+            if event_id and event_id in seen_ids:
+                continue
+            if title_date in seen_title_dates:
+                continue
+
+            if event_id:
                 seen_ids.add(event_id)
-                unique_events.append(event)
+            seen_title_dates.add(title_date)
+            unique_events.append(event)
 
         self.events = unique_events
 

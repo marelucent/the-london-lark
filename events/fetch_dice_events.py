@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Resident Advisor Event Fetcher for The London Lark
+Dice.fm Event Fetcher for The London Lark
 
-Uses Apify's RA scraper to fetch upcoming events in London.
+Uses Apify's Dice.fm scraper to fetch upcoming events in London.
 Filters and normalizes events to match the Lark's curatorial vision.
 """
 
@@ -36,19 +36,19 @@ except ImportError:
 # Apify API Token - set via environment variable in production
 # Get token from: https://my.apify.com/account/integrations
 APIFY_TOKEN = ""  # Set your token here or use environment variable
-RA_ACTOR_ID = "augeas/resident-advisor"
+DICE_ACTOR_ID = "lexis-solutions/dice-fm"
 
 
-def fetch_ra_events_apify(days_ahead=30, max_events=100):
+def fetch_dice_events_apify(days_ahead=30, max_events=100):
     """
-    Fetch events from Resident Advisor using Apify scraper.
+    Fetch events from Dice.fm using Apify scraper.
 
     Args:
         days_ahead: Number of days to look ahead
         max_events: Maximum number of events to fetch
 
     Returns:
-        list: Raw events from RA scraper
+        list: Raw events from Dice scraper
     """
     if not HAS_APIFY:
         print("Error: apify-client not installed")
@@ -68,11 +68,11 @@ def fetch_ra_events_apify(days_ahead=30, max_events=100):
         "maxItems": max_events,
     }
 
-    print(f"   Calling Apify RA scraper for London events ({start_date} to {end_date})...")
+    print(f"   Calling Apify Dice.fm scraper for London events ({start_date} to {end_date})...")
 
     try:
         # Run the actor and wait for it to finish
-        run = client.actor(RA_ACTOR_ID).call(run_input=run_input)
+        run = client.actor(DICE_ACTOR_ID).call(run_input=run_input)
 
         # Fetch results from the dataset
         dataset_items = client.dataset(run["defaultDatasetId"]).list_items().items
@@ -80,13 +80,13 @@ def fetch_ra_events_apify(days_ahead=30, max_events=100):
         return dataset_items
 
     except Exception as e:
-        print(f"   Error running Apify RA scraper: {e}")
+        print(f"   Error running Apify Dice scraper: {e}")
         return []
 
 
-def normalize_ra_event(raw_event):
+def normalize_dice_event(raw_event):
     """
-    Convert raw RA scraper data to our standard event format.
+    Convert raw Dice scraper data to our standard event format.
 
     Args:
         raw_event: Raw event dict from Apify scraper
@@ -95,59 +95,93 @@ def normalize_ra_event(raw_event):
         dict: Normalized event in Lark format
     """
     # Extract basic info (adjust field names based on actual scraper output)
-    event_id = raw_event.get("id", raw_event.get("url", "").split("/")[-1])
+    event_id = raw_event.get("id", raw_event.get("eventId", str(hash(raw_event.get("title", "")))))
     title = raw_event.get("title", raw_event.get("name", "Untitled Event"))
 
-    # Date and time
-    date_str = raw_event.get("date", "")
-    time_str = raw_event.get("startTime", raw_event.get("time", ""))
+    # Date and time - Dice often uses ISO format
+    date_str = ""
+    time_str = ""
 
-    # Try to parse date if it's in a different format
-    if not date_str and raw_event.get("datetime"):
+    # Try different date field names
+    datetime_field = raw_event.get("datetime", raw_event.get("startDate", raw_event.get("date", "")))
+    if datetime_field:
         try:
-            dt = datetime.fromisoformat(raw_event["datetime"].replace("Z", "+00:00"))
-            date_str = dt.strftime("%Y-%m-%d")
-            time_str = dt.strftime("%H:%M")
+            if isinstance(datetime_field, str):
+                # Handle ISO format
+                if "T" in datetime_field:
+                    dt = datetime.fromisoformat(datetime_field.replace("Z", "+00:00"))
+                else:
+                    dt = datetime.strptime(datetime_field, "%Y-%m-%d")
+                date_str = dt.strftime("%Y-%m-%d")
+                time_str = dt.strftime("%H:%M") if "T" in datetime_field else ""
+            else:
+                date_str = str(datetime_field)
         except:
-            pass
+            date_str = str(datetime_field)
 
-    # Venue info
-    venue_name = raw_event.get("venue", {}).get("name", raw_event.get("venueName", "Unknown Venue"))
-    if isinstance(venue_name, dict):
-        venue_name = venue_name.get("name", "Unknown Venue")
+    if not time_str:
+        time_str = raw_event.get("startTime", raw_event.get("time", ""))
 
-    area = raw_event.get("venue", {}).get("area", raw_event.get("area", "London"))
-    if isinstance(area, dict):
-        area = area.get("name", "London")
+    # Venue info - Dice structure may vary
+    venue_data = raw_event.get("venue", {})
+    if isinstance(venue_data, dict):
+        venue_name = venue_data.get("name", "Unknown Venue")
+        area = venue_data.get("area", venue_data.get("address", {}).get("area", "London"))
+        if isinstance(area, dict):
+            area = area.get("name", "London")
+    else:
+        venue_name = raw_event.get("venueName", str(venue_data) if venue_data else "Unknown Venue")
+        area = raw_event.get("area", raw_event.get("location", "London"))
 
-    # Artists
+    # Artists/lineup
     artists = raw_event.get("artists", raw_event.get("lineup", []))
     if isinstance(artists, list):
-        artist_names = [a.get("name", a) if isinstance(a, dict) else str(a) for a in artists]
+        artist_names = [a.get("name", str(a)) if isinstance(a, dict) else str(a) for a in artists]
+    elif isinstance(artists, str):
+        artist_names = [artists]
     else:
         artist_names = []
 
     # URL
-    url = raw_event.get("url", "")
+    url = raw_event.get("url", raw_event.get("link", ""))
     if url and not url.startswith("http"):
-        url = f"https://ra.co{url}"
+        url = f"https://dice.fm{url}"
 
     # Description
-    description = raw_event.get("description", raw_event.get("content", ""))
+    description = raw_event.get("description", raw_event.get("about", ""))
+    if isinstance(description, list):
+        description = " ".join(description)
 
-    # Price (RA often shows ticket info)
-    price_info = raw_event.get("tickets", raw_event.get("price", {}))
+    # Price - Dice shows ticket prices
+    price_info = raw_event.get("price", raw_event.get("tickets", {}))
     price_min = 0
     price_max = 0
+
     if isinstance(price_info, dict):
-        price_min = float(price_info.get("min", 0))
-        price_max = float(price_info.get("max", price_min))
+        price_min = float(price_info.get("min", price_info.get("from", 0)))
+        price_max = float(price_info.get("max", price_info.get("to", price_min)))
     elif isinstance(price_info, (int, float)):
         price_min = float(price_info)
         price_max = price_min
+    elif isinstance(price_info, str):
+        # Try to parse "£12.50" format
+        try:
+            price_str = price_info.replace("£", "").replace(",", "").strip()
+            if "-" in price_str:
+                parts = price_str.split("-")
+                price_min = float(parts[0].strip())
+                price_max = float(parts[1].strip())
+            else:
+                price_min = float(price_str)
+                price_max = price_min
+        except:
+            pass
+
+    # Check for free events
+    is_free = raw_event.get("isFree", False) or price_min == 0
 
     # Classify price range
-    if price_min == 0:
+    if is_free:
         price_range = "Free"
     elif price_max <= 10:
         price_range = "£"
@@ -158,15 +192,17 @@ def normalize_ra_event(raw_event):
     else:
         price_range = "££££"
 
-    # Infer mood and genre tags
-    mood_tags, mood_confidence = infer_mood_from_ra(title, description, artist_names, venue_name)
-    genre_tags = extract_genre_tags_ra(title, description, artist_names)
+    # Genre tags from Dice categories
+    genre_tags = extract_genre_tags_dice(raw_event, title, description, artist_names)
+
+    # Infer mood tags
+    mood_tags, mood_confidence = infer_mood_from_dice(title, description, artist_names, venue_name, genre_tags)
 
     # Get region
     region = get_london_region(area)
 
     normalized = {
-        "event_id": f"ra_{event_id}",
+        "event_id": f"dice_{event_id}",
         "event_name": title,
         "venue_name": venue_name,
         "date": date_str,
@@ -176,13 +212,13 @@ def normalize_ra_event(raw_event):
         "genre_tags": genre_tags,
         "mood_tags": mood_tags,
         "mood_confidence": mood_confidence,
-        "artists": artist_names[:10],  # Limit to 10 artists
+        "artists": artist_names[:10],
         "price_range": price_range,
         "price_min": price_min,
         "price_max": price_max,
         "url": url,
         "description": description[:500] if description else "",
-        "source": "resident_advisor",
+        "source": "dice_fm",
         "fetched_at": datetime.now().isoformat(),
         "filter_passed": True
     }
@@ -190,18 +226,18 @@ def normalize_ra_event(raw_event):
     return normalized
 
 
-def infer_mood_from_ra(title, description, artists, venue):
+def infer_mood_from_dice(title, description, artists, venue, genre_tags):
     """
-    Infer mood tags from RA event data.
+    Infer mood tags from Dice event data.
 
     Returns:
         tuple: (list of mood tags, confidence score)
     """
     if not HAS_CONFIG:
-        return ["Late-Night Lark", "Curious Encounters"], 0.6
+        return ["Curious Encounters", "Group Energy"], 0.6
 
     # Combine all text for analysis
-    combined = f"{title} {description} {' '.join(artists)} {venue}".lower()
+    combined = f"{title} {description} {' '.join(artists)} {venue} {' '.join(genre_tags)}".lower()
 
     mood_scores = {}
 
@@ -214,8 +250,8 @@ def infer_mood_from_ra(title, description, artists, venue):
             mood_scores[mood] = min(score / 3.0, 1.0)
 
     if not mood_scores:
-        # Default for RA events (electronic/dance focus)
-        return ["Late-Night Lark", "Group Energy"], 0.65
+        # Default for Dice events (indie/alternative focus)
+        return ["Curious Encounters", "Group Energy"], 0.6
 
     # Return top 2 moods
     sorted_moods = sorted(mood_scores.items(), key=lambda x: x[1], reverse=True)
@@ -225,41 +261,47 @@ def infer_mood_from_ra(title, description, artists, venue):
     return top_moods, max_confidence
 
 
-def extract_genre_tags_ra(title, description, artists):
+def extract_genre_tags_dice(raw_event, title, description, artists):
     """
-    Extract genre tags from RA event data.
+    Extract genre tags from Dice event data.
     """
+    # Check for explicit categories/tags from Dice
+    categories = raw_event.get("categories", raw_event.get("tags", raw_event.get("genres", [])))
+    if isinstance(categories, list):
+        genre_tags = [str(c).lower() for c in categories]
+    else:
+        genre_tags = []
+
+    # Also infer from text
     combined = f"{title} {description} {' '.join(artists)}".lower()
 
-    # RA-specific genre keywords
+    # Dice-focused genre keywords (more indie/alternative than RA)
     genre_keywords = {
-        "techno": ["techno"],
-        "house": ["house", "deep house", "tech house"],
-        "drum and bass": ["drum and bass", "dnb", "jungle"],
-        "ambient": ["ambient", "atmospheric"],
+        "indie": ["indie", "independent"],
+        "rock": ["rock", "post-punk", "punk"],
+        "electronic": ["electronic", "synth"],
+        "pop": ["pop", "synth-pop"],
+        "hip-hop": ["hip-hop", "hip hop", "rap"],
+        "r&b": ["r&b", "rnb", "soul"],
+        "jazz": ["jazz"],
+        "folk": ["folk", "acoustic"],
+        "metal": ["metal", "heavy"],
         "experimental": ["experimental", "avant-garde"],
-        "electronic": ["electronic", "electronica"],
-        "disco": ["disco", "nu-disco"],
-        "dub": ["dub", "dubstep"],
-        "breaks": ["breaks", "breakbeat"],
-        "minimal": ["minimal"],
-        "industrial": ["industrial", "ebm"],
-        "trance": ["trance", "psytrance"],
-        "garage": ["garage", "uk garage"],
-        "grime": ["grime"],
+        "dance": ["dance", "club"],
+        "comedy": ["comedy", "stand-up"],
+        "spoken word": ["spoken word", "poetry"],
+        "theatre": ["theatre", "theater", "performance"],
     }
 
-    found_genres = []
     for genre, keywords in genre_keywords.items():
         for keyword in keywords:
-            if keyword in combined:
-                found_genres.append(genre)
-                break
+            if keyword in combined and genre not in genre_tags:
+                genre_tags.append(genre)
 
-    if not found_genres:
-        found_genres = ["electronic", "underground"]
+    if not genre_tags:
+        genre_tags = ["live music", "indie"]
 
-    return list(set(found_genres))[:5]  # Dedupe and limit
+    return list(set(genre_tags))[:5]  # Dedupe and limit
 
 
 def get_london_region(area_name):
@@ -269,7 +311,7 @@ def get_london_region(area_name):
     if not HAS_CONFIG:
         return "London"
 
-    area_lower = area_name.lower()
+    area_lower = str(area_name).lower()
 
     # Check config mapping first
     for area_key, region in AREA_TO_REGION.items():
@@ -277,7 +319,7 @@ def get_london_region(area_name):
             return region
 
     # Fallback mapping
-    ra_area_map = {
+    dice_area_map = {
         "east london": "East London",
         "south london": "South London",
         "north london": "North London",
@@ -290,10 +332,12 @@ def get_london_region(area_name):
         "peckham": "South London",
         "camden": "North London",
         "islington": "North London",
-        "vauxhall": "South London",
+        "soho": "Central London",
+        "kings cross": "Central London",
+        "king's cross": "Central London",
     }
 
-    for key, region in ra_area_map.items():
+    for key, region in dice_area_map.items():
         if key in area_lower:
             return region
 
@@ -341,27 +385,27 @@ def filter_for_lark_vibe(events):
     return filtered
 
 
-def fetch_and_filter_ra_events(days_ahead=30, max_events=100):
+def fetch_and_filter_dice_events(days_ahead=30, max_events=100):
     """
-    Main function: Fetch RA events and filter for Lark's vibe.
+    Main function: Fetch Dice events and filter for Lark's vibe.
 
     Returns:
         list: Filtered and normalized events
     """
     # Fetch raw events
-    raw_events = fetch_ra_events_apify(days_ahead=days_ahead, max_events=max_events)
+    raw_events = fetch_dice_events_apify(days_ahead=days_ahead, max_events=max_events)
 
     if not raw_events:
-        print("   No events fetched from RA")
+        print("   No events fetched from Dice.fm")
         return []
 
-    print(f"   Fetched {len(raw_events)} raw events from RA")
+    print(f"   Fetched {len(raw_events)} raw events from Dice.fm")
 
     # Normalize events
     normalized_events = []
     for raw_event in raw_events:
         try:
-            normalized = normalize_ra_event(raw_event)
+            normalized = normalize_dice_event(raw_event)
             normalized_events.append(normalized)
         except Exception as e:
             print(f"   Warning: Could not normalize event: {e}")
@@ -376,7 +420,7 @@ def fetch_and_filter_ra_events(days_ahead=30, max_events=100):
     return filtered_events
 
 
-def save_events(events, filename="ra_events.json"):
+def save_events(events, filename="dice_events.json"):
     """Save events to JSON file."""
     output_path = Path(__file__).parent.parent / filename
     with open(output_path, "w", encoding="utf-8") as f:
@@ -386,12 +430,12 @@ def save_events(events, filename="ra_events.json"):
 
 if __name__ == "__main__":
     print("=" * 70)
-    print("  LONDON LARK - RESIDENT ADVISOR FETCHER (Apify)")
+    print("  LONDON LARK - DICE.FM FETCHER (Apify)")
     print("=" * 70)
     print()
 
     # Fetch and filter events
-    events = fetch_and_filter_ra_events(days_ahead=14, max_events=50)
+    events = fetch_and_filter_dice_events(days_ahead=14, max_events=50)
 
     if events:
         # Save events
@@ -409,6 +453,7 @@ if __name__ == "__main__":
             print(f"   Date: {event['date']} at {event['time']}")
             print(f"   Area: {event['area']} ({event['region']})")
             print(f"   Mood: {', '.join(event['mood_tags'])} (conf: {event['mood_confidence']:.2f})")
+            print(f"   Genres: {', '.join(event['genre_tags'])}")
             print(f"   Price: {event['price_range']}")
             if event.get('artists'):
                 print(f"   Artists: {', '.join(event['artists'][:3])}")
