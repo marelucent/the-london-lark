@@ -1,39 +1,26 @@
 {
-  "total_queries": 8,
-  "mood_found": 8,
+  "total_queries": 11,
+  "mood_found": 11,
   "mood_not_found": 0,
   "confidence_distribution": {
-    "exact_match": 7,
+    "exact_match": 10,
     "high_confidence": 0,
     "medium_confidence": 1,
     "low_confidence": 0
   },
   "venue_matches": {
-    "found_venues": 7,
+    "found_venues": 10,
     "no_venues": 1
   },
   "filter_usage": {
-    "mood": 8,
-    "location": 5,
-    "time": 5,
+    "mood": 11,
+    "location": 6,
+    "time": 7,
     "budget": 2,
     "group": 2,
     "genre": 1
   },
   "session_history": [
-    {
-      "timestamp": "2025-11-14T11:01:45.339283",
-      "filters": {
-        "mood": "Comic Relief",
-        "time": "tonight",
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": "South London"
-      },
-      "confidence": 1.0,
-      "venue_count": 3
-    },
     {
       "timestamp": "2025-11-14T11:01:45.347016",
       "filters": {
@@ -124,6 +111,45 @@
       },
       "confidence": 1.0,
       "venue_count": 0
+    },
+    {
+      "timestamp": "2025-11-16T11:48:35.264034",
+      "filters": {
+        "mood": "Folk & Intimate",
+        "time": "tonight",
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 3
+    },
+    {
+      "timestamp": "2025-11-16T11:48:45.064930",
+      "filters": {
+        "mood": "Cabaret & Glitter",
+        "time": "weekend",
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 3
+    },
+    {
+      "timestamp": "2025-11-16T11:48:55.376084",
+      "filters": {
+        "mood": "Melancholic Beauty",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": "South London"
+      },
+      "confidence": 1.0,
+      "venue_count": 1
     }
   ]
 }
