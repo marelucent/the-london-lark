@@ -17,7 +17,7 @@ EXCLUDED_VENUES = [
 
 def load_parsed_venues():
     """
-    Load structured venues from lark_venues_structured.json.
+    Load structured venues from lark_venues_clean.json.
 
     Applies:
     - Exclusion filtering (removes specific venues)
