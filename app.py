@@ -13,6 +13,8 @@ from mood_resolver import resolve_from_keywords
 from venue_matcher import match_venues
 from response_generator import generate_response, get_current_voice_profile
 from lark_metrics import get_metrics
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 # Import voice profile system for debug info
 try:
@@ -24,10 +26,38 @@ except ImportError:
 
 app = Flask(__name__)
 
+def get_time_aware_greeting():
+    """Generate a poetic greeting based on current time and day in London"""
+    london_tz = ZoneInfo('Europe/London')
+    now = datetime.now(london_tz)
+    hour = now.hour
+    day_name = now.strftime('%A')
+
+    # Check for special day/time combinations first
+    if day_name == 'Friday' and 18 <= hour <= 23:
+        return "The weekend threshold... where will you cross over?"
+    elif day_name == 'Saturday' and (hour >= 20 or hour < 2):
+        return "When the city is most alive..."
+    elif day_name == 'Sunday' and 12 <= hour <= 17:
+        return "In the gentle decay of Sunday..."
+    elif day_name == 'Monday' and 6 <= hour <= 11:
+        return "A new week unfolds..."
+
+    # Default time-of-day greetings
+    if 6 <= hour <= 11:
+        return "The city stirs, petal. What calls to you this morning?"
+    elif 12 <= hour <= 17:
+        return "In the lull between rush... what does your afternoon need?"
+    elif 18 <= hour <= 23:
+        return "As streetlights flicker awake... where will you wander tonight?"
+    else:  # 0-5 (midnight to 5am)
+        return "For the night-wanderers and the sleepless... the city holds space for you."
+
 @app.route('/')
 def home():
     """Serve the main page"""
-    return render_template('index.html')
+    greeting = get_time_aware_greeting()
+    return render_template('index.html', greeting=greeting)
 
 @app.route('/ask', methods=['POST'])
 def ask_lark():
