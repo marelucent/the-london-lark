@@ -1,0 +1,296 @@
+{
+  "fetched_at": "2025-11-16T10:33:12.720329",
+  "sources_status": {
+    "eventbrite": {
+      "status": "success",
+      "count": 10,
+      "mock": true
+    },
+    "resident_advisor": {
+      "status": "no_data",
+      "count": 0
+    }
+  },
+  "total_events": 10,
+  "events": [
+    {
+      "event_name": "Late Night Jazz Session",
+      "venue_name": "The Jazz Café",
+      "date": "2025-11-16",
+      "time": "21:00",
+      "area": "Camden Town",
+      "region": "North London",
+      "genre_tags": [
+        "jazz",
+        "blues",
+        "late night"
+      ],
+      "mood_tags": [
+        "Melancholic Beauty",
+        "Late-Night Lark"
+      ],
+      "mood_confidence": 0.92,
+      "price_range": "££",
+      "price_min": 15,
+      "price_max": 20,
+      "url": "https://www.eventbrite.com/e/jazz-session-tickets",
+      "description": "Intimate jazz performances under low lights. Blues, soul, and contemplative rhythms.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_004",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.630008",
+      "filter_passed": true
+    },
+    {
+      "event_name": "Queer Cabaret Spectacular",
+      "venue_name": "The Glory",
+      "date": "2025-11-17",
+      "time": "20:00",
+      "area": "Haggerston",
+      "region": "East London",
+      "genre_tags": [
+        "cabaret",
+        "drag",
+        "queer"
+      ],
+      "mood_tags": [
+        "Queer Revelry",
+        "Cabaret & Glitter"
+      ],
+      "mood_confidence": 1.0,
+      "price_range": "£",
+      "price_min": 8,
+      "price_max": 12,
+      "url": "https://www.eventbrite.com/e/queer-cabaret-tickets",
+      "description": "A night of fierce drag performances, glittering costumes, and chosen family warmth. LGBTQ+ celebration with sequins.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_002",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.629998",
+      "filter_passed": true
+    },
+    {
+      "event_name": "An Evening of English Folk Songs",
+      "venue_name": "Cecil Sharp House",
+      "date": "2025-11-18",
+      "time": "19:30",
+      "area": "Camden Town",
+      "region": "North London",
+      "genre_tags": [
+        "folk",
+        "acoustic",
+        "traditional"
+      ],
+      "mood_tags": [
+        "Folk & Intimate"
+      ],
+      "mood_confidence": 0.95,
+      "price_range": "££",
+      "price_min": 12,
+      "price_max": 15,
+      "url": "https://www.eventbrite.com/e/folk-songs-tickets",
+      "description": "Traditional English folk songs in an intimate candlelit setting. Featuring singer-songwriters and acoustic instruments.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_001",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.629986",
+      "filter_passed": true
+    },
+    {
+      "event_name": "The Quiet Room - Experimental Theatre",
+      "venue_name": "Camden People's Theatre",
+      "date": "2025-11-19",
+      "time": "19:00",
+      "area": "Camden Town",
+      "region": "North London",
+      "genre_tags": [
+        "theatre",
+        "experimental",
+        "fringe"
+      ],
+      "mood_tags": [
+        "The Thoughtful Stage",
+        "Curious Encounters"
+      ],
+      "mood_confidence": 0.88,
+      "price_range": "££",
+      "price_min": 10,
+      "price_max": 14,
+      "url": "https://www.eventbrite.com/e/quiet-room-tickets",
+      "description": "Intimate experimental theatre about silence and human connection. New writing, thought-provoking.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_003",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.630003",
+      "filter_passed": true
+    },
+    {
+      "event_name": "Poetry Open Mic Night",
+      "venue_name": "The Sound Lounge",
+      "date": "2025-11-20",
+      "time": "19:30",
+      "area": "Tooting",
+      "region": "South London",
+      "genre_tags": [
+        "poetry",
+        "spoken word",
+        "open mic"
+      ],
+      "mood_tags": [
+        "Poetic",
+        "Folk & Intimate"
+      ],
+      "mood_confidence": 0.9,
+      "price_range": "Free",
+      "price_min": 0,
+      "price_max": 0,
+      "url": "https://www.eventbrite.com/e/poetry-open-mic-tickets",
+      "description": "Grassroots spoken word and poetry in a welcoming community venue. Free entry, donations welcome.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_005",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.630013",
+      "filter_passed": true
+    },
+    {
+      "event_name": "Ambient Soundscapes: Modular Synthesis",
+      "venue_name": "Café OTO",
+      "date": "2025-11-21",
+      "time": "20:30",
+      "area": "Dalston",
+      "region": "East London",
+      "genre_tags": [
+        "electronic",
+        "experimental",
+        "ambient"
+      ],
+      "mood_tags": [
+        "Dreamlike & Hypnagogic",
+        "Playful & Weird"
+      ],
+      "mood_confidence": 0.85,
+      "price_range": "££",
+      "price_min": 12,
+      "price_max": 15,
+      "url": "https://www.eventbrite.com/e/ambient-soundscapes-tickets",
+      "description": "Experimental electronic music using modular synthesizers. Hypnotic, ethereal soundscapes.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_006",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.630017",
+      "filter_passed": true
+    },
+    {
+      "event_name": "Balkan Brass Band: Live & Acoustic",
+      "venue_name": "Union Chapel",
+      "date": "2025-11-22",
+      "time": "19:00",
+      "area": "Islington",
+      "region": "North London",
+      "genre_tags": [
+        "world music",
+        "balkan",
+        "brass"
+      ],
+      "mood_tags": [
+        "Global Rhythms",
+        "Group Energy"
+      ],
+      "mood_confidence": 0.93,
+      "price_range": "££",
+      "price_min": 16,
+      "price_max": 20,
+      "url": "https://www.eventbrite.com/e/balkan-brass-tickets",
+      "description": "Traditional Balkan brass music in a beautiful Gothic church setting.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_007",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.630022",
+      "filter_passed": true
+    },
+    {
+      "event_name": "Radical Voices: Community Theatre",
+      "venue_name": "The Albany",
+      "date": "2025-11-23",
+      "time": "18:30",
+      "area": "Deptford",
+      "region": "South London",
+      "genre_tags": [
+        "theatre",
+        "activist",
+        "community"
+      ],
+      "mood_tags": [
+        "Rant & Rapture",
+        "Punchy / Protest"
+      ],
+      "mood_confidence": 0.87,
+      "price_range": "£",
+      "price_min": 5,
+      "price_max": 10,
+      "url": "https://www.eventbrite.com/e/radical-voices-tickets",
+      "description": "Community theatre tackling social justice issues. Passionate performances, local stories.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_008",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.630026",
+      "filter_passed": true
+    },
+    {
+      "event_name": "Physical Theatre: Movement Without Words",
+      "venue_name": "The Place",
+      "date": "2025-11-24",
+      "time": "20:00",
+      "area": "Kings Cross",
+      "region": "Central London",
+      "genre_tags": [
+        "dance",
+        "physical theatre",
+        "contemporary"
+      ],
+      "mood_tags": [
+        "Body-Based / Movement-Led",
+        "Curious Encounters"
+      ],
+      "mood_confidence": 0.91,
+      "price_range": "££",
+      "price_min": 14,
+      "price_max": 18,
+      "url": "https://www.eventbrite.com/e/physical-theatre-tickets",
+      "description": "Contemporary dance and physical theatre exploring human connection through movement.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_009",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.630035",
+      "filter_passed": true
+    },
+    {
+      "event_name": "Independent Film Screening + Q&A",
+      "venue_name": "Close-Up Film Centre",
+      "date": "2025-11-25",
+      "time": "19:30",
+      "area": "Shoreditch",
+      "region": "East London",
+      "genre_tags": [
+        "film",
+        "independent",
+        "arthouse"
+      ],
+      "mood_tags": [
+        "The Thoughtful Stage",
+        "Curious Encounters"
+      ],
+      "mood_confidence": 0.79,
+      "price_range": "££",
+      "price_min": 11,
+      "price_max": 13,
+      "url": "https://www.eventbrite.com/e/indie-film-screening-tickets",
+      "description": "Independent documentary screening followed by filmmaker Q&A.",
+      "source": "eventbrite_mock",
+      "event_id": "mock_eventbrite_010",
+      "matched_venue_id": null,
+      "fetched_at": "2025-11-16T10:33:12.630040",
+      "filter_passed": true
+    }
+  ]
+}
