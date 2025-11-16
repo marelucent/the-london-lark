@@ -52,6 +52,11 @@ def home():
     """Serve the main page"""
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    """Serve the about page"""
+    return render_template('about.html')
+
 @app.route('/venue/<venue_slug>')
 def venue_detail(venue_slug):
     """Display individual venue page"""

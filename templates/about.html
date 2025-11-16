@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | The London Lark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .about-page {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: #f0e68c;
+        }
+
+        .about-hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.15);
+        }
+
+        .about-hero h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            line-height: 1.6;
+            color: #f0e68c;
+        }
+
+        .about-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .about-section h2 {
+            font-size: 1.1rem;
+            color: #b0c4de;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #e8e8e8;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            color: #f0e68c;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-page">
+        <a href="/" class="back-link">&larr; Return to the Lark</a>
+
+        <div class="about-hero">
+            <h1>The Lark is a companion for London's cultural undercurrent</h1>
+        </div>
+
+        <div class="about-section">
+            <h2>How She Works</h2>
+            <p>
+                The Lark doesn't serve you algorithms or sponsored listings. She listens to your mood &mdash;
+                <span class="highlight">melancholic, queer, intimate, strange</span> &mdash; and offers venues that resonate.
+                Think of her as a friend who knows the city's hidden corners, speaking in poetry rather than star ratings.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Who She's For</h2>
+            <p>
+                The seekers. The tender rebels. The mystically-minded wanderers looking for a candlelit jazz crypt
+                or a queer cabaret night. If you've ever felt that mainstream nightlife guides speak a language
+                you don't quite understand, the Lark was made for you.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2>Her Voice</h2>
+            <p>
+                Poetic but never pretentious. She'll tell you where to go, but she'll also tell you
+                <span class="highlight">why it might move you</span>. The Lark believes that finding the right
+                evening out is an act of self-care, and she treats it with the tenderness it deserves.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
