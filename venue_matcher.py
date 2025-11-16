@@ -122,8 +122,17 @@ def match_venues(filters):
         }
         matches.append(normalized_venue)
 
-    # Return top 3 matches
-    return matches[:3]
+    # Deduplicate matches by venue name (prevents same venue appearing multiple times)
+    seen_names = set()
+    deduplicated_matches = []
+    for venue in matches:
+        venue_name = venue.get("name", "").lower().strip()
+        if venue_name not in seen_names:
+            seen_names.add(venue_name)
+            deduplicated_matches.append(venue)
+
+    # Return top 3 unique matches
+    return deduplicated_matches[:3]
 
 if __name__ == "__main__":
     test_filters = {
