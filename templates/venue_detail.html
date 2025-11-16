@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ venue.name }} | The London Lark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .venue-page {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: #f0e68c;
+        }
+
+        .venue-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.15);
+        }
+
+        .venue-name {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.8rem;
+            color: #f0e68c;
+        }
+
+        .venue-location {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #b8b8b8;
+            letter-spacing: 0.05em;
+        }
+
+        .venue-blurb {
+            font-size: 1.2rem;
+            line-height: 2;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-style: italic;
+            color: #e8e8e8;
+            opacity: 0.9;
+        }
+
+        .venue-moods {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .mood-tag {
+            display: inline-block;
+            margin: 0.4rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(240, 230, 140, 0.12);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #f0e68c;
+            letter-spacing: 0.04em;
+        }
+
+        .mood-tag .icon {
+            margin-right: 0.4em;
+        }
+
+        .venue-meta {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.1);
+        }
+
+        .meta-item {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .meta-label {
+            color: #b0c4de;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: block;
+            margin-bottom: 0.3rem;
+            opacity: 0.7;
+        }
+
+        .meta-value {
+            color: #e8e8e8;
+        }
+
+        .venue-website {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .website-link {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            background: linear-gradient(135deg, #f0e68c 0%, #daa520 100%);
+            border-radius: 8px;
+            color: #1a1a2e;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .website-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(240, 230, 140, 0.35);
+        }
+
+        .tags-section {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .genre-tag {
+            display: inline-block;
+            margin: 0.3rem;
+            padding: 0.3rem 0.9rem;
+            background: rgba(176, 196, 222, 0.15);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #b0c4de;
+            letter-spacing: 0.03em;
+        }
+    </style>
+</head>
+<body>
+    <div class="venue-page">
+        <a href="/" class="back-link">&larr; Return to the Lark</a>
+
+        <div class="venue-header">
+            <h1 class="venue-name">{{ venue.name }}</h1>
+            <div class="venue-location">{{ venue.area or venue.location or 'London' }}</div>
+        </div>
+
+        <div class="venue-blurb">
+            {{ venue.tone_notes or venue.vibe_note or 'A place where stories unfold...' }}
+        </div>
+
+        {% if venue.mood_tags %}
+        <div class="venue-moods">
+            {% for mood in venue.mood_tags %}
+            <span class="mood-tag">
+                <span class="icon">{{ mood_icons.get(mood, '🎵') }}</span>{{ mood }}
+            </span>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if venue.tags %}
+        <div class="tags-section">
+            {% for tag in venue.tags %}
+            <span class="genre-tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="venue-meta">
+            {% if venue.type %}
+            <div class="meta-item">
+                <span class="meta-label">Type</span>
+                <span class="meta-value">{{ venue.type }}</span>
+            </div>
+            {% endif %}
+
+            {% if venue.typical_start_time %}
+            <div class="meta-item">
+                <span class="meta-label">Doors</span>
+                <span class="meta-value">Around {{ venue.typical_start_time }}</span>
+            </div>
+            {% endif %}
+
+            {% if venue.price %}
+            <div class="meta-item">
+                <span class="meta-label">Entry</span>
+                <span class="meta-value">{{ venue.price }}</span>
+            </div>
+            {% endif %}
+        </div>
+
+        {% if venue.website and venue.website != '(n/a — pub site or folk club listing)' and not venue.website.startswith('(') %}
+        <div class="venue-website">
+            {% set url = venue.website %}
+            {% if not url.startswith('http://') and not url.startswith('https://') %}
+                {% set url = 'https://' + url %}
+            {% endif %}
+            <a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="website-link">
+                Visit Venue
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

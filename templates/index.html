@@ -123,6 +123,11 @@
             return moodIcons[mood] || '🎵';
         }
 
+        function venueNameToSlug(name) {
+            // Remove emoji and special chars, lowercase, replace spaces with hyphens
+            return name.replace(/[^\w\s-]/g, '').trim().toLowerCase().replace(/[-\s]+/g, '-');
+        }
+
         function addMessage(type, content, details = {}) {
             clearIntro();
 
@@ -135,18 +140,10 @@
             if (details.venue_name) {
                 const venueName = details.venue_name;
                 const area = details.area ? ' in ' + details.area : '';
-                const website = details.website;
+                const venueSlug = venueNameToSlug(venueName);
 
-                // Make venue name clickable if website exists
-                if (website && website !== '(n/a — pub site or folk club listing)' && website.trim() && !website.startsWith('(')) {
-                    let url = website;
-                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                        url = 'https://' + url;
-                    }
-                    html += `<div class="venue-details">📍 <a href="${url}" target="_blank" rel="noopener noreferrer" class="venue-link">${venueName}</a>${area}</div>`;
-                } else {
-                    html += `<div class="venue-details">📍 ${venueName}${area}</div>`;
-                }
+                // Link venue name to detail page
+                html += `<div class="venue-details">📍 <a href="/venue/${venueSlug}" class="venue-link">${venueName}</a>${area}</div>`;
             }
 
             if (details.mood) {

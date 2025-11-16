@@ -10,9 +10,10 @@ Run this, then open http://localhost:5000 in your browser.
 from flask import Flask, render_template, request, jsonify
 from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
-from venue_matcher import match_venues
+from venue_matcher import match_venues, venue_data
 from response_generator import generate_response, get_current_voice_profile
 from lark_metrics import get_metrics
+import re
 
 # Import voice profile system for debug info
 try:
@@ -24,10 +25,67 @@ except ImportError:
 
 app = Flask(__name__)
 
+# Make slug function available to templates
+@app.template_filter('venue_slug')
+def venue_slug_filter(name):
+    """Template filter to convert venue name to slug"""
+    slug = re.sub(r'[^\w\s-]', '', name).strip().lower()
+    slug = re.sub(r'[-\s]+', '-', slug)
+    return slug
+
+def venue_name_to_slug(name):
+    """Convert venue name to URL-friendly slug"""
+    # Remove emoji and special chars, lowercase, replace spaces with hyphens
+    slug = re.sub(r'[^\w\s-]', '', name).strip().lower()
+    slug = re.sub(r'[-\s]+', '-', slug)
+    return slug
+
+def slug_to_venue(slug):
+    """Find venue by slug"""
+    for venue in venue_data:
+        if venue_name_to_slug(venue.get('name', '')) == slug:
+            return venue
+    return None
+
 @app.route('/')
 def home():
     """Serve the main page"""
     return render_template('index.html')
+
+@app.route('/venue/<venue_slug>')
+def venue_detail(venue_slug):
+    """Display individual venue page"""
+    venue = slug_to_venue(venue_slug)
+    if not venue:
+        return render_template('index.html'), 404
+
+    # Mood icons mapping
+    mood_icons = {
+        'Folk & Intimate': '🌿',
+        'Queer Revelry': '🌈',
+        'Melancholic Beauty': '🌙',
+        'Late-Night Lark': '🦉',
+        'Curious Encounters': '✨',
+        'The Thoughtful Stage': '🎭',
+        'Global Rhythms': '🌍',
+        'Cabaret & Glitter': '💫',
+        'Poetic': '📜',
+        'Punchy / Protest': '🔥',
+        'Big Night Out': '🎉',
+        'Comic Relief': '😄',
+        'Dreamlike & Hypnagogic': '💭',
+        'Wonder & Awe': '🌟',
+        'Spiritual / Sacred / Mystical': '🕯️',
+        'Playful & Weird': '🎪',
+        'Nostalgic / Vintage / Retro': '📻',
+        'Body-Based / Movement-Led': '💃',
+        'Grief & Grace': '🕊️',
+        'Witchy & Wild': '🌛',
+        'Group Energy': '👥',
+        'Word & Voice': '🎤'
+    }
+
+    return render_template('venue_detail.html', venue=venue, mood_icons=mood_icons)
 
 @app.route('/ask', methods=['POST'])
 def ask_lark():
