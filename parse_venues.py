@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # 🕊️ Venue Data Parser
 """
-Loads the structured venue data from lark_venues_structured.json.
+Loads the structured venue data from lark_venues_clean.json.json.
 Applies exclusion filtering and deduplication.
 """
 
@@ -23,7 +23,7 @@ def load_parsed_venues():
     - Exclusion filtering (removes specific venues)
     - Deduplication (removes duplicate venue entries by name)
     """
-    with open('lark_venues_structured.json', 'r', encoding='utf-8') as f:
+    with open('lark_venues_clean.json', 'r', encoding='utf-8') as f:
         raw_venues = json.load(f)
 
     # Apply exclusion filter and deduplication
