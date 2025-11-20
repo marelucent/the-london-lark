@@ -198,6 +198,91 @@ def _generate_gentle_refusal(filters):
     return response
 
 
+def generate_surprise_response(venue):
+    """
+    Generate a first-person surprise response for a random venue.
+
+    Uses intimate, present-tense voice with "I/me/my" instead of "The Lark".
+    More personal and companion-like.
+
+    Args:
+        venue: Dict with keys: name, vibe_note, price, typical_start_time, area
+
+    Returns:
+        String with poetic first-person response
+    """
+    if not venue:
+        return "I couldn't find the right place for you right now, petal. Ask again?"
+
+    # Intimate opening lines in first person
+    surprise_openings = [
+        "I've chosen something for you...",
+        "Trust my wings tonight...",
+        "Here's a secret I've been keeping...",
+        "Something you didn't know you needed...",
+        "Let me take you somewhere...",
+        "I've found a place that sings...",
+        "Close your eyes — I'll guide you...",
+        "Here's where I'd go tonight...",
+        "I whisper this to you...",
+        "Come with me, petal...",
+    ]
+
+    # Extract venue data
+    venue_name = venue.get("name", "a hidden gem")
+    vibe_note = venue.get("vibe_note", "It holds something special.")
+    area = venue.get("area", "London")
+    time_phrase = venue.get("typical_start_time", "")
+    price = venue.get("price", "")
+
+    # Ensure vibe note ends with punctuation
+    if vibe_note and not vibe_note.endswith(('.', '!', '?')):
+        vibe_note = vibe_note + "."
+
+    # Build response in first person
+    response_parts = []
+
+    # Opening
+    response_parts.append(random.choice(surprise_openings))
+
+    # Venue introduction (first person)
+    response_parts.append(f"I'm sending you to {venue_name}.")
+
+    # Vibe note
+    response_parts.append(vibe_note)
+
+    # Logistics (if available) - converted to first person
+    logistics = []
+    if time_phrase and time_phrase != "TBC":
+        logistics.append(f"doors around {time_phrase}")
+    if price and price != "TBC":
+        try:
+            price_num = float(price.replace("£", "").strip())
+            if price_num == 0:
+                logistics.append("it's free")
+            elif price_num < 10:
+                logistics.append(f"just £{price}")
+            else:
+                logistics.append(f"£{price}")
+        except:
+            logistics.append(f"{price}")
+
+    if logistics:
+        response_parts.append(" — ".join([l.capitalize() for l in logistics]) + ".")
+
+    # Closing note - encouragement to try again
+    closing_notes = [
+        "Want another? Ask again.",
+        "Trust me on this one.",
+        "Something tells me you'll like this.",
+        "Not quite right? Ask me again.",
+        "I chose this one especially for you.",
+    ]
+    response_parts.append(closing_notes[random.randint(0, len(closing_notes) - 1)])
+
+    return " ".join(response_parts)
+
+
 def get_current_voice_profile(mood):
     """
     Get information about the current voice profile being used.

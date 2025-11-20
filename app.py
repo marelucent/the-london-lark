@@ -11,10 +11,12 @@ from flask import Flask, render_template, request, jsonify
 from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
 from venue_matcher import match_venues
-from response_generator import generate_response, get_current_voice_profile
+from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
+from parse_venues import load_parsed_venues
 from lark_metrics import get_metrics
 from datetime import datetime
 from zoneinfo import ZoneInfo
+import random
 
 # Import voice profile system for debug info
 try:
@@ -63,6 +65,57 @@ def home():
 def about():
     """Serve the about page"""
     return render_template('about.html')
+
+@app.route('/surprise', methods=['POST'])
+def surprise_me():
+    """Return a single random venue with first-person poetic response"""
+    try:
+        # Load all venues
+        all_venues = load_parsed_venues()
+
+        if not all_venues:
+            return jsonify({
+                'response': "I'm out of surprises right now, petal. Try asking me something specific?",
+                'venue_name': None,
+                'area': None,
+                'website': None,
+                'mood': None
+            })
+
+        # Pick a random venue
+        random_venue_raw = random.choice(all_venues)
+
+        # Normalize to expected format
+        normalized_venue = {
+            "name": random_venue_raw.get("display_name", random_venue_raw.get("name", "Unnamed venue")),
+            "area": random_venue_raw.get("area", random_venue_raw.get("location", "London")),
+            "vibe_note": random_venue_raw.get("tone_notes", random_venue_raw.get("blurb", "An experience beyond words")),
+            "typical_start_time": random_venue_raw.get("typical_start_time", ""),
+            "price": random_venue_raw.get("price", "TBC"),
+            "website": random_venue_raw.get("website", random_venue_raw.get("url", "")),
+            "mood_tags": random_venue_raw.get("mood_tags", [])
+        }
+
+        # Generate first-person surprise response
+        response_text = generate_surprise_response(normalized_venue)
+
+        # Get a random mood tag from the venue for display
+        mood_tag = random.choice(normalized_venue["mood_tags"]) if normalized_venue["mood_tags"] else None
+
+        return jsonify({
+            'response': response_text,
+            'venue_name': normalized_venue["name"],
+            'area': normalized_venue["area"],
+            'website': normalized_venue["website"],
+            'mood': mood_tag,
+            'is_surprise': True
+        })
+
+    except Exception as e:
+        return jsonify({
+            'error': f"Something went awry: {str(e)}",
+            'response': "I stumbled, petal. Try again?"
+        }), 500
 
 @app.route('/ask', methods=['POST'])
 def ask_lark():
