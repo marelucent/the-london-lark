@@ -37,7 +37,7 @@ FALLBACK_OPENINGS = [
     "The city's heart beats softer tonight...",
     "If your mood were a room, this might be it...",
     "Here's something just off the usual path...",
-    "The Lark whispers this...",
+    "I whisper this to you...",
     "Let me paint you an evening...",
     "Close your eyes and imagine...",
     "Tonight, the city offers this...",
@@ -178,7 +178,7 @@ def _generate_gentle_refusal(filters):
     else:
         refusals = [
             "The city's quiet on that front tonight, petal.",
-            "The Lark's found nothing quite right just yet.",
+            "I've found nothing quite right just yet.",
             "Hmm, the city's being shy about this one.",
             "Nothing's singing in quite that key tonight.",
         ]

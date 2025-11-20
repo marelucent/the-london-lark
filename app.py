@@ -125,7 +125,7 @@ def ask_lark():
 
         if not user_prompt:
             return jsonify({
-                'response': "The Lark listens... but heard only silence. Speak, petal.",
+                'response': "I'm listening... but I heard only silence. Speak, petal.",
                 'mood': None,
                 'confidence': 0,
                 'venue_count': 0
@@ -155,7 +155,7 @@ def ask_lark():
             print(f"   ❌ No recognizable mood keywords found")
             return jsonify({
                 'responses': [{
-                    'text': "The Lark tilts her head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night?",
+                    'text': "I tilt my head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night?",
                     'venue_name': None,
                     'area': None,
                     'website': None
@@ -175,7 +175,7 @@ def ask_lark():
             print(f"   ⚠️ Very low confidence ({mood_confidence}), asking for clarification")
             return jsonify({
                 'responses': [{
-                    'text': f"The Lark senses a whisper of '{filters.get('mood', 'something')}' in your words, but she's not certain. Could you tell me more about the evening you're dreaming of?",
+                    'text': f"I sense a whisper of '{filters.get('mood', 'something')}' in your words, but I'm not certain. Could you tell me more about the evening you're dreaming of?",
                     'venue_name': None,
                     'area': None,
                     'website': None
@@ -246,7 +246,7 @@ def ask_lark():
 
     except Exception as e:
         return jsonify({
-            'error': f"The Lark stumbled: {str(e)}",
+            'error': f"I stumbled: {str(e)}",
             'responses': []
         }), 500
 
