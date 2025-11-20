@@ -27,7 +27,10 @@
                 placeholder="What kind of evening are you seeking, petal?"
                 rows="3"
             ></textarea>
-            <button id="askButton" onclick="askLark()">Ask the Lark</button>
+            <div class="button-group">
+                <button id="askButton" onclick="askLark()">Ask the Lark</button>
+                <button id="surpriseButton" class="surprise-btn" onclick="surpriseMe()">🎲 Surprise Me</button>
+            </div>
         </div>
     </div>
 
@@ -260,6 +263,55 @@
             askButton.disabled = false;
             userInput.disabled = false;
             userInput.focus();
+        }
+
+        async function surpriseMe() {
+            // Clear intro
+            clearIntro();
+
+            // Disable buttons
+            const surpriseButton = document.getElementById('surpriseButton');
+            askButton.disabled = true;
+            surpriseButton.disabled = true;
+
+            // Show loader
+            showLoader();
+
+            try {
+                const response = await fetch('/surprise', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({})
+                });
+
+                const data = await response.json();
+
+                // Remove loader
+                removeLoader();
+
+                if (data.error) {
+                    addMessage('lark', data.error);
+                } else if (data.response) {
+                    // Add surprise response with mood badge and venue info
+                    addMessage('lark', data.response, {
+                        venue_name: data.venue_name,
+                        area: data.area,
+                        website: data.website,
+                        mood: data.mood,
+                        confidence: 1.0
+                    });
+                }
+
+            } catch (error) {
+                removeLoader();
+                addMessage('lark', `Something went awry: ${error.message}`);
+            }
+
+            // Re-enable buttons
+            askButton.disabled = false;
+            surpriseButton.disabled = false;
         }
 
         // Mood Tuner functions
