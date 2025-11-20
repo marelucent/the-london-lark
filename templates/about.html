@@ -98,6 +98,103 @@
             padding-top: 2rem;
             border-top: 1px solid rgba(232, 232, 232, 0.1);
         }
+
+        /* Mobile Responsive Styles for About Page */
+        @media (max-width: 767px) {
+            .about-hero {
+                font-size: 1.2rem;
+                margin-bottom: 2.5rem;
+                padding: 1.5rem 0;
+                line-height: 1.7;
+            }
+
+            .about-section {
+                margin-bottom: 2rem;
+            }
+
+            .about-section h2 {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+                letter-spacing: 0.08em;
+            }
+
+            .about-section p,
+            .about-section li {
+                font-size: 1rem;
+                line-height: 1.75;
+            }
+
+            .about-section li {
+                padding-left: 1.2rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .back-link {
+                width: 100%;
+                padding: 1rem 1.5rem;
+                margin-top: 2rem;
+                text-align: center;
+                font-size: 1rem;
+                min-height: 48px; /* Touch target */
+                display: block;
+            }
+
+            .back-link:hover {
+                transform: none; /* No hover on mobile */
+            }
+
+            .back-link:active {
+                opacity: 0.8;
+                transform: scale(0.98);
+            }
+
+            footer {
+                margin-top: 3rem;
+                padding-top: 1.5rem;
+            }
+        }
+
+        /* Tablet styles */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .about-hero {
+                font-size: 1.35rem;
+                margin-bottom: 3rem;
+            }
+
+            .about-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .about-section p,
+            .about-section li {
+                font-size: 1.02rem;
+            }
+
+            .back-link {
+                padding: 0.9rem 2rem;
+                min-height: 48px;
+            }
+        }
+
+        /* Desktop hover effects */
+        @media (min-width: 1025px) {
+            .back-link:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 18px rgba(240, 230, 140, 0.35);
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .back-link:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .back-link {
+                min-height: 48px;
+            }
+        }
     </style>
 </head>
 <body>
