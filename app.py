@@ -59,6 +59,11 @@ def home():
     greeting = get_time_aware_greeting()
     return render_template('index.html', greeting=greeting)
 
+@app.route('/about')
+def about():
+    """Serve the about page"""
+    return render_template('about.html')
+
 @app.route('/ask', methods=['POST'])
 def ask_lark():
     """Process a query and return the Lark's response"""

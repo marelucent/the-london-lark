@@ -383,3 +383,25 @@ button:disabled {
     border-color: #f0e68c;
     color: #f0e68c;
 }
+
+/* Footer */
+.main-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(232, 232, 232, 0.1);
+}
+
+.footer-link {
+    color: #b0c4de;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #f0e68c;
+    opacity: 1;
+}
