@@ -299,6 +299,80 @@ def match_venues(filters):
     # Return top 3 unique matches
     return deduplicated_matches[:3]
 
+
+# =============================================================================
+# REFUGE VENUE FUNCTIONS
+# For crisis support - filter venues appropriate for someone in distress
+# =============================================================================
+
+def filter_refuge_venues(venues):
+    """
+    Filter for venues marked as gentle refuges.
+
+    Refuge venues are safe, calm spaces appropriate to suggest when users
+    are in distress - places where someone can sit quietly with their feelings.
+
+    Characteristics of refuge venues:
+    - Free or very low cost entry
+    - Welcoming to people sitting alone
+    - Quiet or calm atmosphere
+    - No pressure to consume/participate
+    - Safe and accessible
+
+    Args:
+        venues: List of venue dictionaries (either raw or normalized format)
+
+    Returns:
+        List of venues where refuge=True
+    """
+    refuge_venues = []
+    for v in venues:
+        # Check both the venue dict and raw_data (for normalized venues)
+        is_refuge = v.get('refuge', False)
+        if not is_refuge and 'raw_data' in v:
+            is_refuge = v['raw_data'].get('refuge', False)
+        if is_refuge:
+            refuge_venues.append(v)
+    return refuge_venues
+
+
+def get_refuge_venue_count():
+    """
+    Count how many refuge venues exist in the database.
+
+    Returns:
+        int: Number of venues tagged as refuges
+    """
+    return len(filter_refuge_venues(venue_data))
+
+
+def get_refuge_venues():
+    """
+    Get all refuge venues from the database.
+
+    Returns:
+        list: All venues tagged as refuges with normalized format
+    """
+    refuge_venues = []
+    for venue in venue_data:
+        if venue.get('refuge', False):
+            # Normalize venue data to expected format
+            mood_tags = venue.get("moods", []) or venue.get("mood_tags", [])
+            normalized_venue = {
+                "name": venue.get("name", "Unnamed venue"),
+                "area": venue.get("area", venue.get("location", "London")),
+                "vibe_note": venue.get("tone_notes", venue.get("blurb", "A gentle space to rest")),
+                "typical_start_time": venue.get("typical_start_time", ""),
+                "price": venue.get("price", "TBC"),
+                "website": venue.get("website", venue.get("url", "")),
+                "mood_tags": mood_tags,
+                "refuge": True,
+                "raw_data": venue
+            }
+            refuge_venues.append(normalized_venue)
+    return refuge_venues
+
+
 if __name__ == "__main__":
     print("=" * 60)
     print("VENUE MATCHER TESTS - Synonym & Location Expansion")
@@ -368,6 +442,32 @@ if __name__ == "__main__":
     if result:
         for venue in result:
             print(f"      - {venue['name']} in {venue['area']}")
+
+    # Refuge venue tests
+    print("\n" + "=" * 60)
+    print("REFUGE VENUE TESTS")
+    print("=" * 60)
+
+    print("\n7. Testing refuge venue count:")
+    refuge_count = get_refuge_venue_count()
+    print(f"   Total refuge venues in database: {refuge_count}")
+
+    print("\n8. Testing get_refuge_venues():")
+    refuges = get_refuge_venues()
+    print(f"   Retrieved {len(refuges)} refuge venues:")
+    for v in refuges[:5]:  # Show first 5
+        print(f"      - {v['name']} ({v['area']})")
+    if len(refuges) > 5:
+        print(f"      ... and {len(refuges) - 5} more")
+
+    print("\n9. Testing filter_refuge_venues() with matched venues:")
+    # Match some venues and filter for refuges
+    test_matches = match_venues({"mood": "tender"})
+    refuge_matches = filter_refuge_venues(test_matches)
+    print(f"   Tender mood matches: {len(test_matches)} venues")
+    print(f"   Of those, refuge venues: {len(refuge_matches)} venues")
+    for v in refuge_matches:
+        print(f"      - {v['name']} ({v['area']})")
 
     print("\n" + "=" * 60)
     print("Tests complete!")

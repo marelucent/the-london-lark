@@ -10,7 +10,7 @@ Run this, then open http://localhost:5000 in your browser.
 from flask import Flask, render_template, request, jsonify
 from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
-from venue_matcher import match_venues
+from venue_matcher import match_venues, filter_refuge_venues, get_refuge_venues
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
 from parse_venues import load_parsed_venues
 from lark_metrics import get_metrics
@@ -229,6 +229,26 @@ def ask_lark():
         # Match venues
         matches = match_venues(filters)
         print(f"   Matched {len(matches)} venues")
+
+        # For distress queries, filter for refuge venues only
+        if distress_level == "distress":
+            refuge_matches = filter_refuge_venues(matches)
+            if refuge_matches:
+                # Show just ONE refuge venue for distress queries
+                matches = refuge_matches[:1]
+                print(f"   🏠 Filtered to {len(matches)} refuge venue(s) for distress query")
+            else:
+                # No refuge venues in matches, try to get ANY refuge venue
+                all_refuges = get_refuge_venues()
+                if all_refuges:
+                    # Pick a random refuge venue
+                    import random
+                    matches = [random.choice(all_refuges)]
+                    print(f"   🏠 No matching refuges, selected random refuge venue")
+                else:
+                    # Fall back to most gentle venue available
+                    matches = matches[:1] if matches else []
+                    print(f"   ⚠️ No refuge venues available, using best match")
 
         # Log metrics
         metrics = get_metrics()

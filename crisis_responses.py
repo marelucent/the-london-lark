@@ -218,6 +218,7 @@ def build_crisis_response(distress_level, venues=None):
             "resources": get_crisis_resources("distress"),
             "resources_priority": "important",
             "show_venues": True,
+            "venue_filter": "refuge",  # Filter for gentle refuge venues only
             "venue_intro": CRISIS_RESPONSE_TEMPLATES["distress"]["venue_intro"],
             "closing": get_crisis_closing("distress"),
             "resources_link": "/resources"

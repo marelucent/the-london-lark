@@ -34,6 +34,7 @@
     "url": "https://thesoundlounge.org.uk",
     "blurb": "A carbon-neutral haven for roots music, where vinyl spins and voices rise gently over plant-based plates and communal warmth.",
     "notes": "Relocated from Tooting to Sutton High Street",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -80,6 +81,7 @@
     "genres": ["theatre", "spoken word", "jazz", "cross-cultural"],
     "url": "https://www.thealbany.org.uk",
     "blurb": "South East London's beating cultural heart, platforming local artists and driving creative participation rooted in social justice and community care.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -89,6 +91,7 @@
     "genres": ["theatre", "workshops", "festivals"],
     "url": "http://www.space.org.uk",
     "blurb": "A converted 19th-century church offering atmospheric performances and workshops, where stone walls hold echoes of both prayer and art.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -116,6 +119,7 @@
     "genres": ["live music", "theatre", "world music"],
     "url": "https://www.thetabernaclew11.com/",
     "blurb": "A Grade II-listed former church turned arts centre, still resonating with Caribbean Carnival roots and cross-cultural programming.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -153,6 +157,7 @@
     "genres": ["Indian classical", "dance", "sitar"],
     "url": "https://www.bhavan.net/",
     "blurb": "The UK's premier Indian arts centre, celebrating over 50 years of cultural legacy through classical dance, sitar concerts, and sacred philosophy.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -180,6 +185,7 @@
     "genres": ["community theatre", "youth programming"],
     "url": "https://tramshed.org",
     "blurb": "A community arts hub using performing arts to serve young people and adults with learning differences, fostering social cohesion through creativity.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -207,6 +213,7 @@
     "genres": ["independent film", "mainstream"],
     "url": "https://actonecinema.co.uk",
     "blurb": "A community-run cinema in a former library, co-run by Rio Cinema, championing independent films and filmmaker events.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -261,6 +268,7 @@
     "genres": ["coffee", "art gallery", "cocktails"],
     "url": "https://www.cornernewcross.com/",
     "blurb": "An LGBTQIA+-led neighbourhood coffee shop, cocktail bar, and art gallery where inclusive ethos meets rotating artwork and community warmth.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -279,6 +287,7 @@
     "genres": ["folk music", "folk dance"],
     "url": "https://www.efdss.org/",
     "blurb": "The world-class folk arts centre, home to the English Folk Dance and Song Society, championing folk heritage since 1930.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -288,6 +297,7 @@
     "genres": ["concerts", "film", "comedy", "spoken word"],
     "url": "https://unionchapel.org.uk/",
     "blurb": "A working church and not-for-profit performance space where gothic architecture and exceptional acoustics frame diverse programming.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -469,6 +479,7 @@
     "genres": ["talks", "concerts", "courses"],
     "url": "https://conwayhall.org.uk",
     "blurb": "A Grade II listed hall from 1929 housing the largest humanist research library, curating talks and concerts promoting ethical living.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -478,6 +489,7 @@
     "genres": ["classical", "choral"],
     "url": "https://www.stmartin-in-the-fields.org",
     "blurb": "An active church on Trafalgar Square offering candlelit concerts, lunchtime recitals, and music in the crypt.",
+    "refuge": true,
     "last_verified": "2025-11-15"
   },
   {
@@ -514,6 +526,7 @@
     "genres": ["independent film", "social purpose"],
     "url": "https://thelexicinema.co.uk",
     "blurb": "London's only social-enterprise cinema, a volunteer-run boutique picturehouse championing films with social purpose and supporting international projects.",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -550,6 +563,7 @@
     "genres": ["art house", "independent"],
     "url": "https://www.phoenixcinema.co.uk",
     "blurb": "One of the UK's oldest continuously operating picturehouses, a Grade II listed 1912 building with barrel-vaulted ceilings and Art Deco panels.",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -559,6 +573,7 @@
     "genres": ["community arts", "workshops"],
     "url": "https://poplarunion.com",
     "blurb": "A grassroots community arts centre making creativity accessible to everyone, focusing on health, wellbeing, and social connection.",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -613,6 +628,7 @@
     "genres": ["art house", "foreign language"],
     "url": "https://www.thegardencinema.co.uk",
     "blurb": "An independent cinema opened in 2022 with art-deco features, emphasizing art-house foreign-language films that deserve to be seen.",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -648,6 +664,7 @@
     "moods": ["tender", "curious"],
     "genres": ["exhibitions", "community classes", "theatre"],
     "url": "https://www.artsdepot.co.uk/",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -705,6 +722,7 @@
     "moods": ["word", "thoughtful", "intimate"],
     "genres": ["poetry readings", "workshops"],
     "url": "https://poetrysociety.org.uk/venue/the-poetry-cafe/",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -777,6 +795,7 @@
     "moods": ["wonder", "family-friendly", "curious"],
     "genres": ["museum", "gardens", "family events"],
     "url": "https://www.horniman.ac.uk",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -785,6 +804,7 @@
     "moods": ["community", "thoughtful", "curious"],
     "genres": ["contemporary art", "workshops"],
     "url": "https://www.southlondongallery.org",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -793,6 +813,7 @@
     "moods": ["family-friendly", "tender", "thoughtful"],
     "genres": ["children's theatre", "youth programmes"],
     "url": "https://halfmoon.org.uk",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -801,6 +822,7 @@
     "moods": ["activist", "tender", "community"],
     "genres": ["inclusive theatre", "community productions"],
     "url": "https://www.chickenshed.org.uk",
+    "refuge": true,
     "last_verified": "2025-11-17"
   },
   {
@@ -826,6 +848,7 @@
     "moods": ["activist", "awe", "global"],
     "genres": ["photography", "identity", "social justice"],
     "url": "https://autograph.org.uk",
+    "refuge": true,
     "last_verified": "2025-11-17"
   }
 ]
