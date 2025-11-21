@@ -197,6 +197,74 @@
             conversation.appendChild(emptyDiv);
         }
 
+        // Crisis Response Rendering
+        function renderCrisisResponse(crisisResponse, distressLevel) {
+            clearIntro();
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message lark-message crisis-response crisis-${distressLevel}`;
+
+            let html = `<div class="message-label">The Lark</div>`;
+
+            // Intro message
+            if (crisisResponse.intro) {
+                html += `<div class="crisis-intro">${crisisResponse.intro}</div>`;
+            }
+
+            // Resources section
+            if (crisisResponse.show_resources && crisisResponse.resources) {
+                html += `<div class="crisis-resources ${crisisResponse.resources_priority === 'urgent' ? 'urgent' : 'important'}">`;
+                html += `<h3 class="resources-header">${crisisResponse.resources_header}</h3>`;
+                html += `<ul class="resources-list">`;
+
+                crisisResponse.resources.forEach(resource => {
+                    const iconEmoji = resource.icon === 'emergency' ? '🚨' :
+                                      resource.icon === 'text' ? '💬' : '📞';
+                    html += `<li class="resource-item">
+                        <span class="resource-icon">${iconEmoji}</span>
+                        <strong>${resource.name}:</strong>
+                        <span class="resource-number">${resource.number}</span>
+                        <span class="resource-desc">${resource.description}</span>
+                    </li>`;
+                });
+
+                html += `</ul>`;
+                html += `<p class="more-resources"><a href="/resources">More support resources →</a></p>`;
+                html += `</div>`;
+            }
+
+            // Closing message
+            if (crisisResponse.closing) {
+                html += `<div class="crisis-closing">${crisisResponse.closing}</div>`;
+            }
+
+            messageDiv.innerHTML = html;
+            conversation.appendChild(messageDiv);
+
+            // Scroll to message
+            setTimeout(() => {
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 100);
+        }
+
+        // Render venue intro for distress level (before venues)
+        function renderDistressVenueIntro(venueIntro) {
+            const introDiv = document.createElement('div');
+            introDiv.className = 'message lark-message distress-venue-intro';
+            introDiv.innerHTML = `
+                <div class="message-text venue-intro-text">${venueIntro}</div>
+            `;
+            conversation.appendChild(introDiv);
+        }
+
+        // Render melancholy footer
+        function renderMelancholyFooter(footer) {
+            const footerDiv = document.createElement('div');
+            footerDiv.className = 'melancholy-footer';
+            footerDiv.innerHTML = footer.html;
+            conversation.appendChild(footerDiv);
+        }
+
         async function askLark() {
             const prompt = userInput.value.trim();
 
@@ -237,7 +305,39 @@
 
                 if (data.error) {
                     addMessage('lark', data.error);
-                } else if (data.responses && data.responses.length > 0) {
+                }
+                // CRISIS LEVEL: Show resources only, no venues
+                else if (data.distress_level === 'crisis' && data.crisis_response) {
+                    renderCrisisResponse(data.crisis_response, 'crisis');
+                }
+                // DISTRESS LEVEL: Show resources first, then gentle venues
+                else if (data.distress_level === 'distress' && data.crisis_response) {
+                    // First render crisis resources
+                    renderCrisisResponse(data.crisis_response, 'distress');
+
+                    // Then show venue intro and venues if available
+                    if (data.responses && data.responses.length > 0) {
+                        setTimeout(() => {
+                            if (data.crisis_response.venue_intro) {
+                                renderDistressVenueIntro(data.crisis_response.venue_intro);
+                            }
+                            // Add each venue response
+                            data.responses.forEach((resp, index) => {
+                                setTimeout(() => {
+                                    addMessage('lark', resp.text, {
+                                        venue_name: resp.venue_name,
+                                        area: resp.area,
+                                        website: resp.website,
+                                        mood: data.mood,
+                                        confidence: data.confidence
+                                    });
+                                }, (index + 1) * 300);
+                            });
+                        }, 600); // Delay venues after resources
+                    }
+                }
+                // MELANCHOLY or NORMAL: Regular venue response with optional footer
+                else if (data.responses && data.responses.length > 0) {
                     // Add each response with mood badge
                     data.responses.forEach((resp, index) => {
                         setTimeout(() => {
@@ -250,6 +350,14 @@
                             });
                         }, index * 300); // Stagger animations
                     });
+
+                    // Add subtle footer for melancholy level
+                    if (data.distress_level === 'melancholy' && data.melancholy_footer) {
+                        const totalDelay = data.responses.length * 300 + 400;
+                        setTimeout(() => {
+                            renderMelancholyFooter(data.melancholy_footer);
+                        }, totalDelay);
+                    }
                 } else {
                     showEmptyState();
                 }

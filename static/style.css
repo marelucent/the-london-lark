@@ -451,3 +451,192 @@ button:disabled {
     opacity: 0.5;
     margin: 0 0.5rem;
 }
+
+/* ============================================
+   CRISIS RESPONSE STYLES
+   ============================================ */
+
+/* Crisis Response Container */
+.crisis-response {
+    border-left-width: 4px;
+    padding: 1.8rem;
+}
+
+.crisis-crisis {
+    background: rgba(255, 182, 193, 0.08);
+    border-left-color: #ffb6c1;
+}
+
+.crisis-distress {
+    background: rgba(176, 196, 222, 0.1);
+    border-left-color: #b0c4de;
+}
+
+/* Crisis Intro Message */
+.crisis-intro {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    color: #e8e8e8;
+    font-style: italic;
+}
+
+/* Resources Section */
+.crisis-resources {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 1.4rem;
+    margin: 1.5rem 0;
+}
+
+.crisis-resources.urgent {
+    background: rgba(255, 182, 193, 0.08);
+    border: 1px solid rgba(255, 182, 193, 0.25);
+}
+
+.crisis-resources.important {
+    background: rgba(176, 196, 222, 0.08);
+    border: 1px solid rgba(176, 196, 222, 0.2);
+}
+
+.resources-header {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #f0e68c;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.resources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resource-item {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(232, 232, 232, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.resource-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.resource-icon {
+    font-size: 1.1rem;
+}
+
+.resource-number {
+    font-family: 'Courier New', monospace;
+    font-size: 1.05rem;
+    color: #f0e68c;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.resource-desc {
+    font-size: 0.88rem;
+    color: #b8b8b8;
+    opacity: 0.85;
+    font-style: italic;
+}
+
+.more-resources {
+    margin-top: 1.2rem;
+    text-align: right;
+}
+
+.more-resources a {
+    color: #b0c4de;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    transition: color 0.3s ease;
+}
+
+.more-resources a:hover {
+    color: #f0e68c;
+}
+
+/* Crisis Closing Message */
+.crisis-closing {
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-top: 1.5rem;
+    color: #b8b8b8;
+    font-style: italic;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(232, 232, 232, 0.1);
+}
+
+/* Distress Venue Intro */
+.distress-venue-intro {
+    background: transparent;
+    border-left: none;
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 0.5rem;
+    margin-right: 2.5rem;
+}
+
+.venue-intro-text {
+    font-size: 1rem;
+    color: #b0c4de;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Melancholy Footer */
+.melancholy-footer {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #b0c4de;
+    opacity: 0.75;
+    font-style: italic;
+    border-top: 1px solid rgba(232, 232, 232, 0.08);
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.melancholy-footer a {
+    color: #f0e68c;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(240, 230, 140, 0.3);
+    transition: all 0.3s ease;
+}
+
+.melancholy-footer a:hover {
+    border-bottom-color: #f0e68c;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.75;
+    }
+}
+
+/* Responsive adjustments for crisis responses */
+@media (max-width: 600px) {
+    .crisis-response {
+        padding: 1.2rem;
+        margin-right: 0;
+    }
+
+    .resource-item {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .resource-number {
+        display: block;
+        margin-top: 0.2rem;
+    }
+}

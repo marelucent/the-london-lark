@@ -14,6 +14,8 @@ from venue_matcher import match_venues
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
 from parse_venues import load_parsed_venues
 from lark_metrics import get_metrics
+from distress_detection import detect_distress_level, should_show_resources, should_show_venues
+from crisis_responses import build_crisis_response, get_melancholy_footer
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import random
@@ -136,6 +138,26 @@ def ask_lark():
                 'venue_count': 0
             })
 
+        # CRISIS DETECTION: Check for distress signals before normal processing
+        distress_level, matched_keywords = detect_distress_level(user_prompt)
+
+        # Log distress detection (without full query text for privacy)
+        if distress_level in ["crisis", "distress"]:
+            print(f"\n⚠️  DISTRESS DETECTED: level={distress_level}, keyword_count={len(matched_keywords)}")
+
+        # For CRISIS level: Return resources immediately, skip venue search
+        if distress_level == "crisis":
+            crisis_response = build_crisis_response("crisis")
+            print(f"   🆘 Returning crisis response (no venues)")
+            return jsonify({
+                'distress_level': 'crisis',
+                'crisis_response': crisis_response,
+                'responses': [],  # No venues for crisis
+                'mood': None,
+                'confidence': 1.0,
+                'venue_count': 0
+            })
+
         # Process through the pipeline
         filters = interpret_prompt(user_prompt)
 
@@ -234,20 +256,34 @@ def ask_lark():
                 'website': None
             })
 
-        return jsonify({
+        # Build response with distress information if applicable
+        response_data = {
             'responses': responses,
             'mood': filters.get('mood'),
             'confidence': mood_confidence,
             'venue_count': len(matches),
             'filters': filters,
             'voice_profile': voice_profile_info,
+            'distress_level': distress_level,
             'debug': {
                 'mood_detected': filters.get('mood'),
                 'confidence': mood_confidence,
                 'matches_found': len(matches),
                 'voice_profile': voice_profile_name
             }
-        })
+        }
+
+        # Add crisis response for distress level (resources + venues)
+        if distress_level == "distress":
+            response_data['crisis_response'] = build_crisis_response("distress")
+            print(f"   💙 Including crisis resources with venue response")
+
+        # Add subtle footer note for melancholy level
+        if distress_level == "melancholy":
+            response_data['melancholy_footer'] = get_melancholy_footer()
+            print(f"   💜 Adding melancholy footer note")
+
+        return jsonify(response_data)
 
     except Exception as e:
         return jsonify({
