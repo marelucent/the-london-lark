@@ -66,6 +66,11 @@ def about():
     """Serve the about page"""
     return render_template('about.html')
 
+@app.route('/resources')
+def resources():
+    """Crisis support and mental health resources"""
+    return render_template('resources.html')
+
 @app.route('/surprise', methods=['POST'])
 def surprise_me():
     """Return a single random venue with first-person poetic response"""

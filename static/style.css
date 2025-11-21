@@ -445,3 +445,9 @@ button:disabled {
     color: #f0e68c;
     opacity: 1;
 }
+
+.footer-separator {
+    color: #b0c4de;
+    opacity: 0.5;
+    margin: 0 0.5rem;
+}

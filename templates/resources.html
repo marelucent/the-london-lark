@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Resources — The London Lark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .resources-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.1);
+        }
+
+        .resources-intro h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #f0e68c;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .resources-intro p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #e8e8e8;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .resources-section {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .resources-section:nth-child(1) { animation-delay: 0.1s; }
+        .resources-section:nth-child(2) { animation-delay: 0.2s; }
+        .resources-section:nth-child(3) { animation-delay: 0.3s; }
+        .resources-section:nth-child(4) { animation-delay: 0.4s; }
+        .resources-section:nth-child(5) { animation-delay: 0.5s; }
+        .resources-section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resources-section h3 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #f0e68c;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .resources-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #e8e8e8;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        /* Crisis section - more prominent */
+        .crisis-section {
+            background: rgba(255, 100, 100, 0.08);
+            border: 1px solid rgba(255, 100, 100, 0.25);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .crisis-section h3 {
+            color: #ff9f9f;
+        }
+
+        .resource-item {
+            margin-bottom: 1.5rem;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .resource-item .icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2rem;
+        }
+
+        .resource-item .name {
+            font-weight: 500;
+            color: #f0e68c;
+            font-size: 1.05rem;
+        }
+
+        .resource-item .phone {
+            display: inline-block;
+            margin-left: 0.5rem;
+            color: #e8e8e8;
+        }
+
+        .resource-item .phone a {
+            color: #b0c4de;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(176, 196, 222, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .resource-item .phone a:hover {
+            color: #f0e68c;
+            border-bottom-color: #f0e68c;
+        }
+
+        .resource-item .description {
+            display: block;
+            font-size: 0.95rem;
+            color: #b8b8b8;
+            margin-top: 0.3rem;
+            line-height: 1.7;
+        }
+
+        .resource-item .extra {
+            display: block;
+            font-size: 0.9rem;
+            color: #b0c4de;
+            margin-top: 0.3rem;
+        }
+
+        .resource-item .extra a {
+            color: #b0c4de;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(176, 196, 222, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .resource-item .extra a:hover {
+            color: #f0e68c;
+            border-bottom-color: #f0e68c;
+        }
+
+        /* Coming soon section */
+        .coming-soon {
+            background: rgba(176, 196, 222, 0.08);
+            border: 1px solid rgba(176, 196, 222, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            font-style: italic;
+        }
+
+        .coming-soon h3 {
+            font-style: normal;
+        }
+
+        /* Footer note */
+        .footer-note {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.1);
+            font-style: italic;
+            color: #b8b8b8;
+            line-height: 1.8;
+        }
+
+        .footer-note .sign-off {
+            margin-top: 1rem;
+            color: #f0e68c;
+            font-style: normal;
+            letter-spacing: 0.05em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #f0e68c 0%, #daa520 100%);
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(240, 230, 140, 0.35);
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.1);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .resources-intro h2 {
+                font-size: 1.5rem;
+            }
+
+            .resources-section {
+                padding: 0 0.5rem;
+            }
+
+            .crisis-section,
+            .coming-soon {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .resource-item {
+                padding-left: 2rem;
+            }
+
+            .resource-item .name {
+                display: block;
+            }
+
+            .resource-item .phone {
+                display: block;
+                margin-left: 0;
+                margin-top: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕊️ THE LONDON LARK</h1>
+            <p class="tagline">Support Resources</p>
+        </header>
+
+        <div class="resources-intro">
+            <h2>Sometimes I'm Not Enough</h2>
+            <p>
+                I'm honored you're here, petal. But I need to be honest:
+                I'm a guide to venues, not a therapist. If you're struggling
+                with something bigger than tonight's wandering, there are
+                humans trained to help hold what you're carrying.
+            </p>
+            <p style="margin-top: 1rem;">
+                They want to hear from you. Truly.
+            </p>
+        </div>
+
+        <div class="resources-content">
+            <!-- CRISIS SECTION -->
+            <div class="resources-section crisis-section">
+                <h3>If You're in Crisis Right Now</h3>
+                <p>If you're thinking of hurting yourself, or you're in immediate danger:</p>
+
+                <div class="resource-item">
+                    <span class="icon">🚨</span>
+                    <span class="name">Emergency Services:</span>
+                    <span class="phone"><a href="tel:999">999</a></span>
+                    <span class="description">For immediate, life-threatening emergencies</span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">📞</span>
+                    <span class="name">Samaritans:</span>
+                    <span class="phone"><a href="tel:116123">116 123</a> (free, 24/7)</span>
+                    <span class="description">Whatever you're going through, they'll listen without judgment</span>
+                    <span class="extra">Email: <a href="mailto:jo@samaritans.org">jo@samaritans.org</a> (response within 24 hours)</span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">💬</span>
+                    <span class="name">Crisis Text Line:</span>
+                    <span class="phone">Text SHOUT to <a href="sms:85258">85258</a> (free, 24/7)</span>
+                    <span class="description">Text-based support when speaking feels too hard</span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">🏥</span>
+                    <span class="name">NHS 111:</span>
+                    <span class="phone"><a href="tel:111">111</a> (press option 2)</span>
+                    <span class="description">24/7 mental health support and urgent care guidance</span>
+                </div>
+            </div>
+
+            <!-- ONGOING SUPPORT -->
+            <div class="resources-section">
+                <h3>For Ongoing Support</h3>
+
+                <div class="resource-item">
+                    <span class="icon">🧠</span>
+                    <span class="name">Mind InfoLine:</span>
+                    <span class="phone"><a href="tel:03001233393">0300 123 3393</a> (Mon-Fri, 9am-6pm)</span>
+                    <span class="description">Mental health information and local services</span>
+                    <span class="extra">Website: <a href="https://www.mind.org.uk" target="_blank" rel="noopener noreferrer">mind.org.uk</a></span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">💙</span>
+                    <span class="name">NHS Talking Therapies (IAPT)</span>
+                    <span class="description">Free counseling and therapy on the NHS</span>
+                    <span class="extra">Self-refer: <a href="https://www.nhs.uk/service-search/mental-health/find-a-psychological-therapies-service" target="_blank" rel="noopener noreferrer">nhs.uk/service-search/mental-health/find-a-psychological-therapies-service</a></span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">🌈</span>
+                    <span class="name">Rethink Mental Illness:</span>
+                    <span class="phone"><a href="tel:03005000927">0300 5000 927</a></span>
+                    <span class="description">Expert advice and support groups</span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">🤝</span>
+                    <span class="name">Hub of Hope App</span>
+                    <span class="description">Find local mental health support services</span>
+                    <span class="extra">Download: <a href="https://hubofhope.co.uk" target="_blank" rel="noopener noreferrer">hubofhope.co.uk</a></span>
+                </div>
+            </div>
+
+            <!-- SPECIFIC COMMUNITIES -->
+            <div class="resources-section">
+                <h3>Support for Specific Communities</h3>
+
+                <div class="resource-item">
+                    <span class="icon">🏳️‍🌈</span>
+                    <span class="name">Switchboard LGBT+ Helpline:</span>
+                    <span class="phone"><a href="tel:03003300630">0300 330 0630</a> (10am-10pm daily)</span>
+                    <span class="description">Listening service for LGBTQ+ community</span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">🌍</span>
+                    <span class="name">Samaritans Multilingual Support</span>
+                    <span class="description">Languages: Welsh, Irish, Bengali, and more</span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">👥</span>
+                    <span class="name">Black Minds Matter UK</span>
+                    <span class="description">Free therapy for Black individuals</span>
+                    <span class="extra">Website: <a href="https://www.blackmindsmatteruk.com" target="_blank" rel="noopener noreferrer">blackmindsmatteruk.com</a></span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">🧒</span>
+                    <span class="name">Young Minds Crisis Messenger:</span>
+                    <span class="phone">Text YM to <a href="sms:85258">85258</a></span>
+                    <span class="description">For under-19s in crisis</span>
+                </div>
+
+                <div class="resource-item">
+                    <span class="icon">👴</span>
+                    <span class="name">The Silver Line:</span>
+                    <span class="phone"><a href="tel:08004708090">0800 4 70 80 90</a> (24/7)</span>
+                    <span class="description">For older people experiencing loneliness</span>
+                </div>
+            </div>
+
+            <!-- GENTLE VENUES - COMING SOON -->
+            <div class="resources-section coming-soon">
+                <h3>Places That Hold Gentleness</h3>
+                <p>
+                    Sometimes you need a physical place to sit with what you're feeling.
+                    I'm building a list of gentle refuge spaces — churches with open doors,
+                    community cafés, quiet libraries — where you can just be.
+                </p>
+                <p style="margin-top: 1rem;">
+                    This section is coming soon. For now, the humans above can help
+                    you find local spaces.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>You're not alone in this, petal. Please reach out.</p>
+            <p class="sign-off">— The Lark</p>
+        </div>
+
+        <footer>
+            <a href="/" class="back-link">Return to the Lark</a>
+        </footer>
+    </div>
+</body>
+</html>
