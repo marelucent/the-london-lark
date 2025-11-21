@@ -27,7 +27,8 @@
     ],
     "url": "https://actonecinema.co.uk",
     "blurb": "A community-run cinema in a former library, co-run by Rio Cinema, championing independent films and filmmaker events.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "Admiral Duncan",
@@ -74,7 +75,8 @@
       "theatre"
     ],
     "url": "https://www.artsdepot.co.uk/",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "Asylum Chapel",
@@ -107,7 +109,8 @@
       "social justice"
     ],
     "url": "https://autograph.org.uk",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "Barts Pathology Museum",
@@ -332,7 +335,8 @@
     ],
     "url": "https://www.efdss.org/",
     "blurb": "The world-class folk arts centre, home to the English Folk Dance and Song Society, championing folk heritage since 1930.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "CellarDoor",
@@ -363,7 +367,8 @@
       "community productions"
     ],
     "url": "https://www.chickenshed.org.uk",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "CLF Art Café",
@@ -484,7 +489,8 @@
     ],
     "url": "https://conwayhall.org.uk",
     "blurb": "A Grade II listed hall from 1929 housing the largest humanist research library, curating talks and concerts promoting ethical living.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "Corner New Cross",
@@ -500,7 +506,8 @@
     ],
     "url": "https://www.cornernewcross.com/",
     "blurb": "An LGBTQIA+-led neighbourhood coffee shop, cocktail bar, and art gallery where inclusive ethos meets rotating artwork and community warmth.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "Crazy Coqs",
@@ -770,7 +777,8 @@
       "youth programmes"
     ],
     "url": "https://halfmoon.org.uk",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "Heaven",
@@ -817,7 +825,8 @@
       "family events"
     ],
     "url": "https://www.horniman.ac.uk",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "Hundred Years Gallery",
@@ -1147,7 +1156,8 @@
     ],
     "url": "https://www.phoenixcinema.co.uk",
     "blurb": "One of the UK's oldest continuously operating picturehouses, a Grade II listed 1912 building with barrel-vaulted ceilings and Art Deco panels.",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "Phonox",
@@ -1226,7 +1236,8 @@
       "workshops"
     ],
     "url": "https://poetrysociety.org.uk/venue/the-poetry-cafe/",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "Polka Theatre",
@@ -1259,7 +1270,8 @@
     ],
     "url": "https://poplarunion.com",
     "blurb": "A grassroots community arts centre making creativity accessible to everyone, focusing on health, wellbeing, and social connection.",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "Queer Poetry Collective",
@@ -1546,7 +1558,8 @@
       "workshops"
     ],
     "url": "https://www.southlondongallery.org",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "Spiritland",
@@ -1576,7 +1589,8 @@
     ],
     "url": "https://www.stmartin-in-the-fields.org",
     "blurb": "An active church on Trafalgar Square offering candlelit concerts, lunchtime recitals, and music in the crypt.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "Stanley Arts",
@@ -1656,7 +1670,8 @@
     ],
     "url": "https://www.thealbany.org.uk",
     "blurb": "South East London's beating cultural heart, platforming local artists and driving creative participation rooted in social justice and community care.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "The Atlantis Bookshop",
@@ -1704,7 +1719,8 @@
     ],
     "url": "https://www.bhavan.net/",
     "blurb": "The UK's premier Indian arts centre, celebrating over 50 years of cultural legacy through classical dance, sitar concerts, and sacred philosophy.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "The Divine",
@@ -1735,7 +1751,8 @@
     ],
     "url": "https://www.thegardencinema.co.uk",
     "blurb": "An independent cinema opened in 2022 with art-deco features, emphasizing art-house foreign-language films that deserve to be seen.",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "The Harrison",
@@ -1833,7 +1850,8 @@
     ],
     "url": "https://thelexicinema.co.uk",
     "blurb": "London's only social-enterprise cinema, a volunteer-run boutique picturehouse championing films with social purpose and supporting international projects.",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "refuge": true
   },
   {
     "name": "The Others",
@@ -1928,7 +1946,8 @@
     "url": "https://thesoundlounge.org.uk",
     "blurb": "A carbon-neutral haven for roots music, where vinyl spins and voices rise gently over plant-based plates and communal warmth.",
     "notes": "Relocated from Tooting to Sutton High Street",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "The Space",
@@ -1945,7 +1964,8 @@
     ],
     "url": "http://www.space.org.uk",
     "blurb": "A converted 19th-century church offering atmospheric performances and workshops, where stone walls hold echoes of both prayer and art.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "The Tabernacle",
@@ -1961,7 +1981,8 @@
     ],
     "url": "https://www.thetabernaclew11.com/",
     "blurb": "A Grade II-listed former church turned arts centre, still resonating with Caribbean Carnival roots and cross-cultural programming.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "The Viaduct",
@@ -2039,7 +2060,8 @@
     ],
     "url": "https://tramshed.org",
     "blurb": "A community arts hub using performing arts to serve young people and adults with learning differences, fostering social cohesion through creativity.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "Treadwell's Books",
@@ -2088,7 +2110,8 @@
     ],
     "url": "https://unionchapel.org.uk/",
     "blurb": "A working church and not-for-profit performance space where gothic architecture and exceptional acoustics frame diverse programming.",
-    "last_verified": "2025-11-15"
+    "last_verified": "2025-11-15",
+    "refuge": true
   },
   {
     "name": "Viktor Wynd Museum",
