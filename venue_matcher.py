@@ -18,6 +18,130 @@ from parse_venues import load_parsed_venues
 # Load parsed venue profiles
 venue_data = load_parsed_venues()
 
+# =============================================================================
+# SYNONYM DICTIONARIES
+# These expand user search terms to match our venue tags more flexibly
+# =============================================================================
+
+# Mood synonyms - map user terms to our official mood tags
+MOOD_SYNONYMS = {
+    # Melancholic cluster
+    "melancholy": ["melancholy", "melancholic"],
+    "melancholic": ["melancholy", "melancholic"],
+    "sad": ["melancholy", "tender"],
+    "blue": ["melancholy", "nostalgic"],
+
+    # Queer cluster
+    "gay": ["queer"],
+    "lgbt": ["queer"],
+    "lgbtq": ["queer"],
+    "lgbtq+": ["queer"],
+
+    # Spooky cluster
+    "spooky": ["haunted", "witchy"],
+    "creepy": ["haunted"],
+    "gothic": ["haunted", "sacred"],
+
+    # Playful cluster
+    "fun": ["playful", "curious"],
+    "weird": ["playful", "experimental"],
+    "strange": ["curious", "witchy"],
+
+    # Intimate cluster
+    "cozy": ["intimate", "tender"],
+    "small": ["intimate"],
+    "quiet": ["intimate", "thoughtful"],
+
+    # Energy cluster
+    "party": ["ecstatic", "rebellious"],
+    "dancing": ["ecstatic", "wild"],
+    "rave": ["ecstatic", "rebellious"],
+    "clubbing": ["big night out", "ecstatic"],
+
+    # Calm cluster
+    "peaceful": ["tender", "thoughtful"],
+    "chill": ["tender", "folk"],
+    "relaxed": ["tender", "intimate"],
+
+    # Cultural cluster
+    "ethnic": ["global"],
+    "international": ["global"],
+    "world music": ["global"],
+}
+
+# Location synonyms - map broad terms to specific neighborhoods
+LOCATION_SYNONYMS = {
+    "south london": ["peckham", "brixton", "camberwell", "dulwich", "clapham", "streatham", "lewisham", "deptford", "nunhead"],
+    "south": ["peckham", "brixton", "camberwell", "dulwich", "clapham", "streatham", "lewisham", "deptford", "nunhead"],
+
+    "north london": ["camden", "islington", "highgate", "finsbury park", "tottenham", "wood green", "barnet"],
+    "north": ["camden", "islington", "highgate", "finsbury park", "tottenham", "wood green", "barnet"],
+
+    "east london": ["hackney", "shoreditch", "dalston", "bethnal green", "whitechapel", "stratford", "walthamstow"],
+    "east": ["hackney", "shoreditch", "dalston", "bethnal green", "whitechapel", "stratford", "walthamstow"],
+
+    "west london": ["hammersmith", "shepherd's bush", "chiswick", "ealing", "brentford", "acton"],
+    "west": ["hammersmith", "shepherd's bush", "chiswick", "ealing", "brentford", "acton"],
+
+    "central london": ["soho", "covent garden", "holborn", "king's cross", "fitzrovia"],
+    "central": ["soho", "covent garden", "holborn", "king's cross", "fitzrovia"],
+
+    # Specific neighborhood aliases
+    "shoreditch": ["shoreditch", "hoxton"],
+    "kings cross": ["king's cross"],
+    "shepherds bush": ["shepherd's bush"],
+}
+
+# =============================================================================
+# EXPANSION FUNCTIONS
+# =============================================================================
+
+def expand_mood(mood_term):
+    """
+    Expand a mood term to include synonyms.
+
+    Args:
+        mood_term: User's mood search term (lowercase)
+
+    Returns:
+        List of mood tags to search for
+    """
+    if not mood_term:
+        return []
+
+    mood_lower = mood_term.lower().strip()
+
+    # Check if it's in our synonym dictionary
+    if mood_lower in MOOD_SYNONYMS:
+        return MOOD_SYNONYMS[mood_lower]
+
+    # Otherwise just return the original term
+    return [mood_lower]
+
+
+def expand_location(location_term):
+    """
+    Expand a location term to include neighborhoods.
+
+    Args:
+        location_term: User's location search term (lowercase)
+
+    Returns:
+        List of location names to search for
+    """
+    if not location_term:
+        return []
+
+    location_lower = location_term.lower().strip()
+
+    # Check if it's in our synonym dictionary
+    if location_lower in LOCATION_SYNONYMS:
+        return LOCATION_SYNONYMS[location_lower]
+
+    # Otherwise just return the original term
+    return [location_lower]
+
+
 def _poetic_line(venue, mood):
     """Shape a lyrical sentence for the recommended venue."""
     mood_hint = f"for {mood.lower()} hearts" if mood else "for wandering hearts"
@@ -47,40 +171,58 @@ def match_venues(filters):
         mood_tags = venue.get("moods", []) or venue.get("mood_tags", [])
 
         # Mood match (required if mood is specified)
-        # Normalize and match moods flexibly
+        # Normalize and match moods flexibly using synonym expansion
         if mood:
             # Split mood filter into words and lowercase (handles "Folk & Intimate" -> ["folk", "intimate"])
             mood_words = [w.strip().lower() for w in mood.replace('&', ' ').replace('/', ' ').split() if len(w.strip()) > 2]
-            
+
+            # Expand each mood word to include synonyms
+            mood_variants = []
+            for word in mood_words:
+                mood_variants.extend(expand_mood(word))
+
+            # If no words were expanded (short words filtered out), try the whole phrase
+            if not mood_variants:
+                mood_variants = expand_mood(mood.lower().strip())
+
             # Lowercase all venue mood tags
             venue_moods_lower = [m.lower() for m in mood_tags]
-            
-            # Check if ANY mood word matches ANY venue mood tag
+
+            # Check if ANY mood variant matches ANY venue mood tag
             # Uses exact match, substring match, OR stem match (first 8 chars)
             mood_match = any(
                 any(
                     # Exact match
-                    mood_word == venue_mood or
+                    variant == venue_mood or
                     # Substring match
-                    mood_word in venue_mood or venue_mood in mood_word or
+                    variant in venue_mood or venue_mood in variant or
                     # Stem match (first 8 characters for words like melancholic/melancholy)
-                    (len(mood_word) >= 8 and len(venue_mood) >= 8 and mood_word[:8] == venue_mood[:8])
+                    (len(variant) >= 8 and len(venue_mood) >= 8 and variant[:8] == venue_mood[:8])
                     for venue_mood in venue_moods_lower
                 )
-                for mood_word in mood_words
+                for variant in mood_variants
             )
-            
+
             if not mood_match:
                 continue
 
         # Location match (optional)
         # Check both the specific area and the tags field (which has broader regions like "North London")
+        # Uses location expansion for broader area searches (e.g., "south london" -> all south neighborhoods)
         area = venue.get("area", "") or venue.get("location", "")
         tags = venue.get("tags", [])  # Now an array
         tags_str = " ".join(tags) if isinstance(tags, list) else str(tags)  # Convert to string for searching
         if location:
-            location_lower = location.lower()
-            if location_lower not in area.lower() and location_lower not in tags_str.lower():
+            # Expand location to include neighborhoods
+            location_variants = expand_location(location)
+
+            # Check if ANY variant matches venue area or tags
+            location_match = any(
+                variant in area.lower() or variant in tags_str.lower()
+                for variant in location_variants
+            )
+
+            if not location_match:
                 filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by location")
                 continue
 
@@ -158,20 +300,75 @@ def match_venues(filters):
     return deduplicated_matches[:3]
 
 if __name__ == "__main__":
-    test_filters = {
-        "mood": None,
-        "location": None,
-        "group": None
-    }
+    print("=" * 60)
+    print("VENUE MATCHER TESTS - Synonym & Location Expansion")
+    print("=" * 60)
 
-    result = match_venues(test_filters)
-    print("🕊️ The Lark offers these resonances:\n")
+    # Test mood expansion
+    print("\n1. Testing mood expansion:")
+    print(f"   'gay' expands to: {expand_mood('gay')}")
+    print(f"   'spooky' expands to: {expand_mood('spooky')}")
+    print(f"   'melancholy' expands to: {expand_mood('melancholy')}")
+    print(f"   'cozy' expands to: {expand_mood('cozy')}")
+    print(f"   'party' expands to: {expand_mood('party')}")
+    print(f"   'folk' (no synonym) expands to: {expand_mood('folk')}")
+
+    # Test location expansion
+    print("\n2. Testing location expansion:")
+    print(f"   'south london' expands to: {expand_location('south london')}")
+    print(f"   'east' expands to: {expand_location('east')}")
+    print(f"   'central' expands to: {expand_location('central')}")
+    print(f"   'peckham' (no synonym) expands to: {expand_location('peckham')}")
+
+    # Test actual venue matching with synonyms
+    print("\n3. Testing venue matching with mood synonyms:")
+
+    # Test queer synonym
+    test_queer = {"mood": "gay"}
+    queer_results = match_venues(test_queer)
+    print(f"   Query 'gay' found {len(queer_results)} venues:")
+    for v in queer_results:
+        print(f"      - {v['name']} (moods: {v['mood_tags']})")
+
+    # Test spooky synonym
+    test_spooky = {"mood": "spooky"}
+    spooky_results = match_venues(test_spooky)
+    print(f"\n   Query 'spooky' found {len(spooky_results)} venues:")
+    for v in spooky_results:
+        print(f"      - {v['name']} (moods: {v['mood_tags']})")
+
+    # Test cozy synonym
+    test_cozy = {"mood": "cozy"}
+    cozy_results = match_venues(test_cozy)
+    print(f"\n   Query 'cozy' found {len(cozy_results)} venues:")
+    for v in cozy_results:
+        print(f"      - {v['name']} (moods: {v['mood_tags']})")
+
+    print("\n4. Testing venue matching with location expansion:")
+
+    # Test south london
+    test_south = {"location": "south london"}
+    south_results = match_venues(test_south)
+    print(f"   Query 'south london' found {len(south_results)} venues:")
+    for v in south_results:
+        print(f"      - {v['name']} in {v['area']}")
+
+    # Test combined mood + location
+    print("\n5. Testing combined mood + location:")
+    test_combined = {"mood": "gay", "location": "south"}
+    combined_results = match_venues(test_combined)
+    print(f"   Query 'gay' + 'south' found {len(combined_results)} venues:")
+    for v in combined_results:
+        print(f"      - {v['name']} in {v['area']} (moods: {v['mood_tags']})")
+
+    # Basic test without filters
+    print("\n6. Testing without filters (baseline):")
+    result = match_venues({})
+    print(f"   No filters found {len(result)} venues")
     if result:
         for venue in result:
-            print(f"• {venue['name']} in {venue['area']}")
-            print(f"  {venue['vibe_note']}")
-            if venue['typical_start_time']:
-                print(f"  Doors around {venue['typical_start_time']}")
-            print()
-    else:
-        print("No venues sang in harmony with your mood – try another mood or area?")
+            print(f"      - {venue['name']} in {venue['area']}")
+
+    print("\n" + "=" * 60)
+    print("Tests complete!")
+    print("=" * 60)
