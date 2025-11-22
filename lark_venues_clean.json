@@ -1,393 +1,20 @@
 [
   {
-    "name": "Ace Cafe London",
-    "location": "North West London",
-    "moods": [
-      "rebellious",
-      "nostalgic"
-    ],
-    "genres": [
-      "rock n roll",
-      "live music"
-    ],
-    "url": "https://london.acecafe.com/",
-    "blurb": "The world's most famous motor café, where petrol-fumed heritage meets rock 'n' roll nights, ride-outs, and rebellious spirit since 1938.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "ActOne Cinema",
-    "location": "Acton",
-    "moods": [
-      "thoughtful",
-      "nostalgic"
-    ],
-    "genres": [
-      "independent film",
-      "mainstream"
-    ],
-    "url": "https://actonecinema.co.uk",
-    "blurb": "A community-run cinema in a former library, co-run by Rio Cinema, championing independent films and filmmaker events.",
-    "last_verified": "2025-11-15",
-    "refuge": true
-  },
-  {
-    "name": "Admiral Duncan",
-    "location": "Soho",
-    "moods": [
-      "cabaret",
-      "queer"
-    ],
-    "genres": [
-      "drag cabaret",
-      "karaoke",
-      "camp bingo"
-    ],
-    "url": "https://www.admiralduncansoho.co.uk",
-    "notes": "Historic Soho pub, inclusive atmosphere. Cabaret every Friday and Saturday, Sunday cabaret, Monday karaoke. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "ArtHouse Crouch End",
-    "location": "Crouch End",
-    "moods": [
-      "curious",
-      "playful"
-    ],
-    "genres": [
-      "film",
-      "live music",
-      "theatre"
-    ],
-    "url": "https://www.arthousecrouchend.co.uk",
-    "blurb": "A former Salvation Army hall mixing film, fine art, live music, and theatre, tearing down perceived walls between genres to celebrate diversity.",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "artsdepot",
-    "location": "North Finchley",
-    "moods": [
-      "tender",
-      "curious"
-    ],
-    "genres": [
-      "exhibitions",
-      "community classes",
-      "theatre"
-    ],
-    "url": "https://www.artsdepot.co.uk/",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "Asylum Chapel",
-    "location": "Peckham",
-    "moods": [
-      "melancholy",
-      "candlelit",
-      "sacred"
-    ],
-    "genres": [
-      "private hire",
-      "events",
-      "weddings"
-    ],
-    "url": "https://asylumchapel.co.uk/",
-    "notes": "Primarily private hire, not regular public events",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Autograph",
-    "location": "Rivington Place",
-    "moods": [
-      "activist",
-      "awe",
-      "global"
-    ],
-    "genres": [
-      "photography",
-      "identity",
-      "social justice"
-    ],
-    "url": "https://autograph.org.uk",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "Barts Pathology Museum",
-    "location": "Smithfield",
-    "moods": [
-      "witchy",
-      "haunted",
-      "experimental"
-    ],
-    "genres": [
-      "anatomy lectures",
-      "macabre science talks",
-      "art installations"
-    ],
-    "url": "https://www.qmul.ac.uk/pathologymuseum",
-    "notes": "Museum of preserved medical specimens. The Gothic Scientist talks and post-mortem history events through Dec 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Battersea Arts Centre",
-    "location": "Battersea",
-    "moods": [
-      "curious",
-      "playful"
-    ],
-    "genres": [
-      "experimental theatre",
-      "boundary-pushing"
-    ],
-    "url": "https://bac.org.uk",
-    "blurb": "The go-to place for boundary-pushing theatre, harnessing art and collective imagination to build a more inclusive, sustainable future.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Beck Theatre",
-    "location": "Hayes",
-    "moods": [
-      "community",
-      "family-friendly",
-      "playful",
-      "nostalgic"
-    ],
-    "genres": [
-      "touring musicals",
-      "comedy",
-      "drama",
-      "tribute concerts",
-      "pantomime"
-    ],
-    "url": "https://www.parkwoodtheatres.co.uk/beck-theatre",
-    "notes": "600-seat theatre in outer West London delivering mixed programming. Verified active Nov 2025 - pantomime and touring shows scheduled.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Bernie Grant Arts Centre",
-    "location": "Tottenham",
-    "moods": [
-      "rebellious",
-      "ritual"
-    ],
-    "genres": [
-      "Black-led arts",
-      "theatre",
-      "dance",
-      "visual arts"
-    ],
-    "url": "https://www.berniegrantcentre.co.uk",
-    "blurb": "A Black, female, and queer-led multi-artform venue giving Black-led work space and status to thrive, committed to intersectional practice and community engagement.",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Bethnal Green Working Men's Club",
-    "location": "Bethnal Green",
-    "moods": [
-      "rebellious",
-      "queer"
-    ],
-    "genres": [
-      "cabaret",
-      "drag",
-      "dance"
-    ],
-    "url": "https://www.workersplaytime.net",
-    "blurb": "An East End institution hosting wild, unhinged nights from racy cabaret to drag shows, a vital community hub with a safe-space policy.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Bill Murray",
-    "location": "Islington",
-    "moods": [
-      "comic",
-      "playful"
-    ],
-    "genres": [
-      "stand-up comedy"
-    ],
-    "url": "https://www.angelcomedy.co.uk/our-venues/the-bill-murray/",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Blue Elephant Theatre",
-    "location": "Camberwell",
-    "moods": [
-      "curious",
-      "playful",
-      "poetic"
-    ],
-    "genres": [
-      "physical theatre",
-      "dance",
-      "new writing"
-    ],
-    "url": "https://blueelephanttheatre.co.uk",
-    "blurb": "A quirky oasis nurturing experimental work and emerging artists, where movement and story intertwine in intimate, risk-taking performances.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Blythe Hill Tavern",
-    "location": "Catford",
-    "moods": [
-      "folk",
-      "tender"
-    ],
-    "genres": [
-      "Irish music",
-      "folk"
-    ],
-    "url": "https://www.blythehilltavern.org.uk",
-    "blurb": "A CAMRA award-winning Victorian corner pub where Thursday nights bloom with traditional Irish music, roaring fires, and real ale.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Bromley Little Theatre",
-    "location": "Bromley",
-    "moods": [
-      "community",
-      "nostalgic",
-      "thoughtful"
-    ],
-    "genres": [
-      "amateur drama",
-      "music nights",
-      "comedy"
-    ],
-    "url": "https://bromleylittletheatre.org",
-    "notes": "Volunteer-run since 1938. 113-seat intimate theatre. Music Nights series Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Bush Hall",
-    "location": "Shepherd's Bush",
-    "moods": [
-      "nostalgic",
-      "awe",
-      "ecstatic"
-    ],
-    "genres": [
-      "indie music",
-      "comedy",
-      "cabaret"
-    ],
-    "url": "https://bushhallmusic.co.uk/",
-    "blurb": "A restored Edwardian ballroom where chandeliers still remember 1904, hosting rising musicians and comedians beneath high ceilings that make every note linger.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Bush Theatre",
-    "location": "Shepherd's Bush",
-    "moods": [
-      "rant",
-      "salon"
-    ],
-    "genres": [
-      "new plays",
-      "emerging playwrights"
-    ],
-    "url": "https://www.bushtheatre.co.uk/",
-    "blurb": "An internationally renowned champion of playwrights, where new writing crackles with activist spirit and salon-style conversation.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Café OTO",
-    "location": "Dalston",
-    "moods": [
-      "experimental",
-      "intimate"
-    ],
-    "genres": [
-      "free jazz",
-      "improvised music",
-      "sound art"
-    ],
-    "url": "https://www.cafeoto.co.uk",
-    "notes": "Renowned concert space for adventurous music. OTO Bar events and experimental concerts through Jan 2026. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Camden People's Theatre",
-    "location": "Camden",
-    "moods": [
-      "curious",
-      "rebellious"
-    ],
-    "genres": [
-      "contemporary performance",
-      "emerging artists"
-    ],
-    "url": "https://cptheatre.co.uk/",
-    "blurb": "A small, independent venue championing emerging artists and boundary-pushing contemporary performance, making space for tomorrow's theatre-makers.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Cecil Sharp House",
-    "location": "Camden",
-    "moods": [
-      "folk",
-      "tender"
-    ],
-    "genres": [
-      "folk music",
-      "folk dance"
-    ],
-    "url": "https://www.efdss.org/",
-    "blurb": "The world-class folk arts centre, home to the English Folk Dance and Song Society, championing folk heritage since 1930.",
-    "last_verified": "2025-11-15",
-    "refuge": true
-  },
-  {
-    "name": "CellarDoor",
-    "location": "Aldwych",
-    "moods": [
-      "cabaret",
-      "intimate"
-    ],
-    "genres": [
-      "burlesque",
-      "drag shows",
-      "intimate cabaret"
-    ],
-    "url": "https://cellardoorshow.com",
-    "notes": "Tiny cocktail bar in converted public toilet. Velvet-lined, candlelit. Queera Lynn's Gin Salon and Clandestine Burlesque through Jan 2026. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Chickenshed Theatre",
-    "location": "Southgate",
-    "moods": [
-      "activist",
-      "tender",
-      "community"
-    ],
-    "genres": [
-      "inclusive theatre",
-      "community productions"
-    ],
-    "url": "https://www.chickenshed.org.uk",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "CLF Art Café",
-    "location": "Peckham",
+    "name": "Hootananny Brixton",
+    "location": "Brixton",
     "moods": [
       "ecstatic",
-      "wild"
+      "earthy"
     ],
     "genres": [
-      "house",
-      "electro",
-      "drum & bass",
-      "techno",
-      "funk",
-      "soul"
+      "reggae",
+      "jungle",
+      "disco",
+      "electronic"
     ],
-    "url": "https://www.clfartcafe.org",
-    "blurb": "A multi-floor creative arts centre hosting everything from Bestival parties to South London Soul Train, spanning house, funk, jazz, and beyond.",
-    "last_verified": "2025-11-17"
+    "url": "https://hootanannybrixton.co.uk",
+    "last_verified": "2025-11-15",
+    "blurb": "A Brixton pub-turned-dancehall where reggae roots run deep and basslines bloom wild into the night."
   },
   {
     "name": "CLF Art Lounge & Roof Garden",
@@ -408,232 +35,68 @@
     "last_verified": "2025-11-15"
   },
   {
-    "name": "Colour Factory",
-    "location": "Hackney Wick",
+    "name": "Jazzlive at the Crypt",
+    "location": "Camberwell",
     "moods": [
-      "big night out",
-      "queer",
-      "rebellious"
+      "melancholy",
+      "candlelit"
     ],
     "genres": [
-      "club nights",
-      "live music"
+      "improvised jazz"
     ],
-    "url": "https://colourfactory.com",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Colour House Theatre",
-    "location": "Merton",
-    "moods": [
-      "family-friendly",
-      "playful"
-    ],
-    "genres": [
-      "children's theatre",
-      "blues"
-    ],
-    "url": "https://www.colourhouseblues.co.uk/",
-    "blurb": "A Grade II-listed building hosting weekend children's shows and monthly blues club nights, a small-scale community arts hub.",
+    "url": "https://www.jazzlive.co.uk",
+    "blurb": "Beneath St Giles Church, Friday nights dissolve into improvised jazz and candlelight, where every note echoes off stone older than memory.",
     "last_verified": "2025-11-15"
   },
   {
-    "name": "Company Drinks",
-    "location": "Barking Park",
+    "name": "The Sound Lounge",
+    "location": "Sutton",
     "moods": [
-      "community",
-      "tender",
-      "curious"
+      "folk",
+      "tender"
     ],
     "genres": [
-      "gardening workshops",
-      "craft sessions",
-      "social teas",
-      "herbal drinks"
+      "blues",
+      "Americana",
+      "folk",
+      "roots"
     ],
-    "url": "https://companydrinks.info",
-    "notes": "Urban horticulture and social drinks project in Barking Park. Grow Club sessions Nov 2025. Revives horticultural heritage. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Compass Theatre",
-    "location": "Ickenham",
-    "moods": [
-      "community",
-      "family-friendly",
-      "nostalgic",
-      "playful"
-    ],
-    "genres": [
-      "pantomimes",
-      "plays",
-      "youth theatre",
-      "lectures",
-      "tea dances"
-    ],
-    "url": "https://www.hillingdon.gov.uk/compass-theatre",
-    "notes": "Council-run arts centre with 140-seat auditorium. Hosts local productions and classes. Verified active Nov 2025 - pantomime running Dec 2025-Jan 2026.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Conway Hall",
-    "location": "Holborn",
-    "moods": [
-      "word",
-      "sacred"
-    ],
-    "genres": [
-      "talks",
-      "concerts",
-      "courses"
-    ],
-    "url": "https://conwayhall.org.uk",
-    "blurb": "A Grade II listed hall from 1929 housing the largest humanist research library, curating talks and concerts promoting ethical living.",
-    "last_verified": "2025-11-15",
-    "refuge": true
-  },
-  {
-    "name": "Corner New Cross",
-    "location": "New Cross",
-    "moods": [
-      "queer",
-      "playful"
-    ],
-    "genres": [
-      "coffee",
-      "art gallery",
-      "cocktails"
-    ],
-    "url": "https://www.cornernewcross.com/",
-    "blurb": "An LGBTQIA+-led neighbourhood coffee shop, cocktail bar, and art gallery where inclusive ethos meets rotating artwork and community warmth.",
-    "last_verified": "2025-11-15",
-    "refuge": true
-  },
-  {
-    "name": "Crazy Coqs",
-    "location": "Soho",
-    "moods": [
-      "cabaret",
-      "nostalgic"
-    ],
-    "genres": [
-      "jazz cabaret",
-      "drag variety",
-      "retro nightclub"
-    ],
-    "url": "https://crazycoqs.com",
-    "notes": "Art-Deco cabaret lounge at Brasserie Zédel. Nightly performances. Le Grand Cabaret and retro jazz nights Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Crossbones Graveyard",
-    "location": "Southwark",
-    "moods": [
-      "witchy",
-      "haunted"
-    ],
-    "genres": [
-      "monthly vigils",
-      "ritual gatherings",
-      "memorial events"
-    ],
-    "url": "https://crossbones.org.uk",
-    "notes": "Shrine and memorial garden on unconsecrated cemetery site for 'outcast' Londoners. Candlelit vigils. Partially verified - limited evidence beyond Feb 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "CryerArts Centre",
-    "location": "Carshalton",
-    "moods": [
-      "community",
-      "nostalgic",
-      "playful"
-    ],
-    "genres": [
-      "tribute bands",
-      "comedy nights",
-      "amateur theatre"
-    ],
-    "url": "https://cryerarts.co.uk",
-    "notes": "120-seat performance space with bars. Sutton's main live venue. Comedy and tribute acts Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Deli Meets Poets of Colour",
-    "location": "City of London",
-    "moods": [
-      "poetic",
-      "activist"
-    ],
-    "genres": [
-      "spoken word",
-      "poetry open mic"
-    ],
-    "url": "https://theatredeli.co.uk",
-    "notes": "Monthly series at Theatre Deli centring Poets of Colour. Guest performers and open-mic slots. Session Dec 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Dennis Severs' House",
-    "location": "Spitalfields",
-    "moods": [
-      "witchy",
-      "haunted"
-    ],
-    "genres": [
-      "silent candlelit tours",
-      "time-capsule visits"
-    ],
-    "url": "https://dennissevershouse.co.uk",
-    "notes": "Georgian house preserved as if occupants just stepped out. Wander in silence by candlelight. Christmas Silent Night tours late 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Dugdale Arts Centre",
-    "location": "Enfield",
-    "moods": [
-      "thoughtful",
-      "intimate",
-      "family-friendly"
-    ],
-    "genres": [
-      "music",
-      "spoken word",
-      "comedy",
-      "craft workshops"
-    ],
-    "url": "https://www.dugdaleartscentre.co.uk",
-    "notes": "160-seat studio theatre with café/bar. Christmas at DAC 2025 programme includes cocktail events and concerts. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "EartH",
-    "location": "Dalston",
-    "moods": [
-      "ecstatic",
-      "curious"
-    ],
-    "genres": [
-      "experimental",
-      "cutting-edge"
-    ],
-    "url": "https://earthackney.co.uk",
-    "blurb": "A refurbished 1930s cinema with three spaces hosting eclectic, vibrant programming from leading and emerging artists.",
+    "url": "https://thesoundlounge.org.uk",
+    "blurb": "A carbon-neutral haven for roots music, where vinyl spins and voices rise gently over plant-based plates and communal warmth.",
+    "notes": "Relocated from Tooting to Sutton High Street",
     "last_verified": "2025-11-15"
   },
   {
-    "name": "Finborough Theatre",
-    "location": "Earl's Court",
+    "name": "Blue Elephant Theatre",
+    "location": "Camberwell",
     "moods": [
       "curious",
-      "activist"
+      "playful",
+      "poetic"
     ],
     "genres": [
-      "new writing",
-      "rediscovered works"
+      "physical theatre",
+      "dance",
+      "new writing"
     ],
-    "url": "https://finboroughtheatre.co.uk/",
-    "blurb": "A pocket-sized powerhouse above a pub, presenting thought-provoking new writing and neglected masterpieces in a fiercely intimate 50-seat space.",
+    "url": "https://blueelephanttheatre.co.uk",
+    "blurb": "A quirky oasis nurturing experimental work and emerging artists, where movement and story intertwine in intimate, risk-taking performances.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "The Ivy House",
+    "location": "Nunhead",
+    "moods": [
+      "earthy",
+      "playful"
+    ],
+    "genres": [
+      "punk",
+      "poetry",
+      "jazz"
+    ],
+    "url": "https://www.ivyhousenunhead.com",
+    "blurb": "London's first community-owned pub, a Grade II-listed treasure offering everything from punk to poetry and Sunday jazz.",
     "last_verified": "2025-11-15"
   },
   {
@@ -656,361 +119,6 @@
     "last_verified": "2025-11-15"
   },
   {
-    "name": "Galleon Arts Centre",
-    "location": "Barking",
-    "moods": [
-      "community",
-      "rebellious",
-      "playful"
-    ],
-    "genres": [
-      "hip-hop dance",
-      "youth drama",
-      "urban arts workshops"
-    ],
-    "url": "https://www.galleoncommunity.org.uk",
-    "notes": "Youth arts centre providing free/low-cost creative sessions. 3Style Fridays hip-hop battles and workshops Nov-Dec 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Gate Theatre",
-    "location": "Camden",
-    "moods": [
-      "global",
-      "curious"
-    ],
-    "genres": [
-      "international theatre",
-      "new voices"
-    ],
-    "url": "https://www.gatetheatre.co.uk/",
-    "blurb": "New voices telling international stories, bringing world-changing theatre to London from a Camden base that champions bold, boundary-crossing work.",
-    "notes": "Moved from Notting Hill to Camden in July 2022",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Genesis Cinema",
-    "location": "Bethnal Green",
-    "moods": [
-      "playful",
-      "wild"
-    ],
-    "genres": [
-      "indie film",
-      "horror marathons",
-      "cult classics"
-    ],
-    "url": "https://www.genesiscinema.co.uk",
-    "blurb": "A community-focused cultural hub offering horror marathons, kung-fu nights, feminist zine gatherings, and cult classics on comfy sofas with cocktails.",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "George IV Boston Room",
-    "location": "Chiswick",
-    "moods": [
-      "nostalgic",
-      "poetic"
-    ],
-    "genres": [
-      "jazz"
-    ],
-    "url": "https://www.chiswickcalendar.co.uk/george-iv-pub/",
-    "blurb": "Monthly jazz nights in an intimate pub room, where high-calibre musicians and regulars gather for Trio Manouche and Jazz Mondays.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Graeae Theatre Company",
-    "location": "Dalston",
-    "moods": [
-      "activist",
-      "voice",
-      "movement"
-    ],
-    "genres": [
-      "Deaf and disabled-led theatre"
-    ],
-    "url": "https://graeae.org",
-    "notes": "Active company, but no public performances scheduled for late 2025 at time of verification",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Grand Junction Arms",
-    "location": "North West London",
-    "moods": [
-      "seasonal",
-      "group energy"
-    ],
-    "genres": [
-      "pub events"
-    ],
-    "url": "https://www.grandjunctionarmsnw10.co.uk",
-    "blurb": "A vibrant canal-side pub claiming the biggest beer garden in north London, with seasonal menus and a busy events calendar.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Hackney Empire",
-    "location": "Hackney",
-    "moods": [
-      "nostalgic",
-      "wonder"
-    ],
-    "genres": [
-      "variety",
-      "comedy",
-      "opera",
-      "hip-hop theatre"
-    ],
-    "url": "https://hackneyempire.co.uk/",
-    "blurb": "A historic variety theatre from 1901 with ornate Victorian architecture, leading eclectic programming from stand-up to opera.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Half Moon Theatre",
-    "location": "Limehouse",
-    "moods": [
-      "family-friendly",
-      "tender",
-      "thoughtful"
-    ],
-    "genres": [
-      "children's theatre",
-      "youth programmes"
-    ],
-    "url": "https://halfmoon.org.uk",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "Heaven",
-    "location": "Charing Cross",
-    "moods": [
-      "ecstatic",
-      "queer"
-    ],
-    "genres": [
-      "club nights",
-      "live music"
-    ],
-    "url": "https://heaven-live.co.uk",
-    "blurb": "Central London's only 1,000-capacity gay club, the focal point of London's gay scene since 1979, hosting G-A-Y and big-name live acts.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Hootananny Brixton",
-    "location": "Brixton",
-    "moods": [
-      "ecstatic",
-      "earthy"
-    ],
-    "genres": [
-      "reggae",
-      "jungle",
-      "disco",
-      "electronic"
-    ],
-    "url": "https://hootanannybrixton.co.uk",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Horniman Museum and Gardens",
-    "location": "Forest Hill",
-    "moods": [
-      "wonder",
-      "family-friendly",
-      "curious"
-    ],
-    "genres": [
-      "museum",
-      "gardens",
-      "family events"
-    ],
-    "url": "https://www.horniman.ac.uk",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "Hundred Years Gallery",
-    "location": "Hoxton",
-    "moods": [
-      "wild",
-      "curious",
-      "wonder"
-    ],
-    "genres": [
-      "experimental art",
-      "improvised music"
-    ],
-    "url": "http://hundredyearsgallery.co.uk",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "IKLECTIK Art Lab",
-    "location": "Peckham",
-    "moods": [
-      "witchy",
-      "rebellious"
-    ],
-    "genres": [
-      "experimental sound",
-      "performance rituals"
-    ],
-    "url": "https://iklectik.org",
-    "blurb": "A grassroots Art Lab dedicated to experimental sound and socially engaged practices, holding care, experimentation, and resistance at its core.",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Irish Cultural Centre Hammersmith",
-    "location": "Hammersmith",
-    "moods": [
-      "community",
-      "folk",
-      "intimate",
-      "nostalgic"
-    ],
-    "genres": [
-      "traditional Irish music",
-      "film",
-      "lectures",
-      "literature",
-      "dance"
-    ],
-    "url": "https://irishculturalcentre.co.uk",
-    "notes": "Purpose-built centre for Irish arts with concert hall, cinema and library. Offers concerts, ceilís, language classes. Verified active Nov 2025 - multiple events scheduled.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Jacksons Lane",
-    "location": "Highgate",
-    "moods": [
-      "playful",
-      "curious"
-    ],
-    "genres": [
-      "circus",
-      "contemporary performance"
-    ],
-    "url": "https://www.jacksonslane.org.uk/",
-    "blurb": "Haringey's flagship arts venue for 45+ years, empowering diverse communities through circus, contemporary performance, and creative participation.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Jazz Café POSK",
-    "location": "Hammersmith",
-    "moods": [
-      "melancholy",
-      "global"
-    ],
-    "genres": [
-      "jazz",
-      "world music"
-    ],
-    "url": "https://jazzcafeposk.org/",
-    "blurb": "A Polish community jazz club where red curtains frame international improvisation and melancholic beauty meets global rhythms.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Jazzlive at the Crypt",
-    "location": "Camberwell",
-    "moods": [
-      "melancholy",
-      "candlelit"
-    ],
-    "genres": [
-      "improvised jazz"
-    ],
-    "url": "https://www.jazzlive.co.uk",
-    "blurb": "Beneath St Giles Church, Friday nights dissolve into improvised jazz and candlelight, where every note echoes off stone older than memory.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Karamel",
-    "location": "Wood Green",
-    "moods": [
-      "intimate",
-      "folk",
-      "poetic",
-      "experimental"
-    ],
-    "genres": [
-      "jazz",
-      "poetry",
-      "world music",
-      "vegan cuisine"
-    ],
-    "url": "https://www.musicglue.com/karamel",
-    "notes": "Cozy venue within Collage Arts combining vegetarian restaurant with performance space. Part of EFG London Jazz Festival 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "King's Head Theatre",
-    "location": "Islington",
-    "moods": [
-      "queer",
-      "punchy"
-    ],
-    "genres": [
-      "theatre",
-      "cabaret",
-      "drag"
-    ],
-    "url": "https://www.kingsheadtheatre.com/",
-    "blurb": "London's longest-running pub theatre, now in a purpose-built space celebrating the LGBTQ+ community through plays, cabaret, and drag.",
-    "notes": "Moved to new purpose-built theatre in January 2024",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Lantern Arts Centre",
-    "location": "Raynes Park",
-    "moods": [
-      "community",
-      "family-friendly",
-      "nostalgic"
-    ],
-    "genres": [
-      "choir concerts",
-      "pantomime",
-      "drama classes",
-      "film club"
-    ],
-    "url": "https://lanternarts.org",
-    "notes": "Volunteer-run within Lantern Methodist Church. Amateur plays and pantos. Lantern Arts Choir concert Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Lost Souls Poetry",
-    "location": "Balham",
-    "moods": [
-      "poetic",
-      "community"
-    ],
-    "genres": [
-      "poetry open mic"
-    ],
-    "url": "https://www.exhibitbars.com",
-    "notes": "Welcoming open mic at The Exhibit multi-arts venue. Freedom of expression, supportive stage. Events from Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Lyric Hammersmith Theatre",
-    "location": "Hammersmith",
-    "moods": [
-      "playful",
-      "community",
-      "family-friendly",
-      "experimental"
-    ],
-    "genres": [
-      "theatre",
-      "new writing",
-      "pantomimes",
-      "musical theatre",
-      "youth programmes"
-    ],
-    "url": "https://lyric.co.uk",
-    "notes": "Historic Frank Matcham theatre with main house and studio. Professional productions plus community outreach. Verified active Nov 2025 - pantomime and family shows running through Dec.",
-    "last_verified": "2025-11-22"
-  },
-  {
     "name": "Matchstick Piehouse",
     "location": "Deptford",
     "moods": [
@@ -1026,632 +134,6 @@
     "blurb": "Resurrected by artists as a worker-run co-op, this railway arch pulses with radical theatre, cabaret, and community-powered joy.",
     "notes": "Now operating as Piehouse Co-op (reopened early 2025)",
     "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Millfield Theatre",
-    "location": "Edmonton",
-    "moods": [
-      "community",
-      "playful",
-      "nostalgic"
-    ],
-    "genres": [
-      "pantomime",
-      "comedy",
-      "live music",
-      "community events"
-    ],
-    "url": "https://www.millfieldtheatre.co.uk",
-    "notes": "Enfield Council's flagship 360-seat venue. Festive shows and quizzes scheduled Nov-Dec 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Musical Museum",
-    "location": "Brentford",
-    "moods": [
-      "nostalgic",
-      "community",
-      "curious",
-      "family-friendly"
-    ],
-    "genres": [
-      "silent films",
-      "live organ",
-      "tea dances",
-      "concerts"
-    ],
-    "url": "https://www.musicalmuseum.co.uk",
-    "notes": "Collection of self-playing instruments with Mighty Wurlitzer organ. Hosts silent films with live accompaniment, tea dances, educational tours. Verified active Nov 2025 - events scheduled through Dec.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "New River Studios",
-    "location": "Manor House",
-    "moods": [
-      "community",
-      "experimental",
-      "group energy"
-    ],
-    "genres": [
-      "experimental music",
-      "community arts"
-    ],
-    "url": "https://newriverstudios.com",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Old Operating Theatre Museum",
-    "location": "Southwark",
-    "moods": [
-      "witchy",
-      "haunted",
-      "experimental"
-    ],
-    "genres": [
-      "after-dark tours",
-      "herbal workshops",
-      "medical history lectures"
-    ],
-    "url": "https://oldoperatingtheatre.com",
-    "notes": "Oldest surviving surgical theatre hidden above church. Victorian surgical tools and plant medicines. After-dark tours Nov 2025. Partially verified.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Orange Tree Theatre",
-    "location": "Richmond",
-    "moods": [
-      "curious",
-      "intimate"
-    ],
-    "genres": [
-      "new plays",
-      "classics",
-      "theatre in the round"
-    ],
-    "url": "https://orangetreetheatre.co.uk/",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Oslo Hackney",
-    "location": "Hackney",
-    "moods": [
-      "ecstatic",
-      "playful"
-    ],
-    "genres": [
-      "indie",
-      "dance",
-      "pop",
-      "R&B"
-    ],
-    "url": "https://oslohackney.com",
-    "blurb": "A 375-capacity venue in a redeveloped railway station with Nordic aesthetic, hosting indie bands and club nights with an excellent sound system.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Park Theatre",
-    "location": "Finsbury Park",
-    "moods": [
-      "thoughtful",
-      "salon"
-    ],
-    "genres": [
-      "new writing",
-      "modern revivals"
-    ],
-    "url": "https://parktheatre.co.uk/",
-    "blurb": "A neighbourhood theatre with global ambition, delivering world-class theatre through accessible stories and community-focused programming.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Phoenix Cinema",
-    "location": "East Finchley",
-    "moods": [
-      "sacred",
-      "curious"
-    ],
-    "genres": [
-      "art house",
-      "independent"
-    ],
-    "url": "https://www.phoenixcinema.co.uk",
-    "blurb": "One of the UK's oldest continuously operating picturehouses, a Grade II listed 1912 building with barrel-vaulted ceilings and Art Deco panels.",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "Phonox",
-    "location": "Brixton",
-    "moods": [
-      "big night out",
-      "ecstatic"
-    ],
-    "genres": [
-      "electronic",
-      "house",
-      "techno"
-    ],
-    "url": "https://phonox.co.uk",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Pitzhanger Manor & Gallery",
-    "location": "Ealing",
-    "moods": [
-      "thoughtful",
-      "nostalgic",
-      "curious",
-      "tender"
-    ],
-    "genres": [
-      "contemporary art",
-      "heritage tours",
-      "markets",
-      "workshops"
-    ],
-    "url": "https://www.pitzhanger.org.uk",
-    "notes": "Sir John Soane's restored country home with contemporary gallery. Verified active Nov 2025 - Howard Hodgkin exhibition running Oct 2025-Mar 2026, plus workshops.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Pizza Express Jazz Club",
-    "location": "Soho",
-    "moods": [
-      "candlelit",
-      "folk"
-    ],
-    "genres": [
-      "jazz"
-    ],
-    "url": "https://pizzaexpresslive.com/venues/soho-jazz-club",
-    "blurb": "One of London's most iconic jazz venues since 1976, a basement where tables cluster around a small stage hosting world-renowned artists.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Pleasance Theatre",
-    "location": "Islington",
-    "moods": [
-      "playful",
-      "curious"
-    ],
-    "genres": [
-      "theatre",
-      "comedy",
-      "performance"
-    ],
-    "url": "https://www.pleasance.co.uk",
-    "blurb": "A leading arts charity championing innovation and emerging voices, hosting hundreds of productions while providing artist development and mentorship.",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Poetry Café",
-    "location": "Covent Garden",
-    "moods": [
-      "word",
-      "thoughtful",
-      "intimate"
-    ],
-    "genres": [
-      "poetry readings",
-      "workshops"
-    ],
-    "url": "https://poetrysociety.org.uk/venue/the-poetry-cafe/",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "Polka Theatre",
-    "location": "Wimbledon",
-    "moods": [
-      "family-friendly",
-      "playful",
-      "tender"
-    ],
-    "genres": [
-      "children's theatre",
-      "storytelling",
-      "puppetry",
-      "workshops"
-    ],
-    "url": "https://polkatheatre.com",
-    "notes": "UK's first dedicated children's theatre. Two performance spaces, playground, café. The Firework-Maker's Daughter Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Poplar Union",
-    "location": "Poplar",
-    "moods": [
-      "earthy",
-      "tender"
-    ],
-    "genres": [
-      "community arts",
-      "workshops"
-    ],
-    "url": "https://poplarunion.com",
-    "blurb": "A grassroots community arts centre making creativity accessible to everyone, focusing on health, wellbeing, and social connection.",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "Queer Poetry Collective",
-    "location": "Stoke Newington",
-    "moods": [
-      "poetic",
-      "queer"
-    ],
-    "genres": [
-      "queer poetry",
-      "open mic"
-    ],
-    "url": "https://linktr.ee/queerpoetrycollective",
-    "notes": "Monthly open mic at Doña Mezcal Bar for queer poets and allies. Guest readings and sign-up slots. Nov 2025 event confirmed. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Questors Theatre",
-    "location": "Ealing",
-    "moods": [
-      "family-friendly",
-      "thoughtful"
-    ],
-    "genres": [
-      "amateur theatre",
-      "touring companies"
-    ],
-    "url": "https://questors.org.uk",
-    "blurb": "One of the UK's leading amateur theatres, staging 15-20 professional-quality productions yearly across two performance spaces.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Resonance Poetry Night",
-    "location": "Peckham",
-    "moods": [
-      "poetic",
-      "community"
-    ],
-    "genres": [
-      "poetry open mic"
-    ],
-    "url": "https://linktr.ee/resonancepoetrynight",
-    "notes": "Monthly poetry open mic at SET Social, first Wednesday of each month. Supportive space for new writing. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Rich Mix",
-    "location": "Shoreditch",
-    "moods": [
-      "earthy",
-      "ecstatic"
-    ],
-    "genres": [
-      "music",
-      "spoken word",
-      "theatre",
-      "dance",
-      "film"
-    ],
-    "url": "https://richmix.org.uk",
-    "blurb": "East London's home for culture and creativity, a charity presenting eclectic programming and reinvesting profits into community work.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Rio Cinema",
-    "location": "Dalston",
-    "moods": [
-      "rebellious",
-      "curious"
-    ],
-    "genres": [
-      "art house",
-      "premieres"
-    ],
-    "url": "https://riocinema.org.uk",
-    "blurb": "Dalston's crown jewel, an art-deco picture palace with activist roots hosting premieres, Q&As, and radical programming since the Rock Against Racism days.",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Riverside Studios",
-    "location": "Hammersmith",
-    "moods": [
-      "experimental",
-      "community",
-      "thoughtful",
-      "curious"
-    ],
-    "genres": [
-      "theatre",
-      "film festivals",
-      "exhibitions",
-      "comedy",
-      "workshops",
-      "dance"
-    ],
-    "url": "https://riversidestudios.co.uk",
-    "notes": "Contemporary arts complex overlooking Thames with performance studios, cinemas and galleries. Verified active Nov 2025 - exhibition running through Jan 2026.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Rose Theatre",
-    "location": "Kingston",
-    "moods": [
-      "voice",
-      "wonder"
-    ],
-    "genres": [
-      "theatre",
-      "jazz",
-      "pantomime"
-    ],
-    "url": "https://www.rosetheatre.org/",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Rosetta Arts",
-    "location": "West Ham",
-    "moods": [
-      "community",
-      "thoughtful",
-      "curious"
-    ],
-    "genres": [
-      "ceramics",
-      "printmaking",
-      "photography",
-      "painting"
-    ],
-    "url": "https://rosettaarts.org",
-    "notes": "Affordable arts courses and workshops. Pottery courses running Oct-Nov 2025. Empowers Newham residents. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Roundhouse",
-    "location": "Camden",
-    "moods": [
-      "rebellious",
-      "ecstatic"
-    ],
-    "genres": [
-      "music",
-      "theatre",
-      "circus"
-    ],
-    "url": "https://www.roundhouse.org.uk/",
-    "blurb": "An iconic iron-roofed performing arts venue with industrial heritage, empowering young creatives through cutting-edge programming.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Royal Vauxhall Tavern",
-    "location": "Vauxhall",
-    "moods": [
-      "cabaret",
-      "queer"
-    ],
-    "genres": [
-      "drag cabaret",
-      "queer panto",
-      "club nights"
-    ],
-    "url": "https://www.vauxhalltavern.com",
-    "notes": "Iconic Victorian pub, LGBTQ+ history and raucous cabaret. Sunday Cabaret, Madonna Bedtime Story, queer panto through Jan 2026. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Sadler's Wells",
-    "location": "Islington",
-    "moods": [
-      "movement",
-      "awe",
-      "ritual"
-    ],
-    "genres": [
-      "contemporary dance",
-      "ballet"
-    ],
-    "url": "https://www.sadlerswells.com/",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Scala",
-    "location": "King's Cross",
-    "moods": [
-      "big night out",
-      "rebellious"
-    ],
-    "genres": [
-      "club nights",
-      "live music"
-    ],
-    "url": "https://scala.co.uk/",
-    "blurb": "A four-floor entertainment venue hosting pounding club nights and gritty live gigs, where big names and rebellious energy collide.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Sebright Arms",
-    "location": "Hackney",
-    "moods": [
-      "rebellious",
-      "ecstatic"
-    ],
-    "genres": [
-      "indie",
-      "punk",
-      "alternative"
-    ],
-    "url": "https://sebrightarms.com",
-    "blurb": "A dishevelled Hackney boozer with a faithful crowd and basement gigs almost every night, where gritty east end energy pulses.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Shoreditch Town Hall",
-    "location": "Shoreditch",
-    "moods": [
-      "curious",
-      "playful"
-    ],
-    "genres": [
-      "theatre",
-      "music",
-      "dance",
-      "circus"
-    ],
-    "url": "https://shoreditchtownhall.com",
-    "blurb": "A Grade II listed cultural hub presenting progressive theatre, music, dance, and circus while supporting artists through residencies.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Siobhan Davies Studios",
-    "location": "Bermondsey",
-    "moods": [
-      "movement",
-      "awe",
-      "ritual"
-    ],
-    "genres": [
-      "dance classes",
-      "workshops"
-    ],
-    "url": "https://www.siobhandavies.com",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Sir Colin Campbell",
-    "location": "Kilburn",
-    "moods": [
-      "folk",
-      "queer"
-    ],
-    "genres": [
-      "Irish music",
-      "folk"
-    ],
-    "url": "https://sircc.pub",
-    "blurb": "An LGBTQI+-friendly modern Irish pub offering traditional live Irish music every weekend and warm Irish hospitality to all.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Soho Theatre",
-    "location": "Soho",
-    "moods": [
-      "comic",
-      "cabaret"
-    ],
-    "genres": [
-      "comedy",
-      "cabaret",
-      "new theatre"
-    ],
-    "url": "https://sohotheatre.com",
-    "blurb": "London's most vibrant producer of new theatre, comedy, and cabaret, championing voices outside the mainstream.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "South London Gallery",
-    "location": "Peckham",
-    "moods": [
-      "community",
-      "thoughtful",
-      "curious"
-    ],
-    "genres": [
-      "contemporary art",
-      "workshops"
-    ],
-    "url": "https://www.southlondongallery.org",
-    "last_verified": "2025-11-17",
-    "refuge": true
-  },
-  {
-    "name": "Spiritland",
-    "location": "King's Cross",
-    "moods": [
-      "nostalgic",
-      "ecstatic"
-    ],
-    "genres": [
-      "listening bar",
-      "DJs",
-      "talks"
-    ],
-    "url": "https://spiritland.com/",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "St Martin-in-the-Fields",
-    "location": "Trafalgar Square",
-    "moods": [
-      "sacred",
-      "candlelit"
-    ],
-    "genres": [
-      "classical",
-      "choral"
-    ],
-    "url": "https://www.stmartin-in-the-fields.org",
-    "blurb": "An active church on Trafalgar Square offering candlelit concerts, lunchtime recitals, and music in the crypt.",
-    "last_verified": "2025-11-15",
-    "refuge": true
-  },
-  {
-    "name": "Stanley Arts",
-    "location": "South Norwood",
-    "moods": [
-      "activist",
-      "queer"
-    ],
-    "genres": [
-      "dance",
-      "theatre",
-      "community events"
-    ],
-    "url": "https://stanleyarts.org/",
-    "last_verified": "2025-11-17"
-  },
-  {
-    "name": "Strawberry Hill House",
-    "location": "Twickenham",
-    "moods": [
-      "witchy",
-      "haunted"
-    ],
-    "genres": [
-      "gothic tours",
-      "after-dark events",
-      "craft workshops"
-    ],
-    "url": "https://www.strawberryhillhouse.org.uk",
-    "notes": "Horace Walpole's neo-Gothic villa. Strawberry Hill After Dark and Georgian Christmas Wreath Making events Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Tabard Pub & Theatre",
-    "location": "Chiswick",
-    "moods": [
-      "comic",
-      "intimate"
-    ],
-    "genres": [
-      "pub theatre",
-      "comedy"
-    ],
-    "url": "https://tabard.org.uk",
-    "blurb": "London Pub Theatre of the Year 2025, a cosy theatre above a historic pub presenting intimate comedy and new work.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Tara Theatre",
-    "location": "Earlsfield",
-    "moods": [
-      "ritual",
-      "voice",
-      "activist"
-    ],
-    "genres": [
-      "South Asian theatre",
-      "political theatre"
-    ],
-    "url": "https://taratheatre.com",
-    "last_verified": "2025-11-17"
   },
   {
     "name": "The Albany",
@@ -1670,40 +152,118 @@
     ],
     "url": "https://www.thealbany.org.uk",
     "blurb": "South East London's beating cultural heart, platforming local artists and driving creative participation rooted in social justice and community care.",
-    "last_verified": "2025-11-15",
-    "refuge": true
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Atlantis Bookshop",
-    "location": "Bloomsbury",
+    "name": "The Space",
+    "location": "Isle of Dogs",
     "moods": [
-      "witchy",
-      "haunted"
+      "sacred",
+      "intimate",
+      "thoughtful"
     ],
     "genres": [
-      "occult art exhibitions",
-      "book launches",
-      "tarot gatherings"
+      "theatre",
+      "workshops",
+      "festivals"
     ],
-    "url": "https://theatlantisbookshop.com",
-    "notes": "London's oldest esoteric bookshop. Stocks grimoires, tarot decks, magical supplies. Artist exhibitions Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "http://www.space.org.uk",
+    "blurb": "A converted 19th-century church offering atmospheric performances and workshops, where stone walls hold echoes of both prayer and art.",
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Betsey Trotwood",
-    "location": "Clerkenwell",
+    "name": "Finborough Theatre",
+    "location": "Earl's Court",
     "moods": [
-      "poetic",
-      "folk",
-      "intimate"
+      "curious",
+      "activist"
     ],
     "genres": [
-      "folk",
-      "poetry",
-      "comedy"
+      "new writing",
+      "rediscovered works"
     ],
-    "url": "https://www.thebetsey.com/",
-    "last_verified": "2025-11-17"
+    "url": "https://finboroughtheatre.co.uk/",
+    "blurb": "A pocket-sized powerhouse above a pub, presenting thought-provoking new writing and neglected masterpieces in a fiercely intimate 50-seat space.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Bush Hall",
+    "location": "Shepherd's Bush",
+    "moods": [
+      "nostalgic",
+      "awe",
+      "ecstatic"
+    ],
+    "genres": [
+      "indie music",
+      "comedy",
+      "cabaret"
+    ],
+    "url": "https://bushhallmusic.co.uk/",
+    "blurb": "A restored Edwardian ballroom where chandeliers still remember 1904, hosting rising musicians and comedians beneath high ceilings that make every note linger.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "The Tabernacle",
+    "location": "Notting Hill",
+    "moods": [
+      "sacred",
+      "global"
+    ],
+    "genres": [
+      "live music",
+      "theatre",
+      "world music"
+    ],
+    "url": "https://www.thetabernaclew11.com/",
+    "blurb": "A Grade II-listed former church turned arts centre, still resonating with Caribbean Carnival roots and cross-cultural programming.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Gate Theatre",
+    "location": "Camden",
+    "moods": [
+      "global",
+      "curious"
+    ],
+    "genres": [
+      "international theatre",
+      "new voices"
+    ],
+    "url": "https://www.gatetheatre.co.uk/",
+    "blurb": "New voices telling international stories, bringing world-changing theatre to London from a Camden base that champions bold, boundary-crossing work.",
+    "notes": "Moved from Notting Hill to Camden in July 2022",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Bush Theatre",
+    "location": "Shepherd's Bush",
+    "moods": [
+      "rant",
+      "salon"
+    ],
+    "genres": [
+      "new plays",
+      "emerging playwrights"
+    ],
+    "url": "https://www.bushtheatre.co.uk/",
+    "blurb": "An internationally renowned champion of playwrights, where new writing crackles with activist spirit and salon-style conversation.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Jazz Café POSK",
+    "location": "Hammersmith",
+    "moods": [
+      "melancholy",
+      "global"
+    ],
+    "genres": [
+      "jazz",
+      "world music"
+    ],
+    "url": "https://jazzcafeposk.org/",
+    "blurb": "A Polish community jazz club where red curtains frame international improvisation and melancholic beauty meets global rhythms.",
+    "last_verified": "2025-11-15"
   },
   {
     "name": "The Bhavan",
@@ -1719,89 +279,233 @@
     ],
     "url": "https://www.bhavan.net/",
     "blurb": "The UK's premier Indian arts centre, celebrating over 50 years of cultural legacy through classical dance, sitar concerts, and sacred philosophy.",
-    "last_verified": "2025-11-15",
-    "refuge": true
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Divine",
-    "location": "Stoke Newington",
+    "name": "Blythe Hill Tavern",
+    "location": "Catford",
     "moods": [
-      "cabaret",
-      "experimental"
+      "folk",
+      "tender"
     ],
     "genres": [
-      "drag cabaret",
-      "clowning",
-      "variety shows"
+      "Irish music",
+      "folk"
     ],
-    "url": "https://www.thedivine.london",
-    "notes": "Intimate arts venue hosting experimental cabaret. DANG! show Dec 2025 brings drag, clowning, variety acts. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "https://www.blythehilltavern.org.uk",
+    "blurb": "A CAMRA award-winning Victorian corner pub where Thursday nights bloom with traditional Irish music, roaring fires, and real ale.",
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Garden Cinema",
-    "location": "Covent Garden",
+    "name": "Woolwich Works",
+    "location": "Woolwich",
     "moods": [
-      "tender",
+      "group energy",
+      "ecstatic"
+    ],
+    "genres": [
+      "contemporary music",
+      "comedy",
+      "theatre",
+      "dance"
+    ],
+    "url": "https://www.woolwich.works",
+    "blurb": "Time Out's 'best new culture spot,' a multi-disciplinary hub on the Royal Arsenal championing contemporary music, theatre, and dance.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Tramshed",
+    "location": "Woolwich",
+    "moods": [
+      "family-friendly",
       "curious"
     ],
     "genres": [
-      "art house",
-      "foreign language"
+      "community theatre",
+      "youth programming"
     ],
-    "url": "https://www.thegardencinema.co.uk",
-    "blurb": "An independent cinema opened in 2022 with art-deco features, emphasizing art-house foreign-language films that deserve to be seen.",
-    "last_verified": "2025-11-17",
-    "refuge": true
+    "url": "https://tramshed.org",
+    "blurb": "A community arts hub using performing arts to serve young people and adults with learning differences, fostering social cohesion through creativity.",
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Harrison",
-    "location": "King's Cross",
+    "name": "Tabard Pub & Theatre",
+    "location": "Chiswick",
     "moods": [
-      "folk",
-      "curious"
+      "comic",
+      "intimate"
     ],
     "genres": [
-      "folk",
-      "psych-folk",
-      "jazz",
-      "electronica"
+      "pub theatre",
+      "comedy"
     ],
-    "url": "https://harrisonvenuelondon.com",
-    "blurb": "An intimate venue famous for all-day folk festivals since 2011, hosting emerging and established artists alongside free Brazilian and Irish sessions.",
-    "last_verified": "2025-11-17"
+    "url": "https://tabard.org.uk",
+    "blurb": "London Pub Theatre of the Year 2025, a cosy theatre above a historic pub presenting intimate comedy and new work.",
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Horse Hospital",
-    "location": "Bloomsbury",
+    "name": "George IV Boston Room",
+    "location": "Chiswick",
     "moods": [
-      "witchy",
-      "haunted",
-      "experimental"
+      "nostalgic",
+      "poetic"
     ],
     "genres": [
-      "underground film",
-      "ritual performances",
-      "avant-garde art"
+      "jazz"
     ],
-    "url": "https://www.thehorsehospital.com",
-    "notes": "Former Victorian horse hospital, sanctuary for outsider art and occult film. Ritual-themed films and poetry nights Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "https://www.chiswickcalendar.co.uk/george-iv-pub/",
+    "blurb": "Monthly jazz nights in an intimate pub room, where high-calibre musicians and regulars gather for Trio Manouche and Jazz Mondays.",
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Ivy House",
-    "location": "Nunhead",
+    "name": "ActOne Cinema",
+    "location": "Acton",
     "moods": [
-      "earthy",
+      "thoughtful",
+      "nostalgic"
+    ],
+    "genres": [
+      "independent film",
+      "mainstream"
+    ],
+    "url": "https://actonecinema.co.uk",
+    "blurb": "A community-run cinema in a former library, co-run by Rio Cinema, championing independent films and filmmaker events.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Questors Theatre",
+    "location": "Ealing",
+    "moods": [
+      "family-friendly",
+      "thoughtful"
+    ],
+    "genres": [
+      "amateur theatre",
+      "touring companies"
+    ],
+    "url": "https://questors.org.uk",
+    "blurb": "One of the UK's leading amateur theatres, staging 15-20 professional-quality productions yearly across two performance spaces.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "The Viaduct",
+    "location": "Hanwell",
+    "moods": [
+      "comic",
+      "nostalgic"
+    ],
+    "genres": [
+      "comedy"
+    ],
+    "url": "https://www.viaduct-hanwell.co.uk",
+    "blurb": "A historic coaching inn from 1737, famous for its upstairs Bearcat Comedy Night and warm, family-friendly atmosphere.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Grand Junction Arms",
+    "location": "North West London",
+    "moods": [
+      "seasonal",
+      "group energy"
+    ],
+    "genres": [
+      "pub events"
+    ],
+    "url": "https://www.grandjunctionarmsnw10.co.uk",
+    "blurb": "A vibrant canal-side pub claiming the biggest beer garden in north London, with seasonal menus and a busy events calendar.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Sir Colin Campbell",
+    "location": "Kilburn",
+    "moods": [
+      "folk",
+      "queer"
+    ],
+    "genres": [
+      "Irish music",
+      "folk"
+    ],
+    "url": "https://sircc.pub",
+    "blurb": "An LGBTQI+-friendly modern Irish pub offering traditional live Irish music every weekend and warm Irish hospitality to all.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Ace Cafe London",
+    "location": "North West London",
+    "moods": [
+      "rebellious",
+      "nostalgic"
+    ],
+    "genres": [
+      "rock n roll",
+      "live music"
+    ],
+    "url": "https://london.acecafe.com/",
+    "blurb": "The world's most famous motor café, where petrol-fumed heritage meets rock 'n' roll nights, ride-outs, and rebellious spirit since 1938.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Corner New Cross",
+    "location": "New Cross",
+    "moods": [
+      "queer",
       "playful"
     ],
     "genres": [
-      "punk",
-      "poetry",
-      "jazz"
+      "coffee",
+      "art gallery",
+      "cocktails"
     ],
-    "url": "https://www.ivyhousenunhead.com",
-    "blurb": "London's first community-owned pub, a Grade II-listed treasure offering everything from punk to poetry and Sunday jazz.",
+    "url": "https://www.cornernewcross.com/",
+    "blurb": "An LGBTQIA+-led neighbourhood coffee shop, cocktail bar, and art gallery where inclusive ethos meets rotating artwork and community warmth.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Colour House Theatre",
+    "location": "Merton",
+    "moods": [
+      "family-friendly",
+      "playful"
+    ],
+    "genres": [
+      "children's theatre",
+      "blues"
+    ],
+    "url": "https://www.colourhouseblues.co.uk/",
+    "blurb": "A Grade II-listed building hosting weekend children's shows and monthly blues club nights, a small-scale community arts hub.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Cecil Sharp House",
+    "location": "Camden",
+    "moods": [
+      "folk",
+      "tender"
+    ],
+    "genres": [
+      "folk music",
+      "folk dance"
+    ],
+    "url": "https://www.efdss.org/",
+    "blurb": "The world-class folk arts centre, home to the English Folk Dance and Song Society, championing folk heritage since 1930.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Union Chapel",
+    "location": "Islington",
+    "moods": [
+      "sacred",
+      "wonder"
+    ],
+    "genres": [
+      "concerts",
+      "film",
+      "comedy",
+      "spoken word"
+    ],
+    "url": "https://unionchapel.org.uk/",
+    "blurb": "A working church and not-for-profit performance space where gothic architecture and exceptional acoustics frame diverse programming.",
     "last_verified": "2025-11-15"
   },
   {
@@ -1823,50 +527,260 @@
     "last_verified": "2025-11-15"
   },
   {
-    "name": "The Karaoke Hole",
-    "location": "Dalston",
+    "name": "Roundhouse",
+    "location": "Camden",
     "moods": [
-      "cabaret",
-      "playful"
+      "rebellious",
+      "ecstatic"
     ],
     "genres": [
-      "drag karaoke",
-      "cabaret party nights"
+      "music",
+      "theatre",
+      "circus"
     ],
-    "url": "https://thekaraokehole.com",
-    "notes": "Underground bar with drag-hosted karaoke. Drag Karaoke Chaos weekly through Dec 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "https://www.roundhouse.org.uk/",
+    "blurb": "An iconic iron-roofed performing arts venue with industrial heritage, empowering young creatives through cutting-edge programming.",
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Lexi Cinema",
-    "location": "Kensal Rise",
+    "name": "Camden People's Theatre",
+    "location": "Camden",
     "moods": [
-      "tender",
+      "curious",
+      "rebellious"
+    ],
+    "genres": [
+      "contemporary performance",
+      "emerging artists"
+    ],
+    "url": "https://cptheatre.co.uk/",
+    "blurb": "A small, independent venue championing emerging artists and boundary-pushing contemporary performance, making space for tomorrow's theatre-makers.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "King's Head Theatre",
+    "location": "Islington",
+    "moods": [
+      "queer",
+      "punchy"
+    ],
+    "genres": [
+      "theatre",
+      "cabaret",
+      "drag"
+    ],
+    "url": "https://www.kingsheadtheatre.com/",
+    "blurb": "London's longest-running pub theatre, now in a purpose-built space celebrating the LGBTQ+ community through plays, cabaret, and drag.",
+    "notes": "Moved to new purpose-built theatre in January 2024",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Park Theatre",
+    "location": "Finsbury Park",
+    "moods": [
+      "thoughtful",
+      "salon"
+    ],
+    "genres": [
+      "new writing",
+      "modern revivals"
+    ],
+    "url": "https://parktheatre.co.uk/",
+    "blurb": "A neighbourhood theatre with global ambition, delivering world-class theatre through accessible stories and community-focused programming.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Jacksons Lane",
+    "location": "Highgate",
+    "moods": [
+      "playful",
       "curious"
     ],
     "genres": [
-      "independent film",
-      "social purpose"
+      "circus",
+      "contemporary performance"
     ],
-    "url": "https://thelexicinema.co.uk",
-    "blurb": "London's only social-enterprise cinema, a volunteer-run boutique picturehouse championing films with social purpose and supporting international projects.",
-    "last_verified": "2025-11-17",
-    "refuge": true
+    "url": "https://www.jacksonslane.org.uk/",
+    "blurb": "Haringey's flagship arts venue for 45+ years, empowering diverse communities through circus, contemporary performance, and creative participation.",
+    "last_verified": "2025-11-15"
   },
   {
-    "name": "The Others",
-    "location": "Stoke Newington",
+    "name": "Scala",
+    "location": "King's Cross",
     "moods": [
-      "experimental",
-      "poetic"
+      "big night out",
+      "rebellious"
     ],
     "genres": [
-      "experimental music",
-      "interdisciplinary open mics"
+      "club nights",
+      "live music"
     ],
-    "url": "https://www.theothers.uk.com",
-    "notes": "Warehouse arts space. Improvised music, experimental sound nights, multi-media events. Word Zoo and avant-garde performances. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "https://scala.co.uk/",
+    "blurb": "A four-floor entertainment venue hosting pounding club nights and gritty live gigs, where big names and rebellious energy collide.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Hackney Empire",
+    "location": "Hackney",
+    "moods": [
+      "nostalgic",
+      "wonder"
+    ],
+    "genres": [
+      "variety",
+      "comedy",
+      "opera",
+      "hip-hop theatre"
+    ],
+    "url": "https://hackneyempire.co.uk/",
+    "blurb": "A historic variety theatre from 1901 with ornate Victorian architecture, leading eclectic programming from stand-up to opera.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Rich Mix",
+    "location": "Shoreditch",
+    "moods": [
+      "earthy",
+      "ecstatic"
+    ],
+    "genres": [
+      "music",
+      "spoken word",
+      "theatre",
+      "dance",
+      "film"
+    ],
+    "url": "https://richmix.org.uk",
+    "blurb": "East London's home for culture and creativity, a charity presenting eclectic programming and reinvesting profits into community work.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Sebright Arms",
+    "location": "Hackney",
+    "moods": [
+      "rebellious",
+      "ecstatic"
+    ],
+    "genres": [
+      "indie",
+      "punk",
+      "alternative"
+    ],
+    "url": "https://sebrightarms.com",
+    "blurb": "A dishevelled Hackney boozer with a faithful crowd and basement gigs almost every night, where gritty east end energy pulses.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Wilton's Music Hall",
+    "location": "Whitechapel",
+    "moods": [
+      "haunted",
+      "candlelit"
+    ],
+    "genres": [
+      "theatre",
+      "music"
+    ],
+    "url": "https://wiltons.org.uk",
+    "blurb": "The oldest surviving Grand Music Hall in the world, a Grade II* listed building staging extraordinary theatre and music in candlelit atmosphere.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Oslo Hackney",
+    "location": "Hackney",
+    "moods": [
+      "ecstatic",
+      "playful"
+    ],
+    "genres": [
+      "indie",
+      "dance",
+      "pop",
+      "R&B"
+    ],
+    "url": "https://oslohackney.com",
+    "blurb": "A 375-capacity venue in a redeveloped railway station with Nordic aesthetic, hosting indie bands and club nights with an excellent sound system.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Bethnal Green Working Men's Club",
+    "location": "Bethnal Green",
+    "moods": [
+      "rebellious",
+      "queer"
+    ],
+    "genres": [
+      "cabaret",
+      "drag",
+      "dance"
+    ],
+    "url": "https://www.workersplaytime.net",
+    "blurb": "An East End institution hosting wild, unhinged nights from racy cabaret to drag shows, a vital community hub with a safe-space policy.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "EartH",
+    "location": "Dalston",
+    "moods": [
+      "ecstatic",
+      "curious"
+    ],
+    "genres": [
+      "experimental",
+      "cutting-edge"
+    ],
+    "url": "https://earthackney.co.uk",
+    "blurb": "A refurbished 1930s cinema with three spaces hosting eclectic, vibrant programming from leading and emerging artists.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Village Underground",
+    "location": "Shoreditch",
+    "moods": [
+      "rebellious",
+      "ecstatic"
+    ],
+    "genres": [
+      "electronic",
+      "indie",
+      "experimental"
+    ],
+    "url": "https://www.villageunderground.co.uk",
+    "blurb": "A renovated Victorian warehouse topped with hollowed-out Jubilee line carriages, offering a blank canvas for independent arts and music.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Shoreditch Town Hall",
+    "location": "Shoreditch",
+    "moods": [
+      "curious",
+      "playful"
+    ],
+    "genres": [
+      "theatre",
+      "music",
+      "dance",
+      "circus"
+    ],
+    "url": "https://shoreditchtownhall.com",
+    "blurb": "A Grade II listed cultural hub presenting progressive theatre, music, dance, and circus while supporting artists through residencies.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Soho Theatre",
+    "location": "Soho",
+    "moods": [
+      "comic",
+      "cabaret"
+    ],
+    "genres": [
+      "comedy",
+      "cabaret",
+      "new theatre"
+    ],
+    "url": "https://sohotheatre.com",
+    "blurb": "London's most vibrant producer of new theatre, comedy, and cabaret, championing voices outside the mainstream.",
+    "last_verified": "2025-11-15"
   },
   {
     "name": "The Phoenix Arts Club",
@@ -1900,6 +814,205 @@
     "last_verified": "2025-11-15"
   },
   {
+    "name": "Conway Hall",
+    "location": "Holborn",
+    "moods": [
+      "word",
+      "sacred"
+    ],
+    "genres": [
+      "talks",
+      "concerts",
+      "courses"
+    ],
+    "url": "https://conwayhall.org.uk",
+    "blurb": "A Grade II listed hall from 1929 housing the largest humanist research library, curating talks and concerts promoting ethical living.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "St Martin-in-the-Fields",
+    "location": "Trafalgar Square",
+    "moods": [
+      "sacred",
+      "candlelit"
+    ],
+    "genres": [
+      "classical",
+      "choral"
+    ],
+    "url": "https://www.stmartin-in-the-fields.org",
+    "blurb": "An active church on Trafalgar Square offering candlelit concerts, lunchtime recitals, and music in the crypt.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Pizza Express Jazz Club",
+    "location": "Soho",
+    "moods": [
+      "candlelit",
+      "folk"
+    ],
+    "genres": [
+      "jazz"
+    ],
+    "url": "https://pizzaexpresslive.com/venues/soho-jazz-club",
+    "blurb": "One of London's most iconic jazz venues since 1976, a basement where tables cluster around a small stage hosting world-renowned artists.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Heaven",
+    "location": "Charing Cross",
+    "moods": [
+      "ecstatic",
+      "queer"
+    ],
+    "genres": [
+      "club nights",
+      "live music"
+    ],
+    "url": "https://heaven-live.co.uk",
+    "blurb": "Central London's only 1,000-capacity gay club, the focal point of London's gay scene since 1979, hosting G-A-Y and big-name live acts.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "Battersea Arts Centre",
+    "location": "Battersea",
+    "moods": [
+      "curious",
+      "playful"
+    ],
+    "genres": [
+      "experimental theatre",
+      "boundary-pushing"
+    ],
+    "url": "https://bac.org.uk",
+    "blurb": "The go-to place for boundary-pushing theatre, harnessing art and collective imagination to build a more inclusive, sustainable future.",
+    "last_verified": "2025-11-15"
+  },
+  {
+    "name": "The Lexi Cinema",
+    "location": "Kensal Rise",
+    "moods": [
+      "tender",
+      "curious"
+    ],
+    "genres": [
+      "independent film",
+      "social purpose"
+    ],
+    "url": "https://thelexicinema.co.uk",
+    "blurb": "London's only social-enterprise cinema, a volunteer-run boutique picturehouse championing films with social purpose and supporting international projects.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "Pleasance Theatre",
+    "location": "Islington",
+    "moods": [
+      "playful",
+      "curious"
+    ],
+    "genres": [
+      "theatre",
+      "comedy",
+      "performance"
+    ],
+    "url": "https://www.pleasance.co.uk",
+    "blurb": "A leading arts charity championing innovation and emerging voices, hosting hundreds of productions while providing artist development and mentorship.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "Rio Cinema",
+    "location": "Dalston",
+    "moods": [
+      "rebellious",
+      "curious"
+    ],
+    "genres": [
+      "art house",
+      "premieres"
+    ],
+    "url": "https://riocinema.org.uk",
+    "blurb": "Dalston's crown jewel, an art-deco picture palace with activist roots hosting premieres, Q&As, and radical programming since the Rock Against Racism days.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "Genesis Cinema",
+    "location": "Bethnal Green",
+    "moods": [
+      "playful",
+      "wild"
+    ],
+    "genres": [
+      "indie film",
+      "horror marathons",
+      "cult classics"
+    ],
+    "url": "https://www.genesiscinema.co.uk",
+    "blurb": "A community-focused cultural hub offering horror marathons, kung-fu nights, feminist zine gatherings, and cult classics on comfy sofas with cocktails.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "Phoenix Cinema",
+    "location": "East Finchley",
+    "moods": [
+      "sacred",
+      "curious"
+    ],
+    "genres": [
+      "art house",
+      "independent"
+    ],
+    "url": "https://www.phoenixcinema.co.uk",
+    "blurb": "One of the UK's oldest continuously operating picturehouses, a Grade II listed 1912 building with barrel-vaulted ceilings and Art Deco panels.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "Poplar Union",
+    "location": "Poplar",
+    "moods": [
+      "earthy",
+      "tender"
+    ],
+    "genres": [
+      "community arts",
+      "workshops"
+    ],
+    "url": "https://poplarunion.com",
+    "blurb": "A grassroots community arts centre making creativity accessible to everyone, focusing on health, wellbeing, and social connection.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "Theatre Peckham",
+    "location": "Peckham",
+    "moods": [
+      "voice",
+      "curious"
+    ],
+    "genres": [
+      "youth theatre",
+      "spoken word"
+    ],
+    "url": "https://www.theatrepeckham.co.uk",
+    "blurb": "A multi-award-winning venue championing artistic excellence and social change, amplifying young voices and platforming community experiences.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "Bernie Grant Arts Centre",
+    "location": "Tottenham",
+    "moods": [
+      "rebellious",
+      "ritual"
+    ],
+    "genres": [
+      "Black-led arts",
+      "theatre",
+      "dance",
+      "visual arts"
+    ],
+    "url": "https://www.berniegrantcentre.co.uk",
+    "blurb": "A Black, female, and queer-led multi-artform venue giving Black-led work space and status to thrive, committed to intersectional practice and community engagement.",
+    "last_verified": "2025-11-17"
+  },
+  {
     "name": "The Slaughtered Lamb",
     "location": "Clerkenwell",
     "moods": [
@@ -1913,6 +1026,23 @@
     ],
     "url": "https://www.urbanpubsandbars.com/venues/slaughtered-lamb",
     "blurb": "An acoustic haven in a Clerkenwell basement where audiences and performers mingle closely beneath low ceilings and a small corner stage.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "The Harrison",
+    "location": "King's Cross",
+    "moods": [
+      "folk",
+      "curious"
+    ],
+    "genres": [
+      "folk",
+      "psych-folk",
+      "jazz",
+      "electronica"
+    ],
+    "url": "https://harrisonvenuelondon.com",
+    "blurb": "An intimate venue famous for all-day folk festivals since 2011, hosting emerging and established artists alongside free Brazilian and Irish sessions.",
     "last_verified": "2025-11-17"
   },
   {
@@ -1931,187 +1061,151 @@
     "last_verified": "2025-11-17"
   },
   {
-    "name": "The Sound Lounge",
-    "location": "Sutton",
+    "name": "The Garden Cinema",
+    "location": "Covent Garden",
     "moods": [
-      "folk",
-      "tender"
-    ],
-    "genres": [
-      "blues",
-      "Americana",
-      "folk",
-      "roots"
-    ],
-    "url": "https://thesoundlounge.org.uk",
-    "blurb": "A carbon-neutral haven for roots music, where vinyl spins and voices rise gently over plant-based plates and communal warmth.",
-    "notes": "Relocated from Tooting to Sutton High Street",
-    "last_verified": "2025-11-15",
-    "refuge": true
-  },
-  {
-    "name": "The Space",
-    "location": "Isle of Dogs",
-    "moods": [
-      "sacred",
-      "intimate",
-      "thoughtful"
-    ],
-    "genres": [
-      "theatre",
-      "workshops",
-      "festivals"
-    ],
-    "url": "http://www.space.org.uk",
-    "blurb": "A converted 19th-century church offering atmospheric performances and workshops, where stone walls hold echoes of both prayer and art.",
-    "last_verified": "2025-11-15",
-    "refuge": true
-  },
-  {
-    "name": "The Tabernacle",
-    "location": "Notting Hill",
-    "moods": [
-      "sacred",
-      "global"
-    ],
-    "genres": [
-      "live music",
-      "theatre",
-      "world music"
-    ],
-    "url": "https://www.thetabernaclew11.com/",
-    "blurb": "A Grade II-listed former church turned arts centre, still resonating with Caribbean Carnival roots and cross-cultural programming.",
-    "last_verified": "2025-11-15",
-    "refuge": true
-  },
-  {
-    "name": "The Viaduct",
-    "location": "Hanwell",
-    "moods": [
-      "comic",
-      "nostalgic"
-    ],
-    "genres": [
-      "comedy"
-    ],
-    "url": "https://www.viaduct-hanwell.co.uk",
-    "blurb": "A historic coaching inn from 1737, famous for its upstairs Bearcat Comedy Night and warm, family-friendly atmosphere.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "The Yard Theatre",
-    "location": "Hackney Wick",
-    "moods": [
-      "experimental",
-      "rebellious"
-    ],
-    "genres": [
-      "avant-garde theatre",
-      "new writing",
-      "immersive performance"
-    ],
-    "url": "https://theyardtheatre.co.uk",
-    "notes": "Warehouse theatre in disused yard. Champions bold playwrights. Revenge: After the Levoyah running through Jan 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Theatre Peckham",
-    "location": "Peckham",
-    "moods": [
-      "voice",
+      "tender",
       "curious"
     ],
     "genres": [
-      "youth theatre",
-      "spoken word"
+      "art house",
+      "foreign language"
     ],
-    "url": "https://www.theatrepeckham.co.uk",
-    "blurb": "A multi-award-winning venue championing artistic excellence and social change, amplifying young voices and platforming community experiences.",
+    "url": "https://www.thegardencinema.co.uk",
+    "blurb": "An independent cinema opened in 2022 with art-deco features, emphasizing art-house foreign-language films that deserve to be seen.",
     "last_verified": "2025-11-17"
   },
   {
-    "name": "Theatre Royal Stratford East",
-    "location": "Stratford",
+    "name": "ArtHouse Crouch End",
+    "location": "Crouch End",
     "moods": [
-      "community",
-      "playful",
-      "ecstatic"
+      "curious",
+      "playful"
     ],
     "genres": [
-      "pantomime",
-      "new writing",
-      "variety nights",
-      "stand-up"
+      "film",
+      "live music",
+      "theatre"
     ],
-    "url": "https://stratfordeast.com",
-    "notes": "Historic 450-seat theatre championing working-class stories. Mama Goose pantomime Nov 2025-Jan 2026. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "https://www.arthousecrouchend.co.uk",
+    "blurb": "A former Salvation Army hall mixing film, fine art, live music, and theatre, tearing down perceived walls between genres to celebrate diversity.",
+    "last_verified": "2025-11-17"
   },
   {
-    "name": "Tramshed",
-    "location": "Woolwich",
+    "name": "IKLECTIK Art Lab",
+    "location": "Peckham",
     "moods": [
-      "family-friendly",
+      "witchy",
+      "rebellious"
+    ],
+    "genres": [
+      "experimental sound",
+      "performance rituals"
+    ],
+    "url": "https://iklectik.org",
+    "blurb": "A grassroots Art Lab dedicated to experimental sound and socially engaged practices, holding care, experimentation, and resistance at its core.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "CLF Art Café",
+    "location": "Peckham",
+    "moods": [
+      "ecstatic",
+      "wild"
+    ],
+    "genres": [
+      "house",
+      "electro",
+      "drum & bass",
+      "techno",
+      "funk",
+      "soul"
+    ],
+    "url": "https://www.clfartcafe.org",
+    "blurb": "A multi-floor creative arts centre hosting everything from Bestival parties to South London Soul Train, spanning house, funk, jazz, and beyond.",
+    "last_verified": "2025-11-17"
+  },
+  {
+    "name": "artsdepot",
+    "location": "North Finchley",
+    "moods": [
+      "tender",
       "curious"
     ],
     "genres": [
-      "community theatre",
-      "youth programming"
+      "exhibitions",
+      "community classes",
+      "theatre"
     ],
-    "url": "https://tramshed.org",
-    "blurb": "A community arts hub using performing arts to serve young people and adults with learning differences, fostering social cohesion through creativity.",
-    "last_verified": "2025-11-15",
-    "refuge": true
+    "url": "https://www.artsdepot.co.uk/",
+    "last_verified": "2025-11-17",
+    "blurb": "High above North Finchley’s rush, a gentle prism of theatre, classes, and exhibitions invites curious minds to gather and grow."
   },
   {
-    "name": "Treadwell's Books",
-    "location": "Bloomsbury",
+    "name": "Stanley Arts",
+    "location": "South Norwood",
     "moods": [
-      "witchy",
-      "haunted"
-    ],
-    "genres": [
-      "occult workshops",
-      "tarot classes",
-      "esoteric book launches"
-    ],
-    "url": "https://www.treadwells-london.com",
-    "notes": "Occult bookshop and community hub. Cellar hosts workshops on witchcraft, ceremonial magic and divination. Plant Magic with Zodiac and Spirit Summoning workshops Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Two Brewers",
-    "location": "Clapham",
-    "moods": [
-      "cabaret",
+      "activist",
       "queer"
     ],
     "genres": [
-      "drag cabaret",
-      "karaoke",
-      "dance parties"
+      "dance",
+      "theatre",
+      "community events"
     ],
-    "url": "https://www.2brewers.com",
-    "notes": "LGBTQ+ pub with cabaret bar and club. Triple Drag Friday Night Party, Saturday Night Drag Extravaganza through Dec 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "https://stanleyarts.org/",
+    "last_verified": "2025-11-17",
+    "blurb": "A former schoolhouse now draped in sequins and protest signs, where South Norwood's artists dance, make, and reclaim space."
   },
   {
-    "name": "Union Chapel",
-    "location": "Islington",
+    "name": "Orange Tree Theatre",
+    "location": "Richmond",
     "moods": [
-      "sacred",
+      "curious",
+      "intimate"
+    ],
+    "genres": [
+      "new plays",
+      "classics",
+      "theatre in the round"
+    ],
+    "url": "https://orangetreetheatre.co.uk/",
+    "last_verified": "2025-11-17",
+    "blurb": "In a round room where no seat hides, new voices and old tales unfold just a breath away from Richmond's quiet streets."
+  },
+  {
+    "name": "Rose Theatre",
+    "location": "Kingston",
+    "moods": [
+      "voice",
       "wonder"
     ],
     "genres": [
-      "concerts",
-      "film",
-      "comedy",
-      "spoken word"
+      "theatre",
+      "jazz",
+      "pantomime"
     ],
-    "url": "https://unionchapel.org.uk/",
-    "blurb": "A working church and not-for-profit performance space where gothic architecture and exceptional acoustics frame diverse programming.",
-    "last_verified": "2025-11-15",
-    "refuge": true
+    "url": "https://www.rosetheatre.org/",
+    "last_verified": "2025-11-17",
+    "blurb": "Inspired by Shakespeare’s own playhouse, this Kingston stage lets jazz and pantomime bloom into shared delight and wonder."
+  },
+  {
+    "name": "Asylum Chapel",
+    "location": "Peckham",
+    "moods": [
+      "melancholy",
+      "candlelit",
+      "sacred"
+    ],
+    "genres": [
+      "private hire",
+      "events",
+      "weddings"
+    ],
+    "url": "https://asylumchapel.co.uk/",
+    "notes": "Primarily private hire, not regular public events",
+    "last_verified": "2025-11-17",
+    "blurb": "A crumbling chapel cloaked in candlelight, where echoes linger longer than vows — mostly hired, rarely public, always haunting."
   },
   {
     "name": "Viktor Wynd Museum",
@@ -2127,142 +1221,280 @@
       "talks"
     ],
     "url": "https://thelasttuesdaysociety.org/",
-    "last_verified": "2025-11-17"
+    "last_verified": "2025-11-17",
+    "blurb": "In Hackney’s underbelly, oddities whisper from behind glass: shrunken heads, mermaids, and occult nights not meant for the faint."
   },
   {
-    "name": "Village Underground",
-    "location": "Shoreditch",
+    "name": "The Betsey Trotwood",
+    "location": "Clerkenwell",
     "moods": [
-      "rebellious",
+      "poetic",
+      "folk",
+      "intimate"
+    ],
+    "genres": [
+      "folk",
+      "poetry",
+      "comedy"
+    ],
+    "url": "https://www.thebetsey.com/",
+    "last_verified": "2025-11-17",
+    "blurb": "Down a Clerkenwell stair, folk melodies and sharp verse share pints and secrets in a snug that feels half-fiction."
+  },
+  {
+    "name": "Poetry Café",
+    "location": "Covent Garden",
+    "moods": [
+      "word",
+      "thoughtful",
+      "intimate"
+    ],
+    "genres": [
+      "poetry readings",
+      "workshops"
+    ],
+    "url": "https://poetrysociety.org.uk/venue/the-poetry-cafe/",
+    "last_verified": "2025-11-17",
+    "blurb": "A hush lives here between teacups and sonnets — Covent Garden’s quiet haven for poets who still believe in listening."
+  },
+  {
+    "name": "Sadler's Wells",
+    "location": "Islington",
+    "moods": [
+      "movement",
+      "awe",
+      "ritual"
+    ],
+    "genres": [
+      "contemporary dance",
+      "ballet"
+    ],
+    "url": "https://www.sadlerswells.com/",
+    "last_verified": "2025-11-17",
+    "blurb": "Where movement becomes prayer, Sadler’s Wells lets bodies speak across centuries — from barefoot ritual to full orchestral flight."
+  },
+  {
+    "name": "Siobhan Davies Studios",
+    "location": "Bermondsey",
+    "moods": [
+      "movement",
+      "awe",
+      "ritual"
+    ],
+    "genres": [
+      "dance classes",
+      "workshops"
+    ],
+    "url": "https://www.siobhandavies.com",
+    "last_verified": "2025-11-17",
+    "blurb": "In a quiet Bermondsey backstreet, dancers trace strange devotions across wooden floors — a sanctuary for somatic seekers."
+  },
+  {
+    "name": "Hundred Years Gallery",
+    "location": "Hoxton",
+    "moods": [
+      "wild",
+      "curious",
+      "wonder"
+    ],
+    "genres": [
+      "experimental art",
+      "improvised music"
+    ],
+    "url": "http://hundredyearsgallery.co.uk",
+    "last_verified": "2025-11-17",
+    "blurb": "Tucked in Hoxton’s heart, this gallery hums with the strange and improvised, where sound becomes sculpture and time distorts."
+  },
+  {
+    "name": "New River Studios",
+    "location": "Manor House",
+    "moods": [
+      "community",
+      "experimental",
+      "group energy"
+    ],
+    "genres": [
+      "experimental music",
+      "community arts"
+    ],
+    "url": "https://newriverstudios.com",
+    "last_verified": "2025-11-17",
+    "blurb": "A former warehouse now buzzing with feedback and ferment — art, noise, and neighbourly chaos under one DIY roof."
+  },
+  {
+    "name": "Bill Murray",
+    "location": "Islington",
+    "moods": [
+      "comic",
+      "playful"
+    ],
+    "genres": [
+      "stand-up comedy"
+    ],
+    "url": "https://www.angelcomedy.co.uk/our-venues/the-bill-murray/",
+    "last_verified": "2025-11-17",
+    "blurb": "This Islington comedy den feels like a friend’s chaotic lounge — where stand-up is raw, playful, and gloriously unfiltered."
+  },
+  {
+    "name": "Phonox",
+    "location": "Brixton",
+    "moods": [
+      "big night out",
       "ecstatic"
     ],
     "genres": [
       "electronic",
-      "indie",
-      "experimental"
+      "house",
+      "techno"
     ],
-    "url": "https://www.villageunderground.co.uk",
-    "blurb": "A renovated Victorian warehouse topped with hollowed-out Jubilee line carriages, offering a blank canvas for independent arts and music.",
-    "last_verified": "2025-11-15"
+    "url": "https://phonox.co.uk",
+    "last_verified": "2025-11-17",
+    "blurb": "Every Friday in Brixton, a single DJ takes the helm — no headliners, just deep house baptisms till the lights return."
   },
   {
-    "name": "Walthamstow Trades Hall",
-    "location": "Walthamstow",
+    "name": "Colour Factory",
+    "location": "Hackney Wick",
     "moods": [
-      "community",
-      "rebellious",
-      "nostalgic"
+      "big night out",
+      "queer",
+      "rebellious"
     ],
     "genres": [
-      "punk",
-      "reggae",
-      "folk",
-      "karaoke",
-      "family disco"
+      "club nights",
+      "live music"
     ],
-    "url": "https://tradese17.com",
-    "notes": "Former trade union hall, now members' club. DIY culture venue with affordable gigs. Events scheduled through Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "https://colourfactory.com",
+    "last_verified": "2025-11-17",
+    "blurb": "At the edge of Hackney Wick’s waterways, queer joy and rebel rhythms spill from warehouse walls into the night."
   },
   {
-    "name": "Watermans Arts Centre",
-    "location": "Brentford",
+    "name": "Spiritland",
+    "location": "King's Cross",
     "moods": [
-      "community",
-      "experimental",
-      "curious",
-      "tender"
-    ],
-    "genres": [
-      "independent film",
-      "theatre",
-      "world music",
-      "dance",
-      "community workshops"
-    ],
-    "url": "https://www.watermans.org.uk",
-    "notes": "Riverside arts hub with 239-seat theatre and 120-seat cinema. Programming continues at Bell Square during building refurbishment. Verified active Nov 2025 - Winter Lights parade and community workshops scheduled.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Watkins Books",
-    "location": "Covent Garden",
-    "moods": [
-      "witchy",
-      "haunted",
-      "poetic"
-    ],
-    "genres": [
-      "tarot workshops",
-      "occult book launches",
-      "author talks"
-    ],
-    "url": "https://www.watkinsbooks.com",
-    "notes": "Occult and metaphysical bookshop founded 1893. Tarot Cards for Shadow Work and Starman Tarot workshops Nov-Dec 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "William Morris Gallery",
-    "location": "Walthamstow",
-    "moods": [
-      "thoughtful",
       "nostalgic",
-      "poetic"
-    ],
-    "genres": [
-      "heritage exhibitions",
-      "craft workshops",
-      "talks"
-    ],
-    "url": "https://www.wmgallery.org.uk",
-    "notes": "William Morris's childhood home, museum connecting design history with activism. Stitching Time workshop Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
-  },
-  {
-    "name": "Wilton's Music Hall",
-    "location": "Whitechapel",
-    "moods": [
-      "haunted",
-      "candlelit"
-    ],
-    "genres": [
-      "theatre",
-      "music"
-    ],
-    "url": "https://wiltons.org.uk",
-    "blurb": "The oldest surviving Grand Music Hall in the world, a Grade II* listed building staging extraordinary theatre and music in candlelit atmosphere.",
-    "last_verified": "2025-11-15"
-  },
-  {
-    "name": "Woolwich Works",
-    "location": "Woolwich",
-    "moods": [
-      "group energy",
       "ecstatic"
     ],
     "genres": [
-      "contemporary music",
-      "comedy",
-      "theatre",
-      "dance"
+      "listening bar",
+      "DJs",
+      "talks"
     ],
-    "url": "https://www.woolwich.works",
-    "blurb": "Time Out's 'best new culture spot,' a multi-disciplinary hub on the Royal Arsenal championing contemporary music, theatre, and dance.",
-    "last_verified": "2025-11-15"
+    "url": "https://spiritland.com/",
+    "last_verified": "2025-11-17",
+    "blurb": "In King’s Cross, a listening bar for the vinyl faithful — plush seats, perfect sound, and DJs who speak in records."
   },
   {
-    "name": "Word Zoo",
-    "location": "Stoke Newington",
+    "name": "Horniman Museum and Gardens",
+    "location": "Forest Hill",
     "moods": [
-      "poetic",
-      "experimental"
+      "wonder",
+      "family-friendly",
+      "curious"
     ],
     "genres": [
-      "poetry open mic",
-      "live music"
+      "museum",
+      "gardens",
+      "family events"
     ],
-    "url": "https://www.theothers.uk.com",
-    "notes": "Monthly open mic at The Others mixing poetry, songwriting, storytelling with house band. Nacreous November edition Nov 2025. Verified active Nov 2025.",
-    "last_verified": "2025-11-22"
+    "url": "https://www.horniman.ac.uk",
+    "last_verified": "2025-11-17",
+    "blurb": "Where taxidermy meets tea on a hill in Forest Hill — gardens stretch wide while a walrus dreams indoors."
+  },
+  {
+    "name": "South London Gallery",
+    "location": "Peckham",
+    "moods": [
+      "community",
+      "thoughtful",
+      "curious"
+    ],
+    "genres": [
+      "contemporary art",
+      "workshops"
+    ],
+    "url": "https://www.southlondongallery.org",
+    "last_verified": "2025-11-17",
+    "blurb": "This Peckham anchor pulses with art and care — from bold exhibitions to gentle workshops in the heart of the community."
+  },
+  {
+    "name": "Half Moon Theatre",
+    "location": "Limehouse",
+    "moods": [
+      "family-friendly",
+      "tender",
+      "thoughtful"
+    ],
+    "genres": [
+      "children's theatre",
+      "youth programmes"
+    ],
+    "url": "https://halfmoon.org.uk",
+    "last_verified": "2025-11-17",
+    "blurb": "A Limehouse lighthouse for little ones, where children’s voices echo on stage and stories bloom in tender light."
+  },
+  {
+    "name": "Chickenshed Theatre",
+    "location": "Southgate",
+    "moods": [
+      "activist",
+      "tender",
+      "community"
+    ],
+    "genres": [
+      "inclusive theatre",
+      "community productions"
+    ],
+    "url": "https://www.chickenshed.org.uk",
+    "last_verified": "2025-11-17",
+    "blurb": "In Southgate, an inclusive stage where no voice is left behind — activist, tender, alive with community breath."
+  },
+  {
+    "name": "Graeae Theatre Company",
+    "location": "Dalston",
+    "moods": [
+      "activist",
+      "voice",
+      "movement"
+    ],
+    "genres": [
+      "Deaf and disabled-led theatre"
+    ],
+    "url": "https://graeae.org",
+    "notes": "Active company, but no public performances scheduled for late 2025 at time of verification",
+    "last_verified": "2025-11-17",
+    "blurb": "Led by Deaf and disabled artists, Graeae reshapes what theatre can hold — bold, political, and unapologetically present."
+  },
+  {
+    "name": "Tara Theatre",
+    "location": "Earlsfield",
+    "moods": [
+      "ritual",
+      "voice",
+      "activist"
+    ],
+    "genres": [
+      "South Asian theatre",
+      "political theatre"
+    ],
+    "url": "https://taratheatre.com",
+    "last_verified": "2025-11-17",
+    "blurb": "A South Asian-rooted space in Earlsfield where ritual meets resistance — stories unfold with fire, faith, and fearless grace."
+  },
+  {
+    "name": "Autograph",
+    "location": "Rivington Place",
+    "moods": [
+      "activist",
+      "awe",
+      "global"
+    ],
+    "genres": [
+      "photography",
+      "identity",
+      "social justice"
+    ],
+    "url": "https://autograph.org.uk",
+    "last_verified": "2025-11-17",
+    "blurb": "At Rivington Place, photography becomes protest and presence — an archive of identity, struggle, and the quiet power of being seen."
   }
 ]
