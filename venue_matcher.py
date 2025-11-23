@@ -70,6 +70,12 @@ MOOD_SYNONYMS = {
     "chill": ["tender", "folk"],
     "relaxed": ["tender", "intimate"],
 
+    # Cabaret & glitter cluster
+    "cabaret": ["cabaret", "queer", "drag", "burlesque", "glitter"],
+    "drag": ["cabaret", "queer", "drag", "burlesque", "glitter"],
+    "glitter": ["cabaret", "queer", "drag", "burlesque", "glitter"],
+    "burlesque": ["cabaret", "queer", "drag", "burlesque", "glitter"],
+
     # Cultural cluster
     "ethnic": ["global"],
     "international": ["global"],
@@ -218,7 +224,19 @@ def match_venues(filters):
         # Uses location expansion for broader area searches (e.g., "south london" -> all south neighborhoods)
         area = venue.get("area", "") or venue.get("location", "")
         tags = venue.get("tags", [])  # Now an array
-        tags_str = " ".join(tags) if isinstance(tags, list) else str(tags)  # Convert to string for searching
+        genres = venue.get("genres", [])
+        combined_tags = []
+        if isinstance(tags, list):
+            combined_tags.extend(tags)
+        else:
+            combined_tags.append(str(tags))
+
+        if isinstance(genres, list):
+            combined_tags.extend(genres)
+        elif genres:
+            combined_tags.append(str(genres))
+
+        tags_str = " ".join(combined_tags)  # Convert to string for searching
         if location:
             # Expand location to include neighborhoods
             location_variants = expand_location(location)

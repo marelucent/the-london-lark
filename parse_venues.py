@@ -16,41 +16,59 @@ EXCLUDED_VENUES = [
     "Château",
 ]
 
-# Database path
-DB_PATH = Path(__file__).parent / "lark.db"
+# Data sources
+PROJECT_ROOT = Path(__file__).parent
+DB_PATH = PROJECT_ROOT / "lark.db"
+JSON_PATH = PROJECT_ROOT / "lark_venues_clean.json"
 
 
-def load_parsed_venues():
-    """
-    Load structured venues from lark.db SQLite database.
+def _filter_and_dedupe(venues):
+    """Apply exclusion list and deduplicate by venue name."""
+    filtered = []
+    seen_names = set()
 
-    Applies:
-    - Exclusion filtering (removes specific venues)
-    - Deduplication (removes duplicate venue entries by name)
+    for venue in venues:
+        venue_name = venue.get("name", "")
 
-    Returns venues in format compatible with existing app:
-    {
-        "name": str,
-        "location": str,
-        "moods": [str],
-        "genres": [str],
-        "url": str,
-        "last_verified": str
-    }
-    """
-    if not DB_PATH.exists():
-        raise FileNotFoundError(
-            f"Database not found at {DB_PATH}. "
-            "Please ensure lark.db is in the project folder."
+        # Check exclusion list
+        is_excluded = any(
+            excluded.lower() in venue_name.lower()
+            for excluded in EXCLUDED_VENUES
         )
+        if is_excluded:
+            continue
 
+        # Check for duplicates
+        if venue_name in seen_names:
+            continue
+        seen_names.add(venue_name)
+
+        filtered.append(venue)
+
+    return filtered
+
+
+def _normalize_venue_record(raw):
+    """Normalize raw venue dict to the expected schema."""
+    return {
+        "name": raw.get("name", ""),
+        "location": raw.get("location", ""),
+        "moods": raw.get("moods", []) or raw.get("mood_tags", []),
+        "genres": raw.get("genres", []),
+        "url": raw.get("url", ""),
+        "blurb": raw.get("blurb", ""),
+        "last_verified": raw.get("last_verified", ""),
+    }
+
+
+def _load_from_database():
+    """Load venues from the SQLite database if available."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row  # Access columns by name
     cur = conn.cursor()
 
-    # Query to get all venues with their moods and genres
     query = """
-    SELECT 
+    SELECT
         v.id,
         v.name,
         v.location,
@@ -72,43 +90,64 @@ def load_parsed_venues():
     rows = cur.fetchall()
     conn.close()
 
-    # Convert to list of dicts with proper formatting
     venues = []
-    seen_names = set()
-
     for row in rows:
-        venue_name = row['name']
-
-        # Check exclusion list
-        is_excluded = any(
-            excluded.lower() in venue_name.lower() 
-            for excluded in EXCLUDED_VENUES
-        )
-        if is_excluded:
-            continue
-
-        # Check for duplicates
-        if venue_name in seen_names:
-            continue
-        seen_names.add(venue_name)
-
         # Parse moods and genres (stored as comma-separated strings)
-        moods = row['moods'].split(',') if row['moods'] else []
-        genres = row['genres'].split(',') if row['genres'] else []
+        moods = row["moods"].split(",") if row["moods"] else []
+        genres = row["genres"].split(",") if row["genres"] else []
 
         venue = {
-            "name": venue_name,
-            "location": row['location'] or "",
+            "name": row["name"],
+            "location": row["location"] or "",
             "moods": moods,
             "genres": genres,
-            "url": row['url'] or "",
-            "blurb": row['blurb'] or "",
-            "last_verified": row['last_verified'] or ""
+            "url": row["url"] or "",
+            "blurb": row["blurb"] or "",
+            "last_verified": row["last_verified"] or "",
         }
 
         venues.append(venue)
 
-    return venues
+    return _filter_and_dedupe(venues)
+
+
+def _load_from_json():
+    """Load venues from the JSON export when SQLite is unavailable."""
+    if not JSON_PATH.exists():
+        raise FileNotFoundError(
+            f"No venue data source found. Expected either {DB_PATH.name} or {JSON_PATH.name} in the project folder."
+        )
+
+    with JSON_PATH.open("r", encoding="utf-8") as f:
+        raw_venues = json.load(f)
+
+    normalized = [_normalize_venue_record(v) for v in raw_venues]
+    return _filter_and_dedupe(normalized)
+
+
+def load_parsed_venues():
+    """
+    Load structured venues from the SQLite database, falling back to the JSON export.
+
+    Applies:
+    - Exclusion filtering (removes specific venues)
+    - Deduplication (removes duplicate venue entries by name)
+
+    Returns venues in format compatible with existing app:
+    {
+        "name": str,
+        "location": str,
+        "moods": [str],
+        "genres": [str],
+        "url": str,
+        "last_verified": str
+    }
+    """
+    if DB_PATH.exists():
+        return _load_from_database()
+
+    # Fallback for environments (like CI) that only have the JSON export available
+    return _load_from_json()
 
 
 if __name__ == "__main__":
