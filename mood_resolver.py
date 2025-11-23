@@ -90,14 +90,20 @@ def _find_fuzzy_matches(query_text, threshold=0.75):
     Returns list of (synonym, mood, specificity_score, similarity) tuples.
     """
     query_lower = query_text.lower().strip()
+    tokens = clean_text(query_lower).split()
     matches = []
-    
+
     for synonym, mood in synonym_to_mood.items():
-        similarity = _calculate_similarity(query_lower, synonym)
+        # Compare both the whole query and individual tokens to catch typos (e.g., "dragg" → "drag")
+        similarities = [_calculate_similarity(query_lower, synonym)]
+        if tokens:
+            similarities.append(max(_calculate_similarity(token, synonym) for token in tokens))
+
+        similarity = max(similarities)
         if similarity >= threshold:
             specificity = synonym_specificity.get(synonym, 1)
             matches.append((synonym, mood, specificity, similarity))
-    
+
     return matches
 
 
@@ -113,26 +119,31 @@ def _score_mood_matches(matches):
     Returns list of (mood, confidence_score) tuples, sorted by score.
     """
     mood_scores = {}
+    best_match_quality = {}
     
     for synonym, mood, specificity, match_quality in matches:
         # Calculate base score
         score = specificity * match_quality
-        
+
         # Add to existing score (rewards multiple matches for same mood)
         if mood in mood_scores:
             mood_scores[mood] += score * 0.5  # Diminishing returns for additional matches
         else:
             mood_scores[mood] = score
+
+        # Track the highest quality match per mood (exact > fuzzy)
+        best_match_quality[mood] = max(best_match_quality.get(mood, 0), match_quality)
     
     # Normalize to 0-1 confidence range
     if not mood_scores:
         return []
     
     max_score = max(mood_scores.values())
-    normalized = [
-        (mood, min(1.0, score / max_score))
-        for mood, score in mood_scores.items()
-    ]
+    normalized = []
+    for mood, score in mood_scores.items():
+        base_confidence = score / max_score if max_score else 0
+        confidence = min(1.0, base_confidence * best_match_quality.get(mood, 1))
+        normalized.append((mood, confidence))
     
     # Sort by confidence (highest first)
     normalized.sort(key=lambda x: x[1], reverse=True)
