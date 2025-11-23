@@ -46,7 +46,7 @@ DISTRESS_KEYWORDS = [
 # Keywords indicating deep sadness but within normal emotional range
 # Note: These should NOT overlap with DISTRESS_KEYWORDS
 HEAVY_MELANCHOLY_KEYWORDS = [
-    "depressed", "depression", "really sad", "so sad", "deep sadness",
+    "depressed", "depression", "really sad", "so sad", "deep sadness", "sad",
     "grief", "grieving", "mourning", "devastated",
     "lonely", "isolated", "lost", "adrift", "struggling",
     "anxious", "anxiety", "panic", "scared", "afraid", "worried",
@@ -54,7 +54,8 @@ HEAVY_MELANCHOLY_KEYWORDS = [
     "stressed", "can't sleep", "sleepless", "insomnia",
     "crying", "can't stop crying", "tears", "hurt", "hurting",
     "miss them", "miss someone", "lost someone", "breakup", "divorce",
-    "rejected", "abandoned", "betrayed", "aching", "melancholy", "low"
+    "rejected", "abandoned", "betrayed", "aching", "melancholy", "low",
+    "sorrow", "pain", "sadness", "heartbroken", "heartbreak", "blue", "down"
 ]
 
 

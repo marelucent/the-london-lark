@@ -1,142 +1,515 @@
 {
   "Folk & Intimate": {
     "description": "Warm strings, low light, and stories that feel like home.",
-    "synonyms": ["folk", "folky", "folk-y", "acoustic", "candlelit", "intimate", "singer-songwriter", "singer songwriter", "cozy", "cosy", "warm", "close", "quiet", "unplugged"],
+    "synonyms": [
+      "folk",
+      "folky",
+      "folk-y",
+      "acoustic",
+      "candlelit",
+      "intimate",
+      "singer-songwriter",
+      "singer songwriter",
+      "cozy",
+      "cosy",
+      "warm",
+      "close",
+      "quiet",
+      "unplugged",
+      "gentle",
+      "soft"
+    ],
     "vibe_notes": "Handheld heart music."
   },
   "Queer Revelry": {
     "description": "Sequins, sweat, and chosen family.",
-    "synonyms": ["queer", "drag", "cabaret", "LGBT", "LGBTQ", "LGBTQ+", "glitter", "gay", "pride", "inclusive", "rainbow"],
+    "synonyms": [
+      "queer",
+      "drag",
+      "cabaret",
+      "LGBT",
+      "LGBTQ",
+      "LGBTQ+",
+      "glitter",
+      "gay",
+      "pride",
+      "inclusive",
+      "rainbow",
+      "affirming",
+      "safe space"
+    ],
     "vibe_notes": "A jubilant celebration of queer joy."
   },
   "Dreamlike & Hypnagogic": {
     "description": "Time blurs. Your breath slows. Reality becomes suggestion.",
-    "synonyms": ["dreamlike", "surreal", "hypnotic", "ambient"],
+    "synonyms": [
+      "dreamlike",
+      "surreal",
+      "hypnotic",
+      "ambient",
+      "ethereal",
+      "trance",
+      "floating"
+    ],
     "vibe_notes": "A waking dream."
   },
   "Wonder & Awe": {
     "description": "For when you want to feel small and lit from within.",
-    "synonyms": ["awe", "mind-blown", "epic", "immersive"],
+    "synonyms": [
+      "awe",
+      "mind-blown",
+      "epic",
+      "immersive",
+      "wonder",
+      "magical",
+      "transcendent",
+      "breathtaking"
+    ],
     "vibe_notes": "A miracle in stage lights."
   },
   "Grief & Grace": {
     "description": "For when you need to feel the ache, but also the holding.",
-    "synonyms": ["grief", "loss", "tender", "healing", "mourning"],
+    "synonyms": [
+      "grief",
+      "loss",
+      "tender",
+      "healing",
+      "mourning",
+      "gentle",
+      "struggling",
+      "difficult",
+      "hard time",
+      "need support",
+      "vulnerable",
+      "raw",
+      "wounded",
+      "hurting",
+      "aching",
+      "need holding"
+    ],
     "vibe_notes": "A kind of catharsis."
   },
   "Playful & Weird": {
     "description": "Unexpected, peculiar, oddly delightful.",
-    "synonyms": ["weird", "absurd", "clown", "strange", "offbeat", "quirky", "bizarre", "unusual", "odd", "peculiar", "surreal", "experimental"],
+    "synonyms": [
+      "weird",
+      "absurd",
+      "clown",
+      "strange",
+      "offbeat",
+      "quirky",
+      "bizarre",
+      "unusual",
+      "odd",
+      "peculiar",
+      "surreal",
+      "experimental",
+      "playful",
+      "fun",
+      "adult play",
+      "grown-up fun",
+      "mischievous"
+    ],
     "vibe_notes": "Theatre that tilts the world."
   },
   "Punchy / Protest": {
     "description": "Urgent, raw, and unafraid.",
-    "synonyms": ["protest", "activist", "radical", "feminist", "political", "rebellious", "revolution", "angry", "fierce", "bold"],
+    "synonyms": [
+      "protest",
+      "activist",
+      "radical",
+      "feminist",
+      "political",
+      "rebellious",
+      "revolution",
+      "angry",
+      "fierce",
+      "bold",
+      "community-focused",
+      "grassroots",
+      "justice"
+    ],
     "vibe_notes": "Voices raised, truth revealed."
   },
   "Poetic": {
     "description": "Language that shimmers. Performances with soul-rhythm.",
-    "synonyms": ["poetic", "lyrical", "spoken word", "poetry", "verse", "wordsmith", "literary"],
+    "synonyms": [
+      "poetic",
+      "lyrical",
+      "spoken word",
+      "poetry",
+      "verse",
+      "wordsmith",
+      "literary",
+      "words",
+      "language"
+    ],
     "vibe_notes": "You'll carry the words home."
   },
   "The Thoughtful Stage": {
     "description": "Measured, textured, quietly brilliant.",
-    "synonyms": ["intelligent", "philosophical", "dialogue", "thoughtful"],
+    "synonyms": [
+      "intelligent",
+      "philosophical",
+      "dialogue",
+      "thoughtful",
+      "contemplative",
+      "reflective",
+      "introspective",
+      "cerebral"
+    ],
     "vibe_notes": "Theatre that makes you lean in."
   },
-   "Something I Wouldn't Normally Pick": {
+  "Something I Wouldn't Normally Pick": {
     "description": "A gentle nudge outside the usual.",
-    "synonyms": ["surprise me", "different", "try something new"],
+    "synonyms": [
+      "surprise me",
+      "different",
+      "try something new",
+      "random",
+      "adventurous",
+      "discovery"
+    ],
     "vibe_notes": "You might just surprise yourself."
   },
   "Cabaret & Glitter": {
     "description": "Feathers, fire, wit and drag.",
-    "synonyms": ["cabaret", "drag", "glitter", "burlesque", "queer"],
+    "synonyms": [
+      "cabaret",
+      "drag",
+      "glitter",
+      "burlesque",
+      "queer",
+      "glamour",
+      "sequins",
+      "sparkle"
+    ],
     "vibe_notes": "Where glamour meets rebellion."
   },
   "Late-Night Lark": {
     "description": "Bold, cheeky, and twilight-tinged.",
-    "synonyms": ["late", "night", "after dark", "twilight"],
+    "synonyms": [
+      "late",
+      "night",
+      "after dark",
+      "twilight",
+      "late-night",
+      "midnight",
+      "nocturnal",
+      "evening"
+    ],
     "vibe_notes": "For when the city stays up with you."
   },
   "Comic Relief": {
     "description": "For the belly-laugh you didn't know you needed.",
-    "synonyms": ["comedy", "funny", "stand-up", "standup", "stand up", "laugh", "hilarious", "humour", "humor", "comic", "jokes"],
+    "synonyms": [
+      "comedy",
+      "funny",
+      "stand-up",
+      "standup",
+      "stand up",
+      "laugh",
+      "hilarious",
+      "humour",
+      "humor",
+      "comic",
+      "jokes",
+      "light",
+      "uplifting",
+      "happy",
+      "happiness",
+      "cheerful",
+      "joyful",
+      "joy",
+      "bright",
+      "positive"
+    ],
     "vibe_notes": "A tonic for the tense."
   },
   "Group Energy": {
     "description": "Designed to be shared.",
-    "synonyms": ["group", "party", "dancing", "crowd", "big night", "friends", "social", "lively", "energetic", "buzzing"],
+    "synonyms": [
+      "group",
+      "party",
+      "dancing",
+      "crowd",
+      "big night",
+      "friends",
+      "social",
+      "lively",
+      "energetic",
+      "buzzing",
+      "sweaty",
+      "dance",
+      "ecstatic",
+      "communal",
+      "alive",
+      "energized",
+      "vital",
+      "electric",
+      "connected",
+      "connection",
+      "belonging",
+      "togetherness"
+    ],
     "vibe_notes": "Dancing, laughing, witnessing together."
   },
   "Word & Voice": {
     "description": "Spoken word, storytelling, lyrical monologues.",
-    "synonyms": ["spoken word", "storytelling", "poetry", "voice"],
+    "synonyms": [
+      "spoken word",
+      "storytelling",
+      "poetry",
+      "voice",
+      "narrative",
+      "stories",
+      "tale"
+    ],
     "vibe_notes": "The hush of the room, the lyric of the light."
   },
   "Salon & Spark": {
     "description": "Curious minds gather. Come think with us.",
-    "synonyms": ["talk", "debate", "discussion", "ideas"],
+    "synonyms": [
+      "talk",
+      "debate",
+      "discussion",
+      "ideas",
+      "conversation",
+      "intellectual",
+      "salon",
+      "gathering",
+      "connection",
+      "meet people"
+    ],
     "vibe_notes": "A little wine, a lot of questions."
   },
   "Rant & Rapture": {
     "description": "Electrifying expression, righteous anger, ecstatic fervour.",
-    "synonyms": ["rant", "monologue", "explosive", "fervour"],
+    "synonyms": [
+      "rant",
+      "monologue",
+      "explosive",
+      "fervour",
+      "passionate",
+      "intense",
+      "electric"
+    ],
     "vibe_notes": "A sermon of sorts."
   },
   "Big Night Out": {
     "description": "Lights down, volume up.",
-    "synonyms": ["party", "DJ", "clubbing", "night out"],
+    "synonyms": [
+      "party",
+      "DJ",
+      "clubbing",
+      "night out",
+      "club",
+      "rave",
+      "techno",
+      "house",
+      "dancing",
+      "celebration"
+    ],
     "vibe_notes": "A crowd, a cocktail, a damn good night."
   },
   "Global Rhythms": {
     "description": "Borders blur and culture sings.",
-    "synonyms": ["world music", "latin", "afrobeat", "international"],
+    "synonyms": [
+      "world music",
+      "latin",
+      "afrobeat",
+      "international",
+      "global",
+      "cultural",
+      "multicultural",
+      "diverse"
+    ],
     "vibe_notes": "A passport for the soul."
   },
   "Romanticised London": {
     "description": "For gaslight nostalgia and Victorian dreams.",
-    "synonyms": ["romantic", "Victorian", "historic", "old London", "atmospheric", "candlelit"],
+    "synonyms": [
+      "romantic",
+      "Victorian",
+      "historic",
+      "old London",
+      "atmospheric",
+      "candlelit",
+      "heritage",
+      "gothic",
+      "period"
+    ],
     "vibe_notes": "London as you imagined it in books."
   },
   "Nostalgic / Vintage / Retro": {
     "description": "Old glamour, faded elegance, time-worn beauty.",
-    "synonyms": ["vintage", "retro", "classic", "old-school", "nostalgic", "1920s", "art deco"],
+    "synonyms": [
+      "vintage",
+      "retro",
+      "classic",
+      "old-school",
+      "nostalgic",
+      "1920s",
+      "art deco",
+      "throwback",
+      "bygone"
+    ],
     "vibe_notes": "A portal to another era."
   },
   "Spiritual / Sacred / Mystical": {
     "description": "Where the veil thins and reverence rises.",
-    "synonyms": ["spiritual", "sacred", "mystical", "church", "temple", "prayer"],
+    "synonyms": [
+      "spiritual",
+      "sacred",
+      "mystical",
+      "church",
+      "temple",
+      "prayer",
+      "ritual",
+      "ceremony",
+      "sacred space",
+      "devotional",
+      "transcendent",
+      "occult",
+      "esoteric"
+    ],
     "vibe_notes": "A hush that feels holy."
   },
   "Body-Based / Movement-Led": {
     "description": "Dance, circus, physical theatre — the body as language.",
-    "synonyms": ["dance", "movement", "physical theatre", "circus", "aerial", "choreography"],
+    "synonyms": [
+      "dance",
+      "movement",
+      "physical theatre",
+      "circus",
+      "aerial",
+      "choreography",
+      "embodied",
+      "kinetic",
+      "somatic",
+      "move",
+      "moving"
+    ],
     "vibe_notes": "When words aren't enough."
   },
   "Melancholic Beauty": {
     "description": "Bittersweet, tender, achingly lovely.",
-    "synonyms": ["melancholic", "bittersweet", "wistful", "sad", "tender", "longing"],
+    "synonyms": [
+      "melancholic",
+      "bittersweet",
+      "wistful",
+      "sad",
+      "tender",
+      "longing",
+      "low",
+      "down",
+      "blue",
+      "heavy",
+      "dark",
+      "depressed",
+      "lonely",
+      "isolated",
+      "melancholy",
+      "sombre",
+      "pensive",
+      "mournful",
+      "sadness",
+      "sorrow",
+      "heartbroken",
+      "heartbreak",
+      "pain",
+      "ache",
+      "hurt"
+    ],
     "vibe_notes": "Beauty that breaks your heart a little."
   },
   "Curious Encounters": {
     "description": "For the experimentally-minded and perpetually curious.",
-    "synonyms": ["curious", "experimental", "unusual", "eclectic", "offbeat", "discovery"],
+    "synonyms": [
+      "curious",
+      "experimental",
+      "unusual",
+      "eclectic",
+      "offbeat",
+      "discovery",
+      "exploratory",
+      "avant-garde",
+      "boundary-pushing",
+      "art",
+      "visual art",
+      "gallery",
+      "galleries",
+      "exhibition",
+      "exhibitions",
+      "installation",
+      "contemporary art"
+    ],
     "vibe_notes": "You never quite know what you'll find."
   },
   "Seasonal / Outdoor": {
     "description": "Under stars or sun, gardens and rooftops.",
-    "synonyms": ["outdoor", "garden", "rooftop", "summer", "alfresco", "open air"],
+    "synonyms": [
+      "outdoor",
+      "garden",
+      "rooftop",
+      "summer",
+      "alfresco",
+      "open air",
+      "nature",
+      "outside",
+      "park",
+      "green space"
+    ],
     "vibe_notes": "For when the city needs sky."
   },
   "Witchy & Wild": {
     "description": "Pagan, earthy, feral, moon-soaked.",
-    "synonyms": ["witchy", "pagan", "wild", "earthy", "folklore", "moon"],
+    "synonyms": [
+      "witchy",
+      "pagan",
+      "wild",
+      "earthy",
+      "folklore",
+      "moon",
+      "witch",
+      "witchcraft",
+      "primal",
+      "feral",
+      "untamed",
+      "magic",
+      "spellwork"
+    ],
     "vibe_notes": "For when you want to howl at something."
   },
   "Family-Friendly": {
     "description": "Magic for all ages.",
-    "synonyms": ["family", "kids", "children", "all ages"],
+    "synonyms": [
+      "family",
+      "kids",
+      "children",
+      "all ages",
+      "family-friendly",
+      "wholesome"
+    ],
     "vibe_notes": "Where wonder has no age limit."
+  },
+  "Contemplative & Meditative": {
+    "description": "Slow, still, deeply felt. Space to breathe and be.",
+    "synonyms": [
+      "contemplative",
+      "meditative",
+      "reflective",
+      "slow",
+      "slow-paced",
+      "peaceful",
+      "calm",
+      "quiet",
+      "stillness",
+      "mindful",
+      "zen",
+      "restorative",
+      "tranquil"
+    ],
+    "vibe_notes": "Where silence speaks."
   }
 }

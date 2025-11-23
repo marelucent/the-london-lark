@@ -1,56 +1,30 @@
 {
-  "total_queries": 29,
-  "mood_found": 29,
+  "total_queries": 111,
+  "mood_found": 111,
   "mood_not_found": 0,
   "confidence_distribution": {
-    "exact_match": 28,
+    "exact_match": 106,
     "high_confidence": 0,
-    "medium_confidence": 1,
-    "low_confidence": 0
+    "medium_confidence": 2,
+    "low_confidence": 3
   },
   "venue_matches": {
-    "found_venues": 20,
-    "no_venues": 9
+    "found_venues": 101,
+    "no_venues": 10
   },
   "filter_usage": {
-    "mood": 29,
+    "mood": 111,
     "location": 6,
-    "time": 10,
+    "time": 12,
     "budget": 2,
-    "group": 2,
+    "group": 3,
     "genre": 1
   },
   "session_history": [
     {
-      "timestamp": "2025-11-16T16:41:43.047190",
+      "timestamp": "2025-11-23T16:10:14.677340",
       "filters": {
-        "mood": "Curious Encounters",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 0
-    },
-    {
-      "timestamp": "2025-11-16T16:41:50.574895",
-      "filters": {
-        "mood": "Witchy & Wild",
-        "time": "tonight",
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 0
-    },
-    {
-      "timestamp": "2025-11-16T16:50:35.458856",
-      "filters": {
-        "mood": "Folk & Intimate",
+        "mood": "Comic Relief",
         "time": null,
         "budget": null,
         "group": null,
@@ -61,35 +35,9 @@
       "venue_count": 3
     },
     {
-      "timestamp": "2025-11-16T16:50:44.954292",
+      "timestamp": "2025-11-23T16:10:16.551858",
       "filters": {
-        "mood": "Melancholic Beauty",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 0
-    },
-    {
-      "timestamp": "2025-11-16T16:50:53.834030",
-      "filters": {
-        "mood": "Punchy / Protest",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 2
-    },
-    {
-      "timestamp": "2025-11-16T16:51:02.054465",
-      "filters": {
-        "mood": "Curious Encounters",
+        "mood": "Comic Relief",
         "time": null,
         "budget": null,
         "group": null,
@@ -100,10 +48,10 @@
       "venue_count": 3
     },
     {
-      "timestamp": "2025-11-16T16:51:08.394063",
+      "timestamp": "2025-11-23T16:10:17.742520",
       "filters": {
-        "mood": "Witchy & Wild",
-        "time": "tonight",
+        "mood": "Comic Relief",
+        "time": null,
         "budget": null,
         "group": null,
         "genre": null,
@@ -113,9 +61,9 @@
       "venue_count": 3
     },
     {
-      "timestamp": "2025-11-16T17:30:12.902775",
+      "timestamp": "2025-11-23T16:16:03.469389",
       "filters": {
-        "mood": "Melancholic Beauty",
+        "mood": "Comic Relief",
         "time": null,
         "budget": null,
         "group": null,
@@ -123,12 +71,12 @@
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 0
+      "venue_count": 31
     },
     {
-      "timestamp": "2025-11-16T17:39:51.133870",
+      "timestamp": "2025-11-23T16:16:10.807111",
       "filters": {
-        "mood": "Melancholic Beauty",
+        "mood": "Comic Relief",
         "time": null,
         "budget": null,
         "group": null,
@@ -136,10 +84,62 @@
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 0
+      "venue_count": 31
     },
     {
-      "timestamp": "2025-11-16T17:50:00.481216",
+      "timestamp": "2025-11-23T16:16:16.564285",
+      "filters": {
+        "mood": "Comic Relief",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 31
+    },
+    {
+      "timestamp": "2025-11-23T16:16:20.380279",
+      "filters": {
+        "mood": "Comic Relief",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 31
+    },
+    {
+      "timestamp": "2025-11-23T16:16:23.739825",
+      "filters": {
+        "mood": "Comic Relief",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 31
+    },
+    {
+      "timestamp": "2025-11-23T16:16:27.565512",
+      "filters": {
+        "mood": "Comic Relief",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 31
+    },
+    {
+      "timestamp": "2025-11-23T16:45:16.802625",
       "filters": {
         "mood": "Melancholic Beauty",
         "time": null,

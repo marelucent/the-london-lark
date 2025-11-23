@@ -9,7 +9,7 @@ Run this, then open http://localhost:5000 in your browser.
 
 from flask import Flask, render_template, request, jsonify
 from prompt_interpreter import interpret_prompt
-from mood_resolver import resolve_from_keywords
+from mood_resolver import resolve_mood_from_query  # Enhanced resolver
 from venue_matcher import match_venues
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
 from parse_venues import load_parsed_venues
@@ -158,23 +158,28 @@ def ask_lark():
                 'venue_count': 0
             })
 
-        # Process through the pipeline
-        filters = interpret_prompt(user_prompt)
-
-        # Debug: Log what was extracted
+        # USE ENHANCED MOOD RESOLVER as primary detector
+        # This handles multi-keyword scoring and context-aware matching
+        mood, mood_confidence = resolve_mood_from_query(user_prompt)
+        
+        # Debug: Log what was detected
         print(f"\n🔍 DEBUG: Interpreting '{user_prompt}'")
-        print(f"   Initial filters: {filters}")
+        print(f"   Mood detected: {mood} (confidence: {mood_confidence:.0%})")
+        
+        # Still use prompt_interpreter for OTHER filters (time, location, budget, etc.)
+        # but ignore its mood detection
+        other_filters = interpret_prompt(user_prompt)
+        
+        # Build complete filters dict
+        filters = {
+            "mood": mood,
+            "time": other_filters.get("time"),
+            "budget": other_filters.get("budget"),
+            "group": other_filters.get("group"),
+            "genre": other_filters.get("genre"),
+            "location": other_filters.get("location")
+        }
 
-        # Resolve mood if not found
-        mood_confidence = 1.0
-        if not filters.get("mood"):
-            keywords = user_prompt.lower().split()
-            mood, confidence = resolve_from_keywords(keywords)
-            filters["mood"] = mood
-            mood_confidence = confidence
-            print(f"   Mood resolution: mood={mood}, confidence={confidence}")
-        else:
-            print(f"   Direct mood match: {filters.get('mood')}")
 
         # CONFIDENCE THRESHOLD CHECKS
         # If no mood detected at all (None with 0.0 confidence), reject
@@ -237,8 +242,15 @@ def ask_lark():
         # Generate responses
         responses = []
         if matches:
+            # Randomize selection to show variety (not always the same top 3)
+            # If we have more than 3 matches, pick 3 randomly
+            if len(matches) > 3:
+                selected_venues = random.sample(matches, 3)
+            else:
+                selected_venues = matches
+            
             # Return up to 3 matches
-            for venue in matches[:3]:
+            for venue in selected_venues:
                 response = generate_response(venue, filters)
                 responses.append({
                     'text': response,

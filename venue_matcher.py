@@ -25,6 +25,12 @@ venue_data = load_parsed_venues()
 
 # Mood synonyms - map user terms to our official mood tags
 MOOD_SYNONYMS = {
+    # Comedy cluster
+    "comic": ["comic", "playful", "fun", "irreverent", "hilarious"],
+    "comedy": ["comic", "playful", "fun", "irreverent", "hilarious"],
+    "relief": ["comic", "playful", "fun"],
+    "funny": ["comic", "playful", "fun", "irreverent"],
+
     # Melancholic cluster
     "melancholy": ["melancholy", "melancholic"],
     "melancholic": ["melancholy", "melancholic"],
@@ -43,9 +49,10 @@ MOOD_SYNONYMS = {
     "gothic": ["haunted", "sacred"],
 
     # Playful cluster
-    "fun": ["playful", "curious"],
+    "fun": ["playful", "curious", "fun", "comic"],
     "weird": ["playful", "experimental"],
     "strange": ["curious", "witchy"],
+    "playful": ["playful", "fun", "curious", "irreverent"],
 
     # Intimate cluster
     "cozy": ["intimate", "tender"],
@@ -297,7 +304,7 @@ def match_venues(filters):
             deduplicated_matches.append(venue)
 
     # Return top 3 unique matches
-    return deduplicated_matches[:3]
+    return deduplicated_matches
 
 if __name__ == "__main__":
     print("=" * 60)

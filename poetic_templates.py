@@ -152,7 +152,6 @@ VOICE_PROFILES = {
         "description": "Soft, inclusive, home-like. Safe, warm, welcoming.",
         "moods": [
             "Folk & Intimate",
-            "Comic Relief",
             "Wonder & Awe",
             "Body-Based / Movement-Led",
         ],
@@ -194,6 +193,7 @@ VOICE_PROFILES = {
         "moods": [
             "Curious Encounters",
             "Playful & Weird",
+            "Comic Relief",
             "The Thoughtful Stage",
             "Global Rhythms",
             "Poetic",
@@ -254,7 +254,7 @@ MOOD_TO_PROFILE = {
 
     # TENDER_BELONGING
     "Folk & Intimate": "TENDER_BELONGING",
-    "Comic Relief": "TENDER_BELONGING",
+    "Comic Relief": "CURIOUS_WONDER",
     "Wonder & Awe": "TENDER_BELONGING",
     "Body-Based / Movement-Led": "TENDER_BELONGING",
 
