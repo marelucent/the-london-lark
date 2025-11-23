@@ -3,7 +3,7 @@ import json
 import sqlite3
 
 # Load JSON data
-with open("lark_venues_merged_217.json", "r", encoding="utf-8") as f:
+with open("lark_venues_clean.json", "r", encoding="utf-8") as f:
     venues_data = json.load(f)
 
 # Connect to SQLite database
