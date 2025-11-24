@@ -169,6 +169,11 @@ def match_venues(filters):
     """
     Given a dict of filters (mood, location, group, budget, genre), return matching venue dictionaries.
     Returns up to 3 venues that match the filters.
+
+    Supports:
+    - Mood-only searches: Match venues by mood tags
+    - Genre-only searches: Match venues by genre/type when no mood is specified
+    - Combined mood+genre searches: Require both to match
     """
     mood = filters.get("mood")
     location = filters.get("location")
@@ -183,8 +188,22 @@ def match_venues(filters):
         # Get mood tags (already a list from parsed data)
         mood_tags = venue.get("moods", []) or venue.get("mood_tags", [])
 
-        # Mood match (required if mood is specified)
-        # Normalize and match moods flexibly using synonym expansion
+        # Get venue genres and tags for genre matching
+        venue_genres = venue.get("genres", [])
+        venue_type = venue.get("type", "").lower()
+        venue_tags = venue.get("tags", [])
+        if isinstance(venue_tags, str):
+            venue_tags = [venue_tags]
+
+        # Build combined genre/tag string for matching
+        genre_search_text = " ".join([
+            venue_type,
+            " ".join(g.lower() for g in venue_genres if isinstance(g, str)),
+            " ".join(t.lower() for t in venue_tags if isinstance(t, str))
+        ]).lower()
+
+        # MOOD MATCHING
+        mood_match = False
         if mood:
             # Split mood filter into words and lowercase (handles "Folk & Intimate" -> ["folk", "intimate"])
             mood_words = [w.strip().lower() for w in mood.replace('&', ' ').replace('/', ' ').split() if len(w.strip()) > 2]
@@ -216,8 +235,57 @@ def match_venues(filters):
                 for variant in mood_variants
             )
 
+        # GENRE MATCHING
+        genre_match = False
+        if genre:
+            genre_lower = genre.lower()
+
+            # Handle generic "music" - should match ANY music-related venue
+            if genre_lower == "music":
+                music_keywords = ["music", "gig", "concert", "jazz", "folk", "electronic",
+                                  "rock", "indie", "reggae", "blues", "soul", "hip-hop",
+                                  "classical", "punk", "metal", "band", "live", "singer"]
+                genre_match = any(kw in genre_search_text for kw in music_keywords)
+            # Handle comedy
+            elif genre_lower == "comedy":
+                comedy_keywords = ["comedy", "comic", "stand-up", "standup", "comedian", "funny", "laughs"]
+                genre_match = any(kw in genre_search_text for kw in comedy_keywords)
+            # Handle theatre
+            elif genre_lower == "theatre":
+                theatre_keywords = ["theatre", "theater", "stage", "fringe", "drama", "play", "musical"]
+                genre_match = any(kw in genre_search_text for kw in theatre_keywords)
+            # Handle film/cinema
+            elif genre_lower == "film":
+                film_keywords = ["film", "cinema", "movie", "screening"]
+                genre_match = any(kw in genre_search_text for kw in film_keywords)
+            # Handle cabaret/drag
+            elif genre_lower in ["cabaret", "drag"]:
+                cabaret_keywords = ["cabaret", "drag", "burlesque", "queer", "lgbtq"]
+                genre_match = any(kw in genre_search_text for kw in cabaret_keywords)
+            # Handle poetry/spoken word
+            elif genre_lower == "poetry":
+                poetry_keywords = ["poetry", "spoken word", "open mic", "verse"]
+                genre_match = any(kw in genre_search_text for kw in poetry_keywords)
+            # Handle specific music genres (jazz, folk, etc.)
+            else:
+                genre_match = genre_lower in genre_search_text
+
+        # MATCHING DECISION
+        # If we have BOTH mood and genre, require BOTH to match
+        if mood and genre:
+            if not (mood_match and genre_match):
+                continue
+        # If we have ONLY mood, require mood match
+        elif mood:
             if not mood_match:
                 continue
+        # If we have ONLY genre, require genre match
+        elif genre:
+            if not genre_match:
+                continue
+        # If we have NEITHER mood nor genre, skip this venue (no filter to match)
+        else:
+            continue
 
         # Location match (optional)
         # Check both the specific area and the tags field (which has broader regions like "North London")
@@ -251,20 +319,8 @@ def match_venues(filters):
                 filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by location")
                 continue
 
-        # Genre match (optional) - check venue type and tags
-        if genre:
-            venue_type = venue.get("type", "").lower()
-            tags_lower = tags_str.lower()
-
-            if genre == "theatre" and not any(word in venue_type or word in tags_lower for word in ["theatre", "theater", "stage", "fringe"]):
-                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not theatre)")
-                continue
-            elif genre == "music" and not any(word in venue_type or word in tags_lower for word in ["music", "gig", "concert", "jazz", "folk"]):
-                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not music)")
-                continue
-            elif genre == "drag" and not any(word in venue_type or word in tags_lower for word in ["drag", "cabaret", "queer", "LGBTQ"]):
-                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not drag)")
-                continue
+        # Note: Genre matching is now handled earlier in the MATCHING DECISION section
+        # This ensures genre-only searches work even without a mood
 
         # Budget match (optional) - based on typical venue characteristics
         if budget:

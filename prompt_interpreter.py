@@ -39,6 +39,92 @@ TIME_KEYWORDS = {
     "sunday": "Sunday",
 }
 
+# Genre keywords to detect - maps user terms to normalized genre categories
+GENRE_KEYWORDS = {
+    # Music genres (generic)
+    "music": "music",
+    "live music": "music",
+    "gig": "music",
+    "gigs": "music",
+    "concert": "music",
+    "concerts": "music",
+    "band": "music",
+    "bands": "music",
+    "singer": "music",
+    "singing": "music",
+
+    # Specific music genres
+    "jazz": "jazz",
+    "folk": "folk",
+    "electronic": "electronic",
+    "rock": "rock",
+    "indie": "indie",
+    "reggae": "reggae",
+    "blues": "blues",
+    "soul": "soul",
+    "hip-hop": "hip-hop",
+    "hip hop": "hip-hop",
+    "classical": "classical",
+    "punk": "punk",
+    "metal": "metal",
+
+    # Theatre
+    "theatre": "theatre",
+    "theater": "theatre",
+    "play": "theatre",
+    "plays": "theatre",
+    "drama": "theatre",
+    "stage": "theatre",
+    "fringe": "theatre",
+    "musical": "theatre",
+    "musicals": "theatre",
+
+    # Comedy
+    "comedy": "comedy",
+    "standup": "comedy",
+    "stand-up": "comedy",
+    "stand up": "comedy",
+    "comic": "comedy",
+    "comics": "comedy",
+    "comedian": "comedy",
+    "comedians": "comedy",
+    "funny": "comedy",
+    "laughs": "comedy",
+
+    # Film/Cinema
+    "film": "film",
+    "films": "film",
+    "cinema": "film",
+    "movie": "film",
+    "movies": "film",
+    "screening": "film",
+    "screenings": "film",
+
+    # Dance
+    "dance": "dance",
+    "dancing": "dance",
+    "ballet": "dance",
+
+    # Art/Exhibition
+    "art": "art",
+    "gallery": "art",
+    "exhibition": "art",
+    "exhibitions": "art",
+
+    # Poetry/Spoken Word
+    "poetry": "poetry",
+    "poems": "poetry",
+    "spoken word": "poetry",
+    "open mic": "poetry",
+
+    # Cabaret/Drag
+    "cabaret": "cabaret",
+    "burlesque": "cabaret",
+    "drag": "drag",
+    "drag show": "drag",
+    "drag queen": "drag",
+}
+
 # Helper function to clean and tokenize
 def clean_text(text):
     """Remove punctuation and extra whitespace for better matching"""
@@ -126,14 +212,24 @@ def interpret_prompt(prompt):
     elif "notting hill" in prompt_lower or "portobello" in prompt_lower:
         location = "West London"
 
-    # Genre/style stub (can be expanded)
+    # Genre detection - try multi-word phrases first, then single words
     genre = None
-    if "theatre" in prompt_lower:
-        genre = "theatre"
-    elif "gig" in prompt_lower or "live music" in prompt_lower:
-        genre = "music"
-    elif "drag" in prompt_lower:
-        genre = "drag"
+
+    # First check multi-word genre keywords (e.g., "live music", "stand up", "spoken word")
+    for keyword, genre_value in GENRE_KEYWORDS.items():
+        if ' ' in keyword:  # Multi-word keyword
+            if keyword in prompt_clean:
+                genre = genre_value
+                break
+
+    # If no multi-word match, check single-word keywords
+    if not genre:
+        words = prompt_clean.split()
+        for word in words:
+            clean_word = word.strip('-')
+            if clean_word in GENRE_KEYWORDS:
+                genre = GENRE_KEYWORDS[clean_word]
+                break
 
     return {
         "mood": mood,

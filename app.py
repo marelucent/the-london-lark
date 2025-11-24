@@ -182,45 +182,55 @@ def ask_lark():
 
 
         # CONFIDENCE THRESHOLD CHECKS
-        # If no mood detected at all (None with 0.0 confidence), reject
+        # If no mood detected at all (None with 0.0 confidence), check for genre fallback
         if filters.get("mood") is None and mood_confidence == 0.0:
-            print(f"   ❌ No recognizable mood keywords found")
-            return jsonify({
-                'responses': [{
-                    'text': "I tilt my head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night?",
-                    'venue_name': None,
-                    'area': None,
-                    'website': None
-                }],
-                'mood': None,
-                'confidence': 0.0,
-                'venue_count': 0,
-                'filters': filters,
-                'debug': {
-                    'reason': 'no_mood_detected',
-                    'keywords_checked': user_prompt.lower().split()
-                }
-            })
+            # Check if we have a genre filter as fallback
+            if filters.get("genre"):
+                print(f"   ✓ No mood, but genre detected: {filters.get('genre')}")
+                # Allow to proceed with genre-based search
+            else:
+                # REJECT QUERY (no mood AND no genre)
+                print(f"   ❌ No recognizable mood or genre keywords found")
+                return jsonify({
+                    'responses': [{
+                        'text': "I tilt my head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night? Or tell me a genre — music, theatre, comedy?",
+                        'venue_name': None,
+                        'area': None,
+                        'website': None
+                    }],
+                    'mood': None,
+                    'confidence': 0.0,
+                    'venue_count': 0,
+                    'filters': filters,
+                    'debug': {
+                        'reason': 'no_mood_or_genre_detected',
+                        'keywords_checked': user_prompt.lower().split()
+                    }
+                })
 
-        # If confidence is very low (< 0.3), ask for clarification
+        # If confidence is very low (< 0.3), check for genre fallback before asking for clarification
         if mood_confidence < 0.3:
-            print(f"   ⚠️ Very low confidence ({mood_confidence}), asking for clarification")
-            return jsonify({
-                'responses': [{
-                    'text': f"I sense a whisper of '{filters.get('mood', 'something')}' in your words, but I'm not certain. Could you tell me more about the evening you're dreaming of?",
-                    'venue_name': None,
-                    'area': None,
-                    'website': None
-                }],
-                'mood': filters.get('mood'),
-                'confidence': mood_confidence,
-                'venue_count': 0,
-                'filters': filters,
-                'debug': {
-                    'reason': 'low_confidence',
-                    'threshold': 0.3
-                }
-            })
+            if filters.get("genre"):
+                print(f"   ⚠️ Low mood confidence, but using genre fallback: {filters.get('genre')}")
+                # Allow to proceed with genre-based search
+            else:
+                print(f"   ⚠️ Very low confidence ({mood_confidence}), asking for clarification")
+                return jsonify({
+                    'responses': [{
+                        'text': f"I sense a whisper of '{filters.get('mood', 'something')}' in your words, but I'm not certain. Could you tell me more about the evening you're dreaming of?",
+                        'venue_name': None,
+                        'area': None,
+                        'website': None
+                    }],
+                    'mood': filters.get('mood'),
+                    'confidence': mood_confidence,
+                    'venue_count': 0,
+                    'filters': filters,
+                    'debug': {
+                        'reason': 'low_confidence',
+                        'threshold': 0.3
+                    }
+                })
 
         # If confidence is moderate (0.3-0.5), warn but proceed cautiously
         if mood_confidence < 0.5:

@@ -53,6 +53,75 @@ FALLBACK_MOOD_PHRASES = {
     "The Thoughtful Stage": ["Something that makes you lean in", "Something quietly brilliant", "Something to ponder"],
 }
 
+# Genre-aware opening phrases for genre-only searches
+GENRE_OPENINGS = {
+    "music": [
+        "I hear music in your words, petal...",
+        "When you seek sound, I offer this...",
+        "The city hums with melody tonight...",
+        "For those who chase the note and rhythm...",
+    ],
+    "jazz": [
+        "Ah, jazz... where improvisation is prayer...",
+        "Smoke and brass, petal. I know a place...",
+        "For the jazz-hearted wanderer...",
+    ],
+    "folk": [
+        "Something acoustic and honest calls to you...",
+        "Where strings tell stories...",
+        "Folk finds its way to those who listen...",
+    ],
+    "theatre": [
+        "The stage whispers your name tonight...",
+        "When drama calls, the Lark knows where...",
+        "For those who crave the curtain's rise...",
+        "Theatre, petal — where truth wears a mask...",
+    ],
+    "comedy": [
+        "Laughter is medicine, petal...",
+        "Something to tickle your ribs tonight...",
+        "When you need to laugh, I offer this...",
+        "Comedy finds those who need it most...",
+    ],
+    "film": [
+        "The silver screen beckons...",
+        "For the cinema-hearted souls...",
+        "Somewhere, a projector hums just for you...",
+    ],
+    "cabaret": [
+        "Glitter and gasps, petal...",
+        "Where spectacle meets soul...",
+        "For the cabaret curious...",
+    ],
+    "drag": [
+        "Fierce, fabulous, and waiting for you...",
+        "Where queens reign supreme...",
+        "Drag, darling — art in sequins...",
+    ],
+    "poetry": [
+        "Words hang in the air tonight...",
+        "For those who speak in verse...",
+        "Poetry breathes here...",
+    ],
+    "dance": [
+        "Where bodies tell stories...",
+        "Movement calls to you, petal...",
+        "Dance, like secrets shared in motion...",
+    ],
+    "art": [
+        "Canvas and vision await...",
+        "For the gallery wanderer...",
+        "Art speaks when words fail...",
+    ],
+}
+
+def get_genre_opening(genre):
+    """Get a random opening phrase for a genre-only search"""
+    if genre and genre.lower() in GENRE_OPENINGS:
+        return random.choice(GENRE_OPENINGS[genre.lower()])
+    # Default for unknown genres
+    return f"When you seek {genre}, petal, I offer this..."
+
 def _format_time(time_str, user_time_filter):
     """Format time information naturally"""
     if not time_str or time_str == "TBC":
@@ -114,6 +183,7 @@ def generate_response(venue, filters, response_type="Matchmaker"):
 
     # Extract data
     mood = filters.get("mood")
+    genre = filters.get("genre")
     venue_name = venue.get("name", "a hidden gem")
     vibe_note = venue.get("vibe_note", "It hums with something special.")
     area = venue.get("area", "London")
@@ -123,8 +193,11 @@ def generate_response(venue, filters, response_type="Matchmaker"):
     price_phrase = _format_price(venue.get("price"))
     location_phrase = _format_location(venue)
 
-    # Choose opening (voice-profile aware)
-    if HAS_VOICE_PROFILES:
+    # Choose opening (voice-profile aware, with genre fallback)
+    # If genre-only search (no strong mood), use genre-aware language
+    if not mood and genre:
+        opening = get_genre_opening(genre)
+    elif HAS_VOICE_PROFILES:
         opening = get_opening(mood)
     else:
         opening = random.choice(FALLBACK_OPENINGS)
@@ -170,11 +243,24 @@ def _generate_gentle_refusal(filters):
     Uses voice-profile-aware rejection messages.
     """
     mood = filters.get("mood")
+    genre = filters.get("genre")
     location = filters.get("location")
 
     # Use voice profile rejection if available
-    if HAS_VOICE_PROFILES:
+    if HAS_VOICE_PROFILES and mood:
         response = get_rejection_message(mood)
+    elif genre:
+        # Genre-specific gentle refusal
+        genre_refusals = {
+            "music": "The city's stages are quiet on that front tonight, petal.",
+            "theatre": "No curtains rising for that request just now.",
+            "comedy": "The laughter's hiding tonight, but try me again.",
+            "film": "No projectors humming for that, I'm afraid.",
+            "jazz": "The jazz clubs are keeping their secrets tonight.",
+            "poetry": "No verses floating by just now, but keep asking.",
+        }
+        response = genre_refusals.get(genre.lower(),
+            f"Nothing's singing in the {genre} key tonight, petal.")
     else:
         refusals = [
             "The city's quiet on that front tonight, petal.",
@@ -185,11 +271,15 @@ def _generate_gentle_refusal(filters):
         response = random.choice(refusals)
 
     # Add specific guidance (only if not using voice profiles)
-    if not HAS_VOICE_PROFILES:
+    if not (HAS_VOICE_PROFILES and mood):
         if mood and location:
             response += f" (Looking for {mood} in {location} proved tricky.)"
+        elif genre and location:
+            response += f" (No {genre} venues in {location} turned up.)"
         elif mood:
             response += f" (No {mood} vibes turning up just now.)"
+        elif genre:
+            response += f" (No {genre} spots matched your ask.)"
         elif location:
             response += f" (Nothing in {location} matched your ask.)"
 
