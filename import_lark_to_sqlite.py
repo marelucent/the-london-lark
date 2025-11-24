@@ -10,6 +10,44 @@ with open("lark_venues_clean.json", "r", encoding="utf-8") as f:
 conn = sqlite3.connect("lark.db")
 cur = conn.cursor()
 
+# Create tables if they don't exist
+cur.executescript("""
+    CREATE TABLE IF NOT EXISTS venues (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        location TEXT,
+        url TEXT,
+        blurb TEXT,
+        last_verified TEXT
+    );
+
+    CREATE TABLE IF NOT EXISTS moods (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS genres (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS venue_moods (
+        venue_id INTEGER,
+        mood_id INTEGER,
+        PRIMARY KEY (venue_id, mood_id),
+        FOREIGN KEY (venue_id) REFERENCES venues(id),
+        FOREIGN KEY (mood_id) REFERENCES moods(id)
+    );
+
+    CREATE TABLE IF NOT EXISTS venue_genres (
+        venue_id INTEGER,
+        genre_id INTEGER,
+        PRIMARY KEY (venue_id, genre_id),
+        FOREIGN KEY (venue_id) REFERENCES venues(id),
+        FOREIGN KEY (genre_id) REFERENCES genres(id)
+    );
+""")
+
 # Prepare helper functions
 def get_or_create_id(table, name):
     cur.execute(f"SELECT id FROM {table} WHERE name = ?", (name,))
