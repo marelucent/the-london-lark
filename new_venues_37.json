@@ -1,0 +1,344 @@
+[
+  {
+    "name": "FOLD",
+    "location": "Canning Town",
+    "url": "https://fold.london",
+    "blurb": "A 600-capacity warehouse with a 6am licence and Funktion-One sound system, where the night stretches until dawn and techno pilgrims gather for marathon sets.",
+    "moods": ["Big Night Out", "Late-Night Lark", "Rebellious"],
+    "genres": ["techno", "house", "electronic"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Corsica Studios",
+    "location": "Elephant & Castle",
+    "url": "https://corsica-studios.com",
+    "blurb": "Twin railway arches beneath Elephant & Castle, a non-profit sanctuary where underground electronic music echoes off brick walls until the early hours.",
+    "moods": ["Late-Night Lark", "Curious Encounters", "Rebellious"],
+    "genres": ["electronic", "experimental", "techno"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Venue MOT Unit 18",
+    "location": "Barking",
+    "url": "https://linktr.ee/venMOT",
+    "blurb": "A grungy warehouse space in Barking where east London's underground gathers, sweat drips from industrial ceilings, and the music pounds until daybreak.",
+    "moods": ["Big Night Out", "Late-Night Lark", "Wild Becoming"],
+    "genres": ["electronic", "house", "techno"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Servant Jazz Quarters",
+    "location": "Dalston",
+    "url": "https://www.servantjazzquarters.com",
+    "blurb": "A basement jazz club where smoke curls through low ceilings, intimate tables cluster around a tiny stage, and the music breathes past midnight.",
+    "moods": ["Jazz & Contemplation", "Late-Night Lark", "Melancholic Beauty"],
+    "genres": ["jazz", "soul", "blues"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "The Old Blue Last",
+    "location": "Shoreditch",
+    "url": "https://theoldbluelast.com",
+    "blurb": "A legendary Shoreditch pub where Vice Magazine once held court, now hosting gritty indie gigs and late-night DJ sets in sweat-soaked intimacy.",
+    "moods": ["Late-Night Lark", "Rebellious", "Nostalgic / Vintage / Retro"],
+    "genres": ["indie", "punk", "alternative"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "The Victoria (JaguarShoes)",
+    "location": "Dalston",
+    "url": "https://www.jaguarshoes.com",
+    "blurb": "A Dalston institution where the backroom transforms into a sweaty dance cave, and eclectic DJ sets stretch from dusk until the trains start running.",
+    "moods": ["Late-Night Lark", "Big Night Out", "Playful & Weird"],
+    "genres": ["electronic", "indie", "DJ sets"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "The George Tavern",
+    "location": "Stepney",
+    "url": "https://www.thegeorgetavern.co.uk",
+    "blurb": "A Grade II-listed East End institution where Victorian ghosts mingle with live music until late, the spirit of old London pulsing through wooden beams and worn floors.",
+    "moods": ["Nostalgic / Vintage / Retro", "Late-Night Lark", "Folk & Intimate"],
+    "genres": ["live music", "folk", "indie"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "TOLA Peckham",
+    "location": "Peckham",
+    "url": "https://www.tolapeckham.com",
+    "blurb": "An artist-led bar beneath railway arches where vinyl spins, natural wine flows, and the night unfolds in candlelit warmth until the small hours.",
+    "moods": ["Late-Night Lark", "Folk & Intimate", "Curious Encounters"],
+    "genres": ["vinyl bar", "natural wine", "live music"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Grow Hackney",
+    "location": "Hackney Wick",
+    "url": "https://growhackney.com",
+    "blurb": "A canal-side haven where sustainability meets nightlife, solar-powered sound systems hum until dawn, and dancers gather beneath the stars.",
+    "moods": ["Late-Night Lark", "Curious Encounters", "Wild Becoming"],
+    "genres": ["electronic", "house", "techno"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Prince Charles Cinema",
+    "location": "Leicester Square",
+    "url": "https://princecharlescinema.com",
+    "blurb": "Where cult classics and midnight marathons thrive, this independent cinema hosts all-night screenings for those who refuse to sleep when cinema beckons.",
+    "moods": ["Late-Night Lark", "Nostalgic / Vintage / Retro", "Playful & Weird"],
+    "genres": ["cinema", "cult films", "marathons"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "TwickFolk at The Cabbage Patch",
+    "location": "Twickenham",
+    "url": "https://www.twickfolk.co.uk",
+    "blurb": "A volunteer-run folk club thriving since 1983, where voices rise over acoustic guitars in a Twickenham pub, keeping the old songs alive.",
+    "moods": ["Folk & Intimate", "Nostalgic / Vintage / Retro", "Community"],
+    "genres": ["folk", "acoustic", "traditional"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Park Royal Design District",
+    "location": "Park Royal",
+    "url": "https://www.parkroyaldesigndistrict.co.uk",
+    "blurb": "A creative quarter housing 250+ artist studios in converted industrial buildings, where open studios and exhibitions invite you into working creative minds.",
+    "moods": ["Curious Encounters", "The Thoughtful Stage", "Community"],
+    "genres": ["visual arts", "studios", "exhibitions"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Bollo Studios",
+    "location": "Acton",
+    "url": "https://www.bollobrook.com",
+    "blurb": "Artist studios and gallery space in Acton where ceramicists, painters, and makers open their doors to visitors, creativity spilling into the street.",
+    "moods": ["Curious Encounters", "Community", "The Thoughtful Stage"],
+    "genres": ["visual arts", "ceramics", "workshops"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Foster Books",
+    "location": "Chiswick",
+    "url": "https://www.fosterbooks.net",
+    "blurb": "An 18th-century Chiswick bookshop where rare volumes and literary events gather, the scent of old paper mixing with new ideas.",
+    "moods": ["Nostalgic / Vintage / Retro", "The Thoughtful Stage", "Poetic"],
+    "genres": ["bookshop", "literary events", "readings"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Lloyds of Kew",
+    "location": "Kew",
+    "url": "https://lloydskew.co.uk",
+    "blurb": "A rare and antiquarian bookshop specializing in botanical and horticultural texts, where leather-bound gardens bloom on every shelf.",
+    "moods": ["Nostalgic / Vintage / Retro", "Curious Encounters", "The Thoughtful Stage"],
+    "genres": ["bookshop", "antiquarian", "botanical"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "The Open Book",
+    "location": "Richmond",
+    "url": "https://www.theopenbookrichmond.co.uk",
+    "blurb": "A Richmond bookshop and café where literary discussions unfold over coffee, author events draw local crowds, and books become conversation.",
+    "moods": ["The Thoughtful Stage", "Community", "Poetic"],
+    "genres": ["bookshop", "café", "literary events"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Pitshanger Bookshop",
+    "location": "Ealing",
+    "url": "https://www.pitshangerbooks.co.uk",
+    "blurb": "An Ealing bookshop hosting readings, book clubs, and writing workshops, where words gather communities and stories find their people.",
+    "moods": ["The Thoughtful Stage", "Poetic", "Community"],
+    "genres": ["bookshop", "book clubs", "workshops"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "The Sheen Bookshop",
+    "location": "East Sheen",
+    "url": "https://www.thesheenbookshop.co.uk",
+    "blurb": "A cosy East Sheen bookshop with storytelling sessions, author talks, and community warmth radiating from every carefully curated shelf.",
+    "moods": ["Community", "The Thoughtful Stage", "Wonder & Awe"],
+    "genres": ["bookshop", "storytelling", "author events"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "All Good Bookshop",
+    "location": "Wood Green",
+    "url": "https://www.allgoodbookshop.co.uk",
+    "blurb": "A worker co-operative bookshop in Wood Green hosting open mics, zine fairs, and radical readings, where community ownership means genuine care.",
+    "moods": ["Punchy / Protest", "Community", "Poetic"],
+    "genres": ["bookshop", "open mic", "zines"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "OPEN Ealing",
+    "location": "Ealing",
+    "url": "https://www.openealing.com",
+    "blurb": "A multi-arts venue in central Ealing presenting theatre, music, comedy, and film, where creativity meets accessibility in West London.",
+    "moods": ["Curious Encounters", "The Thoughtful Stage", "Comic Relief"],
+    "genres": ["theatre", "music", "comedy"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Kiln Theatre",
+    "location": "Kilburn",
+    "url": "https://kilntheatre.com",
+    "blurb": "Formerly Tricycle Theatre, now Kiln, where stories from around the world take centre stage in a Kilburn venue committed to diverse voices and bold narratives.",
+    "moods": ["The Thoughtful Stage", "Global Rhythms", "Curious Encounters"],
+    "genres": ["theatre", "new writing", "international"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Studio Crumb",
+    "location": "Deptford",
+    "url": "https://www.dazeddigital.com/music/article/68108/1/dazed-guide-best-london-club-nights-in-2025-opia-fold-techno-latinx-reggaeton",
+    "blurb": "A monthly vinyl-only party in The Bunker where DJ Haseeb Iqbal treats the dancefloor like a theatre, guiding dancers through spiritual deep-cuts and sonic histories.",
+    "moods": ["Spiritual / Sacred / Mystical", "Folk & Intimate", "Nostalgic / Vintage / Retro"],
+    "genres": ["vinyl", "house", "jazz"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Club Are",
+    "location": "East London",
+    "url": "https://www.clubare.co",
+    "blurb": "A queer-founded multidisciplinary platform where sound, visual art, fashion, and community blur, each edition concept-driven and centring queer, trans, and non-binary voices.",
+    "moods": ["Queer Revelry", "Curious Encounters", "Wild Becoming"],
+    "genres": ["progressive house", "techno", "performance art"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Club Stamina",
+    "location": "Various London",
+    "url": "https://www.instagram.com/clubstamina",
+    "blurb": "DJ Mina Galán's night championing femme and trans talent through reggaeton, baile funk, and perreo, an antidote to techno-heavy exclusionary scenes.",
+    "moods": ["Queer Revelry", "Big Night Out", "Global Rhythms"],
+    "genres": ["reggaeton", "baile funk", "Latin club"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "MAS ARTS",
+    "location": "Pop-up locations",
+    "url": "https://www.instagram.com/masartslondon",
+    "blurb": "A mobile sound system delivering pop-up raves to unexpected places, working with youth clubs and community organisations to bring music to the people.",
+    "moods": ["Community", "Big Night Out", "Playful & Weird"],
+    "genres": ["hip-hop", "grime", "electronic"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "2C Perrea",
+    "location": "East/South London",
+    "url": "https://www.instagram.com/2cperrea",
+    "blurb": "Queer-friendly reggaeton founded by Latinx migrants craving community, a safe space to reconnect with music from home and push Latin club boundaries.",
+    "moods": ["Queer Revelry", "Global Rhythms", "Big Night Out"],
+    "genres": ["reggaeton", "Latin techno", "cumbia"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Eastern Margins",
+    "location": "Pop-up venues",
+    "url": "https://easternmargins.com",
+    "blurb": "Record label and events collective celebrating alternative music from East and Southeast Asia, where bootleg aesthetics and DIY rave meet physical communion.",
+    "moods": ["Curious Encounters", "Big Night Out", "Global Rhythms"],
+    "genres": ["DIY rave", "East Asian club", "electronic"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Tech Couture LDN",
+    "location": "FOLD, Canning Town",
+    "url": "https://www.instagram.com/techcoutureLDN",
+    "blurb": "Colourful techno party bringing self-expression and playful energy back to the dancefloor, platforming rising and established DJs with inclusive sweaty joy.",
+    "moods": ["Big Night Out", "Playful & Weird", "Wild Becoming"],
+    "genres": ["techno", "house", "electro"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Opia",
+    "location": "East London",
+    "url": "https://www.instagram.com/opia.London",
+    "blurb": "Club night-turned cultural movement where glamour, fashion photography, and performance blur with rave, celebrating chaotic beauty and chosen family.",
+    "moods": ["Cabaret & Glitter", "Wild Becoming", "Playful & Weird"],
+    "genres": ["fashion-rave", "cabaret", "performance"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Queer House Party",
+    "location": "Hackney Bridge",
+    "url": "https://www.instagram.com/queerhouseparty",
+    "blurb": "DIY collective merging safer accessible spaces with high-energy club nights, bringing politics back to the dancefloor and building global queer community.",
+    "moods": ["Queer Revelry", "Punchy / Protest", "Big Night Out"],
+    "genres": ["house", "techno", "drag"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Ceilidh Liberation Front",
+    "location": "Grand Junction & various",
+    "url": "https://thenestcollective.co.uk/projects/ceilidhs",
+    "blurb": "The Nest Collective transforms traditional ceilidh into radical sweat-busting party, breathing vigour into folk dance while honouring its roots.",
+    "moods": ["Folk & Intimate", "Big Night Out", "Playful & Weird"],
+    "genres": ["ceilidh", "folk", "traditional"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Bootylicious",
+    "location": "Union & Scala",
+    "url": "https://bootyldn.com",
+    "blurb": "Long-running LGBTQ+ club night serving Amapiano, Dancehall, Afrobeat, and RnB across multiple floors, a rave for queer people who love a good boogie.",
+    "moods": ["Queer Revelry", "Big Night Out", "Global Rhythms"],
+    "genres": ["Amapiano", "Afrobeat", "Dancehall"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Slimelight",
+    "location": "Electrowerkz, Islington",
+    "url": "https://www.slimelight.com",
+    "blurb": "World-renowned dark scene club with three floors: industrial/EBM techno, goth/post-punk, and indie dance/dark disco, open until 6am with mandatory creative dress.",
+    "moods": ["Witchy & Wild", "Big Night Out", "Rebellious"],
+    "genres": ["industrial", "EBM", "goth"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Dark Scene London",
+    "location": "Omeara, London Bridge",
+    "url": "https://omearalondon.com",
+    "blurb": "Summer soiree bringing together the dark music community across three floors: futurepop, darkwave, industrial, dark techno, and EBM until 5am.",
+    "moods": ["Witchy & Wild", "Big Night Out", "Curious Encounters"],
+    "genres": ["darkwave", "industrial", "dark techno"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Sanura Dance",
+    "location": "Studio 68 & The Castle",
+    "url": "https://www.sanuradance.com",
+    "blurb": "Queer-run dance school where FLINTA and LGBTQ+ people learn to lead and follow in salsa and bachata, breaking traditional norms with weekly classes and monthly socials.",
+    "moods": ["Queer Revelry", "Body-Based / Movement-Led", "Playful & Weird"],
+    "genres": ["salsa", "bachata", "Latin dance"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "DTMF! (Don't Touch My Fro!)",
+    "location": "MOT Unit, South London",
+    "url": "https://www.instagram.com/dtmflondon",
+    "blurb": "Underground collective playing afro-centric forward-facing grooves monthly, moving from house and acid to boogie and funk with healing soulful vibes.",
+    "moods": ["Global Rhythms", "Big Night Out", "Body-Based / Movement-Led"],
+    "genres": ["house", "funk", "acid"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Boudica",
+    "location": "FOLD, Canning Town",
+    "url": "https://www.instagram.com/boudicaLDN",
+    "blurb": "Queer-led platform blending dark techno, acid, and trance with protest energy, turning bodily autonomy into defiant celebration with chosen-family atmosphere.",
+    "moods": ["Queer Revelry", "Punchy / Protest", "Wild Becoming"],
+    "genres": ["techno", "acid", "trance"],
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Playbody Warehouse",
+    "location": "Hackney Wick",
+    "url": "https://www.instagram.com/playbody.LDN",
+    "blurb": "Creative collective transforms warehouse into immersive celebration with installations, ambient sets, and live performances as ode to human connection.",
+    "moods": ["Curious Encounters", "Community", "Playful & Weird"],
+    "genres": ["ambient", "experimental", "performance"],
+    "last_verified": "2025-11-24"
+  }
+]
