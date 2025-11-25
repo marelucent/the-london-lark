@@ -45,3 +45,6 @@ Thumbs.db
 
 # Backup files
 *.backup
+
+# Database files
+*.db
