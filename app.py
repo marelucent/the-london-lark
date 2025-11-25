@@ -228,18 +228,24 @@ def ask_lark():
 
 
         # CONFIDENCE THRESHOLD CHECKS
-        # If no mood detected at all (None with 0.0 confidence), check for genre fallback
+        # Check if we have location or genre filters (these can work without mood)
+        has_searchable_filters = filters.get("location") or filters.get("genre")
+
+        # If no mood detected at all (None with 0.0 confidence), check for location/genre fallback
         if filters.get("mood") is None and mood_confidence == 0.0:
-            # Check if we have a genre filter as fallback
-            if filters.get("genre"):
-                print(f"   ✓ No mood, but genre detected: {filters.get('genre')}")
-                # Allow to proceed with genre-based search
+            # Check if we have location or genre filter as fallback
+            if has_searchable_filters:
+                if filters.get("genre"):
+                    print(f"   ✓ No mood, but genre detected: {filters.get('genre')}")
+                if filters.get("location"):
+                    print(f"   ✓ No mood, but location detected: {filters.get('location')}")
+                # Allow to proceed with location/genre-based search
             else:
-                # REJECT QUERY (no mood AND no genre)
-                print(f"   ❌ No recognizable mood or genre keywords found")
+                # REJECT QUERY (no mood AND no genre AND no location)
+                print(f"   ❌ No recognizable mood, genre, or location keywords found")
                 return jsonify({
                     'responses': [{
-                        'text': "I tilt my head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night? Or tell me a genre — music, theatre, comedy?",
+                        'text': "I tilt my head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night? Or tell me a genre — music, theatre, comedy? Or name a location?",
                         'venue_name': None,
                         'area': None,
                         'website': None
@@ -249,16 +255,22 @@ def ask_lark():
                     'venue_count': 0,
                     'filters': filters,
                     'debug': {
-                        'reason': 'no_mood_or_genre_detected',
+                        'reason': 'no_mood_genre_or_location_detected',
                         'keywords_checked': user_prompt.lower().split()
                     }
                 })
 
-        # If confidence is very low (< 0.3), check for genre fallback before asking for clarification
+        # If confidence is very low (< 0.3), check for location/genre fallback before asking for clarification
         if mood_confidence < 0.3:
-            if filters.get("genre"):
-                print(f"   ⚠️ Low mood confidence, but using genre fallback: {filters.get('genre')}")
-                # Allow to proceed with genre-based search
+            if has_searchable_filters:
+                if filters.get("genre"):
+                    print(f"   ⚠️ Low mood confidence, but using genre: {filters.get('genre')}")
+                if filters.get("location"):
+                    print(f"   ⚠️ Low mood confidence, but using location: {filters.get('location')}")
+                # Clear out the unreliable mood to prevent false matches
+                filters["mood"] = None
+                print(f"   ✓ Cleared unreliable mood, searching by location/genre only")
+                # Allow to proceed with location/genre-based search
             else:
                 print(f"   ⚠️ Very low confidence ({mood_confidence}), asking for clarification")
                 return jsonify({
@@ -281,6 +293,25 @@ def ask_lark():
         # If confidence is moderate (0.3-0.5), warn but proceed cautiously
         if mood_confidence < 0.5:
             print(f"   ⚠️ Moderate confidence ({mood_confidence}), proceeding with caution")
+
+        # LOCATION/GENRE PRIORITY: If user specified location OR genre, prioritize those over mood
+        # This prevents false positive moods (e.g., "Ealing" → "Grief & Grace") from interfering
+        if has_searchable_filters and filters.get("mood"):
+            query_words = user_prompt.lower().strip().split()
+            should_clear_mood = False
+
+            # Case 1: Short location-only query (1-2 words)
+            if len(query_words) <= 2 and filters.get("location"):
+                print(f"   ℹ️ Location-only query detected ({len(query_words)} words), clearing mood")
+                should_clear_mood = True
+
+            # Case 2: Location + Genre combo (user wants specific venue type in specific place)
+            elif filters.get("location") and filters.get("genre"):
+                print(f"   ℹ️ Location+Genre query detected, prioritizing those over mood")
+                should_clear_mood = True
+
+            if should_clear_mood:
+                filters["mood"] = None
 
         # Get voice profile for the mood
         voice_profile_name = get_profile_name(filters.get("mood"))
