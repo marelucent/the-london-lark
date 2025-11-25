@@ -305,9 +305,10 @@ def ask_lark():
             else:
                 selected_venues = matches
             
-            # Return up to 3 matches
-            for venue in selected_venues:
-                response = generate_response(venue, filters)
+            # Return up to 3 matches with varied structure
+            for index, venue in enumerate(selected_venues):
+                # Pass response_index to vary structure across the 3 responses
+                response = generate_response(venue, filters, response_index=index)
                 responses.append({
                     'text': response,
                     'venue_name': venue.get('name', ''),

@@ -15,7 +15,9 @@ Now uses voice profiles from poetic_templates.py for mood-aware responses:
 """
 
 import random
+import json
 from datetime import datetime
+from pathlib import Path
 
 # Import voice profile system
 try:
@@ -30,6 +32,21 @@ try:
     HAS_VOICE_PROFILES = True
 except ImportError:
     HAS_VOICE_PROFILES = False
+
+# Load birdsong metaphors for structural variety
+BIRDSONG_METAPHORS = {}
+try:
+    birdsong_path = Path(__file__).parent / "birdsong_lexicon.json"
+    with open(birdsong_path, "r", encoding="utf-8") as f:
+        BIRDSONG_METAPHORS = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    # Fallback metaphors if file not found
+    BIRDSONG_METAPHORS = {
+        "flight_metaphors": ["drifting like a feather through evening", "carried on a breath of song"],
+        "nest_metaphors": ["tucked into a soft-lit corner", "a nest of stories and string lights"],
+        "voice_metaphors": ["notes that perch and stay", "a hush shaped like birdsong"],
+        "path_and_air": ["gliding through alleys and arches", "winging your way home"]
+    }
 
 # Fallback opening lines (used if poetic_templates not available)
 FALLBACK_OPENINGS = [
@@ -122,6 +139,31 @@ def get_genre_opening(genre):
     # Default for unknown genres
     return f"When you seek {genre}, petal, I offer this..."
 
+def get_birdsong_metaphor(category=None):
+    """
+    Get a random birdsong metaphor from a specific category or any category.
+
+    Args:
+        category: Optional category name (flight_metaphors, nest_metaphors, etc.)
+                 If None, picks from any category
+
+    Returns:
+        String with a birdsong metaphor
+    """
+    if not BIRDSONG_METAPHORS:
+        return "like a wing through the evening"
+
+    if category and category in BIRDSONG_METAPHORS:
+        metaphors = BIRDSONG_METAPHORS[category]
+    else:
+        # Pick from any category
+        all_metaphors = []
+        for cat_metaphors in BIRDSONG_METAPHORS.values():
+            all_metaphors.extend(cat_metaphors)
+        metaphors = all_metaphors
+
+    return random.choice(metaphors) if metaphors else "like a wing through the evening"
+
 def _format_time(time_str, user_time_filter):
     """Format time information naturally"""
     if not time_str or time_str == "TBC":
@@ -167,16 +209,21 @@ def _format_location(venue):
         return f"{name} in {area}"
     return name
 
-def generate_response(venue, filters, response_type="Matchmaker"):
+def generate_response(venue, filters, response_type="Matchmaker", response_index=0):
     """
     Generate a poetic response with real logistics.
 
     The Lark's voice shifts based on the detected mood using voice profiles.
+    Structure varies based on response_index to avoid repetition.
 
     Args:
         venue: Dict with keys: name, vibe_note, price, typical_start_time, area
         filters: Dict with mood, time, location, budget, genre, group
         response_type: Type of response to generate
+        response_index: Index of response (0, 1, 2) to vary structure
+                       0 = Full structure (opening + intro + blurb + logistics)
+                       1 = Direct structure (skip opening, weave logistics into blurb)
+                       2 = Birdsong structure (metaphor + minimal intro)
     """
     if not venue:
         return _generate_gentle_refusal(filters)
@@ -193,48 +240,113 @@ def generate_response(venue, filters, response_type="Matchmaker"):
     price_phrase = _format_price(venue.get("price"))
     location_phrase = _format_location(venue)
 
-    # Choose opening (voice-profile aware, with genre fallback)
-    # If genre-only search (no strong mood), use genre-aware language
-    if not mood and genre:
-        opening = get_genre_opening(genre)
-    elif HAS_VOICE_PROFILES:
-        opening = get_opening(mood)
-    else:
-        opening = random.choice(FALLBACK_OPENINGS)
-
-    # Build response dynamically
-    response_parts = []
-
-    # Opening
-    response_parts.append(opening)
-
-    # Mood-specific venue introduction (voice-profile aware)
-    if HAS_VOICE_PROFILES:
-        intro = get_venue_intro("warm", mood)
-        response_parts.append(f"{intro} {venue_name}.")
-    elif mood and mood in FALLBACK_MOOD_PHRASES:
-        intro = random.choice(FALLBACK_MOOD_PHRASES[mood])
-        response_parts.append(f"{intro}: {venue_name}.")
-    else:
-        response_parts.append(f"Try {venue_name}.")
-
-    # Vibe note (ensure it ends with punctuation)
+    # Ensure vibe note ends with punctuation
     if vibe_note and not vibe_note.endswith(('.', '!', '?')):
         vibe_note = vibe_note + "."
-    response_parts.append(vibe_note)
 
-    # Logistics (if available)
-    logistics = []
-    if time_phrase and time_phrase != "soon":
-        logistics.append(f"happening {time_phrase}")
-    if price_phrase:
-        logistics.append(price_phrase.lower())
+    # STRUCTURE 0: Full traditional structure (Opening → Intro → Blurb → Logistics)
+    if response_index == 0:
+        response_parts = []
 
-    if logistics:
-        response_parts.append(" — ".join([l.capitalize() for l in logistics]) + ".")
+        # Choose opening (voice-profile aware, with genre fallback)
+        if not mood and genre:
+            opening = get_genre_opening(genre)
+        elif HAS_VOICE_PROFILES:
+            opening = get_opening(mood)
+        else:
+            opening = random.choice(FALLBACK_OPENINGS)
 
-    # Join with proper spacing
-    return " ".join(response_parts)
+        response_parts.append(opening)
+
+        # Mood-specific venue introduction
+        if HAS_VOICE_PROFILES:
+            intro = get_venue_intro("warm", mood)
+            response_parts.append(f"{intro} {venue_name}.")
+        elif mood and mood in FALLBACK_MOOD_PHRASES:
+            intro = random.choice(FALLBACK_MOOD_PHRASES[mood])
+            response_parts.append(f"{intro}: {venue_name}.")
+        else:
+            response_parts.append(f"Try {venue_name}.")
+
+        # Vibe note
+        response_parts.append(vibe_note)
+
+        # Logistics (if available)
+        logistics = []
+        if time_phrase and time_phrase != "soon":
+            logistics.append(f"happening {time_phrase}")
+        if price_phrase:
+            logistics.append(price_phrase.lower())
+
+        if logistics:
+            response_parts.append(" — ".join([l.capitalize() for l in logistics]) + ".")
+
+        return " ".join(response_parts)
+
+    # STRUCTURE 1: Direct structure (Skip opening, weave logistics into blurb)
+    elif response_index == 1:
+        response_parts = []
+
+        # Direct intro with venue name
+        direct_intros = [
+            f"There's {venue_name}",
+            f"Consider {venue_name}",
+            f"You might try {venue_name}",
+            f"{venue_name} waits",
+            f"I'm thinking of {venue_name}",
+        ]
+        response_parts.append(random.choice(direct_intros))
+
+        # Add location inline if area is short
+        if area and len(area) < 20:
+            response_parts[0] += f" in {area}"
+
+        response_parts[0] += "."
+
+        # Build logistics inline with vibe note
+        logistics = []
+        if time_phrase and time_phrase != "soon":
+            logistics.append(f"happening {time_phrase}")
+        if price_phrase:
+            logistics.append(price_phrase.lower())
+
+        if logistics:
+            # Weave logistics into the blurb
+            logistics_str = ", ".join(logistics)
+            response_parts.append(f"{vibe_note.rstrip('.')} — {logistics_str}.")
+        else:
+            response_parts.append(vibe_note)
+
+        return " ".join(response_parts)
+
+    # STRUCTURE 2: Birdsong metaphor structure (Metaphor → Venue name → Brief note)
+    else:  # response_index == 2 or any other
+        response_parts = []
+
+        # Pick a random birdsong metaphor
+        metaphor_categories = ["flight_metaphors", "nest_metaphors", "voice_metaphors", "path_and_air"]
+        category = random.choice(metaphor_categories)
+        metaphor = get_birdsong_metaphor(category)
+
+        # Capitalize first letter
+        metaphor = metaphor[0].upper() + metaphor[1:] if metaphor else "Like a wing through the evening"
+
+        # Create minimal structure with metaphor
+        minimal_intros = [
+            f"{metaphor}, you'll find",
+            f"{metaphor} — try",
+            f"{metaphor}: I offer you",
+            f"{metaphor}, there's",
+            f"{metaphor}, consider",
+        ]
+
+        intro = random.choice(minimal_intros)
+        response_parts.append(f"{intro} {venue_name}.")
+
+        # Add just the vibe note, no separate logistics
+        response_parts.append(vibe_note)
+
+        return " ".join(response_parts)
 
 def _generate_gentle_refusal(filters):
     """
