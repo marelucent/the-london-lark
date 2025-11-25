@@ -266,6 +266,19 @@ def match_venues(filters):
             elif genre_lower == "poetry":
                 poetry_keywords = ["poetry", "spoken word", "open mic", "verse"]
                 genre_match = any(kw in genre_search_text for kw in poetry_keywords)
+            # Handle industrial/goth/darkwave/EBM
+            elif genre_lower in ["industrial", "goth"]:
+                industrial_keywords = ["industrial", "ebm", "goth", "gothic", "darkwave", "dark techno",
+                                      "dark scene", "futurepop", "post-punk"]
+                genre_match = any(kw in genre_search_text for kw in industrial_keywords)
+            # Handle reggaeton/latin club
+            elif genre_lower == "reggaeton":
+                reggaeton_keywords = ["reggaeton", "latin", "cumbia", "baile funk", "perreo", "latin club"]
+                genre_match = any(kw in genre_search_text for kw in reggaeton_keywords)
+            # Handle bookshops/literary spaces
+            elif genre_lower == "bookshop":
+                bookshop_keywords = ["bookshop", "book", "literary", "reading", "books"]
+                genre_match = any(kw in genre_search_text for kw in bookshop_keywords)
             # Handle specific music genres (jazz, folk, etc.)
             else:
                 genre_match = genre_lower in genre_search_text
@@ -283,8 +296,10 @@ def match_venues(filters):
         elif genre:
             if not genre_match:
                 continue
-        # If we have NEITHER mood nor genre, skip this venue (no filter to match)
-        else:
+        # If we have NEITHER mood nor genre BUT have a location, allow through
+        # (location-only searches are valid)
+        elif not location:
+            # No filters at all - skip this venue
             continue
 
         # Location match (optional)

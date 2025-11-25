@@ -60,6 +60,7 @@ GENRE_KEYWORDS = {
     "rock": "rock",
     "indie": "indie",
     "reggae": "reggae",
+    "reggaeton": "reggaeton",
     "blues": "blues",
     "soul": "soul",
     "hip-hop": "hip-hop",
@@ -67,6 +68,17 @@ GENRE_KEYWORDS = {
     "classical": "classical",
     "punk": "punk",
     "metal": "metal",
+    "techno": "techno",
+    "house": "house",
+    "industrial": "industrial",
+    "ebm": "industrial",
+    "goth": "goth",
+    "gothic": "goth",
+    "darkwave": "goth",
+    "dark techno": "industrial",
+    "latin": "latin",
+    "afrobeat": "afrobeat",
+    "amapiano": "afrobeat",
 
     # Theatre
     "theatre": "theatre",
@@ -123,6 +135,16 @@ GENRE_KEYWORDS = {
     "drag": "drag",
     "drag show": "drag",
     "drag queen": "drag",
+
+    # Books/Literary
+    "bookshop": "bookshop",
+    "bookstore": "bookshop",
+    "book shop": "bookshop",
+    "book store": "bookshop",
+    "books": "bookshop",
+    "bookshops": "bookshop",
+    "literary": "bookshop",
+    "reading": "bookshop",
 }
 
 # Helper function to clean and tokenize
@@ -186,7 +208,7 @@ def interpret_prompt(prompt):
     else:
         group = None
 
-    # Location detection
+    # Location detection - check regions first, then specific areas
     location = None
     if "north london" in prompt_lower:
         location = "North London"
@@ -198,7 +220,28 @@ def interpret_prompt(prompt):
         location = "West London"
     elif "central london" in prompt_lower:
         location = "Central London"
-    # Also check for specific neighborhoods
+    # Specific neighborhoods - West London
+    elif "ealing" in prompt_lower:
+        location = "Ealing"
+    elif "chiswick" in prompt_lower:
+        location = "Chiswick"
+    elif "richmond" in prompt_lower:
+        location = "Richmond"
+    elif "kew" in prompt_lower:
+        location = "Kew"
+    elif "acton" in prompt_lower:
+        location = "Acton"
+    elif "twickenham" in prompt_lower:
+        location = "Twickenham"
+    elif "kilburn" in prompt_lower:
+        location = "Kilburn"
+    elif "east sheen" in prompt_lower or "sheen" in prompt_lower:
+        location = "East Sheen"
+    elif "wood green" in prompt_lower:
+        location = "Wood Green"
+    elif "park royal" in prompt_lower:
+        location = "Park Royal"
+    # Other specific neighborhoods
     elif "camden" in prompt_lower:
         location = "Camden"
     elif "islington" in prompt_lower:
@@ -207,10 +250,20 @@ def interpret_prompt(prompt):
         location = "Brixton"
     elif "peckham" in prompt_lower:
         location = "Peckham"
+    elif "dalston" in prompt_lower:
+        location = "Dalston"
     elif "shoreditch" in prompt_lower or "hackney" in prompt_lower:
         location = "East London"
     elif "notting hill" in prompt_lower or "portobello" in prompt_lower:
         location = "West London"
+    elif "deptford" in prompt_lower:
+        location = "Deptford"
+    elif "canning town" in prompt_lower:
+        location = "Canning Town"
+    elif "barking" in prompt_lower:
+        location = "Barking"
+    elif "stepney" in prompt_lower:
+        location = "Stepney"
 
     # Genre detection - try multi-word phrases first, then single words
     genre = None
