@@ -16,15 +16,15 @@
         <div class="conversation" id="conversation">
             <div class="intro">
                 <div class="time-greeting">{{ greeting }}</div>
-                Tell me what kind of evening you're dreaming of...<br>
-                <small>Perhaps a tender night of folk songs, or somewhere strange and candlelit?</small>
+                {{ helper.main }}<br>
+                <small>{{ helper.sub }}</small>
             </div>
         </div>
 
         <div class="input-area">
             <textarea
                 id="userInput"
-                placeholder="What kind of evening are you seeking, petal?"
+                placeholder="{{ placeholder }}"
                 rows="3"
             ></textarea>
             <div class="button-group">

@@ -30,12 +30,15 @@ except ImportError:
 
 app = Flask(__name__)
 
-def get_time_aware_greeting():
-    """Generate a poetic greeting based on current time and day in London"""
+def get_current_hour():
+    """Get current hour in London timezone"""
     london_tz = ZoneInfo('Europe/London')
     now = datetime.now(london_tz)
-    hour = now.hour
-    day_name = now.strftime('%A')
+    return now.hour, now.strftime('%A')
+
+def get_time_aware_greeting():
+    """Generate a poetic greeting based on current time and day in London"""
+    hour, day_name = get_current_hour()
 
     # Check for special day/time combinations first
     if day_name == 'Friday' and 18 <= hour <= 23:
@@ -57,11 +60,54 @@ def get_time_aware_greeting():
     else:  # 0-5 (midnight to 5am)
         return "For the night-wanderers and the sleepless... the city holds space for you."
 
+def get_time_aware_placeholder():
+    """Generate time-aware search box placeholder"""
+    hour, _ = get_current_hour()
+
+    if 6 <= hour <= 11:
+        return "What kind of morning are you dreaming of, petal?"
+    elif 12 <= hour <= 17:
+        return "What kind of afternoon calls to you, petal?"
+    elif 18 <= hour <= 23:
+        return "What kind of evening are you seeking, petal?"
+    else:  # 0-5
+        return "What kind of night are you seeking, petal?"
+
+def get_time_aware_helper():
+    """Generate time-aware helper text with main and sub text"""
+    hour, _ = get_current_hour()
+
+    if 6 <= hour <= 11:
+        return {
+            'main': "Tell me what kind of morning you're seeking...",
+            'sub': "Perhaps a quiet café corner, or somewhere to wake the senses?"
+        }
+    elif 12 <= hour <= 17:
+        return {
+            'main': "Tell me what kind of afternoon you're dreaming of...",
+            'sub': "Perhaps a garden stroll, a gallery whisper, or somewhere time slows down?"
+        }
+    elif 18 <= hour <= 23:
+        return {
+            'main': "Tell me what kind of evening you're dreaming of...",
+            'sub': "Perhaps a tender night of folk songs, or somewhere strange and candlelit?"
+        }
+    else:  # 0-5
+        return {
+            'main': "Tell me what kind of night calls to you...",
+            'sub': "Perhaps a late-night sanctuary, or where the city hums until dawn?"
+        }
+
 @app.route('/')
 def home():
     """Serve the main page"""
     greeting = get_time_aware_greeting()
-    return render_template('index.html', greeting=greeting)
+    placeholder = get_time_aware_placeholder()
+    helper = get_time_aware_helper()
+    return render_template('index.html',
+                         greeting=greeting,
+                         placeholder=placeholder,
+                         helper=helper)
 
 @app.route('/about')
 def about():
