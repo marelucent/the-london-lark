@@ -317,19 +317,21 @@ def _poetic_line(venue, mood):
 
 def match_venues(filters):
     """
-    Given a dict of filters (mood, location, group, budget, genre), return matching venue dictionaries.
+    Given a dict of filters (mood, location, group, budget, genre, search_text), return matching venue dictionaries.
     Returns up to 3 venues that match the filters.
 
     Supports:
     - Mood-only searches: Match venues by mood tags
     - Genre-only searches: Match venues by genre/type when no mood is specified
     - Combined mood+genre searches: Require both to match
+    - Name search fallback: If no filters extract, search venue names for keywords
     """
     mood = filters.get("mood")
     location = filters.get("location")
     group = filters.get("group")
     budget = filters.get("budget")
     genre = filters.get("genre")
+    search_text = filters.get("search_text", "")
 
     matches = []
     filtered_out_reasons = []  # Track why venues were filtered out
@@ -429,6 +431,15 @@ def match_venues(filters):
             elif genre_lower == "bookshop":
                 bookshop_keywords = ["bookshop", "book", "literary", "reading", "books"]
                 genre_match = any(kw in genre_search_text for kw in bookshop_keywords)
+            # Handle choirs/singing
+            elif genre_lower == "choir":
+                choir_keywords = ["choir", "choral", "singing", "vocal", "chorus", "community singing"]
+                genre_match = any(kw in genre_search_text for kw in choir_keywords)
+            # Handle grief/death cafe/end of life
+            elif genre_lower in ["grief", "death cafe"]:
+                grief_keywords = ["grief", "death cafe", "death café", "bereavement", "mourning",
+                                  "loss", "end of life", "mortality", "death positive"]
+                genre_match = any(kw in genre_search_text for kw in grief_keywords)
             # Handle specific music genres (jazz, folk, etc.)
             else:
                 genre_match = genre_lower in genre_search_text
@@ -449,8 +460,26 @@ def match_venues(filters):
         # If we have NEITHER mood nor genre BUT have a location, allow through
         # (location-only searches are valid)
         elif not location:
-            # No filters at all - skip this venue
-            continue
+            # No structured filters - try name search fallback
+            if search_text:
+                # Search venue name, genres, and blurb for keywords
+                venue_name = venue.get("name", "").lower()
+                venue_blurb = venue.get("blurb", "").lower()
+                search_lower = search_text.lower()
+
+                # Extract meaningful words from search text (ignore common words)
+                search_words = [w for w in search_lower.split()
+                               if len(w) > 2 and w not in ["the", "and", "for", "with", "where", "can", "find"]]
+
+                # Check if any search words appear in venue name or genres
+                name_match = any(word in venue_name for word in search_words)
+                genre_text_match = any(word in genre_search_text for word in search_words)
+
+                if not (name_match or genre_text_match):
+                    continue
+            else:
+                # No filters or search text at all - skip this venue
+                continue
 
         # Location match (optional)
         # Check both the specific area and the tags field (which has broader regions like "North London")

@@ -145,6 +145,29 @@ GENRE_KEYWORDS = {
     "bookshops": "bookshop",
     "literary": "bookshop",
     "reading": "bookshop",
+
+    # Grief/Death/End of Life
+    "death cafe": "death cafe",
+    "death café": "death cafe",
+    "grief": "grief",
+    "grieving": "grief",
+    "bereavement": "grief",
+    "mourning": "grief",
+    "loss": "grief",
+    "grief circle": "grief",
+    "grief group": "grief",
+    "grief support": "grief",
+    "grief tending": "grief",
+    "death positive": "death cafe",
+    "mortality": "death cafe",
+
+    # Choirs/Singing
+    "choir": "choir",
+    "choirs": "choir",
+    "singing": "choir",
+    "vocal": "choir",
+    "chorus": "choir",
+    "community singing": "choir",
 }
 
 # Helper function to clean and tokenize
@@ -290,7 +313,8 @@ def interpret_prompt(prompt):
         "budget": budget,
         "group": group,
         "genre": genre,
-        "location": location
+        "location": location,
+        "search_text": prompt  # Keep original prompt for name search fallback
     }
 
 # Example usage
