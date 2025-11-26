@@ -4165,5 +4165,682 @@
       "performance"
     ],
     "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Pink Singers",
+    "location": "Central London (various rehearsal and concert spaces)",
+    "moods": [
+      "Group Energy",
+      "Queer Revelry",
+      "Word & Voice"
+    ],
+    "genres": [
+      "LGBT+ community choir",
+      "choral concerts"
+    ],
+    "url": "https://www.pinksingers.co.uk/",
+    "blurb": "London's longest-running LGBT+ choir gathers like a small storm of harmony, shoulders touching, scores rustling, hearts very much awake. The Pink Singers keep queer history humming in real time: protest songs, pop choruses, tender arrangements that can leave you blinking back tears in the interval. If you want to feel your voice woven into a bigger, brighter rope of sound, this is one for the brave petal with a choir-shaped ache.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "London Sacred Harp",
+    "location": "Various churches and halls across London (often Hampstead and central)",
+    "moods": [
+      "Group Energy",
+      "Spiritual / Sacred / Mystical",
+      "Curious Encounters"
+    ],
+    "genres": [
+      "Sacred Harp singing",
+      "shape-note communal singing"
+    ],
+    "url": "https://londonsacredharp.org/",
+    "blurb": "Sacred Harp is congregational singing in four parts, arranged in a square rather than a stage: everyone facing inward, everyone both audience and choir. There are no auditions and no performances to polish for, just songs called from a shared book and hurled joyfully into the air, a light-winged leap into wonder. Expect raw, shaking chords, a lark's clear call at dusk, and the odd miracle of strangers breathing as one.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Chickenshed Community Choir",
+    "location": "Chickenshed Theatre and Christ the King, North London",
+    "moods": [
+      "Group Energy",
+      "Folk & Intimate",
+      "Family-Friendly"
+    ],
+    "genres": [
+      "community choir",
+      "inclusive singing workshops"
+    ],
+    "url": "https://www.chickenshed.org.uk/workshops-and-classes",
+    "blurb": "At Chickenshed, the choir feels like an extension of the theatre's beating heart: open doors, warm ushers, songs that make room for every kind of voice. Term-time sessions unfold in bright halls and church naves, notes that perch and stay even after people have gone home. If you're easing yourself back into singing after a long, quiet spell, this is a gentle place to test your wings.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "South East London Queer Choir",
+    "location": "Nunhead, South East London",
+    "moods": [
+      "Group Energy",
+      "Queer Revelry",
+      "Punchy / Protest"
+    ],
+    "genres": [
+      "queer community choir",
+      "street singing",
+      "fundraiser performances"
+    ],
+    "url": "https://www.genevievedawson.com/community",
+    "blurb": "In Nunhead, a queer choir gathers in borrowed rooms and spills out onto pavements for solidarity gigs, protests and a big winter street takeover. Books may be closed to new singers at times, but the sound still ripples through south-east London, borne aloft by quiet joy and a tailwind of mischief. For Larklings, this is one to follow, to stand beside, to hear what resistance sounds like when it's in four-part harmony.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Heart Song Collective CIC",
+    "location": "South East London (various cosy spaces)",
+    "moods": [
+      "Group Energy",
+      "Grief & Grace",
+      "Spiritual / Sacred / Mystical"
+    ],
+    "genres": [
+      "singing for wellbeing",
+      "queer-led choir circle"
+    ],
+    "url": "https://www.naturalvoice.net/choir/heart-song-collective-cic/",
+    "blurb": "Heart Song Collective gathers queer and allied voices in a circle, not a line, held in a trauma-informed way and sung without gendered parts. Songs for co-regulation, breath, and soft presence; a hush shaped like birdsong more than a traditional choir practice. If your nervous system is tired of pushing through and needs somewhere to tremble and settle among friends, this is a nest of stories and string lights.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "F*Choir",
+    "location": "London (roaming across arts and community spaces)",
+    "moods": [
+      "Group Energy",
+      "Queer Revelry",
+      "Punchy / Protest"
+    ],
+    "genres": [
+      "all-genders community choir",
+      "queer liberation choir"
+    ],
+    "url": "https://fchoir.com/about/",
+    "blurb": "F*Choir is less hymn book, more spell book: a 60-plus strong, all-genders choir singing about gender, sexuality, freedom and rage. Rehearsals are sweaty, laughing, political; performance nights feel like a gig crossed with a ritual, a cry soft as wingbeat and sometimes as loud as a siren. Ideal for the petal who wants their harmonies with teeth, their choruses circling closer to something true.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Sing For Freedom Choir",
+    "location": "Central London",
+    "moods": [
+      "Group Energy",
+      "Grief & Grace",
+      "Global Rhythms"
+    ],
+    "genres": [
+      "community choir",
+      "refugee and allies choir"
+    ],
+    "url": "https://www.togetherproductions.co.uk/sff-public-page",
+    "blurb": "A choir born from stories of exile and arrival, Sing For Freedom brings refugees, migrants and local Londoners into one shared sound. Concession schemes and subsidised spots keep the door propped open; songs travel from folk to contemporary, threads of sound spun midair between languages. Come if you need reminding that borders are human inventions and harmony is not.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "London City Voices",
+    "location": "Multiple locations across central London and online",
+    "moods": [
+      "Group Energy",
+      "Big Night Out",
+      "Word & Voice"
+    ],
+    "genres": [
+      "non-audition community choir",
+      "pop and rock repertoire"
+    ],
+    "url": "https://www.londoncityvoices.co.uk/",
+    "blurb": "London City Voices is a big, bright sprawl of non-audition choirs meeting in hired halls after work, swapping laptops for lyric sheets. Expect upbeat pop, hands in the air, that flash of recognition when the person next to you also quietly knows every harmony. It's less hidden gem than friendly flock, but for some petals, this is exactly the soft landing they need.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Healing Choir",
+    "location": "Kilburn, North West London",
+    "moods": [
+      "Group Energy",
+      "Grief & Grace",
+      "Poetic"
+    ],
+    "genres": [
+      "community arts choir",
+      "wellbeing-focused vocal circle"
+    ],
+    "url": "https://www.paprika.org.uk/healing-choir",
+    "blurb": "In Kilburn, Healing Choir treats song as a kind of shared medicine: free to attend, open to all abilities, rooted in breath, movement and communal vocalisation. Sessions are more about how it feels in the body than how it sounds from the back row. If life has left you hoarse and you're looking for a room that will simply let you exhale and hum, this one waits with open arms.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Outer Circle Voice Circle",
+    "location": "SET Social, Peckham",
+    "moods": [
+      "Group Energy",
+      "Playful & Weird",
+      "Curious Encounters"
+    ],
+    "genres": [
+      "experimental vocal workshop",
+      "women and non-binary circle"
+    ],
+    "url": "https://setspace.uk/event/outer-circle-voice-circle-women-and-non-binary-vocal-workshop/",
+    "blurb": "Outer Circle is an experimental vocal group for women and non-binary people, meeting monthly at SET Social Peckham to sing, breathe, shout and create together. It's explicitly not a choir: no auditions, no sheet music, just improvisation and a tailwind of surprise. Perfect if you want to explore what your voice can do beyond verses and choruses, gliding through alleys and arches of sound you didn't know you had.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Catford Community Choir",
+    "location": "Corbett Community Library, Catford",
+    "moods": [
+      "Group Energy",
+      "Folk & Intimate",
+      "Family-Friendly"
+    ],
+    "genres": [
+      "local community choir",
+      "library-based singing group"
+    ],
+    "url": "https://thevillagelondon.co.uk/service/catford-community-choir/",
+    "blurb": "In a bright room at Corbett Community Library, neighbours gather between stacks and storybooks to sing their way through the week. Babies and toddlers are welcome to crawl, clatter and join in, turning rehearsal into a small domestic carnival. It's sheltered beneath the beams and warm as a robin's hollow: if you're looking for somewhere low-pressure and local to stretch your lungs, this is a gentle starting perch.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Theatre in the Pound",
+    "location": "Marylebone (The Cockpit)",
+    "moods": [
+      "Group Energy",
+      "Experimental / Avant-garde",
+      "Curious Encounters"
+    ],
+    "genres": [
+      "monthly scratch night",
+      "new writing",
+      "performance experiments"
+    ],
+    "url": "https://www.thecockpit.org.uk/article/theatre_in_the_pound",
+    "blurb": "At The Cockpit, scratch is taken literally: theatre-makers rent the space for a pound a minute and fling 10–15 minute ideas into the dark, then listen as the room answers back. Theatre in the Pound is low-cost, not-for-profit and gloriously rough-feathered, a night where wild hunches and half-built scenes are carried on a breath of song. If you like the feeling of catching a show mid-moult, before it grows its final plumage, this is your roost, petal.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Big Bang Scratch Night",
+    "location": "Camden (Camden People's Theatre)",
+    "moods": [
+      "Group Energy",
+      "Playful & Weird",
+      "Experimental / Avant-garde"
+    ],
+    "genres": [
+      "regular scratch platform",
+      "contemporary performance",
+      "new writing"
+    ],
+    "url": "https://cptheatre.co.uk/whatson/Big-Bang-Scratch-Night-30-March-2025",
+    "blurb": "Big Bang is Camden People's Theatre's ongoing experiment in controlled theatrical explosions: short bursts of brand-new work sharing a single orbit for one night only. Expect queer cabaret fragments, political performance, strange monologues and oddball dance-theatre, all fluttering toward the unfamiliar. It's the place to see tiny universes of theatre right at ignition, trembling with finchlight before they streak off elsewhere.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Scratch Renaissance",
+    "location": "Mile End (Chisenhale Dance Space)",
+    "moods": [
+      "Group Energy",
+      "Experimental / Avant-garde",
+      "Body-Based / Movement-Led"
+    ],
+    "genres": [
+      "dance and performance scratch",
+      "artist-led",
+      "marginalised voices"
+    ],
+    "url": "https://www.chisenhaledancespace.co.uk/scratch-renaissance/",
+    "blurb": "At Chisenhale Dance Space, Scratch Renaissance is more than a one-off night: it's a year-long flock of evenings where emerging and marginalised artists test the edges of movement and performance. One month might hold queer dance rituals, the next a solo that drifts like a feather through evening, all shaped by an artist-led ethos and fair-pay agreements. Come if you like your work-in-progress sweaty, tender and willing to fall on its face in front of you, then rise with the thermals of curiosity.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Freshly Squeezed Scratch Night",
+    "location": "Bethnal Green (St Margaret's House)",
+    "moods": [
+      "Group Energy",
+      "Word & Voice",
+      "Folk & Intimate"
+    ],
+    "genres": [
+      "scripted new writing",
+      "community arts scratch night"
+    ],
+    "url": "https://www.stmargaretshouse.org.uk/events/freshly-squeezed-scratch-night",
+    "blurb": "St Margaret's House in Bethnal Green hosts Freshly Squeezed, a night of six bite-sized scripts from up-and-coming writers in a cosy, community-space setting. It's all bare stages and bright words: you sit among neighbours as scenes hatch and wobble into life, notes that perch and stay even after the lights come up. If you like championing brave first drafts and being part of gentle, generous feedback, this is a soft-lit corner made for you, petal.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Devise & Conquer – Scratch Night & Cabaret",
+    "location": "Dalston / Stoke Newington Road (The Divine)",
+    "moods": [
+      "Group Energy",
+      "Queer Revelry",
+      "Playful & Weird"
+    ],
+    "genres": [
+      "scratch cabaret",
+      "drag and performance",
+      "mixed bill"
+    ],
+    "url": "https://thedivine.co.uk/event/devise-conq-3-scratch/",
+    "blurb": "At The Divine, Devise & Conquer turns scratch into a late-night variety spell: drag, comedy, theatre and poetry sharing a low-lit stage with glitter ground into the floorboards. The bill shifts each time but the ethos stays steady—emerging artists testing new work while a friendly crowd hoots, hollers and holds the gaps. It's a nest of stories and string lights for petals who like their experiments sequinned, messy and gloriously alive.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Freelance Royalty Scratch Nights",
+    "location": "Stratford (Theatre Royal Stratford East Bar)",
+    "moods": [
+      "Group Energy",
+      "Curious Encounters",
+      "The Thoughtful Stage"
+    ],
+    "genres": [
+      "informal scratch night",
+      "freelancer-focused platform"
+    ],
+    "url": "https://www.stratfordeast.com/royalty-scheme/freelance-royalty/freelance-royalty-scratch-nights/",
+    "blurb": "Stratford East's Freelance Royalty Scratch Nights happen not on a grand stage but in the theatre bar, where small performance spaces bloom between tables and glasses. Short works-in-progress share the evening with laughter, side chats and chance encounters with future collaborators. It's relaxed, low-stakes and welcoming—more murmuring roost than formal showcase—ideal for petals who want to test an idea without fanfare and meet others doing the same.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Belly Scratch",
+    "location": "Soho (Underbelly Boulevard)",
+    "moods": [
+      "Group Energy",
+      "Big Night Out",
+      "Experimental / Avant-garde"
+    ],
+    "genres": [
+      "theatre scratch night",
+      "cabaret-style new work"
+    ],
+    "url": "https://underbellyboulevard.com/belly-scratch/",
+    "blurb": "Belly Scratch at Underbelly Boulevard is a cabaret-style scratch night offering four artists up to twenty minutes each to bare the bones of a new show. You might see first scenes of a future fringe hit, a strange solo that refuses to behave, or a script read-through that suddenly takes flight. The room is built for risk and laughter, a cry soft as wingbeat in a velvet-clad basement, perfect for a petal who wants to feel the city's next ideas rumbling under their feet.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "GrimFest Scratch Night",
+    "location": "Islington (Old Red Lion Theatre)",
+    "moods": [
+      "Group Energy",
+      "Witchy & Wild",
+      "Playful & Weird"
+    ],
+    "genres": [
+      "horror theatre scratch night",
+      "storytelling",
+      "cabaret fragments"
+    ],
+    "url": "https://www.oldredliontheatre.co.uk/grimfest-scratch-night.html",
+    "blurb": "GrimFest's Scratch Night at the Old Red Lion is a lantern-lit gathering for lovers of horror and the deliciously uncanny. Extracts from new plays, snatches of cabaret, twisted storytelling and odd comedy line up like ravens on a wire, each testing how far the dark can stretch. If you like your work-in-progress tinged with blood-red light and nervous laughter, wing your way here and sit close to the aisle.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Taking Centre Stage: A Scratch Cabaret",
+    "location": "Hammersmith (Riverside Studios – River Room)",
+    "moods": [
+      "Group Energy",
+      "The Thoughtful Stage",
+      "Curious Encounters"
+    ],
+    "genres": [
+      "scratch cabaret",
+      "spoken word",
+      "live music"
+    ],
+    "url": "https://riversidestudios.co.uk/see-and-do/taking-centre-stage-a-scratch-cabaret-117843/",
+    "blurb": "In the River Room at Riverside Studios, Stoke the Embers' Taking Centre Stage brings together short scenes, spoken word and live music from emerging and established artists. It's eclectic and sociable: come for the new work, stay to meet the people who made it, drifting like a feather through evening from one conversation to the next. This is where collaborations are born over interval drinks, a light-winged leap into wonder right beside the Thames.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Theatre Scratch Night",
+    "location": "Holborn (The London Art Bar)",
+    "moods": [
+      "Group Energy",
+      "Word & Voice",
+      "Folk & Intimate"
+    ],
+    "genres": [
+      "theatre scratch night",
+      "new writing",
+      "central London"
+    ],
+    "url": "https://www.londonartbar.com/calendar/theatre-scratch-night-nov-2025",
+    "blurb": "The London Art Bar hosts a cosy theatre scratch night just off High Holborn, where brand-new pieces stand up in front of a supportive, wine-sipping crowd. Writers, directors and performers show work at its most vulnerable, then invite thoughts from the room; audience members become part of the creative process, not just observers. It's sheltered beneath the beams and warm as a robin's hollow, especially for petals curious about the making as much as the finished show.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "GT Scratch",
+    "location": "Greenwich (Greenwich Theatre)",
+    "moods": [
+      "Group Energy",
+      "Curious Encounters",
+      "Experimental / Avant-garde"
+    ],
+    "genres": [
+      "scratch night",
+      "emerging theatre-makers",
+      "new ideas platform"
+    ],
+    "url": "https://greenwichtheatre.org.uk/events/gt-scratch/",
+    "blurb": "GT Scratch at Greenwich Theatre frames itself simply: new ideas, raw talent, live feedback. On any given night you might catch early scenes from a touring show, a strange little gem that only exists for one performance, or a devised piece still figuring out its own wingspan. For petals in south-east London, it's a welcoming perch to see what tomorrow's theatre-makers are hatching right now.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "The London Library",
+    "location": "St James's, Central London",
+    "moods": [
+      "Romanticised London",
+      "Word & Voice",
+      "Poetic"
+    ],
+    "genres": [
+      "independent library",
+      "reading rooms",
+      "writer's haven"
+    ],
+    "url": "https://www.londonlibrary.co.uk",
+    "blurb": "A private members' library that feels like it's been quietly breathing for centuries. Metal stacks, spiralling staircases and desk lamps casting soft halos over readers deep in their own chapters. Some evenings the building stays open late, and once a month the lights burn longer still – a hush-filled refuge for those who write best after dark, padding between shelves as the city outside winds down.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "British Library (Late Reading Rooms)",
+    "location": "King's Cross / St Pancras",
+    "moods": [
+      "Poetic",
+      "Word & Voice",
+      "Romanticised London"
+    ],
+    "genres": [
+      "national library",
+      "study spaces",
+      "exhibition hub"
+    ],
+    "url": "https://www.bl.uk/visit",
+    "blurb": "The country's great red-brick ark of words keeps its doors and reading rooms open into the evening – most weekdays until 20:00 – so the after-work hours can stretch into a quiet second shift. Long desks, steady lamplight and the faint rustle of pages make it a gentle place to revise, research or simply read yourself back together, before the last soft call for closing time.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Barbican Foyers & Library Corners",
+    "location": "Barbican, City of London",
+    "moods": [
+      "Curious Encounters",
+      "Late-Night Lark",
+      "Romanticised London"
+    ],
+    "genres": [
+      "arts centre",
+      "public foyers",
+      "informal study spots"
+    ],
+    "url": "https://www.barbican.org.uk",
+    "blurb": "By day, a concrete citadel; by night, a softly glowing warren of sofas, tables and power sockets open until around 23:00. You can tuck yourself into a corner with a laptop while orchestras warm up behind distant doors, or draft emails beneath hanging plants as filmgoers drift past. It's less shh-library, more nocturnal living room for the city's bookish night birds.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Morocco Bound Bookshop",
+    "location": "Bermondsey, SE1",
+    "moods": [
+      "Curious Encounters",
+      "Late-Night Lark",
+      "Word & Voice"
+    ],
+    "genres": [
+      "bookshop bar",
+      "co-working",
+      "intimate events"
+    ],
+    "url": "https://www.moroccobound.co.uk",
+    "blurb": "Tucked down a side street near London Bridge, this tiny ship of a bookshop sails from quiet daytime co-working into a low-lit bar and event space at night. Shelves of global fiction, local beers from the Bermondsey Beer Mile and regular jazz, poetry and salon-style nights make it a perfect nest for those who like their studying punctuated by readings, music and a late pint with fellow word-dwellers.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "London Review Bookshop & St. JOHN at the Bookshop",
+    "location": "Bloomsbury, WC1",
+    "moods": [
+      "Poetic",
+      "The Thoughtful Stage",
+      "Word & Voice"
+    ],
+    "genres": [
+      "independent bookshop",
+      "café",
+      "author events"
+    ],
+    "url": "https://www.londonreviewbookshop.co.uk",
+    "blurb": "In Bloomsbury's literary heart, the London Review Bookshop and its St. JOHN café make a gentle evening bolthole: shelves dense with ideas, a hidden terrace, and wine or hot chocolate to keep you company until early evening closing. On events nights the shop reshapes itself into a miniature auditorium – a place to listen, take notes, and then slip back out into the dark with a new book under your arm and a head full of sentences.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Bàrd Books",
+    "location": "Roman Road, Bow",
+    "moods": [
+      "Folk & Intimate",
+      "The Thoughtful Stage",
+      "Word & Voice"
+    ],
+    "genres": [
+      "bookshop café",
+      "wine bar",
+      "work-friendly"
+    ],
+    "url": "https://www.wearebardbooks.co.uk",
+    "blurb": "Part bookshop, part café, part low-key salon, Bàrd keeps the lights on into the evening – often until 20:00, with book clubs and events that drift later. You can work at the back on free wifi among art books and local exhibitions, then stay as the day softens into wine, snacks and softly chattering readers. On some nights there's comedy, quizzes or even a bookshop rave: a study nest that happily forgets to be serious after dark.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Second Home Spitalfields",
+    "location": "Spitalfields, E1",
+    "moods": [
+      "Late-Night Lark",
+      "Curious Encounters",
+      "Poetic"
+    ],
+    "genres": [
+      "co-working",
+      "24/7 access (members)",
+      "creative hub"
+    ],
+    "url": "https://secondhome.io/coworking-space-london/east-london",
+    "blurb": "If you work best when everyone else is asleep, this greenhouse-like co-working space offers 24/7 access for members: curving desks wrapped in plants, long sight-lines of fellow night workers and quiet corners for deep focus. It's less a café and more a habitat – a place to bring big projects, late deadlines and the kind of slow-burning ideas that need the whole night to unfold, petal.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "VQ Bloomsbury (24-Hour Café & Diner)",
+    "location": "Bloomsbury, WC1",
+    "moods": [
+      "Late-Night Lark",
+      "Folk & Intimate"
+    ],
+    "genres": [
+      "24-hour café",
+      "diner",
+      "study-friendly"
+    ],
+    "url": "https://www.vqrestaurants.com",
+    "blurb": "Not indie in the strictest sense, but a stalwart for students and shift-workers in need of a table at 3am. Open 24 hours, this Bloomsbury café-diner serves breakfast and comfort food around the clock, with free wifi and a steady churn of fellow night people. It's more fluorescent than fairy-lit, but when the deadline looms and every other door is closed, VQ becomes a surprisingly tender kind of nest.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Polo Bar – 24 Hour Great British Café & Bar",
+    "location": "Opposite Liverpool Street Station",
+    "moods": [
+      "Late-Night Lark",
+      "Curious Encounters"
+    ],
+    "genres": [
+      "24-hour café bar",
+      "people-watching",
+      "casual study spot"
+    ],
+    "url": "https://www.polobar.co.uk",
+    "blurb": "Across from Liverpool Street, Polo Bar has been pouring coffee and frying breakfasts through the small hours for decades. Open 24/7, it's not a quiet library – more a glowing window onto the city's insomniac life – but if you claim a booth, order tea and open your notebook, it becomes a strange, cinematic study spot: words flowing as taxis unload, club kids drift past, and the station clocks creep towards dawn.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Costa at St Pancras – Station Study Watchpost",
+    "location": "St Pancras International, King's Cross",
+    "moods": [
+      "Late-Night Lark",
+      "Romanticised London"
+    ],
+    "genres": [
+      "chain café",
+      "late-night study",
+      "railway liminal"
+    ],
+    "url": "https://stpancras-highspeed.com",
+    "blurb": "Hardly a hidden indie gem, but legendary among students for one thing: after the last trains leave, the station falls almost silent, and the 24-hour coffee shop turns into a ghostly, fluorescent reading room. It's where essays get finished between departures and arrivals, where you can sit with your laptop, a refill and the feeling of being briefly nowhere – a temporary nest for those nights when you just can't go home yet.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Embracing Grief – London Grief Tending Circles",
+    "location": "Hackney (E5) / various London venues",
+    "moods": [
+      "Grief & Grace",
+      "Spiritual / Sacred / Mystical",
+      "Folk & Intimate"
+    ],
+    "genres": [
+      "grief circles",
+      "community ritual",
+      "embodied grief tending"
+    ],
+    "url": "https://www.griefsupport.org.uk",
+    "blurb": "Grief here is not a problem to fix but a weather to sit inside together. Embracing Grief host beautifully held circles and rituals in London, inviting you to lean into sorrow, rage, numbness and love with others who understand. Expect blankets, song, simple ritual and a steady facilitation team who know how to tend big feelings without rushing you, petal.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Old School Rooms @ Round Chapel – Communal Grief Rituals",
+    "location": "Clapton / Hackney (E5)",
+    "moods": [
+      "Grief & Grace",
+      "Spiritual / Sacred / Mystical",
+      "Group Energy"
+    ],
+    "genres": [
+      "community ritual",
+      "grief tending",
+      "singing & drumming"
+    ],
+    "url": "https://www.roundchapel.org",
+    "blurb": "The Old School Rooms at the Round Chapel become a kind of indoor clearing for the heart: drums, song and a circle of chairs under high Hackney rafters. On communal grief ritual days, dozens gather to cry, wail, breathe and be witnessed, with plenty of time for gentle landing afterwards. If you're longing to feel less alone in your loss, this is a rare, brave nest for collective mourning.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Bija Garden of Wellbeing – Grief Circles in the Garden",
+    "location": "West Ealing (W13)",
+    "moods": [
+      "Grief & Grace",
+      "Spiritual / Sacred / Mystical",
+      "Folk & Intimate"
+    ],
+    "genres": [
+      "grief circle",
+      "restorative yoga",
+      "women's circles"
+    ],
+    "url": "https://bijagarden.com",
+    "blurb": "Tucked behind a West Ealing terrace, Bija Garden is a tiny eco-studio of fairy lights, foliage and soft rugs on the floor. Alongside restorative yoga and women's circles, it occasionally hosts small grief circles and healing evenings—quiet, candlelit spaces where nine or so souls can rest their bones and speak what hurts. A good perch if you want grief held with herbal tea, gentle spirituality and a lot of cushions.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Bonnington Centre Death Café",
+    "location": "Vauxhall (SW8)",
+    "moods": [
+      "Folk & Intimate",
+      "The Thoughtful Stage",
+      "Poetic"
+    ],
+    "genres": [
+      "death café",
+      "community gathering"
+    ],
+    "url": "https://deathcafe.com/c/bonningtoncentre/",
+    "blurb": "In a scruffy, beloved community centre just off Vauxhall's main drag, the Bonnington Death Café gathers people around tables for cake, tea and talk of mortality. There's no agenda beyond honesty: you show up, you speak or listen, and death is allowed to be mentioned in the same breath as everyday life. Perfect if you want something low-key and kitchen-table real rather than formal therapy.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Rosslyn Hill Unitarian Chapel – Hampstead Death Café",
+    "location": "Hampstead (NW3)",
+    "moods": [
+      "Grief & Grace",
+      "Spiritual / Sacred / Mystical",
+      "Poetic"
+    ],
+    "genres": [
+      "death café",
+      "spiritual conversation"
+    ],
+    "url": "https://www.rosslynhillchapel.org.uk",
+    "blurb": "Rosslyn Hill Chapel is all steep steps, stone and stained glass—a Unitarian church that doubles as a haven for difficult conversations. Their Hampstead Death Café meets in this contemplative setting, welcoming anyone who wants to talk about death, grief and meaning without dogma or drama. Come for the candlelit calm and leave with that curious lightness that arrives when the unsayable has finally been said aloud.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Community Sauna Baths – Grief Sauna",
+    "location": "Hackney Wick & Stratford (E9 / E20)",
+    "moods": [
+      "Body-Based / Movement-Led",
+      "Grief & Grace",
+      "Folk & Intimate"
+    ],
+    "genres": [
+      "grief sauna",
+      "sauna ritual",
+      "community wellbeing"
+    ],
+    "url": "https://community-sauna.co.uk",
+    "blurb": "Community Sauna Baths turns old public baths in Hackney Wick and a Stratford garden plot into steamy, wood-fired sanctuaries. Among the usual sauna sessions are special 'grief saunas' and trans grief nights—ritual-inflected steams where you can sweat, plunge and breathe through heartache in company. Think fire, water, silence and a small flock of strangers softening together in the heat.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Release: Boxing Through Grief – London Community Boxing",
+    "location": "Peckham (SE15)",
+    "moods": [
+      "Body-Based / Movement-Led",
+      "Grief & Grace",
+      "Punchy / Protest"
+    ],
+    "genres": [
+      "boxing & movement",
+      "grief programme"
+    ],
+    "url": "https://www.instagram.com/thelossproject1/",
+    "blurb": "At London Community Boxing in Peckham, The Loss Project's 'Release: Boxing Through Grief' swaps talking cures for heavy bags and footwork. Guided by a coach and grief practitioners, you get to punch, move and breathe your way through loss in a held, low-cost space. Ideal if your grief feels restless or angry and you need somewhere you won't be told to sit still and be sensible.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Grief Rave & Grief Moves – The Fandangoe Discoteca x The Loss Project",
+    "location": "Touring (often Southbank Centre, SE1)",
+    "moods": [
+      "Grief & Grace",
+      "Ecstatic",
+      "Playful & Weird"
+    ],
+    "genres": [
+      "grief rave",
+      "participatory dance",
+      "mental health installation"
+    ],
+    "url": "https://www.thelossproject.com/thefandangoediscoteca",
+    "blurb": "The Fandangoe Discoteca is a travelling pink mini-club that parks up at places like Southbank Centre and invites you to dance out your grief. Grief Raves and Grief Moves sessions mix DJ sets, joy-soaked visuals and mental health practitioners on hand, holding space for everything from bereavement to climate dread. It's loud, tender and gloriously strange—a tiny disco nest where tears and euphoria share the same dancefloor.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Galleria Objets – \"Your Grief Belongs To You, And Can Be So So Pretty\"",
+    "location": "East London (E1)",
+    "moods": [
+      "Poetic",
+      "The Thoughtful Stage",
+      "Melancholic Beauty"
+    ],
+    "genres": [
+      "contemporary art",
+      "grief-themed exhibition"
+    ],
+    "url": "https://objetstrouves.co.uk",
+    "blurb": "Galleria Objets is a small contemporary gallery in east London with a taste for work that sits in the liminal and the quietly intense. Recent shows like 'Your Grief Belongs To You, And Can Be So So Pretty' have treated loss as something to be looked at sideways: tender, aesthetic, a little unsettling, never mocked. If you'd like to wander with your feelings rather than unpack them in a circle, this is a soft-lit room to do it in.",
+    "last_verified": "2025-11-24"
   }
 ]
