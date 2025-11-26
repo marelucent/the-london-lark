@@ -82,28 +82,178 @@ MOOD_SYNONYMS = {
     "world music": ["global"],
 }
 
-# Location synonyms - map broad terms to specific neighborhoods
-LOCATION_SYNONYMS = {
-    "south london": ["peckham", "brixton", "camberwell", "dulwich", "clapham", "streatham", "lewisham", "deptford", "nunhead"],
-    "south": ["peckham", "brixton", "camberwell", "dulwich", "clapham", "streatham", "lewisham", "deptford", "nunhead"],
+# =============================================================================
+# NEIGHBORHOOD TO REGION MAPPING
+# Maps every specific neighborhood to its parent region
+# =============================================================================
 
-    "north london": ["camden", "islington", "highgate", "finsbury park", "tottenham", "wood green", "barnet"],
-    "north": ["camden", "islington", "highgate", "finsbury park", "tottenham", "wood green", "barnet"],
+NEIGHBORHOOD_TO_REGION = {
+    # East London neighborhoods
+    "hackney": "east london",
+    "shoreditch": "east london",
+    "dalston": "east london",
+    "bethnal green": "east london",
+    "whitechapel": "east london",
+    "stratford": "east london",
+    "walthamstow": "east london",
+    "hackney wick": "east london",
+    "haggerston": "east london",
+    "hoxton": "east london",
+    "homerton": "east london",
+    "bow": "east london",
+    "stepney": "east london",
+    "limehouse": "east london",
+    "mile end": "east london",
+    "fish island": "east london",
+    "london fields": "east london",
+    "poplar": "east london",
+    "canning town": "east london",
+    "barking": "east london",
+    "isle of dogs": "east london",
 
-    "east london": ["hackney", "shoreditch", "dalston", "bethnal green", "whitechapel", "stratford", "walthamstow"],
-    "east": ["hackney", "shoreditch", "dalston", "bethnal green", "whitechapel", "stratford", "walthamstow"],
+    # South London neighborhoods
+    "peckham": "south london",
+    "brixton": "south london",
+    "camberwell": "south london",
+    "dulwich": "south london",
+    "clapham": "south london",
+    "streatham": "south london",
+    "lewisham": "south london",
+    "deptford": "south london",
+    "nunhead": "south london",
+    "bermondsey": "south london",
+    "elephant & castle": "south london",
+    "elephant and castle": "south london",
+    "new cross": "south london",
+    "catford": "south london",
+    "forest hill": "south london",
+    "canada water": "south london",
+    "south norwood": "south london",
+    "battersea": "south london",
+    "earlsfield": "south london",
+    "balham": "south london",
+    "merton": "south london",
+    "sutton": "south london",
+    "croydon": "south london",
+    "woolwich": "south london",
+    "greenwich": "south london",
+    "london bridge": "south london",
+    "southwark": "south london",
+    "waterloo": "south london",
 
-    "west london": ["hammersmith", "shepherd's bush", "chiswick", "ealing", "brentford", "acton"],
-    "west": ["hammersmith", "shepherd's bush", "chiswick", "ealing", "brentford", "acton"],
+    # North London neighborhoods
+    "camden": "north london",
+    "islington": "north london",
+    "highgate": "north london",
+    "finsbury park": "north london",
+    "tottenham": "north london",
+    "wood green": "north london",
+    "barnet": "north london",
+    "kentish town": "north london",
+    "tufnell park": "north london",
+    "chalk farm": "north london",
+    "holloway": "north london",
+    "highbury": "north london",
+    "crouch end": "north london",
+    "east finchley": "north london",
+    "north finchley": "north london",
+    "manor house": "north london",
+    "stoke newington": "north london",
+    "archway": "north london",
+    "muswell hill": "north london",
+    "southgate": "north london",
+    "angel": "north london",
+    "barnsbury": "north london",
+    "hampstead": "north london",
+    "hampstead heath": "north london",
 
-    "central london": ["soho", "covent garden", "holborn", "king's cross", "fitzrovia"],
-    "central": ["soho", "covent garden", "holborn", "king's cross", "fitzrovia"],
+    # West London neighborhoods
+    "hammersmith": "west london",
+    "shepherd's bush": "west london",
+    "shepherds bush": "west london",
+    "chiswick": "west london",
+    "ealing": "west london",
+    "brentford": "west london",
+    "acton": "west london",
+    "hanwell": "west london",
+    "kew": "west london",
+    "richmond": "west london",
+    "twickenham": "west london",
+    "east sheen": "west london",
+    "sheen": "west london",
+    "kilburn": "west london",
+    "kensal rise": "west london",
+    "notting hill": "west london",
+    "earl's court": "west london",
+    "earls court": "west london",
+    "west kensington": "west london",
+    "park royal": "west london",
 
-    # Specific neighborhood aliases
-    "shoreditch": ["shoreditch", "hoxton"],
-    "kings cross": ["king's cross"],
-    "shepherds bush": ["shepherd's bush"],
+    # Central London neighborhoods
+    "soho": "central london",
+    "covent garden": "central london",
+    "holborn": "central london",
+    "king's cross": "central london",
+    "kings cross": "central london",
+    "fitzrovia": "central london",
+    "leicester square": "central london",
+    "trafalgar square": "central london",
+    "the strand": "central london",
+    "strand": "central london",
+    "marylebone": "central london",
+    "clerkenwell": "central london",
+    "charing cross": "central london",
+    "borough": "central london",
+    "tower hill": "central london",
+    "moorgate": "central london",
+    "victoria": "central london",
+    "westminster": "central london",
+    "south kensington": "central london",
+    "kensington": "central london",
+    "bloomsbury": "central london",
 }
+
+# =============================================================================
+# BIDIRECTIONAL LOCATION SYNONYMS
+# Automatically built from NEIGHBORHOOD_TO_REGION mapping
+# Each neighborhood expands to: itself + its region + all sibling neighborhoods
+# =============================================================================
+
+def _build_location_synonyms():
+    """
+    Build bidirectional location synonyms from NEIGHBORHOOD_TO_REGION.
+
+    Returns a dictionary where:
+    - Region names map to all their neighborhoods
+    - Neighborhood names map to their region + all sibling neighborhoods
+    """
+    synonyms = {}
+
+    # Build reverse mapping: region -> list of neighborhoods
+    region_to_neighborhoods = {}
+    for neighborhood, region in NEIGHBORHOOD_TO_REGION.items():
+        if region not in region_to_neighborhoods:
+            region_to_neighborhoods[region] = []
+        region_to_neighborhoods[region].append(neighborhood)
+
+    # Add region mappings (e.g., "south london" -> all south neighborhoods)
+    for region, neighborhoods in region_to_neighborhoods.items():
+        synonyms[region] = neighborhoods.copy()
+        # Also add short version (e.g., "south" -> same as "south london")
+        short_name = region.replace(" london", "")
+        if short_name != region:
+            synonyms[short_name] = neighborhoods.copy()
+
+    # Add neighborhood mappings (e.g., "peckham" -> all south london neighborhoods)
+    for neighborhood, region in NEIGHBORHOOD_TO_REGION.items():
+        # Each neighborhood maps to: itself + its region + all siblings
+        siblings = region_to_neighborhoods[region]
+        synonyms[neighborhood] = [neighborhood] + [s for s in siblings if s != neighborhood]
+
+    return synonyms
+
+# Build the location synonyms dictionary
+LOCATION_SYNONYMS = _build_location_synonyms()
 
 # =============================================================================
 # EXPANSION FUNCTIONS

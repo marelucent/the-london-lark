@@ -10,9 +10,21 @@ with open("lark_venues_clean.json", "r", encoding="utf-8") as f:
 conn = sqlite3.connect("lark.db")
 cur = conn.cursor()
 
-# Create tables if they don't exist
+# Drop existing tables to ensure clean import
+# This prevents duplicate/stale data from previous imports
 cur.executescript("""
-    CREATE TABLE IF NOT EXISTS venues (
+    DROP TABLE IF EXISTS venue_genres;
+    DROP TABLE IF EXISTS venue_moods;
+    DROP TABLE IF EXISTS genres;
+    DROP TABLE IF EXISTS moods;
+    DROP TABLE IF EXISTS venues;
+""")
+
+print("Cleared old database tables")
+
+# Create fresh tables
+cur.executescript("""
+    CREATE TABLE venues (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         location TEXT,
@@ -21,17 +33,17 @@ cur.executescript("""
         last_verified TEXT
     );
 
-    CREATE TABLE IF NOT EXISTS moods (
+    CREATE TABLE moods (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT UNIQUE NOT NULL
     );
 
-    CREATE TABLE IF NOT EXISTS genres (
+    CREATE TABLE genres (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT UNIQUE NOT NULL
     );
 
-    CREATE TABLE IF NOT EXISTS venue_moods (
+    CREATE TABLE venue_moods (
         venue_id INTEGER,
         mood_id INTEGER,
         PRIMARY KEY (venue_id, mood_id),
@@ -39,7 +51,7 @@ cur.executescript("""
         FOREIGN KEY (mood_id) REFERENCES moods(id)
     );
 
-    CREATE TABLE IF NOT EXISTS venue_genres (
+    CREATE TABLE venue_genres (
         venue_id INTEGER,
         genre_id INTEGER,
         PRIMARY KEY (venue_id, genre_id),
@@ -47,6 +59,8 @@ cur.executescript("""
         FOREIGN KEY (genre_id) REFERENCES genres(id)
     );
 """)
+
+print("Created fresh database tables")
 
 # Prepare helper functions
 def get_or_create_id(table, name):
@@ -86,6 +100,19 @@ for entry in venues_data:
 
 # Commit and close
 conn.commit()
+
+# Verify the import
+cur = conn.cursor()
+cur.execute("SELECT COUNT(*) FROM venues")
+venue_count = cur.fetchone()[0]
+cur.execute("SELECT COUNT(*) FROM moods")
+mood_count = cur.fetchone()[0]
+cur.execute("SELECT COUNT(*) FROM genres")
+genre_count = cur.fetchone()[0]
+
 conn.close()
 
-print("Data imported successfully into lark.db")
+print(f"Data imported successfully into lark.db")
+print(f"  {venue_count} venues")
+print(f"  {mood_count} unique moods")
+print(f"  {genre_count} unique genres")
