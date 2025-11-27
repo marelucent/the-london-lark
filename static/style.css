@@ -640,3 +640,78 @@ button:disabled {
         margin-top: 0.2rem;
     }
 }
+
+/* ============================================
+   MOOD TAGS SECTION
+   ============================================ */
+
+.mood-tags-container {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(232, 232, 232, 0.08);
+}
+
+.mood-tags-label {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #b0c4de;
+    opacity: 0.7;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.08em;
+    font-style: italic;
+}
+
+.mood-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.mood-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(176, 196, 222, 0.1);
+    border: 1px solid rgba(176, 196, 222, 0.25);
+    border-radius: 20px;
+    color: #b0c4de;
+    font-size: 0.85rem;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.03em;
+    margin: 0;
+}
+
+.mood-tag:hover {
+    background: rgba(176, 196, 222, 0.2);
+    border-color: rgba(176, 196, 222, 0.5);
+    color: #e8e8e8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(176, 196, 222, 0.15);
+}
+
+.mood-tag.active {
+    background: rgba(240, 230, 140, 0.2);
+    border-color: #f0e68c;
+    color: #f0e68c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(240, 230, 140, 0.2);
+}
+
+.mood-tag:active {
+    transform: translateY(0);
+}
+
+/* Mobile-friendly mood tags */
+@media (max-width: 600px) {
+    .mood-tags {
+        gap: 0.5rem;
+    }
+
+    .mood-tag {
+        font-size: 0.8rem;
+        padding: 0.45rem 0.85rem;
+    }
+}

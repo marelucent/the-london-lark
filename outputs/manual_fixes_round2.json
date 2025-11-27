@@ -1,0 +1,328 @@
+{
+  "timestamp": "2025-11-27 09:41:17",
+  "venues_removed": [
+    {
+      "venue_id": 49,
+      "venue_name": "Dice & Destiny Board Game Café",
+      "location": "Canterbury (note: not London)",
+      "reason": "Not in London"
+    }
+  ],
+  "locations_updated": [
+    {
+      "venue_id": 79,
+      "venue_name": "Heaven",
+      "old_location": "Charing Cross",
+      "new_location": "Westminster"
+    }
+  ],
+  "kept_as_is": {
+    "various_london_venues": 0,
+    "generic_areas": 7,
+    "pop_up_touring": 5,
+    "private_undisclosed": 1,
+    "valid_unlisted_neighborhoods": 36
+  },
+  "kept_venues_detail": {
+    "various_london_venues": [],
+    "generic_areas": [
+      {
+        "id": 4,
+        "name": "Ace Cafe London",
+        "location": "North West London"
+      },
+      {
+        "id": 72,
+        "name": "Grand Junction Arms",
+        "location": "North West London"
+      },
+      {
+        "id": 104,
+        "name": "London Night Photography Tour â€“ London Streets Photography",
+        "location": "Central London landmarks (meeting point arranged with guide)"
+      },
+      {
+        "id": 238,
+        "name": "Club Are",
+        "location": "East London"
+      },
+      {
+        "id": 241,
+        "name": "2C Perrea",
+        "location": "East/South London"
+      },
+      {
+        "id": 244,
+        "name": "Opia",
+        "location": "East London"
+      },
+      {
+        "id": 260,
+        "name": "Sing For Freedom Choir",
+        "location": "Central London"
+      }
+    ],
+    "valid_unlisted_neighborhoods": [
+      {
+        "id": 2,
+        "name": "5Rhythms 'FIVE London' Workshop",
+        "location": "St Lukeâ€™s Church, Hillmarton Road, London N7 9RE"
+      },
+      {
+        "id": 6,
+        "name": "After-Work Foraging Sessions â€“ Charlotte Gordon Urban Forager",
+        "location": "The Story Garden, Kingâ€™s Cross"
+      },
+      {
+        "id": 14,
+        "name": "Autograph",
+        "location": "Rivington Place"
+      },
+      {
+        "id": 15,
+        "name": "Bad Moon Café",
+        "location": "Elephant & Castle"
+      },
+      {
+        "id": 27,
+        "name": "BrewDog Outpost Tower Hill â€“ Beer School",
+        "location": "Tower Hill (EC3)"
+      },
+      {
+        "id": 33,
+        "name": "Camden Art Centre â€“ Natural Dyes Workshop",
+        "location": "271 Dale Avenue, London NW3 6DG"
+      },
+      {
+        "id": 55,
+        "name": "Ecstatic Dance London â€“ The Ritual",
+        "location": "Various London venues (often community halls and studios)"
+      },
+      {
+        "id": 74,
+        "name": "Grove Farm Bat Walk â€“ Ealing Wildlife Group",
+        "location": "Grove Farm Nature Reserve, Sudbury Hill (meeting point outside Sudbury Hill Tube)"
+      },
+      {
+        "id": 79,
+        "name": "Heaven",
+        "location": "Westminster"
+      },
+      {
+        "id": 99,
+        "name": "Liminal 11 â€“ Tarot & Mysticism Events",
+        "location": "Various venues across London"
+      },
+      {
+        "id": 101,
+        "name": "London Calligraphy",
+        "location": "Various venues across London (often central hotels and studios)"
+      },
+      {
+        "id": 103,
+        "name": "London Cheese Board â€“ Cheese & Wine Pairing Evenings",
+        "location": "Elephant & Castle (SE1)"
+      },
+      {
+        "id": 106,
+        "name": "Love & Loss – Grief Tending Rituals",
+        "location": "Various London locations"
+      },
+      {
+        "id": 122,
+        "name": "Phantom Peak",
+        "location": "Canada Water"
+      },
+      {
+        "id": 136,
+        "name": "Rose Theatre",
+        "location": "Kingston"
+      },
+      {
+        "id": 138,
+        "name": "Royal Docks Swim Series (RDSS) Evening Swim",
+        "location": "Love Open Water London Royal Docks, Dock Road, E16 1AH"
+      },
+      {
+        "id": 140,
+        "name": "Sacred Geometry & Alchemy with Golden Light",
+        "location": "The Light Centre, Moorgate, London EC2Y 5EB"
+      },
+      {
+        "id": 142,
+        "name": "Sanctuary Singing Circle",
+        "location": "King’s Cross, London"
+      },
+      {
+        "id": 146,
+        "name": "She's Lost Control â€“ Ritual & Spiritual Workshops",
+        "location": "42 Valentine Road, London E9 7AD"
+      },
+      {
+        "id": 152,
+        "name": "Sole2Soul – Open Floor Movement & Embodied Voice",
+        "location": "Various London venues (Creating Connexions)"
+      },
+      {
+        "id": 164,
+        "name": "Tara Theatre",
+        "location": "Earlsfield"
+      },
+      {
+        "id": 176,
+        "name": "The Ginger Pig â€” Sausage Making Class",
+        "location": "Borough Market (SE1)"
+      },
+      {
+        "id": 182,
+        "name": "The Lexi Cinema",
+        "location": "Kensal Rise"
+      },
+      {
+        "id": 194,
+        "name": "The Space",
+        "location": "Isle of Dogs"
+      },
+      {
+        "id": 198,
+        "name": "Therapeutic Yoga Community Group – Jane O’Rourke",
+        "location": "Down to Earth Yoga, N19"
+      },
+      {
+        "id": 214,
+        "name": "Wonders of the Dark Sky â€“ Woodoaks Farm Stargazing",
+        "location": "Woodoaks Farm, Maple Cross, Hertfordshire (north-west Greater London)"
+      },
+      {
+        "id": 217,
+        "name": "Corsica Studios",
+        "location": "Elephant & Castle"
+      },
+      {
+        "id": 239,
+        "name": "Club Stamina",
+        "location": "Various London"
+      },
+      {
+        "id": 246,
+        "name": "Ceilidh Liberation Front",
+        "location": "Grand Junction & various"
+      },
+      {
+        "id": 247,
+        "name": "Bootylicious",
+        "location": "Union & Scala"
+      },
+      {
+        "id": 249,
+        "name": "Dark Scene London",
+        "location": "Omeara, London Bridge"
+      },
+      {
+        "id": 250,
+        "name": "Sanura Dance",
+        "location": "Studio 68 & The Castle"
+      },
+      {
+        "id": 259,
+        "name": "F*Choir",
+        "location": "London (roaming across arts and community spaces)"
+      },
+      {
+        "id": 261,
+        "name": "London City Voices",
+        "location": "Multiple locations across central London and online"
+      },
+      {
+        "id": 282,
+        "name": "Second Home Spitalfields",
+        "location": "Spitalfields, E1"
+      },
+      {
+        "id": 284,
+        "name": "Polo Bar – 24 Hour Great British Café & Bar",
+        "location": "Opposite Liverpool Street Station"
+      }
+    ],
+    "pop_up_touring": [
+      {
+        "id": 63,
+        "name": "Freeweaver Studio",
+        "location": "Cordwainers Pop-Up, London Fields (E8)"
+      },
+      {
+        "id": 165,
+        "name": "Tea & Tasseomancy â€“ Divination by the Cup",
+        "location": "Rotating venues (often East London cafes)"
+      },
+      {
+        "id": 240,
+        "name": "MAS ARTS",
+        "location": "Pop-up locations"
+      },
+      {
+        "id": 242,
+        "name": "Eastern Margins",
+        "location": "Pop-up venues"
+      },
+      {
+        "id": 293,
+        "name": "Grief Rave & Grief Moves – The Fandangoe Discoteca x The Loss Project",
+        "location": "Touring (often Southbank Centre, SE1)"
+      }
+    ],
+    "private_undisclosed": [
+      {
+        "id": 210,
+        "name": "Wheel of Consent Weekend Workshop",
+        "location": "Private studio in London (exact location shared with participants upon booking)"
+      }
+    ]
+  },
+  "recommendations": {
+    "add_to_approved_list": [
+      "271 Dale Avenue",
+      "42 Valentine Road",
+      "Borough Market",
+      "Canada Water",
+      "Down to Earth Yoga",
+      "Earlsfield",
+      "Elephant & Castle",
+      "Grand Junction & various",
+      "Grove Farm Nature Reserve",
+      "Isle of Dogs",
+      "Kensal Rise",
+      "Kingston",
+      "King’s Cross",
+      "London",
+      "Love Open Water London Royal Docks",
+      "Multiple locations across central London and online",
+      "Omeara",
+      "Opposite Liverpool Street Station",
+      "Rivington Place",
+      "Spitalfields",
+      "St Lukeâ€™s Church",
+      "Studio 68 & The Castle",
+      "The Light Centre",
+      "The Story Garden",
+      "Tower Hill",
+      "Union & Scala",
+      "Various London",
+      "Various London locations",
+      "Various London venues",
+      "Various venues across London",
+      "Westminster",
+      "Woodoaks Farm"
+    ],
+    "policy_decisions_needed": [
+      "Should 'Various London venues' be formally approved for touring shows?",
+      "Should 'Central London' / 'East London' be valid for roaming groups?",
+      "Should we expand approved list to include all valid London neighborhoods?"
+    ]
+  },
+  "final_stats": {
+    "total_venues": 295,
+    "venues_removed": 1,
+    "locations_updated": 1
+  }
+}

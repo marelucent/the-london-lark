@@ -1,43 +1,95 @@
 {
-  "total_queries": 111,
-  "mood_found": 111,
+  "total_queries": 123,
+  "mood_found": 123,
   "mood_not_found": 0,
   "confidence_distribution": {
-    "exact_match": 106,
+    "exact_match": 117,
     "high_confidence": 0,
-    "medium_confidence": 2,
+    "medium_confidence": 3,
     "low_confidence": 3
   },
   "venue_matches": {
-    "found_venues": 101,
-    "no_venues": 10
+    "found_venues": 112,
+    "no_venues": 11
   },
   "filter_usage": {
-    "mood": 111,
+    "mood": 123,
     "location": 6,
     "time": 12,
     "budget": 2,
     "group": 3,
-    "genre": 1
+    "genre": 4
   },
   "session_history": [
     {
-      "timestamp": "2025-11-23T16:10:14.677340",
+      "timestamp": "2025-11-23T21:51:04.798078",
+      "filters": {
+        "mood": "Cabaret & Glitter",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 11
+    },
+    {
+      "timestamp": "2025-11-23T21:51:14.740557",
+      "filters": {
+        "mood": "Cabaret & Glitter",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": "drag",
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 5
+    },
+    {
+      "timestamp": "2025-11-23T21:51:24.817801",
+      "filters": {
+        "mood": "Folk & Intimate",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 18
+    },
+    {
+      "timestamp": "2025-11-27T14:31:14.033656",
+      "filters": {
+        "mood": "Body-Based / Movement-Led",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null
+      },
+      "confidence": 0.8,
+      "venue_count": 9
+    },
+    {
+      "timestamp": "2025-11-27T14:31:18.518450",
       "filters": {
         "mood": "Comic Relief",
         "time": null,
         "budget": null,
         "group": null,
-        "genre": null,
+        "genre": "comedy",
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 3
+      "venue_count": 8
     },
     {
-      "timestamp": "2025-11-23T16:10:16.551858",
+      "timestamp": "2025-11-27T14:31:22.996240",
       "filters": {
-        "mood": "Comic Relief",
+        "mood": "Group Energy",
         "time": null,
         "budget": null,
         "group": null,
@@ -45,12 +97,25 @@
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 3
+      "venue_count": 26
     },
     {
-      "timestamp": "2025-11-23T16:10:17.742520",
+      "timestamp": "2025-11-27T14:31:28.990122",
       "filters": {
-        "mood": "Comic Relief",
+        "mood": "Grief & Grace",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": "grief",
+        "location": null
+      },
+      "confidence": 1.0,
+      "venue_count": 8
+    },
+    {
+      "timestamp": "2025-11-27T14:31:34.246298",
+      "filters": {
+        "mood": "Salon & Spark",
         "time": null,
         "budget": null,
         "group": null,
@@ -58,12 +123,12 @@
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 3
+      "venue_count": 2
     },
     {
-      "timestamp": "2025-11-23T16:16:03.469389",
+      "timestamp": "2025-11-27T14:31:43.484536",
       "filters": {
-        "mood": "Comic Relief",
+        "mood": "Spiritual / Sacred / Mystical",
         "time": null,
         "budget": null,
         "group": null,
@@ -71,12 +136,12 @@
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 31
+      "venue_count": 29
     },
     {
-      "timestamp": "2025-11-23T16:16:10.807111",
+      "timestamp": "2025-11-27T14:31:50.118037",
       "filters": {
-        "mood": "Comic Relief",
+        "mood": "Word & Voice",
         "time": null,
         "budget": null,
         "group": null,
@@ -84,72 +149,7 @@
         "location": null
       },
       "confidence": 1.0,
-      "venue_count": 31
-    },
-    {
-      "timestamp": "2025-11-23T16:16:16.564285",
-      "filters": {
-        "mood": "Comic Relief",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 31
-    },
-    {
-      "timestamp": "2025-11-23T16:16:20.380279",
-      "filters": {
-        "mood": "Comic Relief",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 31
-    },
-    {
-      "timestamp": "2025-11-23T16:16:23.739825",
-      "filters": {
-        "mood": "Comic Relief",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 31
-    },
-    {
-      "timestamp": "2025-11-23T16:16:27.565512",
-      "filters": {
-        "mood": "Comic Relief",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 31
-    },
-    {
-      "timestamp": "2025-11-23T16:45:16.802625",
-      "filters": {
-        "mood": "Melancholic Beauty",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 3
+      "venue_count": 15
     }
   ]
 }

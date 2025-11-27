@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Pink Singers",
+    "location": "Central London (various rehearsal and concert spaces)",
+    "moods": ["Group Energy", "Queer Revelry", "Word & Voice"],
+    "genres": ["LGBT+ community choir", "choral concerts"],
+    "url": "https://www.pinksingers.co.uk/",
+    "blurb": "London's longest-running LGBT+ choir gathers like a small storm of harmony, shoulders touching, scores rustling, hearts very much awake. The Pink Singers keep queer history humming in real time: protest songs, pop choruses, tender arrangements that can leave you blinking back tears in the interval. If you want to feel your voice woven into a bigger, brighter rope of sound, this is one for the brave petal with a choir-shaped ache.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "London Sacred Harp",
+    "location": "Various churches and halls across London (often Hampstead and central)",
+    "moods": ["Group Energy", "Spiritual / Sacred / Mystical", "Curious Encounters"],
+    "genres": ["Sacred Harp singing", "shape-note communal singing"],
+    "url": "https://londonsacredharp.org/",
+    "blurb": "Sacred Harp is congregational singing in four parts, arranged in a square rather than a stage: everyone facing inward, everyone both audience and choir. There are no auditions and no performances to polish for, just songs called from a shared book and hurled joyfully into the air, a light-winged leap into wonder. Expect raw, shaking chords, a lark's clear call at dusk, and the odd miracle of strangers breathing as one.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Chickenshed Community Choir",
+    "location": "Chickenshed Theatre and Christ the King, North London",
+    "moods": ["Group Energy", "Folk & Intimate", "Family-Friendly"],
+    "genres": ["community choir", "inclusive singing workshops"],
+    "url": "https://www.chickenshed.org.uk/workshops-and-classes",
+    "blurb": "At Chickenshed, the choir feels like an extension of the theatre's beating heart: open doors, warm ushers, songs that make room for every kind of voice. Term-time sessions unfold in bright halls and church naves, notes that perch and stay even after people have gone home. If you're easing yourself back into singing after a long, quiet spell, this is a gentle place to test your wings.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "South East London Queer Choir",
+    "location": "Nunhead, South East London",
+    "moods": ["Group Energy", "Queer Revelry", "Punchy / Protest"],
+    "genres": ["queer community choir", "street singing", "fundraiser performances"],
+    "url": "https://www.genevievedawson.com/community",
+    "blurb": "In Nunhead, a queer choir gathers in borrowed rooms and spills out onto pavements for solidarity gigs, protests and a big winter street takeover. Books may be closed to new singers at times, but the sound still ripples through south-east London, borne aloft by quiet joy and a tailwind of mischief. For Larklings, this is one to follow, to stand beside, to hear what resistance sounds like when it's in four-part harmony.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Heart Song Collective CIC",
+    "location": "South East London (various cosy spaces)",
+    "moods": ["Group Energy", "Grief & Grace", "Spiritual / Sacred / Mystical"],
+    "genres": ["singing for wellbeing", "queer-led choir circle"],
+    "url": "https://www.naturalvoice.net/choir/heart-song-collective-cic/",
+    "blurb": "Heart Song Collective gathers queer and allied voices in a circle, not a line, held in a trauma-informed way and sung without gendered parts. Songs for co-regulation, breath, and soft presence; a hush shaped like birdsong more than a traditional choir practice. If your nervous system is tired of pushing through and needs somewhere to tremble and settle among friends, this is a nest of stories and string lights.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "F*Choir",
+    "location": "London (roaming across arts and community spaces)",
+    "moods": ["Group Energy", "Queer Revelry", "Punchy / Protest"],
+    "genres": ["all-genders community choir", "queer liberation choir"],
+    "url": "https://fchoir.com/about/",
+    "blurb": "F*Choir is less hymn book, more spell book: a 60-plus strong, all-genders choir singing about gender, sexuality, freedom and rage. Rehearsals are sweaty, laughing, political; performance nights feel like a gig crossed with a ritual, a cry soft as wingbeat and sometimes as loud as a siren. Ideal for the petal who wants their harmonies with teeth, their choruses circling closer to something true.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Sing For Freedom Choir",
+    "location": "Central London",
+    "moods": ["Group Energy", "Grief & Grace", "Global Rhythms"],
+    "genres": ["community choir", "refugee and allies choir"],
+    "url": "https://www.togetherproductions.co.uk/sff-public-page",
+    "blurb": "A choir born from stories of exile and arrival, Sing For Freedom brings refugees, migrants and local Londoners into one shared sound. Concession schemes and subsidised spots keep the door propped open; songs travel from folk to contemporary, threads of sound spun midair between languages. Come if you need reminding that borders are human inventions and harmony is not.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "London City Voices",
+    "location": "Multiple locations across central London and online",
+    "moods": ["Group Energy", "Big Night Out", "Word & Voice"],
+    "genres": ["non-audition community choir", "pop and rock repertoire"],
+    "url": "https://www.londoncityvoices.co.uk/",
+    "blurb": "London City Voices is a big, bright sprawl of non-audition choirs meeting in hired halls after work, swapping laptops for lyric sheets. Expect upbeat pop, hands in the air, that flash of recognition when the person next to you also quietly knows every harmony. It's less hidden gem than friendly flock, but for some petals, this is exactly the soft landing they need.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Healing Choir",
+    "location": "Kilburn, North West London",
+    "moods": ["Group Energy", "Grief & Grace", "Poetic"],
+    "genres": ["community arts choir", "wellbeing-focused vocal circle"],
+    "url": "https://www.paprika.org.uk/healing-choir",
+    "blurb": "In Kilburn, Healing Choir treats song as a kind of shared medicine: free to attend, open to all abilities, rooted in breath, movement and communal vocalisation. Sessions are more about how it feels in the body than how it sounds from the back row. If life has left you hoarse and you're looking for a room that will simply let you exhale and hum, this one waits with open arms.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Outer Circle Voice Circle",
+    "location": "SET Social, Peckham",
+    "moods": ["Group Energy", "Playful & Weird", "Curious Encounters"],
+    "genres": ["experimental vocal workshop", "women and non-binary circle"],
+    "url": "https://setspace.uk/event/outer-circle-voice-circle-women-and-non-binary-vocal-workshop/",
+    "blurb": "Outer Circle is an experimental vocal group for women and non-binary people, meeting monthly at SET Social Peckham to sing, breathe, shout and create together. It's explicitly not a choir: no auditions, no sheet music, just improvisation and a tailwind of surprise. Perfect if you want to explore what your voice can do beyond verses and choruses, gliding through alleys and arches of sound you didn't know you had.",
+    "last_verified": "2025-11-24"
+  },
+  {
+    "name": "Catford Community Choir",
+    "location": "Corbett Community Library, Catford",
+    "moods": ["Group Energy", "Folk & Intimate", "Family-Friendly"],
+    "genres": ["local community choir", "library-based singing group"],
+    "url": "https://thevillagelondon.co.uk/service/catford-community-choir/",
+    "blurb": "In a bright room at Corbett Community Library, neighbours gather between stacks and storybooks to sing their way through the week. Babies and toddlers are welcome to crawl, clatter and join in, turning rehearsal into a small domestic carnival. It's sheltered beneath the beams and warm as a robin's hollow: if you're looking for somewhere low-pressure and local to stretch your lungs, this is a gentle starting perch.",
+    "last_verified": "2025-11-24"
+  }
+]

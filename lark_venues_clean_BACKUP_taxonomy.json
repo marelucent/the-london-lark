@@ -501,8 +501,7 @@
     "location": "Shepherd's Bush",
     "moods": [
       "rant",
-      "rebellious",
-      "activist"
+      "salon"
     ],
     "genres": [
       "new plays",
@@ -510,10 +509,7 @@
     ],
     "url": "https://www.bushtheatre.co.uk/",
     "blurb": "An internationally renowned champion of playwrights, where new writing crackles with activist spirit and salon-style conversation.",
-    "last_verified": "2025-11-15",
-    "features": [
-      "salon"
-    ]
+    "last_verified": "2025-11-15"
   },
   {
     "name": "Café OTO",
@@ -917,6 +913,7 @@
     "name": "Ecstatic Dance UK â€“ Sunday Sessions",
     "location": "Hackney Wick",
     "moods": [
+      "free-spirited",
       "mindful",
       "inclusive"
     ],
@@ -927,10 +924,7 @@
     ],
     "url": "https://ecstaticdance.org/dance/ecstatic-dance-uk/",
     "blurb": "Sunday mornings stretch open at The Baths, where cacao warms the heart and silence wraps the dance floor. No talking. No judgement. Just bodies in motion, following rhythm like a river. Here, movement is medicine and joy is sacred â€” a weekly breath for the spirit through beat and stillness.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "free-spirited"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Ecstatic Dance UK – Sun·day Dance",
@@ -1000,7 +994,8 @@
     "location": "Hackney Wick",
     "moods": [
       "nostalgic",
-      "social"
+      "social",
+      "boozy"
     ],
     "genres": [
       "retro arcade",
@@ -1010,10 +1005,7 @@
     ],
     "url": "https://www.fourquarters.bar/",
     "blurb": "Arcade alchemy in three boroughs — where laughter loops through coin-drop echoes, and the neon hum of nostalgia sings beneath every pint.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "boozy"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Fox & Firkin",
@@ -1055,6 +1047,7 @@
     "location": "Nunhead",
     "moods": [
       "haunted",
+      "historical",
       "wild"
     ],
     "genres": [
@@ -1063,10 +1056,7 @@
     ],
     "url": "https://www.fonc.org.uk/events",
     "blurb": "The ivy knows these names. At Nunhead, the cemetery breathes history and woodland both. By sunset, bats arc above Victorian crypts, their shadows mingling with that of ancient grief. These volunteer-led walks are full of memory and mystery â€” a perfect pairing of natureâ€™s wild return and the city's silent past.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "historical"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Gate Theatre",
@@ -1339,6 +1329,7 @@
     "location": "Highgate",
     "moods": [
       "haunted",
+      "historical",
       "curious"
     ],
     "genres": [
@@ -1347,10 +1338,7 @@
     ],
     "url": "https://www.savebritainsheritage.org/events/an-evening-at-highgate-cemetery-out-of-hours-walking-tour-for-save-supporters",
     "blurb": "Beyond the iron gates, ivy and angels cradle the stones. By twilight, Highgateâ€™s West Side is opened to a privileged few â€” led past crypts and moss-soft chapels by torchlight and tales. Here, Victorian grief becomes grandeur, and architecture mourns in marble. An after-hours reverence for the gothic sublime.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "historical"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Hiver Beers â€” Cider Making Workshop",
@@ -1594,7 +1582,8 @@
     "location": "Richmond",
     "moods": [
       "intimate",
-      "slow-paced"
+      "slow-paced",
+      "foodie-friendly"
     ],
     "genres": [
       "board games",
@@ -1603,10 +1592,7 @@
     ],
     "url": "https://librarypot.uk/",
     "blurb": "Tucked along Kew Road, Library Pot is a licensed café where 700 games wait like old friends. Here, Thai green curry shares the table with Catan, kimchi noodles with cooperative quests. The pace is languid, the company warm, and the mahjong leagues fierce with quiet devotion. Sessions stretch long into the evening, fuelled by craft ales and the gentle click of tiles on wood.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "foodie-friendly"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Liminal 11 â€“ Tarot & Mysticism Events",
@@ -1809,8 +1795,7 @@
     "location": "Shepherd’s Bush",
     "moods": [
       "restorative",
-      "healing",
-      "gentle"
+      "accessible"
     ],
     "genres": [
       "sound healing",
@@ -1818,10 +1803,7 @@
     ],
     "url": "https://www.millerswayproject.com/",
     "blurb": "In a converted garage on a quiet West London street, healing hums in bowls and breath. This pay-it-forward project offers somatic journeys and soundbaths — held not as products, but as gifts. It’s a sanctuary for those whose nervous systems are still learning how to feel safe.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "accessible"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Music Tree Circles – Circle Singing",
@@ -1974,8 +1956,7 @@
     "location": "Finsbury Park",
     "moods": [
       "thoughtful",
-      "contemplative",
-      "The Thoughtful Stage"
+      "salon"
     ],
     "genres": [
       "new writing",
@@ -1983,10 +1964,7 @@
     ],
     "url": "https://parktheatre.co.uk/",
     "blurb": "A neighbourhood theatre with global ambition, delivering world-class theatre through accessible stories and community-focused programming.",
-    "last_verified": "2025-11-15",
-    "features": [
-      "salon"
-    ]
+    "last_verified": "2025-11-15"
   },
   {
     "name": "Phantom Peak",
@@ -2525,6 +2503,7 @@
     "location": "Bermondsey (Southwark)",
     "moods": [
       "democratic",
+      "open-air",
       "contemplative"
     ],
     "genres": [
@@ -2535,10 +2514,7 @@
     ],
     "url": "southwarkparkgalleries.org",
     "blurb": "Two galleries bloom inside a London park: one beside the lake, the other inside a deconsecrated church. Southwark Park Galleries hold space for all — the seasoned painter, the first-time sculptor, the curious wanderer with a dog on a lead. Each show feels like a ritual of presence, a moment of quiet democracy framed in brushstroke and stone.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "open-air"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Spiritland",
@@ -2793,6 +2769,7 @@
     "location": "Chalk Farm (Camden)",
     "moods": [
       "relaxed",
+      "jam-friendly",
       "neighbourhood-feel"
     ],
     "genres": [
@@ -2803,10 +2780,7 @@
     ],
     "url": "thecamdenclub.co.uk/whats‑on/open‑music‑jam",
     "blurb": "In the hush before the first chord, Camden Club waits — polished, low-lit, and warm with promise. Here, guitarists trade licks like old stories, and the mic is always open to the brave. Blues, jazz, and rock wind through the air like cigarette smoke from another era. Pull up a cocktail, settle into the sound, and let the night unfold.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "jam-friendly"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "The College of Psychic Studies â€“ Esoteric Courses",
@@ -2814,6 +2788,7 @@
     "moods": [
       "mystical",
       "curious",
+      "historic",
       "gentle"
     ],
     "genres": [
@@ -2824,10 +2799,7 @@
     ],
     "url": "https://www.collegeofpsychicstudies.co.uk/",
     "blurb": "Established in 1884, this Victorian townhouse carries a hush of otherworldliness. The Collegeâ€™s courses unfold through tarot, astrology, mediumship â€” paths both gentle and uncanny. For those who feel the veil thin and wish to step through with reverence, this is a doorway long-held open.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "historic"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "The Fermentarium (Festive Lactic Fermentation Workshop)",

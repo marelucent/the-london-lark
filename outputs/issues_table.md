@@ -1,0 +1,755 @@
+# Lark Database - Detailed Issues Table
+
+*Generated: 2025-11-27 09:21*
+
+| venue_id | venue_name | issue_type | severity | field | current_value | suggested_fix | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | 4160 Tuesdays â€“ Perfume Making with Sarah McCartney | Location | CRITICAL | location | Studio in Acton, West London | Studio in Acton | Contains borough/area format |
+| 0 | 4160 Tuesdays â€“ Perfume Making with Sarah McCartney | Location | CRITICAL | location | Studio in Acton, West London | Studio in Acton, West London | 'Studio in Acton' not in approved neighborhoods list |
+| 2 | 5Rhythms 'FIVE London' Workshop | Location | CRITICAL | location | St Lukeâ€™s Church, Hillmarton Road, London N7 9RE | St Lukeâ€™s Church, Hillmarton Road, London N7 9RE | 'St Lukeâ€™s Church' not in approved neighborhoods list |
+| 3 | 5Rhythms Dance – We Dance with Nikki Ashley | Location | CRITICAL | location | Chestnut Grove School, Balham | Chestnut Grove School, Balham | 'Chestnut Grove School' not in approved neighborhoods list |
+| 4 | Ace Cafe London | Location | CRITICAL | location | North West London | North West London | 'North West London' not in approved neighborhoods list |
+| 6 | After-Work Foraging Sessions â€“ Charlotte Gordon Urban Forager | Location | CRITICAL | location | The Story Garden, Kingâ€™s Cross | The Story Garden, Kingâ€™s Cross | 'The Story Garden' not in approved neighborhoods list |
+| 7 | Akila Pole Studio | Location | CRITICAL | location | Eurolink Business Centre, 49 Effra Road, Brixton SW2 1BZ | Eurolink Business Centre, 49 Effra Road, Brixton SW2 1BZ | 'Eurolink Business Centre' not in approved neighborhoods list |
+| 9 | Art Play London â€“ Paper-Making Craft Class | Location | CRITICAL | location | 3 Norton Folgate, Shoreditch (E1 6DB) or 224a Chelsea Manor Street (SW3 5UA) | 3 Norton Folgate, Shoreditch (E1 6DB) or 224a Chelsea Manor Street (SW3 5UA) | '3 Norton Folgate' not in approved neighborhoods list |
+| 11 | artsdepot | Location | CRITICAL | location | North Finchley | North Finchley | 'North Finchley' not in approved neighborhoods list |
+| 11 | artsdepot | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 11 | artsdepot | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 12 | Asylum Chapel | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 12 | Asylum Chapel | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 13 | Authentic Movement Workshops – Katsura Isobe | Location | CRITICAL | location | Chisenhale Dance Space, East London | Chisenhale Dance Space | Contains borough/area format |
+| 13 | Authentic Movement Workshops – Katsura Isobe | Location | CRITICAL | location | Chisenhale Dance Space, East London | Chisenhale Dance Space, East London | 'Chisenhale Dance Space' not in approved neighborhoods list |
+| 14 | Autograph | Location | CRITICAL | location | Rivington Place | Rivington Place | 'Rivington Place' not in approved neighborhoods list |
+| 14 | Autograph | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 14 | Autograph | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 15 | Bad Moon Café | Location | CRITICAL | location | Elephant & Castle | Elephant | Contains compound delimiter (& or /) |
+| 17 | BAW Dance | Location | CRITICAL | location | Various central London venues (often near Bond Street and Farringdon) | Various central London venues (often near Bond Street and Farringdon) | 'Various central London venues' not in approved neighborhoods list |
+| 20 | Bill Murray | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 20 | Bill Murray | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 23 | Body Love Sketch Club | Location | CRITICAL | location | Music Room London, New Cross (South East London) | Music Room London, New Cross (South East London) | 'Music Room London' not in approved neighborhoods list |
+| 24 | Boneyard London â€“ Introduction to Blacksmithing | Location | CRITICAL | location | Unit 10 3 Navigation Road, London N17 9RP (Tottenham Hale) | Unit 10 3 Navigation Road, London N17 9RP (Tottenham Hale) | 'Unit 10 3 Navigation Road' not in approved neighborhoods list |
+| 25 | BookBar | Location | CRITICAL | location | Highbury & Islington + Chelsea (multiple sites) | Highbury | Contains compound delimiter (& or /) |
+| 25 | BookBar | Location | CRITICAL | location | Highbury & Islington + Chelsea (multiple sites) | Highbury & Islington + Chelsea (multiple sites) | 'Highbury & Islington + Chelsea' not in approved neighborhoods list |
+| 27 | BrewDog Outpost Tower Hill â€“ Beer School | Location | CRITICAL | location | Tower Hill (EC3) | Tower Hill (EC3) | 'Tower Hill' not in approved neighborhoods list |
+| 28 | Brompton Bats â€“ Twilight Bat Survey Walk | Location | CRITICAL | location | Brompton Cemetery (North Lodge Information Centre), Kensington | Brompton Cemetery (North Lodge Information Centre), Kensington | 'Brompton Cemetery' not in approved neighborhoods list |
+| 29 | Brutalist Tour â€“ Evening Architectural Walk (Architectour Guide) | Location | CRITICAL | location | Starts at the National Theatre, South Bank and ends near South Hampstead | Starts at the National Theatre, South Bank and ends near South Hampstead | 'Starts at the National Theatre' not in approved neighborhoods list |
+| 33 | Camden Art Centre â€“ Natural Dyes Workshop | Location | CRITICAL | location | 271 Dale Avenue, London NW3 6DG | 271 Dale Avenue, London NW3 6DG | '271 Dale Avenue' not in approved neighborhoods list |
+| 37 | Chickenshed Theatre | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 37 | Chickenshed Theatre | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 42 | Colour Factory | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 42 | Colour Factory | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 49 | Dice & Destiny Board Game Café | Location | CRITICAL | location | Canterbury (note: not London) | Canterbury (note: not London) | 'Canterbury' not in approved neighborhoods list |
+| 50 | Dino Snores for Grown Ups â€“ Natural History Museum Sleepover | Location | CRITICAL | location | Natural History Museum, Cromwell Road, South Kensington | Natural History Museum, Cromwell Road, South Kensington | 'Natural History Museum' not in approved neighborhoods list |
+| 51 | Draughts – Board Game Café | Location | CRITICAL | location | Waterloo & Hackney | Waterloo | Contains compound delimiter (& or /) |
+| 51 | Draughts – Board Game Café | Location | CRITICAL | location | Waterloo & Hackney | Waterloo & Hackney | 'Waterloo & Hackney' not in approved neighborhoods list |
+| 52 | Dusty Knuckle Bakery â€“ Fermentation Workshop | Location | CRITICAL | location | The Dusty Knuckle School, Dalston (E8) | The Dusty Knuckle School, Dalston (E8) | 'The Dusty Knuckle School' not in approved neighborhoods list |
+| 54 | East London Strippers Collective Life Drawing | Location | CRITICAL | location | The Crown & Shuttle, Shoreditch (East London) | The Crown | Contains compound delimiter (& or /) |
+| 54 | East London Strippers Collective Life Drawing | Location | CRITICAL | location | The Crown & Shuttle, Shoreditch (East London) | The Crown & Shuttle, Shoreditch (East London) | 'The Crown & Shuttle' not in approved neighborhoods list |
+| 55 | Eco-Somatic Movement Workshops – Katsura Isobe | Location | CRITICAL | location | Chisenhale Dance Space, East London | Chisenhale Dance Space | Contains borough/area format |
+| 55 | Eco-Somatic Movement Workshops – Katsura Isobe | Location | CRITICAL | location | Chisenhale Dance Space, East London | Chisenhale Dance Space, East London | 'Chisenhale Dance Space' not in approved neighborhoods list |
+| 56 | Ecstatic Dance London â€“ The Ritual | Location | CRITICAL | location | Various London venues (often community halls and studios) | Various London venues (often community halls and studios) | 'Various London venues' not in approved neighborhoods list |
+| 57 | Ecstatic Dance UK â€“ Sunday Sessions | Location | CRITICAL | location | The Baths, 80 Eastway, Hackney Wick E9 5JH | The Baths, 80 Eastway, Hackney Wick E9 5JH | 'The Baths' not in approved neighborhoods list |
+| 60 | Forage London â€“ Wild Food & Nature Walk (Tower Hamlets Cemetery Park) | Location | CRITICAL | location | Tower Hamlets Cemetery Park, Mile End (meet at Soanes Centre) | Tower Hamlets Cemetery Park, Mile End (meet at Soanes Centre) | 'Tower Hamlets Cemetery Park' not in approved neighborhoods list |
+| 61 | Forage London â€” Wild Food and Nature Walk (E3) | Location | CRITICAL | location | Tower Hamlets Cemetery Park, Mile End (E3) | Tower Hamlets Cemetery Park, Mile End (E3) | 'Tower Hamlets Cemetery Park' not in approved neighborhoods list |
+| 62 | Four Quarters | Location | CRITICAL | location | Peckham, Hackney Wick, and Elephant & Castle | Peckham, Hackney Wick, and Elephant | Contains compound delimiter (& or /) |
+| 64 | Freeweaver Studio | Location | CRITICAL | location | Cordwainers Pop-Up, London Fields (E8) | Cordwainers Pop-Up, London Fields (E8) | 'Cordwainers Pop-Up' not in approved neighborhoods list |
+| 65 | Friends of Nunhead Cemetery â€“ Guided Tours & Bat Sighting Walks | Location | CRITICAL | location | Nunhead Cemetery, Linden Grove (south London) | Nunhead Cemetery, Linden Grove (south London) | 'Nunhead Cemetery' not in approved neighborhoods list |
+| 67 | Gather Glass â€“ Glassblowing Classes | Location | CRITICAL | location | Unit 4, Submarine Cable Depot, Warspite Road, Woolwich (SE18 5NX) | Unit 4, Submarine Cable Depot, Warspite Road, Woolwich (SE18 5NX) | 'Unit 4' not in approved neighborhoods list |
+| 70 | Ghosts of the Old City â€“ Eldritch, Tenebrous London (London Walks) | Location | CRITICAL | location | meets outside St Paulâ€™s Tube station, City of London | meets outside St Paulâ€™s Tube station, City of London | 'meets outside St Paulâ€™s Tube station' not in approved neighborhoods list |
+| 71 | Gia Como â€“ Bespoke Candle Making Workshop | Location | CRITICAL | location | 128 Shoreditch High Street, Shoreditch (E1 6JE) | 128 Shoreditch High Street, Shoreditch (E1 6JE) | '128 Shoreditch High Street' not in approved neighborhoods list |
+| 72 | Graeae Theatre Company | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 72 | Graeae Theatre Company | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 73 | Grand Junction Arms | Location | CRITICAL | location | North West London | North West London | 'North West London' not in approved neighborhoods list |
+| 74 | Grimoire Crafting with Hallowed Hollow | Location | CRITICAL | location | Studio in South East London (private venue) | Studio in South East London | Contains borough/area format |
+| 74 | Grimoire Crafting with Hallowed Hollow | Location | CRITICAL | location | Studio in South East London (private venue) | Studio in South East London (private venue) | 'Studio in South East London' not in approved neighborhoods list |
+| 75 | Grove Farm Bat Walk â€“ Ealing Wildlife Group | Location | CRITICAL | location | Grove Farm Nature Reserve, Sudbury Hill (meeting point outside Sudbury Hill Tube) | Grove Farm Nature Reserve, Sudbury Hill (meeting point outside Sudbury Hill Tube) | 'Grove Farm Nature Reserve' not in approved neighborhoods list |
+| 77 | Hackney Herbal â€“ Herbal Wellbeing Masterclasses & Remedies Workshops | Location | CRITICAL | location | Unit 16, Celia Fiennes House, 8â€“20 Well Street, Hackney (E9 7PX) | Unit 16, Celia Fiennes House, 8â€“20 Well Street, Hackney (E9 7PX) | 'Unit 16' not in approved neighborhoods list |
+| 78 | Half Moon Theatre | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 78 | Half Moon Theatre | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 79 | Hampstead Observatory Public Nights | Location | CRITICAL | location | Hampstead Heath (lower entrance near Whitestone Pond), NW3 | Hampstead Heath (lower entrance near Whitestone Pond), NW3 | 'Hampstead Heath' not in approved neighborhoods list |
+| 80 | Heaven | Location | CRITICAL | location | Charing Cross | Charing Cross | 'Charing Cross' not in approved neighborhoods list |
+| 82 | Hidden London Tours â€“ London Transport Museum | Location | CRITICAL | location | Disused Underground stations (Aldwych, Charing Cross, Clapham South, Baker Street etc.) | Disused Underground stations (Aldwych, Charing Cross, Clapham South, Baker Street etc.) | 'Disused Underground stations' not in approved neighborhoods list |
+| 83 | Highgate Cemetery After-Hours Tour (SAVE Britainâ€™s Heritage) | Location | CRITICAL | location | Highgate Cemetery, West Side (meet at main gate) | Highgate Cemetery, West Side (meet at main gate) | 'Highgate Cemetery' not in approved neighborhoods list |
+| 84 | Hiver Beers â€” Cider Making Workshop | Location | CRITICAL | location | Hiver Taproom, Bermondsey (SE1) | Hiver Taproom, Bermondsey (SE1) | 'Hiver Taproom' not in approved neighborhoods list |
+| 85 | Holotropic Breathwork – Experiential Weekend | Location | CRITICAL | location | Colet House, West London | Colet House | Contains borough/area format |
+| 85 | Holotropic Breathwork – Experiential Weekend | Location | CRITICAL | location | Colet House, West London | Colet House, West London | 'Colet House' not in approved neighborhoods list |
+| 86 | Hootananny Brixton | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 86 | Hootananny Brixton | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 87 | Horniman Museum and Gardens | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 87 | Horniman Museum and Gardens | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 88 | House of Burlesque Academy | Location | CRITICAL | location | Classes at Pineapple Dance Studios in Covent Garden and workshops across London | Classes at Pineapple Dance Studios in Covent Garden and workshops across London | 'Classes at Pineapple Dance Studios in Covent Garden and workshops across London' not in approved neighborhoods list |
+| 89 | Hundred Years Gallery | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 89 | Hundred Years Gallery | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 91 | Institute of Making (UCL) â€“ Papermaking Course | Location | CRITICAL | location | UCL East Marshgate Building, Stratford | UCL East Marshgate Building, Stratford | 'UCL East Marshgate Building' not in approved neighborhoods list |
+| 95 | Kanpai London â€” Sake Tasting & DIY Sake Brewing | Location | CRITICAL | location | Taproom & brewery under railway arches, Peckham (SE15) | Taproom | Contains compound delimiter (& or /) |
+| 95 | Kanpai London â€” Sake Tasting & DIY Sake Brewing | Location | CRITICAL | location | Taproom & brewery under railway arches, Peckham (SE15) | Taproom & brewery under railway arches, Peckham (SE15) | 'Taproom & brewery under railway arches' not in approved neighborhoods list |
+| 96 | Kelechnekoff Pole Dance Studio | Location | CRITICAL | location | 161 Sumner Road, Peckham SE15 6JL | 161 Sumner Road, Peckham SE15 6JL | '161 Sumner Road' not in approved neighborhoods list |
+| 98 | Kitchen Witchery at Made in Hackney | Location | CRITICAL | location | Made in Hackney, 3-7 Lower Clapton Rd, London E5 0NS | Made in Hackney, 3-7 Lower Clapton Rd, London E5 0NS | 'Made in Hackney' not in approved neighborhoods list |
+| 100 | Liminal 11 â€“ Tarot & Mysticism Events | Location | CRITICAL | location | Various venues across London | Various venues across London | 'Various venues across London' not in approved neighborhoods list |
+| 102 | London Calligraphy | Location | CRITICAL | location | Various venues across London (often central hotels and studios) | Various venues across London (often central hotels and studios) | 'Various venues across London' not in approved neighborhoods list |
+| 103 | London Centre for Book Arts (LCBA) | Location | CRITICAL | location | Unit 18, Ground Floor, Britannia Works, Dace Road, Fish Island, E3 2NQ | Unit 18, Ground Floor, Britannia Works, Dace Road, Fish Island, E3 2NQ | 'Unit 18' not in approved neighborhoods list |
+| 104 | London Cheese Board â€“ Cheese & Wine Pairing Evenings | Location | CRITICAL | location | Elephant & Castle (SE1) | Elephant | Contains compound delimiter (& or /) |
+| 105 | London Night Photography Tour â€“ London Streets Photography | Location | CRITICAL | location | Central London landmarks (meeting point arranged with guide) | Central London landmarks (meeting point arranged with guide) | 'Central London landmarks' not in approved neighborhoods list |
+| 106 | London Smoke & Cure â€” Salami Sessions | Location | CRITICAL | location | Smoke School Studio, Bermondsey (SE16) | Smoke School Studio, Bermondsey (SE16) | 'Smoke School Studio' not in approved neighborhoods list |
+| 107 | Love & Loss – Grief Tending Rituals | Location | CRITICAL | location | Various London locations | Various London locations | 'Various London locations' not in approved neighborhoods list |
+| 108 | Luna London â€“ Full Moon Gatherings & Workshops | Location | CRITICAL | location | Hackney & East London venues (varies) | Hackney | Contains compound delimiter (& or /) |
+| 108 | Luna London â€“ Full Moon Gatherings & Workshops | Location | CRITICAL | location | Hackney & East London venues (varies) | Hackney & East London venues (varies) | 'Hackney & East London venues' not in approved neighborhoods list |
+| 110 | Mash Paddle Brewery â€” Brew Your Own Beer | Location | CRITICAL | location | Bermondsey Beer Mile (SE1) | Bermondsey Beer Mile (SE1) | 'Bermondsey Beer Mile' not in approved neighborhoods list |
+| 112 | Miller’s Way Project – Pay It Forward Sound Therapy | Location | CRITICAL | location | Shepherd’s Bush, West London | Shepherd’s Bush | Contains borough/area format |
+| 112 | Miller’s Way Project – Pay It Forward Sound Therapy | Location | CRITICAL | location | Shepherd’s Bush, West London | Shepherd’s Bush, West London | 'Shepherd’s Bush' not in approved neighborhoods list |
+| 114 | Mysteries of the Tarot with Richard Abbot | Location | CRITICAL | location | Various venues (often Camden or online) | Various venues (often Camden or online) | 'Various venues' not in approved neighborhoods list |
+| 115 | Neon Naked Life Drawing | Location | CRITICAL | location | Multiple venues across London (e.g. The Queenâ€™s Head, The Book Club, Peckham Levels) | Multiple venues across London (e.g. The Queenâ€™s Head, The Book Club, Peckham Levels) | 'Multiple venues across London' not in approved neighborhoods list |
+| 116 | New River Studios | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 116 | New River Studios | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 117 | Night Street Art Photography Workshop â€“ Shoreditch Street Art Tours | Location | CRITICAL | location | Shoreditch, East London (various street-art locations) | Shoreditch | Contains borough/area format |
+| 118 | Old Bexley Soap & Candle Co. â€“ Candle & Soap Courses | Location | CRITICAL | location | Instituto Cervantes, 15â€‘19 Devereux Court, The Strand (WC2R 3JJ) | Instituto Cervantes, 15â€‘19 Devereux Court, The Strand (WC2R 3JJ) | 'Instituto Cervantes' not in approved neighborhoods list |
+| 119 | Orange Tree Theatre | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 119 | Orange Tree Theatre | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 123 | Phantom Peak | Location | CRITICAL | location | Canada Water | Canada Water | 'Canada Water' not in approved neighborhoods list |
+| 124 | Phoenix Cinema | Location | CRITICAL | location | East Finchley | East Finchley | 'East Finchley' not in approved neighborhoods list |
+| 125 | Phonox | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 125 | Phonox | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 128 | Poetry CafÃ© | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 128 | Poetry CafÃ© | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 129 | Pole Mission Dance Studio | Location | CRITICAL | location | First Floor, 80a Dean Street, Soho W1D 3SL | First Floor, 80a Dean Street, Soho W1D 3SL | 'First Floor' not in approved neighborhoods list |
+| 131 | Print Club London | Location | CRITICAL | location | 10â€“28 Clement Road, Hackney (E9 5EU) | 10â€“28 Clement Road, Hackney (E9 5EU) | '10â€“28 Clement Road' not in approved neighborhoods list |
+| 134 | Rick Nodine Contact Improvisation Classes & Jam | Location | CRITICAL | location | Acland Burghley School Sports Centre, Tufnell Park (North London) | Acland Burghley School Sports Centre, Tufnell Park (North London) | 'Acland Burghley School Sports Centre' not in approved neighborhoods list |
+| 137 | Rose Theatre | Location | CRITICAL | location | Kingston | Kingston | 'Kingston' not in approved neighborhoods list |
+| 137 | Rose Theatre | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 137 | Rose Theatre | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 139 | Royal Docks Swim Series (RDSS) Evening Swim | Location | CRITICAL | location | Love Open Water London Royal Docks, Dock Road, E16 1AH | Love Open Water London Royal Docks, Dock Road, E16 1AH | 'Love Open Water London Royal Docks' not in approved neighborhoods list |
+| 140 | Rule Zero | Location | CRITICAL | location | Stratford & Hackney Wick | Stratford | Contains compound delimiter (& or /) |
+| 140 | Rule Zero | Location | CRITICAL | location | Stratford & Hackney Wick | Stratford & Hackney Wick | 'Stratford & Hackney Wick' not in approved neighborhoods list |
+| 141 | Sacred Geometry & Alchemy with Golden Light | Location | CRITICAL | location | The Light Centre, Moorgate, London EC2Y 5EB | The Light Centre, Moorgate, London EC2Y 5EB | 'The Light Centre' not in approved neighborhoods list |
+| 142 | Sadler's Wells | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 142 | Sadler's Wells | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 143 | Sanctuary Singing Circle | Location | CRITICAL | location | King’s Cross, London | King’s Cross, London | 'King’s Cross' not in approved neighborhoods list |
+| 144 | Sandrine Bettinelli â€“ 'Embrace the Journey' Tantra Workshop | Location | CRITICAL | location | Anatomie Studio, arch 113, Unit 17 Station Passage, Peckham SE15 2JR | Anatomie Studio, arch 113, Unit 17 Station Passage, Peckham SE15 2JR | 'Anatomie Studio' not in approved neighborhoods list |
+| 147 | She's Lost Control â€“ Ritual & Spiritual Workshops | Location | CRITICAL | location | 42 Valentine Road, London E9 7AD | 42 Valentine Road, London E9 7AD | '42 Valentine Road' not in approved neighborhoods list |
+| 149 | Siobhan Davies Studios | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 149 | Siobhan Davies Studios | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 151 | Social Pottery â€“ Hand-Build & Decorate Ceramics Workshop | Location | CRITICAL | location | 221â€“223 Royal College Street, Camden Town (NW1 9LT) | 221â€“223 Royal College Street, Camden Town (NW1 9LT) | '221â€“223 Royal College Street' not in approved neighborhoods list |
+| 153 | Sole2Soul – Open Floor Movement & Embodied Voice | Location | CRITICAL | location | Various London venues (Creating Connexions) | Various London venues (Creating Connexions) | 'Various London venues' not in approved neighborhoods list |
+| 154 | Sonsoles Print Studio | Location | CRITICAL | location | Unit 4, Ground Floor, 133 Copeland Road, Peckham (SE15 3SN) | Unit 4, Ground Floor, 133 Copeland Road, Peckham (SE15 3SN) | 'Unit 4' not in approved neighborhoods list |
+| 155 | South London Gallery | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 155 | South London Gallery | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 157 | Spiritland | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 157 | Spiritland | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 160 | Stanley Arts | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 160 | Stanley Arts | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 162 | Studio KÃ¼hÃ¼ | Location | CRITICAL | location | East London (exact address shared upon booking) | East London | Contains borough/area format |
+| 162 | Studio KÃ¼hÃ¼ | Location | CRITICAL | location | East London (exact address shared upon booking) | East London (exact address shared upon booking) | 'East London' not in approved neighborhoods list |
+| 163 | Studio Pottery London â€“ Hand-Building Pottery Course | Location | CRITICAL | location | 29 Eccleston Place, Victoria (SW1W 9NF) | 29 Eccleston Place, Victoria (SW1W 9NF) | '29 Eccleston Place' not in approved neighborhoods list |
+| 165 | Tara Theatre | Location | CRITICAL | location | Earlsfield | Earlsfield | 'Earlsfield' not in approved neighborhoods list |
+| 165 | Tara Theatre | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 165 | Tara Theatre | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 166 | Tea & Tasseomancy â€“ Divination by the Cup | Location | CRITICAL | location | Rotating venues (often East London cafes) | Rotating venues (often East London cafes) | 'Rotating venues' not in approved neighborhoods list |
+| 169 | The Betsey Trotwood | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 169 | The Betsey Trotwood | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 173 | The College of Psychic Studies â€“ Esoteric Courses | Location | CRITICAL | location | 16 Queensberry Place, South Kensington, London SW7 2EB | 16 Queensberry Place, South Kensington, London SW7 2EB | '16 Queensberry Place' not in approved neighborhoods list |
+| 174 | The Fermentarium (Festive Lactic Fermentation Workshop) | Location | CRITICAL | location | Hornbeam CafÃ©, Walthamstow (E17) | Hornbeam CafÃ©, Walthamstow (E17) | 'Hornbeam CafÃ©' not in approved neighborhoods list |
+| 175 | The Fermentarium (Kimchi Masterclass) | Location | CRITICAL | location | Hornbeam CafÃ©, Walthamstow (E17) | Hornbeam CafÃ©, Walthamstow (E17) | 'Hornbeam CafÃ©' not in approved neighborhoods list |
+| 177 | The Ginger Pig â€” Sausage Making Class | Location | CRITICAL | location | Borough Market (SE1) | Borough Market (SE1) | 'Borough Market' not in approved neighborhoods list |
+| 181 | The Last Tuesday Society â€” Scrying Workshop with Lucya Starza | Location | CRITICAL | location | Viktor Wynd's Museum of Curiosities, 11 Mare Street, Hackney | Viktor Wynd's Museum of Curiosities, 11 Mare Street, Hackney | 'Viktor Wynd's Museum of Curiosities' not in approved neighborhoods list |
+| 182 | The Last Tuesday Society â€” Wicked Wednesdays: Tarot Readings with Tobias | Location | CRITICAL | location | The Absinthe Parlour, 11 Mare Street, Hackney | The Absinthe Parlour, 11 Mare Street, Hackney | 'The Absinthe Parlour' not in approved neighborhoods list |
+| 183 | The Lexi Cinema | Location | CRITICAL | location | Kensal Rise | Kensal Rise | 'Kensal Rise' not in approved neighborhoods list |
+| 184 | The Lexington | Location | CRITICAL | location | Angel / King's Cross (Islington) | Angel | Contains compound delimiter (& or /) |
+| 184 | The Lexington | Location | CRITICAL | location | Angel / King's Cross (Islington) | Angel / King's Cross (Islington) | 'Angel / King's Cross' not in approved neighborhoods list |
+| 185 | The London Leather Workshop | Location | CRITICAL | location | Woolwich Dockyard, SE18 5NR (Southâ€‘east London) | Woolwich Dockyard, SE18 5NR (Southâ€‘east London) | 'Woolwich Dockyard' not in approved neighborhoods list |
+| 186 | The London Loom | Location | CRITICAL | location | Hackney Downs Studios, 17 Amhurst Terrace, Hackney (E8 2BT) | Hackney Downs Studios, 17 Amhurst Terrace, Hackney (E8 2BT) | 'Hackney Downs Studios' not in approved neighborhoods list |
+| 195 | The Space | Location | CRITICAL | location | Isle of Dogs | Isle of Dogs | 'Isle of Dogs' not in approved neighborhoods list |
+| 199 | Therapeutic Yoga Community Group – Jane O’Rourke | Location | CRITICAL | location | Down to Earth Yoga, N19 | Down to Earth Yoga, N19 | 'Down to Earth Yoga' not in approved neighborhoods list |
+| 202 | Treadwellâ€™s Bookshop â€“ Witchcraft Classes | Location | CRITICAL | location | 33 Store Street, Fitzrovia, London WC1E 7BS | 33 Store Street, Fitzrovia, London WC1E 7BS | '33 Store Street' not in approved neighborhoods list |
+| 203 | TT London â€“ Whisky Tasting Experience | Location | CRITICAL | location | Studios in North London (N7) | Studios in North London | Contains borough/area format |
+| 203 | TT London â€“ Whisky Tasting Experience | Location | CRITICAL | location | Studios in North London (N7) | Studios in North London (N7) | 'Studios in North London' not in approved neighborhoods list |
+| 204 | Turner & George â€” Beef Butchery Class | Location | CRITICAL | location | Turner & George Butcher Shop, Clerkenwell (EC1) | Turner | Contains compound delimiter (& or /) |
+| 204 | Turner & George â€” Beef Butchery Class | Location | CRITICAL | location | Turner & George Butcher Shop, Clerkenwell (EC1) | Turner & George Butcher Shop, Clerkenwell (EC1) | 'Turner & George Butcher Shop' not in approved neighborhoods list |
+| 205 | Umbrella Workshop â€“ Irish Whiskey Tasting | Location | CRITICAL | location | The Umbrella Workshop, Shoreditch (E2) | The Umbrella Workshop, Shoreditch (E2) | 'The Umbrella Workshop' not in approved neighborhoods list |
+| 207 | Viktor Wynd Museum | Blurb | CRITICAL | blurb | ... | Expand or condense to 50-120 words | Blurb is missing |
+| 207 | Viktor Wynd Museum | Required Fields | CRITICAL | multiple | N/A | Add missing required fields | Missing: blurb |
+| 210 | We Make Books | Location | CRITICAL | location | V22 Studio, 3â€“9 Belfast Road, Stoke Newington (N16 6UN) | V22 Studio, 3â€“9 Belfast Road, Stoke Newington (N16 6UN) | 'V22 Studio' not in approved neighborhoods list |
+| 211 | Wheel of Consent Weekend Workshop | Location | CRITICAL | location | Private studio in London (exact location shared with participants upon booking) | Private studio in London (exact location shared with participants upon booking) | 'Private studio in London' not in approved neighborhoods list |
+| 212 | Wild Food UK â€“ Foraging Courses | Location | CRITICAL | location | Hampstead Heath (various locations) | Hampstead Heath (various locations) | 'Hampstead Heath' not in approved neighborhoods list |
+| 214 | Witchy Women â€“ Candle Magic & Spellwork Classes | Location | CRITICAL | location | Studio in Hackney Wick (exact location shared upon booking) | Studio in Hackney Wick (exact location shared upon booking) | 'Studio in Hackney Wick' not in approved neighborhoods list |
+| 215 | Wonders of the Dark Sky â€“ Woodoaks Farm Stargazing | Location | CRITICAL | location | Woodoaks Farm, Maple Cross, Hertfordshire (north-west Greater London) | Woodoaks Farm, Maple Cross, Hertfordshire (north-west Greater London) | 'Woodoaks Farm' not in approved neighborhoods list |
+| 218 | Corsica Studios | Location | CRITICAL | location | Elephant & Castle | Elephant | Contains compound delimiter (& or /) |
+| 239 | Club Are | Location | CRITICAL | location | East London | East London | 'East London' not in approved neighborhoods list |
+| 240 | Club Stamina | Location | CRITICAL | location | Various London | Various London | 'Various London' not in approved neighborhoods list |
+| 241 | MAS ARTS | Location | CRITICAL | location | Pop-up locations | Pop-up locations | 'Pop-up locations' not in approved neighborhoods list |
+| 242 | 2C Perrea | Location | CRITICAL | location | East/South London | East/South London | 'East/South London' not in approved neighborhoods list |
+| 243 | Eastern Margins | Location | CRITICAL | location | Pop-up venues | Pop-up venues | 'Pop-up venues' not in approved neighborhoods list |
+| 244 | Tech Couture LDN | Location | CRITICAL | location | FOLD, Canning Town | FOLD, Canning Town | 'FOLD' not in approved neighborhoods list |
+| 245 | Opia | Location | CRITICAL | location | East London | East London | 'East London' not in approved neighborhoods list |
+| 246 | Queer House Party | Location | CRITICAL | location | Hackney Bridge | Hackney Bridge | 'Hackney Bridge' not in approved neighborhoods list |
+| 247 | Ceilidh Liberation Front | Location | CRITICAL | location | Grand Junction & various | Grand Junction | Contains compound delimiter (& or /) |
+| 247 | Ceilidh Liberation Front | Location | CRITICAL | location | Grand Junction & various | Grand Junction & various | 'Grand Junction & various' not in approved neighborhoods list |
+| 248 | Bootylicious | Location | CRITICAL | location | Union & Scala | Union | Contains compound delimiter (& or /) |
+| 248 | Bootylicious | Location | CRITICAL | location | Union & Scala | Union & Scala | 'Union & Scala' not in approved neighborhoods list |
+| 249 | Slimelight | Location | CRITICAL | location | Electrowerkz, Islington | Electrowerkz, Islington | 'Electrowerkz' not in approved neighborhoods list |
+| 250 | Dark Scene London | Location | CRITICAL | location | Omeara, London Bridge | Omeara, London Bridge | 'Omeara' not in approved neighborhoods list |
+| 251 | Sanura Dance | Location | CRITICAL | location | Studio 68 & The Castle | Studio 68 | Contains compound delimiter (& or /) |
+| 251 | Sanura Dance | Location | CRITICAL | location | Studio 68 & The Castle | Studio 68 & The Castle | 'Studio 68 & The Castle' not in approved neighborhoods list |
+| 252 | DTMF! (Don't Touch My Fro!) | Location | CRITICAL | location | MOT Unit, South London | MOT Unit | Contains borough/area format |
+| 252 | DTMF! (Don't Touch My Fro!) | Location | CRITICAL | location | MOT Unit, South London | MOT Unit, South London | 'MOT Unit' not in approved neighborhoods list |
+| 253 | Boudica | Location | CRITICAL | location | FOLD, Canning Town | FOLD, Canning Town | 'FOLD' not in approved neighborhoods list |
+| 255 | Pink Singers | Location | CRITICAL | location | Central London (various rehearsal and concert spaces) | Central London | Contains borough/area format |
+| 255 | Pink Singers | Location | CRITICAL | location | Central London (various rehearsal and concert spaces) | Central London (various rehearsal and concert spaces) | 'Central London' not in approved neighborhoods list |
+| 256 | London Sacred Harp | Location | CRITICAL | location | Various churches and halls across London (often Hampstead and central) | Various churches and halls across London (often Hampstead and central) | 'Various churches and halls across London' not in approved neighborhoods list |
+| 257 | Chickenshed Community Choir | Location | CRITICAL | location | Chickenshed Theatre and Christ the King, North London | Chickenshed Theatre and Christ the King | Contains borough/area format |
+| 257 | Chickenshed Community Choir | Location | CRITICAL | location | Chickenshed Theatre and Christ the King, North London | Chickenshed Theatre and Christ the King, North London | 'Chickenshed Theatre and Christ the King' not in approved neighborhoods list |
+| 259 | Heart Song Collective CIC | Location | CRITICAL | location | South East London (various cosy spaces) | South East London | Contains borough/area format |
+| 259 | Heart Song Collective CIC | Location | CRITICAL | location | South East London (various cosy spaces) | South East London (various cosy spaces) | 'South East London' not in approved neighborhoods list |
+| 260 | F*Choir | Location | CRITICAL | location | London (roaming across arts and community spaces) | London (roaming across arts and community spaces) | 'London' not in approved neighborhoods list |
+| 261 | Sing For Freedom Choir | Location | CRITICAL | location | Central London | Central London | 'Central London' not in approved neighborhoods list |
+| 262 | London City Voices | Location | CRITICAL | location | Multiple locations across central London and online | Multiple locations across central London and online | 'Multiple locations across central London and online' not in approved neighborhoods list |
+| 264 | Outer Circle Voice Circle | Location | CRITICAL | location | SET Social, Peckham | SET Social, Peckham | 'SET Social' not in approved neighborhoods list |
+| 265 | Catford Community Choir | Location | CRITICAL | location | Corbett Community Library, Catford | Corbett Community Library, Catford | 'Corbett Community Library' not in approved neighborhoods list |
+| 270 | Devise & Conquer – Scratch Night & Cabaret | Location | CRITICAL | location | Dalston / Stoke Newington Road (The Divine) | Dalston | Contains compound delimiter (& or /) |
+| 270 | Devise & Conquer – Scratch Night & Cabaret | Location | CRITICAL | location | Dalston / Stoke Newington Road (The Divine) | Dalston / Stoke Newington Road (The Divine) | 'Dalston / Stoke Newington Road' not in approved neighborhoods list |
+| 277 | The London Library | Location | CRITICAL | location | St James's, Central London | St James's | Contains borough/area format |
+| 278 | British Library (Late Reading Rooms) | Location | CRITICAL | location | King's Cross / St Pancras | King's Cross | Contains compound delimiter (& or /) |
+| 278 | British Library (Late Reading Rooms) | Location | CRITICAL | location | King's Cross / St Pancras | King's Cross / St Pancras | 'King's Cross / St Pancras' not in approved neighborhoods list |
+| 282 | Bàrd Books | Location | CRITICAL | location | Roman Road, Bow | Roman Road, Bow | 'Roman Road' not in approved neighborhoods list |
+| 283 | Second Home Spitalfields | Location | CRITICAL | location | Spitalfields, E1 | Spitalfields, E1 | 'Spitalfields' not in approved neighborhoods list |
+| 285 | Polo Bar – 24 Hour Great British Café & Bar | Location | CRITICAL | location | Opposite Liverpool Street Station | Opposite Liverpool Street Station | 'Opposite Liverpool Street Station' not in approved neighborhoods list |
+| 286 | Costa at St Pancras – Station Study Watchpost | Location | CRITICAL | location | St Pancras International, King's Cross | St Pancras International, King's Cross | 'St Pancras International' not in approved neighborhoods list |
+| 287 | Embracing Grief – London Grief Tending Circles | Location | CRITICAL | location | Hackney (E5) / various London venues | Hackney (E5) | Contains compound delimiter (& or /) |
+| 288 | Old School Rooms @ Round Chapel – Communal Grief Rituals | Location | CRITICAL | location | Clapton / Hackney (E5) | Clapton | Contains compound delimiter (& or /) |
+| 288 | Old School Rooms @ Round Chapel – Communal Grief Rituals | Location | CRITICAL | location | Clapton / Hackney (E5) | Clapton / Hackney (E5) | 'Clapton / Hackney' not in approved neighborhoods list |
+| 289 | Bija Garden of Wellbeing – Grief Circles in the Garden | Location | CRITICAL | location | West Ealing (W13) | West Ealing (W13) | 'West Ealing' not in approved neighborhoods list |
+| 292 | Community Sauna Baths – Grief Sauna | Location | CRITICAL | location | Hackney Wick & Stratford (E9 / E20) | Hackney Wick | Contains compound delimiter (& or /) |
+| 292 | Community Sauna Baths – Grief Sauna | Location | CRITICAL | location | Hackney Wick & Stratford (E9 / E20) | Hackney Wick & Stratford (E9 / E20) | 'Hackney Wick & Stratford' not in approved neighborhoods list |
+| 294 | Grief Rave & Grief Moves – The Fandangoe Discoteca x The Loss Project | Location | CRITICAL | location | Touring (often Southbank Centre, SE1) | Touring (often Southbank Centre, SE1) | 'Touring' not in approved neighborhoods list |
+| 295 | Galleria Objets – "Your Grief Belongs To You, And Can Be So So Pretty" | Location | CRITICAL | location | East London (E1) | East London | Contains borough/area format |
+| 295 | Galleria Objets – "Your Grief Belongs To You, And Can Be So So Pretty" | Location | CRITICAL | location | East London (E1) | East London (E1) | 'East London' not in approved neighborhoods list |
+| 0 | 4160 Tuesdays â€“ Perfume Making with Sarah McCartney | Moods | IMPORTANT | moods | ['sensory', 'nostalgic'] | Review against approved mood list | Unapproved moods: sensory, nostalgic |
+| 0 | 4160 Tuesdays â€“ Perfume Making with Sarah McCartney | Genres | IMPORTANT | genres | ['perfume blending', 'fragrance design'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 0 | 4160 Tuesdays â€“ Perfume Making with Sarah McCartney | Blurb | IMPORTANT | blurb | In a scent-laced studio in Acton, the perfumer Sar... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 1 | 58 and Co â€” Gin School Experience | Moods | IMPORTANT | moods | ['craft & making', 'adult play', 'epicurean'] | Review against approved mood list | Unapproved moods: craft & making, adult play, epicurean |
+| 1 | 58 and Co â€” Gin School Experience | Genres | IMPORTANT | genres | ['gin distilling and tasting'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 2 | 5Rhythms 'FIVE London' Workshop | Moods | IMPORTANT | moods | ['fluid', 'transformative', 'meditative', 'expressive'] | Review against approved mood list | Unapproved moods: fluid, transformative, meditative, expressive |
+| 2 | 5Rhythms 'FIVE London' Workshop | Genres | IMPORTANT | genres | ['5Rhythms (flowing, staccato, chaos, lyrical, stillness)'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 2 | 5Rhythms 'FIVE London' Workshop | Blurb | IMPORTANT | blurb | Three days. Five rhythms. One unfolding wave. In t... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 3 | 5Rhythms Dance – We Dance with Nikki Ashley | Moods | IMPORTANT | moods | ['fluid', 'transformative'] | Review against approved mood list | Unapproved moods: fluid, transformative |
+| 3 | 5Rhythms Dance – We Dance with Nikki Ashley | Genres | IMPORTANT | genres | ['5Rhythms', 'movement meditation'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 4 | Ace Cafe London | Moods | IMPORTANT | moods | ['rebellious', 'nostalgic'] | Review against approved mood list | Unapproved moods: rebellious, nostalgic |
+| 4 | Ace Cafe London | Genres | IMPORTANT | genres | ['rock n roll', 'live music'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 4 | Ace Cafe London | Blurb | IMPORTANT | blurb | The world's most famous motor cafÃ©, where petrol-... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 5 | ActOne Cinema | Moods | IMPORTANT | moods | ['thoughtful', 'nostalgic'] | Review against approved mood list | Unapproved moods: thoughtful, nostalgic |
+| 5 | ActOne Cinema | Genres | IMPORTANT | genres | ['independent film', 'mainstream'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 5 | ActOne Cinema | Blurb | IMPORTANT | blurb | A community-run cinema in a former library, co-run... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 6 | After-Work Foraging Sessions â€“ Charlotte Gordon Urban Forager | Moods | IMPORTANT | moods | ['curious', 'wild', 'urban explorer'] | Review against approved mood list | Unapproved moods: curious, wild, urban explorer |
+| 6 | After-Work Foraging Sessions â€“ Charlotte Gordon Urban Forager | Genres | IMPORTANT | genres | ['foraging', 'plant identification'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 7 | Akila Pole Studio | Moods | IMPORTANT | moods | ['empowering', 'community-focused', 'expressive'] | Review against approved mood list | Unapproved moods: empowering, community-focused, expressive |
+| 7 | Akila Pole Studio | Blurb | IMPORTANT | blurb | In Brixtonâ€™s warm-lit studio, poles become partn... | Expand or condense to 50-120 words | Only 48 words (need 50-120) |
+| 8 | Arcadia Games | Moods | IMPORTANT | moods | ['collaborative', 'story-rich', 'inclusive'] | Review against approved mood list | Unapproved moods: collaborative, story-rich, inclusive |
+| 9 | Art Play London â€“ Paper-Making Craft Class | Moods | IMPORTANT | moods | ['craft & making', 'nostalgic'] | Review against approved mood list | Unapproved moods: craft & making, nostalgic |
+| 9 | Art Play London â€“ Paper-Making Craft Class | Blurb | IMPORTANT | blurb | At Art Play London, torn pages and yesterdayâ€™s s... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 10 | ArtHouse Crouch End | Moods | IMPORTANT | moods | ['curious', 'playful'] | Review against approved mood list | Unapproved moods: curious, playful |
+| 10 | ArtHouse Crouch End | Blurb | IMPORTANT | blurb | A former Salvation Army hall mixing film, fine art... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 11 | artsdepot | Moods | IMPORTANT | moods | ['tender', 'curious'] | Review against approved mood list | Unapproved moods: tender, curious |
+| 12 | Asylum Chapel | Moods | IMPORTANT | moods | ['melancholy', 'candlelit', 'sacred'] | Review against approved mood list | Unapproved moods: melancholy, candlelit, sacred |
+| 13 | Authentic Movement Workshops – Katsura Isobe | Moods | IMPORTANT | moods | ['introspective', 'witnessed'] | Review against approved mood list | Unapproved moods: introspective, witnessed |
+| 13 | Authentic Movement Workshops – Katsura Isobe | Blurb | IMPORTANT | blurb | Held in sacred silence, these workshops are a devo... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 14 | Autograph | Moods | IMPORTANT | moods | ['activist', 'awe', 'global'] | Review against approved mood list | Unapproved moods: activist, awe, global |
+| 15 | Bad Moon Café | Moods | IMPORTANT | moods | ['tactical', 'nerdy', 'inclusive'] | Review against approved mood list | Unapproved moods: tactical, nerdy, inclusive |
+| 15 | Bad Moon Café | Blurb | IMPORTANT | blurb | Wargaming wonderlands carved from foam and fire — ... | Expand or condense to 50-120 words | Only 28 words (need 50-120) |
+| 16 | Battersea Arts Centre | Moods | IMPORTANT | moods | ['curious', 'playful'] | Review against approved mood list | Unapproved moods: curious, playful |
+| 16 | Battersea Arts Centre | Genres | IMPORTANT | genres | ['experimental theatre', 'boundary-pushing'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 16 | Battersea Arts Centre | Blurb | IMPORTANT | blurb | The go-to place for boundary-pushing theatre, harn... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 17 | BAW Dance | Moods | IMPORTANT | moods | ['playful', 'supportive', 'community-centred'] | Review against approved mood list | Unapproved moods: playful, supportive, community-centred |
+| 17 | BAW Dance | Blurb | IMPORTANT | blurb | In mirrored rooms across the city, hips sway and l... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 18 | Bernie Grant Arts Centre | Moods | IMPORTANT | moods | ['rebellious', 'ritual'] | Review against approved mood list | Unapproved moods: rebellious, ritual |
+| 18 | Bernie Grant Arts Centre | Blurb | IMPORTANT | blurb | A Black, female, and queer-led multi-artform venue... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 19 | Bethnal Green Working Men's Club | Moods | IMPORTANT | moods | ['rebellious', 'queer'] | Review against approved mood list | Unapproved moods: rebellious, queer |
+| 19 | Bethnal Green Working Men's Club | Blurb | IMPORTANT | blurb | An East End institution hosting wild, unhinged nig... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 20 | Bill Murray | Moods | IMPORTANT | moods | ['comic', 'playful'] | Review against approved mood list | Unapproved moods: comic, playful |
+| 20 | Bill Murray | Genres | IMPORTANT | genres | ['stand-up comedy'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 21 | Blue Elephant Theatre | Moods | IMPORTANT | moods | ['curious', 'playful', 'poetic'] | Review against approved mood list | Unapproved moods: curious, playful, poetic |
+| 21 | Blue Elephant Theatre | Blurb | IMPORTANT | blurb | A quirky oasis nurturing experimental work and eme... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 22 | Blythe Hill Tavern | Moods | IMPORTANT | moods | ['folk', 'tender'] | Review against approved mood list | Unapproved moods: folk, tender |
+| 22 | Blythe Hill Tavern | Genres | IMPORTANT | genres | ['Irish music', 'folk'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 22 | Blythe Hill Tavern | Blurb | IMPORTANT | blurb | A CAMRA award-winning Victorian corner pub where T... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 23 | Body Love Sketch Club | Moods | IMPORTANT | moods | ['gentle', 'celebratory', 'inclusive', 'playful'] | Review against approved mood list | Unapproved moods: gentle, celebratory, inclusive, playful |
+| 24 | Boneyard London â€“ Introduction to Blacksmithing | Moods | IMPORTANT | moods | ['rustic', 'adventurous'] | Review against approved mood list | Unapproved moods: rustic, adventurous |
+| 24 | Boneyard London â€“ Introduction to Blacksmithing | Genres | IMPORTANT | genres | ['introductory forging'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 25 | BookBar | Moods | IMPORTANT | moods | ['convivial', 'literary', 'sociable'] | Review against approved mood list | Unapproved moods: convivial, literary, sociable |
+| 26 | BrewBox London â€“ Home Brewing Workshop | Moods | IMPORTANT | moods | ['craft & making', 'curious', 'community'] | Review against approved mood list | Unapproved moods: craft & making, curious, community |
+| 26 | BrewBox London â€“ Home Brewing Workshop | Genres | IMPORTANT | genres | ['beer', 'homebrewing'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 27 | BrewDog Outpost Tower Hill â€“ Beer School | Moods | IMPORTANT | moods | ['epicurean', 'curious', 'adult play'] | Review against approved mood list | Unapproved moods: epicurean, curious, adult play |
+| 27 | BrewDog Outpost Tower Hill â€“ Beer School | Genres | IMPORTANT | genres | ['beer', 'craft brewing'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 28 | Brompton Bats â€“ Twilight Bat Survey Walk | Moods | IMPORTANT | moods | ['night wanderer', 'wild', 'curious'] | Review against approved mood list | Unapproved moods: night wanderer, wild, curious |
+| 28 | Brompton Bats â€“ Twilight Bat Survey Walk | Blurb | IMPORTANT | blurb | As dusk folds into the stone paths of Brompton Cem... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 29 | Brutalist Tour â€“ Evening Architectural Walk (Architectour Guide) | Moods | IMPORTANT | moods | ['urban explorer', 'curious', 'night wanderer'] | Review against approved mood list | Unapproved moods: urban explorer, curious, night wanderer |
+| 29 | Brutalist Tour â€“ Evening Architectural Walk (Architectour Guide) | Genres | IMPORTANT | genres | ['brutalist architecture walk'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 29 | Brutalist Tour â€“ Evening Architectural Walk (Architectour Guide) | Blurb | IMPORTANT | blurb | Concrete glows beneath amber streetlight on this m... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 30 | Bush Hall | Moods | IMPORTANT | moods | ['nostalgic', 'awe', 'ecstatic'] | Review against approved mood list | Unapproved moods: nostalgic, awe, ecstatic |
+| 30 | Bush Hall | Blurb | IMPORTANT | blurb | A restored Edwardian ballroom where chandeliers st... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 31 | Bush Theatre | Moods | IMPORTANT | moods | ['rant', 'salon'] | Review against approved mood list | Unapproved moods: rant, salon |
+| 31 | Bush Theatre | Genres | IMPORTANT | genres | ['new plays', 'emerging playwrights'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 31 | Bush Theatre | Blurb | IMPORTANT | blurb | An internationally renowned champion of playwright... | Expand or condense to 50-120 words | Only 16 words (need 50-120) |
+| 32 | Café OTO | Moods | IMPORTANT | moods | ['avant-garde', 'intimate', 'listening'] | Review against approved mood list | Unapproved moods: avant-garde, intimate, listening |
+| 33 | Camden Art Centre â€“ Natural Dyes Workshop | Moods | IMPORTANT | moods | ['craft & making', 'sustainable'] | Review against approved mood list | Unapproved moods: craft & making, sustainable |
+| 33 | Camden Art Centre â€“ Natural Dyes Workshop | Genres | IMPORTANT | genres | ['natural dyeing using kitchen waste', 'plant dye extraction'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 34 | Camden People's Theatre | Moods | IMPORTANT | moods | ['curious', 'rebellious'] | Review against approved mood list | Unapproved moods: curious, rebellious |
+| 34 | Camden People's Theatre | Genres | IMPORTANT | genres | ['contemporary performance', 'emerging artists'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 34 | Camden People's Theatre | Blurb | IMPORTANT | blurb | A small, independent venue championing emerging ar... | Expand or condense to 50-120 words | Only 16 words (need 50-120) |
+| 35 | Cecil Sharp House | Moods | IMPORTANT | moods | ['folk', 'tender'] | Review against approved mood list | Unapproved moods: folk, tender |
+| 35 | Cecil Sharp House | Genres | IMPORTANT | genres | ['folk music', 'folk dance'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 35 | Cecil Sharp House | Blurb | IMPORTANT | blurb | The world-class folk arts centre, home to the Engl... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 36 | Chats Palace | Moods | IMPORTANT | moods | ['inclusive', 'radical', 'celebratory'] | Review against approved mood list | Unapproved moods: inclusive, radical, celebratory |
+| 37 | Chickenshed Theatre | Moods | IMPORTANT | moods | ['activist', 'tender', 'community'] | Review against approved mood list | Unapproved moods: activist, tender, community |
+| 37 | Chickenshed Theatre | Genres | IMPORTANT | genres | ['inclusive theatre', 'community productions'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 38 | Circle of Trees – Environmental Arts Therapy UK | Moods | IMPORTANT | moods | ['ritual', 'wild'] | Review against approved mood list | Unapproved moods: ritual, wild |
+| 38 | Circle of Trees – Environmental Arts Therapy UK | Genres | IMPORTANT | genres | ['environmental arts therapy', 'nature connection'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 38 | Circle of Trees – Environmental Arts Therapy UK | Blurb | IMPORTANT | blurb | Out in the woods, beneath ash and elder, circles f... | Expand or condense to 50-120 words | Only 46 words (need 50-120) |
+| 39 | CLF Art CafÃ© | Moods | IMPORTANT | moods | ['ecstatic', 'wild'] | Review against approved mood list | Unapproved moods: ecstatic, wild |
+| 39 | CLF Art CafÃ© | Genres | IMPORTANT | genres | ['house', 'electro', 'drum & bass', 'techno', 'funk', 'soul'] | Adjust to 3-5 genres | Has 6 genres (recommended 3-5) |
+| 39 | CLF Art CafÃ© | Blurb | IMPORTANT | blurb | A multi-floor creative arts centre hosting everyth... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 40 | CLF Art Lounge & Pop-Up | Moods | IMPORTANT | moods | ['tropical', 'improvised', 'community-minded'] | Review against approved mood list | Unapproved moods: tropical, improvised, community-minded |
+| 41 | CLF Art Lounge & Roof Garden | Moods | IMPORTANT | moods | ['curious', 'playful'] | Review against approved mood list | Unapproved moods: curious, playful |
+| 41 | CLF Art Lounge & Roof Garden | Blurb | IMPORTANT | blurb | A rooftop dreamscape above Peckham, where jazz flo... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 42 | Colour Factory | Moods | IMPORTANT | moods | ['big night out', 'queer', 'rebellious'] | Review against approved mood list | Unapproved moods: big night out, queer, rebellious |
+| 42 | Colour Factory | Genres | IMPORTANT | genres | ['club nights', 'live music'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 43 | Colour House Theatre | Moods | IMPORTANT | moods | ['family-friendly', 'playful'] | Review against approved mood list | Unapproved moods: family-friendly, playful |
+| 43 | Colour House Theatre | Genres | IMPORTANT | genres | ["children's theatre", 'blues'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 43 | Colour House Theatre | Blurb | IMPORTANT | blurb | A Grade II-listed building hosting weekend childre... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 44 | Conway Hall | Moods | IMPORTANT | moods | ['word', 'sacred'] | Review against approved mood list | Unapproved moods: word, sacred |
+| 44 | Conway Hall | Blurb | IMPORTANT | blurb | A Grade II listed hall from 1929 housing the large... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 45 | Cordon Bleu London â€“ Culinary Short Courses | Moods | IMPORTANT | moods | ['craft & making', 'epicurean', 'refined'] | Review against approved mood list | Unapproved moods: craft & making, epicurean, refined |
+| 46 | Corner New Cross | Moods | IMPORTANT | moods | ['queer', 'playful'] | Review against approved mood list | Unapproved moods: queer, playful |
+| 46 | Corner New Cross | Blurb | IMPORTANT | blurb | An LGBTQIA+-led neighbourhood coffee shop, cocktai... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 47 | Cubitt Artists | Moods | IMPORTANT | moods | ['experimental', 'community-driven', 'queer-affirming'] | Review against approved mood list | Unapproved moods: experimental, community-driven, queer-affirming |
+| 48 | Culinary Anthropologist â€“ Charcuterie Masterclass | Moods | IMPORTANT | moods | ['craft & making', 'epicurean', 'curious'] | Review against approved mood list | Unapproved moods: craft & making, epicurean, curious |
+| 48 | Culinary Anthropologist â€“ Charcuterie Masterclass | Genres | IMPORTANT | genres | ['charcuterie', 'butchery'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 48 | Culinary Anthropologist â€“ Charcuterie Masterclass | Blurb | IMPORTANT | blurb | In a North London kitchen kissed by spice and stud... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 49 | Dice & Destiny Board Game Café | Moods | IMPORTANT | moods | ['inviting', 'geeky', 'chilled'] | Review against approved mood list | Unapproved moods: inviting, geeky, chilled |
+| 49 | Dice & Destiny Board Game Café | Blurb | IMPORTANT | blurb | A Kentish outpost with Larkish heart — not London,... | Expand or condense to 50-120 words | Only 28 words (need 50-120) |
+| 50 | Dino Snores for Grown Ups â€“ Natural History Museum Sleepover | Moods | IMPORTANT | moods | ['night wanderer', 'curious', 'playful'] | Review against approved mood list | Unapproved moods: night wanderer, curious, playful |
+| 50 | Dino Snores for Grown Ups â€“ Natural History Museum Sleepover | Genres | IMPORTANT | genres | ['museum sleepover', 'dark experience'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 50 | Dino Snores for Grown Ups â€“ Natural History Museum Sleepover | Blurb | IMPORTANT | blurb | The whale looms above your sleeping bag, vast and ... | Expand or condense to 50-120 words | Only 46 words (need 50-120) |
+| 51 | Draughts – Board Game Café | Moods | IMPORTANT | moods | ['playful', 'welcoming', 'strategic'] | Review against approved mood list | Unapproved moods: playful, welcoming, strategic |
+| 51 | Draughts – Board Game Café | Blurb | IMPORTANT | blurb | A game-slick hideaway where minds meet over meeple... | Expand or condense to 50-120 words | Only 30 words (need 50-120) |
+| 52 | Dusty Knuckle Bakery â€“ Fermentation Workshop | Moods | IMPORTANT | moods | ['craft & making', 'curious', 'adult play'] | Review against approved mood list | Unapproved moods: craft & making, curious, adult play |
+| 53 | EartH | Moods | IMPORTANT | moods | ['ecstatic', 'curious'] | Review against approved mood list | Unapproved moods: ecstatic, curious |
+| 53 | EartH | Genres | IMPORTANT | genres | ['experimental', 'cutting-edge'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 53 | EartH | Blurb | IMPORTANT | blurb | A refurbished 1930s cinema with three spaces hosti... | Expand or condense to 50-120 words | Only 16 words (need 50-120) |
+| 54 | East London Strippers Collective Life Drawing | Moods | IMPORTANT | moods | ['rebellious', 'celebratory', 'destigmatising'] | Review against approved mood list | Unapproved moods: rebellious, celebratory, destigmatising |
+| 54 | East London Strippers Collective Life Drawing | Blurb | IMPORTANT | blurb | Here, the pole is both pedestal and paintbrush. St... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 55 | Eco-Somatic Movement Workshops – Katsura Isobe | Moods | IMPORTANT | moods | ['seasonal', 'earthy'] | Review against approved mood list | Unapproved moods: seasonal, earthy |
+| 55 | Eco-Somatic Movement Workshops – Katsura Isobe | Blurb | IMPORTANT | blurb | This is movement born of leaf and sky. Guided by t... | Expand or condense to 50-120 words | Only 48 words (need 50-120) |
+| 56 | Ecstatic Dance London â€“ The Ritual | Moods | IMPORTANT | moods | ['ecstatic', 'spiritual', 'connected', 'transformative'] | Review against approved mood list | Unapproved moods: ecstatic, spiritual, connected, transformative |
+| 56 | Ecstatic Dance London â€“ The Ritual | Blurb | IMPORTANT | blurb | No talking. No shoes. No spectators. The Ritual is... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 57 | Ecstatic Dance UK â€“ Sunday Sessions | Moods | IMPORTANT | moods | ['free-spirited', 'mindful', 'inclusive'] | Review against approved mood list | Unapproved moods: free-spirited, mindful, inclusive |
+| 58 | Ecstatic Dance UK – Sun·day Dance | Moods | IMPORTANT | moods | ['liberated', 'grounded'] | Review against approved mood list | Unapproved moods: liberated, grounded |
+| 58 | Ecstatic Dance UK – Sun·day Dance | Genres | IMPORTANT | genres | ['ecstatic dance', 'conscious movement'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 59 | Finborough Theatre | Moods | IMPORTANT | moods | ['curious', 'activist'] | Review against approved mood list | Unapproved moods: curious, activist |
+| 59 | Finborough Theatre | Genres | IMPORTANT | genres | ['new writing', 'rediscovered works'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 59 | Finborough Theatre | Blurb | IMPORTANT | blurb | A pocket-sized powerhouse above a pub, presenting ... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 60 | Forage London â€“ Wild Food & Nature Walk (Tower Hamlets Cemetery Park) | Moods | IMPORTANT | moods | ['wild', 'curious', 'urban explorer'] | Review against approved mood list | Unapproved moods: wild, curious, urban explorer |
+| 60 | Forage London â€“ Wild Food & Nature Walk (Tower Hamlets Cemetery Park) | Blurb | IMPORTANT | blurb | In the hush of a Victorian cemetery, nettles and m... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 61 | Forage London â€” Wild Food and Nature Walk (E3) | Moods | IMPORTANT | moods | ['curious', 'nature-connected', 'craft & making'] | Review against approved mood list | Unapproved moods: curious, nature-connected, craft & making |
+| 61 | Forage London â€” Wild Food and Nature Walk (E3) | Genres | IMPORTANT | genres | ['foraging', 'urban wild foods'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 62 | Four Quarters | Moods | IMPORTANT | moods | ['nostalgic', 'social', 'boozy'] | Review against approved mood list | Unapproved moods: nostalgic, social, boozy |
+| 62 | Four Quarters | Blurb | IMPORTANT | blurb | Arcade alchemy in three boroughs — where laughter ... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 63 | Fox & Firkin | Moods | IMPORTANT | moods | ['rebellious', 'playful', 'wild', 'earthy'] | Review against approved mood list | Unapproved moods: rebellious, playful, wild, earthy |
+| 63 | Fox & Firkin | Blurb | IMPORTANT | blurb | A sprawling garden hides a restored 1950s train ca... | Expand or condense to 50-120 words | Only 23 words (need 50-120) |
+| 64 | Freeweaver Studio | Moods | IMPORTANT | moods | ['meditative', 'curious'] | Review against approved mood list | Unapproved moods: meditative, curious |
+| 65 | Friends of Nunhead Cemetery â€“ Guided Tours & Bat Sighting Walks | Moods | IMPORTANT | moods | ['haunted', 'historical', 'wild'] | Review against approved mood list | Unapproved moods: haunted, historical, wild |
+| 65 | Friends of Nunhead Cemetery â€“ Guided Tours & Bat Sighting Walks | Genres | IMPORTANT | genres | ['cemetery tour', 'bat walk'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 66 | Gate Theatre | Moods | IMPORTANT | moods | ['global', 'curious'] | Review against approved mood list | Unapproved moods: global, curious |
+| 66 | Gate Theatre | Genres | IMPORTANT | genres | ['international theatre', 'new voices'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 66 | Gate Theatre | Blurb | IMPORTANT | blurb | New voices telling international stories, bringing... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 67 | Gather Glass â€“ Glassblowing Classes | Moods | IMPORTANT | moods | ['fiery', 'mesmerising'] | Review against approved mood list | Unapproved moods: fiery, mesmerising |
+| 68 | Genesis Cinema | Moods | IMPORTANT | moods | ['playful', 'wild'] | Review against approved mood list | Unapproved moods: playful, wild |
+| 68 | Genesis Cinema | Blurb | IMPORTANT | blurb | A community-focused cultural hub offering horror m... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 69 | George IV Boston Room | Moods | IMPORTANT | moods | ['nostalgic', 'poetic'] | Review against approved mood list | Unapproved moods: nostalgic, poetic |
+| 69 | George IV Boston Room | Genres | IMPORTANT | genres | ['jazz'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 69 | George IV Boston Room | Blurb | IMPORTANT | blurb | Monthly jazz nights in an intimate pub room, where... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 70 | Ghosts of the Old City â€“ Eldritch, Tenebrous London (London Walks) | Moods | IMPORTANT | moods | ['night wanderer', 'haunted', 'curious'] | Review against approved mood list | Unapproved moods: night wanderer, haunted, curious |
+| 70 | Ghosts of the Old City â€“ Eldritch, Tenebrous London (London Walks) | Genres | IMPORTANT | genres | ['ghost walk', 'historical night walk'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 71 | Gia Como â€“ Bespoke Candle Making Workshop | Moods | IMPORTANT | moods | ['creative', 'aromatic'] | Review against approved mood list | Unapproved moods: creative, aromatic |
+| 71 | Gia Como â€“ Bespoke Candle Making Workshop | Genres | IMPORTANT | genres | ['scent blending', 'soy-wax candle making'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 71 | Gia Como â€“ Bespoke Candle Making Workshop | Blurb | IMPORTANT | blurb | In a fragrant pocket of Shoreditch, Gia Como light... | Expand or condense to 50-120 words | Only 48 words (need 50-120) |
+| 72 | Graeae Theatre Company | Moods | IMPORTANT | moods | ['activist', 'voice', 'movement'] | Review against approved mood list | Unapproved moods: activist, voice, movement |
+| 72 | Graeae Theatre Company | Genres | IMPORTANT | genres | ['Deaf and disabled-led theatre'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 73 | Grand Junction Arms | Moods | IMPORTANT | moods | ['seasonal', 'group energy'] | Review against approved mood list | Unapproved moods: seasonal, group energy |
+| 73 | Grand Junction Arms | Genres | IMPORTANT | genres | ['pub events'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 73 | Grand Junction Arms | Blurb | IMPORTANT | blurb | A vibrant canal-side pub claiming the biggest beer... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 74 | Grimoire Crafting with Hallowed Hollow | Moods | IMPORTANT | moods | ['craft-based', 'esoteric', 'personal'] | Review against approved mood list | Unapproved moods: craft-based, esoteric, personal |
+| 74 | Grimoire Crafting with Hallowed Hollow | Blurb | IMPORTANT | blurb | In a quiet studio, parchment meets purpose. Hallow... | Expand or condense to 50-120 words | Only 40 words (need 50-120) |
+| 75 | Grove Farm Bat Walk â€“ Ealing Wildlife Group | Moods | IMPORTANT | moods | ['night wanderer', 'wild', 'curious'] | Review against approved mood list | Unapproved moods: night wanderer, wild, curious |
+| 75 | Grove Farm Bat Walk â€“ Ealing Wildlife Group | Genres | IMPORTANT | genres | ['bat walk', 'nature walk'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 75 | Grove Farm Bat Walk â€“ Ealing Wildlife Group | Blurb | IMPORTANT | blurb | Far from the lights of the high street, Grove Farm... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 76 | Hackney Empire | Moods | IMPORTANT | moods | ['nostalgic', 'wonder'] | Review against approved mood list | Unapproved moods: nostalgic, wonder |
+| 76 | Hackney Empire | Blurb | IMPORTANT | blurb | A historic variety theatre from 1901 with ornate V... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 77 | Hackney Herbal â€“ Herbal Wellbeing Masterclasses & Remedies Workshops | Moods | IMPORTANT | moods | ['gentle', 'botanical'] | Review against approved mood list | Unapproved moods: gentle, botanical |
+| 78 | Half Moon Theatre | Moods | IMPORTANT | moods | ['family-friendly', 'tender', 'thoughtful'] | Review against approved mood list | Unapproved moods: family-friendly, tender, thoughtful |
+| 78 | Half Moon Theatre | Genres | IMPORTANT | genres | ["children's theatre", 'youth programmes'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 79 | Hampstead Observatory Public Nights | Moods | IMPORTANT | moods | ['night wanderer', 'curious', 'dark sky'] | Review against approved mood list | Unapproved moods: night wanderer, curious, dark sky |
+| 79 | Hampstead Observatory Public Nights | Genres | IMPORTANT | genres | ['astronomy walk', 'stargazing'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 79 | Hampstead Observatory Public Nights | Blurb | IMPORTANT | blurb | At the edge of Hampstead Heath, past rustling leav... | Expand or condense to 50-120 words | Only 46 words (need 50-120) |
+| 80 | Heaven | Moods | IMPORTANT | moods | ['ecstatic', 'queer'] | Review against approved mood list | Unapproved moods: ecstatic, queer |
+| 80 | Heaven | Genres | IMPORTANT | genres | ['club nights', 'live music'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 80 | Heaven | Blurb | IMPORTANT | blurb | Central London's only 1,000-capacity gay club, the... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 81 | Hen Corner â€” Introduction to Cheese Making | Moods | IMPORTANT | moods | ['craft & making', 'curious', 'homely'] | Review against approved mood list | Unapproved moods: craft & making, curious, homely |
+| 81 | Hen Corner â€” Introduction to Cheese Making | Genres | IMPORTANT | genres | ['cheese making (mozzarella, feta, camembert)'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 82 | Hidden London Tours â€“ London Transport Museum | Moods | IMPORTANT | moods | ['urban explorer', 'curious', 'mysterious'] | Review against approved mood list | Unapproved moods: urban explorer, curious, mysterious |
+| 82 | Hidden London Tours â€“ London Transport Museum | Genres | IMPORTANT | genres | ['hidden London tour', 'railway/infrastructure history'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 82 | Hidden London Tours â€“ London Transport Museum | Blurb | IMPORTANT | blurb | Beneath the London you know lies a city preserved ... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 83 | Highgate Cemetery After-Hours Tour (SAVE Britainâ€™s Heritage) | Moods | IMPORTANT | moods | ['haunted', 'historical', 'curious'] | Review against approved mood list | Unapproved moods: haunted, historical, curious |
+| 83 | Highgate Cemetery After-Hours Tour (SAVE Britainâ€™s Heritage) | Genres | IMPORTANT | genres | ['cemetery tour', 'architectural heritage'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 83 | Highgate Cemetery After-Hours Tour (SAVE Britainâ€™s Heritage) | Blurb | IMPORTANT | blurb | Beyond the iron gates, ivy and angels cradle the s... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 84 | Hiver Beers â€” Cider Making Workshop | Moods | IMPORTANT | moods | ['craft & making', 'curious', 'epicurean'] | Review against approved mood list | Unapproved moods: craft & making, curious, epicurean |
+| 84 | Hiver Beers â€” Cider Making Workshop | Genres | IMPORTANT | genres | ['cider brewing'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 85 | Holotropic Breathwork – Experiential Weekend | Moods | IMPORTANT | moods | ['intense', 'transformative'] | Review against approved mood list | Unapproved moods: intense, transformative |
+| 85 | Holotropic Breathwork – Experiential Weekend | Genres | IMPORTANT | genres | ['holotropic breathwork', 'integration'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 85 | Holotropic Breathwork – Experiential Weekend | Blurb | IMPORTANT | blurb | This is not breathwork, it’s descent. Over a weeke... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 86 | Hootananny Brixton | Moods | IMPORTANT | moods | ['ecstatic', 'earthy'] | Review against approved mood list | Unapproved moods: ecstatic, earthy |
+| 87 | Horniman Museum and Gardens | Moods | IMPORTANT | moods | ['wonder', 'family-friendly', 'curious'] | Review against approved mood list | Unapproved moods: wonder, family-friendly, curious |
+| 88 | House of Burlesque Academy | Moods | IMPORTANT | moods | ['empowering', 'playful', 'body-confident'] | Review against approved mood list | Unapproved moods: empowering, playful, body-confident |
+| 88 | House of Burlesque Academy | Blurb | IMPORTANT | blurb | Feathers flare, heels click, and something ancient... | Expand or condense to 50-120 words | Only 48 words (need 50-120) |
+| 89 | Hundred Years Gallery | Moods | IMPORTANT | moods | ['wild', 'curious', 'wonder'] | Review against approved mood list | Unapproved moods: wild, curious, wonder |
+| 89 | Hundred Years Gallery | Genres | IMPORTANT | genres | ['experimental art', 'improvised music'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 90 | IKLECTIK Art Lab | Moods | IMPORTANT | moods | ['witchy', 'rebellious'] | Review against approved mood list | Unapproved moods: witchy, rebellious |
+| 90 | IKLECTIK Art Lab | Genres | IMPORTANT | genres | ['experimental sound', 'performance rituals'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 90 | IKLECTIK Art Lab | Blurb | IMPORTANT | blurb | A grassroots Art Lab dedicated to experimental sou... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 91 | Institute of Making (UCL) â€“ Papermaking Course | Moods | IMPORTANT | moods | ['craft & making', 'curious'] | Review against approved mood list | Unapproved moods: craft & making, curious |
+| 91 | Institute of Making (UCL) â€“ Papermaking Course | Blurb | IMPORTANT | blurb | In Stratfordâ€™s academic heart, fibres are soften... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 92 | Jacksons Lane | Moods | IMPORTANT | moods | ['playful', 'curious'] | Review against approved mood list | Unapproved moods: playful, curious |
+| 92 | Jacksons Lane | Genres | IMPORTANT | genres | ['circus', 'contemporary performance'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 92 | Jacksons Lane | Blurb | IMPORTANT | blurb | Haringey's flagship arts venue for 45+ years, empo... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 93 | Jazz CafÃ© POSK | Moods | IMPORTANT | moods | ['melancholy', 'global'] | Review against approved mood list | Unapproved moods: melancholy, global |
+| 93 | Jazz CafÃ© POSK | Genres | IMPORTANT | genres | ['jazz', 'world music'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 93 | Jazz CafÃ© POSK | Blurb | IMPORTANT | blurb | A Polish community jazz club where red curtains fr... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 94 | Jazzlive at the Crypt | Moods | IMPORTANT | moods | ['melancholy', 'candlelit'] | Review against approved mood list | Unapproved moods: melancholy, candlelit |
+| 94 | Jazzlive at the Crypt | Genres | IMPORTANT | genres | ['improvised jazz'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 94 | Jazzlive at the Crypt | Blurb | IMPORTANT | blurb | Beneath St Giles Church, Friday nights dissolve in... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 95 | Kanpai London â€” Sake Tasting & DIY Sake Brewing | Moods | IMPORTANT | moods | ['curious', 'craft & making', 'epicurean'] | Review against approved mood list | Unapproved moods: curious, craft & making, epicurean |
+| 95 | Kanpai London â€” Sake Tasting & DIY Sake Brewing | Genres | IMPORTANT | genres | ['sake tasting', 'brewing'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 96 | Kelechnekoff Pole Dance Studio | Moods | IMPORTANT | moods | ['fierce', 'sensual', 'empowering'] | Review against approved mood list | Unapproved moods: fierce, sensual, empowering |
+| 96 | Kelechnekoff Pole Dance Studio | Blurb | IMPORTANT | blurb | Founded by Kelechi Okafor, this Peckham studio is ... | Expand or condense to 50-120 words | Only 48 words (need 50-120) |
+| 97 | King's Head Theatre | Moods | IMPORTANT | moods | ['queer', 'punchy'] | Review against approved mood list | Unapproved moods: queer, punchy |
+| 97 | King's Head Theatre | Blurb | IMPORTANT | blurb | London's longest-running pub theatre, now in a pur... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 98 | Kitchen Witchery at Made in Hackney | Moods | IMPORTANT | moods | ['earthy', 'practical', 'nourishing', 'witchy'] | Review against approved mood list | Unapproved moods: earthy, practical, nourishing, witchy |
+| 98 | Kitchen Witchery at Made in Hackney | Blurb | IMPORTANT | blurb | Here, the spell is a soup. In this warm Clapton ki... | Expand or condense to 50-120 words | Only 42 words (need 50-120) |
+| 99 | Library Pot | Moods | IMPORTANT | moods | ['intimate', 'slow-paced', 'foodie-friendly'] | Review against approved mood list | Unapproved moods: intimate, slow-paced, foodie-friendly |
+| 100 | Liminal 11 â€“ Tarot & Mysticism Events | Moods | IMPORTANT | moods | ['playful', 'mystical', 'creative'] | Review against approved mood list | Unapproved moods: playful, mystical, creative |
+| 100 | Liminal 11 â€“ Tarot & Mysticism Events | Blurb | IMPORTANT | blurb | From the artists of the Modern Witch tarot comes a... | Expand or condense to 50-120 words | Only 46 words (need 50-120) |
+| 101 | Loading Bar | Moods | IMPORTANT | moods | ['retro', 'fun', 'community'] | Review against approved mood list | Unapproved moods: retro, fun, community |
+| 101 | Loading Bar | Blurb | IMPORTANT | blurb | A glow-lit lounge of glitch and glee — consoles bu... | Expand or condense to 50-120 words | Only 24 words (need 50-120) |
+| 102 | London Calligraphy | Moods | IMPORTANT | moods | ['refined', 'contemplative'] | Review against approved mood list | Unapproved moods: refined, contemplative |
+| 102 | London Calligraphy | Genres | IMPORTANT | genres | ['pointed pen calligraphy', 'brush lettering'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 102 | London Calligraphy | Blurb | IMPORTANT | blurb | In the hush of hotel parlours and sunlit studios, ... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 103 | London Centre for Book Arts (LCBA) | Moods | IMPORTANT | moods | ['craft & making', 'curious'] | Review against approved mood list | Unapproved moods: craft & making, curious |
+| 104 | London Cheese Board â€“ Cheese & Wine Pairing Evenings | Moods | IMPORTANT | moods | ['epicurean', 'curious', 'community'] | Review against approved mood list | Unapproved moods: epicurean, curious, community |
+| 104 | London Cheese Board â€“ Cheese & Wine Pairing Evenings | Genres | IMPORTANT | genres | ['cheese', 'wine'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 105 | London Night Photography Tour â€“ London Streets Photography | Moods | IMPORTANT | moods | ['urban explorer', 'creative', 'curious'] | Review against approved mood list | Unapproved moods: urban explorer, creative, curious |
+| 105 | London Night Photography Tour â€“ London Streets Photography | Genres | IMPORTANT | genres | ['night photography walk'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 105 | London Night Photography Tour â€“ London Streets Photography | Blurb | IMPORTANT | blurb | The Thames gleams under bridge-light and moon. Thi... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 106 | London Smoke & Cure â€” Salami Sessions | Moods | IMPORTANT | moods | ['craft & making', 'epicurean', 'curious'] | Review against approved mood list | Unapproved moods: craft & making, epicurean, curious |
+| 106 | London Smoke & Cure â€” Salami Sessions | Genres | IMPORTANT | genres | ['salami/charcuterie'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 107 | Love & Loss – Grief Tending Rituals | Moods | IMPORTANT | moods | ['grief-held', 'mythic'] | Review against approved mood list | Unapproved moods: grief-held, mythic |
+| 107 | Love & Loss – Grief Tending Rituals | Genres | IMPORTANT | genres | ['grief rituals', 'communal healing'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 107 | Love & Loss – Grief Tending Rituals | Blurb | IMPORTANT | blurb | Grief is not a problem to be solved, but a river t... | Expand or condense to 50-120 words | Only 48 words (need 50-120) |
+| 108 | Luna London â€“ Full Moon Gatherings & Workshops | Moods | IMPORTANT | moods | ['ritual', 'feminine', 'gentle', 'community'] | Review against approved mood list | Unapproved moods: ritual, feminine, gentle, community |
+| 108 | Luna London â€“ Full Moon Gatherings & Workshops | Blurb | IMPORTANT | blurb | At every full moon, Luna London lights a soft fire... | Expand or condense to 50-120 words | Only 45 words (need 50-120) |
+| 109 | Made in Hackney â€“ Preserving & Pickling Workshops | Moods | IMPORTANT | moods | ['craft & making', 'earthy', 'community'] | Review against approved mood list | Unapproved moods: craft & making, earthy, community |
+| 109 | Made in Hackney â€“ Preserving & Pickling Workshops | Blurb | IMPORTANT | blurb | At Made in Hackney, preservation becomes praxis. I... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 110 | Mash Paddle Brewery â€” Brew Your Own Beer | Moods | IMPORTANT | moods | ['craft & making', 'adult play', 'curious'] | Review against approved mood list | Unapproved moods: craft & making, adult play, curious |
+| 110 | Mash Paddle Brewery â€” Brew Your Own Beer | Genres | IMPORTANT | genres | ['beer brewing'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 111 | Matchstick Piehouse | Moods | IMPORTANT | moods | ['rebellious', 'queer'] | Review against approved mood list | Unapproved moods: rebellious, queer |
+| 111 | Matchstick Piehouse | Blurb | IMPORTANT | blurb | Resurrected by artists as a worker-run co-op, this... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 112 | Miller’s Way Project – Pay It Forward Sound Therapy | Moods | IMPORTANT | moods | ['restorative', 'accessible'] | Review against approved mood list | Unapproved moods: restorative, accessible |
+| 112 | Miller’s Way Project – Pay It Forward Sound Therapy | Genres | IMPORTANT | genres | ['sound healing', 'community care'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 112 | Miller’s Way Project – Pay It Forward Sound Therapy | Blurb | IMPORTANT | blurb | In a converted garage on a quiet West London stree... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 113 | Music Tree Circles – Circle Singing | Moods | IMPORTANT | moods | ['communal', 'spontaneous'] | Review against approved mood list | Unapproved moods: communal, spontaneous |
+| 113 | Music Tree Circles – Circle Singing | Blurb | IMPORTANT | blurb | Voices weave like vines in the Music Tree Circles.... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 114 | Mysteries of the Tarot with Richard Abbot | Moods | IMPORTANT | moods | ['introspective', 'symbolic', 'intellectual'] | Review against approved mood list | Unapproved moods: introspective, symbolic, intellectual |
+| 114 | Mysteries of the Tarot with Richard Abbot | Blurb | IMPORTANT | blurb | Richard Abbot teaches tarot not as fortune-telling... | Expand or condense to 50-120 words | Only 44 words (need 50-120) |
+| 115 | Neon Naked Life Drawing | Moods | IMPORTANT | moods | ['vibrant', 'playful', 'rebellious', 'experimental'] | Review against approved mood list | Unapproved moods: vibrant, playful, rebellious, experimental |
+| 115 | Neon Naked Life Drawing | Blurb | IMPORTANT | blurb | Under blacklight, bodies become living canvases. A... | Expand or condense to 50-120 words | Only 41 words (need 50-120) |
+| 116 | New River Studios | Moods | IMPORTANT | moods | ['community', 'experimental', 'group energy'] | Review against approved mood list | Unapproved moods: community, experimental, group energy |
+| 116 | New River Studios | Genres | IMPORTANT | genres | ['experimental music', 'community arts'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 117 | Night Street Art Photography Workshop â€“ Shoreditch Street Art Tours | Moods | IMPORTANT | moods | ['urban explorer', 'curious', 'creative'] | Review against approved mood list | Unapproved moods: urban explorer, curious, creative |
+| 117 | Night Street Art Photography Workshop â€“ Shoreditch Street Art Tours | Genres | IMPORTANT | genres | ['street-art walk', 'night photography'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 117 | Night Street Art Photography Workshop â€“ Shoreditch Street Art Tours | Blurb | IMPORTANT | blurb | In Shoreditch after dark, murals take on a second ... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 118 | Old Bexley Soap & Candle Co. â€“ Candle & Soap Courses | Moods | IMPORTANT | moods | ['cosy', 'sensory'] | Review against approved mood list | Unapproved moods: cosy, sensory |
+| 118 | Old Bexley Soap & Candle Co. â€“ Candle & Soap Courses | Genres | IMPORTANT | genres | ['natural soy-wax candle making', 'cold-process soap making'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 119 | Orange Tree Theatre | Moods | IMPORTANT | moods | ['curious', 'intimate'] | Review against approved mood list | Unapproved moods: curious, intimate |
+| 120 | Oslo Hackney | Moods | IMPORTANT | moods | ['ecstatic', 'playful'] | Review against approved mood list | Unapproved moods: ecstatic, playful |
+| 120 | Oslo Hackney | Blurb | IMPORTANT | blurb | A 375-capacity venue in a redeveloped railway stat... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 121 | Otter Chaos | Moods | IMPORTANT | moods | ['cosy', 'sociable', 'eclectic'] | Review against approved mood list | Unapproved moods: cosy, sociable, eclectic |
+| 122 | Park Theatre | Moods | IMPORTANT | moods | ['thoughtful', 'salon'] | Review against approved mood list | Unapproved moods: thoughtful, salon |
+| 122 | Park Theatre | Genres | IMPORTANT | genres | ['new writing', 'modern revivals'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 122 | Park Theatre | Blurb | IMPORTANT | blurb | A neighbourhood theatre with global ambition, deli... | Expand or condense to 50-120 words | Only 15 words (need 50-120) |
+| 123 | Phantom Peak | Moods | IMPORTANT | moods | ['mystical', 'exploratory', 'narrative'] | Review against approved mood list | Unapproved moods: mystical, exploratory, narrative |
+| 124 | Phoenix Cinema | Moods | IMPORTANT | moods | ['sacred', 'curious'] | Review against approved mood list | Unapproved moods: sacred, curious |
+| 124 | Phoenix Cinema | Genres | IMPORTANT | genres | ['art house', 'independent'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 124 | Phoenix Cinema | Blurb | IMPORTANT | blurb | One of the UK's oldest continuously operating pict... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 125 | Phonox | Moods | IMPORTANT | moods | ['big night out', 'ecstatic'] | Review against approved mood list | Unapproved moods: big night out, ecstatic |
+| 126 | Pizza Express Jazz Club | Moods | IMPORTANT | moods | ['candlelit', 'folk'] | Review against approved mood list | Unapproved moods: candlelit, folk |
+| 126 | Pizza Express Jazz Club | Genres | IMPORTANT | genres | ['jazz'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 126 | Pizza Express Jazz Club | Blurb | IMPORTANT | blurb | One of London's most iconic jazz venues since 1976... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 127 | Pleasance Theatre | Moods | IMPORTANT | moods | ['playful', 'curious'] | Review against approved mood list | Unapproved moods: playful, curious |
+| 127 | Pleasance Theatre | Blurb | IMPORTANT | blurb | A leading arts charity championing innovation and ... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 128 | Poetry CafÃ© | Moods | IMPORTANT | moods | ['word', 'thoughtful', 'intimate'] | Review against approved mood list | Unapproved moods: word, thoughtful, intimate |
+| 128 | Poetry CafÃ© | Genres | IMPORTANT | genres | ['poetry readings', 'workshops'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 129 | Pole Mission Dance Studio | Moods | IMPORTANT | moods | ['inclusive', 'confidence-building', 'fun'] | Review against approved mood list | Unapproved moods: inclusive, confidence-building, fun |
+| 129 | Pole Mission Dance Studio | Blurb | IMPORTANT | blurb | Tucked above Dean Street, Pole Mission pulses with... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 130 | Poplar Union | Moods | IMPORTANT | moods | ['earthy', 'tender'] | Review against approved mood list | Unapproved moods: earthy, tender |
+| 130 | Poplar Union | Genres | IMPORTANT | genres | ['community arts', 'workshops'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 130 | Poplar Union | Blurb | IMPORTANT | blurb | A grassroots community arts centre making creativi... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 131 | Print Club London | Moods | IMPORTANT | moods | ['craft & making', 'vibrant'] | Review against approved mood list | Unapproved moods: craft & making, vibrant |
+| 131 | Print Club London | Blurb | IMPORTANT | blurb | Beneath the corrugated canopy of Hackneyâ€™s creat... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 132 | Questors Theatre | Moods | IMPORTANT | moods | ['family-friendly', 'thoughtful'] | Review against approved mood list | Unapproved moods: family-friendly, thoughtful |
+| 132 | Questors Theatre | Genres | IMPORTANT | genres | ['amateur theatre', 'touring companies'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 132 | Questors Theatre | Blurb | IMPORTANT | blurb | One of the UK's leading amateur theatres, staging ... | Expand or condense to 50-120 words | Only 16 words (need 50-120) |
+| 133 | Rich Mix | Moods | IMPORTANT | moods | ['earthy', 'ecstatic'] | Review against approved mood list | Unapproved moods: earthy, ecstatic |
+| 133 | Rich Mix | Blurb | IMPORTANT | blurb | East London's home for culture and creativity, a c... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 134 | Rick Nodine Contact Improvisation Classes & Jam | Moods | IMPORTANT | moods | ['playful', 'tactile', 'communicative', 'exploratory'] | Review against approved mood list | Unapproved moods: playful, tactile, communicative, exploratory |
+| 134 | Rick Nodine Contact Improvisation Classes & Jam | Blurb | IMPORTANT | blurb | In this open-floor playground, bodies lean, spiral... | Expand or condense to 50-120 words | Only 46 words (need 50-120) |
+| 135 | Rio Cinema | Moods | IMPORTANT | moods | ['rebellious', 'curious'] | Review against approved mood list | Unapproved moods: rebellious, curious |
+| 135 | Rio Cinema | Genres | IMPORTANT | genres | ['art house', 'premieres'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 135 | Rio Cinema | Blurb | IMPORTANT | blurb | Dalston's crown jewel, an art-deco picture palace ... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 136 | Rogues Quarter | Moods | IMPORTANT | moods | ['rustic', 'strategy-heavy', 'casual'] | Review against approved mood list | Unapproved moods: rustic, strategy-heavy, casual |
+| 137 | Rose Theatre | Moods | IMPORTANT | moods | ['voice', 'wonder'] | Review against approved mood list | Unapproved moods: voice, wonder |
+| 138 | Roundhouse | Moods | IMPORTANT | moods | ['rebellious', 'ecstatic'] | Review against approved mood list | Unapproved moods: rebellious, ecstatic |
+| 138 | Roundhouse | Blurb | IMPORTANT | blurb | An iconic iron-roofed performing arts venue with i... | Expand or condense to 50-120 words | Only 15 words (need 50-120) |
+| 139 | Royal Docks Swim Series (RDSS) Evening Swim | Moods | IMPORTANT | moods | ['wild', 'adventurous', 'urban explorer'] | Review against approved mood list | Unapproved moods: wild, adventurous, urban explorer |
+| 139 | Royal Docks Swim Series (RDSS) Evening Swim | Genres | IMPORTANT | genres | ['open-water swimming'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 140 | Rule Zero | Moods | IMPORTANT | moods | ['immersive', 'geeky', 'welcoming'] | Review against approved mood list | Unapproved moods: immersive, geeky, welcoming |
+| 140 | Rule Zero | Blurb | IMPORTANT | blurb | A multi-storey spellbook of games and geekery — Ru... | Expand or condense to 50-120 words | Only 30 words (need 50-120) |
+| 141 | Sacred Geometry & Alchemy with Golden Light | Moods | IMPORTANT | moods | ['esoteric', 'symbolic', 'meditative'] | Review against approved mood list | Unapproved moods: esoteric, symbolic, meditative |
+| 141 | Sacred Geometry & Alchemy with Golden Light | Blurb | IMPORTANT | blurb | Inside the Light Centre, forms and frequencies tak... | Expand or condense to 50-120 words | Only 46 words (need 50-120) |
+| 142 | Sadler's Wells | Moods | IMPORTANT | moods | ['movement', 'awe', 'ritual'] | Review against approved mood list | Unapproved moods: movement, awe, ritual |
+| 142 | Sadler's Wells | Genres | IMPORTANT | genres | ['contemporary dance', 'ballet'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 143 | Sanctuary Singing Circle | Moods | IMPORTANT | moods | ['soulful', 'uplifting'] | Review against approved mood list | Unapproved moods: soulful, uplifting |
+| 143 | Sanctuary Singing Circle | Blurb | IMPORTANT | blurb | Held in the hush of a city church or soft-lit stud... | Expand or condense to 50-120 words | Only 45 words (need 50-120) |
+| 144 | Sandrine Bettinelli â€“ 'Embrace the Journey' Tantra Workshop | Moods | IMPORTANT | moods | ['intimate', 'healing', 'nourishing', 'exploratory'] | Review against approved mood list | Unapproved moods: intimate, healing, nourishing, exploratory |
+| 144 | Sandrine Bettinelli â€“ 'Embrace the Journey' Tantra Workshop | Blurb | IMPORTANT | blurb | Held in the hush of Anatomie Studio, this full-day... | Expand or condense to 50-120 words | Only 46 words (need 50-120) |
+| 145 | Scala | Moods | IMPORTANT | moods | ['big night out', 'rebellious'] | Review against approved mood list | Unapproved moods: big night out, rebellious |
+| 145 | Scala | Genres | IMPORTANT | genres | ['club nights', 'live music'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 145 | Scala | Blurb | IMPORTANT | blurb | A four-floor entertainment venue hosting pounding ... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 146 | Sebright Arms | Moods | IMPORTANT | moods | ['rebellious', 'ecstatic'] | Review against approved mood list | Unapproved moods: rebellious, ecstatic |
+| 146 | Sebright Arms | Blurb | IMPORTANT | blurb | A dishevelled Hackney boozer with a faithful crowd... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 147 | She's Lost Control â€“ Ritual & Spiritual Workshops | Moods | IMPORTANT | moods | ['ritual', 'ethereal', 'feminine', 'transformative'] | Review against approved mood list | Unapproved moods: ritual, ethereal, feminine, transformative |
+| 147 | She's Lost Control â€“ Ritual & Spiritual Workshops | Blurb | IMPORTANT | blurb | Incense curls through the high-ceilinged space in ... | Expand or condense to 50-120 words | Only 42 words (need 50-120) |
+| 148 | Shoreditch Town Hall | Moods | IMPORTANT | moods | ['curious', 'playful'] | Review against approved mood list | Unapproved moods: curious, playful |
+| 148 | Shoreditch Town Hall | Blurb | IMPORTANT | blurb | A Grade II listed cultural hub presenting progress... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 149 | Siobhan Davies Studios | Moods | IMPORTANT | moods | ['movement', 'awe', 'ritual'] | Review against approved mood list | Unapproved moods: movement, awe, ritual |
+| 149 | Siobhan Davies Studios | Genres | IMPORTANT | genres | ['dance classes', 'workshops'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 150 | Sir Colin Campbell | Moods | IMPORTANT | moods | ['folk', 'queer'] | Review against approved mood list | Unapproved moods: folk, queer |
+| 150 | Sir Colin Campbell | Genres | IMPORTANT | genres | ['Irish music', 'folk'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 150 | Sir Colin Campbell | Blurb | IMPORTANT | blurb | An LGBTQI+-friendly modern Irish pub offering trad... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 151 | Social Pottery â€“ Hand-Build & Decorate Ceramics Workshop | Moods | IMPORTANT | moods | ['playful', 'social'] | Review against approved mood list | Unapproved moods: playful, social |
+| 151 | Social Pottery â€“ Hand-Build & Decorate Ceramics Workshop | Blurb | IMPORTANT | blurb | Weekends in Camden bloom with glaze and laughter a... | Expand or condense to 50-120 words | Only 48 words (need 50-120) |
+| 152 | Soho Theatre | Moods | IMPORTANT | moods | ['comic', 'cabaret'] | Review against approved mood list | Unapproved moods: comic, cabaret |
+| 152 | Soho Theatre | Blurb | IMPORTANT | blurb | London's most vibrant producer of new theatre, com... | Expand or condense to 50-120 words | Only 15 words (need 50-120) |
+| 153 | Sole2Soul – Open Floor Movement & Embodied Voice | Moods | IMPORTANT | moods | ['expressive', 'rooted'] | Review against approved mood list | Unapproved moods: expressive, rooted |
+| 153 | Sole2Soul – Open Floor Movement & Embodied Voice | Blurb | IMPORTANT | blurb | Here, the floor receives you and the voice returns... | Expand or condense to 50-120 words | Only 46 words (need 50-120) |
+| 154 | Sonsoles Print Studio | Moods | IMPORTANT | moods | ['craft & making', 'energetic'] | Review against approved mood list | Unapproved moods: craft & making, energetic |
+| 155 | South London Gallery | Moods | IMPORTANT | moods | ['community', 'thoughtful', 'curious'] | Review against approved mood list | Unapproved moods: community, thoughtful, curious |
+| 155 | South London Gallery | Genres | IMPORTANT | genres | ['contemporary art', 'workshops'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 156 | Southwark Park Galleries (Lake Gallery & Dilston Gallery) | Moods | IMPORTANT | moods | ['democratic', 'open-air', 'contemplative'] | Review against approved mood list | Unapproved moods: democratic, open-air, contemplative |
+| 157 | Spiritland | Moods | IMPORTANT | moods | ['nostalgic', 'ecstatic'] | Review against approved mood list | Unapproved moods: nostalgic, ecstatic |
+| 158 | St Martin-in-the-Fields | Moods | IMPORTANT | moods | ['sacred', 'candlelit'] | Review against approved mood list | Unapproved moods: sacred, candlelit |
+| 158 | St Martin-in-the-Fields | Genres | IMPORTANT | genres | ['classical', 'choral'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 158 | St Martin-in-the-Fields | Blurb | IMPORTANT | blurb | An active church on Trafalgar Square offering cand... | Expand or condense to 50-120 words | Only 16 words (need 50-120) |
+| 159 | Standpoint Gallery | Moods | IMPORTANT | moods | ['raw', 'critical', 'collaborative'] | Review against approved mood list | Unapproved moods: raw, critical, collaborative |
+| 160 | Stanley Arts | Moods | IMPORTANT | moods | ['activist', 'queer'] | Review against approved mood list | Unapproved moods: activist, queer |
+| 161 | Stress Project – Therapeutic Gardening | Moods | IMPORTANT | moods | ['nurturing', 'mindful'] | Review against approved mood list | Unapproved moods: nurturing, mindful |
+| 161 | Stress Project – Therapeutic Gardening | Genres | IMPORTANT | genres | ['therapeutic horticulture', 'community gardening'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 161 | Stress Project – Therapeutic Gardening | Blurb | IMPORTANT | blurb | n a hidden North London garden, hands sink into so... | Expand or condense to 50-120 words | Only 44 words (need 50-120) |
+| 162 | Studio KÃ¼hÃ¼ | Moods | IMPORTANT | moods | ['gentle', 'botanical'] | Review against approved mood list | Unapproved moods: gentle, botanical |
+| 163 | Studio Pottery London â€“ Hand-Building Pottery Course | Moods | IMPORTANT | moods | ['mindful', 'tactile'] | Review against approved mood list | Unapproved moods: mindful, tactile |
+| 163 | Studio Pottery London â€“ Hand-Building Pottery Course | Blurb | IMPORTANT | blurb | In the still evenings of Victoria, Studio Pottery ... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 164 | Tabard Pub & Theatre | Moods | IMPORTANT | moods | ['comic', 'intimate'] | Review against approved mood list | Unapproved moods: comic, intimate |
+| 164 | Tabard Pub & Theatre | Genres | IMPORTANT | genres | ['pub theatre', 'comedy'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 164 | Tabard Pub & Theatre | Blurb | IMPORTANT | blurb | London Pub Theatre of the Year 2025, a cosy theatr... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 165 | Tara Theatre | Moods | IMPORTANT | moods | ['ritual', 'voice', 'activist'] | Review against approved mood list | Unapproved moods: ritual, voice, activist |
+| 165 | Tara Theatre | Genres | IMPORTANT | genres | ['South Asian theatre', 'political theatre'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 166 | Tea & Tasseomancy â€“ Divination by the Cup | Moods | IMPORTANT | moods | ['witchy', 'intimate', 'mystical'] | Review against approved mood list | Unapproved moods: witchy, intimate, mystical |
+| 166 | Tea & Tasseomancy â€“ Divination by the Cup | Blurb | IMPORTANT | blurb | A swirl in the bottom of a china cup, a shadow of ... | Expand or condense to 50-120 words | Only 42 words (need 50-120) |
+| 167 | The Albany | Moods | IMPORTANT | moods | ['curious', 'tender', 'punchy', 'sacred'] | Review against approved mood list | Unapproved moods: curious, tender, punchy, sacred |
+| 167 | The Albany | Blurb | IMPORTANT | blurb | South East London's beating cultural heart, platfo... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 168 | The Arcanist's Tavern | Moods | IMPORTANT | moods | ['magical', 'theatrical', 'story-rich', 'cosy'] | Review against approved mood list | Unapproved moods: magical, theatrical, story-rich, cosy |
+| 169 | The Betsey Trotwood | Moods | IMPORTANT | moods | ['poetic', 'folk', 'intimate'] | Review against approved mood list | Unapproved moods: poetic, folk, intimate |
+| 170 | The Bhavan | Moods | IMPORTANT | moods | ['sacred', 'global'] | Review against approved mood list | Unapproved moods: sacred, global |
+| 170 | The Bhavan | Blurb | IMPORTANT | blurb | The UK's premier Indian arts centre, celebrating o... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 171 | The Bill Murray (Angel Comedy) | Moods | IMPORTANT | moods | ['irreverent', 'playful', 'community-driven'] | Review against approved mood list | Unapproved moods: irreverent, playful, community-driven |
+| 172 | The Camden Club | Moods | IMPORTANT | moods | ['relaxed', 'jam-friendly', 'neighbourhood-feel'] | Review against approved mood list | Unapproved moods: relaxed, jam-friendly, neighbourhood-feel |
+| 173 | The College of Psychic Studies â€“ Esoteric Courses | Moods | IMPORTANT | moods | ['mystical', 'curious', 'historic', 'gentle'] | Review against approved mood list | Unapproved moods: mystical, curious, historic, gentle |
+| 173 | The College of Psychic Studies â€“ Esoteric Courses | Blurb | IMPORTANT | blurb | Established in 1884, this Victorian townhouse carr... | Expand or condense to 50-120 words | Only 45 words (need 50-120) |
+| 174 | The Fermentarium (Festive Lactic Fermentation Workshop) | Moods | IMPORTANT | moods | ['adult play', 'craft & making', 'curious'] | Review against approved mood list | Unapproved moods: adult play, craft & making, curious |
+| 174 | The Fermentarium (Festive Lactic Fermentation Workshop) | Genres | IMPORTANT | genres | ['fermentation', 'pickling'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 175 | The Fermentarium (Kimchi Masterclass) | Moods | IMPORTANT | moods | ['craft & making', 'curious', 'earthy'] | Review against approved mood list | Unapproved moods: craft & making, curious, earthy |
+| 175 | The Fermentarium (Kimchi Masterclass) | Genres | IMPORTANT | genres | ['fermentation', 'Korean food'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 175 | The Fermentarium (Kimchi Masterclass) | Blurb | IMPORTANT | blurb | At the Fermentariumâ€™s hearth, the spirit of Seou... | Expand or condense to 50-120 words | Only 48 words (need 50-120) |
+| 176 | The Garden Cinema | Moods | IMPORTANT | moods | ['tender', 'curious'] | Review against approved mood list | Unapproved moods: tender, curious |
+| 176 | The Garden Cinema | Genres | IMPORTANT | genres | ['art house', 'foreign language'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 176 | The Garden Cinema | Blurb | IMPORTANT | blurb | An independent cinema opened in 2022 with art-deco... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 177 | The Ginger Pig â€” Sausage Making Class | Moods | IMPORTANT | moods | ['craft & making', 'epicurean'] | Review against approved mood list | Unapproved moods: craft & making, epicurean |
+| 177 | The Ginger Pig â€” Sausage Making Class | Genres | IMPORTANT | genres | ['sausage/charcuterie'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 178 | The Harrison | Moods | IMPORTANT | moods | ['folk', 'curious'] | Review against approved mood list | Unapproved moods: folk, curious |
+| 178 | The Harrison | Blurb | IMPORTANT | blurb | An intimate venue famous for all-day folk festival... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 179 | The Ivy House | Moods | IMPORTANT | moods | ['earthy', 'playful'] | Review against approved mood list | Unapproved moods: earthy, playful |
+| 179 | The Ivy House | Blurb | IMPORTANT | blurb | London's first community-owned pub, a Grade II-lis... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 180 | The Jazz CafÃ© | Moods | IMPORTANT | moods | ['ecstatic', 'earthy'] | Review against approved mood list | Unapproved moods: ecstatic, earthy |
+| 180 | The Jazz CafÃ© | Blurb | IMPORTANT | blurb | A 450-capacity Camden institution hosting a broad ... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 181 | The Last Tuesday Society â€” Scrying Workshop with Lucya Starza | Moods | IMPORTANT | moods | ['witchy', 'mysterious', 'Victorian'] | Review against approved mood list | Unapproved moods: witchy, mysterious, Victorian |
+| 182 | The Last Tuesday Society â€” Wicked Wednesdays: Tarot Readings with Tobias | Moods | IMPORTANT | moods | ['decadent', 'intimate', 'occult'] | Review against approved mood list | Unapproved moods: decadent, intimate, occult |
+| 182 | The Last Tuesday Society â€” Wicked Wednesdays: Tarot Readings with Tobias | Genres | IMPORTANT | genres | ['tarot divination'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 183 | The Lexi Cinema | Moods | IMPORTANT | moods | ['tender', 'curious'] | Review against approved mood list | Unapproved moods: tender, curious |
+| 183 | The Lexi Cinema | Genres | IMPORTANT | genres | ['independent film', 'social purpose'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 183 | The Lexi Cinema | Blurb | IMPORTANT | blurb | London's only social-enterprise cinema, a voluntee... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 184 | The Lexington | Moods | IMPORTANT | moods | ['sweaty', 'grassroots', 'spirited'] | Review against approved mood list | Unapproved moods: sweaty, grassroots, spirited |
+| 185 | The London Leather Workshop | Moods | IMPORTANT | moods | ['tactile', 'heritage'] | Review against approved mood list | Unapproved moods: tactile, heritage |
+| 185 | The London Leather Workshop | Blurb | IMPORTANT | blurb | Among the brickwork bones of Woolwich Dockyard, tr... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 186 | The London Loom | Moods | IMPORTANT | moods | ['playful', 'nostalgic'] | Review against approved mood list | Unapproved moods: playful, nostalgic |
+| 187 | The Ludoquist | Moods | IMPORTANT | moods | ['cosy', 'curious', 'family-friendly', 'strategic'] | Review against approved mood list | Unapproved moods: cosy, curious, family-friendly, strategic |
+| 187 | The Ludoquist | Blurb | IMPORTANT | blurb | Croydon’s warmest hoard of dice and dreams — where... | Expand or condense to 50-120 words | Only 26 words (need 50-120) |
+| 188 | The Others | Moods | IMPORTANT | moods | ['jammy', 'bohemian', 'communal'] | Review against approved mood list | Unapproved moods: jammy, bohemian, communal |
+| 189 | The Phoenix Arts Club | Moods | IMPORTANT | moods | ['cabaret', 'queer'] | Review against approved mood list | Unapproved moods: cabaret, queer |
+| 189 | The Phoenix Arts Club | Blurb | IMPORTANT | blurb | London's legendary venue for cabaret and variety, ... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 190 | The Place | Moods | IMPORTANT | moods | ['movement', 'curious'] | Review against approved mood list | Unapproved moods: movement, curious |
+| 190 | The Place | Genres | IMPORTANT | genres | ['contemporary dance'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 190 | The Place | Blurb | IMPORTANT | blurb | A creative powerhouse for dance, home to London Co... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 191 | The Poetry Café | Moods | IMPORTANT | moods | ['cosy', 'reflective', 'open-minded'] | Review against approved mood list | Unapproved moods: cosy, reflective, open-minded |
+| 192 | The Slaughtered Lamb | Moods | IMPORTANT | moods | ['folk', 'intimate'] | Review against approved mood list | Unapproved moods: folk, intimate |
+| 192 | The Slaughtered Lamb | Blurb | IMPORTANT | blurb | An acoustic haven in a Clerkenwell basement where ... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 193 | The Social | Moods | IMPORTANT | moods | ['playful', 'rebellious'] | Review against approved mood list | Unapproved moods: playful, rebellious |
+| 193 | The Social | Genres | IMPORTANT | genres | ['live music', 'DJs'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 193 | The Social | Blurb | IMPORTANT | blurb | A beloved bar designed by David Adjaye, somewhere ... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 194 | The Sound Lounge | Moods | IMPORTANT | moods | ['folk', 'tender'] | Review against approved mood list | Unapproved moods: folk, tender |
+| 194 | The Sound Lounge | Blurb | IMPORTANT | blurb | A carbon-neutral haven for roots music, where viny... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 195 | The Space | Moods | IMPORTANT | moods | ['sacred', 'intimate', 'thoughtful'] | Review against approved mood list | Unapproved moods: sacred, intimate, thoughtful |
+| 195 | The Space | Blurb | IMPORTANT | blurb | A converted 19th-century church offering atmospher... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 196 | The Tabernacle | Moods | IMPORTANT | moods | ['sacred', 'global'] | Review against approved mood list | Unapproved moods: sacred, global |
+| 196 | The Tabernacle | Blurb | IMPORTANT | blurb | A Grade II-listed former church turned arts centre... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 197 | The Viaduct | Moods | IMPORTANT | moods | ['comic', 'nostalgic'] | Review against approved mood list | Unapproved moods: comic, nostalgic |
+| 197 | The Viaduct | Genres | IMPORTANT | genres | ['comedy'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 197 | The Viaduct | Blurb | IMPORTANT | blurb | A historic coaching inn from 1737, famous for its ... | Expand or condense to 50-120 words | Only 17 words (need 50-120) |
+| 198 | Theatre Peckham | Moods | IMPORTANT | moods | ['voice', 'curious'] | Review against approved mood list | Unapproved moods: voice, curious |
+| 198 | Theatre Peckham | Genres | IMPORTANT | genres | ['youth theatre', 'spoken word'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 198 | Theatre Peckham | Blurb | IMPORTANT | blurb | A multi-award-winning venue championing artistic e... | Expand or condense to 50-120 words | Only 16 words (need 50-120) |
+| 199 | Therapeutic Yoga Community Group – Jane O’Rourke | Moods | IMPORTANT | moods | ['gentle', 'trauma-informed'] | Review against approved mood list | Unapproved moods: gentle, trauma-informed |
+| 199 | Therapeutic Yoga Community Group – Jane O’Rourke | Blurb | IMPORTANT | blurb | In candlelight or soft morning sun, this yoga prac... | Expand or condense to 50-120 words | Only 42 words (need 50-120) |
+| 200 | Top CuvÃ©e / Shop CuvÃ©e â€“ Natural Wine Masterclass | Moods | IMPORTANT | moods | ['epicurean', 'curious', 'adult play'] | Review against approved mood list | Unapproved moods: epicurean, curious, adult play |
+| 200 | Top CuvÃ©e / Shop CuvÃ©e â€“ Natural Wine Masterclass | Genres | IMPORTANT | genres | ['natural wine tasting'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 201 | Tramshed | Moods | IMPORTANT | moods | ['family-friendly', 'curious'] | Review against approved mood list | Unapproved moods: family-friendly, curious |
+| 201 | Tramshed | Genres | IMPORTANT | genres | ['community theatre', 'youth programming'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 201 | Tramshed | Blurb | IMPORTANT | blurb | A community arts hub using performing arts to serv... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 202 | Treadwellâ€™s Bookshop â€“ Witchcraft Classes | Moods | IMPORTANT | moods | ['witchy', 'occult', 'esoteric', 'gothic'] | Review against approved mood list | Unapproved moods: witchy, occult, esoteric, gothic |
+| 202 | Treadwellâ€™s Bookshop â€“ Witchcraft Classes | Blurb | IMPORTANT | blurb | Behind the dusky glass and whispered shelves, Trea... | Expand or condense to 50-120 words | Only 47 words (need 50-120) |
+| 203 | TT London â€“ Whisky Tasting Experience | Moods | IMPORTANT | moods | ['craft & making', 'adult play'] | Review against approved mood list | Unapproved moods: craft & making, adult play |
+| 203 | TT London â€“ Whisky Tasting Experience | Genres | IMPORTANT | genres | ['whisky tasting'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 204 | Turner & George â€” Beef Butchery Class | Moods | IMPORTANT | moods | ['craft & making', 'epicurean'] | Review against approved mood list | Unapproved moods: craft & making, epicurean |
+| 204 | Turner & George â€” Beef Butchery Class | Genres | IMPORTANT | genres | ['meat butchery'] | Adjust to 3-5 genres | Has 1 genres (recommended 3-5) |
+| 205 | Umbrella Workshop â€“ Irish Whiskey Tasting | Moods | IMPORTANT | moods | ['adult play', 'epicurean', 'community'] | Review against approved mood list | Unapproved moods: adult play, epicurean, community |
+| 205 | Umbrella Workshop â€“ Irish Whiskey Tasting | Genres | IMPORTANT | genres | ['Irish whiskey', 'PoitÃ\xadn'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 206 | Union Chapel | Moods | IMPORTANT | moods | ['sacred', 'wonder'] | Review against approved mood list | Unapproved moods: sacred, wonder |
+| 206 | Union Chapel | Blurb | IMPORTANT | blurb | A working church and not-for-profit performance sp... | Expand or condense to 50-120 words | Only 16 words (need 50-120) |
+| 207 | Viktor Wynd Museum | Moods | IMPORTANT | moods | ['witchy', 'haunted', 'ritual'] | Review against approved mood list | Unapproved moods: witchy, haunted, ritual |
+| 208 | Village Underground | Moods | IMPORTANT | moods | ['rebellious', 'ecstatic'] | Review against approved mood list | Unapproved moods: rebellious, ecstatic |
+| 208 | Village Underground | Blurb | IMPORTANT | blurb | A renovated Victorian warehouse topped with hollow... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 209 | Vortex Jazz Club | Moods | IMPORTANT | moods | ['soulful', 'intimate', 'improvisational'] | Review against approved mood list | Unapproved moods: soulful, intimate, improvisational |
+| 210 | We Make Books | Moods | IMPORTANT | moods | ['craft & making', 'curious', 'nostalgic'] | Review against approved mood list | Unapproved moods: craft & making, curious, nostalgic |
+| 211 | Wheel of Consent Weekend Workshop | Moods | IMPORTANT | moods | ['introspective', 'empowering', 'supportive'] | Review against approved mood list | Unapproved moods: introspective, empowering, supportive |
+| 211 | Wheel of Consent Weekend Workshop | Blurb | IMPORTANT | blurb | Beneath every touch is a question: Is this for you... | Expand or condense to 50-120 words | Only 49 words (need 50-120) |
+| 212 | Wild Food UK â€“ Foraging Courses | Moods | IMPORTANT | moods | ['wild', 'earthy', 'curious'] | Review against approved mood list | Unapproved moods: wild, earthy, curious |
+| 213 | Wilton's Music Hall | Moods | IMPORTANT | moods | ['haunted', 'candlelit'] | Review against approved mood list | Unapproved moods: haunted, candlelit |
+| 213 | Wilton's Music Hall | Genres | IMPORTANT | genres | ['theatre', 'music'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 213 | Wilton's Music Hall | Blurb | IMPORTANT | blurb | The oldest surviving Grand Music Hall in the world... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 214 | Witchy Women â€“ Candle Magic & Spellwork Classes | Moods | IMPORTANT | moods | ['feminine', 'playful', 'witchy', 'experimental'] | Review against approved mood list | Unapproved moods: feminine, playful, witchy, experimental |
+| 214 | Witchy Women â€“ Candle Magic & Spellwork Classes | Blurb | IMPORTANT | blurb | Under twinkling lights and the watch of many mirro... | Expand or condense to 50-120 words | Only 41 words (need 50-120) |
+| 215 | Wonders of the Dark Sky â€“ Woodoaks Farm Stargazing | Moods | IMPORTANT | moods | ['dark sky', 'curious', 'wild'] | Review against approved mood list | Unapproved moods: dark sky, curious, wild |
+| 215 | Wonders of the Dark Sky â€“ Woodoaks Farm Stargazing | Genres | IMPORTANT | genres | ['stargazing', 'astronomy walk'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 215 | Wonders of the Dark Sky â€“ Woodoaks Farm Stargazing | Blurb | IMPORTANT | blurb | At Woodoaks Farm, the stars return. Far from Londo... | Expand or condense to 50-120 words | Only 44 words (need 50-120) |
+| 216 | Woolwich Works | Moods | IMPORTANT | moods | ['group energy', 'ecstatic'] | Review against approved mood list | Unapproved moods: group energy, ecstatic |
+| 216 | Woolwich Works | Blurb | IMPORTANT | blurb | Time Out's 'best new culture spot,' a multi-discip... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 217 | FOLD | Moods | IMPORTANT | moods | ['Big Night Out', 'Late-Night Lark', 'Rebellious'] | Review against approved mood list | Unapproved moods: Rebellious |
+| 217 | FOLD | Blurb | IMPORTANT | blurb | A 600-capacity warehouse with a 6am licence and Fu... | Expand or condense to 50-120 words | Only 24 words (need 50-120) |
+| 218 | Corsica Studios | Moods | IMPORTANT | moods | ['Late-Night Lark', 'Curious Encounters', 'Rebellious'] | Review against approved mood list | Unapproved moods: Rebellious |
+| 218 | Corsica Studios | Blurb | IMPORTANT | blurb | Twin railway arches beneath Elephant & Castle, a n... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 219 | Venue MOT Unit 18 | Moods | IMPORTANT | moods | ['Big Night Out', 'Late-Night Lark', 'Wild Becoming'] | Review against approved mood list | Unapproved moods: Wild Becoming |
+| 219 | Venue MOT Unit 18 | Blurb | IMPORTANT | blurb | A grungy warehouse space in Barking where east Lon... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 220 | Servant Jazz Quarters | Moods | IMPORTANT | moods | ['Jazz & Contemplation', 'Late-Night Lark', 'Melancholic Beauty'] | Review against approved mood list | Unapproved moods: Jazz & Contemplation |
+| 220 | Servant Jazz Quarters | Blurb | IMPORTANT | blurb | A basement jazz club where smoke curls through low... | Expand or condense to 50-120 words | Only 23 words (need 50-120) |
+| 221 | The Old Blue Last | Moods | IMPORTANT | moods | ['Late-Night Lark', 'Rebellious', 'Nostalgic / Vintage / Retro'] | Review against approved mood list | Unapproved moods: Rebellious |
+| 221 | The Old Blue Last | Blurb | IMPORTANT | blurb | A legendary Shoreditch pub where Vice Magazine onc... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 222 | The Victoria (JaguarShoes) | Blurb | IMPORTANT | blurb | A Dalston institution where the backroom transform... | Expand or condense to 50-120 words | Only 24 words (need 50-120) |
+| 223 | The George Tavern | Blurb | IMPORTANT | blurb | A Grade II-listed East End institution where Victo... | Expand or condense to 50-120 words | Only 27 words (need 50-120) |
+| 224 | TOLA Peckham | Blurb | IMPORTANT | blurb | An artist-led bar beneath railway arches where vin... | Expand or condense to 50-120 words | Only 23 words (need 50-120) |
+| 225 | Grow Hackney | Moods | IMPORTANT | moods | ['Late-Night Lark', 'Curious Encounters', 'Wild Becoming'] | Review against approved mood list | Unapproved moods: Wild Becoming |
+| 225 | Grow Hackney | Blurb | IMPORTANT | blurb | A canal-side haven where sustainability meets nigh... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 226 | Prince Charles Cinema | Blurb | IMPORTANT | blurb | Where cult classics and midnight marathons thrive,... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 227 | TwickFolk at The Cabbage Patch | Moods | IMPORTANT | moods | ['Folk & Intimate', 'Nostalgic / Vintage / Retro', 'Community'] | Review against approved mood list | Unapproved moods: Community |
+| 227 | TwickFolk at The Cabbage Patch | Blurb | IMPORTANT | blurb | A volunteer-run folk club thriving since 1983, whe... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 228 | Park Royal Design District | Moods | IMPORTANT | moods | ['Curious Encounters', 'The Thoughtful Stage', 'Community'] | Review against approved mood list | Unapproved moods: Community |
+| 228 | Park Royal Design District | Blurb | IMPORTANT | blurb | A creative quarter housing 250+ artist studios in ... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 229 | Bollo Studios | Moods | IMPORTANT | moods | ['Curious Encounters', 'Community', 'The Thoughtful Stage'] | Review against approved mood list | Unapproved moods: Community |
+| 229 | Bollo Studios | Blurb | IMPORTANT | blurb | Artist studios and gallery space in Acton where ce... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 230 | Foster Books | Blurb | IMPORTANT | blurb | An 18th-century Chiswick bookshop where rare volum... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 231 | Lloyds of Kew | Blurb | IMPORTANT | blurb | A rare and antiquarian bookshop specializing in bo... | Expand or condense to 50-120 words | Only 18 words (need 50-120) |
+| 232 | The Open Book | Moods | IMPORTANT | moods | ['The Thoughtful Stage', 'Community', 'Poetic'] | Review against approved mood list | Unapproved moods: Community |
+| 232 | The Open Book | Blurb | IMPORTANT | blurb | A Richmond bookshop and café where literary discus... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 233 | Pitshanger Bookshop | Moods | IMPORTANT | moods | ['The Thoughtful Stage', 'Poetic', 'Community'] | Review against approved mood list | Unapproved moods: Community |
+| 233 | Pitshanger Bookshop | Blurb | IMPORTANT | blurb | An Ealing bookshop hosting readings, book clubs, a... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 234 | The Sheen Bookshop | Moods | IMPORTANT | moods | ['Community', 'The Thoughtful Stage', 'Wonder & Awe'] | Review against approved mood list | Unapproved moods: Community |
+| 234 | The Sheen Bookshop | Blurb | IMPORTANT | blurb | A cosy East Sheen bookshop with storytelling sessi... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 235 | All Good Bookshop | Moods | IMPORTANT | moods | ['Punchy / Protest', 'Community', 'Poetic'] | Review against approved mood list | Unapproved moods: Community |
+| 235 | All Good Bookshop | Blurb | IMPORTANT | blurb | A worker co-operative bookshop in Wood Green hosti... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 236 | OPEN Ealing | Blurb | IMPORTANT | blurb | A multi-arts venue in central Ealing presenting th... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 237 | Kiln Theatre | Blurb | IMPORTANT | blurb | Formerly Tricycle Theatre, now Kiln, where stories... | Expand or condense to 50-120 words | Only 25 words (need 50-120) |
+| 238 | Studio Crumb | Blurb | IMPORTANT | blurb | A monthly vinyl-only party in The Bunker where DJ ... | Expand or condense to 50-120 words | Only 25 words (need 50-120) |
+| 239 | Club Are | Moods | IMPORTANT | moods | ['Queer Revelry', 'Curious Encounters', 'Wild Becoming'] | Review against approved mood list | Unapproved moods: Wild Becoming |
+| 239 | Club Are | Blurb | IMPORTANT | blurb | A queer-founded multidisciplinary platform where s... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 240 | Club Stamina | Blurb | IMPORTANT | blurb | DJ Mina Galán's night championing femme and trans ... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 241 | MAS ARTS | Moods | IMPORTANT | moods | ['Community', 'Big Night Out', 'Playful & Weird'] | Review against approved mood list | Unapproved moods: Community |
+| 241 | MAS ARTS | Blurb | IMPORTANT | blurb | A mobile sound system delivering pop-up raves to u... | Expand or condense to 50-120 words | Only 23 words (need 50-120) |
+| 242 | 2C Perrea | Blurb | IMPORTANT | blurb | Queer-friendly reggaeton founded by Latinx migrant... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 243 | Eastern Margins | Blurb | IMPORTANT | blurb | Record label and events collective celebrating alt... | Expand or condense to 50-120 words | Only 22 words (need 50-120) |
+| 244 | Tech Couture LDN | Moods | IMPORTANT | moods | ['Big Night Out', 'Playful & Weird', 'Wild Becoming'] | Review against approved mood list | Unapproved moods: Wild Becoming |
+| 244 | Tech Couture LDN | Blurb | IMPORTANT | blurb | Colourful techno party bringing self-expression an... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 245 | Opia | Moods | IMPORTANT | moods | ['Cabaret & Glitter', 'Wild Becoming', 'Playful & Weird'] | Review against approved mood list | Unapproved moods: Wild Becoming |
+| 245 | Opia | Blurb | IMPORTANT | blurb | Club night-turned cultural movement where glamour,... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 246 | Queer House Party | Blurb | IMPORTANT | blurb | DIY collective merging safer accessible spaces wit... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 247 | Ceilidh Liberation Front | Blurb | IMPORTANT | blurb | The Nest Collective transforms traditional ceilidh... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 248 | Bootylicious | Blurb | IMPORTANT | blurb | Long-running LGBTQ+ club night serving Amapiano, D... | Expand or condense to 50-120 words | Only 23 words (need 50-120) |
+| 249 | Slimelight | Moods | IMPORTANT | moods | ['Witchy & Wild', 'Big Night Out', 'Rebellious'] | Review against approved mood list | Unapproved moods: Rebellious |
+| 249 | Slimelight | Blurb | IMPORTANT | blurb | World-renowned dark scene club with three floors: ... | Expand or condense to 50-120 words | Only 21 words (need 50-120) |
+| 250 | Dark Scene London | Blurb | IMPORTANT | blurb | Summer soiree bringing together the dark music com... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 251 | Sanura Dance | Blurb | IMPORTANT | blurb | Queer-run dance school where FLINTA and LGBTQ+ peo... | Expand or condense to 50-120 words | Only 26 words (need 50-120) |
+| 252 | DTMF! (Don't Touch My Fro!) | Blurb | IMPORTANT | blurb | Underground collective playing afro-centric forwar... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 253 | Boudica | Moods | IMPORTANT | moods | ['Queer Revelry', 'Punchy / Protest', 'Wild Becoming'] | Review against approved mood list | Unapproved moods: Wild Becoming |
+| 253 | Boudica | Blurb | IMPORTANT | blurb | Queer-led platform blending dark techno, acid, and... | Expand or condense to 50-120 words | Only 20 words (need 50-120) |
+| 254 | Playbody Warehouse | Moods | IMPORTANT | moods | ['Curious Encounters', 'Community', 'Playful & Weird'] | Review against approved mood list | Unapproved moods: Community |
+| 254 | Playbody Warehouse | Blurb | IMPORTANT | blurb | Creative collective transforms warehouse into imme... | Expand or condense to 50-120 words | Only 19 words (need 50-120) |
+| 255 | Pink Singers | Genres | IMPORTANT | genres | ['LGBT+ community choir', 'choral concerts'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 256 | London Sacred Harp | Genres | IMPORTANT | genres | ['Sacred Harp singing', 'shape-note communal singing'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 257 | Chickenshed Community Choir | Genres | IMPORTANT | genres | ['community choir', 'inclusive singing workshops'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 259 | Heart Song Collective CIC | Genres | IMPORTANT | genres | ['singing for wellbeing', 'queer-led choir circle'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 260 | F*Choir | Genres | IMPORTANT | genres | ['all-genders community choir', 'queer liberation choir'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 261 | Sing For Freedom Choir | Genres | IMPORTANT | genres | ['community choir', 'refugee and allies choir'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 262 | London City Voices | Genres | IMPORTANT | genres | ['non-audition community choir', 'pop and rock repertoire'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 263 | Healing Choir | Genres | IMPORTANT | genres | ['community arts choir', 'wellbeing-focused vocal circle'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 264 | Outer Circle Voice Circle | Genres | IMPORTANT | genres | ['experimental vocal workshop', 'women and non-binary circle'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 265 | Catford Community Choir | Genres | IMPORTANT | genres | ['local community choir', 'library-based singing group'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 269 | Freshly Squeezed Scratch Night | Genres | IMPORTANT | genres | ['scripted new writing', 'community arts scratch night'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 271 | Freelance Royalty Scratch Nights | Genres | IMPORTANT | genres | ['informal scratch night', 'freelancer-focused platform'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 272 | Belly Scratch | Genres | IMPORTANT | genres | ['theatre scratch night', 'cabaret-style new work'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 290 | Bonnington Centre Death Café | Genres | IMPORTANT | genres | ['death café', 'community gathering'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 291 | Rosslyn Hill Unitarian Chapel – Hampstead Death Café | Genres | IMPORTANT | genres | ['death café', 'spiritual conversation'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 293 | Release: Boxing Through Grief – London Community Boxing | Genres | IMPORTANT | genres | ['boxing & movement', 'grief programme'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 294 | Grief Rave & Grief Moves – The Fandangoe Discoteca x The Loss Project | Moods | IMPORTANT | moods | ['Grief & Grace', 'Ecstatic', 'Playful & Weird'] | Review against approved mood list | Unapproved moods: Ecstatic |
+| 295 | Galleria Objets – "Your Grief Belongs To You, And Can Be So So Pretty" | Genres | IMPORTANT | genres | ['contemporary art', 'grief-themed exhibition'] | Adjust to 3-5 genres | Has 2 genres (recommended 3-5) |
+| 25 | BookBar | URL | MINOR | url | bookbaruk.com/events | https://bookbaruk.com/events | URL missing http:// or https:// |
+| 36 | Chats Palace | URL | MINOR | url | chatspalace.com | https://chatspalace.com | URL missing http:// or https:// |
+| 40 | CLF Art Lounge & Pop-Up | URL | MINOR | url | clfartlounge.com/event‑list | https://clfartlounge.com/event‑list | URL missing http:// or https:// |
+| 47 | Cubitt Artists | URL | MINOR | url | cubittartists.org.uk | https://cubittartists.org.uk | URL missing http:// or https:// |
+| 156 | Southwark Park Galleries (Lake Gallery & Dilston Gallery) | URL | MINOR | url | southwarkparkgalleries.org | https://southwarkparkgalleries.org | URL missing http:// or https:// |
+| 171 | The Bill Murray (Angel Comedy) | URL | MINOR | url | angelcomedy.co.uk/bill‑murray | https://angelcomedy.co.uk/bill‑murray | URL missing http:// or https:// |
+| 172 | The Camden Club | URL | MINOR | url | thecamdenclub.co.uk/whats‑on/open‑music‑jam | https://thecamdenclub.co.uk/whats‑on/open‑music‑jam | URL missing http:// or https:// |
+| 188 | The Others | URL | MINOR | url | theothers.uk.com | https://theothers.uk.com | URL missing http:// or https:// |
+| 209 | Vortex Jazz Club | URL | MINOR | url | vortexjazz.co.uk | https://vortexjazz.co.uk | URL missing http:// or https:// |

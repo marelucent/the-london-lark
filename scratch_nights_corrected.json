@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Theatre in the Pound",
+    "location": "Marylebone (The Cockpit)",
+    "moods": ["Group Energy", "Experimental / Avant-garde", "Curious Encounters"],
+    "genres": ["monthly scratch night", "new writing", "performance experiments"],
+    "url": "https://www.thecockpit.org.uk/article/theatre_in_the_pound",
+    "blurb": "At The Cockpit, scratch is taken literally: theatre-makers rent the space for a pound a minute and fling 10–15 minute ideas into the dark, then listen as the room answers back. Theatre in the Pound is low-cost, not-for-profit and gloriously rough-feathered, a night where wild hunches and half-built scenes are carried on a breath of song. If you like the feeling of catching a show mid-moult, before it grows its final plumage, this is your roost, petal.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Big Bang Scratch Night",
+    "location": "Camden (Camden People's Theatre)",
+    "moods": ["Group Energy", "Playful & Weird", "Experimental / Avant-garde"],
+    "genres": ["regular scratch platform", "contemporary performance", "new writing"],
+    "url": "https://cptheatre.co.uk/whatson/Big-Bang-Scratch-Night-30-March-2025",
+    "blurb": "Big Bang is Camden People's Theatre's ongoing experiment in controlled theatrical explosions: short bursts of brand-new work sharing a single orbit for one night only. Expect queer cabaret fragments, political performance, strange monologues and oddball dance-theatre, all fluttering toward the unfamiliar. It's the place to see tiny universes of theatre right at ignition, trembling with finchlight before they streak off elsewhere.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Scratch Renaissance",
+    "location": "Mile End (Chisenhale Dance Space)",
+    "moods": ["Group Energy", "Experimental / Avant-garde", "Body-Based / Movement-Led"],
+    "genres": ["dance and performance scratch", "artist-led", "marginalised voices"],
+    "url": "https://www.chisenhaledancespace.co.uk/scratch-renaissance/",
+    "blurb": "At Chisenhale Dance Space, Scratch Renaissance is more than a one-off night: it's a year-long flock of evenings where emerging and marginalised artists test the edges of movement and performance. One month might hold queer dance rituals, the next a solo that drifts like a feather through evening, all shaped by an artist-led ethos and fair-pay agreements. Come if you like your work-in-progress sweaty, tender and willing to fall on its face in front of you, then rise with the thermals of curiosity.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Freshly Squeezed Scratch Night",
+    "location": "Bethnal Green (St Margaret's House)",
+    "moods": ["Group Energy", "Word & Voice", "Folk & Intimate"],
+    "genres": ["scripted new writing", "community arts scratch night"],
+    "url": "https://www.stmargaretshouse.org.uk/events/freshly-squeezed-scratch-night",
+    "blurb": "St Margaret's House in Bethnal Green hosts Freshly Squeezed, a night of six bite-sized scripts from up-and-coming writers in a cosy, community-space setting. It's all bare stages and bright words: you sit among neighbours as scenes hatch and wobble into life, notes that perch and stay even after the lights come up. If you like championing brave first drafts and being part of gentle, generous feedback, this is a soft-lit corner made for you, petal.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Devise & Conquer – Scratch Night & Cabaret",
+    "location": "Dalston / Stoke Newington Road (The Divine)",
+    "moods": ["Group Energy", "Queer Revelry", "Playful & Weird"],
+    "genres": ["scratch cabaret", "drag and performance", "mixed bill"],
+    "url": "https://thedivine.co.uk/event/devise-conq-3-scratch/",
+    "blurb": "At The Divine, Devise & Conquer turns scratch into a late-night variety spell: drag, comedy, theatre and poetry sharing a low-lit stage with glitter ground into the floorboards. The bill shifts each time but the ethos stays steady—emerging artists testing new work while a friendly crowd hoots, hollers and holds the gaps. It's a nest of stories and string lights for petals who like their experiments sequinned, messy and gloriously alive.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Freelance Royalty Scratch Nights",
+    "location": "Stratford (Theatre Royal Stratford East Bar)",
+    "moods": ["Group Energy", "Curious Encounters", "The Thoughtful Stage"],
+    "genres": ["informal scratch night", "freelancer-focused platform"],
+    "url": "https://www.stratfordeast.com/royalty-scheme/freelance-royalty/freelance-royalty-scratch-nights/",
+    "blurb": "Stratford East's Freelance Royalty Scratch Nights happen not on a grand stage but in the theatre bar, where small performance spaces bloom between tables and glasses. Short works-in-progress share the evening with laughter, side chats and chance encounters with future collaborators. It's relaxed, low-stakes and welcoming—more murmuring roost than formal showcase—ideal for petals who want to test an idea without fanfare and meet others doing the same.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Belly Scratch",
+    "location": "Soho (Underbelly Boulevard)",
+    "moods": ["Group Energy", "Big Night Out", "Experimental / Avant-garde"],
+    "genres": ["theatre scratch night", "cabaret-style new work"],
+    "url": "https://underbellyboulevard.com/belly-scratch/",
+    "blurb": "Belly Scratch at Underbelly Boulevard is a cabaret-style scratch night offering four artists up to twenty minutes each to bare the bones of a new show. You might see first scenes of a future fringe hit, a strange solo that refuses to behave, or a script read-through that suddenly takes flight. The room is built for risk and laughter, a cry soft as wingbeat in a velvet-clad basement, perfect for a petal who wants to feel the city's next ideas rumbling under their feet.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "GrimFest Scratch Night",
+    "location": "Islington (Old Red Lion Theatre)",
+    "moods": ["Group Energy", "Witchy & Wild", "Playful & Weird"],
+    "genres": ["horror theatre scratch night", "storytelling", "cabaret fragments"],
+    "url": "https://www.oldredliontheatre.co.uk/grimfest-scratch-night.html",
+    "blurb": "GrimFest's Scratch Night at the Old Red Lion is a lantern-lit gathering for lovers of horror and the deliciously uncanny. Extracts from new plays, snatches of cabaret, twisted storytelling and odd comedy line up like ravens on a wire, each testing how far the dark can stretch. If you like your work-in-progress tinged with blood-red light and nervous laughter, wing your way here and sit close to the aisle.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Taking Centre Stage: A Scratch Cabaret",
+    "location": "Hammersmith (Riverside Studios – River Room)",
+    "moods": ["Group Energy", "The Thoughtful Stage", "Curious Encounters"],
+    "genres": ["scratch cabaret", "spoken word", "live music"],
+    "url": "https://riversidestudios.co.uk/see-and-do/taking-centre-stage-a-scratch-cabaret-117843/",
+    "blurb": "In the River Room at Riverside Studios, Stoke the Embers' Taking Centre Stage brings together short scenes, spoken word and live music from emerging and established artists. It's eclectic and sociable: come for the new work, stay to meet the people who made it, drifting like a feather through evening from one conversation to the next. This is where collaborations are born over interval drinks, a light-winged leap into wonder right beside the Thames.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Theatre Scratch Night",
+    "location": "Holborn (The London Art Bar)",
+    "moods": ["Group Energy", "Word & Voice", "Folk & Intimate"],
+    "genres": ["theatre scratch night", "new writing", "central London"],
+    "url": "https://www.londonartbar.com/calendar/theatre-scratch-night-nov-2025",
+    "blurb": "The London Art Bar hosts a cosy theatre scratch night just off High Holborn, where brand-new pieces stand up in front of a supportive, wine-sipping crowd. Writers, directors and performers show work at its most vulnerable, then invite thoughts from the room; audience members become part of the creative process, not just observers. It's sheltered beneath the beams and warm as a robin's hollow, especially for petals curious about the making as much as the finished show.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "GT Scratch",
+    "location": "Greenwich (Greenwich Theatre)",
+    "moods": ["Group Energy", "Curious Encounters", "Experimental / Avant-garde"],
+    "genres": ["scratch night", "emerging theatre-makers", "new ideas platform"],
+    "url": "https://greenwichtheatre.org.uk/events/gt-scratch/",
+    "blurb": "GT Scratch at Greenwich Theatre frames itself simply: new ideas, raw talent, live feedback. On any given night you might catch early scenes from a touring show, a strange little gem that only exists for one performance, or a devised piece still figuring out its own wingspan. For petals in south-east London, it's a welcoming perch to see what tomorrow's theatre-makers are hatching right now.",
+    "last_verified": "2025-11-25"
+  }
+]

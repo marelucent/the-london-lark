@@ -1,0 +1,695 @@
+{
+  "curious": {
+    "action": "map_to_core"
+  },
+  "playful": {
+    "action": "map_to_core"
+  },
+  "craft & making": {
+    "action": "map_to_core"
+  },
+  "Group Energy": {
+    "action": "map_to_core"
+  },
+  "Curious Encounters": {
+    "action": "map_to_core"
+  },
+  "rebellious": {
+    "action": "map_to_core"
+  },
+  "Big Night Out": {
+    "action": "map_to_core"
+  },
+  "Late-Night Lark": {
+    "action": "map_to_core"
+  },
+  "ecstatic": {
+    "action": "map_to_core"
+  },
+  "Folk & Intimate": {
+    "action": "map_to_core"
+  },
+  "The Thoughtful Stage": {
+    "action": "map_to_core"
+  },
+  "wild": {
+    "action": "map_to_core"
+  },
+  "Playful & Weird": {
+    "action": "map_to_core"
+  },
+  "nostalgic": {
+    "action": "map_to_core"
+  },
+  "epicurean": {
+    "action": "map_to_core"
+  },
+  "intimate": {
+    "action": "map_to_core"
+  },
+  "Poetic": {
+    "action": "map_to_core"
+  },
+  "earthy": {
+    "action": "map_to_core"
+  },
+  "Queer Revelry": {
+    "action": "map_to_core"
+  },
+  "tender": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "Grief & Grace": {
+    "action": "map_to_core"
+  },
+  "sacred": {
+    "action": "map_to_extended"
+  },
+  "queer": {
+    "action": "map_to_extended"
+  },
+  "community": {
+    "action": "map_to_extended"
+  },
+  "Community": {
+    "action": "map_to_extended"
+  },
+  "Word & Voice": {
+    "action": "map_to_core"
+  },
+  "adult play": {
+    "action": "map_to_extended"
+  },
+  "ritual": {
+    "action": "map_to_extended"
+  },
+  "folk": {
+    "action": "map_to_extended"
+  },
+  "thoughtful": {
+    "action": "map_to_extended"
+  },
+  "urban explorer": {
+    "action": "map_to_extended"
+  },
+  "witchy": {
+    "action": "map_to_extended"
+  },
+  "Nostalgic / Vintage / Retro": {
+    "action": "map_to_core"
+  },
+  "Global Rhythms": {
+    "action": "map_to_core"
+  },
+  "Spiritual / Sacred / Mystical": {
+    "action": "map_to_core"
+  },
+  "inclusive": {
+    "action": "map_to_extended"
+  },
+  "activist": {
+    "action": "map_to_extended"
+  },
+  "gentle": {
+    "action": "map_to_extended"
+  },
+  "night wanderer": {
+    "action": "map_to_extended"
+  },
+  "family-friendly": {
+    "action": "map_to_extended"
+  },
+  "Wild Becoming": {
+    "action": "map_to_extended"
+  },
+  "Punchy / Protest": {
+    "action": "map_to_core"
+  },
+  "transformative": {
+    "action": "map_to_extended"
+  },
+  "candlelit": {
+    "action": "map_to_extended"
+  },
+  "global": {
+    "action": "map_to_extended"
+  },
+  "haunted": {
+    "action": "map_to_extended"
+  },
+  "wonder": {
+    "action": "map_to_extended"
+  },
+  "cosy": {
+    "action": "map_to_extended"
+  },
+  "Body-Based / Movement-Led": {
+    "action": "map_to_core"
+  },
+  "Experimental / Avant-garde": {
+    "action": "map_to_core"
+  },
+  "empowering": {
+    "action": "map_to_extended"
+  },
+  "awe": {
+    "action": "map_to_extended"
+  },
+  "comic": {
+    "action": "map_to_extended"
+  },
+  "experimental": {
+    "action": "map_to_extended"
+  },
+  "creative": {
+    "action": "map_to_extended"
+  },
+  "voice": {
+    "action": "map_to_extended"
+  },
+  "movement": {
+    "action": "map_to_extended"
+  },
+  "mystical": {
+    "action": "map_to_extended"
+  },
+  "Rebellious": {
+    "action": "map_to_extended"
+  },
+  "Romanticised London": {
+    "action": "map_to_core"
+  },
+  "meditative": {
+    "action": "map_to_extended"
+  },
+  "expressive": {
+    "action": "map_to_extended"
+  },
+  "melancholy": {
+    "action": "map_to_extended"
+  },
+  "introspective": {
+    "action": "map_to_extended"
+  },
+  "poetic": {
+    "action": "map_to_extended"
+  },
+  "celebratory": {
+    "action": "map_to_extended"
+  },
+  "big night out": {
+    "action": "map_to_extended"
+  },
+  "mindful": {
+    "action": "map_to_extended"
+  },
+  "group energy": {
+    "action": "map_to_extended"
+  },
+  "esoteric": {
+    "action": "map_to_extended"
+  },
+  "feminine": {
+    "action": "map_to_extended"
+  },
+  "exploratory": {
+    "action": "map_to_extended"
+  },
+  "tactile": {
+    "action": "map_to_extended"
+  },
+  "Witchy & Wild": {
+    "action": "map_to_core"
+  },
+  "sensory": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "fluid": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "collaborative": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "story-rich": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "supportive": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "rustic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "adventurous": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "sociable": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "salon": {
+    "action": "move_to_features"
+  },
+  "word": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "refined": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "community-driven": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "geeky": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "welcoming": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "strategic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "seasonal": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "social": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "historical": {
+    "action": "move_to_features"
+  },
+  "botanical": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "dark sky": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "mysterious": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "punchy": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "nourishing": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "fun": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "contemplative": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "communal": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "symbolic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "vibrant": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "soulful": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "cabaret": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "occult": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "Melancholic Beauty": {
+    "action": "map_to_core"
+  },
+  "Family-Friendly": {
+    "action": "map_to_core"
+  },
+  "community-focused": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "witnessed": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "tactical": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "nerdy": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "community-centred": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "convivial": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "literary": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "rant": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "avant-garde": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "listening": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "sustainable": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "radical": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "tropical": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "improvised": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "community-minded": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "queer-affirming": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "inviting": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "chilled": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "destigmatising": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "spiritual": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "connected": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "free-spirited": {
+    "action": "move_to_features"
+  },
+  "liberated": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "grounded": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "nature-connected": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "boozy": {
+    "action": "move_to_features"
+  },
+  "fiery": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "mesmerising": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "aromatic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "craft-based": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "personal": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "homely": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "intense": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "body-confident": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "fierce": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "sensual": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "practical": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "slow-paced": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "foodie-friendly": {
+    "action": "move_to_features"
+  },
+  "retro": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "grief-held": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "mythic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "restorative": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "accessible": {
+    "action": "move_to_features"
+  },
+  "spontaneous": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "intellectual": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "eclectic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "narrative": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "confidence-building": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "communicative": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "strategy-heavy": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "casual": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "immersive": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "uplifting": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "healing": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "ethereal": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "rooted": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "energetic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "democratic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "open-air": {
+    "action": "move_to_features"
+  },
+  "raw": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "critical": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "nurturing": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "magical": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "theatrical": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "irreverent": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "relaxed": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "jam-friendly": {
+    "action": "move_to_features"
+  },
+  "neighbourhood-feel": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "historic": {
+    "action": "move_to_features"
+  },
+  "Victorian": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "decadent": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "sweaty": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "grassroots": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "spirited": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "heritage": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "jammy": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "bohemian": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "reflective": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "open-minded": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "trauma-informed": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "gothic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "improvisational": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "Jazz & Contemplation": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  },
+  "Wonder & Awe": {
+    "action": "map_to_core"
+  },
+  "Comic Relief": {
+    "action": "map_to_core"
+  },
+  "Cabaret & Glitter": {
+    "action": "map_to_core"
+  },
+  "Ecstatic": {
+    "action": "map_to_extended",
+    "notes": "Rescued from retirement - beautiful/specific mood"
+  }
+}

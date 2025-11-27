@@ -32,6 +32,18 @@
                 <button id="surpriseButton" class="surprise-btn" onclick="surpriseMe()">🎲 Surprise Me</button>
             </div>
         </div>
+
+        <!-- Mood Tags -->
+        {% if core_moods %}
+        <div class="mood-tags-container">
+            <div class="mood-tags-label">Or explore by mood:</div>
+            <div class="mood-tags">
+                {% for mood in core_moods %}
+                <button class="mood-tag" onclick="searchByMood('{{ mood }}')">{{ mood }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
     </div>
 
     <!-- Dev Mood Tuner Toggle -->
@@ -115,6 +127,21 @@
                 askLark();
             }
         });
+
+        // Search by mood tag
+        function searchByMood(mood) {
+            // Highlight the selected mood tag
+            document.querySelectorAll('.mood-tag').forEach(tag => {
+                tag.classList.remove('active');
+                if (tag.textContent === mood) {
+                    tag.classList.add('active');
+                }
+            });
+
+            // Set the input to the mood and trigger search
+            userInput.value = mood;
+            askLark();
+        }
 
         function clearIntro() {
             const intro = conversation.querySelector('.intro');

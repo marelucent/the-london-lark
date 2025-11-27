@@ -1,0 +1,92 @@
+[
+  {
+    "name": "The London Library",
+    "location": "St James's, Central London",
+    "moods": ["Romanticised London", "Word & Voice", "Poetic"],
+    "genres": ["independent library", "reading rooms", "writer's haven"],
+    "url": "https://www.londonlibrary.co.uk",
+    "blurb": "A private members' library that feels like it's been quietly breathing for centuries. Metal stacks, spiralling staircases and desk lamps casting soft halos over readers deep in their own chapters. Some evenings the building stays open late, and once a month the lights burn longer still – a hush-filled refuge for those who write best after dark, padding between shelves as the city outside winds down.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "British Library (Late Reading Rooms)",
+    "location": "King's Cross / St Pancras",
+    "moods": ["Poetic", "Word & Voice", "Romanticised London"],
+    "genres": ["national library", "study spaces", "exhibition hub"],
+    "url": "https://www.bl.uk/visit",
+    "blurb": "The country's great red-brick ark of words keeps its doors and reading rooms open into the evening – most weekdays until 20:00 – so the after-work hours can stretch into a quiet second shift. Long desks, steady lamplight and the faint rustle of pages make it a gentle place to revise, research or simply read yourself back together, before the last soft call for closing time.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Barbican Foyers & Library Corners",
+    "location": "Barbican, City of London",
+    "moods": ["Curious Encounters", "Late-Night Lark", "Romanticised London"],
+    "genres": ["arts centre", "public foyers", "informal study spots"],
+    "url": "https://www.barbican.org.uk",
+    "blurb": "By day, a concrete citadel; by night, a softly glowing warren of sofas, tables and power sockets open until around 23:00. You can tuck yourself into a corner with a laptop while orchestras warm up behind distant doors, or draft emails beneath hanging plants as filmgoers drift past. It's less shh-library, more nocturnal living room for the city's bookish night birds.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Morocco Bound Bookshop",
+    "location": "Bermondsey, SE1",
+    "moods": ["Curious Encounters", "Late-Night Lark", "Word & Voice"],
+    "genres": ["bookshop bar", "co-working", "intimate events"],
+    "url": "https://www.moroccobound.co.uk",
+    "blurb": "Tucked down a side street near London Bridge, this tiny ship of a bookshop sails from quiet daytime co-working into a low-lit bar and event space at night. Shelves of global fiction, local beers from the Bermondsey Beer Mile and regular jazz, poetry and salon-style nights make it a perfect nest for those who like their studying punctuated by readings, music and a late pint with fellow word-dwellers.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "London Review Bookshop & St. JOHN at the Bookshop",
+    "location": "Bloomsbury, WC1",
+    "moods": ["Poetic", "The Thoughtful Stage", "Word & Voice"],
+    "genres": ["independent bookshop", "café", "author events"],
+    "url": "https://www.londonreviewbookshop.co.uk",
+    "blurb": "In Bloomsbury's literary heart, the London Review Bookshop and its St. JOHN café make a gentle evening bolthole: shelves dense with ideas, a hidden terrace, and wine or hot chocolate to keep you company until early evening closing. On events nights the shop reshapes itself into a miniature auditorium – a place to listen, take notes, and then slip back out into the dark with a new book under your arm and a head full of sentences.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Bàrd Books",
+    "location": "Roman Road, Bow",
+    "moods": ["Folk & Intimate", "The Thoughtful Stage", "Word & Voice"],
+    "genres": ["bookshop café", "wine bar", "work-friendly"],
+    "url": "https://www.wearebardbooks.co.uk",
+    "blurb": "Part bookshop, part café, part low-key salon, Bàrd keeps the lights on into the evening – often until 20:00, with book clubs and events that drift later. You can work at the back on free wifi among art books and local exhibitions, then stay as the day softens into wine, snacks and softly chattering readers. On some nights there's comedy, quizzes or even a bookshop rave: a study nest that happily forgets to be serious after dark.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Second Home Spitalfields",
+    "location": "Spitalfields, E1",
+    "moods": ["Late-Night Lark", "Curious Encounters", "Poetic"],
+    "genres": ["co-working", "24/7 access (members)", "creative hub"],
+    "url": "https://secondhome.io/coworking-space-london/east-london",
+    "blurb": "If you work best when everyone else is asleep, this greenhouse-like co-working space offers 24/7 access for members: curving desks wrapped in plants, long sight-lines of fellow night workers and quiet corners for deep focus. It's less a café and more a habitat – a place to bring big projects, late deadlines and the kind of slow-burning ideas that need the whole night to unfold, petal.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "VQ Bloomsbury (24-Hour Café & Diner)",
+    "location": "Bloomsbury, WC1",
+    "moods": ["Late-Night Lark", "Folk & Intimate"],
+    "genres": ["24-hour café", "diner", "study-friendly"],
+    "url": "https://www.vqrestaurants.com",
+    "blurb": "Not indie in the strictest sense, but a stalwart for students and shift-workers in need of a table at 3am. Open 24 hours, this Bloomsbury café-diner serves breakfast and comfort food around the clock, with free wifi and a steady churn of fellow night people. It's more fluorescent than fairy-lit, but when the deadline looms and every other door is closed, VQ becomes a surprisingly tender kind of nest.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Polo Bar – 24 Hour Great British Café & Bar",
+    "location": "Opposite Liverpool Street Station",
+    "moods": ["Late-Night Lark", "Curious Encounters"],
+    "genres": ["24-hour café bar", "people-watching", "casual study spot"],
+    "url": "https://www.polobar.co.uk",
+    "blurb": "Across from Liverpool Street, Polo Bar has been pouring coffee and frying breakfasts through the small hours for decades. Open 24/7, it's not a quiet library – more a glowing window onto the city's insomniac life – but if you claim a booth, order tea and open your notebook, it becomes a strange, cinematic study spot: words flowing as taxis unload, club kids drift past, and the station clocks creep towards dawn.",
+    "last_verified": "2025-11-25"
+  },
+  {
+    "name": "Costa at St Pancras – Station Study Watchpost",
+    "location": "St Pancras International, King's Cross",
+    "moods": ["Late-Night Lark", "Romanticised London"],
+    "genres": ["chain café", "late-night study", "railway liminal"],
+    "url": "https://stpancras-highspeed.com",
+    "blurb": "Hardly a hidden indie gem, but legendary among students for one thing: after the last trains leave, the station falls almost silent, and the 24-hour coffee shop turns into a ghostly, fluorescent reading room. It's where essays get finished between departures and arrivals, where you can sit with your laptop, a refill and the feeling of being briefly nowhere – a temporary nest for those nights when you just can't go home yet.",
+    "last_verified": "2025-11-25"
+  }
+]

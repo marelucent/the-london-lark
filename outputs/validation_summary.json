@@ -1,0 +1,25 @@
+{
+  "total_venues": 296,
+  "venues_with_issues": 284,
+  "issues_by_type": {
+    "borough_format": 15,
+    "not_in_approved_list": 135,
+    "moods_not_approved": 238,
+    "genre_count_wrong": 112,
+    "blurb_too_short": 172,
+    "missing_required_fields": 24,
+    "blurb_missing": 24,
+    "compound_location": 20,
+    "url_missing_protocol": 9
+  },
+  "issues_by_severity": {
+    "CRITICAL": 218,
+    "IMPORTANT": 522,
+    "MINOR": 9
+  },
+  "pattern_notes": [
+    "20 venues have location formatting issues",
+    "238 venues use unapproved mood tags (expected - many are expressive/poetic)",
+    "196 venues have blurb quality/length issues"
+  ]
+}

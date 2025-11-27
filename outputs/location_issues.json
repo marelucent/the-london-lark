@@ -1,0 +1,1370 @@
+{
+  "total_issues": 170,
+  "issues_by_type": {
+    "borough_format": 15,
+    "not_in_approved_list": 135,
+    "compound_location": 20
+  },
+  "venues_with_issues": [
+    {
+      "venue_id": 0,
+      "venue_name": "4160 Tuesdays â€“ Perfume Making with Sarah McCartney",
+      "current_location": "Studio in Acton, West London",
+      "issue_type": "borough_format",
+      "suggested_fix": "Studio in Acton",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 0,
+      "venue_name": "4160 Tuesdays â€“ Perfume Making with Sarah McCartney",
+      "current_location": "Studio in Acton, West London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Studio in Acton, West London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 2,
+      "venue_name": "5Rhythms 'FIVE London' Workshop",
+      "current_location": "St Lukeâ€™s Church, Hillmarton Road, London N7 9RE",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "St Lukeâ€™s Church, Hillmarton Road, London N7 9RE",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 3,
+      "venue_name": "5Rhythms Dance – We Dance with Nikki Ashley",
+      "current_location": "Chestnut Grove School, Balham",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Chestnut Grove School, Balham",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 4,
+      "venue_name": "Ace Cafe London",
+      "current_location": "North West London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "North West London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 6,
+      "venue_name": "After-Work Foraging Sessions â€“ Charlotte Gordon Urban Forager",
+      "current_location": "The Story Garden, Kingâ€™s Cross",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "The Story Garden, Kingâ€™s Cross",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 7,
+      "venue_name": "Akila Pole Studio",
+      "current_location": "Eurolink Business Centre, 49 Effra Road, Brixton SW2 1BZ",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Eurolink Business Centre, 49 Effra Road, Brixton SW2 1BZ",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 9,
+      "venue_name": "Art Play London â€“ Paper-Making Craft Class",
+      "current_location": "3 Norton Folgate, Shoreditch (E1 6DB) or 224a Chelsea Manor Street (SW3 5UA)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "3 Norton Folgate, Shoreditch (E1 6DB) or 224a Chelsea Manor Street (SW3 5UA)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 11,
+      "venue_name": "artsdepot",
+      "current_location": "North Finchley",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "North Finchley",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 13,
+      "venue_name": "Authentic Movement Workshops – Katsura Isobe",
+      "current_location": "Chisenhale Dance Space, East London",
+      "issue_type": "borough_format",
+      "suggested_fix": "Chisenhale Dance Space",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 13,
+      "venue_name": "Authentic Movement Workshops – Katsura Isobe",
+      "current_location": "Chisenhale Dance Space, East London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Chisenhale Dance Space, East London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 14,
+      "venue_name": "Autograph",
+      "current_location": "Rivington Place",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Rivington Place",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 15,
+      "venue_name": "Bad Moon Café",
+      "current_location": "Elephant & Castle",
+      "issue_type": "compound_location",
+      "suggested_fix": "Elephant",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 17,
+      "venue_name": "BAW Dance",
+      "current_location": "Various central London venues (often near Bond Street and Farringdon)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various central London venues (often near Bond Street and Farringdon)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 23,
+      "venue_name": "Body Love Sketch Club",
+      "current_location": "Music Room London, New Cross (South East London)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Music Room London, New Cross (South East London)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 24,
+      "venue_name": "Boneyard London â€“ Introduction to Blacksmithing",
+      "current_location": "Unit 10 3 Navigation Road, London N17 9RP (Tottenham Hale)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Unit 10 3 Navigation Road, London N17 9RP (Tottenham Hale)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 25,
+      "venue_name": "BookBar",
+      "current_location": "Highbury & Islington + Chelsea (multiple sites)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Highbury",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 25,
+      "venue_name": "BookBar",
+      "current_location": "Highbury & Islington + Chelsea (multiple sites)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Highbury & Islington + Chelsea (multiple sites)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 27,
+      "venue_name": "BrewDog Outpost Tower Hill â€“ Beer School",
+      "current_location": "Tower Hill (EC3)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Tower Hill (EC3)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 28,
+      "venue_name": "Brompton Bats â€“ Twilight Bat Survey Walk",
+      "current_location": "Brompton Cemetery (North Lodge Information Centre), Kensington",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Brompton Cemetery (North Lodge Information Centre), Kensington",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 29,
+      "venue_name": "Brutalist Tour â€“ Evening Architectural Walk (Architectour Guide)",
+      "current_location": "Starts at the National Theatre, South Bank and ends near South Hampstead",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Starts at the National Theatre, South Bank and ends near South Hampstead",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 33,
+      "venue_name": "Camden Art Centre â€“ Natural Dyes Workshop",
+      "current_location": "271 Dale Avenue, London NW3 6DG",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "271 Dale Avenue, London NW3 6DG",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 49,
+      "venue_name": "Dice & Destiny Board Game Café",
+      "current_location": "Canterbury (note: not London)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Canterbury (note: not London)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 50,
+      "venue_name": "Dino Snores for Grown Ups â€“ Natural History Museum Sleepover",
+      "current_location": "Natural History Museum, Cromwell Road, South Kensington",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Natural History Museum, Cromwell Road, South Kensington",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 51,
+      "venue_name": "Draughts – Board Game Café",
+      "current_location": "Waterloo & Hackney",
+      "issue_type": "compound_location",
+      "suggested_fix": "Waterloo",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 51,
+      "venue_name": "Draughts – Board Game Café",
+      "current_location": "Waterloo & Hackney",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Waterloo & Hackney",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 52,
+      "venue_name": "Dusty Knuckle Bakery â€“ Fermentation Workshop",
+      "current_location": "The Dusty Knuckle School, Dalston (E8)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "The Dusty Knuckle School, Dalston (E8)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 54,
+      "venue_name": "East London Strippers Collective Life Drawing",
+      "current_location": "The Crown & Shuttle, Shoreditch (East London)",
+      "issue_type": "compound_location",
+      "suggested_fix": "The Crown",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 54,
+      "venue_name": "East London Strippers Collective Life Drawing",
+      "current_location": "The Crown & Shuttle, Shoreditch (East London)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "The Crown & Shuttle, Shoreditch (East London)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 55,
+      "venue_name": "Eco-Somatic Movement Workshops – Katsura Isobe",
+      "current_location": "Chisenhale Dance Space, East London",
+      "issue_type": "borough_format",
+      "suggested_fix": "Chisenhale Dance Space",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 55,
+      "venue_name": "Eco-Somatic Movement Workshops – Katsura Isobe",
+      "current_location": "Chisenhale Dance Space, East London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Chisenhale Dance Space, East London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 56,
+      "venue_name": "Ecstatic Dance London â€“ The Ritual",
+      "current_location": "Various London venues (often community halls and studios)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various London venues (often community halls and studios)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 57,
+      "venue_name": "Ecstatic Dance UK â€“ Sunday Sessions",
+      "current_location": "The Baths, 80 Eastway, Hackney Wick E9 5JH",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "The Baths, 80 Eastway, Hackney Wick E9 5JH",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 60,
+      "venue_name": "Forage London â€“ Wild Food & Nature Walk (Tower Hamlets Cemetery Park)",
+      "current_location": "Tower Hamlets Cemetery Park, Mile End (meet at Soanes Centre)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Tower Hamlets Cemetery Park, Mile End (meet at Soanes Centre)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 61,
+      "venue_name": "Forage London â€” Wild Food and Nature Walk (E3)",
+      "current_location": "Tower Hamlets Cemetery Park, Mile End (E3)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Tower Hamlets Cemetery Park, Mile End (E3)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 62,
+      "venue_name": "Four Quarters",
+      "current_location": "Peckham, Hackney Wick, and Elephant & Castle",
+      "issue_type": "compound_location",
+      "suggested_fix": "Peckham, Hackney Wick, and Elephant",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 64,
+      "venue_name": "Freeweaver Studio",
+      "current_location": "Cordwainers Pop-Up, London Fields (E8)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Cordwainers Pop-Up, London Fields (E8)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 65,
+      "venue_name": "Friends of Nunhead Cemetery â€“ Guided Tours & Bat Sighting Walks",
+      "current_location": "Nunhead Cemetery, Linden Grove (south London)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Nunhead Cemetery, Linden Grove (south London)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 67,
+      "venue_name": "Gather Glass â€“ Glassblowing Classes",
+      "current_location": "Unit 4, Submarine Cable Depot, Warspite Road, Woolwich (SE18 5NX)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Unit 4, Submarine Cable Depot, Warspite Road, Woolwich (SE18 5NX)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 70,
+      "venue_name": "Ghosts of the Old City â€“ Eldritch, Tenebrous London (London Walks)",
+      "current_location": "meets outside St Paulâ€™s Tube station, City of London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "meets outside St Paulâ€™s Tube station, City of London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 71,
+      "venue_name": "Gia Como â€“ Bespoke Candle Making Workshop",
+      "current_location": "128 Shoreditch High Street, Shoreditch (E1 6JE)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "128 Shoreditch High Street, Shoreditch (E1 6JE)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 73,
+      "venue_name": "Grand Junction Arms",
+      "current_location": "North West London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "North West London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 74,
+      "venue_name": "Grimoire Crafting with Hallowed Hollow",
+      "current_location": "Studio in South East London (private venue)",
+      "issue_type": "borough_format",
+      "suggested_fix": "Studio in South East London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 74,
+      "venue_name": "Grimoire Crafting with Hallowed Hollow",
+      "current_location": "Studio in South East London (private venue)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Studio in South East London (private venue)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 75,
+      "venue_name": "Grove Farm Bat Walk â€“ Ealing Wildlife Group",
+      "current_location": "Grove Farm Nature Reserve, Sudbury Hill (meeting point outside Sudbury Hill Tube)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Grove Farm Nature Reserve, Sudbury Hill (meeting point outside Sudbury Hill Tube)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 77,
+      "venue_name": "Hackney Herbal â€“ Herbal Wellbeing Masterclasses & Remedies Workshops",
+      "current_location": "Unit 16, Celia Fiennes House, 8â€“20 Well Street, Hackney (E9 7PX)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Unit 16, Celia Fiennes House, 8â€“20 Well Street, Hackney (E9 7PX)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 79,
+      "venue_name": "Hampstead Observatory Public Nights",
+      "current_location": "Hampstead Heath (lower entrance near Whitestone Pond), NW3",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hampstead Heath (lower entrance near Whitestone Pond), NW3",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 80,
+      "venue_name": "Heaven",
+      "current_location": "Charing Cross",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Charing Cross",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 82,
+      "venue_name": "Hidden London Tours â€“ London Transport Museum",
+      "current_location": "Disused Underground stations (Aldwych, Charing Cross, Clapham South, Baker Street etc.)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Disused Underground stations (Aldwych, Charing Cross, Clapham South, Baker Street etc.)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 83,
+      "venue_name": "Highgate Cemetery After-Hours Tour (SAVE Britainâ€™s Heritage)",
+      "current_location": "Highgate Cemetery, West Side (meet at main gate)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Highgate Cemetery, West Side (meet at main gate)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 84,
+      "venue_name": "Hiver Beers â€” Cider Making Workshop",
+      "current_location": "Hiver Taproom, Bermondsey (SE1)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hiver Taproom, Bermondsey (SE1)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 85,
+      "venue_name": "Holotropic Breathwork – Experiential Weekend",
+      "current_location": "Colet House, West London",
+      "issue_type": "borough_format",
+      "suggested_fix": "Colet House",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 85,
+      "venue_name": "Holotropic Breathwork – Experiential Weekend",
+      "current_location": "Colet House, West London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Colet House, West London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 88,
+      "venue_name": "House of Burlesque Academy",
+      "current_location": "Classes at Pineapple Dance Studios in Covent Garden and workshops across London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Classes at Pineapple Dance Studios in Covent Garden and workshops across London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 91,
+      "venue_name": "Institute of Making (UCL) â€“ Papermaking Course",
+      "current_location": "UCL East Marshgate Building, Stratford",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "UCL East Marshgate Building, Stratford",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 95,
+      "venue_name": "Kanpai London â€” Sake Tasting & DIY Sake Brewing",
+      "current_location": "Taproom & brewery under railway arches, Peckham (SE15)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Taproom",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 95,
+      "venue_name": "Kanpai London â€” Sake Tasting & DIY Sake Brewing",
+      "current_location": "Taproom & brewery under railway arches, Peckham (SE15)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Taproom & brewery under railway arches, Peckham (SE15)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 96,
+      "venue_name": "Kelechnekoff Pole Dance Studio",
+      "current_location": "161 Sumner Road, Peckham SE15 6JL",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "161 Sumner Road, Peckham SE15 6JL",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 98,
+      "venue_name": "Kitchen Witchery at Made in Hackney",
+      "current_location": "Made in Hackney, 3-7 Lower Clapton Rd, London E5 0NS",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Made in Hackney, 3-7 Lower Clapton Rd, London E5 0NS",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 100,
+      "venue_name": "Liminal 11 â€“ Tarot & Mysticism Events",
+      "current_location": "Various venues across London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various venues across London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 102,
+      "venue_name": "London Calligraphy",
+      "current_location": "Various venues across London (often central hotels and studios)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various venues across London (often central hotels and studios)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 103,
+      "venue_name": "London Centre for Book Arts (LCBA)",
+      "current_location": "Unit 18, Ground Floor, Britannia Works, Dace Road, Fish Island, E3 2NQ",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Unit 18, Ground Floor, Britannia Works, Dace Road, Fish Island, E3 2NQ",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 104,
+      "venue_name": "London Cheese Board â€“ Cheese & Wine Pairing Evenings",
+      "current_location": "Elephant & Castle (SE1)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Elephant",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 105,
+      "venue_name": "London Night Photography Tour â€“ London Streets Photography",
+      "current_location": "Central London landmarks (meeting point arranged with guide)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Central London landmarks (meeting point arranged with guide)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 106,
+      "venue_name": "London Smoke & Cure â€” Salami Sessions",
+      "current_location": "Smoke School Studio, Bermondsey (SE16)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Smoke School Studio, Bermondsey (SE16)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 107,
+      "venue_name": "Love & Loss – Grief Tending Rituals",
+      "current_location": "Various London locations",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various London locations",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 108,
+      "venue_name": "Luna London â€“ Full Moon Gatherings & Workshops",
+      "current_location": "Hackney & East London venues (varies)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Hackney",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 108,
+      "venue_name": "Luna London â€“ Full Moon Gatherings & Workshops",
+      "current_location": "Hackney & East London venues (varies)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hackney & East London venues (varies)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 110,
+      "venue_name": "Mash Paddle Brewery â€” Brew Your Own Beer",
+      "current_location": "Bermondsey Beer Mile (SE1)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Bermondsey Beer Mile (SE1)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 112,
+      "venue_name": "Miller’s Way Project – Pay It Forward Sound Therapy",
+      "current_location": "Shepherd’s Bush, West London",
+      "issue_type": "borough_format",
+      "suggested_fix": "Shepherd’s Bush",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 112,
+      "venue_name": "Miller’s Way Project – Pay It Forward Sound Therapy",
+      "current_location": "Shepherd’s Bush, West London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Shepherd’s Bush, West London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 114,
+      "venue_name": "Mysteries of the Tarot with Richard Abbot",
+      "current_location": "Various venues (often Camden or online)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various venues (often Camden or online)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 115,
+      "venue_name": "Neon Naked Life Drawing",
+      "current_location": "Multiple venues across London (e.g. The Queenâ€™s Head, The Book Club, Peckham Levels)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Multiple venues across London (e.g. The Queenâ€™s Head, The Book Club, Peckham Levels)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 117,
+      "venue_name": "Night Street Art Photography Workshop â€“ Shoreditch Street Art Tours",
+      "current_location": "Shoreditch, East London (various street-art locations)",
+      "issue_type": "borough_format",
+      "suggested_fix": "Shoreditch",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 118,
+      "venue_name": "Old Bexley Soap & Candle Co. â€“ Candle & Soap Courses",
+      "current_location": "Instituto Cervantes, 15â€‘19 Devereux Court, The Strand (WC2R 3JJ)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Instituto Cervantes, 15â€‘19 Devereux Court, The Strand (WC2R 3JJ)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 123,
+      "venue_name": "Phantom Peak",
+      "current_location": "Canada Water",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Canada Water",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 124,
+      "venue_name": "Phoenix Cinema",
+      "current_location": "East Finchley",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "East Finchley",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 129,
+      "venue_name": "Pole Mission Dance Studio",
+      "current_location": "First Floor, 80a Dean Street, Soho W1D 3SL",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "First Floor, 80a Dean Street, Soho W1D 3SL",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 131,
+      "venue_name": "Print Club London",
+      "current_location": "10â€“28 Clement Road, Hackney (E9 5EU)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "10â€“28 Clement Road, Hackney (E9 5EU)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 134,
+      "venue_name": "Rick Nodine Contact Improvisation Classes & Jam",
+      "current_location": "Acland Burghley School Sports Centre, Tufnell Park (North London)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Acland Burghley School Sports Centre, Tufnell Park (North London)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 137,
+      "venue_name": "Rose Theatre",
+      "current_location": "Kingston",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Kingston",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 139,
+      "venue_name": "Royal Docks Swim Series (RDSS) Evening Swim",
+      "current_location": "Love Open Water London Royal Docks, Dock Road, E16 1AH",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Love Open Water London Royal Docks, Dock Road, E16 1AH",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 140,
+      "venue_name": "Rule Zero",
+      "current_location": "Stratford & Hackney Wick",
+      "issue_type": "compound_location",
+      "suggested_fix": "Stratford",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 140,
+      "venue_name": "Rule Zero",
+      "current_location": "Stratford & Hackney Wick",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Stratford & Hackney Wick",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 141,
+      "venue_name": "Sacred Geometry & Alchemy with Golden Light",
+      "current_location": "The Light Centre, Moorgate, London EC2Y 5EB",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "The Light Centre, Moorgate, London EC2Y 5EB",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 143,
+      "venue_name": "Sanctuary Singing Circle",
+      "current_location": "King’s Cross, London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "King’s Cross, London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 144,
+      "venue_name": "Sandrine Bettinelli â€“ 'Embrace the Journey' Tantra Workshop",
+      "current_location": "Anatomie Studio, arch 113, Unit 17 Station Passage, Peckham SE15 2JR",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Anatomie Studio, arch 113, Unit 17 Station Passage, Peckham SE15 2JR",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 147,
+      "venue_name": "She's Lost Control â€“ Ritual & Spiritual Workshops",
+      "current_location": "42 Valentine Road, London E9 7AD",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "42 Valentine Road, London E9 7AD",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 151,
+      "venue_name": "Social Pottery â€“ Hand-Build & Decorate Ceramics Workshop",
+      "current_location": "221â€“223 Royal College Street, Camden Town (NW1 9LT)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "221â€“223 Royal College Street, Camden Town (NW1 9LT)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 153,
+      "venue_name": "Sole2Soul – Open Floor Movement & Embodied Voice",
+      "current_location": "Various London venues (Creating Connexions)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various London venues (Creating Connexions)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 154,
+      "venue_name": "Sonsoles Print Studio",
+      "current_location": "Unit 4, Ground Floor, 133 Copeland Road, Peckham (SE15 3SN)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Unit 4, Ground Floor, 133 Copeland Road, Peckham (SE15 3SN)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 162,
+      "venue_name": "Studio KÃ¼hÃ¼",
+      "current_location": "East London (exact address shared upon booking)",
+      "issue_type": "borough_format",
+      "suggested_fix": "East London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 162,
+      "venue_name": "Studio KÃ¼hÃ¼",
+      "current_location": "East London (exact address shared upon booking)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "East London (exact address shared upon booking)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 163,
+      "venue_name": "Studio Pottery London â€“ Hand-Building Pottery Course",
+      "current_location": "29 Eccleston Place, Victoria (SW1W 9NF)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "29 Eccleston Place, Victoria (SW1W 9NF)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 165,
+      "venue_name": "Tara Theatre",
+      "current_location": "Earlsfield",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Earlsfield",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 166,
+      "venue_name": "Tea & Tasseomancy â€“ Divination by the Cup",
+      "current_location": "Rotating venues (often East London cafes)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Rotating venues (often East London cafes)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 173,
+      "venue_name": "The College of Psychic Studies â€“ Esoteric Courses",
+      "current_location": "16 Queensberry Place, South Kensington, London SW7 2EB",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "16 Queensberry Place, South Kensington, London SW7 2EB",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 174,
+      "venue_name": "The Fermentarium (Festive Lactic Fermentation Workshop)",
+      "current_location": "Hornbeam CafÃ©, Walthamstow (E17)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hornbeam CafÃ©, Walthamstow (E17)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 175,
+      "venue_name": "The Fermentarium (Kimchi Masterclass)",
+      "current_location": "Hornbeam CafÃ©, Walthamstow (E17)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hornbeam CafÃ©, Walthamstow (E17)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 177,
+      "venue_name": "The Ginger Pig â€” Sausage Making Class",
+      "current_location": "Borough Market (SE1)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Borough Market (SE1)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 181,
+      "venue_name": "The Last Tuesday Society â€” Scrying Workshop with Lucya Starza",
+      "current_location": "Viktor Wynd's Museum of Curiosities, 11 Mare Street, Hackney",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Viktor Wynd's Museum of Curiosities, 11 Mare Street, Hackney",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 182,
+      "venue_name": "The Last Tuesday Society â€” Wicked Wednesdays: Tarot Readings with Tobias",
+      "current_location": "The Absinthe Parlour, 11 Mare Street, Hackney",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "The Absinthe Parlour, 11 Mare Street, Hackney",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 183,
+      "venue_name": "The Lexi Cinema",
+      "current_location": "Kensal Rise",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Kensal Rise",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 184,
+      "venue_name": "The Lexington",
+      "current_location": "Angel / King's Cross (Islington)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Angel",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 184,
+      "venue_name": "The Lexington",
+      "current_location": "Angel / King's Cross (Islington)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Angel / King's Cross (Islington)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 185,
+      "venue_name": "The London Leather Workshop",
+      "current_location": "Woolwich Dockyard, SE18 5NR (Southâ€‘east London)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Woolwich Dockyard, SE18 5NR (Southâ€‘east London)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 186,
+      "venue_name": "The London Loom",
+      "current_location": "Hackney Downs Studios, 17 Amhurst Terrace, Hackney (E8 2BT)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hackney Downs Studios, 17 Amhurst Terrace, Hackney (E8 2BT)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 195,
+      "venue_name": "The Space",
+      "current_location": "Isle of Dogs",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Isle of Dogs",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 199,
+      "venue_name": "Therapeutic Yoga Community Group – Jane O’Rourke",
+      "current_location": "Down to Earth Yoga, N19",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Down to Earth Yoga, N19",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 202,
+      "venue_name": "Treadwellâ€™s Bookshop â€“ Witchcraft Classes",
+      "current_location": "33 Store Street, Fitzrovia, London WC1E 7BS",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "33 Store Street, Fitzrovia, London WC1E 7BS",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 203,
+      "venue_name": "TT London â€“ Whisky Tasting Experience",
+      "current_location": "Studios in North London (N7)",
+      "issue_type": "borough_format",
+      "suggested_fix": "Studios in North London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 203,
+      "venue_name": "TT London â€“ Whisky Tasting Experience",
+      "current_location": "Studios in North London (N7)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Studios in North London (N7)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 204,
+      "venue_name": "Turner & George â€” Beef Butchery Class",
+      "current_location": "Turner & George Butcher Shop, Clerkenwell (EC1)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Turner",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 204,
+      "venue_name": "Turner & George â€” Beef Butchery Class",
+      "current_location": "Turner & George Butcher Shop, Clerkenwell (EC1)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Turner & George Butcher Shop, Clerkenwell (EC1)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 205,
+      "venue_name": "Umbrella Workshop â€“ Irish Whiskey Tasting",
+      "current_location": "The Umbrella Workshop, Shoreditch (E2)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "The Umbrella Workshop, Shoreditch (E2)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 210,
+      "venue_name": "We Make Books",
+      "current_location": "V22 Studio, 3â€“9 Belfast Road, Stoke Newington (N16 6UN)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "V22 Studio, 3â€“9 Belfast Road, Stoke Newington (N16 6UN)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 211,
+      "venue_name": "Wheel of Consent Weekend Workshop",
+      "current_location": "Private studio in London (exact location shared with participants upon booking)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Private studio in London (exact location shared with participants upon booking)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 212,
+      "venue_name": "Wild Food UK â€“ Foraging Courses",
+      "current_location": "Hampstead Heath (various locations)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hampstead Heath (various locations)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 214,
+      "venue_name": "Witchy Women â€“ Candle Magic & Spellwork Classes",
+      "current_location": "Studio in Hackney Wick (exact location shared upon booking)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Studio in Hackney Wick (exact location shared upon booking)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 215,
+      "venue_name": "Wonders of the Dark Sky â€“ Woodoaks Farm Stargazing",
+      "current_location": "Woodoaks Farm, Maple Cross, Hertfordshire (north-west Greater London)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Woodoaks Farm, Maple Cross, Hertfordshire (north-west Greater London)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 218,
+      "venue_name": "Corsica Studios",
+      "current_location": "Elephant & Castle",
+      "issue_type": "compound_location",
+      "suggested_fix": "Elephant",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 239,
+      "venue_name": "Club Are",
+      "current_location": "East London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "East London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 240,
+      "venue_name": "Club Stamina",
+      "current_location": "Various London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 241,
+      "venue_name": "MAS ARTS",
+      "current_location": "Pop-up locations",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Pop-up locations",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 242,
+      "venue_name": "2C Perrea",
+      "current_location": "East/South London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "East/South London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 243,
+      "venue_name": "Eastern Margins",
+      "current_location": "Pop-up venues",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Pop-up venues",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 244,
+      "venue_name": "Tech Couture LDN",
+      "current_location": "FOLD, Canning Town",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "FOLD, Canning Town",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 245,
+      "venue_name": "Opia",
+      "current_location": "East London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "East London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 246,
+      "venue_name": "Queer House Party",
+      "current_location": "Hackney Bridge",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hackney Bridge",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 247,
+      "venue_name": "Ceilidh Liberation Front",
+      "current_location": "Grand Junction & various",
+      "issue_type": "compound_location",
+      "suggested_fix": "Grand Junction",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 247,
+      "venue_name": "Ceilidh Liberation Front",
+      "current_location": "Grand Junction & various",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Grand Junction & various",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 248,
+      "venue_name": "Bootylicious",
+      "current_location": "Union & Scala",
+      "issue_type": "compound_location",
+      "suggested_fix": "Union",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 248,
+      "venue_name": "Bootylicious",
+      "current_location": "Union & Scala",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Union & Scala",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 249,
+      "venue_name": "Slimelight",
+      "current_location": "Electrowerkz, Islington",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Electrowerkz, Islington",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 250,
+      "venue_name": "Dark Scene London",
+      "current_location": "Omeara, London Bridge",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Omeara, London Bridge",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 251,
+      "venue_name": "Sanura Dance",
+      "current_location": "Studio 68 & The Castle",
+      "issue_type": "compound_location",
+      "suggested_fix": "Studio 68",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 251,
+      "venue_name": "Sanura Dance",
+      "current_location": "Studio 68 & The Castle",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Studio 68 & The Castle",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 252,
+      "venue_name": "DTMF! (Don't Touch My Fro!)",
+      "current_location": "MOT Unit, South London",
+      "issue_type": "borough_format",
+      "suggested_fix": "MOT Unit",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 252,
+      "venue_name": "DTMF! (Don't Touch My Fro!)",
+      "current_location": "MOT Unit, South London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "MOT Unit, South London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 253,
+      "venue_name": "Boudica",
+      "current_location": "FOLD, Canning Town",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "FOLD, Canning Town",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 255,
+      "venue_name": "Pink Singers",
+      "current_location": "Central London (various rehearsal and concert spaces)",
+      "issue_type": "borough_format",
+      "suggested_fix": "Central London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 255,
+      "venue_name": "Pink Singers",
+      "current_location": "Central London (various rehearsal and concert spaces)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Central London (various rehearsal and concert spaces)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 256,
+      "venue_name": "London Sacred Harp",
+      "current_location": "Various churches and halls across London (often Hampstead and central)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Various churches and halls across London (often Hampstead and central)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 257,
+      "venue_name": "Chickenshed Community Choir",
+      "current_location": "Chickenshed Theatre and Christ the King, North London",
+      "issue_type": "borough_format",
+      "suggested_fix": "Chickenshed Theatre and Christ the King",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 257,
+      "venue_name": "Chickenshed Community Choir",
+      "current_location": "Chickenshed Theatre and Christ the King, North London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Chickenshed Theatre and Christ the King, North London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 259,
+      "venue_name": "Heart Song Collective CIC",
+      "current_location": "South East London (various cosy spaces)",
+      "issue_type": "borough_format",
+      "suggested_fix": "South East London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 259,
+      "venue_name": "Heart Song Collective CIC",
+      "current_location": "South East London (various cosy spaces)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "South East London (various cosy spaces)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 260,
+      "venue_name": "F*Choir",
+      "current_location": "London (roaming across arts and community spaces)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "London (roaming across arts and community spaces)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 261,
+      "venue_name": "Sing For Freedom Choir",
+      "current_location": "Central London",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Central London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 262,
+      "venue_name": "London City Voices",
+      "current_location": "Multiple locations across central London and online",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Multiple locations across central London and online",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 264,
+      "venue_name": "Outer Circle Voice Circle",
+      "current_location": "SET Social, Peckham",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "SET Social, Peckham",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 265,
+      "venue_name": "Catford Community Choir",
+      "current_location": "Corbett Community Library, Catford",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Corbett Community Library, Catford",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 270,
+      "venue_name": "Devise & Conquer – Scratch Night & Cabaret",
+      "current_location": "Dalston / Stoke Newington Road (The Divine)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Dalston",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 270,
+      "venue_name": "Devise & Conquer – Scratch Night & Cabaret",
+      "current_location": "Dalston / Stoke Newington Road (The Divine)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Dalston / Stoke Newington Road (The Divine)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 277,
+      "venue_name": "The London Library",
+      "current_location": "St James's, Central London",
+      "issue_type": "borough_format",
+      "suggested_fix": "St James's",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 278,
+      "venue_name": "British Library (Late Reading Rooms)",
+      "current_location": "King's Cross / St Pancras",
+      "issue_type": "compound_location",
+      "suggested_fix": "King's Cross",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 278,
+      "venue_name": "British Library (Late Reading Rooms)",
+      "current_location": "King's Cross / St Pancras",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "King's Cross / St Pancras",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 282,
+      "venue_name": "Bàrd Books",
+      "current_location": "Roman Road, Bow",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Roman Road, Bow",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 283,
+      "venue_name": "Second Home Spitalfields",
+      "current_location": "Spitalfields, E1",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Spitalfields, E1",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 285,
+      "venue_name": "Polo Bar – 24 Hour Great British Café & Bar",
+      "current_location": "Opposite Liverpool Street Station",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Opposite Liverpool Street Station",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 286,
+      "venue_name": "Costa at St Pancras – Station Study Watchpost",
+      "current_location": "St Pancras International, King's Cross",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "St Pancras International, King's Cross",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 287,
+      "venue_name": "Embracing Grief – London Grief Tending Circles",
+      "current_location": "Hackney (E5) / various London venues",
+      "issue_type": "compound_location",
+      "suggested_fix": "Hackney (E5)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 288,
+      "venue_name": "Old School Rooms @ Round Chapel – Communal Grief Rituals",
+      "current_location": "Clapton / Hackney (E5)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Clapton",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 288,
+      "venue_name": "Old School Rooms @ Round Chapel – Communal Grief Rituals",
+      "current_location": "Clapton / Hackney (E5)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Clapton / Hackney (E5)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 289,
+      "venue_name": "Bija Garden of Wellbeing – Grief Circles in the Garden",
+      "current_location": "West Ealing (W13)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "West Ealing (W13)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 292,
+      "venue_name": "Community Sauna Baths – Grief Sauna",
+      "current_location": "Hackney Wick & Stratford (E9 / E20)",
+      "issue_type": "compound_location",
+      "suggested_fix": "Hackney Wick",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 292,
+      "venue_name": "Community Sauna Baths – Grief Sauna",
+      "current_location": "Hackney Wick & Stratford (E9 / E20)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Hackney Wick & Stratford (E9 / E20)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 294,
+      "venue_name": "Grief Rave & Grief Moves – The Fandangoe Discoteca x The Loss Project",
+      "current_location": "Touring (often Southbank Centre, SE1)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "Touring (often Southbank Centre, SE1)",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 295,
+      "venue_name": "Galleria Objets – \"Your Grief Belongs To You, And Can Be So So Pretty\"",
+      "current_location": "East London (E1)",
+      "issue_type": "borough_format",
+      "suggested_fix": "East London",
+      "severity": "CRITICAL"
+    },
+    {
+      "venue_id": 295,
+      "venue_name": "Galleria Objets – \"Your Grief Belongs To You, And Can Be So So Pretty\"",
+      "current_location": "East London (E1)",
+      "issue_type": "not_in_approved_list",
+      "suggested_fix": "East London (E1)",
+      "severity": "CRITICAL"
+    }
+  ]
+}

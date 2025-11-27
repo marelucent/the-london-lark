@@ -19,6 +19,7 @@ from crisis_responses import build_crisis_response, get_melancholy_footer
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import random
+import json
 
 # Import voice profile system for debug info
 try:
@@ -29,6 +30,18 @@ except ImportError:
     get_profile_name = lambda x: "GENERAL"
 
 app = Flask(__name__)
+
+def load_core_moods():
+    """Load Core moods from mood_index_v2_CORRECTED.json for homepage display"""
+    try:
+        with open('mood_index_v2_CORRECTED.json', 'r', encoding='utf-8') as f:
+            mood_index = json.load(f)
+            # Get only Title Case moods (official names), exclude lowercase variants
+            core_moods = [mood for mood in mood_index['core'] if mood[0].isupper()]
+            return core_moods
+    except Exception as e:
+        print(f"Warning: Could not load core moods: {e}")
+        return []
 
 def get_current_hour():
     """Get current hour in London timezone"""
@@ -104,10 +117,12 @@ def home():
     greeting = get_time_aware_greeting()
     placeholder = get_time_aware_placeholder()
     helper = get_time_aware_helper()
+    core_moods = load_core_moods()
     return render_template('index.html',
                          greeting=greeting,
                          placeholder=placeholder,
-                         helper=helper)
+                         helper=helper,
+                         core_moods=core_moods)
 
 @app.route('/about')
 def about():

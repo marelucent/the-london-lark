@@ -1,7 +1,7 @@
 [
   {
     "name": "4160 Tuesdays â€“ Perfume Making with Sarah McCartney",
-    "location": "Acton",
+    "location": "Studio in Acton, West London",
     "moods": [
       "sensory",
       "nostalgic"
@@ -47,7 +47,7 @@
   },
   {
     "name": "5Rhythms Dance – We Dance with Nikki Ashley",
-    "location": "Balham",
+    "location": "Chestnut Grove School, Balham",
     "moods": [
       "fluid",
       "transformative"
@@ -108,7 +108,7 @@
   },
   {
     "name": "Akila Pole Studio",
-    "location": "Brixton",
+    "location": "Eurolink Business Centre, 49 Effra Road, Brixton SW2 1BZ",
     "moods": [
       "empowering",
       "community-focused",
@@ -143,7 +143,7 @@
   },
   {
     "name": "Art Play London â€“ Paper-Making Craft Class",
-    "location": "Shoreditch",
+    "location": "3 Norton Folgate, Shoreditch (E1 6DB) or 224a Chelsea Manor Street (SW3 5UA)",
     "moods": [
       "craft & making",
       "nostalgic"
@@ -175,7 +175,7 @@
   },
   {
     "name": "artsdepot",
-    "location": "Finchley",
+    "location": "North Finchley",
     "moods": [
       "tender",
       "curious"
@@ -207,7 +207,7 @@
   },
   {
     "name": "Authentic Movement Workshops – Katsura Isobe",
-    "location": "Chisenhale Dance Space",
+    "location": "Chisenhale Dance Space, East London",
     "moods": [
       "introspective",
       "witnessed"
@@ -272,7 +272,7 @@
   },
   {
     "name": "BAW Dance",
-    "location": "Farringdon",
+    "location": "Various central London venues (often near Bond Street and Farringdon)",
     "moods": [
       "playful",
       "supportive",
@@ -367,7 +367,7 @@
   },
   {
     "name": "Body Love Sketch Club",
-    "location": "New Cross",
+    "location": "Music Room London, New Cross (South East London)",
     "moods": [
       "gentle",
       "celebratory",
@@ -385,7 +385,7 @@
   },
   {
     "name": "Boneyard London â€“ Introduction to Blacksmithing",
-    "location": "Tottenham",
+    "location": "Unit 10 3 Navigation Road, London N17 9RP (Tottenham Hale)",
     "moods": [
       "rustic",
       "adventurous"
@@ -399,7 +399,7 @@
   },
   {
     "name": "BookBar",
-    "location": "Highbury",
+    "location": "Highbury & Islington + Chelsea (multiple sites)",
     "moods": [
       "convivial",
       "literary",
@@ -449,7 +449,7 @@
   },
   {
     "name": "Brompton Bats â€“ Twilight Bat Survey Walk",
-    "location": "Kensington",
+    "location": "Brompton Cemetery (North Lodge Information Centre), Kensington",
     "moods": [
       "night wanderer",
       "wild",
@@ -466,7 +466,7 @@
   },
   {
     "name": "Brutalist Tour â€“ Evening Architectural Walk (Architectour Guide)",
-    "location": "Hampstead",
+    "location": "Starts at the National Theatre, South Bank and ends near South Hampstead",
     "moods": [
       "urban explorer",
       "curious",
@@ -501,8 +501,7 @@
     "location": "Shepherd's Bush",
     "moods": [
       "rant",
-      "rebellious",
-      "activist"
+      "salon"
     ],
     "genres": [
       "new plays",
@@ -510,10 +509,7 @@
     ],
     "url": "https://www.bushtheatre.co.uk/",
     "blurb": "An internationally renowned champion of playwrights, where new writing crackles with activist spirit and salon-style conversation.",
-    "last_verified": "2025-11-15",
-    "features": [
-      "salon"
-    ]
+    "last_verified": "2025-11-15"
   },
   {
     "name": "Café OTO",
@@ -797,8 +793,26 @@
     "last_verified": "2025-11-23"
   },
   {
+    "name": "Dice & Destiny Board Game Café",
+    "location": "Canterbury (note: not London)",
+    "moods": [
+      "inviting",
+      "geeky",
+      "chilled"
+    ],
+    "genres": [
+      "board games",
+      "events",
+      "TTRPG",
+      "miniatures"
+    ],
+    "url": "https://www.diceanddestiny.co.uk/",
+    "blurb": "A Kentish outpost with Larkish heart — not London, but close enough to feel the spell. Here, heroes gather, dice dance, and tea is served with side quests.",
+    "last_verified": "2025-11-23"
+  },
+  {
     "name": "Dino Snores for Grown Ups â€“ Natural History Museum Sleepover",
-    "location": "Kensington",
+    "location": "Natural History Museum, Cromwell Road, South Kensington",
     "moods": [
       "night wanderer",
       "curious",
@@ -814,7 +828,7 @@
   },
   {
     "name": "Draughts – Board Game Café",
-    "location": "Hackney",
+    "location": "Waterloo & Hackney",
     "moods": [
       "playful",
       "welcoming",
@@ -831,7 +845,7 @@
   },
   {
     "name": "Dusty Knuckle Bakery â€“ Fermentation Workshop",
-    "location": "Dalston",
+    "location": "The Dusty Knuckle School, Dalston (E8)",
     "moods": [
       "craft & making",
       "curious",
@@ -864,7 +878,7 @@
   },
   {
     "name": "East London Strippers Collective Life Drawing",
-    "location": "Shoreditch",
+    "location": "The Crown & Shuttle, Shoreditch (East London)",
     "moods": [
       "rebellious",
       "celebratory",
@@ -881,7 +895,7 @@
   },
   {
     "name": "Eco-Somatic Movement Workshops – Katsura Isobe",
-    "location": "Chisenhale Dance Space",
+    "location": "Chisenhale Dance Space, East London",
     "moods": [
       "seasonal",
       "earthy"
@@ -915,8 +929,9 @@
   },
   {
     "name": "Ecstatic Dance UK â€“ Sunday Sessions",
-    "location": "Hackney Wick",
+    "location": "The Baths, 80 Eastway, Hackney Wick E9 5JH",
     "moods": [
+      "free-spirited",
       "mindful",
       "inclusive"
     ],
@@ -927,10 +942,7 @@
     ],
     "url": "https://ecstaticdance.org/dance/ecstatic-dance-uk/",
     "blurb": "Sunday mornings stretch open at The Baths, where cacao warms the heart and silence wraps the dance floor. No talking. No judgement. Just bodies in motion, following rhythm like a river. Here, movement is medicine and joy is sacred â€” a weekly breath for the spirit through beat and stillness.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "free-spirited"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Ecstatic Dance UK – Sun·day Dance",
@@ -964,7 +976,7 @@
   },
   {
     "name": "Forage London â€“ Wild Food & Nature Walk (Tower Hamlets Cemetery Park)",
-    "location": "Tower Hamlets",
+    "location": "Tower Hamlets Cemetery Park, Mile End (meet at Soanes Centre)",
     "moods": [
       "wild",
       "curious",
@@ -981,7 +993,7 @@
   },
   {
     "name": "Forage London â€” Wild Food and Nature Walk (E3)",
-    "location": "Tower Hamlets",
+    "location": "Tower Hamlets Cemetery Park, Mile End (E3)",
     "moods": [
       "curious",
       "nature-connected",
@@ -997,10 +1009,11 @@
   },
   {
     "name": "Four Quarters",
-    "location": "Hackney Wick",
+    "location": "Peckham, Hackney Wick, and Elephant & Castle",
     "moods": [
       "nostalgic",
-      "social"
+      "social",
+      "boozy"
     ],
     "genres": [
       "retro arcade",
@@ -1010,10 +1023,7 @@
     ],
     "url": "https://www.fourquarters.bar/",
     "blurb": "Arcade alchemy in three boroughs — where laughter loops through coin-drop echoes, and the neon hum of nostalgia sings beneath every pint.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "boozy"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Fox & Firkin",
@@ -1052,9 +1062,10 @@
   },
   {
     "name": "Friends of Nunhead Cemetery â€“ Guided Tours & Bat Sighting Walks",
-    "location": "Nunhead",
+    "location": "Nunhead Cemetery, Linden Grove (south London)",
     "moods": [
       "haunted",
+      "historical",
       "wild"
     ],
     "genres": [
@@ -1063,10 +1074,7 @@
     ],
     "url": "https://www.fonc.org.uk/events",
     "blurb": "The ivy knows these names. At Nunhead, the cemetery breathes history and woodland both. By sunset, bats arc above Victorian crypts, their shadows mingling with that of ancient grief. These volunteer-led walks are full of memory and mystery â€” a perfect pairing of natureâ€™s wild return and the city's silent past.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "historical"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Gate Theatre",
@@ -1086,7 +1094,7 @@
   },
   {
     "name": "Gather Glass â€“ Glassblowing Classes",
-    "location": "Woolwich",
+    "location": "Unit 4, Submarine Cable Depot, Warspite Road, Woolwich (SE18 5NX)",
     "moods": [
       "fiery",
       "mesmerising"
@@ -1132,7 +1140,7 @@
   },
   {
     "name": "Ghosts of the Old City â€“ Eldritch, Tenebrous London (London Walks)",
-    "location": "City of London",
+    "location": "meets outside St Paulâ€™s Tube station, City of London",
     "moods": [
       "night wanderer",
       "haunted",
@@ -1148,7 +1156,7 @@
   },
   {
     "name": "Gia Como â€“ Bespoke Candle Making Workshop",
-    "location": "Shoreditch",
+    "location": "128 Shoreditch High Street, Shoreditch (E1 6JE)",
     "moods": [
       "creative",
       "aromatic"
@@ -1192,7 +1200,7 @@
   },
   {
     "name": "Grimoire Crafting with Hallowed Hollow",
-    "location": "South East London",
+    "location": "Studio in South East London (private venue)",
     "moods": [
       "craft-based",
       "esoteric",
@@ -1242,7 +1250,7 @@
   },
   {
     "name": "Hackney Herbal â€“ Herbal Wellbeing Masterclasses & Remedies Workshops",
-    "location": "Hackney",
+    "location": "Unit 16, Celia Fiennes House, 8â€“20 Well Street, Hackney (E9 7PX)",
     "moods": [
       "gentle",
       "botanical"
@@ -1274,7 +1282,7 @@
   },
   {
     "name": "Hampstead Observatory Public Nights",
-    "location": "Hampstead",
+    "location": "Hampstead Heath (lower entrance near Whitestone Pond), NW3",
     "moods": [
       "night wanderer",
       "curious",
@@ -1290,7 +1298,7 @@
   },
   {
     "name": "Heaven",
-    "location": "Westminster",
+    "location": "Charing Cross",
     "moods": [
       "ecstatic",
       "queer"
@@ -1320,7 +1328,7 @@
   },
   {
     "name": "Hidden London Tours â€“ London Transport Museum",
-    "location": "Clapham",
+    "location": "Disused Underground stations (Aldwych, Charing Cross, Clapham South, Baker Street etc.)",
     "moods": [
       "urban explorer",
       "curious",
@@ -1336,9 +1344,10 @@
   },
   {
     "name": "Highgate Cemetery After-Hours Tour (SAVE Britainâ€™s Heritage)",
-    "location": "Highgate",
+    "location": "Highgate Cemetery, West Side (meet at main gate)",
     "moods": [
       "haunted",
+      "historical",
       "curious"
     ],
     "genres": [
@@ -1347,14 +1356,11 @@
     ],
     "url": "https://www.savebritainsheritage.org/events/an-evening-at-highgate-cemetery-out-of-hours-walking-tour-for-save-supporters",
     "blurb": "Beyond the iron gates, ivy and angels cradle the stones. By twilight, Highgateâ€™s West Side is opened to a privileged few â€” led past crypts and moss-soft chapels by torchlight and tales. Here, Victorian grief becomes grandeur, and architecture mourns in marble. An after-hours reverence for the gothic sublime.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "historical"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Hiver Beers â€” Cider Making Workshop",
-    "location": "Bermondsey",
+    "location": "Hiver Taproom, Bermondsey (SE1)",
     "moods": [
       "craft & making",
       "curious",
@@ -1369,7 +1375,7 @@
   },
   {
     "name": "Holotropic Breathwork – Experiential Weekend",
-    "location": "Colet House",
+    "location": "Colet House, West London",
     "moods": [
       "intense",
       "transformative"
@@ -1416,7 +1422,7 @@
   },
   {
     "name": "House of Burlesque Academy",
-    "location": "Covent Garden",
+    "location": "Classes at Pineapple Dance Studios in Covent Garden and workshops across London",
     "moods": [
       "empowering",
       "playful",
@@ -1463,7 +1469,7 @@
   },
   {
     "name": "Institute of Making (UCL) â€“ Papermaking Course",
-    "location": "Stratford",
+    "location": "UCL East Marshgate Building, Stratford",
     "moods": [
       "craft & making",
       "curious"
@@ -1523,7 +1529,7 @@
   },
   {
     "name": "Kanpai London â€” Sake Tasting & DIY Sake Brewing",
-    "location": "Peckham",
+    "location": "Taproom & brewery under railway arches, Peckham (SE15)",
     "moods": [
       "curious",
       "craft & making",
@@ -1539,7 +1545,7 @@
   },
   {
     "name": "Kelechnekoff Pole Dance Studio",
-    "location": "Peckham",
+    "location": "161 Sumner Road, Peckham SE15 6JL",
     "moods": [
       "fierce",
       "sensual",
@@ -1573,7 +1579,7 @@
   },
   {
     "name": "Kitchen Witchery at Made in Hackney",
-    "location": "Hackney",
+    "location": "Made in Hackney, 3-7 Lower Clapton Rd, London E5 0NS",
     "moods": [
       "earthy",
       "practical",
@@ -1594,7 +1600,8 @@
     "location": "Richmond",
     "moods": [
       "intimate",
-      "slow-paced"
+      "slow-paced",
+      "foodie-friendly"
     ],
     "genres": [
       "board games",
@@ -1603,10 +1610,7 @@
     ],
     "url": "https://librarypot.uk/",
     "blurb": "Tucked along Kew Road, Library Pot is a licensed café where 700 games wait like old friends. Here, Thai green curry shares the table with Catan, kimchi noodles with cooperative quests. The pace is languid, the company warm, and the mahjong leagues fierce with quiet devotion. Sessions stretch long into the evening, fuelled by craft ales and the gentle click of tiles on wood.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "foodie-friendly"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Liminal 11 â€“ Tarot & Mysticism Events",
@@ -1660,7 +1664,7 @@
   },
   {
     "name": "London Centre for Book Arts (LCBA)",
-    "location": "Fish Island",
+    "location": "Unit 18, Ground Floor, Britannia Works, Dace Road, Fish Island, E3 2NQ",
     "moods": [
       "craft & making",
       "curious"
@@ -1708,7 +1712,7 @@
   },
   {
     "name": "London Smoke & Cure â€” Salami Sessions",
-    "location": "Bermondsey",
+    "location": "Smoke School Studio, Bermondsey (SE16)",
     "moods": [
       "craft & making",
       "epicurean",
@@ -1738,7 +1742,7 @@
   },
   {
     "name": "Luna London â€“ Full Moon Gatherings & Workshops",
-    "location": "Hackney",
+    "location": "Hackney & East London venues (varies)",
     "moods": [
       "ritual",
       "feminine",
@@ -1774,7 +1778,7 @@
   },
   {
     "name": "Mash Paddle Brewery â€” Brew Your Own Beer",
-    "location": "Bermondsey",
+    "location": "Bermondsey Beer Mile (SE1)",
     "moods": [
       "craft & making",
       "adult play",
@@ -1806,11 +1810,10 @@
   },
   {
     "name": "Miller’s Way Project – Pay It Forward Sound Therapy",
-    "location": "Shepherd’s Bush",
+    "location": "Shepherd’s Bush, West London",
     "moods": [
       "restorative",
-      "healing",
-      "gentle"
+      "accessible"
     ],
     "genres": [
       "sound healing",
@@ -1818,10 +1821,7 @@
     ],
     "url": "https://www.millerswayproject.com/",
     "blurb": "In a converted garage on a quiet West London street, healing hums in bowls and breath. This pay-it-forward project offers somatic journeys and soundbaths — held not as products, but as gifts. It’s a sanctuary for those whose nervous systems are still learning how to feel safe.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "accessible"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Music Tree Circles – Circle Singing",
@@ -1841,7 +1841,7 @@
   },
   {
     "name": "Mysteries of the Tarot with Richard Abbot",
-    "location": "Camden",
+    "location": "Various venues (often Camden or online)",
     "moods": [
       "introspective",
       "symbolic",
@@ -1858,7 +1858,7 @@
   },
   {
     "name": "Neon Naked Life Drawing",
-    "location": "Peckham",
+    "location": "Multiple venues across London (e.g. The Queenâ€™s Head, The Book Club, Peckham Levels)",
     "moods": [
       "vibrant",
       "playful",
@@ -1891,7 +1891,7 @@
   },
   {
     "name": "Night Street Art Photography Workshop â€“ Shoreditch Street Art Tours",
-    "location": "Shoreditch",
+    "location": "Shoreditch, East London (various street-art locations)",
     "moods": [
       "urban explorer",
       "curious",
@@ -1907,7 +1907,7 @@
   },
   {
     "name": "Old Bexley Soap & Candle Co. â€“ Candle & Soap Courses",
-    "location": "The Strand",
+    "location": "Instituto Cervantes, 15â€‘19 Devereux Court, The Strand (WC2R 3JJ)",
     "moods": [
       "cosy",
       "sensory"
@@ -1974,8 +1974,7 @@
     "location": "Finsbury Park",
     "moods": [
       "thoughtful",
-      "contemplative",
-      "The Thoughtful Stage"
+      "salon"
     ],
     "genres": [
       "new writing",
@@ -1983,10 +1982,7 @@
     ],
     "url": "https://parktheatre.co.uk/",
     "blurb": "A neighbourhood theatre with global ambition, delivering world-class theatre through accessible stories and community-focused programming.",
-    "last_verified": "2025-11-15",
-    "features": [
-      "salon"
-    ]
+    "last_verified": "2025-11-15"
   },
   {
     "name": "Phantom Peak",
@@ -2007,7 +2003,7 @@
   },
   {
     "name": "Phoenix Cinema",
-    "location": "Finchley",
+    "location": "East Finchley",
     "moods": [
       "sacred",
       "curious"
@@ -2082,7 +2078,7 @@
   },
   {
     "name": "Pole Mission Dance Studio",
-    "location": "Soho",
+    "location": "First Floor, 80a Dean Street, Soho W1D 3SL",
     "moods": [
       "inclusive",
       "confidence-building",
@@ -2114,7 +2110,7 @@
   },
   {
     "name": "Print Club London",
-    "location": "Hackney",
+    "location": "10â€“28 Clement Road, Hackney (E9 5EU)",
     "moods": [
       "craft & making",
       "vibrant"
@@ -2164,7 +2160,7 @@
   },
   {
     "name": "Rick Nodine Contact Improvisation Classes & Jam",
-    "location": "Tufnell Park",
+    "location": "Acland Burghley School Sports Centre, Tufnell Park (North London)",
     "moods": [
       "playful",
       "tactile",
@@ -2261,7 +2257,7 @@
   },
   {
     "name": "Rule Zero",
-    "location": "Stratford",
+    "location": "Stratford & Hackney Wick",
     "moods": [
       "immersive",
       "geeky",
@@ -2327,7 +2323,7 @@
   },
   {
     "name": "Sandrine Bettinelli â€“ 'Embrace the Journey' Tantra Workshop",
-    "location": "Peckham",
+    "location": "Anatomie Studio, arch 113, Unit 17 Station Passage, Peckham SE15 2JR",
     "moods": [
       "intimate",
       "healing",
@@ -2443,7 +2439,7 @@
   },
   {
     "name": "Social Pottery â€“ Hand-Build & Decorate Ceramics Workshop",
-    "location": "Camden",
+    "location": "221â€“223 Royal College Street, Camden Town (NW1 9LT)",
     "moods": [
       "playful",
       "social"
@@ -2491,7 +2487,7 @@
   },
   {
     "name": "Sonsoles Print Studio",
-    "location": "Peckham",
+    "location": "Unit 4, Ground Floor, 133 Copeland Road, Peckham (SE15 3SN)",
     "moods": [
       "craft & making",
       "energetic"
@@ -2525,6 +2521,7 @@
     "location": "Bermondsey (Southwark)",
     "moods": [
       "democratic",
+      "open-air",
       "contemplative"
     ],
     "genres": [
@@ -2535,10 +2532,7 @@
     ],
     "url": "southwarkparkgalleries.org",
     "blurb": "Two galleries bloom inside a London park: one beside the lake, the other inside a deconsecrated church. Southwark Park Galleries hold space for all — the seasoned painter, the first-time sculptor, the curious wanderer with a dog on a lead. Each show feels like a ritual of presence, a moment of quiet democracy framed in brushstroke and stone.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "open-air"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "Spiritland",
@@ -2619,7 +2613,7 @@
   },
   {
     "name": "Studio KÃ¼hÃ¼",
-    "location": "East London",
+    "location": "East London (exact address shared upon booking)",
     "moods": [
       "gentle",
       "botanical"
@@ -2637,7 +2631,7 @@
   },
   {
     "name": "Studio Pottery London â€“ Hand-Building Pottery Course",
-    "location": "Victoria",
+    "location": "29 Eccleston Place, Victoria (SW1W 9NF)",
     "moods": [
       "mindful",
       "tactile"
@@ -2793,6 +2787,7 @@
     "location": "Chalk Farm (Camden)",
     "moods": [
       "relaxed",
+      "jam-friendly",
       "neighbourhood-feel"
     ],
     "genres": [
@@ -2803,17 +2798,15 @@
     ],
     "url": "thecamdenclub.co.uk/whats‑on/open‑music‑jam",
     "blurb": "In the hush before the first chord, Camden Club waits — polished, low-lit, and warm with promise. Here, guitarists trade licks like old stories, and the mic is always open to the brave. Blues, jazz, and rock wind through the air like cigarette smoke from another era. Pull up a cocktail, settle into the sound, and let the night unfold.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "jam-friendly"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "The College of Psychic Studies â€“ Esoteric Courses",
-    "location": "Kensington",
+    "location": "16 Queensberry Place, South Kensington, London SW7 2EB",
     "moods": [
       "mystical",
       "curious",
+      "historic",
       "gentle"
     ],
     "genres": [
@@ -2824,14 +2817,11 @@
     ],
     "url": "https://www.collegeofpsychicstudies.co.uk/",
     "blurb": "Established in 1884, this Victorian townhouse carries a hush of otherworldliness. The Collegeâ€™s courses unfold through tarot, astrology, mediumship â€” paths both gentle and uncanny. For those who feel the veil thin and wish to step through with reverence, this is a doorway long-held open.",
-    "last_verified": "2025-11-23",
-    "features": [
-      "historic"
-    ]
+    "last_verified": "2025-11-23"
   },
   {
     "name": "The Fermentarium (Festive Lactic Fermentation Workshop)",
-    "location": "Walthamstow",
+    "location": "Hornbeam CafÃ©, Walthamstow (E17)",
     "moods": [
       "adult play",
       "craft & making",
@@ -2847,7 +2837,7 @@
   },
   {
     "name": "The Fermentarium (Kimchi Masterclass)",
-    "location": "Walthamstow",
+    "location": "Hornbeam CafÃ©, Walthamstow (E17)",
     "moods": [
       "craft & making",
       "curious",
@@ -2943,7 +2933,7 @@
   },
   {
     "name": "The Last Tuesday Society â€” Scrying Workshop with Lucya Starza",
-    "location": "Hackney",
+    "location": "Viktor Wynd's Museum of Curiosities, 11 Mare Street, Hackney",
     "moods": [
       "witchy",
       "mysterious",
@@ -2960,7 +2950,7 @@
   },
   {
     "name": "The Last Tuesday Society â€” Wicked Wednesdays: Tarot Readings with Tobias",
-    "location": "Hackney",
+    "location": "The Absinthe Parlour, 11 Mare Street, Hackney",
     "moods": [
       "decadent",
       "intimate",
@@ -2990,7 +2980,7 @@
   },
   {
     "name": "The Lexington",
-    "location": "King's Cross",
+    "location": "Angel / King's Cross (Islington)",
     "moods": [
       "sweaty",
       "grassroots",
@@ -3008,7 +2998,7 @@
   },
   {
     "name": "The London Leather Workshop",
-    "location": "Woolwich",
+    "location": "Woolwich Dockyard, SE18 5NR (Southâ€‘east London)",
     "moods": [
       "tactile",
       "heritage"
@@ -3025,7 +3015,7 @@
   },
   {
     "name": "The London Loom",
-    "location": "Hackney",
+    "location": "Hackney Downs Studios, 17 Amhurst Terrace, Hackney (E8 2BT)",
     "moods": [
       "playful",
       "nostalgic"
@@ -3285,7 +3275,7 @@
   },
   {
     "name": "Treadwellâ€™s Bookshop â€“ Witchcraft Classes",
-    "location": "Fitzrovia",
+    "location": "33 Store Street, Fitzrovia, London WC1E 7BS",
     "moods": [
       "witchy",
       "occult",
@@ -3304,7 +3294,7 @@
   },
   {
     "name": "TT London â€“ Whisky Tasting Experience",
-    "location": "Studios in North London",
+    "location": "Studios in North London (N7)",
     "moods": [
       "craft & making",
       "adult play"
@@ -3318,7 +3308,7 @@
   },
   {
     "name": "Turner & George â€” Beef Butchery Class",
-    "location": "Clerkenwell",
+    "location": "Turner & George Butcher Shop, Clerkenwell (EC1)",
     "moods": [
       "craft & making",
       "epicurean"
@@ -3332,7 +3322,7 @@
   },
   {
     "name": "Umbrella Workshop â€“ Irish Whiskey Tasting",
-    "location": "Shoreditch",
+    "location": "The Umbrella Workshop, Shoreditch (E2)",
     "moods": [
       "adult play",
       "epicurean",
@@ -3414,7 +3404,7 @@
   },
   {
     "name": "We Make Books",
-    "location": "Stoke Newington",
+    "location": "V22 Studio, 3â€“9 Belfast Road, Stoke Newington (N16 6UN)",
     "moods": [
       "craft & making",
       "curious",
@@ -3448,7 +3438,7 @@
   },
   {
     "name": "Wild Food UK â€“ Foraging Courses",
-    "location": "Hampstead",
+    "location": "Hampstead Heath (various locations)",
     "moods": [
       "wild",
       "earthy",
@@ -3480,7 +3470,7 @@
   },
   {
     "name": "Witchy Women â€“ Candle Magic & Spellwork Classes",
-    "location": "Hackney Wick",
+    "location": "Studio in Hackney Wick (exact location shared upon booking)",
     "moods": [
       "feminine",
       "playful",
@@ -3991,7 +3981,7 @@
   },
   {
     "name": "Tech Couture LDN",
-    "location": "Canning Town",
+    "location": "FOLD, Canning Town",
     "url": "https://www.instagram.com/techcoutureLDN",
     "blurb": "Colourful techno party bringing self-expression and playful energy back to the dancefloor, platforming rising and established DJs with inclusive sweaty joy.",
     "moods": [
@@ -4025,7 +4015,7 @@
   },
   {
     "name": "Queer House Party",
-    "location": "Hackney",
+    "location": "Hackney Bridge",
     "url": "https://www.instagram.com/queerhouseparty",
     "blurb": "DIY collective merging safer accessible spaces with high-energy club nights, bringing politics back to the dancefloor and building global queer community.",
     "moods": [
@@ -4076,7 +4066,7 @@
   },
   {
     "name": "Slimelight",
-    "location": "Islington",
+    "location": "Electrowerkz, Islington",
     "url": "https://www.slimelight.com",
     "blurb": "World-renowned dark scene club with three floors: industrial/EBM techno, goth/post-punk, and indie dance/dark disco, open until 6am with mandatory creative dress.",
     "moods": [
@@ -4127,7 +4117,7 @@
   },
   {
     "name": "DTMF! (Don't Touch My Fro!)",
-    "location": "MOT Unit",
+    "location": "MOT Unit, South London",
     "url": "https://www.instagram.com/dtmflondon",
     "blurb": "Underground collective playing afro-centric forward-facing grooves monthly, moving from house and acid to boogie and funk with healing soulful vibes.",
     "moods": [
@@ -4144,7 +4134,7 @@
   },
   {
     "name": "Boudica",
-    "location": "Canning Town",
+    "location": "FOLD, Canning Town",
     "url": "https://www.instagram.com/boudicaLDN",
     "blurb": "Queer-led platform blending dark techno, acid, and trance with protest energy, turning bodily autonomy into defiant celebration with chosen-family atmosphere.",
     "moods": [
@@ -4178,7 +4168,7 @@
   },
   {
     "name": "Pink Singers",
-    "location": "Central London",
+    "location": "Central London (various rehearsal and concert spaces)",
     "moods": [
       "Group Energy",
       "Queer Revelry",
@@ -4194,7 +4184,7 @@
   },
   {
     "name": "London Sacred Harp",
-    "location": "Hampstead",
+    "location": "Various churches and halls across London (often Hampstead and central)",
     "moods": [
       "Group Energy",
       "Spiritual / Sacred / Mystical",
@@ -4210,7 +4200,7 @@
   },
   {
     "name": "Chickenshed Community Choir",
-    "location": "Chickenshed Theatre and Christ the King",
+    "location": "Chickenshed Theatre and Christ the King, North London",
     "moods": [
       "Group Energy",
       "Folk & Intimate",
@@ -4243,7 +4233,7 @@
   },
   {
     "name": "Heart Song Collective CIC",
-    "location": "South East London",
+    "location": "South East London (various cosy spaces)",
     "moods": [
       "Group Energy",
       "Grief & Grace",
@@ -4323,7 +4313,7 @@
   },
   {
     "name": "Outer Circle Voice Circle",
-    "location": "Peckham",
+    "location": "SET Social, Peckham",
     "moods": [
       "Group Energy",
       "Playful & Weird",
@@ -4339,7 +4329,7 @@
   },
   {
     "name": "Catford Community Choir",
-    "location": "Catford",
+    "location": "Corbett Community Library, Catford",
     "moods": [
       "Group Energy",
       "Folk & Intimate",
@@ -4422,7 +4412,7 @@
   },
   {
     "name": "Devise & Conquer – Scratch Night & Cabaret",
-    "location": "Dalston",
+    "location": "Dalston / Stoke Newington Road (The Divine)",
     "moods": [
       "Group Energy",
       "Queer Revelry",
@@ -4539,7 +4529,7 @@
   },
   {
     "name": "The London Library",
-    "location": "St James's",
+    "location": "St James's, Central London",
     "moods": [
       "Romanticised London",
       "Word & Voice",
@@ -4556,7 +4546,7 @@
   },
   {
     "name": "British Library (Late Reading Rooms)",
-    "location": "King's Cross",
+    "location": "King's Cross / St Pancras",
     "moods": [
       "Poetic",
       "Word & Voice",
@@ -4624,7 +4614,7 @@
   },
   {
     "name": "Bàrd Books",
-    "location": "Bow",
+    "location": "Roman Road, Bow",
     "moods": [
       "Folk & Intimate",
       "The Thoughtful Stage",
@@ -4690,7 +4680,7 @@
   },
   {
     "name": "Costa at St Pancras – Station Study Watchpost",
-    "location": "King's Cross",
+    "location": "St Pancras International, King's Cross",
     "moods": [
       "Late-Night Lark",
       "Romanticised London"
@@ -4706,7 +4696,7 @@
   },
   {
     "name": "Embracing Grief – London Grief Tending Circles",
-    "location": "Hackney",
+    "location": "Hackney (E5) / various London venues",
     "moods": [
       "Grief & Grace",
       "Spiritual / Sacred / Mystical",
@@ -4723,7 +4713,7 @@
   },
   {
     "name": "Old School Rooms @ Round Chapel – Communal Grief Rituals",
-    "location": "Hackney",
+    "location": "Clapton / Hackney (E5)",
     "moods": [
       "Grief & Grace",
       "Spiritual / Sacred / Mystical",
@@ -4740,7 +4730,7 @@
   },
   {
     "name": "Bija Garden of Wellbeing – Grief Circles in the Garden",
-    "location": "Ealing",
+    "location": "West Ealing (W13)",
     "moods": [
       "Grief & Grace",
       "Spiritual / Sacred / Mystical",
@@ -4789,7 +4779,7 @@
   },
   {
     "name": "Community Sauna Baths – Grief Sauna",
-    "location": "Hackney Wick",
+    "location": "Hackney Wick & Stratford (E9 / E20)",
     "moods": [
       "Body-Based / Movement-Led",
       "Grief & Grace",
@@ -4839,7 +4829,7 @@
   },
   {
     "name": "Galleria Objets – \"Your Grief Belongs To You, And Can Be So So Pretty\"",
-    "location": "East London",
+    "location": "East London (E1)",
     "moods": [
       "Poetic",
       "The Thoughtful Stage",
