@@ -12,7 +12,7 @@ from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_mood_from_query  # Enhanced resolver
 from venue_matcher import match_venues
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
-from parse_venues import load_parsed_venues
+from parse_venues import load_parsed_venues, DB_PATH
 from lark_metrics import get_metrics
 from distress_detection import detect_distress_level, should_show_resources, should_show_venues
 from crisis_responses import build_crisis_response, get_melancholy_footer
@@ -111,6 +111,54 @@ def get_time_aware_helper():
             'sub': "Perhaps a late-night sanctuary, or where the city hums until dawn?"
         }
 
+
+def build_venue_summary(venues):
+    """
+    Return a compact health summary of the current venue catalogue.
+
+    The summary answers three questions needed for front-end work:
+    1) Which data source is active (SQLite vs. JSON fallback)?
+    2) Which mood/genre tags are available for filters and labels?
+    3) How much of the venue list has a recorded verification time stamp?
+    """
+    mood_set = set()
+    genre_set = set()
+    verified = []
+    missing_verification = []
+
+    for venue in venues:
+        mood_set.update(venue.get("moods", []))
+        genre_set.update(venue.get("genres", []))
+
+        last_verified = venue.get("last_verified")
+        name = venue.get("display_name", venue.get("name", "Unnamed venue"))
+
+        if last_verified:
+            verified.append({"name": name, "last_verified": last_verified})
+        else:
+            missing_verification.append(name)
+
+    return {
+        "data_source": "sqlite" if DB_PATH.exists() else "json",  # Which source is being used
+        "counts": {
+            "venues": len(venues),
+            "moods": len(mood_set),
+            "genres": len(genre_set),
+        },
+        "tags": {
+            "moods": sorted(mood_set),
+            "genres": sorted(genre_set),
+        },
+        "verification": {
+            "verified": len(verified),
+            "missing": len(missing_verification),
+            # Sorted to keep output stable for monitoring
+            "missing_names": sorted(missing_verification),
+            # Lightweight view to show what is confirmed without shipping the full list
+            "recently_verified": sorted(verified, key=lambda v: v["name"])[:10],
+        },
+    }
+
 @app.route('/')
 def home():
     """Serve the main page"""
@@ -133,6 +181,24 @@ def about():
 def resources():
     """Crisis support and mental health resources"""
     return render_template('resources.html')
+
+
+@app.route('/api/venues')
+def api_venues():
+    """Return the full venue catalogue along with summary metadata."""
+    venues = load_parsed_venues()
+    summary = build_venue_summary(venues)
+    return jsonify({
+        'venues': venues,
+        'summary': summary
+    })
+
+
+@app.route('/api/venues/summary')
+def api_venue_summary():
+    """Return just the venue summary for quick health checks."""
+    venues = load_parsed_venues()
+    return jsonify(build_venue_summary(venues))
 
 @app.route('/surprise', methods=['POST'])
 def surprise_me():
