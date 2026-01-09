@@ -45,21 +45,6 @@
     ],
     "vibe_notes": "A jubilant celebration of queer joy."
   },
-  "Dreamlike & Hypnagogic": {
-    "description": "Time blurs. Your breath slows. Reality becomes suggestion.",
-    "synonyms": [
-      "dreamlike",
-      "surreal",
-      "hypnotic",
-      "ambient",
-      "ethereal",
-      "trance",
-      "floating",
-      "dreamlike & hypnagogic",
-      "dreamlike and hypnagogic"
-    ],
-    "vibe_notes": "A waking dream."
-  },
   "Wonder & Awe": {
     "description": "For when you want to feel small and lit from within.",
     "synonyms": [
@@ -179,19 +164,6 @@
     ],
     "vibe_notes": "Theatre that makes you lean in."
   },
-  "Something I Wouldn't Normally Pick": {
-    "description": "A gentle nudge outside the usual.",
-    "synonyms": [
-      "surprise me",
-      "different",
-      "try something new",
-      "random",
-      "adventurous",
-      "discovery",
-      "something i wouldn't normally pick"
-    ],
-    "vibe_notes": "You might just surprise yourself."
-  },
   "Cabaret & Glitter": {
     "description": "Feathers, fire, wit and drag.",
     "synonyms": [
@@ -300,24 +272,6 @@
       "literary"
     ],
     "vibe_notes": "The hush of the room, the lyric of the light."
-  },
-  "Salon & Spark": {
-    "description": "Curious minds gather. Come think with us.",
-    "synonyms": [
-      "talk",
-      "debate",
-      "discussion",
-      "ideas",
-      "conversation",
-      "intellectual",
-      "salon",
-      "gathering",
-      "connection",
-      "meet people",
-      "salon & spark",
-      "salon and spark"
-    ],
-    "vibe_notes": "A little wine, a lot of questions."
   },
   "Rant & Rapture": {
     "description": "Electrifying expression, righteous anger, ecstatic fervour.",
