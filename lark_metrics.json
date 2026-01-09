@@ -1,130 +1,26 @@
 {
-  "total_queries": 123,
-  "mood_found": 123,
+  "total_queries": 131,
+  "mood_found": 131,
   "mood_not_found": 0,
   "confidence_distribution": {
-    "exact_match": 117,
+    "exact_match": 124,
     "high_confidence": 0,
-    "medium_confidence": 3,
+    "medium_confidence": 4,
     "low_confidence": 3
   },
   "venue_matches": {
-    "found_venues": 112,
-    "no_venues": 11
+    "found_venues": 119,
+    "no_venues": 12
   },
   "filter_usage": {
-    "mood": 123,
-    "location": 6,
-    "time": 12,
-    "budget": 2,
-    "group": 3,
-    "genre": 4
+    "mood": 131,
+    "location": 11,
+    "time": 17,
+    "budget": 4,
+    "group": 5,
+    "genre": 7
   },
   "session_history": [
-    {
-      "timestamp": "2025-11-23T21:51:04.798078",
-      "filters": {
-        "mood": "Cabaret & Glitter",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 11
-    },
-    {
-      "timestamp": "2025-11-23T21:51:14.740557",
-      "filters": {
-        "mood": "Cabaret & Glitter",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": "drag",
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 5
-    },
-    {
-      "timestamp": "2025-11-23T21:51:24.817801",
-      "filters": {
-        "mood": "Folk & Intimate",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 18
-    },
-    {
-      "timestamp": "2025-11-27T14:31:14.033656",
-      "filters": {
-        "mood": "Body-Based / Movement-Led",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 0.8,
-      "venue_count": 9
-    },
-    {
-      "timestamp": "2025-11-27T14:31:18.518450",
-      "filters": {
-        "mood": "Comic Relief",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": "comedy",
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 8
-    },
-    {
-      "timestamp": "2025-11-27T14:31:22.996240",
-      "filters": {
-        "mood": "Group Energy",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 26
-    },
-    {
-      "timestamp": "2025-11-27T14:31:28.990122",
-      "filters": {
-        "mood": "Grief & Grace",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": "grief",
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 8
-    },
-    {
-      "timestamp": "2025-11-27T14:31:34.246298",
-      "filters": {
-        "mood": "Salon & Spark",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 2
-    },
     {
       "timestamp": "2025-11-27T14:31:43.484536",
       "filters": {
@@ -150,6 +46,118 @@
       },
       "confidence": 1.0,
       "venue_count": 15
+    },
+    {
+      "timestamp": "2026-01-09T15:09:20.224486",
+      "filters": {
+        "mood": "Comic Relief",
+        "time": "tonight",
+        "budget": null,
+        "group": null,
+        "genre": "comedy",
+        "location": "South London",
+        "search_text": "anything comdy or funny in South London tonight?"
+      },
+      "confidence": 1.0,
+      "venue_count": 1
+    },
+    {
+      "timestamp": "2026-01-09T15:09:20.251350",
+      "filters": {
+        "mood": "Cabaret & Glitter",
+        "time": "weekend",
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null,
+        "search_text": "looking for dragg shows this weekend"
+      },
+      "confidence": 0.8888888888888888,
+      "venue_count": 23
+    },
+    {
+      "timestamp": "2026-01-09T15:09:20.253538",
+      "filters": {
+        "mood": "Folk & Intimate",
+        "time": null,
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": "Camden",
+        "search_text": "something folky and intimate in Camden"
+      },
+      "confidence": 1.0,
+      "venue_count": 1
+    },
+    {
+      "timestamp": "2026-01-09T15:09:20.256945",
+      "filters": {
+        "mood": "Cabaret & Glitter",
+        "time": "Friday",
+        "budget": "low",
+        "group": null,
+        "genre": "cabaret",
+        "location": "East London",
+        "search_text": "cheap queer cabaret in East London this Friday"
+      },
+      "confidence": 1.0,
+      "venue_count": 3
+    },
+    {
+      "timestamp": "2026-01-09T15:09:20.259048",
+      "filters": {
+        "mood": "The Thoughtful Stage",
+        "time": null,
+        "budget": "low",
+        "group": "solo",
+        "genre": null,
+        "location": null,
+        "search_text": "somewhere thoughtful and not too expensive, just for me"
+      },
+      "confidence": 1.0,
+      "venue_count": 24
+    },
+    {
+      "timestamp": "2026-01-09T15:09:20.261051",
+      "filters": {
+        "mood": "Folk & Intimate",
+        "time": "weekend",
+        "budget": null,
+        "group": null,
+        "genre": "folk",
+        "location": "North London",
+        "search_text": "folk music in North London this weekend"
+      },
+      "confidence": 1.0,
+      "venue_count": 1
+    },
+    {
+      "timestamp": "2026-01-09T15:09:20.262851",
+      "filters": {
+        "mood": "Poetic",
+        "time": "tonight",
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": "East London",
+        "search_text": "What's on in East London tonight that feels a bit poetic?"
+      },
+      "confidence": 1.0,
+      "venue_count": 0
+    },
+    {
+      "timestamp": "2026-01-09T15:09:20.264984",
+      "filters": {
+        "mood": "Melancholic Beauty",
+        "time": null,
+        "budget": null,
+        "group": "solo",
+        "genre": null,
+        "location": null,
+        "search_text": "Something low key for a Tuesday night? I'm going solo."
+      },
+      "confidence": 1.0,
+      "venue_count": 5
     }
   ]
 }
