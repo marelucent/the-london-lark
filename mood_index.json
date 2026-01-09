@@ -17,7 +17,11 @@
       "quiet",
       "unplugged",
       "gentle",
-      "soft"
+      "soft",
+      "folk & intimate",
+      "folk and intimate",
+      "soulful",
+      "homely"
     ],
     "vibe_notes": "Handheld heart music."
   },
@@ -36,7 +40,8 @@
       "inclusive",
       "rainbow",
       "affirming",
-      "safe space"
+      "safe space",
+      "queer revelry"
     ],
     "vibe_notes": "A jubilant celebration of queer joy."
   },
@@ -49,7 +54,9 @@
       "ambient",
       "ethereal",
       "trance",
-      "floating"
+      "floating",
+      "dreamlike & hypnagogic",
+      "dreamlike and hypnagogic"
     ],
     "vibe_notes": "A waking dream."
   },
@@ -63,7 +70,9 @@
       "wonder",
       "magical",
       "transcendent",
-      "breathtaking"
+      "breathtaking",
+      "wonder & awe",
+      "wonder and awe"
     ],
     "vibe_notes": "A miracle in stage lights."
   },
@@ -85,7 +94,9 @@
       "wounded",
       "hurting",
       "aching",
-      "need holding"
+      "need holding",
+      "grief & grace",
+      "grief and grace"
     ],
     "vibe_notes": "A kind of catharsis."
   },
@@ -108,7 +119,10 @@
       "fun",
       "adult play",
       "grown-up fun",
-      "mischievous"
+      "mischievous",
+      "playful & weird",
+      "playful and weird",
+      "epicurean"
     ],
     "vibe_notes": "Theatre that tilts the world."
   },
@@ -127,7 +141,11 @@
       "bold",
       "community-focused",
       "grassroots",
-      "justice"
+      "justice",
+      "punchy / protest",
+      "punchy",
+      "feminine",
+      "empowering"
     ],
     "vibe_notes": "Voices raised, truth revealed."
   },
@@ -156,7 +174,8 @@
       "contemplative",
       "reflective",
       "introspective",
-      "cerebral"
+      "cerebral",
+      "the thoughtful stage"
     ],
     "vibe_notes": "Theatre that makes you lean in."
   },
@@ -168,7 +187,8 @@
       "try something new",
       "random",
       "adventurous",
-      "discovery"
+      "discovery",
+      "something i wouldn't normally pick"
     ],
     "vibe_notes": "You might just surprise yourself."
   },
@@ -182,7 +202,9 @@
       "queer",
       "glamour",
       "sequins",
-      "sparkle"
+      "sparkle",
+      "cabaret & glitter",
+      "cabaret and glitter"
     ],
     "vibe_notes": "Where glamour meets rebellion."
   },
@@ -196,7 +218,9 @@
       "late-night",
       "midnight",
       "nocturnal",
-      "evening"
+      "evening",
+      "late-night lark",
+      "night wanderer"
     ],
     "vibe_notes": "For when the city stays up with you."
   },
@@ -222,7 +246,8 @@
       "joyful",
       "joy",
       "bright",
-      "positive"
+      "positive",
+      "comic relief"
     ],
     "vibe_notes": "A tonic for the tense."
   },
@@ -250,7 +275,12 @@
       "connected",
       "connection",
       "belonging",
-      "togetherness"
+      "togetherness",
+      "group energy",
+      "community",
+      "celebratory",
+      "empowering",
+      "vibrant"
     ],
     "vibe_notes": "Dancing, laughing, witnessing together."
   },
@@ -263,7 +293,11 @@
       "voice",
       "narrative",
       "stories",
-      "tale"
+      "tale",
+      "word & voice",
+      "word and voice",
+      "word",
+      "literary"
     ],
     "vibe_notes": "The hush of the room, the lyric of the light."
   },
@@ -279,7 +313,9 @@
       "salon",
       "gathering",
       "connection",
-      "meet people"
+      "meet people",
+      "salon & spark",
+      "salon and spark"
     ],
     "vibe_notes": "A little wine, a lot of questions."
   },
@@ -292,7 +328,9 @@
       "fervour",
       "passionate",
       "intense",
-      "electric"
+      "electric",
+      "rant & rapture",
+      "rant and rapture"
     ],
     "vibe_notes": "A sermon of sorts."
   },
@@ -308,7 +346,8 @@
       "techno",
       "house",
       "dancing",
-      "celebration"
+      "celebration",
+      "big night out"
     ],
     "vibe_notes": "A crowd, a cocktail, a damn good night."
   },
@@ -322,7 +361,8 @@
       "global",
       "cultural",
       "multicultural",
-      "diverse"
+      "diverse",
+      "global rhythms"
     ],
     "vibe_notes": "A passport for the soul."
   },
@@ -337,7 +377,9 @@
       "candlelit",
       "heritage",
       "gothic",
-      "period"
+      "period",
+      "romanticised london",
+      "haunted"
     ],
     "vibe_notes": "London as you imagined it in books."
   },
@@ -352,7 +394,8 @@
       "1920s",
       "art deco",
       "throwback",
-      "bygone"
+      "bygone",
+      "nostalgic / vintage / retro"
     ],
     "vibe_notes": "A portal to another era."
   },
@@ -371,7 +414,8 @@
       "devotional",
       "transcendent",
       "occult",
-      "esoteric"
+      "esoteric",
+      "spiritual / sacred / mystical"
     ],
     "vibe_notes": "A hush that feels holy."
   },
@@ -388,7 +432,12 @@
       "kinetic",
       "somatic",
       "move",
-      "moving"
+      "moving",
+      "body-based / movement-led",
+      "body-based",
+      "movement-led",
+      "expressive",
+      "fluid"
     ],
     "vibe_notes": "When words aren't enough."
   },
@@ -419,7 +468,8 @@
       "heartbreak",
       "pain",
       "ache",
-      "hurt"
+      "hurt",
+      "melancholic beauty"
     ],
     "vibe_notes": "Beauty that breaks your heart a little."
   },
@@ -442,7 +492,13 @@
       "exhibition",
       "exhibitions",
       "installation",
-      "contemporary art"
+      "contemporary art",
+      "curious encounters",
+      "craft & making",
+      "craft and making",
+      "creative",
+      "tactile",
+      "sensory"
     ],
     "vibe_notes": "You never quite know what you'll find."
   },
@@ -458,7 +514,11 @@
       "nature",
       "outside",
       "park",
-      "green space"
+      "green space",
+      "seasonal / outdoor",
+      "seasonal",
+      "urban explorer",
+      "nature-connected"
     ],
     "vibe_notes": "For when the city needs sky."
   },
@@ -477,7 +537,11 @@
       "feral",
       "untamed",
       "magic",
-      "spellwork"
+      "spellwork",
+      "witchy & wild",
+      "witchy and wild",
+      "wild becoming",
+      "transformative"
     ],
     "vibe_notes": "For when you want to howl at something."
   },
@@ -508,7 +572,9 @@
       "mindful",
       "zen",
       "restorative",
-      "tranquil"
+      "tranquil",
+      "contemplative & meditative",
+      "contemplative and meditative"
     ],
     "vibe_notes": "Where silence speaks."
   },
@@ -541,7 +607,7 @@
       "rough",
       "in development",
       "testing",
-      "試行"
+      "experimental / avant-garde"
     ],
     "vibe_notes": "Tiny universes at ignition, mid-moult."
   }
