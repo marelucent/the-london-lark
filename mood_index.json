@@ -57,7 +57,13 @@
       "transcendent",
       "breathtaking",
       "wonder & awe",
-      "wonder and awe"
+      "wonder and awe",
+      "family",
+      "kids",
+      "children",
+      "all ages",
+      "family-friendly",
+      "wholesome"
     ],
     "vibe_notes": "A miracle in stage lights."
   },
@@ -99,7 +105,6 @@
       "odd",
       "peculiar",
       "surreal",
-      "experimental",
       "playful",
       "fun",
       "adult play",
@@ -134,21 +139,6 @@
     ],
     "vibe_notes": "Voices raised, truth revealed."
   },
-  "Poetic": {
-    "description": "Language that shimmers. Performances with soul-rhythm.",
-    "synonyms": [
-      "poetic",
-      "lyrical",
-      "spoken word",
-      "poetry",
-      "verse",
-      "wordsmith",
-      "literary",
-      "words",
-      "language"
-    ],
-    "vibe_notes": "You'll carry the words home."
-  },
   "The Thoughtful Stage": {
     "description": "Measured, textured, quietly brilliant.",
     "synonyms": [
@@ -171,7 +161,6 @@
       "drag",
       "glitter",
       "burlesque",
-      "queer",
       "glamour",
       "sequins",
       "sparkle",
@@ -257,7 +246,7 @@
     "vibe_notes": "Dancing, laughing, witnessing together."
   },
   "Word & Voice": {
-    "description": "Spoken word, storytelling, lyrical monologues.",
+    "description": "Spoken word, storytelling, lyrical monologues. Language that shimmers.",
     "synonyms": [
       "spoken word",
       "storytelling",
@@ -269,7 +258,13 @@
       "word & voice",
       "word and voice",
       "word",
-      "literary"
+      "literary",
+      "poetic",
+      "lyrical",
+      "verse",
+      "wordsmith",
+      "words",
+      "language"
     ],
     "vibe_notes": "The hush of the room, the lyric of the light."
   },
@@ -428,7 +423,7 @@
     "vibe_notes": "Beauty that breaks your heart a little."
   },
   "Curious Encounters": {
-    "description": "For the experimentally-minded and perpetually curious.",
+    "description": "For the experimentally-minded and perpetually curious. Boundary-pushing work that refuses to behave.",
     "synonyms": [
       "curious",
       "experimental",
@@ -438,6 +433,8 @@
       "discovery",
       "exploratory",
       "avant-garde",
+      "avant garde",
+      "avantgarde",
       "boundary-pushing",
       "art",
       "visual art",
@@ -452,29 +449,28 @@
       "craft and making",
       "creative",
       "tactile",
-      "sensory"
+      "sensory",
+      "scratch",
+      "work-in-progress",
+      "work in progress",
+      "wip",
+      "cutting-edge",
+      "cutting edge",
+      "progressive",
+      "daring",
+      "unconventional",
+      "innovative",
+      "pioneering",
+      "edgy",
+      "provocative",
+      "challenging",
+      "unfinished",
+      "rough",
+      "in development",
+      "testing",
+      "experimental / avant-garde"
     ],
     "vibe_notes": "You never quite know what you'll find."
-  },
-  "Seasonal / Outdoor": {
-    "description": "Under stars or sun, gardens and rooftops.",
-    "synonyms": [
-      "outdoor",
-      "garden",
-      "rooftop",
-      "summer",
-      "alfresco",
-      "open air",
-      "nature",
-      "outside",
-      "park",
-      "green space",
-      "seasonal / outdoor",
-      "seasonal",
-      "urban explorer",
-      "nature-connected"
-    ],
-    "vibe_notes": "For when the city needs sky."
   },
   "Witchy & Wild": {
     "description": "Pagan, earthy, feral, moon-soaked.",
@@ -495,21 +491,23 @@
       "witchy & wild",
       "witchy and wild",
       "wild becoming",
-      "transformative"
+      "transformative",
+      "outdoor",
+      "garden",
+      "rooftop",
+      "summer",
+      "alfresco",
+      "open air",
+      "nature",
+      "outside",
+      "park",
+      "green space",
+      "seasonal / outdoor",
+      "seasonal",
+      "urban explorer",
+      "nature-connected"
     ],
     "vibe_notes": "For when you want to howl at something."
-  },
-  "Family-Friendly": {
-    "description": "Magic for all ages.",
-    "synonyms": [
-      "family",
-      "kids",
-      "children",
-      "all ages",
-      "family-friendly",
-      "wholesome"
-    ],
-    "vibe_notes": "Where wonder has no age limit."
   },
   "Contemplative & Meditative": {
     "description": "Slow, still, deeply felt. Space to breathe and be.",
@@ -531,38 +529,5 @@
       "contemplative and meditative"
     ],
     "vibe_notes": "Where silence speaks."
-  },
-  "Experimental / Avant-garde": {
-    "description": "Boundary-pushing, risk-taking work that refuses to behave. Where art tests its own limits.",
-    "synonyms": [
-      "experimental",
-      "avant-garde",
-      "avant garde",
-      "avantgarde",
-      "scratch",
-      "work-in-progress",
-      "work in progress",
-      "wip",
-      "boundary-pushing",
-      "cutting-edge",
-      "cutting edge",
-      "progressive",
-      "radical",
-      "bold",
-      "daring",
-      "unconventional",
-      "innovative",
-      "pioneering",
-      "edgy",
-      "provocative",
-      "challenging",
-      "unfinished",
-      "raw",
-      "rough",
-      "in development",
-      "testing",
-      "experimental / avant-garde"
-    ],
-    "vibe_notes": "Tiny universes at ignition, mid-moult."
   }
 }

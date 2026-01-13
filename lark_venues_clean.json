@@ -391,6 +391,8 @@
     "name": "Boneyard London - Introduction to Blacksmithing",
     "location": "Tottenham",
     "moods": [
+      "wild",
+      "craft & making",
       "rustic",
       "adventurous"
     ],
@@ -943,6 +945,8 @@
     "location": "Hackney Wick",
     "moods": [
       "liberated",
+      "movement",
+      "ecstatic",
       "grounded"
     ],
     "genres": [
@@ -1095,7 +1099,9 @@
     "location": "Woolwich",
     "moods": [
       "fiery",
-      "mesmerising"
+      "mesmerising",
+      "craft & making",
+      "curious"
     ],
     "genres": [
       "bauble blowing",
@@ -2779,8 +2785,10 @@
     "name": "The Camden Club",
     "location": "Chalk Farm (Camden)",
     "moods": [
+      "intimate",
+      "neighbourhood-feel",
       "relaxed",
-      "neighbourhood-feel"
+      "folk"
     ],
     "genres": [
       "blues",
