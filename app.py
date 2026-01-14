@@ -9,17 +9,16 @@ Run this, then open http://localhost:5000 in your browser.
 
 from flask import Flask, render_template, request, jsonify
 from prompt_interpreter import interpret_prompt
-from mood_resolver import resolve_mood_from_query  # Enhanced resolver
+from mood_resolver import resolve_from_keywords
 from venue_matcher import match_venues
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
-from parse_venues import load_parsed_venues, DB_PATH
+from parse_venues import load_parsed_venues
 from lark_metrics import get_metrics
-from distress_detection import detect_distress_level, should_show_resources, should_show_venues
-from crisis_responses import build_crisis_response, get_melancholy_footer
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import random
 import json
+import os
 
 # Import voice profile system for debug info
 try:
@@ -32,26 +31,31 @@ except ImportError:
 app = Flask(__name__)
 
 def load_core_moods():
-    """Load Core moods from mood_index_v2_CORRECTED.json for homepage display"""
+    """Load the 23 core mood buttons from mood_index.json"""
     try:
-        with open('mood_index_v2_CORRECTED.json', 'r', encoding='utf-8') as f:
-            mood_index = json.load(f)
-            # Get only Title Case moods (official names), exclude lowercase variants
-            core_moods = [mood for mood in mood_index['core'] if mood[0].isupper()]
-            return core_moods
-    except Exception as e:
-        print(f"Warning: Could not load core moods: {e}")
+        # Try different possible paths
+        possible_paths = [
+            'mood_index.json',
+            os.path.join(os.path.dirname(__file__), 'mood_index.json'),
+        ]
+        
+        for path in possible_paths:
+            if os.path.exists(path):
+                with open(path, 'r', encoding='utf-8') as f:
+                    mood_index = json.load(f)
+                return list(mood_index.keys())
+        
         return []
-
-def get_current_hour():
-    """Get current hour in London timezone"""
-    london_tz = ZoneInfo('Europe/London')
-    now = datetime.now(london_tz)
-    return now.hour, now.strftime('%A')
+    except Exception as e:
+        print(f"Warning: Could not load mood_index.json: {e}")
+        return []
 
 def get_time_aware_greeting():
     """Generate a poetic greeting based on current time and day in London"""
-    hour, day_name = get_current_hour()
+    london_tz = ZoneInfo('Europe/London')
+    now = datetime.now(london_tz)
+    hour = now.hour
+    day_name = now.strftime('%A')
 
     # Check for special day/time combinations first
     if day_name == 'Friday' and 18 <= hour <= 23:
@@ -73,104 +77,48 @@ def get_time_aware_greeting():
     else:  # 0-5 (midnight to 5am)
         return "For the night-wanderers and the sleepless... the city holds space for you."
 
-def get_time_aware_placeholder():
-    """Generate time-aware search box placeholder"""
-    hour, _ = get_current_hour()
-
-    if 6 <= hour <= 11:
-        return "What kind of morning are you dreaming of, petal?"
-    elif 12 <= hour <= 17:
-        return "What kind of afternoon calls to you, petal?"
-    elif 18 <= hour <= 23:
-        return "What kind of evening are you seeking, petal?"
-    else:  # 0-5
-        return "What kind of night are you seeking, petal?"
-
-def get_time_aware_helper():
-    """Generate time-aware helper text with main and sub text"""
-    hour, _ = get_current_hour()
-
-    if 6 <= hour <= 11:
-        return {
-            'main': "Tell me what kind of morning you're seeking...",
-            'sub': "Perhaps a quiet café corner, or somewhere to wake the senses?"
-        }
-    elif 12 <= hour <= 17:
-        return {
-            'main': "Tell me what kind of afternoon you're dreaming of...",
-            'sub': "Perhaps a garden stroll, a gallery whisper, or somewhere time slows down?"
-        }
-    elif 18 <= hour <= 23:
-        return {
-            'main': "Tell me what kind of evening you're dreaming of...",
-            'sub': "Perhaps a tender night of folk songs, or somewhere strange and candlelit?"
-        }
-    else:  # 0-5
-        return {
-            'main': "Tell me what kind of night calls to you...",
-            'sub': "Perhaps a late-night sanctuary, or where the city hums until dawn?"
-        }
-
-
-def build_venue_summary(venues):
-    """
-    Return a compact health summary of the current venue catalogue.
-
-    The summary answers three questions needed for front-end work:
-    1) Which data source is active (SQLite vs. JSON fallback)?
-    2) Which mood/genre tags are available for filters and labels?
-    3) How much of the venue list has a recorded verification time stamp?
-    """
-    mood_set = set()
-    genre_set = set()
-    verified = []
-    missing_verification = []
-
-    for venue in venues:
-        mood_set.update(venue.get("moods", []))
-        genre_set.update(venue.get("genres", []))
-
-        last_verified = venue.get("last_verified")
-        name = venue.get("display_name", venue.get("name", "Unnamed venue"))
-
-        if last_verified:
-            verified.append({"name": name, "last_verified": last_verified})
-        else:
-            missing_verification.append(name)
-
-    return {
-        "data_source": "sqlite" if DB_PATH.exists() else "json",  # Which source is being used
-        "counts": {
-            "venues": len(venues),
-            "moods": len(mood_set),
-            "genres": len(genre_set),
+def get_input_helper():
+    """Generate input placeholder and helper text"""
+    helpers = [
+        {
+            "main": "Tell me what you're craving—a mood, a feeling, a type of night.",
+            "sub": "I'll find the corners of London that match."
         },
-        "tags": {
-            "moods": sorted(mood_set),
-            "genres": sorted(genre_set),
+        {
+            "main": "What kind of evening calls to you?",
+            "sub": "Describe a feeling, a vibe, a longing."
         },
-        "verification": {
-            "verified": len(verified),
-            "missing": len(missing_verification),
-            # Sorted to keep output stable for monitoring
-            "missing_names": sorted(missing_verification),
-            # Lightweight view to show what is confirmed without shipping the full list
-            "recently_verified": sorted(verified, key=lambda v: v["name"])[:10],
-        },
-    }
+        {
+            "main": "Whisper your mood to me, petal.",
+            "sub": "I know the city's secret corners."
+        }
+    ]
+    return random.choice(helpers)
+
+def get_placeholder():
+    """Generate input placeholder text"""
+    placeholders = [
+        "Something folk and intimate...",
+        "I need queer joy tonight...",
+        "Somewhere melancholy but beautiful...",
+        "A late-night place with good energy...",
+        "Somewhere to feel alive..."
+    ]
+    return random.choice(placeholders)
 
 @app.route('/')
 def home():
     """Serve the main page"""
     greeting = get_time_aware_greeting()
-    placeholder = get_time_aware_placeholder()
-    helper = get_time_aware_helper()
+    helper = get_input_helper()
+    placeholder = get_placeholder()
     core_moods = load_core_moods()
-    return render_template('index.html',
-                         greeting=greeting,
-                         placeholder=placeholder,
-                         helper=helper,
-                         core_moods=core_moods)
+    
+    return render_template('index.html', 
+                          greeting=greeting,
+                          helper=helper,
+                          placeholder=placeholder,
+                          core_moods=core_moods)
 
 @app.route('/about')
 def about():
@@ -179,26 +127,8 @@ def about():
 
 @app.route('/resources')
 def resources():
-    """Crisis support and mental health resources"""
+    """Serve the support resources page"""
     return render_template('resources.html')
-
-
-@app.route('/api/venues')
-def api_venues():
-    """Return the full venue catalogue along with summary metadata."""
-    venues = load_parsed_venues()
-    summary = build_venue_summary(venues)
-    return jsonify({
-        'venues': venues,
-        'summary': summary
-    })
-
-
-@app.route('/api/venues/summary')
-def api_venue_summary():
-    """Return just the venue summary for quick health checks."""
-    venues = load_parsed_venues()
-    return jsonify(build_venue_summary(venues))
 
 @app.route('/surprise', methods=['POST'])
 def surprise_me():
@@ -265,134 +195,68 @@ def ask_lark():
                 'venue_count': 0
             })
 
-        # CRISIS DETECTION: Check for distress signals before normal processing
-        distress_level, matched_keywords = detect_distress_level(user_prompt)
+        # Process through the pipeline
+        filters = interpret_prompt(user_prompt)
 
-        # Log distress detection (without full query text for privacy)
-        if distress_level in ["crisis", "distress"]:
-            print(f"\n⚠️  DISTRESS DETECTED: level={distress_level}, keyword_count={len(matched_keywords)}")
-
-        # For CRISIS level: Return resources immediately, skip venue search
-        if distress_level == "crisis":
-            crisis_response = build_crisis_response("crisis")
-            print(f"   🆘 Returning crisis response (no venues)")
-            return jsonify({
-                'distress_level': 'crisis',
-                'crisis_response': crisis_response,
-                'responses': [],  # No venues for crisis
-                'mood': None,
-                'confidence': 1.0,
-                'venue_count': 0
-            })
-
-        # USE ENHANCED MOOD RESOLVER as primary detector
-        # This handles multi-keyword scoring and context-aware matching
-        mood, mood_confidence = resolve_mood_from_query(user_prompt)
-        
-        # Debug: Log what was detected
+        # Debug: Log what was extracted
         print(f"\n🔍 DEBUG: Interpreting '{user_prompt}'")
-        print(f"   Mood detected: {mood} (confidence: {mood_confidence:.0%})")
-        
-        # Still use prompt_interpreter for OTHER filters (time, location, budget, etc.)
-        # but ignore its mood detection
-        other_filters = interpret_prompt(user_prompt)
-        
-        # Build complete filters dict
-        filters = {
-            "mood": mood,
-            "time": other_filters.get("time"),
-            "budget": other_filters.get("budget"),
-            "group": other_filters.get("group"),
-            "genre": other_filters.get("genre"),
-            "location": other_filters.get("location")
-        }
+        print(f"   Initial filters: {filters}")
 
+        # Resolve mood if not found
+        mood_confidence = 1.0
+        if not filters.get("mood"):
+            keywords = user_prompt.lower().split()
+            mood, confidence = resolve_from_keywords(keywords)
+            filters["mood"] = mood
+            mood_confidence = confidence
+            print(f"   Mood resolution: mood={mood}, confidence={confidence}")
+        else:
+            print(f"   Direct mood match: {filters.get('mood')}")
 
         # CONFIDENCE THRESHOLD CHECKS
-        # Check if we have location or genre filters (these can work without mood)
-        has_searchable_filters = filters.get("location") or filters.get("genre")
-
-        # If no mood detected at all (None with 0.0 confidence), check for location/genre fallback
+        # If no mood detected at all (None with 0.0 confidence), reject
         if filters.get("mood") is None and mood_confidence == 0.0:
-            # Check if we have location or genre filter as fallback
-            if has_searchable_filters:
-                if filters.get("genre"):
-                    print(f"   ✓ No mood, but genre detected: {filters.get('genre')}")
-                if filters.get("location"):
-                    print(f"   ✓ No mood, but location detected: {filters.get('location')}")
-                # Allow to proceed with location/genre-based search
-            else:
-                # REJECT QUERY (no mood AND no genre AND no location)
-                print(f"   ❌ No recognizable mood, genre, or location keywords found")
-                return jsonify({
-                    'responses': [{
-                        'text': "I tilt my head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night? Or tell me a genre — music, theatre, comedy? Or name a location?",
-                        'venue_name': None,
-                        'area': None,
-                        'website': None
-                    }],
-                    'mood': None,
-                    'confidence': 0.0,
-                    'venue_count': 0,
-                    'filters': filters,
-                    'debug': {
-                        'reason': 'no_mood_genre_or_location_detected',
-                        'keywords_checked': user_prompt.lower().split()
-                    }
-                })
+            print(f"   ❌ No recognizable mood keywords found")
+            return jsonify({
+                'responses': [{
+                    'text': "I tilt my head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night?",
+                    'venue_name': None,
+                    'area': None,
+                    'website': None
+                }],
+                'mood': None,
+                'confidence': 0.0,
+                'venue_count': 0,
+                'filters': filters,
+                'debug': {
+                    'reason': 'no_mood_detected',
+                    'keywords_checked': user_prompt.lower().split()
+                }
+            })
 
-        # If confidence is very low (< 0.3), check for location/genre fallback before asking for clarification
+        # If confidence is very low (< 0.3), ask for clarification
         if mood_confidence < 0.3:
-            if has_searchable_filters:
-                if filters.get("genre"):
-                    print(f"   ⚠️ Low mood confidence, but using genre: {filters.get('genre')}")
-                if filters.get("location"):
-                    print(f"   ⚠️ Low mood confidence, but using location: {filters.get('location')}")
-                # Clear out the unreliable mood to prevent false matches
-                filters["mood"] = None
-                print(f"   ✓ Cleared unreliable mood, searching by location/genre only")
-                # Allow to proceed with location/genre-based search
-            else:
-                print(f"   ⚠️ Very low confidence ({mood_confidence}), asking for clarification")
-                return jsonify({
-                    'responses': [{
-                        'text': f"I sense a whisper of '{filters.get('mood', 'something')}' in your words, but I'm not certain. Could you tell me more about the evening you're dreaming of?",
-                        'venue_name': None,
-                        'area': None,
-                        'website': None
-                    }],
-                    'mood': filters.get('mood'),
-                    'confidence': mood_confidence,
-                    'venue_count': 0,
-                    'filters': filters,
-                    'debug': {
-                        'reason': 'low_confidence',
-                        'threshold': 0.3
-                    }
-                })
+            print(f"   ⚠️ Very low confidence ({mood_confidence}), asking for clarification")
+            return jsonify({
+                'responses': [{
+                    'text': f"I sense a whisper of '{filters.get('mood', 'something')}' in your words, but I'm not certain. Could you tell me more about the evening you're dreaming of?",
+                    'venue_name': None,
+                    'area': None,
+                    'website': None
+                }],
+                'mood': filters.get('mood'),
+                'confidence': mood_confidence,
+                'venue_count': 0,
+                'filters': filters,
+                'debug': {
+                    'reason': 'low_confidence',
+                    'threshold': 0.3
+                }
+            })
 
         # If confidence is moderate (0.3-0.5), warn but proceed cautiously
         if mood_confidence < 0.5:
             print(f"   ⚠️ Moderate confidence ({mood_confidence}), proceeding with caution")
-
-        # LOCATION/GENRE PRIORITY: If user specified location OR genre, prioritize those over mood
-        # This prevents false positive moods (e.g., "Ealing" → "Grief & Grace") from interfering
-        if has_searchable_filters and filters.get("mood"):
-            query_words = user_prompt.lower().strip().split()
-            should_clear_mood = False
-
-            # Case 1: Short location-only query (1-2 words)
-            if len(query_words) <= 2 and filters.get("location"):
-                print(f"   ℹ️ Location-only query detected ({len(query_words)} words), clearing mood")
-                should_clear_mood = True
-
-            # Case 2: Location + Genre combo (user wants specific venue type in specific place)
-            elif filters.get("location") and filters.get("genre"):
-                print(f"   ℹ️ Location+Genre query detected, prioritizing those over mood")
-                should_clear_mood = True
-
-            if should_clear_mood:
-                filters["mood"] = None
 
         # Get voice profile for the mood
         voice_profile_name = get_profile_name(filters.get("mood"))
@@ -410,17 +274,9 @@ def ask_lark():
         # Generate responses
         responses = []
         if matches:
-            # Randomize selection to show variety (not always the same top 3)
-            # If we have more than 3 matches, pick 3 randomly
-            if len(matches) > 3:
-                selected_venues = random.sample(matches, 3)
-            else:
-                selected_venues = matches
-            
-            # Return up to 3 matches with varied structure
-            for index, venue in enumerate(selected_venues):
-                # Pass response_index to vary structure across the 3 responses
-                response = generate_response(venue, filters, response_index=index)
+            # Return up to 3 matches
+            for venue in matches[:3]:
+                response = generate_response(venue, filters)
                 responses.append({
                     'text': response,
                     'venue_name': venue.get('name', ''),
@@ -437,34 +293,20 @@ def ask_lark():
                 'website': None
             })
 
-        # Build response with distress information if applicable
-        response_data = {
+        return jsonify({
             'responses': responses,
             'mood': filters.get('mood'),
             'confidence': mood_confidence,
             'venue_count': len(matches),
             'filters': filters,
             'voice_profile': voice_profile_info,
-            'distress_level': distress_level,
             'debug': {
                 'mood_detected': filters.get('mood'),
                 'confidence': mood_confidence,
                 'matches_found': len(matches),
                 'voice_profile': voice_profile_name
             }
-        }
-
-        # Add crisis response for distress level (resources + venues)
-        if distress_level == "distress":
-            response_data['crisis_response'] = build_crisis_response("distress")
-            print(f"   💙 Including crisis resources with venue response")
-
-        # Add subtle footer note for melancholy level
-        if distress_level == "melancholy":
-            response_data['melancholy_footer'] = get_melancholy_footer()
-            print(f"   💜 Adding melancholy footer note")
-
-        return jsonify(response_data)
+        })
 
     except Exception as e:
         return jsonify({
