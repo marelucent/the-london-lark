@@ -2996,40 +2996,6 @@
     "whisper": "A Victorian hush holds the secrets of stars, spirits, and the soul’s long schooling."
   },
   {
-    "name": "The Fermentarium (Festive Lactic Fermentation Workshop)",
-    "location": "Walthamstow",
-    "moods": [
-      "adult play",
-      "craft & making",
-      "curious"
-    ],
-    "genres": [
-      "fermentation",
-      "pickling"
-    ],
-    "url": "https://www.thefermentarium.org.uk/event/lactic-fermentation-festive-special",
-    "blurb": "In the warm belly of Walthamstow, beneath winter's hush, the Hornbeam Café hosts a ritual of bubbling jars and spiced roots. Anna, keeper of brines, invites curious hands to conjure chutney and mulled ferments by candlelight. It is both kitchen and altar - the clink of spoons, the scent of cloves, the promise of transformation sealed in glass. A seasonal spell for the curious of palate and heart.",
-    "last_verified": "2025-11-23",
-    "whisper": "Pickle your way into winter’s warmth — bacteria have never felt so festive."
-  },
-  {
-    "name": "The Fermentarium (Kimchi Masterclass)",
-    "location": "Walthamstow",
-    "moods": [
-      "craft & making",
-      "curious",
-      "earthy"
-    ],
-    "genres": [
-      "fermentation",
-      "Korean food"
-    ],
-    "url": "https://www.thefermentarium.org.uk/event/kimchi-masterclass",
-    "blurb": "At the Fermentarium's hearth, the spirit of Seoul simmers. Cabbage weeps, garlic sings, and gochugaru flares red as winter embers. This kimchi masterclass is fermentation as firelight - not factory, but family. Fingers mix memory, spice marks skin, and every jar is a pact between land and longing.",
-    "last_verified": "2025-11-23",
-    "whisper": "At the Fermentarium's hearth, the spirit of Seoul simmers."
-  },
-  {
     "name": "The Garden Cinema",
     "location": "Covent Garden",
     "moods": [
@@ -5121,5 +5087,23 @@
     "blurb": "Galleria Objets is a small contemporary gallery in east London with a taste for work that sits in the liminal and the quietly intense. Recent shows like 'Your Grief Belongs To You, And Can Be So So Pretty' have treated loss as something to be looked at sideways: tender, aesthetic, a little unsettling, never mocked. If you'd like to wander with your feelings rather than unpack them in a circle, this is a soft-lit room to do it in.",
     "last_verified": "2025-11-24",
     "whisper": "Glass and text hold what the heart can’t carry alone."
+  },
+  {
+    "name": "The Fermentarium",
+    "location": "Walthamstow",
+    "url": "https://www.thefermentarium.org.uk",
+    "whisper": "Bubbling jars and quiet alchemy — where patience becomes flavour.",
+    "blurb": "In Walthamstow, The Fermentarium tends to the slow magic of transformation. Cabbage becomes kimchi, cucumbers turn to pickles, and time itself is an ingredient. These hands-on workshops teach the old art of fermentation — not as science, but as ritual. Expect salt on your fingers, steam on the windows, and jars of something living to carry home. For the curious of palate and the patient of heart.",
+    "moods": [
+      "craft & making",
+      "curious",
+      "earthy"
+    ],
+    "genres": [
+      "fermentation",
+      "pickling",
+      "food workshops"
+    ],
+    "last_verified": "2025-01-14"
   }
 ]
