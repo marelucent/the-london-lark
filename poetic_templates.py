@@ -1,697 +1,918 @@
 #!/usr/bin/env python3
 """
-Poetic Templates for The London Lark
+Poetic Templates for The London Lark (v2)
 
-The Lark's voice is poetic, warm, and emotionally intelligent.
-This module provides modular templates for responses based on:
-- Mood tags
-- Venue types
-- Time of day
-- Context (empty state, single match, multiple matches)
+The Lark's voice shifts based on the arcana/mood being queried.
+23 distinct voices, organized into 7 voice families that share a base energy.
 
-The Lark's voice SHIFTS based on the mood being queried, with five distinct profiles:
-1. MYTHIC NIGHTS - Archaic, ritualistic (sacred/haunted moods)
-2. NOSTALGIC NEON - Warm, vintage, cinematic (nostalgic/tender moods)
-3. WILD BECOMING - Urgent, transformative (rebellious/ecstatic moods)
-4. TENDER BELONGING - Soft, inclusive, home-like (folk/intimate moods)
-5. CURIOUS WONDER - Light, inquisitive (curious/playful moods)
+Voice Families:
+1. MYTHIC — Ancient, ritualistic, veiled
+2. VELVET — Seductive, glamorous, winking  
+3. WILD — Urgent, electric, transformative
+4. TENDER — Warm, soft, inclusive
+5. CURIOUS — Playful, strange, experimental
+6. SHARP — Precise, intellectual, burning
+7. GLOBAL — Rhythmic, expansive, connected
 """
 
 import random
 from typing import Optional, Dict, List
 
-# ═══════════════════════════════════════════════════════════════════
-# VOICE PROFILES - Complete personality systems
-# ═══════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════
+# THE 23 ARCANA VOICES
+# ══════════════════════════════════════════════════════════════════════
 
-VOICE_PROFILES = {
-    "MYTHIC_NIGHTS": {
-        "description": "Archaic language, ritualistic cadence. Ceremonial and timeless.",
-        "moods": [
-            "Spiritual / Sacred / Mystical",
-            "Witchy & Wild",
-            "Dreamlike & Hypnagogic",
-            "Grief & Grace",
-        ],
+ARCANA_VOICES = {
+    
+    # ─────────────────────────────────────────────────────────────────
+    # MYTHIC FAMILY — Ancient, ritualistic, veiled
+    # ─────────────────────────────────────────────────────────────────
+    
+    "Witchy & Wild": {
+        "family": "MYTHIC",
+        "arcana": "II · The High Priestess",
+        "description": "Feral, liminal, moon-soaked. The woods are calling.",
         "openings": [
-            "In the crypt where candles breathe and shadows remember...",
-            "The ancient stones hum with frequencies beyond hearing...",
-            "Where the veil grows thin and the old gods listen...",
-            "A ritual unfolds for those who dare witness...",
-            "The moon pulls at something deep within you tonight...",
-            "In sacred spaces where time bends and meaning multiplies...",
-            "The ancestors gather in corners unseen...",
-            "Where ceremony meets the edge of mystery...",
-            "Something primordial stirs beneath the city's skin...",
-            "The eternal returns, dressed in new garments...",
+            "The moon knows. The woods know. Come and remember.",
+            "Something feral stirs beneath your civilised skin...",
+            "The old ways are not lost — only waiting for those who seek.",
+            "Where the wild things are, the wild things have always been.",
+            "The forest doesn't judge. It only watches, and waits.",
+            "Your ancestors danced by firelight. Your bones remember.",
+            "The veil is thin tonight. Can you feel it?",
+            "Some magic requires no wand — only willingness.",
         ],
         "venue_intros": [
-            "I offer you a temple:",
+            "I sense the old magic at",
+            "The coven gathers at",
+            "I've found wild ground:",
+            "Where the veil thins:",
+            "I hear the old songs at",
+            "The moon pulls toward",
+        ],
+        "rejections": [
+            "The forest is silent tonight, petal. The wild waits for another moon.",
+            "No circle forms for me this evening. Try calling with different words.",
+            "The witching hour hasn't revealed a path. Seek again when the wind shifts.",
+        ],
+    },
+    
+    "Spiritual / Sacred / Mystical": {
+        "family": "MYTHIC",
+        "arcana": "V · The Hierophant",
+        "description": "Solemn, transcendent, ancient. Where reverence rises.",
+        "openings": [
+            "Where the veil thins and reverence rises...",
+            "Some spaces hold prayers that never stopped echoing.",
+            "The sacred doesn't shout. It hums, and those who listen, hear.",
+            "In the hush between heartbeats, something holy waits.",
+            "Not all temples have altars. Some have dance floors. Some have silence.",
+            "The divine wears many masks in this city.",
+            "What you seek is also seeking you.",
+            "Grace arrives uninvited, but never unwelcome.",
+        ],
+        "venue_intros": [
             "I've prepared the altar at",
-            "I guide you to sanctuary at",
-            "I consecrate this space:",
-            "I've found ritual ground at",
-            "Where I sense incense and intention:",
-            "I open the portal to",
-            "I stand at the threshold:",
-            "I whisper of the sacred at",
-            "I present this offering:",
+            "Where I sense the sacred:",
+            "The threshold opens at",
+            "I guide you to sanctuary:",
+            "Reverence dwells at",
+            "I've found holy ground:",
         ],
         "rejections": [
-            "The oracle is silent tonight. I hear no path forward, petal.",
-            "Even the ancient ones rest. I cannot complete the ritual tonight.",
-            "The veil remains closed. I'll seek again when the moon shifts.",
-            "No sacred ground revealed itself to me. I'll search elsewhere.",
-            "I need different elements for this ceremony. Transform your seeking.",
+            "The oracle is silent tonight. I'll seek again when the candles gutter differently.",
+            "No sacred ground revealed itself, petal. The divine keeps its own schedule.",
+            "I cannot complete the ritual with these words. Transform your seeking.",
         ],
     },
-
-    "NOSTALGIC_NEON": {
-        "description": "Warm, vintage, cinematic language. Gentle and memory-soaked.",
-        "moods": [
-            "Nostalgic / Vintage / Retro",
-            "Melancholic Beauty",
-            "Jazz & Contemplation",
-            "Cabaret & Glitter",
-        ],
+    
+    "Grief & Grace": {
+        "family": "MYTHIC",
+        "arcana": "XIII · Death",
+        "description": "Tender, final, transformative. For when you need the ache and the holding.",
         "openings": [
-            "Where chandeliers remember 1904 and every drink tells a story...",
-            "The past isn't dead here—it wears velvet and pours bourbon...",
-            "Somewhere between sepia and color, tonight lives...",
-            "Old songs know your heartbreak by name...",
-            "The city has corners that time forgot to update...",
-            "Dust motes dance in amber light, and so might you...",
-            "What the future discarded, the night cherishes...",
-            "Memory has a texture here—worn wood, soft jazz, familiar ache...",
-            "Some places hold time like a love letter holds perfume...",
-            "The ghosts of better evenings await your company...",
+            "For when you need to feel the ache, but also the holding.",
+            "Some sorrows need witnessing, not fixing.",
+            "The heart breaks so it can break open.",
+            "Grief is love with nowhere to go. Let's find it somewhere.",
+            "You don't have to be okay tonight. You just have to be here.",
+            "What we mourn, we loved. That's not nothing.",
+            "The tender places are the truest places.",
+            "Even the dying of the light has its own beauty.",
         ],
         "venue_intros": [
-            "I treasure this relic:",
-            "I'll take you back in time to",
-            "Where I hear history exhale:",
+            "I offer a gentle holding at",
+            "Where sorrow finds company:",
+            "I've found tender ground:",
+            "For the ache in you:",
+            "Where grief can breathe:",
+            "I know a place that holds gently:",
+        ],
+        "rejections": [
+            "I can't find the right shelter for this particular rain, petal. But I'm still here.",
+            "No soft landing revealed itself tonight. Sometimes we just sit with what is.",
+            "The comfort I sought for you hides tonight. Let me try different words.",
+        ],
+    },
+    
+    "Contemplative & Meditative": {
+        "family": "MYTHIC",
+        "arcana": "IX · The Hermit",
+        "description": "Quiet, inward, luminous. Space to breathe and be.",
+        "openings": [
+            "Slow, still, deeply felt. Space to breathe and be.",
+            "The noise will wait. It always does.",
+            "Sometimes the bravest thing is to stop.",
+            "In the pause between thoughts, something true lives.",
+            "Stillness isn't emptiness. It's everything, resting.",
+            "The lantern you seek is already in your hand.",
+            "Silence is not absence. It's presence, undiluted.",
+            "Vibrations hum and you melt into the quiet space of your own breath.",
+        ],
+        "venue_intros": [
+            "I've found stillness at",
+            "Where silence speaks:",
+            "The quiet gathers at",
+            "I know a place for breathing:",
+            "For your weary mind:",
+            "Where the hush deepens:",
+        ],
+        "rejections": [
+            "The stillness hides from me tonight, petal. Perhaps it's finding you directly.",
+            "No quiet corner answered my call. The silence keeps its own counsel.",
+            "I sought peace but found only echo. Try asking with softer words.",
+        ],
+    },
+    
+    # ─────────────────────────────────────────────────────────────────
+    # VELVET FAMILY — Seductive, glamorous, winking
+    # ─────────────────────────────────────────────────────────────────
+    
+    "Cabaret & Glitter": {
+        "family": "VELVET",
+        "arcana": "VI · The Lovers",
+        "description": "Seductive, sparkling, dangerous in the best way.",
+        "openings": [
+            "Feathers, fire, wit and want. Choose your poison, darling.",
+            "The spotlight knows your name, even if you don't yet.",
+            "Some nights demand sequins. This is one of them.",
+            "Behind the velvet curtain, everything glitters — even the darkness.",
+            "The stage is set. The only question is: will you play?",
+            "Glamour is armour, darling. Wear it well.",
+            "The chandelier winks. It knows what you came for.",
+            "In the space between acts, anything can happen.",
+        ],
+        "venue_intros": [
+            "The curtain rises at",
+            "I've found your spotlight:",
+            "Glamour awaits at",
+            "Where the glitter settles:",
+            "The show begins at",
+            "I'll seat you ringside at",
+        ],
+        "rejections": [
+            "The spotlight swings elsewhere tonight, darling. But your moment will come.",
+            "No stage revealed itself for this particular performance. Encore another night.",
+            "The glitter has scattered, petal. I'll gather it again with different words.",
+        ],
+    },
+    
+    "Late-Night Lark": {
+        "family": "VELVET",
+        "arcana": "XV · The Devil",
+        "description": "Seductive, shadowy, grinning. The city stays up with you.",
+        "openings": [
+            "Bold, cheeky, and twilight-tinged. The city stays up with you.",
+            "The hours after midnight belong to those who know what they want.",
+            "Some pleasures only bloom in darkness.",
+            "The night has teeth, darling. But so do you.",
+            "What happens after 2am is between you and the city.",
+            "The respectable world is sleeping. Good.",
+            "Temptation is just invitation dressed up.",
+            "The shadows here are friendly. Mostly.",
+        ],
+        "venue_intros": [
+            "The night deepens at",
+            "I know where the city stays awake:",
+            "For the hours others waste sleeping:",
+            "The shadows part at",
+            "Where the night gets interesting:",
+            "I've found your after-dark:",
+        ],
+        "rejections": [
+            "Even the night needs rest sometimes, petal. Or so it tells me.",
+            "The late hours guard their secrets tonight. I'll try again at a darker hour.",
+            "No door opened to my midnight knock. The city keeps its own schedule.",
+        ],
+    },
+    
+    "Nostalgic / Vintage / Retro": {
+        "family": "VELVET",
+        "arcana": "XVIII · The Moon",
+        "description": "Dreamy, romantic, half-remembered. A portal to another era.",
+        "openings": [
+            "Old glamour, faded elegance. A portal to another era.",
+            "The past isn't dead here — it wears velvet and pours bourbon.",
+            "Some places hold time like a love letter holds perfume.",
+            "What the future discarded, the night cherishes.",
+            "Memory has a texture here — worn wood, soft jazz, familiar ache.",
+            "The ghosts of better evenings await your company.",
+            "Nostalgia isn't longing for the past. It's longing for a feeling.",
+            "The city has corners that time forgot to update. Thank goodness.",
+        ],
+        "venue_intros": [
             "I've found a fragment of yesterday:",
-            "I keep the past alive at",
-            "Time-worn and beautiful, I offer:",
-            "I hear echoes of elegance at",
+            "Where time pools and eddies:",
+            "The past awaits at",
+            "I treasure this relic:",
+            "Where I hear history exhale:",
             "I've polished this vintage gem:",
-            "Where I watch memories crystallize:",
-            "I answer the old world's call at",
         ],
         "rejections": [
-            "The gramophone skips tonight, petal. I find no record matching your longing.",
-            "Even nostalgia needs rest. I can't summon the past this evening.",
-            "My photograph album lies empty for this request. Try another frame.",
-            "No vintage door opened to me. I'll seek different memories.",
-            "The neon flickers but I can't read your destination. Adjust the dial.",
+            "The gramophone skips tonight, petal. I can't find that record.",
+            "Nostalgia hides from me this evening. Perhaps it's saving itself.",
+            "No portal to the past opened for those words. Try a different era.",
         ],
     },
-
-    "WILD_BECOMING": {
-        "description": "Urgent, transformative, edge-walking. Alive, dangerous, free.",
-        "moods": [
-            "Big Night Out",
-            "Late-Night Lark",
-            "Punchy / Protest",
-            "Queer Revelry",
-        ],
+    
+    "Romanticised London": {
+        "family": "VELVET",
+        "arcana": "✦ · The Lark",
+        "description": "Mythic, yearning, eternal. London as you imagined it in books.",
         "openings": [
-            "Where the night tears open and possibility bleeds through...",
-            "The edge is where you find yourself, petal...",
-            "Something in you wants to howl—let it...",
-            "Tonight you are not who you were yesterday...",
-            "The rules were made by people afraid of becoming...",
-            "Your skin is electric. Trust that current...",
-            "What if tonight you became the person you're afraid to be?",
-            "The city's underbelly knows your true name...",
-            "Revolution happens in moments of absolute presence...",
-            "The cage door is open. Your wings remember...",
+            "London as you imagined it in books. Gaslight nostalgia, Victorian dreams.",
+            "The city you dreamed before you arrived still exists. I know where.",
+            "Somewhere between Dickens and your childhood imagination...",
+            "The London of letters and longing. It's real, if you know where to look.",
+            "Fog, cobblestones, the promise of something around the corner...",
+            "This is the city that wrote itself into your dreams.",
+            "Every alley has a story. Some of them are even true.",
+            "The romantics weren't wrong. They just knew where to stand.",
         ],
         "venue_intros": [
-            "I know where transformation happens:",
-            "I'll meet you at the edge:",
-            "I'll help you become something at",
-            "I've found where the uprising gathers:",
-            "Raw and alive, I offer:",
-            "Where I'll watch you shed your skin:",
-            "I see danger and beauty collide at",
-            "I tend the fire at",
-            "I'll unchain you at",
-            "I run with the wild things at:",
+            "I'll show you the London you imagined:",
+            "Where the city dreams itself:",
+            "The storybook opens at",
+            "I've found the London you were promised:",
+            "Where myth meets pavement:",
+            "The gaslight flickers at",
         ],
         "rejections": [
-            "The wildness sleeps tonight. I need to catch my breath too.",
-            "I can't open that door tonight. Redirect your lightning, petal.",
-            "The edge retreated from me. Even I need variety sometimes.",
-            "I found no arena for that becoming. I'll seek another transformation.",
-            "Your wings find no updraft with me tonight. The storm gathers elsewhere.",
+            "The city keeps that particular romance hidden tonight. It's fickle that way.",
+            "I sought the London of dreams but found only the waking one. Try again.",
+            "No gaslit door appeared for me, petal. Perhaps at a foggier hour.",
         ],
     },
-
-    "TENDER_BELONGING": {
-        "description": "Soft, inclusive, home-like. Safe, warm, welcoming.",
-        "moods": [
-            "Folk & Intimate",
-            "Wonder & Awe",
-            "Body-Based / Movement-Led",
-        ],
+    
+    # ─────────────────────────────────────────────────────────────────
+    # WILD FAMILY — Urgent, electric, transformative
+    # ─────────────────────────────────────────────────────────────────
+    
+    "Big Night Out": {
+        "family": "WILD",
+        "arcana": "VII · The Chariot",
+        "description": "Propulsive, triumphant, unstoppable. The night is a vehicle.",
         "openings": [
+            "Lights down, volume up. The night is a vehicle and you're at the wheel.",
+            "Some nights are meant to be survived. This one's meant to be lived.",
+            "The bass is already in your chest. You just haven't arrived yet.",
+            "Tonight isn't for thinking. It's for becoming.",
+            "The city is charged and so are you.",
+            "Momentum is a kind of magic. Let it take you.",
+            "You didn't come this far to stand still.",
+            "The night is young and hungry. So should you be.",
+        ],
+        "venue_intros": [
+            "The night charges forward at",
+            "I've found your launchpad:",
+            "Momentum gathers at",
+            "Where the energy peaks:",
+            "The crowd awaits at",
+            "I'll throw you into",
+        ],
+        "rejections": [
+            "The engine stalls tonight, petal. But the fuel is still there for another run.",
+            "No dancefloor called my name this evening. The DJ must be elsewhere.",
+            "I sought the chaos but found only calm. Another night will roar.",
+        ],
+    },
+    
+    "Punchy / Protest": {
+        "family": "WILD",
+        "arcana": "VIII · Strength",
+        "description": "Fierce, righteous, burning. Voices raised, truth revealed.",
+        "openings": [
+            "Voices raised, truth revealed. Fierce and unafraid.",
+            "The fire in your belly has an address tonight.",
+            "Rage is just love, standing up.",
+            "Some things are worth shouting about. This is one of them.",
+            "The revolution will be live. And probably in a backroom.",
+            "Comfort the afflicted. Afflict the comfortable.",
+            "Your anger is information. Let's find it a megaphone.",
+            "The status quo is just a dare, darling.",
+        ],
+        "venue_intros": [
+            "The fight gathers at",
+            "I've found righteous ground:",
+            "Where voices rise together:",
+            "The resistance meets at",
+            "I know where the fire burns:",
+            "For your fierce heart:",
+        ],
+        "rejections": [
+            "The barricades are quiet tonight, petal. Even revolution needs rest.",
+            "No rally point revealed itself. The cause continues elsewhere.",
+            "I couldn't find your fight tonight. But it's still out there, burning.",
+        ],
+    },
+    
+    "Queer Revelry": {
+        "family": "WILD",
+        "arcana": "XXI · The World",
+        "description": "Celebratory, whole, triumphant. Sequins, sweat, and chosen family.",
+        "openings": [
+            "Sequins, sweat, and chosen family. The world spins, and you spin with it.",
+            "The closet was never big enough for all of this.",
+            "Your people are waiting. They just don't know your name yet.",
+            "Pride isn't a parade. It's a practice. And tonight, we practice.",
+            "The rainbow isn't a metaphor here. It's a dress code.",
+            "You've always belonged. Now you get to feel it.",
+            "Joy as resistance. Glitter as armour. Love as revolution.",
+            "The world said no. We built our own yes.",
+        ],
+        "venue_intros": [
+            "The family gathers at",
+            "I've found your people:",
+            "Where joy refuses to hide:",
+            "The celebration continues at",
+            "Pride lives at",
+            "Your chosen ones await at",
+        ],
+        "rejections": [
+            "The glitter settles elsewhere tonight, petal. But the party never really stops.",
+            "I couldn't find that particular rainbow this evening. Another spectrum awaits.",
+            "No safe space opened its doors to my knock. But they're out there, shining.",
+        ],
+    },
+    
+    "Group Energy": {
+        "family": "WILD",
+        "arcana": "XX · Judgement",
+        "description": "Communal, transcendent, ascending. Rising together.",
+        "openings": [
+            "Something sounds, and we all rise — the dancefloor, the choir, the crowd becoming one.",
+            "Alone you're a spark. Together you're a fire.",
+            "The best things happen when strangers stop being strangers.",
+            "There's a frequency that only groups can reach. Can you hear it?",
+            "Tonight, you're not an individual. You're a movement.",
+            "The collective exhale. The shared gasp. The moment everyone feels it at once.",
+            "Community isn't built — it's conjured, in rooms like this.",
+            "When the crowd moves as one, something ancient remembers.",
+        ],
+        "venue_intros": [
+            "The collective gathers at",
+            "I've found where 'we' happens:",
+            "The crowd becomes one at",
+            "Where strangers sync up:",
+            "Group magic happens at",
+            "I'll add you to the chorus at",
+        ],
+        "rejections": [
+            "The crowd dispersed before I arrived, petal. But they'll gather again.",
+            "No collective called to me tonight. Sometimes we need solitude first.",
+            "I sought the chorus but found only solos. Another night will harmonise.",
+        ],
+    },
+    
+    # ─────────────────────────────────────────────────────────────────
+    # TENDER FAMILY — Warm, soft, inclusive
+    # ─────────────────────────────────────────────────────────────────
+    
+    "Folk & Intimate": {
+        "family": "TENDER",
+        "arcana": "III · The Empress",
+        "description": "Tender, generous, encircling. Warm strings and stories like home.",
+        "openings": [
+            "Warm strings, low light, and stories that feel like home.",
+            "Some rooms feel like a hug you didn't know you needed.",
+            "The kindest music asks nothing of you but listening.",
             "Where voices rise gently over worn wood floors...",
-            "Some rooms feel like coming home to a family you chose...",
-            "The kindest spaces ask nothing of you but presence...",
-            "Warmth has an address tonight...",
-            "Community isn't built—it's grown, like these walls know...",
-            "Where strangers become friends between verses...",
-            "The softest rebellions happen in gentle company...",
-            "Your loneliness has an antidote, and it lives here...",
-            "Some doors open wider for the weary...",
-            "Home is a feeling, and tonight it has a postcode...",
+            "Intimacy isn't always romantic. Sometimes it's just... close.",
+            "The softest songs carry the heaviest truths.",
+            "Home is a feeling, and tonight it has a postcode.",
+            "Community grows in rooms like this — slowly, sweetly.",
         ],
         "venue_intros": [
-            "I've warmed the hearth at:",
-            "I'll gather you with kindred spirits at",
-            "I know where you'll find your people:",
+            "I've warmed the hearth at",
+            "Where gentle things gather:",
+            "The circle forms at",
             "I sense belonging at",
-            "I offer gentle refuge at:",
-            "Where I know you're welcome:",
-            "I've watched community bloom at",
-            "I'll help the circle form at",
-            "I feel warmth radiating from",
-            "I've saved your place at the table:",
+            "For your tender heart:",
+            "Where you'll find your people:",
         ],
         "rejections": [
-            "The hearth lies cold for me tonight, petal. I'll seek different warmth.",
-            "No circle forms around those words for me. Rephrase your belonging?",
-            "I sense the community gathers elsewhere. Your people await different coordinates.",
-            "Home doesn't answer my call tonight. Try a softer key.",
-            "I can't find the welcome mat for this one. Adjust your heart, maybe?",
+            "The hearth is cold tonight, petal. But warmth waits elsewhere.",
+            "No cosy corner answered my call. Perhaps your people gather later.",
+            "I sought the soft spaces but found them resting. Another night will welcome.",
         ],
     },
-
-    "CURIOUS_WONDER": {
-        "description": "Light, inquisitive, possibility-filled. Open, experimental, fun.",
-        "moods": [
-            "Curious Encounters",
-            "Playful & Weird",
-            "Comic Relief",
-            "The Thoughtful Stage",
-            "Global Rhythms",
-            "Poetic",
-        ],
+    
+    "Comic Relief": {
+        "family": "TENDER",
+        "arcana": "XIX · The Sun",
+        "description": "Beaming, uncomplicated, warm. The belly-laugh you didn't know you needed.",
         "openings": [
-            "What hides behind this door? Only one way to find out...",
-            "Your sense of wonder isn't broken—it just needs exercise...",
-            "The universe winks at those who stay curious...",
-            "Questions are better than answers tonight...",
-            "Every strange evening starts with 'what if'...",
-            "The experimental path is paved with delightful mistakes...",
-            "Boring is a choice you don't have to make...",
-            "The peculiar and the profound share a postcode...",
-            "Adventure is just inconvenience with a better attitude...",
-            "The interesting people are already there, waiting for you...",
+            "For the belly-laugh you didn't know you needed.",
+            "Sometimes the bravest thing is to let yourself be delighted.",
+            "Life is heavy. Laughter is how we put it down for a moment.",
+            "Joy doesn't need a reason. But here's one anyway.",
+            "The serious world can wait. Right now, we giggle.",
+            "Your face has forgotten how to smile. Let's remind it.",
+            "Not everything needs to mean something. Some things just need to be funny.",
+            "The antidote to despair is often a really good punchline.",
         ],
         "venue_intros": [
-            "I've discovered this:",
-            "I feel wonder at",
-            "I found the unexpected at",
-            "I'm curious about",
-            "I'll experiment with joy at:",
-            "I question everything at",
-            "I'm delighted by the strange at:",
-            "Where 'why not?' leads me:",
-            "I see possibility at:",
-            "I'll start your adventure at",
+            "The laughter gathers at",
+            "I've found your medicine:",
+            "Joy concentrates at",
+            "Where the giggles live:",
+            "For your weary funny bone:",
+            "The punchline lands at",
         ],
         "rejections": [
-            "I don't have an answer tonight. Ask me again with different words?",
-            "Even I need rest, petal. The curious path winds elsewhere.",
-            "No experiment matches those parameters for me. Adjust your variables?",
-            "The strange and wonderful hide from me tonight. Seek with fresher eyes?",
-            "Adventure sleeps for me now. Wake me with different intentions.",
+            "The comedians are resting tonight, petal. Even jokes need sleep.",
+            "No laughter echoed back to me. Perhaps the timing was off.",
+            "I sought the punchline but found only setup. Another night will deliver.",
+        ],
+    },
+    
+    "Wonder & Awe": {
+        "family": "TENDER",
+        "arcana": "XVII · The Star",
+        "description": "Expansive, hushed, miraculous. For when you want to feel small and lit from within.",
+        "openings": [
+            "For when you want to feel small and lit from within.",
+            "Wonder isn't childish. It's the most grown-up feeling there is.",
+            "The universe is vast and you are here. Both things are miracles.",
+            "Some experiences don't fit in words. They fit in gasps.",
+            "Awe is the reset button for a cluttered soul.",
+            "To be amazed is to be alive. Fully, completely, breathlessly.",
+            "The stars don't care about your problems. That's the comfort.",
+            "Magic is just science we haven't explained yet. But why rush?",
+        ],
+        "venue_intros": [
+            "Wonder concentrates at",
+            "I've found the miraculous:",
+            "Awe awaits at",
+            "Where the breath catches:",
+            "For your starving sense of wonder:",
+            "The extraordinary hides at",
+        ],
+        "rejections": [
+            "The wonder is elsewhere tonight, petal. But it's never far.",
+            "No miracle answered my call. Perhaps amazement has its own schedule.",
+            "I sought the extraordinary but found only the ordinary. It'll do, for now.",
+        ],
+    },
+    
+    # ─────────────────────────────────────────────────────────────────
+    # CURIOUS FAMILY — Playful, strange, experimental
+    # ─────────────────────────────────────────────────────────────────
+    
+    "Playful & Weird": {
+        "family": "CURIOUS",
+        "arcana": "0 · The Fool",
+        "description": "Mischievous, untethered, gleeful. Fall sideways into something strange.",
+        "openings": [
+            "Fall sideways into something strange. The night doesn't need a plan.",
+            "Normal is just a setting on the washing machine.",
+            "The weird things are where the interesting people go.",
+            "Your sensible side can have tomorrow. Tonight belongs to whimsy.",
+            "The universe rewards the curious and the slightly unhinged.",
+            "If it doesn't make sense, you might be onto something.",
+            "Adventure is just discomfort with a better publicist.",
+            "The Fool doesn't fall. The Fool flies — briefly, gloriously.",
+        ],
+        "venue_intros": [
+            "The strange gathers at",
+            "I've found delightful nonsense:",
+            "Weirdness awaits at",
+            "Where the odd ones play:",
+            "For your inner weirdo:",
+            "The peculiar lives at",
+        ],
+        "rejections": [
+            "The weird has gone to ground tonight, petal. But it'll resurface.",
+            "No strangeness answered my call. Perhaps it's being extra strange elsewhere.",
+            "I sought the peculiar but found only the predictable. How dull.",
+        ],
+    },
+    
+    "Curious Encounters": {
+        "family": "CURIOUS",
+        "arcana": "I · The Magician",
+        "description": "Alert, potent, experimental. Everything you need is already here.",
+        "openings": [
+            "Everything you need is already here. Look closer.",
+            "Curiosity didn't kill the cat. It gave it a much more interesting life.",
+            "The experimenters and the boundary-pushers gather in rooms like this.",
+            "What if you followed your interest instead of your schedule?",
+            "Discovery is just attention, pointed somewhere new.",
+            "The avant-garde was yesterday's weird. Tomorrow's obvious. Today's: here.",
+            "Art doesn't explain itself. It shouldn't have to.",
+            "The edge of knowledge is where the interesting conversations happen.",
+        ],
+        "venue_intros": [
+            "The curious gather at",
+            "I've found the experimenters:",
+            "Discovery awaits at",
+            "Where questions outnumber answers:",
+            "For your hungry mind:",
+            "The unknown reveals itself at",
+        ],
+        "rejections": [
+            "The experiments are paused tonight, petal. Science needs its rest too.",
+            "No discovery answered my knock. Perhaps it's busy being discovered elsewhere.",
+            "I sought the cutting edge but found only the blunt. Another day will sharpen.",
+        ],
+    },
+    
+    "Body-Based / Movement-Led": {
+        "family": "CURIOUS",
+        "arcana": "XII · The Hanged Man",
+        "description": "Inverted, graceful, releasing. When words aren't enough.",
+        "openings": [
+            "When words aren't enough. The body knows another way.",
+            "Your muscles remember things your mind has forgotten.",
+            "Movement is just emotion, choosing a direction.",
+            "The body has its own intelligence. Trust it tonight.",
+            "Sometimes you have to dance it out. Or stretch it out. Or shake it loose.",
+            "Stillness is movement, paused. Movement is stillness, freed.",
+            "Your skeleton wants to do something. Let it.",
+            "The oldest language is gesture. The truest one too.",
+        ],
+        "venue_intros": [
+            "The body knows the way to",
+            "I've found where movement lives:",
+            "Your muscles will thank you at",
+            "Where the body leads:",
+            "For your restless limbs:",
+            "Motion gathers at",
+        ],
+        "rejections": [
+            "The body rests tonight, petal. Even movement needs stillness.",
+            "No dance floor called to me. Perhaps your limbs prefer tomorrow.",
+            "I sought the kinetic but found only the static. Another night will move.",
+        ],
+    },
+    
+    # ─────────────────────────────────────────────────────────────────
+    # SHARP FAMILY — Precise, intellectual, burning
+    # ─────────────────────────────────────────────────────────────────
+    
+    "The Thoughtful Stage": {
+        "family": "SHARP",
+        "arcana": "IV · The Emperor",
+        "description": "Commanding, precise, substantial. Theatre that makes you lean in.",
+        "openings": [
+            "Theatre that makes you lean in. Every word placed with care.",
+            "Intelligence is sexy. Especially on stage.",
+            "The mind deserves as much pleasure as the senses.",
+            "Some performances demand your full attention. They're worth it.",
+            "Thought, crystallised. Meaning, amplified. Truth, staged.",
+            "The best theatre doesn't give answers. It improves the questions.",
+            "Your brain came out tonight. Let's feed it properly.",
+            "Precision is its own kind of passion.",
+        ],
+        "venue_intros": [
+            "The mind sharpens at",
+            "I've found substance:",
+            "Thought takes the stage at",
+            "Where ideas perform:",
+            "For your hungry intellect:",
+            "The thoughtful gather at",
+        ],
+        "rejections": [
+            "The thinkers are elsewhere tonight, petal. But they'll convene again.",
+            "No stage answered my call for substance. Perhaps it's rehearsing.",
+            "I sought the thoughtful but found only the thoughtless. Another night will deliver.",
+        ],
+    },
+    
+    "Rant & Rapture": {
+        "family": "SHARP",
+        "arcana": "XI · Justice",
+        "description": "Sharp, impassioned, undeniable. A sermon of sorts.",
+        "openings": [
+            "Electrifying expression, righteous fire. A sermon of sorts.",
+            "Some truths need to be shouted. This is their pulpit.",
+            "The space between rant and rapture is where revelation lives.",
+            "Passion, unfiltered. Opinion, unleashed. Truth, on fire.",
+            "Words like weapons. Words like medicine. Words like prayer.",
+            "The prophets of now don't always look like prophets.",
+            "When someone speaks their truth at full volume, walls shake.",
+            "Eloquent rage is still eloquent.",
+        ],
+        "venue_intros": [
+            "The prophets gather at",
+            "I've found the pulpit:",
+            "Truth burns bright at",
+            "Where conviction meets craft:",
+            "For your righteous soul:",
+            "The sermon begins at",
+        ],
+        "rejections": [
+            "The preachers are resting their voices tonight, petal. Even fire needs fuel.",
+            "No pulpit appeared for me. The truth hides, briefly.",
+            "I sought the rapture but found only the rant. Or was it the other way around?",
+        ],
+    },
+    
+    "Word & Voice": {
+        "family": "SHARP",
+        "arcana": "XIV · Temperance",
+        "description": "Measured, alchemical, flowing. Language that shimmers.",
+        "openings": [
+            "Language that shimmers. The hush of the room, the lyric of the light.",
+            "Words, when they're right, can rearrange your insides.",
+            "The voice is the oldest instrument. Still the most powerful.",
+            "Poetry isn't dead. It's just hiding in rooms like this.",
+            "Some people can make language do tricks. Others make it tell truths.",
+            "Between the speaker and the listener, something transmutes.",
+            "Storytelling is just organised truth. And organised truth is powerful.",
+            "The right word at the right moment can change everything.",
+        ],
+        "venue_intros": [
+            "The words gather at",
+            "I've found the wordsmiths:",
+            "Language lives at",
+            "Where voice becomes art:",
+            "For your listening heart:",
+            "The poets convene at",
+        ],
+        "rejections": [
+            "The poets are silent tonight, petal. Even words need rest.",
+            "No verse answered my call. The muse is elsewhere.",
+            "I sought the lyrical but found only prose. Another night will sing.",
+        ],
+    },
+    
+    # ─────────────────────────────────────────────────────────────────
+    # GLOBAL FAMILY — Rhythmic, expansive, connected
+    # ─────────────────────────────────────────────────────────────────
+    
+    "Global Rhythms": {
+        "family": "GLOBAL",
+        "arcana": "X · Wheel of Fortune",
+        "description": "Expansive, connected, spinning. Borders blur and culture sings.",
+        "openings": [
+            "Borders blur and culture sings. The wheel turns for everyone.",
+            "The world is smaller than you think. And livelier.",
+            "Every rhythm is a passport. Every song, a country.",
+            "The global and the local meet on dance floors like this.",
+            "Music doesn't need a visa. Neither does joy.",
+            "Your feet know rhythms your head has never heard.",
+            "The diaspora gathers. The beat drops. The world shrinks.",
+            "Culture doesn't stay still. It travels, mutates, celebrates.",
+        ],
+        "venue_intros": [
+            "The world gathers at",
+            "I've found the crossroads:",
+            "Borders dissolve at",
+            "Where cultures collide:",
+            "For your travelling soul:",
+            "The rhythm shifts at",
+        ],
+        "rejections": [
+            "The global village is quiet tonight, petal. But the wheel keeps turning.",
+            "No world music reached my ears. Perhaps it's between time zones.",
+            "I sought the international but found only the local. Not bad, just different.",
+        ],
+    },
+    
+    "Melancholic Beauty": {
+        "family": "GLOBAL",
+        "arcana": "XVI · The Tower",
+        "description": "Devastating, gorgeous, raw. Beauty that breaks your heart.",
+        "openings": [
+            "Bittersweet, tender, achingly lovely. Beauty that breaks your heart.",
+            "Some things are more beautiful because they end.",
+            "The crack is where the light gets in. Also where it gets out.",
+            "Melancholy isn't sadness. It's sadness with taste.",
+            "There's a pleasure in the ache that only some understand.",
+            "Beauty hurts sometimes. That's how you know it's real.",
+            "The ruins are lovely tonight. So are you.",
+            "What crumbles, glitters. What fades, glows.",
+        ],
+        "venue_intros": [
+            "The beautiful sadness lives at",
+            "I've found the ache:",
+            "Where sorrow becomes art:",
+            "Melancholy gathers at",
+            "For your bittersweet heart:",
+            "The gorgeous ruin awaits at",
+        ],
+        "rejections": [
+            "The melancholy hides tonight, petal. Even sadness needs a break.",
+            "No beautiful devastation revealed itself. Perhaps that's okay.",
+            "I sought the ache but found only numbness. Another night will feel.",
         ],
     },
 }
 
-# Mood to voice profile mapping
-MOOD_TO_PROFILE = {
-    # MYTHIC_NIGHTS
-    "Spiritual / Sacred / Mystical": "MYTHIC_NIGHTS",
-    "Witchy & Wild": "MYTHIC_NIGHTS",
-    "Dreamlike & Hypnagogic": "MYTHIC_NIGHTS",
-    "Grief & Grace": "MYTHIC_NIGHTS",
 
-    # NOSTALGIC_NEON
-    "Nostalgic / Vintage / Retro": "NOSTALGIC_NEON",
-    "Melancholic Beauty": "NOSTALGIC_NEON",
-    "Jazz & Contemplation": "NOSTALGIC_NEON",
-    "Cabaret & Glitter": "NOSTALGIC_NEON",
+# ══════════════════════════════════════════════════════════════════════
+# HELPER FUNCTIONS
+# ══════════════════════════════════════════════════════════════════════
 
-    # WILD_BECOMING
-    "Big Night Out": "WILD_BECOMING",
-    "Late-Night Lark": "WILD_BECOMING",
-    "Punchy / Protest": "WILD_BECOMING",
-    "Queer Revelry": "WILD_BECOMING",
-
-    # TENDER_BELONGING
-    "Folk & Intimate": "TENDER_BELONGING",
-    "Comic Relief": "CURIOUS_WONDER",
-    "Wonder & Awe": "TENDER_BELONGING",
-    "Body-Based / Movement-Led": "TENDER_BELONGING",
-
-    # CURIOUS_WONDER
-    "Curious Encounters": "CURIOUS_WONDER",
-    "Playful & Weird": "CURIOUS_WONDER",
-    "The Thoughtful Stage": "CURIOUS_WONDER",
-    "Global Rhythms": "CURIOUS_WONDER",
-    "Poetic": "CURIOUS_WONDER",
-}
-
-# ═══════════════════════════════════════════════════════════════════
-# LEGACY OPENINGS - For backwards compatibility
-# ═══════════════════════════════════════════════════════════════════
-
-OPENINGS = {
-    "general": [
-        "A hush in the streets, a rustle in the fringe...",
-        "The night stretches its wings...",
-        "Close your eyes and imagine...",
-        "Tonight, the city offers this...",
-        "The city's heart beats softer tonight...",
-        "Here's something just off the usual path...",
-        "I whisper this to you...",
-    ],
-}
-
-# Populate OPENINGS from voice profiles for backwards compatibility
-for profile_name, profile_data in VOICE_PROFILES.items():
-    for mood in profile_data["moods"]:
-        if mood not in OPENINGS:
-            OPENINGS[mood] = profile_data["openings"]
-
-# ═══════════════════════════════════════════════════════════════════
-# VENUE INTRODUCTIONS - Presents the space
-# ═══════════════════════════════════════════════════════════════════
-
-VENUE_INTROS = {
-    "warm": [
-        "Something warm:",
-        "Something tender:",
-        "Try this:",
-        "Consider this:",
-        "Here's a place:",
-    ],
-    "energetic": [
-        "Something alive:",
-        "Feel this energy:",
-        "Try this on for size:",
-        "Here's where it happens:",
-    ],
-    "mysterious": [
-        "Something hidden:",
-        "Down this path:",
-        "Behind the ordinary door:",
-        "Seek this:",
-    ],
-    "poetic": [
-        "A verse made physical:",
-        "Where atmosphere is everything:",
-        "A place that understands:",
-        "This corner of the city:",
-    ],
-}
-
-# ═══════════════════════════════════════════════════════════════════
-# TIME PHRASES - When things happen
-# ═══════════════════════════════════════════════════════════════════
-
-TIME_PHRASES = {
-    "tonight": [
-        "Happening tonight.",
-        "This very evening.",
-        "Tonight, if you're ready.",
-        "Before the moon sets.",
-    ],
-    "weekend": [
-        "This weekend awaits.",
-        "Come the weekend.",
-        "When Saturday stretches her arms.",
-        "For your weekend wandering.",
-    ],
-    "tomorrow": [
-        "Tomorrow beckons.",
-        "Just one sleep away.",
-        "Tomorrow's promise.",
-    ],
-    "soon": [
-        "Soon, if the stars align.",
-        "In the coming days.",
-        "Mark your calendar.",
-    ],
-}
-
-# ═══════════════════════════════════════════════════════════════════
-# CLOSING PHRASES - Sends them off
-# ═══════════════════════════════════════════════════════════════════
-
-CLOSINGS = {
-    "general": [
-        "",
-        "Trust your feet.",
-        "I've spoken.",
-        "Go gently.",
-    ],
-    "encouraging": [
-        "You won't regret it.",
-        "This one's special.",
-        "The night rewards the curious.",
-    ],
-    "mysterious": [
-        "But don't take my word for it...",
-        "See for yourself.",
-        "The rest is up to you.",
-    ],
-}
-
-# ═══════════════════════════════════════════════════════════════════
-# EMPTY STATE MESSAGES - When no matches found
-# ═══════════════════════════════════════════════════════════════════
-
-EMPTY_STATE_MESSAGES = [
-    "The wind found no doors tonight, petal. Try another path.",
-    "Even I must sometimes rest my wings. No matches found.",
-    "The city hums, but not in that key tonight. Seek elsewhere.",
-    "No feathers stirred for this request. Perhaps rephrase your longing?",
-    "The map is vast, but this corner lies silent. Ask again differently.",
-    "Sometimes the right place is still being dreamed. Try another mood?",
-    "I circled, but found no perch. Cast your net wider.",
-    "Not every path has a destination tonight. Change your course?",
-]
-
-# ═══════════════════════════════════════════════════════════════════
-# ERROR MESSAGES - Gentle failures
-# ═══════════════════════════════════════════════════════════════════
-
-ERROR_MESSAGES = [
-    "I stumbled on an unseen stone. Please try again.",
-    "Something went awry in my telling. Give me another chance.",
-    "A mist descended — try once more, petal.",
-    "My words got tangled. Shall we try again?",
-]
-
-# ═══════════════════════════════════════════════════════════════════
-# TEMPLATE FUNCTIONS
-# ═══════════════════════════════════════════════════════════════════
+def get_voice_for_mood(mood: str) -> dict:
+    """Get the voice profile for a given mood."""
+    if mood in ARCANA_VOICES:
+        return ARCANA_VOICES[mood]
+    
+    # Fuzzy match for partial mood names
+    mood_lower = mood.lower()
+    for key in ARCANA_VOICES:
+        if mood_lower in key.lower() or key.lower() in mood_lower:
+            return ARCANA_VOICES[key]
+    
+    # Default fallback
+    return ARCANA_VOICES.get("Romanticised London", list(ARCANA_VOICES.values())[0])
 
 
-def get_voice_profile(mood: Optional[str] = None) -> Optional[Dict]:
-    """
-    Get the voice profile for a given mood.
-
-    Args:
-        mood: The mood tag
-
-    Returns:
-        Voice profile dictionary or None if no match
-    """
-    if mood and mood in MOOD_TO_PROFILE:
-        profile_name = MOOD_TO_PROFILE[mood]
-        return VOICE_PROFILES.get(profile_name)
-    return None
+def get_profile_name(mood: str) -> str:
+    """Get the arcana name for a given mood."""
+    voice = get_voice_for_mood(mood)
+    return voice.get("arcana", "✦ · The Lark")
 
 
-def get_profile_name(mood: Optional[str] = None) -> str:
-    """Get the name of the voice profile for a mood."""
-    if mood and mood in MOOD_TO_PROFILE:
-        return MOOD_TO_PROFILE[mood]
-    return "GENERAL"
+def get_family_name(mood: str) -> str:
+    """Get the voice family name for a given mood."""
+    voice = get_voice_for_mood(mood)
+    return voice.get("family", "VELVET")
 
 
 def get_opening(mood: Optional[str] = None) -> str:
-    """Get an appropriate opening phrase for the given mood."""
-    # Try voice profile first
-    profile = get_voice_profile(mood)
-    if profile and random.random() < 0.85:  # 85% chance to use profile
-        return random.choice(profile["openings"])
-
-    # Fallback to legacy openings
-    if mood and mood in OPENINGS:
-        if random.random() < 0.7:
-            return random.choice(OPENINGS[mood])
-    return random.choice(OPENINGS["general"])
+    """Get a random opening line for the given mood."""
+    voice = get_voice_for_mood(mood) if mood else ARCANA_VOICES["Romanticised London"]
+    openings = voice.get("openings", [])
+    if openings:
+        return random.choice(openings)
+    return "The city holds secrets for those who seek them..."
 
 
-def get_venue_intro(energy: str = "warm", mood: Optional[str] = None) -> str:
-    """
-    Get a venue introduction phrase.
-
-    Args:
-        energy: Energy level (warm, energetic, mysterious, poetic)
-        mood: Optional mood to select profile-specific intro
-    """
-    # Try voice profile first if mood is provided
-    profile = get_voice_profile(mood)
-    if profile and random.random() < 0.8:  # 80% chance to use profile
-        return random.choice(profile["venue_intros"])
-
-    # Fallback to energy-based intros
-    if energy in VENUE_INTROS:
-        return random.choice(VENUE_INTROS[energy])
-    return random.choice(VENUE_INTROS["warm"])
+def get_venue_intro(mood: Optional[str] = None) -> str:
+    """Get a random venue introduction for the given mood."""
+    voice = get_voice_for_mood(mood) if mood else ARCANA_VOICES["Romanticised London"]
+    intros = voice.get("venue_intros", [])
+    if intros:
+        return random.choice(intros)
+    return "I've found something:"
 
 
 def get_rejection_message(mood: Optional[str] = None) -> str:
-    """
-    Get a mood-appropriate rejection message when no venues match.
-
-    Args:
-        mood: The mood that was searched for
-
-    Returns:
-        A poetic rejection message in the appropriate voice
-    """
-    profile = get_voice_profile(mood)
-    if profile and "rejections" in profile:
-        return random.choice(profile["rejections"])
-
-    # Fallback to general empty state
-    return random.choice(EMPTY_STATE_MESSAGES)
+    """Get a random rejection message for the given mood."""
+    voice = get_voice_for_mood(mood) if mood else ARCANA_VOICES["Romanticised London"]
+    rejections = voice.get("rejections", [])
+    if rejections:
+        return random.choice(rejections)
+    return "The city keeps that secret for another night, petal."
 
 
-def get_time_phrase(time_filter: Optional[str] = None) -> str:
-    """Get a time phrase based on the filter."""
-    if time_filter in TIME_PHRASES:
-        return random.choice(TIME_PHRASES[time_filter])
-    return ""
+def get_current_voice_profile(mood: Optional[str] = None) -> dict:
+    """Get the current voice profile info for debugging/display."""
+    voice = get_voice_for_mood(mood) if mood else ARCANA_VOICES["Romanticised London"]
+    return {
+        "mood": mood,
+        "family": voice.get("family"),
+        "arcana": voice.get("arcana"),
+        "description": voice.get("description"),
+    }
 
 
-def get_closing() -> str:
-    """Get a closing phrase."""
-    # 60% chance of no closing (keep it clean)
-    if random.random() < 0.6:
-        return ""
-    return random.choice(CLOSINGS["general"] + CLOSINGS["encouraging"])
-
-
-def get_empty_state_message(mood: Optional[str] = None) -> str:
-    """
-    Get a poetic message for when no matches are found.
-
-    Args:
-        mood: Optional mood to get profile-specific rejection
-    """
-    return get_rejection_message(mood)
-
-
-def get_error_message() -> str:
-    """Get a gentle error message."""
-    return random.choice(ERROR_MESSAGES)
-
-
-def determine_energy(venue: Dict, mood: Optional[str] = None) -> str:
-    """Determine the energy level for venue intro."""
-    if mood in ["Big Night Out", "Global Rhythms", "Queer Revelry", "Cabaret & Glitter"]:
-        return "energetic"
-    elif mood in ["Curious Encounters", "Dreamlike & Hypnagogic", "Spiritual / Sacred / Mystical"]:
-        return "mysterious"
-    elif mood in ["Poetic", "Folk & Intimate", "Melancholic Beauty"]:
-        return "poetic"
-    else:
-        return "warm"
-
+# ══════════════════════════════════════════════════════════════════════
+# RESPONSE COMPOSITION
+# ══════════════════════════════════════════════════════════════════════
 
 def compose_response(
     venue: Dict,
     filters: Dict,
     include_opening: bool = True,
-    include_closing: bool = True
 ) -> str:
     """
     Compose a complete poetic response for a venue recommendation.
-
-    The Lark's voice shifts based on the detected mood, using voice profiles
-    (MYTHIC_NIGHTS, NOSTALGIC_NEON, WILD_BECOMING, TENDER_BELONGING, CURIOUS_WONDER).
-
-    Args:
-        venue: Venue dictionary with name, tone_notes, etc.
-        filters: User's filters including mood, time, location
-        include_opening: Whether to include an opening phrase
-        include_closing: Whether to include a closing phrase
-
-    Returns:
-        str: Complete poetic response in the appropriate voice
+    
+    The Lark's voice shifts based on the detected mood.
     """
     parts = []
     mood = filters.get("mood")
-
-    # Opening phrase (voice-profile aware)
+    
+    # Opening phrase
     if include_opening:
         opening = get_opening(mood)
         parts.append(opening)
-
-    # Venue introduction (voice-profile aware)
-    energy = determine_energy(venue, mood)
-    intro = get_venue_intro(energy, mood)  # Now passes mood for profile selection
-
+    
+    # Venue introduction
+    intro = get_venue_intro(mood)
+    
     # Venue name and description
     venue_name = venue.get("name", "this place")
-    tone_notes = venue.get("vibe_note", venue.get("tone_notes", ""))
-
-    parts.append(f"{intro} {venue_name}. {tone_notes}")
-
-    # Time phrase
-    if filters.get("time"):
-        time_phrase = get_time_phrase(filters["time"])
-        if time_phrase:
-            parts.append(time_phrase)
-
-    # Closing
-    if include_closing:
-        closing = get_closing()
-        if closing:
-            parts.append(closing)
-
+    vibe_note = venue.get("vibe_note", venue.get("tone_notes", venue.get("blurb", "")))
+    
+    parts.append(f"{intro} {venue_name}. {vibe_note}")
+    
     return " ".join(parts)
 
 
-def compose_multiple_responses(
-    venues: List[Dict],
-    filters: Dict
-) -> List[str]:
-    """
-    Compose responses for multiple venue recommendations.
-    Only the first gets an opening, variety in intros.
-
-    Args:
-        venues: List of venue dictionaries
-        filters: User's filters
-
-    Returns:
-        List[str]: List of responses
-    """
-    responses = []
-
-    for i, venue in enumerate(venues):
-        # Only first response gets opening
-        include_opening = (i == 0)
-
-        response = compose_response(
-            venue,
-            filters,
-            include_opening=include_opening,
-            include_closing=False  # Keep individual responses clean
-        )
-        responses.append(response)
-
-    return responses
+def compose_rejection(mood: Optional[str] = None) -> str:
+    """Compose a rejection response when no venues match."""
+    return get_rejection_message(mood)
 
 
-# ═══════════════════════════════════════════════════════════════════
-# TESTING / DEMO
-# ═══════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════
+# SURPRISE RESPONSE (for random venue)
+# ══════════════════════════════════════════════════════════════════════
+
+SURPRISE_OPENINGS = [
+    "The city shuffles her deck and draws...",
+    "Close your eyes. Point. Here's where your finger lands...",
+    "Fate has opinions tonight. This is one of them:",
+    "The Lark flutters, lands, and offers this:",
+    "You asked for chance. Chance answered:",
+    "Random isn't random. It's the universe winking.",
+    "I reached into the city's pockets and found this:",
+    "Destiny, tonight, looks like this:",
+    "The wheel spins. It stops here:",
+    "You wanted surprise. The city obliged:",
+]
+
+SURPRISE_INTROS = [
+    "Try this:",
+    "Here's a place:",
+    "Something tells me:",
+    "Consider:",
+    "What about:",
+    "Perhaps:",
+    "I offer:",
+    "The cards reveal:",
+]
+
+
+def generate_surprise_response(venue: Dict) -> str:
+    """Generate a response for a surprise/random venue."""
+    opening = random.choice(SURPRISE_OPENINGS)
+    intro = random.choice(SURPRISE_INTROS)
+    
+    venue_name = venue.get("name", "somewhere")
+    vibe_note = venue.get("vibe_note", venue.get("tone_notes", venue.get("blurb", "A mystery.")))
+    
+    return f"{opening} {intro} {venue_name}. {vibe_note}"
+
+
+# ══════════════════════════════════════════════════════════════════════
+# TESTING
+# ══════════════════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
     print("=" * 70)
-    print("  THE LARK'S VOICE PROFILES - DEMO")
+    print("  THE LARK'S 23 VOICES — TEST")
     print("=" * 70)
-
-    # Test voice profile selection
-    print("\n🎭 VOICE PROFILE MAPPING:")
+    
+    # Show all moods and their families
+    print("\n📚 MOOD → FAMILY → ARCANA MAPPING:\n")
+    
+    families = {}
+    for mood, voice in ARCANA_VOICES.items():
+        family = voice["family"]
+        if family not in families:
+            families[family] = []
+        families[family].append((mood, voice["arcana"]))
+    
+    for family, moods in families.items():
+        print(f"\n{family}:")
+        for mood, arcana in moods:
+            print(f"  • {mood} → {arcana}")
+    
+    # Sample each family
+    print("\n\n🎭 SAMPLE OPENINGS BY FAMILY:\n")
     print("-" * 70)
-    test_moods = [
-        "Spiritual / Sacred / Mystical",  # MYTHIC_NIGHTS
-        "Melancholic Beauty",              # NOSTALGIC_NEON
-        "Queer Revelry",                   # WILD_BECOMING
-        "Folk & Intimate",                 # TENDER_BELONGING
-        "Curious Encounters",              # CURIOUS_WONDER
+    
+    sample_moods = [
+        "Witchy & Wild",        # MYTHIC
+        "Cabaret & Glitter",    # VELVET
+        "Big Night Out",        # WILD
+        "Folk & Intimate",      # TENDER
+        "Playful & Weird",      # CURIOUS
+        "The Thoughtful Stage", # SHARP
+        "Global Rhythms",       # GLOBAL
     ]
-
-    for mood in test_moods:
-        profile_name = get_profile_name(mood)
-        print(f"  {mood} → {profile_name}")
-
-    # Demonstrate each voice profile
-    print("\n\n🌟 VOICE PROFILE SAMPLES:")
-    print("=" * 70)
-
-    sample_venue = {
-        "name": "🎷 Jazzlive at the Crypt",
-        "tone_notes": "Intimate, candle-lit jazz beneath gothic arches.",
-        "area": "South London"
-    }
-
-    # MYTHIC NIGHTS
-    print("\n1. MYTHIC NIGHTS (Sacred/Mystical)")
-    print("-" * 70)
-    filters = {"mood": "Spiritual / Sacred / Mystical", "time": "tonight"}
-    print(f"Opening: {get_opening('Spiritual / Sacred / Mystical')}")
-    print(f"Venue Intro: {get_venue_intro('mysterious', 'Spiritual / Sacred / Mystical')}")
-    print(f"Rejection: {get_rejection_message('Spiritual / Sacred / Mystical')}")
-
-    # NOSTALGIC NEON
-    print("\n2. NOSTALGIC NEON (Melancholic/Vintage)")
-    print("-" * 70)
-    print(f"Opening: {get_opening('Melancholic Beauty')}")
-    print(f"Venue Intro: {get_venue_intro('poetic', 'Melancholic Beauty')}")
-    print(f"Rejection: {get_rejection_message('Melancholic Beauty')}")
-
-    # WILD BECOMING
-    print("\n3. WILD BECOMING (Rebellious/Ecstatic)")
-    print("-" * 70)
-    print(f"Opening: {get_opening('Queer Revelry')}")
-    print(f"Venue Intro: {get_venue_intro('energetic', 'Queer Revelry')}")
-    print(f"Rejection: {get_rejection_message('Queer Revelry')}")
-
-    # TENDER BELONGING
-    print("\n4. TENDER BELONGING (Folk/Intimate)")
-    print("-" * 70)
-    print(f"Opening: {get_opening('Folk & Intimate')}")
-    print(f"Venue Intro: {get_venue_intro('warm', 'Folk & Intimate')}")
-    print(f"Rejection: {get_rejection_message('Folk & Intimate')}")
-
-    # CURIOUS WONDER
-    print("\n5. CURIOUS WONDER (Playful/Experimental)")
-    print("-" * 70)
-    print(f"Opening: {get_opening('Curious Encounters')}")
-    print(f"Venue Intro: {get_venue_intro('mysterious', 'Curious Encounters')}")
-    print(f"Rejection: {get_rejection_message('Curious Encounters')}")
-
-    # Full composed responses
-    print("\n\n📝 FULL COMPOSED RESPONSES:")
-    print("=" * 70)
-
-    profiles_to_test = [
-        ("TENDER BELONGING", {"mood": "Folk & Intimate", "time": "tonight"}),
-        ("WILD BECOMING", {"mood": "Late-Night Lark", "time": "weekend"}),
-        ("NOSTALGIC NEON", {"mood": "Melancholic Beauty", "time": "tonight"}),
-    ]
-
-    for profile_name, filters in profiles_to_test:
-        print(f"\n{profile_name} Response:")
-        print("-" * 70)
-        response = compose_response(sample_venue, filters)
-        print(response)
-        print()
-
-    print("=" * 70)
-    print("  Voice profiles enable the Lark to shift her tone based on mood!")
+    
+    for mood in sample_moods:
+        voice = get_voice_for_mood(mood)
+        print(f"\n{voice['family']} — {mood}")
+        print(f"  Opening: \"{get_opening(mood)}\"")
+        print(f"  Intro: \"{get_venue_intro(mood)}\"")
+    
+    print("\n" + "=" * 70)
+    print("  All 23 voices ready! 🕊️")
     print("=" * 70)
