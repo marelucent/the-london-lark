@@ -1,12 +1,12 @@
 # 🔍 venue_matcher.py
 
 """
-The London Lark – Venue Matcher
+The London Lark — Venue Matcher
 
 Matches venue profiles to interpreted prompt filters.
 Draws from `lark_venues_clean.json`, a curated dataset of venues.
 Matches on:
-- Mood tag
+- Mood tag (using full synonym list from mood_index.json)
 - Location (if given)
 - Group size compatibility
 """
@@ -18,291 +18,46 @@ from parse_venues import load_parsed_venues
 # Load parsed venue profiles
 venue_data = load_parsed_venues()
 
-# =============================================================================
-# SYNONYM DICTIONARIES
-# These expand user search terms to match our venue tags more flexibly
-# =============================================================================
+# Load mood index for synonym expansion
+PROJECT_ROOT = Path(__file__).parent
+MOOD_INDEX_PATH = PROJECT_ROOT / "mood_index.json"
 
-# Mood synonyms - map user terms to our official mood tags
-MOOD_SYNONYMS = {
-    # Comedy cluster
-    "comic": ["comic", "playful", "fun", "irreverent", "hilarious"],
-    "comedy": ["comic", "playful", "fun", "irreverent", "hilarious"],
-    "relief": ["comic", "playful", "fun"],
-    "funny": ["comic", "playful", "fun", "irreverent"],
+mood_index = {}
+mood_synonyms = {}  # Maps mood name -> list of all synonyms
 
-    # Melancholic cluster
-    "melancholy": ["melancholy", "melancholic"],
-    "melancholic": ["melancholy", "melancholic"],
-    "sad": ["melancholy", "tender"],
-    "blue": ["melancholy", "nostalgic"],
+if MOOD_INDEX_PATH.exists():
+    with open(MOOD_INDEX_PATH, "r", encoding="utf-8") as f:
+        mood_index = json.load(f)
+    
+    # Build synonym lookup: mood_name -> [all synonyms]
+    for mood_name, values in mood_index.items():
+        synonyms = [s.lower() for s in values.get("synonyms", [])]
+        mood_synonyms[mood_name.lower()] = synonyms
+        # Also map the mood name itself
+        mood_synonyms[mood_name.lower()].append(mood_name.lower())
 
-    # Queer cluster
-    "gay": ["queer"],
-    "lgbt": ["queer"],
-    "lgbtq": ["queer"],
-    "lgbtq+": ["queer"],
 
-    # Spooky cluster
-    "spooky": ["haunted", "witchy"],
-    "creepy": ["haunted"],
-    "gothic": ["haunted", "sacred"],
-
-    # Playful cluster
-    "fun": ["playful", "curious", "fun", "comic"],
-    "weird": ["playful", "experimental"],
-    "strange": ["curious", "witchy"],
-    "playful": ["playful", "fun", "curious", "irreverent"],
-
-    # Intimate cluster
-    "cozy": ["intimate", "tender"],
-    "small": ["intimate"],
-    "quiet": ["intimate", "thoughtful"],
-
-    # Energy cluster
-    "party": ["ecstatic", "rebellious"],
-    "dancing": ["ecstatic", "wild"],
-    "rave": ["ecstatic", "rebellious"],
-    "clubbing": ["big night out", "ecstatic"],
-
-    # Calm cluster
-    "peaceful": ["tender", "thoughtful"],
-    "chill": ["tender", "folk"],
-    "relaxed": ["tender", "intimate"],
-
-    # Cabaret & glitter cluster
-    "cabaret": ["cabaret", "queer", "drag", "burlesque", "glitter"],
-    "drag": ["cabaret", "queer", "drag", "burlesque", "glitter"],
-    "glitter": ["cabaret", "queer", "drag", "burlesque", "glitter"],
-    "burlesque": ["cabaret", "queer", "drag", "burlesque", "glitter"],
-
-    # Cultural cluster
-    "ethnic": ["global"],
-    "international": ["global"],
-    "world music": ["global"],
-}
-
-# =============================================================================
-# NEIGHBORHOOD TO REGION MAPPING
-# Maps every specific neighborhood to its parent region
-# =============================================================================
-
-NEIGHBORHOOD_TO_REGION = {
-    # East London neighborhoods
-    "hackney": "east london",
-    "shoreditch": "east london",
-    "dalston": "east london",
-    "bethnal green": "east london",
-    "whitechapel": "east london",
-    "stratford": "east london",
-    "walthamstow": "east london",
-    "hackney wick": "east london",
-    "haggerston": "east london",
-    "hoxton": "east london",
-    "homerton": "east london",
-    "bow": "east london",
-    "stepney": "east london",
-    "limehouse": "east london",
-    "mile end": "east london",
-    "fish island": "east london",
-    "london fields": "east london",
-    "poplar": "east london",
-    "canning town": "east london",
-    "barking": "east london",
-    "isle of dogs": "east london",
-
-    # South London neighborhoods
-    "peckham": "south london",
-    "brixton": "south london",
-    "camberwell": "south london",
-    "dulwich": "south london",
-    "clapham": "south london",
-    "streatham": "south london",
-    "lewisham": "south london",
-    "deptford": "south london",
-    "nunhead": "south london",
-    "bermondsey": "south london",
-    "elephant & castle": "south london",
-    "elephant and castle": "south london",
-    "new cross": "south london",
-    "catford": "south london",
-    "forest hill": "south london",
-    "canada water": "south london",
-    "south norwood": "south london",
-    "battersea": "south london",
-    "earlsfield": "south london",
-    "balham": "south london",
-    "merton": "south london",
-    "sutton": "south london",
-    "croydon": "south london",
-    "woolwich": "south london",
-    "greenwich": "south london",
-    "london bridge": "south london",
-    "southwark": "south london",
-    "waterloo": "south london",
-
-    # North London neighborhoods
-    "camden": "north london",
-    "islington": "north london",
-    "highgate": "north london",
-    "finsbury park": "north london",
-    "tottenham": "north london",
-    "wood green": "north london",
-    "barnet": "north london",
-    "kentish town": "north london",
-    "tufnell park": "north london",
-    "chalk farm": "north london",
-    "holloway": "north london",
-    "highbury": "north london",
-    "crouch end": "north london",
-    "east finchley": "north london",
-    "north finchley": "north london",
-    "manor house": "north london",
-    "stoke newington": "north london",
-    "archway": "north london",
-    "muswell hill": "north london",
-    "southgate": "north london",
-    "angel": "north london",
-    "barnsbury": "north london",
-    "hampstead": "north london",
-    "hampstead heath": "north london",
-
-    # West London neighborhoods
-    "hammersmith": "west london",
-    "shepherd's bush": "west london",
-    "shepherds bush": "west london",
-    "chiswick": "west london",
-    "ealing": "west london",
-    "brentford": "west london",
-    "acton": "west london",
-    "hanwell": "west london",
-    "kew": "west london",
-    "richmond": "west london",
-    "twickenham": "west london",
-    "east sheen": "west london",
-    "sheen": "west london",
-    "kilburn": "west london",
-    "kensal rise": "west london",
-    "notting hill": "west london",
-    "earl's court": "west london",
-    "earls court": "west london",
-    "west kensington": "west london",
-    "park royal": "west london",
-
-    # Central London neighborhoods
-    "soho": "central london",
-    "covent garden": "central london",
-    "holborn": "central london",
-    "king's cross": "central london",
-    "kings cross": "central london",
-    "fitzrovia": "central london",
-    "leicester square": "central london",
-    "trafalgar square": "central london",
-    "the strand": "central london",
-    "strand": "central london",
-    "marylebone": "central london",
-    "clerkenwell": "central london",
-    "charing cross": "central london",
-    "borough": "central london",
-    "tower hill": "central london",
-    "moorgate": "central london",
-    "victoria": "central london",
-    "westminster": "central london",
-    "south kensington": "central london",
-    "kensington": "central london",
-    "bloomsbury": "central london",
-}
-
-# =============================================================================
-# BIDIRECTIONAL LOCATION SYNONYMS
-# Automatically built from NEIGHBORHOOD_TO_REGION mapping
-# Each neighborhood expands to: itself + its region + all sibling neighborhoods
-# =============================================================================
-
-def _build_location_synonyms():
+def get_synonyms_for_mood(mood_name):
     """
-    Build bidirectional location synonyms from NEIGHBORHOOD_TO_REGION.
-
-    Returns a dictionary where:
-    - Region names map to all their neighborhoods
-    - Neighborhood names map to their region + all sibling neighborhoods
+    Get all synonyms for a mood from mood_index.json.
+    Returns the full list of words that should match this mood.
     """
-    synonyms = {}
-
-    # Build reverse mapping: region -> list of neighborhoods
-    region_to_neighborhoods = {}
-    for neighborhood, region in NEIGHBORHOOD_TO_REGION.items():
-        if region not in region_to_neighborhoods:
-            region_to_neighborhoods[region] = []
-        region_to_neighborhoods[region].append(neighborhood)
-
-    # Add region mappings (e.g., "south london" -> all south neighborhoods)
-    for region, neighborhoods in region_to_neighborhoods.items():
-        synonyms[region] = neighborhoods.copy()
-        # Also add short version (e.g., "south" -> same as "south london")
-        short_name = region.replace(" london", "")
-        if short_name != region:
-            synonyms[short_name] = neighborhoods.copy()
-
-    # Add neighborhood mappings (e.g., "peckham" -> all south london neighborhoods)
-    for neighborhood, region in NEIGHBORHOOD_TO_REGION.items():
-        # Each neighborhood maps to: itself + its region + all siblings
-        siblings = region_to_neighborhoods[region]
-        synonyms[neighborhood] = [neighborhood] + [s for s in siblings if s != neighborhood]
-
-    return synonyms
-
-# Build the location synonyms dictionary
-LOCATION_SYNONYMS = _build_location_synonyms()
-
-# =============================================================================
-# EXPANSION FUNCTIONS
-# =============================================================================
-
-def expand_mood(mood_term):
-    """
-    Expand a mood term to include synonyms.
-
-    Args:
-        mood_term: User's mood search term (lowercase)
-
-    Returns:
-        List of mood tags to search for
-    """
-    if not mood_term:
+    if not mood_name:
         return []
-
-    mood_lower = mood_term.lower().strip()
-
-    # Check if it's in our synonym dictionary
-    if mood_lower in MOOD_SYNONYMS:
-        return MOOD_SYNONYMS[mood_lower]
-
-    # Otherwise just return the original term
-    return [mood_lower]
-
-
-def expand_location(location_term):
-    """
-    Expand a location term to include neighborhoods.
-
-    Args:
-        location_term: User's location search term (lowercase)
-
-    Returns:
-        List of location names to search for
-    """
-    if not location_term:
-        return []
-
-    location_lower = location_term.lower().strip()
-
-    # Check if it's in our synonym dictionary
-    if location_lower in LOCATION_SYNONYMS:
-        return LOCATION_SYNONYMS[location_lower]
-
-    # Otherwise just return the original term
-    return [location_lower]
+    
+    mood_lower = mood_name.lower()
+    
+    # Direct lookup
+    if mood_lower in mood_synonyms:
+        return mood_synonyms[mood_lower]
+    
+    # Try to find a partial match (e.g., "cabaret & glitter" -> "Cabaret & Glitter")
+    for key in mood_synonyms:
+        if mood_lower in key or key in mood_lower:
+            return mood_synonyms[key]
+    
+    # Fallback: split the mood name into words
+    return [w.strip().lower() for w in mood_name.replace('&', ' ').replace('/', ' ').split() if len(w.strip()) > 2]
 
 
 def _poetic_line(venue, mood):
@@ -315,206 +70,79 @@ def _poetic_line(venue, mood):
         f"{mood_hint}{timing_phrase}."
     )
 
+
 def match_venues(filters):
     """
-    Given a dict of filters (mood, location, group, budget, genre, search_text), return matching venue dictionaries.
+    Given a dict of filters (mood, location, group, budget, genre), return matching venue dictionaries.
     Returns up to 3 venues that match the filters.
-
-    Supports:
-    - Mood-only searches: Match venues by mood tags
-    - Genre-only searches: Match venues by genre/type when no mood is specified
-    - Combined mood+genre searches: Require both to match
-    - Name search fallback: If no filters extract, search venue names for keywords
     """
     mood = filters.get("mood")
     location = filters.get("location")
     group = filters.get("group")
     budget = filters.get("budget")
     genre = filters.get("genre")
-    search_text = filters.get("search_text", "")
 
     matches = []
     filtered_out_reasons = []  # Track why venues were filtered out
+
+    # Get the full synonym list for the requested mood
+    mood_search_terms = get_synonyms_for_mood(mood) if mood else []
+    
+    # Debug logging
+    if mood:
+        print(f"   🔍 Mood '{mood}' expanded to {len(mood_search_terms)} search terms: {mood_search_terms[:10]}...")
 
     for venue in venue_data:
         # Get mood tags (already a list from parsed data)
         mood_tags = venue.get("moods", []) or venue.get("mood_tags", [])
 
-        # Get venue genres and tags for genre matching
-        venue_genres = venue.get("genres", [])
-        venue_type = venue.get("type", "").lower()
-        venue_tags = venue.get("tags", [])
-        if isinstance(venue_tags, str):
-            venue_tags = [venue_tags]
-
-        # Build combined genre/tag string for matching
-        genre_search_text = " ".join([
-            venue_type,
-            " ".join(g.lower() for g in venue_genres if isinstance(g, str)),
-            " ".join(t.lower() for t in venue_tags if isinstance(t, str))
-        ]).lower()
-
-        # MOOD MATCHING
-        mood_match = False
+        # Mood match (required if mood is specified)
         if mood:
-            # Split mood filter into words and lowercase (handles "Folk & Intimate" -> ["folk", "intimate"])
-            mood_words = [w.strip().lower() for w in mood.replace('&', ' ').replace('/', ' ').split() if len(w.strip()) > 2]
-
-            # Expand each mood word to include synonyms
-            mood_variants = []
-            for word in mood_words:
-                mood_variants.extend(expand_mood(word))
-
-            # If no words were expanded (short words filtered out), try the whole phrase
-            if not mood_variants:
-                mood_variants = expand_mood(mood.lower().strip())
-
             # Lowercase all venue mood tags
             venue_moods_lower = [m.lower() for m in mood_tags]
-
-            # Check if ANY mood variant matches ANY venue mood tag
-            # Uses exact match, substring match, OR stem match (first 8 chars)
+            
+            # Check if ANY synonym matches ANY venue mood tag
             mood_match = any(
                 any(
                     # Exact match
-                    variant == venue_mood or
-                    # Substring match
-                    variant in venue_mood or venue_mood in variant or
+                    search_term == venue_mood or
+                    # Substring match (for compound words)
+                    search_term in venue_mood or venue_mood in search_term or
                     # Stem match (first 8 characters for words like melancholic/melancholy)
-                    (len(variant) >= 8 and len(venue_mood) >= 8 and variant[:8] == venue_mood[:8])
+                    (len(search_term) >= 8 and len(venue_mood) >= 8 and search_term[:8] == venue_mood[:8])
                     for venue_mood in venue_moods_lower
                 )
-                for variant in mood_variants
+                for search_term in mood_search_terms
             )
-
-        # GENRE MATCHING
-        genre_match = False
-        if genre:
-            genre_lower = genre.lower()
-
-            # Handle generic "music" - should match ANY music-related venue
-            if genre_lower == "music":
-                music_keywords = ["music", "gig", "concert", "jazz", "folk", "electronic",
-                                  "rock", "indie", "reggae", "blues", "soul", "hip-hop",
-                                  "classical", "punk", "metal", "band", "live", "singer"]
-                genre_match = any(kw in genre_search_text for kw in music_keywords)
-            # Handle comedy
-            elif genre_lower == "comedy":
-                comedy_keywords = ["comedy", "comic", "stand-up", "standup", "comedian", "funny", "laughs"]
-                genre_match = any(kw in genre_search_text for kw in comedy_keywords)
-            # Handle theatre
-            elif genre_lower == "theatre":
-                theatre_keywords = ["theatre", "theater", "stage", "fringe", "drama", "play", "musical"]
-                genre_match = any(kw in genre_search_text for kw in theatre_keywords)
-            # Handle film/cinema
-            elif genre_lower == "film":
-                film_keywords = ["film", "cinema", "movie", "screening"]
-                genre_match = any(kw in genre_search_text for kw in film_keywords)
-            # Handle cabaret/drag
-            elif genre_lower in ["cabaret", "drag"]:
-                cabaret_keywords = ["cabaret", "drag", "burlesque", "queer", "lgbtq"]
-                genre_match = any(kw in genre_search_text for kw in cabaret_keywords)
-            # Handle poetry/spoken word
-            elif genre_lower == "poetry":
-                poetry_keywords = ["poetry", "spoken word", "open mic", "verse"]
-                genre_match = any(kw in genre_search_text for kw in poetry_keywords)
-            # Handle industrial/goth/darkwave/EBM
-            elif genre_lower in ["industrial", "goth"]:
-                industrial_keywords = ["industrial", "ebm", "goth", "gothic", "darkwave", "dark techno",
-                                      "dark scene", "futurepop", "post-punk"]
-                genre_match = any(kw in genre_search_text for kw in industrial_keywords)
-            # Handle reggaeton/latin club
-            elif genre_lower == "reggaeton":
-                reggaeton_keywords = ["reggaeton", "latin", "cumbia", "baile funk", "perreo", "latin club"]
-                genre_match = any(kw in genre_search_text for kw in reggaeton_keywords)
-            # Handle bookshops/literary spaces
-            elif genre_lower == "bookshop":
-                bookshop_keywords = ["bookshop", "book", "literary", "reading", "books"]
-                genre_match = any(kw in genre_search_text for kw in bookshop_keywords)
-            # Handle choirs/singing
-            elif genre_lower == "choir":
-                choir_keywords = ["choir", "choral", "singing", "vocal", "chorus", "community singing"]
-                genre_match = any(kw in genre_search_text for kw in choir_keywords)
-            # Handle grief/death cafe/end of life
-            elif genre_lower in ["grief", "death cafe"]:
-                grief_keywords = ["grief", "death cafe", "death café", "bereavement", "mourning",
-                                  "loss", "end of life", "mortality", "death positive"]
-                genre_match = any(kw in genre_search_text for kw in grief_keywords)
-            # Handle specific music genres (jazz, folk, etc.)
-            else:
-                genre_match = genre_lower in genre_search_text
-
-        # MATCHING DECISION
-        # If we have BOTH mood and genre, require BOTH to match
-        if mood and genre:
-            if not (mood_match and genre_match):
-                continue
-        # If we have ONLY mood, require mood match
-        elif mood:
+            
             if not mood_match:
-                continue
-        # If we have ONLY genre, require genre match
-        elif genre:
-            if not genre_match:
-                continue
-        # If we have NEITHER mood nor genre BUT have a location, allow through
-        # (location-only searches are valid)
-        elif not location:
-            # No structured filters - try name search fallback
-            if search_text:
-                # Search venue name, genres, and blurb for keywords
-                venue_name = venue.get("name", "").lower()
-                venue_blurb = venue.get("blurb", "").lower()
-                search_lower = search_text.lower()
-
-                # Extract meaningful words from search text (ignore common words)
-                search_words = [w for w in search_lower.split()
-                               if len(w) > 2 and w not in ["the", "and", "for", "with", "where", "can", "find"]]
-
-                # Check if any search words appear in venue name or genres
-                name_match = any(word in venue_name for word in search_words)
-                genre_text_match = any(word in genre_search_text for word in search_words)
-
-                if not (name_match or genre_text_match):
-                    continue
-            else:
-                # No filters or search text at all - skip this venue
                 continue
 
         # Location match (optional)
         # Check both the specific area and the tags field (which has broader regions like "North London")
-        # Uses location expansion for broader area searches (e.g., "south london" -> all south neighborhoods)
         area = venue.get("area", "") or venue.get("location", "")
         tags = venue.get("tags", [])  # Now an array
-        genres = venue.get("genres", [])
-        combined_tags = []
-        if isinstance(tags, list):
-            combined_tags.extend(tags)
-        else:
-            combined_tags.append(str(tags))
-
-        if isinstance(genres, list):
-            combined_tags.extend(genres)
-        elif genres:
-            combined_tags.append(str(genres))
-
-        tags_str = " ".join(combined_tags)  # Convert to string for searching
+        tags_str = " ".join(tags) if isinstance(tags, list) else str(tags)  # Convert to string for searching
         if location:
-            # Expand location to include neighborhoods
-            location_variants = expand_location(location)
-
-            # Check if ANY variant matches venue area or tags
-            location_match = any(
-                variant in area.lower() or variant in tags_str.lower()
-                for variant in location_variants
-            )
-
-            if not location_match:
+            location_lower = location.lower()
+            if location_lower not in area.lower() and location_lower not in tags_str.lower():
                 filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by location")
                 continue
 
-        # Note: Genre matching is now handled earlier in the MATCHING DECISION section
-        # This ensures genre-only searches work even without a mood
+        # Genre match (optional) - check venue type and tags
+        if genre:
+            venue_type = venue.get("type", "").lower()
+            tags_lower = tags_str.lower()
+
+            if genre == "theatre" and not any(word in venue_type or word in tags_lower for word in ["theatre", "theater", "stage", "fringe"]):
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not theatre)")
+                continue
+            elif genre == "music" and not any(word in venue_type or word in tags_lower for word in ["music", "gig", "concert", "jazz", "folk"]):
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not music)")
+                continue
+            elif genre == "drag" and not any(word in venue_type or word in tags_lower for word in ["drag", "cabaret", "queer", "LGBTQ"]):
+                filtered_out_reasons.append(f"{venue.get('name', 'Venue')} filtered by genre (not drag)")
+                continue
 
         # Budget match (optional) - based on typical venue characteristics
         if budget:
@@ -562,6 +190,10 @@ def match_venues(filters):
         }
         matches.append(normalized_venue)
 
+    # Shuffle matches to add variety
+    import random
+    random.shuffle(matches)
+
     # Deduplicate matches by venue name (prevents same venue appearing multiple times)
     seen_names = set()
     deduplicated_matches = []
@@ -571,79 +203,26 @@ def match_venues(filters):
             seen_names.add(venue_name)
             deduplicated_matches.append(venue)
 
+    # Debug: log match count
+    if mood:
+        print(f"   ✓ Found {len(deduplicated_matches)} venues matching '{mood}'")
+
     # Return top 3 unique matches
-    return deduplicated_matches
+    return deduplicated_matches[:3]
 
 if __name__ == "__main__":
-    print("=" * 60)
-    print("VENUE MATCHER TESTS - Synonym & Location Expansion")
-    print("=" * 60)
+    test_filters = {
+        "mood": "Cabaret & Glitter",
+        "location": None,
+        "group": None
+    }
 
-    # Test mood expansion
-    print("\n1. Testing mood expansion:")
-    print(f"   'gay' expands to: {expand_mood('gay')}")
-    print(f"   'spooky' expands to: {expand_mood('spooky')}")
-    print(f"   'melancholy' expands to: {expand_mood('melancholy')}")
-    print(f"   'cozy' expands to: {expand_mood('cozy')}")
-    print(f"   'party' expands to: {expand_mood('party')}")
-    print(f"   'folk' (no synonym) expands to: {expand_mood('folk')}")
-
-    # Test location expansion
-    print("\n2. Testing location expansion:")
-    print(f"   'south london' expands to: {expand_location('south london')}")
-    print(f"   'east' expands to: {expand_location('east')}")
-    print(f"   'central' expands to: {expand_location('central')}")
-    print(f"   'peckham' (no synonym) expands to: {expand_location('peckham')}")
-
-    # Test actual venue matching with synonyms
-    print("\n3. Testing venue matching with mood synonyms:")
-
-    # Test queer synonym
-    test_queer = {"mood": "gay"}
-    queer_results = match_venues(test_queer)
-    print(f"   Query 'gay' found {len(queer_results)} venues:")
-    for v in queer_results:
-        print(f"      - {v['name']} (moods: {v['mood_tags']})")
-
-    # Test spooky synonym
-    test_spooky = {"mood": "spooky"}
-    spooky_results = match_venues(test_spooky)
-    print(f"\n   Query 'spooky' found {len(spooky_results)} venues:")
-    for v in spooky_results:
-        print(f"      - {v['name']} (moods: {v['mood_tags']})")
-
-    # Test cozy synonym
-    test_cozy = {"mood": "cozy"}
-    cozy_results = match_venues(test_cozy)
-    print(f"\n   Query 'cozy' found {len(cozy_results)} venues:")
-    for v in cozy_results:
-        print(f"      - {v['name']} (moods: {v['mood_tags']})")
-
-    print("\n4. Testing venue matching with location expansion:")
-
-    # Test south london
-    test_south = {"location": "south london"}
-    south_results = match_venues(test_south)
-    print(f"   Query 'south london' found {len(south_results)} venues:")
-    for v in south_results:
-        print(f"      - {v['name']} in {v['area']}")
-
-    # Test combined mood + location
-    print("\n5. Testing combined mood + location:")
-    test_combined = {"mood": "gay", "location": "south"}
-    combined_results = match_venues(test_combined)
-    print(f"   Query 'gay' + 'south' found {len(combined_results)} venues:")
-    for v in combined_results:
-        print(f"      - {v['name']} in {v['area']} (moods: {v['mood_tags']})")
-
-    # Basic test without filters
-    print("\n6. Testing without filters (baseline):")
-    result = match_venues({})
-    print(f"   No filters found {len(result)} venues")
+    result = match_venues(test_filters)
+    print("🕊️ The Lark offers these resonances:\n")
     if result:
         for venue in result:
-            print(f"      - {venue['name']} in {venue['area']}")
-
-    print("\n" + "=" * 60)
-    print("Tests complete!")
-    print("=" * 60)
+            print(f"• {venue['name']} in {venue['area']}")
+            print(f"  {venue['vibe_note'][:100]}...")
+            print()
+    else:
+        print("No venues sang in harmony with your mood — try another mood or area?")
