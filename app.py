@@ -146,8 +146,23 @@ def surprise_me():
                 'mood': None
             })
 
-        # Pick a random venue
-        random_venue_raw = random.choice(all_venues)
+        # Check if a specific arcana was requested (for filtered draws)
+        requested_arcana = request.json.get('arcana') if request.json else None
+
+        # Filter venues by arcana if specified
+        if requested_arcana:
+            filtered_venues = [v for v in all_venues if v.get('arcana') == requested_arcana]
+            if not filtered_venues:
+                # Fallback to all venues if no matches for the arcana
+                filtered_venues = all_venues
+        else:
+            filtered_venues = all_venues
+
+        # Pick a random venue from the (possibly filtered) pool
+        random_venue_raw = random.choice(filtered_venues)
+
+        # Get the venue's arcana for display (this is the key fix!)
+        venue_arcana = random_venue_raw.get("arcana", None)
 
         # Normalize to expected format
         normalized_venue = {
@@ -157,21 +172,19 @@ def surprise_me():
             "typical_start_time": random_venue_raw.get("typical_start_time", ""),
             "price": random_venue_raw.get("price", "TBC"),
             "website": random_venue_raw.get("website", random_venue_raw.get("url", "")),
-            "mood_tags": random_venue_raw.get("mood_tags", [])
+            "mood_tags": random_venue_raw.get("moods", random_venue_raw.get("mood_tags", []))
         }
 
         # Generate first-person surprise response
         response_text = generate_surprise_response(normalized_venue)
 
-        # Get a random mood tag from the venue for display
-        mood_tag = random.choice(normalized_venue["mood_tags"]) if normalized_venue["mood_tags"] else None
-
+        # Return the venue's arcana as 'mood' (this is what the frontend expects for arcanaMap lookup)
         return jsonify({
             'response': response_text,
             'venue_name': normalized_venue["name"],
             'area': normalized_venue["area"],
             'website': normalized_venue["website"],
-            'mood': mood_tag,
+            'mood': venue_arcana,
             'is_surprise': True
         })
 
