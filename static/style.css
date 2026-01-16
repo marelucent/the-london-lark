@@ -1,5 +1,75 @@
 /* The London Lark - Main Stylesheet */
+/* v2.0 - Foundations: Typography + Colour System */
 
+/* ============================================
+   GOOGLE FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ============================================
+   CSS VARIABLES - THE LARK'S DESIGN SYSTEM
+   ============================================ */
+:root {
+    /* === Foundation Palette === */
+    --ink: #0a0a0a;
+    --parchment-dark: #1a1714;
+    --parchment-mid: #2a2520;
+    --tobacco: #3d3229;
+    --gold: #d4af37;
+    --amber: #c9a227;
+    --candlelight: #f4e4bc;
+    --cream: #f5f0e6;
+    --midnight: #1a1a2e;
+    --midnight-deep: #16213e;
+    
+    /* === Typography === */
+    --font-title: 'Cinzel', serif;
+    --font-whisper: 'Cormorant Garamond', serif;
+    --font-body: 'Crimson Text', Georgia, serif;
+    
+    /* === Arcana Colours - Primary accents === */
+    --arcana-fool: #f4d03f;           /* Playful & Weird */
+    --arcana-magician: #d4af37;       /* Curious Encounters */
+    --arcana-priestess: #4a1a4a;      /* Witchy & Wild */
+    --arcana-empress: #2d5a3d;        /* Folk & Intimate */
+    --arcana-emperor: #722f37;        /* The Thoughtful Stage */
+    --arcana-hierophant: #b8860b;     /* Spiritual / Sacred */
+    --arcana-lovers: #e91e63;         /* Cabaret & Glitter */
+    --arcana-chariot: #0066ff;        /* Big Night Out */
+    --arcana-strength: #d35400;       /* Punchy / Protest */
+    --arcana-hermit: #5d6d7e;         /* Contemplative */
+    --arcana-wheel: #e67e22;          /* Global Rhythms */
+    --arcana-justice: #b22222;        /* Rant & Rapture */
+    --arcana-hanged: #6b8e9f;         /* Body-Based */
+    --arcana-death: #0d0d0d;          /* Grief & Grace */
+    --arcana-temperance: #d4c483;     /* Word & Voice */
+    --arcana-devil: #8b0000;          /* Late-Night Lark */
+    --arcana-tower: #708090;          /* Melancholic Beauty */
+    --arcana-star: #1a1a3a;           /* Wonder & Awe */
+    --arcana-moon: #6b7b8c;           /* Nostalgic / Vintage */
+    --arcana-sun: #f1c40f;            /* Comic Relief */
+    --arcana-judgement: #5dade2;      /* Group Energy */
+    --arcana-world: #9b59b6;          /* Queer Revelry */
+    --arcana-lark: #ffb347;           /* Romanticised London */
+    
+    /* === UI Colours === */
+    --text-primary: #e8e8e8;
+    --text-secondary: #b8b8b8;
+    --text-muted: #888888;
+    --border-subtle: rgba(232, 232, 232, 0.15);
+    --border-glow: rgba(240, 230, 140, 0.5);
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    
+    /* === Transitions === */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.4s ease;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -7,41 +77,54 @@
 }
 
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #e8e8e8;
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--midnight) 0%, var(--midnight-deep) 100%);
+    color: var(--text-primary);
     min-height: 100vh;
     padding: 2rem;
     line-height: 1.8;
+    font-size: 1.05rem;
 }
 
+/* ============================================
+   LAYOUT
+   ============================================ */
 .container {
     max-width: 720px;
     margin: 0 auto;
 }
 
+/* ============================================
+   HEADER
+   ============================================ */
 header {
     text-align: center;
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(232, 232, 232, 0.15);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 h1 {
+    font-family: var(--font-title);
     font-size: 2.8rem;
-    font-weight: 300;
-    letter-spacing: 0.15em;
+    font-weight: 400;
+    letter-spacing: 0.2em;
     margin-bottom: 0.8rem;
-    color: #f0e68c;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
 }
 
 .tagline {
-    font-size: 1rem;
+    font-family: var(--font-whisper);
+    font-size: 1.1rem;
     font-style: italic;
-    color: #b8b8b8;
+    color: var(--text-secondary);
     letter-spacing: 0.08em;
 }
 
+/* ============================================
+   CONVERSATION AREA
+   ============================================ */
 .conversation {
     margin-bottom: 2rem;
     min-height: 220px;
@@ -65,7 +148,7 @@ h1 {
 
 .user-message {
     background: rgba(240, 230, 140, 0.08);
-    border-left: 3px solid #f0e68c;
+    border-left: 3px solid var(--gold);
     margin-left: 2.5rem;
     animation-delay: 0s;
 }
@@ -78,14 +161,16 @@ h1 {
 }
 
 .message-label {
-    font-size: 0.72rem;
+    font-family: var(--font-title);
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     margin-bottom: 0.6rem;
     opacity: 0.6;
 }
 
 .message-text {
+    font-family: var(--font-body);
     font-size: 1.1rem;
     line-height: 1.9;
 }
@@ -98,10 +183,10 @@ h1 {
 }
 
 .venue-link {
-    color: #f0e68c;
+    color: var(--gold);
     text-decoration: none;
     border-bottom: 1px solid rgba(240, 230, 140, 0.3);
-    transition: all 0.3s ease;
+    transition: all var(--transition-medium);
 }
 
 .venue-link:hover {
@@ -116,8 +201,9 @@ h1 {
     padding: 0.35rem 1rem;
     background: rgba(240, 230, 140, 0.15);
     border-radius: 15px;
+    font-family: var(--font-body);
     font-size: 0.8rem;
-    color: #f0e68c;
+    color: var(--gold);
     letter-spacing: 0.05em;
 }
 
@@ -125,6 +211,38 @@ h1 {
     margin-right: 0.3em;
 }
 
+/* ============================================
+   INTRO / GREETING
+   ============================================ */
+.intro {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    font-style: italic;
+    opacity: 0.85;
+    font-size: 1.15rem;
+    line-height: 2;
+}
+
+.intro .time-greeting {
+    font-family: var(--font-whisper);
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0.95;
+    font-style: italic;
+}
+
+.intro small {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ============================================
+   INPUT AREA
+   ============================================ */
 .input-area {
     position: relative;
     margin-top: 2.5rem;
@@ -133,22 +251,22 @@ h1 {
 textarea {
     width: 100%;
     padding: 1.4rem;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(232, 232, 232, 0.15);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 10px;
-    color: #e8e8e8;
-    font-family: 'Georgia', 'Times New Roman', serif;
+    color: var(--text-primary);
+    font-family: var(--font-body);
     font-size: 1.05rem;
     resize: vertical;
     min-height: 110px;
-    transition: all 0.4s ease;
+    transition: all var(--transition-slow);
     line-height: 1.7;
 }
 
 textarea:focus {
     outline: none;
-    border-color: rgba(240, 230, 140, 0.5);
-    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--border-glow);
+    background: var(--bg-card-hover);
     box-shadow: 0 0 20px rgba(240, 230, 140, 0.1);
 }
 
@@ -157,57 +275,58 @@ textarea::placeholder {
     font-style: italic;
 }
 
+/* ============================================
+   BUTTONS
+   ============================================ */
 button {
-    margin-top: 1.2rem;
-    padding: 0.9rem 2.2rem;
-    background: linear-gradient(135deg, #f0e68c 0%, #daa520 100%);
-    border: none;
-    border-radius: 8px;
-    color: #1a1a2e;
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 1rem;
+    font-family: var(--font-title);
+    font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    letter-spacing: 0.08em;
-    font-weight: 500;
+    transition: all var(--transition-medium);
+    letter-spacing: 0.1em;
 }
 
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(240, 230, 140, 0.35);
-}
-
-button:active {
-    transform: translateY(-1px);
-}
-
-button:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* Button Group */
 .button-group {
     display: flex;
     gap: 1rem;
     align-items: center;
 }
 
-/* Surprise Button - Similar styling but with a border */
-.surprise-btn {
-    background: transparent;
-    border: 2px solid #f0e68c;
-    color: #f0e68c;
-    padding: 0.9rem 2.2rem;
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    letter-spacing: 0.08em;
-    font-weight: 500;
+/* Primary Button (Ask the Lark) */
+#askButton {
     margin-top: 1.2rem;
+    padding: 0.9rem 2.2rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+    border: none;
+    border-radius: 8px;
+    color: var(--ink);
+    font-weight: 500;
+}
+
+#askButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(240, 230, 140, 0.35);
+}
+
+#askButton:active {
+    transform: translateY(-1px);
+}
+
+#askButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Secondary Button (Surprise Me) */
+.surprise-btn {
+    margin-top: 1.2rem;
+    padding: 0.9rem 2.2rem;
+    background: transparent;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    color: var(--gold);
+    font-weight: 500;
 }
 
 .surprise-btn:hover {
@@ -227,7 +346,72 @@ button:disabled {
     background: transparent;
 }
 
-/* Fluttering feather loader */
+/* ============================================
+   MOOD TAGS
+   ============================================ */
+.mood-tags-container {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(232, 232, 232, 0.08);
+}
+
+.mood-tags-label {
+    text-align: center;
+    font-family: var(--font-whisper);
+    font-size: 1rem;
+    color: #b0c4de;
+    opacity: 0.8;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.08em;
+    font-style: italic;
+}
+
+.mood-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.mood-tag {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    background: rgba(176, 196, 222, 0.1);
+    border: 1px solid rgba(176, 196, 222, 0.25);
+    border-radius: 20px;
+    color: #b0c4de;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    letter-spacing: 0.03em;
+    margin: 0;
+}
+
+.mood-tag:hover {
+    background: rgba(176, 196, 222, 0.2);
+    border-color: rgba(176, 196, 222, 0.5);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(176, 196, 222, 0.15);
+}
+
+.mood-tag.active {
+    background: rgba(240, 230, 140, 0.2);
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(240, 230, 140, 0.2);
+}
+
+.mood-tag:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
 .loading {
     text-align: center;
     padding: 2.5rem;
@@ -258,11 +442,28 @@ button:disabled {
 }
 
 .loading-text {
+    font-family: var(--font-whisper);
     color: #b0c4de;
     letter-spacing: 0.1em;
     font-size: 1rem;
+    font-style: italic;
 }
 
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--font-whisper);
+    font-style: italic;
+    color: #b0c4de;
+    line-height: 1.9;
+}
+
+/* ============================================
+   ERROR STATE
+   ============================================ */
 .error {
     background: rgba(255, 100, 100, 0.08);
     border-left: 3px solid #ff6464;
@@ -271,40 +472,40 @@ button:disabled {
     margin-top: 1rem;
 }
 
-.intro {
+/* ============================================
+   FOOTER
+   ============================================ */
+.main-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
     text-align: center;
-    padding: 3.5rem 2rem;
-    font-style: italic;
-    opacity: 0.75;
-    font-size: 1.15rem;
-    line-height: 2;
+    border-top: 1px solid rgba(232, 232, 232, 0.1);
 }
 
-.intro .time-greeting {
-    font-size: 1.3rem;
-    color: #f0e68c;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.05em;
-    opacity: 0.9;
-}
-
-.intro small {
-    display: block;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-/* Empty state / no matches */
-.empty-state {
-    text-align: center;
-    padding: 2rem;
-    font-style: italic;
+.footer-link {
+    font-family: var(--font-body);
     color: #b0c4de;
-    line-height: 1.9;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+    transition: all var(--transition-medium);
 }
 
-/* Dev Mood Tuner Panel */
+.footer-link:hover {
+    color: var(--gold);
+    opacity: 1;
+}
+
+.footer-separator {
+    color: #b0c4de;
+    opacity: 0.5;
+    margin: 0 0.5rem;
+}
+
+/* ============================================
+   DEV MOOD TUNER (keep for debugging)
+   ============================================ */
 .dev-toggle {
     position: fixed;
     bottom: 1rem;
@@ -313,11 +514,11 @@ button:disabled {
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: #f0e68c;
+    color: var(--gold);
     font-size: 0.75rem;
     cursor: pointer;
     opacity: 0.6;
-    transition: opacity 0.3s;
+    transition: opacity var(--transition-medium);
 }
 
 .dev-toggle:hover {
@@ -334,7 +535,7 @@ button:disabled {
     border-left: 1px solid rgba(240, 230, 140, 0.3);
     padding: 1.5rem;
     overflow-y: auto;
-    transition: right 0.4s ease;
+    transition: right var(--transition-slow);
     z-index: 1000;
 }
 
@@ -343,10 +544,12 @@ button:disabled {
 }
 
 .mood-tuner h3 {
-    color: #f0e68c;
+    font-family: var(--font-title);
+    color: var(--gold);
     margin-bottom: 1rem;
     font-size: 1.1rem;
     letter-spacing: 0.1em;
+    font-weight: 400;
 }
 
 .mood-tuner .close-btn {
@@ -355,7 +558,7 @@ button:disabled {
     right: 1rem;
     background: none;
     border: none;
-    color: #e8e8e8;
+    color: var(--text-primary);
     font-size: 1.5rem;
     cursor: pointer;
     opacity: 0.7;
@@ -380,22 +583,6 @@ button:disabled {
     word-wrap: break-word;
 }
 
-.mood-slider {
-    margin-bottom: 1rem;
-}
-
-.mood-slider label {
-    display: block;
-    margin-bottom: 0.3rem;
-    font-size: 0.85rem;
-    color: #b0c4de;
-}
-
-.mood-slider input[type="range"] {
-    width: 100%;
-    margin-top: 0.3rem;
-}
-
 .test-moods {
     margin-top: 1.5rem;
 }
@@ -410,53 +597,23 @@ button:disabled {
     color: #b0c4de;
     font-size: 0.75rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all var(--transition-medium);
 }
 
 .test-mood-btn:hover {
     background: rgba(176, 196, 222, 0.4);
-    color: #e8e8e8;
+    color: var(--text-primary);
 }
 
 .test-mood-btn.active {
     background: rgba(240, 230, 140, 0.3);
-    border-color: #f0e68c;
-    color: #f0e68c;
-}
-
-/* Footer */
-.main-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    text-align: center;
-    border-top: 1px solid rgba(232, 232, 232, 0.1);
-}
-
-.footer-link {
-    color: #b0c4de;
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.08em;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #f0e68c;
-    opacity: 1;
-}
-
-.footer-separator {
-    color: #b0c4de;
-    opacity: 0.5;
-    margin: 0 0.5rem;
+    border-color: var(--gold);
+    color: var(--gold);
 }
 
 /* ============================================
    CRISIS RESPONSE STYLES
    ============================================ */
-
-/* Crisis Response Container */
 .crisis-response {
     border-left-width: 4px;
     padding: 1.8rem;
@@ -472,16 +629,15 @@ button:disabled {
     border-left-color: #b0c4de;
 }
 
-/* Crisis Intro Message */
 .crisis-intro {
+    font-family: var(--font-whisper);
     font-size: 1.15rem;
     line-height: 1.9;
     margin-bottom: 1.5rem;
-    color: #e8e8e8;
+    color: var(--text-primary);
     font-style: italic;
 }
 
-/* Resources Section */
 .crisis-resources {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 10px;
@@ -500,11 +656,12 @@ button:disabled {
 }
 
 .resources-header {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #f0e68c;
+    font-family: var(--font-title);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--gold);
     margin-bottom: 1rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
 }
 
 .resources-list {
@@ -534,14 +691,14 @@ button:disabled {
 .resource-number {
     font-family: 'Courier New', monospace;
     font-size: 1.05rem;
-    color: #f0e68c;
+    color: var(--gold);
     font-weight: 500;
     letter-spacing: 0.05em;
 }
 
 .resource-desc {
     font-size: 0.88rem;
-    color: #b8b8b8;
+    color: var(--text-secondary);
     opacity: 0.85;
     font-style: italic;
 }
@@ -556,25 +713,24 @@ button:disabled {
     text-decoration: none;
     font-size: 0.9rem;
     letter-spacing: 0.03em;
-    transition: color 0.3s ease;
+    transition: color var(--transition-medium);
 }
 
 .more-resources a:hover {
-    color: #f0e68c;
+    color: var(--gold);
 }
 
-/* Crisis Closing Message */
 .crisis-closing {
+    font-family: var(--font-whisper);
     font-size: 1rem;
     line-height: 1.9;
     margin-top: 1.5rem;
-    color: #b8b8b8;
+    color: var(--text-secondary);
     font-style: italic;
     padding-top: 1rem;
     border-top: 1px solid rgba(232, 232, 232, 0.1);
 }
 
-/* Distress Venue Intro */
 .distress-venue-intro {
     background: transparent;
     border-left: none;
@@ -584,17 +740,18 @@ button:disabled {
 }
 
 .venue-intro-text {
+    font-family: var(--font-whisper);
     font-size: 1rem;
     color: #b0c4de;
     font-style: italic;
     opacity: 0.9;
 }
 
-/* Melancholy Footer */
 .melancholy-footer {
     text-align: center;
     padding: 1.5rem 2rem;
     margin-top: 1rem;
+    font-family: var(--font-whisper);
     font-size: 0.9rem;
     color: #b0c4de;
     opacity: 0.75;
@@ -604,14 +761,14 @@ button:disabled {
 }
 
 .melancholy-footer a {
-    color: #f0e68c;
+    color: var(--gold);
     text-decoration: none;
     border-bottom: 1px solid rgba(240, 230, 140, 0.3);
-    transition: all 0.3s ease;
+    transition: all var(--transition-medium);
 }
 
 .melancholy-footer a:hover {
-    border-bottom-color: #f0e68c;
+    border-bottom-color: var(--gold);
 }
 
 @keyframes fadeIn {
@@ -623,8 +780,50 @@ button:disabled {
     }
 }
 
-/* Responsive adjustments for crisis responses */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .tagline {
+        font-size: 0.95rem;
+    }
+    
+    .user-message {
+        margin-left: 1rem;
+    }
+    
+    .lark-message {
+        margin-right: 1rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    #askButton,
+    .surprise-btn {
+        width: 100%;
+    }
+    
+    .mood-tags {
+        gap: 0.5rem;
+    }
+
+    .mood-tag {
+        font-size: 0.8rem;
+        padding: 0.45rem 0.85rem;
+    }
+    
     .crisis-response {
         padding: 1.2rem;
         margin-right: 0;
@@ -642,76 +841,5 @@ button:disabled {
 }
 
 /* ============================================
-   MOOD TAGS SECTION
+   END OF STYLESHEET
    ============================================ */
-
-.mood-tags-container {
-    margin-top: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(232, 232, 232, 0.08);
-}
-
-.mood-tags-label {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #b0c4de;
-    opacity: 0.7;
-    margin-bottom: 1.2rem;
-    letter-spacing: 0.08em;
-    font-style: italic;
-}
-
-.mood-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    justify-content: center;
-    max-width: 100%;
-}
-
-.mood-tag {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: rgba(176, 196, 222, 0.1);
-    border: 1px solid rgba(176, 196, 222, 0.25);
-    border-radius: 20px;
-    color: #b0c4de;
-    font-size: 0.85rem;
-    font-family: 'Georgia', 'Times New Roman', serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    letter-spacing: 0.03em;
-    margin: 0;
-}
-
-.mood-tag:hover {
-    background: rgba(176, 196, 222, 0.2);
-    border-color: rgba(176, 196, 222, 0.5);
-    color: #e8e8e8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(176, 196, 222, 0.15);
-}
-
-.mood-tag.active {
-    background: rgba(240, 230, 140, 0.2);
-    border-color: #f0e68c;
-    color: #f0e68c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(240, 230, 140, 0.2);
-}
-
-.mood-tag:active {
-    transform: translateY(0);
-}
-
-/* Mobile-friendly mood tags */
-@media (max-width: 600px) {
-    .mood-tags {
-        gap: 0.5rem;
-    }
-
-    .mood-tag {
-        font-size: 0.8rem;
-        padding: 0.45rem 0.85rem;
-    }
-}
