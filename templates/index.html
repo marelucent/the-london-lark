@@ -8,482 +8,545 @@
 </head>
 <body>
     <div class="container">
+        
+        <!-- HEADER - The Lark's Mark -->
         <header>
-            <h1>🕊️ THE LONDON LARK</h1>
-            <p class="tagline">A poetic companion for London's cultural undercurrent</p>
+            <h1 onclick="returnToEntrance()" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
         </header>
 
-        <div class="conversation" id="conversation">
-            <div class="intro">
-                <div class="time-greeting">{{ greeting }}</div>
-                {{ helper.main }}<br>
-                <small>{{ helper.sub }}</small>
-            </div>
-        </div>
+        <!-- MAIN CONTENT AREA -->
+        <main id="mainContent">
+            
+            <!-- ENTRANCE: Portal Moment -->
+            <section id="entranceView" class="view active">
+                <div class="portal-moment">
+                    <p class="opening-line" id="openingLine">{{ greeting }}</p>
+                    <p class="portal-question">How would you like to begin?</p>
+                </div>
+                
+                <!-- The Three Paths -->
+                <div class="paths-container">
+                    <div class="path-card" onclick="choosePath('draw')">
+                        <span class="corner-tr"></span>
+                        <span class="corner-bl"></span>
+                        <div class="path-icon">🃏</div>
+                        <div class="path-title">DRAW A CARD</div>
+                        <div class="path-whisper">"Let fate decide"</div>
+                    </div>
+                    
+                    <div class="path-card" onclick="choosePath('ask')">
+                        <span class="corner-tr"></span>
+                        <span class="corner-bl"></span>
+                        <div class="path-icon">💬</div>
+                        <div class="path-title">ASK THE LARK</div>
+                        <div class="path-whisper">"Tell me what you seek"</div>
+                    </div>
+                    
+                    <div class="path-card" onclick="choosePath('browse')">
+                        <span class="corner-tr"></span>
+                        <span class="corner-bl"></span>
+                        <div class="path-icon">🎴</div>
+                        <div class="path-title">BROWSE THE DECK</div>
+                        <div class="path-whisper">"Lay out the cards"</div>
+                    </div>
+                </div>
+            </section>
 
-        <div class="input-area">
-            <textarea
-                id="userInput"
-                placeholder="{{ placeholder }}"
-                rows="3"
-            ></textarea>
-            <div class="button-group">
-                <button id="askButton" onclick="askLark()">Ask the Lark</button>
-                <button id="surpriseButton" class="surprise-btn" onclick="surpriseMe()">🎲 Surprise Me</button>
-            </div>
-        </div>
+            <!-- DRAW A CARD VIEW -->
+            <section id="drawView" class="view">
+                <div class="draw-container">
+                    <!-- Face-down card -->
+                    <div class="arcana-card card-lg face-down" id="drawnCard" onclick="revealCard()">
+                        <span class="corner-tr"></span>
+                        <span class="corner-bl"></span>
+                        <div class="card-back-symbol">✦</div>
+                        <div class="card-back-prompt">tap when you're ready</div>
+                    </div>
+                    
+                    <!-- Revealed card (hidden initially) -->
+                    <div class="arcana-card card-lg" id="revealedCard" style="display: none;">
+                        <span class="corner-tr"></span>
+                        <span class="corner-bl"></span>
+                        <div class="card-inner">
+                            <div class="arcana-number" id="cardArcanaNumber"></div>
+                            <div class="arcana-name" id="cardArcanaName"></div>
+                            <div class="arcana-mood" id="cardArcanaMood"></div>
+                            <div class="arcana-divider"></div>
+                            <div class="venue-section">
+                                <div class="venue-name" id="cardVenueName"></div>
+                                <div class="venue-location" id="cardVenueLocation"></div>
+                                <div class="venue-blurb" id="cardVenueBlurb"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Draw actions -->
+                <div class="draw-actions" id="drawActions" style="display: none;">
+                    <button class="action-btn" onclick="drawAnother()">Draw Another</button>
+                    <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
+                </div>
+            </section>
 
-        <!-- Mood Tags -->
-        {% if core_moods %}
-        <div class="mood-tags-container">
-            <div class="mood-tags-label">Or explore by mood:</div>
-            <div class="mood-tags">
-                {% for mood in core_moods %}
-                <button class="mood-tag" onclick="searchByMood('{{ mood }}')">{{ mood }}</button>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
+            <!-- ASK THE LARK VIEW -->
+            <section id="askView" class="view">
+                <div class="ask-container">
+                    <p class="ask-prompt">Speak freely. She's listening.</p>
+                    
+                    <div class="ask-input-area">
+                        <textarea
+                            id="userInput"
+                            placeholder="I want to feel alive tonight..."
+                            rows="3"
+                        ></textarea>
+                        <button id="askButton" onclick="askLark()">Whisper to the Lark</button>
+                    </div>
+                </div>
+                
+                <!-- Results area -->
+                <div class="results-container" id="askResults"></div>
+                
+                <div class="ask-actions">
+                    <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
+                </div>
+            </section>
+
+            <!-- BROWSE THE DECK VIEW -->
+            <section id="browseView" class="view">
+                <div class="browse-container">
+                    <p class="browse-prompt">The deck awaits...</p>
+                    <p class="browse-subtext">Full browsing coming soon. For now, try drawing a card or asking the Lark.</p>
+                    
+                    <div class="browse-actions">
+                        <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CRISIS RESPONSE VIEW -->
+            <section id="crisisView" class="view">
+                <div class="crisis-container" id="crisisContent">
+                    <!-- Populated dynamically -->
+                </div>
+                <div class="crisis-actions">
+                    <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
+                </div>
+            </section>
+
+        </main>
     </div>
 
-    <!-- Dev Mood Tuner Toggle -->
-    <button class="dev-toggle" onclick="toggleMoodTuner()">🔧 Mood Tuner</button>
-
-    <!-- Mood Tuner Panel -->
-    <div class="mood-tuner" id="moodTuner">
-        <button class="close-btn" onclick="toggleMoodTuner()">×</button>
-        <h3>🎭 Mood Tuner</h3>
-
-        <div class="parse-result">
-            <strong>Last Parse Result:</strong>
-            <pre id="parseResult">No query yet...</pre>
-        </div>
-
-        <div class="test-moods">
-            <strong style="font-size: 0.85rem; color: #b0c4de;">Test Moods:</strong><br>
-            <button class="test-mood-btn" onclick="testMood('Folk & Intimate')">Folk & Intimate</button>
-            <button class="test-mood-btn" onclick="testMood('Queer Revelry')">Queer Revelry</button>
-            <button class="test-mood-btn" onclick="testMood('Melancholic Beauty')">Melancholic Beauty</button>
-            <button class="test-mood-btn" onclick="testMood('Late-Night Lark')">Late-Night Lark</button>
-            <button class="test-mood-btn" onclick="testMood('Curious Encounters')">Curious Encounters</button>
-            <button class="test-mood-btn" onclick="testMood('The Thoughtful Stage')">The Thoughtful Stage</button>
-            <button class="test-mood-btn" onclick="testMood('Global Rhythms')">Global Rhythms</button>
-            <button class="test-mood-btn" onclick="testMood('Cabaret & Glitter')">Cabaret & Glitter</button>
-        </div>
-
-        <div style="margin-top: 1.5rem;">
-            <strong style="font-size: 0.85rem; color: #b0c4de;">Current Filters:</strong>
-            <pre id="currentFilters" style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 6px; margin-top: 0.5rem; font-size: 0.8rem;">None</pre>
-        </div>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="feather-loader">🪶</div>
+        <p class="loading-text">The Lark is listening...</p>
     </div>
-
-    <script>
-        const conversation = document.getElementById('conversation');
-        const userInput = document.getElementById('userInput');
-        const askButton = document.getElementById('askButton');
-        const parseResult = document.getElementById('parseResult');
-        const currentFilters = document.getElementById('currentFilters');
-
-        // Mood to icon mapping
-        const moodIcons = {
-            'Folk & Intimate': '🌿',
-            'Queer Revelry': '🌈',
-            'Melancholic Beauty': '🌙',
-            'Late-Night Lark': '🦉',
-            'Curious Encounters': '✨',
-            'The Thoughtful Stage': '🎭',
-            'Global Rhythms': '🌍',
-            'Cabaret & Glitter': '💫',
-            'Poetic': '📜',
-            'Punchy / Protest': '🔥',
-            'Big Night Out': '🎉',
-            'Comic Relief': '😄',
-            'Dreamlike & Hypnagogic': '💭',
-            'Wonder & Awe': '🌟',
-            'Spiritual / Sacred / Mystical': '🕯️',
-            'Playful & Weird': '🎪',
-            'Nostalgic / Vintage / Retro': '📻',
-            'Body-Based / Movement-Led': '💃',
-            'Grief & Grace': '🕊️',
-            'Witchy & Wild': '🌛'
-        };
-
-        // Poetic empty state messages
-        const emptyStateMessages = [
-            "The wind found no doors tonight, petal. Try another path.",
-            "Even the Lark must sometimes rest her wings. No matches found.",
-            "The city hums, but not in that key tonight. Seek elsewhere.",
-            "No feathers stirred for this request. Perhaps rephrase your longing?",
-            "The map is vast, but this corner lies silent. Ask again differently."
-        ];
-
-        // Focus input on load
-        userInput.focus();
-
-        // Allow Enter to submit (Shift+Enter for new line)
-        userInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                askLark();
-            }
-        });
-
-        // Search by mood tag
-        function searchByMood(mood) {
-            // Highlight the selected mood tag
-            document.querySelectorAll('.mood-tag').forEach(tag => {
-                tag.classList.remove('active');
-                if (tag.textContent === mood) {
-                    tag.classList.add('active');
-                }
-            });
-
-            // Set the input to the mood and trigger search
-            userInput.value = mood;
-            askLark();
-        }
-
-        function clearIntro() {
-            const intro = conversation.querySelector('.intro');
-            if (intro) {
-                intro.remove();
-            }
-        }
-
-        function getMoodIcon(mood) {
-            return moodIcons[mood] || '🎵';
-        }
-
-        function addMessage(type, content, details = {}) {
-            clearIntro();
-
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${type}-message`;
-
-            let html = `<div class="message-label">${type === 'user' ? 'You' : 'The Lark'}</div>`;
-            html += `<div class="message-text">${content}</div>`;
-
-            if (details.venue_name) {
-                const venueName = details.venue_name;
-                const area = details.area ? ' in ' + details.area : '';
-                const website = details.website;
-
-                // Make venue name clickable if website exists
-                if (website && website !== '(n/a — pub site or folk club listing)' && website.trim() && !website.startsWith('(')) {
-                    let url = website;
-                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                        url = 'https://' + url;
-                    }
-                    html += `<div class="venue-details">📍 <a href="${url}" target="_blank" rel="noopener noreferrer" class="venue-link">${venueName}</a>${area}</div>`;
-                } else {
-                    html += `<div class="venue-details">📍 ${venueName}${area}</div>`;
-                }
-            }
-
-            if (details.mood) {
-                const icon = getMoodIcon(details.mood);
-                const confidenceText = details.confidence < 1.0 ? ` · ${Math.round(details.confidence * 100)}%` : '';
-                html += `<div class="mood-badge"><span class="mood-icon">${icon}</span>${details.mood}${confidenceText}</div>`;
-            }
-
-            messageDiv.innerHTML = html;
-            conversation.appendChild(messageDiv);
-
-            // Scroll to bottom
-            setTimeout(() => {
-                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
-            }, 100);
-        }
-
-        function showLoader() {
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'loading';
-            loadingDiv.id = 'currentLoader';
-            loadingDiv.innerHTML = `
-                <div class="feather-loader">🪶</div>
-                <div class="loading-text">The Lark is composing...</div>
-            `;
-            conversation.appendChild(loadingDiv);
-            loadingDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
-            return loadingDiv;
-        }
-
-        function removeLoader() {
-            const loader = document.getElementById('currentLoader');
-            if (loader) loader.remove();
-        }
-
-        function showEmptyState() {
-            const message = emptyStateMessages[Math.floor(Math.random() * emptyStateMessages.length)];
-            const emptyDiv = document.createElement('div');
-            emptyDiv.className = 'lark-message message empty-state';
-            emptyDiv.innerHTML = `
-                <div class="message-label">The Lark</div>
-                <div class="message-text">${message}</div>
-            `;
-            conversation.appendChild(emptyDiv);
-        }
-
-        // Crisis Response Rendering
-        function renderCrisisResponse(crisisResponse, distressLevel) {
-            clearIntro();
-
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message lark-message crisis-response crisis-${distressLevel}`;
-
-            let html = `<div class="message-label">The Lark</div>`;
-
-            // Intro message
-            if (crisisResponse.intro) {
-                html += `<div class="crisis-intro">${crisisResponse.intro}</div>`;
-            }
-
-            // Resources section
-            if (crisisResponse.show_resources && crisisResponse.resources) {
-                html += `<div class="crisis-resources ${crisisResponse.resources_priority === 'urgent' ? 'urgent' : 'important'}">`;
-                html += `<h3 class="resources-header">${crisisResponse.resources_header}</h3>`;
-                html += `<ul class="resources-list">`;
-
-                crisisResponse.resources.forEach(resource => {
-                    const iconEmoji = resource.icon === 'emergency' ? '🚨' :
-                                      resource.icon === 'text' ? '💬' : '📞';
-                    html += `<li class="resource-item">
-                        <span class="resource-icon">${iconEmoji}</span>
-                        <strong>${resource.name}:</strong>
-                        <span class="resource-number">${resource.number}</span>
-                        <span class="resource-desc">${resource.description}</span>
-                    </li>`;
-                });
-
-                html += `</ul>`;
-                html += `<p class="more-resources"><a href="/resources">More support resources →</a></p>`;
-                html += `</div>`;
-            }
-
-            // Closing message
-            if (crisisResponse.closing) {
-                html += `<div class="crisis-closing">${crisisResponse.closing}</div>`;
-            }
-
-            messageDiv.innerHTML = html;
-            conversation.appendChild(messageDiv);
-
-            // Scroll to message
-            setTimeout(() => {
-                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
-            }, 100);
-        }
-
-        // Render venue intro for distress level (before venues)
-        function renderDistressVenueIntro(venueIntro) {
-            const introDiv = document.createElement('div');
-            introDiv.className = 'message lark-message distress-venue-intro';
-            introDiv.innerHTML = `
-                <div class="message-text venue-intro-text">${venueIntro}</div>
-            `;
-            conversation.appendChild(introDiv);
-        }
-
-        // Render melancholy footer
-        function renderMelancholyFooter(footer) {
-            const footerDiv = document.createElement('div');
-            footerDiv.className = 'melancholy-footer';
-            footerDiv.innerHTML = footer.html;
-            conversation.appendChild(footerDiv);
-        }
-
-        async function askLark() {
-            const prompt = userInput.value.trim();
-
-            if (!prompt) return;
-
-            // Disable input
-            askButton.disabled = true;
-            userInput.disabled = true;
-
-            // Add user message
-            addMessage('user', prompt);
-
-            // Clear input
-            userInput.value = '';
-
-            // Show fluttering feather loader
-            showLoader();
-
-            try {
-                const response = await fetch('/ask', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ prompt })
-                });
-
-                const data = await response.json();
-
-                // Update dev panel
-                if (data.filters) {
-                    parseResult.textContent = JSON.stringify(data.filters, null, 2);
-                    currentFilters.textContent = JSON.stringify(data.filters, null, 2);
-                }
-
-                // Remove loader
-                removeLoader();
-
-                if (data.error) {
-                    addMessage('lark', data.error);
-                }
-                // CRISIS LEVEL: Show resources only, no venues
-                else if (data.distress_level === 'crisis' && data.crisis_response) {
-                    renderCrisisResponse(data.crisis_response, 'crisis');
-                }
-                // DISTRESS LEVEL: Show resources first, then gentle venues
-                else if (data.distress_level === 'distress' && data.crisis_response) {
-                    // First render crisis resources
-                    renderCrisisResponse(data.crisis_response, 'distress');
-
-                    // Then show venue intro and venues if available
-                    if (data.responses && data.responses.length > 0) {
-                        setTimeout(() => {
-                            if (data.crisis_response.venue_intro) {
-                                renderDistressVenueIntro(data.crisis_response.venue_intro);
-                            }
-                            // Add each venue response
-                            data.responses.forEach((resp, index) => {
-                                setTimeout(() => {
-                                    addMessage('lark', resp.text, {
-                                        venue_name: resp.venue_name,
-                                        area: resp.area,
-                                        website: resp.website,
-                                        mood: data.mood,
-                                        confidence: data.confidence
-                                    });
-                                }, (index + 1) * 300);
-                            });
-                        }, 600); // Delay venues after resources
-                    }
-                }
-                // MELANCHOLY or NORMAL: Regular venue response with optional footer
-                else if (data.responses && data.responses.length > 0) {
-                    // Add each response with mood badge
-                    data.responses.forEach((resp, index) => {
-                        setTimeout(() => {
-                            addMessage('lark', resp.text, {
-                                venue_name: resp.venue_name,
-                                area: resp.area,
-                                website: resp.website,
-                                mood: data.mood,
-                                confidence: data.confidence
-                            });
-                        }, index * 300); // Stagger animations
-                    });
-
-                    // Add subtle footer for melancholy level
-                    if (data.distress_level === 'melancholy' && data.melancholy_footer) {
-                        const totalDelay = data.responses.length * 300 + 400;
-                        setTimeout(() => {
-                            renderMelancholyFooter(data.melancholy_footer);
-                        }, totalDelay);
-                    }
-                } else {
-                    showEmptyState();
-                }
-
-            } catch (error) {
-                removeLoader();
-                addMessage('lark', `Something went awry: ${error.message}`);
-            }
-
-            // Re-enable input
-            askButton.disabled = false;
-            userInput.disabled = false;
-            userInput.focus();
-        }
-
-        async function surpriseMe() {
-            // Clear intro
-            clearIntro();
-
-            // Disable buttons
-            const surpriseButton = document.getElementById('surpriseButton');
-            askButton.disabled = true;
-            surpriseButton.disabled = true;
-
-            // Show loader
-            showLoader();
-
-            try {
-                const response = await fetch('/surprise', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({})
-                });
-
-                const data = await response.json();
-
-                // Remove loader
-                removeLoader();
-
-                if (data.error) {
-                    addMessage('lark', data.error);
-                } else if (data.response) {
-                    // Add surprise response with mood badge and venue info
-                    addMessage('lark', data.response, {
-                        venue_name: data.venue_name,
-                        area: data.area,
-                        website: data.website,
-                        mood: data.mood,
-                        confidence: 1.0
-                    });
-                }
-
-            } catch (error) {
-                removeLoader();
-                addMessage('lark', `Something went awry: ${error.message}`);
-            }
-
-            // Re-enable buttons
-            askButton.disabled = false;
-            surpriseButton.disabled = false;
-        }
-
-        // Mood Tuner functions
-        function toggleMoodTuner() {
-            const panel = document.getElementById('moodTuner');
-            panel.classList.toggle('open');
-        }
-
-        function testMood(mood) {
-            // Update button states
-            document.querySelectorAll('.test-mood-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent === mood) {
-                    btn.classList.add('active');
-                }
-            });
-
-            // Set a test query
-            userInput.value = `I want something ${mood.toLowerCase()}`;
-            userInput.focus();
-        }
-
-        // Close mood tuner with Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const panel = document.getElementById('moodTuner');
-                if (panel.classList.contains('open')) {
-                    panel.classList.remove('open');
-                }
-            }
-        });
-    </script>
 
     <footer class="main-footer">
         <a href="/about" class="footer-link">About the Lark</a>
         <span class="footer-separator"> · </span>
         <a href="/resources" class="footer-link">If you need support</a>
     </footer>
+
+    <script>
+        // ============================================
+        // STATE
+        // ============================================
+        let currentView = 'entrance';
+        let currentCardData = null;
+
+        // Arcana mapping for display
+        const arcanaMap = {
+            'Playful & Weird': { number: '0', name: 'THE FOOL' },
+            'Curious Encounters': { number: 'I', name: 'THE MAGICIAN' },
+            'Witchy & Wild': { number: 'II', name: 'THE HIGH PRIESTESS' },
+            'Folk & Intimate': { number: 'III', name: 'THE EMPRESS' },
+            'The Thoughtful Stage': { number: 'IV', name: 'THE EMPEROR' },
+            'Spiritual / Sacred / Mystical': { number: 'V', name: 'THE HIEROPHANT' },
+            'Cabaret & Glitter': { number: 'VI', name: 'THE LOVERS' },
+            'Big Night Out': { number: 'VII', name: 'THE CHARIOT' },
+            'Punchy / Protest': { number: 'VIII', name: 'STRENGTH' },
+            'Contemplative & Meditative': { number: 'IX', name: 'THE HERMIT' },
+            'Global Rhythms': { number: 'X', name: 'WHEEL OF FORTUNE' },
+            'Rant & Rapture': { number: 'XI', name: 'JUSTICE' },
+            'Body-Based / Movement-Led': { number: 'XII', name: 'THE HANGED MAN' },
+            'Grief & Grace': { number: 'XIII', name: 'DEATH' },
+            'Word & Voice': { number: 'XIV', name: 'TEMPERANCE' },
+            'Late-Night Lark': { number: 'XV', name: 'THE DEVIL' },
+            'Melancholic Beauty': { number: 'XVI', name: 'THE TOWER' },
+            'Wonder & Awe': { number: 'XVII', name: 'THE STAR' },
+            'Nostalgic / Vintage / Retro': { number: 'XVIII', name: 'THE MOON' },
+            'Comic Relief': { number: 'XIX', name: 'THE SUN' },
+            'Group Energy': { number: 'XX', name: 'JUDGEMENT' },
+            'Queer Revelry': { number: 'XXI', name: 'THE WORLD' },
+            'Romanticised London': { number: '✦', name: 'THE LARK' }
+        };
+
+        // ============================================
+        // VIEW MANAGEMENT
+        // ============================================
+        function showView(viewName) {
+            // Hide all views
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            
+            // Show requested view
+            const view = document.getElementById(viewName + 'View');
+            if (view) {
+                view.classList.add('active');
+                currentView = viewName;
+            }
+        }
+
+        function returnToEntrance() {
+            showView('entrance');
+            // Reset draw card state
+            document.getElementById('drawnCard').style.display = 'flex';
+            document.getElementById('revealedCard').style.display = 'none';
+            document.getElementById('drawActions').style.display = 'none';
+            // Clear ask results
+            document.getElementById('askResults').innerHTML = '';
+            document.getElementById('userInput').value = '';
+        }
+
+        // ============================================
+        // PATH SELECTION
+        // ============================================
+        function choosePath(path) {
+            switch(path) {
+                case 'draw':
+                    showView('draw');
+                    // Reset card to face-down
+                    document.getElementById('drawnCard').style.display = 'flex';
+                    document.getElementById('revealedCard').style.display = 'none';
+                    document.getElementById('drawActions').style.display = 'none';
+                    break;
+                case 'ask':
+                    showView('ask');
+                    document.getElementById('userInput').focus();
+                    break;
+                case 'browse':
+                    showView('browse');
+                    break;
+            }
+        }
+
+        // ============================================
+        // DRAW A CARD
+        // ============================================
+        async function revealCard() {
+            const drawnCard = document.getElementById('drawnCard');
+            const revealedCard = document.getElementById('revealedCard');
+            const drawActions = document.getElementById('drawActions');
+            
+            // If already revealed, do nothing
+            if (drawnCard.style.display === 'none') return;
+            
+            // Show loading
+            showLoading();
+            
+            try {
+                const response = await fetch('/surprise', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                
+                const data = await response.json();
+                hideLoading();
+                
+                if (data.error) {
+                    alert(data.error);
+                    return;
+                }
+                
+                // Store card data
+                currentCardData = data;
+                
+                // Get arcana info
+                const arcana = arcanaMap[data.mood] || { number: '✦', name: 'THE LARK' };
+                
+                // Populate revealed card
+                document.getElementById('cardArcanaNumber').textContent = arcana.number;
+                document.getElementById('cardArcanaName').textContent = arcana.name;
+                document.getElementById('cardArcanaMood').textContent = data.mood || 'A London Mystery';
+                
+                // Venue details
+                const venueName = document.getElementById('cardVenueName');
+                if (data.website && data.website.trim() && !data.website.startsWith('(')) {
+                    let url = data.website;
+                    if (!url.startsWith('http')) url = 'https://' + url;
+                    venueName.innerHTML = `<a href="${url}" target="_blank" rel="noopener">${data.venue_name}</a>`;
+                } else {
+                    venueName.textContent = data.venue_name;
+                }
+                
+                document.getElementById('cardVenueLocation').textContent = data.area || 'London';
+                document.getElementById('cardVenueBlurb').textContent = data.response || '';
+                
+                // Set arcana glow
+                const arcanaKey = data.mood?.toLowerCase().replace(/[^a-z]/g, '') || 'lark';
+                revealedCard.setAttribute('data-arcana', getArcanaKey(data.mood));
+                
+                // Animate the reveal
+                drawnCard.style.display = 'none';
+                revealedCard.style.display = 'block';
+                revealedCard.classList.add('card-reveal');
+                
+                // Show actions
+                setTimeout(() => {
+                    drawActions.style.display = 'flex';
+                }, 500);
+                
+            } catch (error) {
+                hideLoading();
+                alert('Something went awry: ' + error.message);
+            }
+        }
+
+        function drawAnother() {
+            const drawnCard = document.getElementById('drawnCard');
+            const revealedCard = document.getElementById('revealedCard');
+            const drawActions = document.getElementById('drawActions');
+            
+            // Reset
+            revealedCard.style.display = 'none';
+            revealedCard.classList.remove('card-reveal');
+            drawActions.style.display = 'none';
+            drawnCard.style.display = 'flex';
+        }
+
+        function getArcanaKey(mood) {
+            const keyMap = {
+                'Playful & Weird': 'fool',
+                'Curious Encounters': 'magician',
+                'Witchy & Wild': 'priestess',
+                'Folk & Intimate': 'empress',
+                'The Thoughtful Stage': 'emperor',
+                'Spiritual / Sacred / Mystical': 'hierophant',
+                'Cabaret & Glitter': 'lovers',
+                'Big Night Out': 'chariot',
+                'Punchy / Protest': 'strength',
+                'Contemplative & Meditative': 'hermit',
+                'Global Rhythms': 'wheel',
+                'Rant & Rapture': 'justice',
+                'Body-Based / Movement-Led': 'hanged',
+                'Grief & Grace': 'death',
+                'Word & Voice': 'temperance',
+                'Late-Night Lark': 'devil',
+                'Melancholic Beauty': 'tower',
+                'Wonder & Awe': 'star',
+                'Nostalgic / Vintage / Retro': 'moon',
+                'Comic Relief': 'sun',
+                'Group Energy': 'judgement',
+                'Queer Revelry': 'world',
+                'Romanticised London': 'lark'
+            };
+            return keyMap[mood] || 'lark';
+        }
+
+        // ============================================
+        // ASK THE LARK
+        // ============================================
+        async function askLark() {
+            const input = document.getElementById('userInput');
+            const prompt = input.value.trim();
+            const resultsContainer = document.getElementById('askResults');
+            
+            if (!prompt) return;
+            
+            // Disable input
+            input.disabled = true;
+            document.getElementById('askButton').disabled = true;
+            
+            showLoading();
+            
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt })
+                });
+                
+                const data = await response.json();
+                hideLoading();
+                
+                // Clear previous results
+                resultsContainer.innerHTML = '';
+                
+                // Handle crisis response
+                if (data.distress_level === 'crisis' && data.crisis_response) {
+                    renderCrisisResponse(data.crisis_response);
+                    input.disabled = false;
+                    document.getElementById('askButton').disabled = false;
+                    return;
+                }
+                
+                // Handle distress with venues
+                if (data.distress_level === 'distress' && data.crisis_response) {
+                    renderDistressResponse(data);
+                    input.disabled = false;
+                    document.getElementById('askButton').disabled = false;
+                    return;
+                }
+                
+                // Normal response - render as cards
+                if (data.responses && data.responses.length > 0) {
+                    const arcana = arcanaMap[data.mood] || { number: '✦', name: 'THE LARK' };
+                    
+                    // Add a whisper intro
+                    const introDiv = document.createElement('div');
+                    introDiv.className = 'results-intro';
+                    introDiv.innerHTML = `<span class="arcana-badge">${arcana.number} · ${arcana.name}</span> <span class="mood-label">${data.mood || ''}</span>`;
+                    resultsContainer.appendChild(introDiv);
+                    
+                    // Render venue cards
+                    data.responses.forEach((resp, index) => {
+                        setTimeout(() => {
+                            const card = createVenueCard(resp, data.mood);
+                            resultsContainer.appendChild(card);
+                        }, index * 200);
+                    });
+                    
+                    // Add melancholy footer if present
+                    if (data.distress_level === 'melancholy' && data.melancholy_footer) {
+                        setTimeout(() => {
+                            const footer = document.createElement('div');
+                            footer.className = 'melancholy-footer';
+                            footer.innerHTML = data.melancholy_footer.html;
+                            resultsContainer.appendChild(footer);
+                        }, data.responses.length * 200 + 300);
+                    }
+                } else {
+                    // Empty state
+                    resultsContainer.innerHTML = `
+                        <div class="empty-state">
+                            <p>The wind found no doors tonight, petal.</p>
+                            <p class="empty-subtext">Try another path, or speak differently.</p>
+                        </div>
+                    `;
+                }
+                
+            } catch (error) {
+                hideLoading();
+                resultsContainer.innerHTML = `<div class="error-state">Something went awry: ${error.message}</div>`;
+            }
+            
+            // Re-enable input
+            input.disabled = false;
+            document.getElementById('askButton').disabled = false;
+            input.value = '';
+            input.focus();
+        }
+
+        function createVenueCard(venue, mood) {
+            const card = document.createElement('div');
+            card.className = 'venue-result-card';
+            card.setAttribute('data-arcana', getArcanaKey(mood));
+            
+            let venueLink = venue.venue_name;
+            if (venue.website && venue.website.trim() && !venue.website.startsWith('(')) {
+                let url = venue.website;
+                if (!url.startsWith('http')) url = 'https://' + url;
+                venueLink = `<a href="${url}" target="_blank" rel="noopener">${venue.venue_name}</a>`;
+            }
+            
+            card.innerHTML = `
+                <div class="venue-result-name">${venueLink}</div>
+                <div class="venue-result-location">${venue.area || 'London'}</div>
+                <div class="venue-result-blurb">${venue.text}</div>
+            `;
+            
+            return card;
+        }
+
+        // ============================================
+        // CRISIS HANDLING
+        // ============================================
+        function renderCrisisResponse(crisisData) {
+            const container = document.getElementById('crisisContent');
+            container.innerHTML = `
+                <div class="crisis-message">
+                    <p class="crisis-intro">${crisisData.intro || "I hear something in your words that makes me want to reach beyond venues tonight."}</p>
+                    <div class="crisis-resources">
+                        <p class="resources-label">These humans know how to hold what you're carrying:</p>
+                        <ul class="resources-list">
+                            <li><strong>Samaritans:</strong> 116 123 (free, 24/7)</li>
+                            <li><strong>Crisis Text Line:</strong> Text SHOUT to 85258</li>
+                            <li><strong>NHS Urgent:</strong> 111, option 2</li>
+                        </ul>
+                    </div>
+                    <p class="crisis-closing">${crisisData.closing || "I'm here, but I'm not enough for all pain. Let others help carry this."}</p>
+                </div>
+            `;
+            showView('crisis');
+        }
+
+        function renderDistressResponse(data) {
+            const resultsContainer = document.getElementById('askResults');
+            
+            // Show resources first
+            const resourcesDiv = document.createElement('div');
+            resourcesDiv.className = 'distress-resources';
+            resourcesDiv.innerHTML = `
+                <p class="distress-intro">${data.crisis_response.intro || "I sense heaviness in your words."}</p>
+                <div class="resources-compact">
+                    <span>Samaritans: 116 123</span> · <span>Text SHOUT to 85258</span>
+                </div>
+            `;
+            resultsContainer.appendChild(resourcesDiv);
+            
+            // Then show venues if present
+            if (data.responses && data.responses.length > 0) {
+                const venueIntro = document.createElement('p');
+                venueIntro.className = 'venue-intro-after-resources';
+                venueIntro.textContent = data.crisis_response.venue_intro || "And if you still want a place to sit with this feeling:";
+                resultsContainer.appendChild(venueIntro);
+                
+                data.responses.forEach((resp, index) => {
+                    setTimeout(() => {
+                        const card = createVenueCard(resp, data.mood);
+                        resultsContainer.appendChild(card);
+                    }, index * 200);
+                });
+            }
+        }
+
+        // ============================================
+        // LOADING
+        // ============================================
+        function showLoading() {
+            document.getElementById('loadingOverlay').classList.add('active');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').classList.remove('active');
+        }
+
+        // ============================================
+        // KEYBOARD SHORTCUTS
+        // ============================================
+        document.addEventListener('keydown', (e) => {
+            // Enter to submit in ask view
+            if (e.key === 'Enter' && !e.shiftKey && currentView === 'ask') {
+                const input = document.getElementById('userInput');
+                if (document.activeElement === input) {
+                    e.preventDefault();
+                    askLark();
+                }
+            }
+            
+            // Escape to go back
+            if (e.key === 'Escape' && currentView !== 'entrance') {
+                returnToEntrance();
+            }
+        });
+
+        // ============================================
+        // INIT
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            showView('entrance');
+        });
+    </script>
 </body>
 </html>
