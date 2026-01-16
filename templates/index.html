@@ -261,10 +261,16 @@
                 
                 // Store card data
                 currentCardData = data;
-                
-                // Get arcana info
+
+                // Debug: log what we received from the backend
+                console.log('Draw response:', { mood: data.mood, venue: data.venue_name });
+
+                // Get arcana info - lookup the mood in arcanaMap
                 const arcana = arcanaMap[data.mood] || { number: '✦', name: 'THE LARK' };
-                
+
+                // Debug: log the lookup result
+                console.log('Arcana lookup:', { mood: data.mood, found: !!arcanaMap[data.mood], arcana });
+
                 // Populate revealed card
                 document.getElementById('cardArcanaNumber').textContent = arcana.number;
                 document.getElementById('cardArcanaName').textContent = arcana.name;
