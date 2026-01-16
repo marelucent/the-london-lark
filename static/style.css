@@ -2045,3 +2045,505 @@ button {
 /* ============================================
    END OF STYLESHEET
    ============================================ */
+/* ============================================
+   ADDITIONAL STYLES FOR NEW ENTRANCE SYSTEM
+   Add this to the END of your style.css
+   ============================================ */
+
+/* --------------------------------------------
+   VIEW SYSTEM
+   -------------------------------------------- */
+.view {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.view.active {
+    display: block;
+    opacity: 1;
+}
+
+/* --------------------------------------------
+   PORTAL MOMENT (Entrance)
+   -------------------------------------------- */
+.portal-moment {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+}
+
+.opening-line {
+    font-family: var(--font-whisper);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--candlelight);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.portal-question {
+    font-family: var(--font-title);
+    font-size: 0.9rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* --------------------------------------------
+   DRAW A CARD VIEW
+   -------------------------------------------- */
+.draw-container {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+    min-height: 400px;
+    align-items: center;
+}
+
+.draw-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Card reveal animation */
+.card-reveal {
+    animation: cardReveal 0.6s ease forwards;
+}
+
+@keyframes cardReveal {
+    0% {
+        transform: scale(0.8) rotateY(90deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05) rotateY(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* --------------------------------------------
+   ASK THE LARK VIEW
+   -------------------------------------------- */
+.ask-container {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.ask-prompt {
+    font-family: var(--font-whisper);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--candlelight);
+    margin-bottom: 2rem;
+    opacity: 0.85;
+}
+
+.ask-input-area {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ask-input-area textarea {
+    margin-bottom: 1rem;
+}
+
+.ask-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* --------------------------------------------
+   RESULTS DISPLAY
+   -------------------------------------------- */
+.results-container {
+    padding: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.results-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--tobacco);
+}
+
+.arcana-badge {
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+}
+
+.mood-label {
+    font-family: var(--font-whisper);
+    font-style: italic;
+    color: var(--candlelight);
+    opacity: 0.7;
+    margin-left: 0.5rem;
+}
+
+/* Venue result cards (smaller than full arcana cards) */
+.venue-result-card {
+    background: var(--parchment-dark);
+    border: 1px solid var(--tobacco);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+    animation: fadeSlideIn 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.venue-result-card:hover {
+    border-color: var(--gold-dim);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.venue-result-name {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.05em;
+}
+
+.venue-result-name a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.venue-result-name a:hover {
+    color: var(--candlelight);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.venue-result-location {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--candlelight);
+    opacity: 0.6;
+    margin-bottom: 1rem;
+}
+
+.venue-result-blurb {
+    font-family: var(--font-whisper);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.7;
+    opacity: 0.85;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.empty-state p {
+    font-family: var(--font-whisper);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--candlelight);
+    margin-bottom: 0.5rem;
+}
+
+.empty-subtext {
+    font-size: 1rem !important;
+    opacity: 0.6;
+}
+
+.error-state {
+    text-align: center;
+    padding: 2rem;
+    color: #e74c3c;
+    font-style: italic;
+}
+
+/* --------------------------------------------
+   BROWSE VIEW (placeholder)
+   -------------------------------------------- */
+.browse-container {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.browse-prompt {
+    font-family: var(--font-whisper);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--candlelight);
+    margin-bottom: 1rem;
+}
+
+.browse-subtext {
+    font-family: var(--font-body);
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.browse-actions {
+    margin-top: 2rem;
+}
+
+/* --------------------------------------------
+   CRISIS VIEW
+   -------------------------------------------- */
+.crisis-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.crisis-message {
+    background: var(--parchment-dark);
+    border: 1px solid var(--tobacco);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 2rem;
+}
+
+.crisis-intro {
+    font-family: var(--font-whisper);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.crisis-resources {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.resources-label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--candlelight);
+    margin-bottom: 1rem;
+}
+
+.resources-list {
+    list-style: none;
+    padding: 0;
+}
+
+.resources-list li {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--cream);
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--gold-dim);
+}
+
+.resources-list strong {
+    color: var(--gold);
+}
+
+.crisis-closing {
+    font-family: var(--font-whisper);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--candlelight);
+    opacity: 0.8;
+}
+
+.crisis-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Distress (lighter version) */
+.distress-resources {
+    background: var(--parchment-dark);
+    border: 1px solid var(--tobacco);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.distress-intro {
+    font-family: var(--font-whisper);
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 1rem;
+}
+
+.resources-compact {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--candlelight);
+    opacity: 0.8;
+}
+
+.venue-intro-after-resources {
+    font-family: var(--font-whisper);
+    font-style: italic;
+    color: var(--candlelight);
+    text-align: center;
+    margin: 1.5rem 0;
+    opacity: 0.75;
+}
+
+/* Melancholy footer */
+.melancholy-footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--tobacco);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--candlelight);
+    opacity: 0.7;
+}
+
+.melancholy-footer a {
+    color: var(--gold);
+}
+
+/* --------------------------------------------
+   ACTION BUTTONS
+   -------------------------------------------- */
+.action-btn {
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+    border: none;
+    border-radius: 4px;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.action-btn.secondary {
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+}
+
+.action-btn.secondary:hover {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* --------------------------------------------
+   LOADING OVERLAY
+   -------------------------------------------- */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.feather-loader {
+    font-size: 3rem;
+    animation: featherFloat 2s ease-in-out infinite;
+}
+
+@keyframes featherFloat {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateY(-15px) rotate(10deg); 
+        opacity: 1;
+    }
+}
+
+.loading-text {
+    font-family: var(--font-whisper);
+    font-style: italic;
+    color: var(--candlelight);
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+/* --------------------------------------------
+   RESPONSIVE ADJUSTMENTS
+   -------------------------------------------- */
+@media (max-width: 600px) {
+    .portal-moment {
+        padding: 2rem 0.5rem 1.5rem;
+    }
+    
+    .opening-line {
+        font-size: 1.2rem;
+    }
+    
+    .paths-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .path-card {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .draw-container {
+        padding: 2rem 0.5rem;
+    }
+    
+    .arcana-card.card-lg {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .draw-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
