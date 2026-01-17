@@ -2547,3 +2547,23 @@ button {
         max-width: 200px;
     }
 }
+/* ============================================
+   VENUE LINK VISIBILITY FIX
+   Makes venue names obviously clickable
+   ============================================ */
+
+.venue-name a,
+.venue-result-name a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
+}
+
+.venue-name a:hover,
+.venue-result-name a:hover {
+    color: var(--candlelight);
+    border-bottom-color: var(--candlelight);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
