@@ -130,6 +130,91 @@ def resources():
     """Serve the support resources page"""
     return render_template('resources.html')
 
+@app.route('/arcana', methods=['GET'])
+def get_all_arcana():
+    """Return all 23 arcana with their venue counts for the Full Deck view"""
+    try:
+        all_venues = load_parsed_venues()
+        
+        # Count venues per arcana
+        arcana_counts = {}
+        for venue in all_venues:
+            arcana = venue.get('arcana', 'Romanticised London')
+            if arcana not in arcana_counts:
+                arcana_counts[arcana] = 0
+            arcana_counts[arcana] += 1
+        
+        # Build response list
+        arcana_list = []
+        for mood, count in arcana_counts.items():
+            arcana_list.append({
+                'mood': mood,
+                'venue_count': count
+            })
+        
+        # Sort by the standard arcana order
+        arcana_order = [
+            'Playful & Weird', 'Curious Encounters', 'Witchy & Wild', 'Folk & Intimate',
+            'The Thoughtful Stage', 'Spiritual / Sacred / Mystical', 'Cabaret & Glitter',
+            'Big Night Out', 'Punchy / Protest', 'Contemplative & Meditative', 'Global Rhythms',
+            'Rant & Rapture', 'Body-Based / Movement-Led', 'Grief & Grace', 'Word & Voice',
+            'Late-Night Lark', 'Melancholic Beauty', 'Wonder & Awe', 'Nostalgic / Vintage / Retro',
+            'Comic Relief', 'Group Energy', 'Queer Revelry', 'Romanticised London'
+        ]
+        
+        # Create ordered list, including any arcana with 0 venues
+        ordered_list = []
+        for mood in arcana_order:
+            count = arcana_counts.get(mood, 0)
+            ordered_list.append({
+                'mood': mood,
+                'venue_count': count
+            })
+        
+        return jsonify({
+            'arcana': ordered_list,
+            'total_venues': len(all_venues)
+        })
+        
+    except Exception as e:
+        return jsonify({
+            'error': f"Could not load arcana: {str(e)}"
+        }), 500
+
+@app.route('/arcana/<path:mood>', methods=['GET'])
+def get_arcana_venues(mood):
+    """Return all venues for a specific arcana"""
+    try:
+        all_venues = load_parsed_venues()
+        
+        # Filter venues by arcana
+        matching_venues = [v for v in all_venues if v.get('arcana') == mood]
+        
+        # Format for frontend
+        venues_list = []
+        for venue in matching_venues:
+            venues_list.append({
+                'name': venue.get('display_name', venue.get('name', 'Unnamed')),
+                'area': venue.get('area', venue.get('location', 'London')),
+                'whisper': venue.get('whisper', ''),
+                'blurb': venue.get('blurb', venue.get('tone_notes', '')),
+                'website': venue.get('website', venue.get('url', ''))
+            })
+        
+        # Sort alphabetically by name
+        venues_list.sort(key=lambda v: v['name'].lower())
+        
+        return jsonify({
+            'mood': mood,
+            'venue_count': len(venues_list),
+            'venues': venues_list
+        })
+        
+    except Exception as e:
+        return jsonify({
+            'error': f"Could not load venues: {str(e)}"
+        }), 500
+
 @app.route('/surprise', methods=['POST'])
 def surprise_me():
     """Return a single random venue with first-person poetic response"""

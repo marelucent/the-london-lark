@@ -29,7 +29,7 @@
                     <div class="path-card" onclick="choosePath('draw')">
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
-                        <div class="path-icon">🃏</div>
+                        <div class="path-icon">✦</div>
                         <div class="path-title">DRAW A CARD</div>
                         <div class="path-whisper">"Let fate decide"</div>
                     </div>
@@ -37,7 +37,7 @@
                     <div class="path-card" onclick="choosePath('ask')">
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
-                        <div class="path-icon">💬</div>
+                        <div class="path-icon">❦</div>
                         <div class="path-title">ASK THE LARK</div>
                         <div class="path-whisper">"Tell me what you seek"</div>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="path-card" onclick="choosePath('browse')">
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
-                        <div class="path-icon">🎴</div>
+                        <div class="path-icon">☰</div>
                         <div class="path-title">BROWSE THE DECK</div>
                         <div class="path-whisper">"Lay out the cards"</div>
                     </div>
@@ -68,6 +68,7 @@
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
                         <div class="card-inner">
+                            <div class="arcana-symbol" id="cardArcanaSymbol"></div>
                             <div class="arcana-number" id="cardArcanaNumber"></div>
                             <div class="arcana-name" id="cardArcanaName"></div>
                             <div class="arcana-mood" id="cardArcanaMood"></div>
@@ -114,11 +115,34 @@
             <!-- BROWSE THE DECK VIEW -->
             <section id="browseView" class="view">
                 <div class="browse-container">
-                    <p class="browse-prompt">The deck awaits...</p>
-                    <p class="browse-subtext">Full browsing coming soon. For now, try drawing a card or asking the Lark.</p>
+                    <p class="browse-prompt">The Full Deck</p>
+                    <p class="browse-subtext">23 paths through London's soul. Choose your arcana.</p>
+                    
+                    <!-- Arcana Grid -->
+                    <div class="arcana-grid" id="arcanaGrid">
+                        <!-- Populated dynamically -->
+                    </div>
                     
                     <div class="browse-actions">
                         <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ARCANA VENUES VIEW (after clicking an arcana card) -->
+            <section id="arcanaVenuesView" class="view">
+                <div class="arcana-venues-container">
+                    <div class="arcana-venues-header" id="arcanaVenuesHeader">
+                        <!-- Populated dynamically -->
+                    </div>
+                    
+                    <div class="arcana-venues-list" id="arcanaVenuesList">
+                        <!-- Populated dynamically -->
+                    </div>
+                    
+                    <div class="arcana-venues-actions">
+                        <button class="action-btn" onclick="drawFromArcana()">Draw from this Arcana</button>
+                        <button class="action-btn secondary" onclick="showView('browse')">Back to Deck</button>
                     </div>
                 </div>
             </section>
@@ -154,32 +178,60 @@
         // ============================================
         let currentView = 'entrance';
         let currentCardData = null;
+        let currentArcana = null;
 
-        // Arcana mapping for display
+        // Arcana mapping for display (with symbols!)
         const arcanaMap = {
-            'Playful & Weird': { number: '0', name: 'THE FOOL' },
-            'Curious Encounters': { number: 'I', name: 'THE MAGICIAN' },
-            'Witchy & Wild': { number: 'II', name: 'THE HIGH PRIESTESS' },
-            'Folk & Intimate': { number: 'III', name: 'THE EMPRESS' },
-            'The Thoughtful Stage': { number: 'IV', name: 'THE EMPEROR' },
-            'Spiritual / Sacred / Mystical': { number: 'V', name: 'THE HIEROPHANT' },
-            'Cabaret & Glitter': { number: 'VI', name: 'THE LOVERS' },
-            'Big Night Out': { number: 'VII', name: 'THE CHARIOT' },
-            'Punchy / Protest': { number: 'VIII', name: 'STRENGTH' },
-            'Contemplative & Meditative': { number: 'IX', name: 'THE HERMIT' },
-            'Global Rhythms': { number: 'X', name: 'WHEEL OF FORTUNE' },
-            'Rant & Rapture': { number: 'XI', name: 'JUSTICE' },
-            'Body-Based / Movement-Led': { number: 'XII', name: 'THE HANGED MAN' },
-            'Grief & Grace': { number: 'XIII', name: 'DEATH' },
-            'Word & Voice': { number: 'XIV', name: 'TEMPERANCE' },
-            'Late-Night Lark': { number: 'XV', name: 'THE DEVIL' },
-            'Melancholic Beauty': { number: 'XVI', name: 'THE TOWER' },
-            'Wonder & Awe': { number: 'XVII', name: 'THE STAR' },
-            'Nostalgic / Vintage / Retro': { number: 'XVIII', name: 'THE MOON' },
-            'Comic Relief': { number: 'XIX', name: 'THE SUN' },
-            'Group Energy': { number: 'XX', name: 'JUDGEMENT' },
-            'Queer Revelry': { number: 'XXI', name: 'THE WORLD' },
-            'Romanticised London': { number: '✦', name: 'THE LARK' }
+            'Playful & Weird': { number: '0', name: 'THE FOOL', symbol: '◌' },
+            'Curious Encounters': { number: 'I', name: 'THE MAGICIAN', symbol: '☿' },
+            'Witchy & Wild': { number: 'II', name: 'THE HIGH PRIESTESS', symbol: '𓂀' },
+            'Folk & Intimate': { number: 'III', name: 'THE EMPRESS', symbol: '⚘' },
+            'The Thoughtful Stage': { number: 'IV', name: 'THE EMPEROR', symbol: '◆' },
+            'Spiritual / Sacred / Mystical': { number: 'V', name: 'THE HIEROPHANT', symbol: '⚷' },
+            'Cabaret & Glitter': { number: 'VI', name: 'THE LOVERS', symbol: '⚯' },
+            'Big Night Out': { number: 'VII', name: 'THE CHARIOT', symbol: '↑' },
+            'Punchy / Protest': { number: 'VIII', name: 'STRENGTH', symbol: '∞' },
+            'Contemplative & Meditative': { number: 'IX', name: 'THE HERMIT', symbol: '⟡' },
+            'Global Rhythms': { number: 'X', name: 'WHEEL OF FORTUNE', symbol: '◎' },
+            'Rant & Rapture': { number: 'XI', name: 'JUSTICE', symbol: '⚖' },
+            'Body-Based / Movement-Led': { number: 'XII', name: 'THE HANGED MAN', symbol: '∴' },
+            'Grief & Grace': { number: 'XIII', name: 'DEATH', symbol: '✿' },
+            'Word & Voice': { number: 'XIV', name: 'TEMPERANCE', symbol: '≋' },
+            'Late-Night Lark': { number: 'XV', name: 'THE DEVIL', symbol: '⛧' },
+            'Melancholic Beauty': { number: 'XVI', name: 'THE TOWER', symbol: '↯' },
+            'Wonder & Awe': { number: 'XVII', name: 'THE STAR', symbol: '✦' },
+            'Nostalgic / Vintage / Retro': { number: 'XVIII', name: 'THE MOON', symbol: '☾' },
+            'Comic Relief': { number: 'XIX', name: 'THE SUN', symbol: '☀' },
+            'Group Energy': { number: 'XX', name: 'JUDGEMENT', symbol: '△' },
+            'Queer Revelry': { number: 'XXI', name: 'THE WORLD', symbol: '◉' },
+            'Romanticised London': { number: '✦', name: 'THE LARK', symbol: '❦' }
+        };
+
+        // Arcana whispers (taglines for each card)
+        const arcanaWhispers = {
+            'Playful & Weird': "Fall sideways into something strange",
+            'Curious Encounters': "Everything you need is already here",
+            'Witchy & Wild': "The moon knows. The woods know.",
+            'Folk & Intimate': "Warm strings and stories like home",
+            'The Thoughtful Stage': "Theatre that makes you lean in",
+            'Spiritual / Sacred / Mystical': "Where the veil thins and reverence rises",
+            'Cabaret & Glitter': "Feathers, fire, wit and want",
+            'Big Night Out': "The night is a vehicle and you're at the wheel",
+            'Punchy / Protest': "Voices raised, truth revealed",
+            'Contemplative & Meditative': "Slow, still, deeply felt",
+            'Global Rhythms': "Borders blur and culture sings",
+            'Rant & Rapture': "Electrifying expression, righteous fire",
+            'Body-Based / Movement-Led': "When words aren't enough",
+            'Grief & Grace': "For when you need to feel the ache",
+            'Word & Voice': "Language that shimmers",
+            'Late-Night Lark': "The city stays up with you",
+            'Melancholic Beauty': "Beauty that breaks your heart",
+            'Wonder & Awe': "Feel small and lit from within",
+            'Nostalgic / Vintage / Retro': "A portal to another era",
+            'Comic Relief': "The belly-laugh you didn't know you needed",
+            'Group Energy': "The crowd becoming one",
+            'Queer Revelry': "Sequins, sweat, and chosen family",
+            'Romanticised London': "London as you imagined it in books"
         };
 
         // ============================================
@@ -226,14 +278,167 @@
                     break;
                 case 'browse':
                     showView('browse');
+                    loadFullDeck();
                     break;
             }
         }
 
         // ============================================
+        // BROWSE THE DECK - FULL DECK VIEW
+        // ============================================
+        async function loadFullDeck() {
+            const grid = document.getElementById('arcanaGrid');
+            
+            // Show loading state
+            grid.innerHTML = '<p class="loading-deck">Shuffling the deck...</p>';
+            
+            try {
+                const response = await fetch('/arcana');
+                const data = await response.json();
+                
+                if (data.error) {
+                    grid.innerHTML = '<p class="error-state">The deck scattered... try again?</p>';
+                    return;
+                }
+                
+                // Clear and populate grid
+                grid.innerHTML = '';
+                
+                // Sort by arcana order (0, I, II, III, etc.)
+                const arcanaOrder = [
+                    'Playful & Weird', 'Curious Encounters', 'Witchy & Wild', 'Folk & Intimate',
+                    'The Thoughtful Stage', 'Spiritual / Sacred / Mystical', 'Cabaret & Glitter',
+                    'Big Night Out', 'Punchy / Protest', 'Contemplative & Meditative', 'Global Rhythms',
+                    'Rant & Rapture', 'Body-Based / Movement-Led', 'Grief & Grace', 'Word & Voice',
+                    'Late-Night Lark', 'Melancholic Beauty', 'Wonder & Awe', 'Nostalgic / Vintage / Retro',
+                    'Comic Relief', 'Group Energy', 'Queer Revelry', 'Romanticised London'
+                ];
+                
+                arcanaOrder.forEach((mood, index) => {
+                    const arcanaData = data.arcana.find(a => a.mood === mood);
+                    if (arcanaData) {
+                        const card = createArcanaCard(arcanaData, index);
+                        grid.appendChild(card);
+                    }
+                });
+                
+            } catch (error) {
+                grid.innerHTML = `<p class="error-state">Something went awry: ${error.message}</p>`;
+            }
+        }
+
+        function createArcanaCard(arcanaData, index) {
+            const arcana = arcanaMap[arcanaData.mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
+            const whisper = arcanaWhispers[arcanaData.mood] || '';
+            const arcanaKey = getArcanaKey(arcanaData.mood);
+            
+            const card = document.createElement('div');
+            card.className = 'arcana-card card-sm';
+            card.setAttribute('data-arcana', arcanaKey);
+            card.onclick = () => showArcanaVenues(arcanaData.mood);
+            
+            // Staggered animation
+            card.style.animationDelay = `${index * 50}ms`;
+            
+            card.innerHTML = `
+                <span class="corner-tr"></span>
+                <span class="corner-bl"></span>
+                <div class="card-inner">
+                    <div class="arcana-symbol">${arcana.symbol}</div>
+                    <div class="arcana-number">${arcana.number}</div>
+                    <div class="arcana-name">${arcana.name}</div>
+                    <div class="arcana-mood">${arcanaData.mood}</div>
+                    <div class="arcana-count">${arcanaData.venue_count} venues</div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // ============================================
+        // ARCANA VENUES VIEW
+        // ============================================
+        async function showArcanaVenues(mood) {
+            currentArcana = mood;
+            const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
+            const whisper = arcanaWhispers[mood] || '';
+            const arcanaKey = getArcanaKey(mood);
+            
+            // Update header
+            const header = document.getElementById('arcanaVenuesHeader');
+            header.innerHTML = `
+                <div class="arcana-card card-lg" data-arcana="${arcanaKey}">
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
+                    <div class="card-inner">
+                        <div class="arcana-symbol">${arcana.symbol}</div>
+                        <div class="arcana-number">${arcana.number}</div>
+                        <div class="arcana-name">${arcana.name}</div>
+                        <div class="arcana-mood">${mood}</div>
+                        <div class="arcana-whisper">"${whisper}"</div>
+                    </div>
+                </div>
+            `;
+            
+            // Load venues for this arcana
+            const venuesList = document.getElementById('arcanaVenuesList');
+            venuesList.innerHTML = '<p class="loading-venues">Gathering venues...</p>';
+            
+            showView('arcanaVenues');
+            
+            try {
+                const response = await fetch(`/arcana/${encodeURIComponent(mood)}`);
+                const data = await response.json();
+                
+                if (data.error) {
+                    venuesList.innerHTML = '<p class="error-state">Could not find venues...</p>';
+                    return;
+                }
+                
+                venuesList.innerHTML = '';
+                
+                data.venues.forEach((venue, index) => {
+                    const venueCard = document.createElement('div');
+                    venueCard.className = 'venue-list-item';
+                    venueCard.style.animationDelay = `${index * 80}ms`;
+                    
+                    let venueLink = venue.name;
+                    if (venue.website && venue.website.trim() && !venue.website.startsWith('(')) {
+                        let url = venue.website;
+                        if (!url.startsWith('http')) url = 'https://' + url;
+                        venueLink = `<a href="${url}" target="_blank" rel="noopener">${venue.name}</a>`;
+                    }
+                    
+                    venueCard.innerHTML = `
+                        <div class="venue-list-name">${venueLink}</div>
+                        <div class="venue-list-location">${venue.area || 'London'}</div>
+                        <div class="venue-list-whisper">${venue.whisper || ''}</div>
+                    `;
+                    
+                    venuesList.appendChild(venueCard);
+                });
+                
+            } catch (error) {
+                venuesList.innerHTML = `<p class="error-state">Something went awry: ${error.message}</p>`;
+            }
+        }
+
+        async function drawFromArcana() {
+            if (!currentArcana) return;
+            
+            showView('draw');
+            document.getElementById('drawnCard').style.display = 'flex';
+            document.getElementById('revealedCard').style.display = 'none';
+            document.getElementById('drawActions').style.display = 'none';
+            
+            // Automatically trigger reveal with filtered arcana
+            await revealCard(currentArcana);
+        }
+
+        // ============================================
         // DRAW A CARD
         // ============================================
-        async function revealCard() {
+        async function revealCard(filteredArcana = null) {
             const drawnCard = document.getElementById('drawnCard');
             const revealedCard = document.getElementById('revealedCard');
             const drawActions = document.getElementById('drawActions');
@@ -245,10 +450,12 @@
             showLoading();
             
             try {
+                const body = filteredArcana ? { arcana: filteredArcana } : {};
+                
                 const response = await fetch('/surprise', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({})
+                    body: JSON.stringify(body)
                 });
                 
                 const data = await response.json();
@@ -263,9 +470,10 @@
                 currentCardData = data;
                 
                 // Get arcana info
-                const arcana = arcanaMap[data.mood] || { number: '✦', name: 'THE LARK' };
+                const arcana = arcanaMap[data.mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
                 
                 // Populate revealed card
+                document.getElementById('cardArcanaSymbol').textContent = arcana.symbol;
                 document.getElementById('cardArcanaNumber').textContent = arcana.number;
                 document.getElementById('cardArcanaName').textContent = arcana.name;
                 document.getElementById('cardArcanaMood').textContent = data.mood || 'A London Mystery';
@@ -284,7 +492,6 @@
                 document.getElementById('cardVenueBlurb').textContent = data.response || '';
                 
                 // Set arcana glow
-                const arcanaKey = data.mood?.toLowerCase().replace(/[^a-z]/g, '') || 'lark';
                 revealedCard.setAttribute('data-arcana', getArcanaKey(data.mood));
                 
                 // Animate the reveal
@@ -313,6 +520,9 @@
             revealedCard.classList.remove('card-reveal');
             drawActions.style.display = 'none';
             drawnCard.style.display = 'flex';
+            
+            // Clear filtered arcana
+            currentArcana = null;
         }
 
         function getArcanaKey(mood) {
@@ -391,12 +601,12 @@
                 
                 // Normal response - render as cards
                 if (data.responses && data.responses.length > 0) {
-                    const arcana = arcanaMap[data.mood] || { number: '✦', name: 'THE LARK' };
+                    const arcana = arcanaMap[data.mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
                     
                     // Add a whisper intro
                     const introDiv = document.createElement('div');
                     introDiv.className = 'results-intro';
-                    introDiv.innerHTML = `<span class="arcana-badge">${arcana.number} · ${arcana.name}</span> <span class="mood-label">${data.mood || ''}</span>`;
+                    introDiv.innerHTML = `<span class="arcana-badge">${arcana.symbol} ${arcana.number} · ${arcana.name}</span> <span class="mood-label">${data.mood || ''}</span>`;
                     resultsContainer.appendChild(introDiv);
                     
                     // Render venue cards
@@ -537,7 +747,11 @@
             
             // Escape to go back
             if (e.key === 'Escape' && currentView !== 'entrance') {
-                returnToEntrance();
+                if (currentView === 'arcanaVenues') {
+                    showView('browse');
+                } else {
+                    returnToEntrance();
+                }
             }
         });
 
