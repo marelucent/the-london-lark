@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # 🕊️ Venue Data Parser
 """
-Loads the structured venue data from lark.db SQLite database.
+Loads the structured venue data from lark_venues_clean.json.
 Applies exclusion filtering and deduplication.
+
+Note: SQLite database loading is disabled until the database
+is updated to include arcana fields. Always uses JSON for now.
 """
 
 import sqlite3
@@ -58,6 +61,9 @@ def _normalize_venue_record(raw):
         "url": raw.get("url", ""),
         "blurb": raw.get("blurb", ""),
         "last_verified": raw.get("last_verified", ""),
+        # New fields for the arcana card system
+        "arcana": raw.get("arcana", None),
+        "whisper": raw.get("whisper", ""),
     }
 
 
@@ -104,6 +110,9 @@ def _load_from_database():
             "url": row["url"] or "",
             "blurb": row["blurb"] or "",
             "last_verified": row["last_verified"] or "",
+            # Database doesn't have arcana yet - would need migration
+            "arcana": None,
+            "whisper": "",
         }
 
         venues.append(venue)
@@ -112,10 +121,10 @@ def _load_from_database():
 
 
 def _load_from_json():
-    """Load venues from the JSON export when SQLite is unavailable."""
+    """Load venues from the JSON export."""
     if not JSON_PATH.exists():
         raise FileNotFoundError(
-            f"No venue data source found. Expected either {DB_PATH.name} or {JSON_PATH.name} in the project folder."
+            f"No venue data source found. Expected {JSON_PATH.name} in the project folder."
         )
 
     with JSON_PATH.open("r", encoding="utf-8") as f:
@@ -127,7 +136,7 @@ def _load_from_json():
 
 def load_parsed_venues():
     """
-    Load structured venues from the SQLite database, falling back to the JSON export.
+    Load structured venues from the JSON file.
 
     Applies:
     - Exclusion filtering (removes specific venues)
@@ -140,20 +149,24 @@ def load_parsed_venues():
         "moods": [str],
         "genres": [str],
         "url": str,
-        "last_verified": str
+        "blurb": str,
+        "last_verified": str,
+        "arcana": str or None,
+        "whisper": str
     }
+    
+    Note: Always uses JSON file now (not SQLite) because the database
+    predates the arcana system and doesn't have those fields.
     """
-    if DB_PATH.exists():
-        return _load_from_database()
-
-    # Fallback for environments (like CI) that only have the JSON export available
+    # Always use JSON - it has the arcana and whisper fields
+    # The SQLite database is stale and missing the new fields
     return _load_from_json()
 
 
 if __name__ == "__main__":
     try:
         venues = load_parsed_venues()
-        print(f"✅ Loaded {len(venues)} venues from database (after filtering and deduplication)")
+        print(f"✅ Loaded {len(venues)} venues from JSON (after filtering and deduplication)")
         
         if venues:
             print("\nFirst venue:")
@@ -172,6 +185,23 @@ if __name__ == "__main__":
                 all_genres.update(v.get('genres', []))
             for genre in sorted(all_genres):
                 print(f"  - {genre}")
+
+            # Check arcana coverage
+            print("\n\nArcana coverage:")
+            arcana_counts = {}
+            missing_arcana = []
+            for v in venues:
+                arcana = v.get('arcana')
+                if arcana:
+                    arcana_counts[arcana] = arcana_counts.get(arcana, 0) + 1
+                else:
+                    missing_arcana.append(v.get('name'))
+            
+            for arcana in sorted(arcana_counts.keys()):
+                print(f"  {arcana}: {arcana_counts[arcana]} venues")
+            
+            if missing_arcana:
+                print(f"\n  ⚠️ {len(missing_arcana)} venues missing arcana")
 
         # Verify exclusions
         print("\n\nVerifying exclusions:")
