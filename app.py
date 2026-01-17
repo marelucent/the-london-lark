@@ -10,6 +10,7 @@ Run this, then open http://localhost:5000 in your browser.
 from flask import Flask, render_template, request, jsonify
 from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
+from safety_detector import detect_emotional_state, get_tier_response_config
 from venue_matcher import match_venues
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
 from parse_venues import load_parsed_venues
@@ -285,6 +286,13 @@ def ask_lark():
     try:
         user_prompt = request.json.get('prompt', '').strip()
 
+        # Safety check — detect emotional state before venue matching
+        emotional_tier, safety_keywords = detect_emotional_state(user_prompt)
+        safety_config = get_tier_response_config(emotional_tier)
+        
+        if emotional_tier:
+            print(f"   🛡️ Safety tier: {emotional_tier} (keywords: {safety_keywords})")
+
         if not user_prompt:
             return jsonify({
                 'response': "I'm listening... but I heard only silence. Speak, petal.",
@@ -398,6 +406,13 @@ def ask_lark():
             'venue_count': len(matches),
             'filters': filters,
             'voice_profile': voice_profile_info,
+            'safety': {
+                'tier': emotional_tier,
+                'show_soft_footer': safety_config['show_soft_footer'],
+                'show_support_box': safety_config['show_support_box'],
+                'show_crisis_resources': safety_config['show_crisis_resources'],
+                'lark_preamble': safety_config['lark_preamble']
+            },
             'debug': {
                 'mood_detected': filters.get('mood'),
                 'confidence': mood_confidence,

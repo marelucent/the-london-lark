@@ -18,7 +18,7 @@ import difflib
 import re
 
 # Load mood index
-with open("mood_index.json", "r") as f:
+with open("mood_index.json", "r", encoding="utf-8") as f:
     mood_index = json.load(f)
 
 # Build synonym lookup with specificity scores

@@ -1,39 +1,26 @@
 {
-  "total_queries": 131,
-  "mood_found": 131,
+  "total_queries": 132,
+  "mood_found": 132,
   "mood_not_found": 0,
   "confidence_distribution": {
-    "exact_match": 124,
+    "exact_match": 125,
     "high_confidence": 0,
     "medium_confidence": 4,
     "low_confidence": 3
   },
   "venue_matches": {
-    "found_venues": 119,
+    "found_venues": 120,
     "no_venues": 12
   },
   "filter_usage": {
-    "mood": 131,
+    "mood": 132,
     "location": 11,
-    "time": 17,
+    "time": 18,
     "budget": 4,
     "group": 5,
     "genre": 7
   },
   "session_history": [
-    {
-      "timestamp": "2025-11-27T14:31:43.484536",
-      "filters": {
-        "mood": "Spiritual / Sacred / Mystical",
-        "time": null,
-        "budget": null,
-        "group": null,
-        "genre": null,
-        "location": null
-      },
-      "confidence": 1.0,
-      "venue_count": 29
-    },
     {
       "timestamp": "2025-11-27T14:31:50.118037",
       "filters": {
@@ -158,6 +145,20 @@
       },
       "confidence": 1.0,
       "venue_count": 5
+    },
+    {
+      "timestamp": "2026-01-17T13:26:31.256991",
+      "filters": {
+        "mood": "Melancholic Beauty",
+        "time": "tonight",
+        "budget": null,
+        "group": null,
+        "genre": null,
+        "location": null,
+        "search_text": "I'm feeling lonely tonight"
+      },
+      "confidence": 1.0,
+      "venue_count": 3
     }
   ]
 }

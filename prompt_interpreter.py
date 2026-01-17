@@ -19,7 +19,7 @@ import json
 from datetime import datetime, timedelta
 
 # Load mood index (with synonyms)
-with open("mood_index.json", "r") as f:
+with open("mood_index.json", "r", encoding="utf-8") as f:
     mood_index = json.load(f)
 
 # Flatten mood synonyms into lookup
