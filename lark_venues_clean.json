@@ -603,7 +603,7 @@
     "blurb": "Café OTO lives in the pause between one note and the next. A soft-lit refuge for the sonically strange, it offers sanctuary to sounds no one else dares cradle — free-jazz, drone, improvised everything. You might sip tea in a hush of reverence, or share glances over dark beer and starlit discord. Dalston's breath grows quiet here, listening.",
     "last_verified": "2025-11-23",
     "whisper": "Café OTO lives in the pause between one note and the next.",
-    "arcana": "Folk & Intimate"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Camden Art Centre - Natural Dyes Workshop",
@@ -3407,25 +3407,6 @@
     "last_verified": "2025-11-23",
     "whisper": "Step through a nondescript door and up into a candlelit dream.",
     "arcana": "Group Energy"
-  },
-  {
-    "name": "The Phoenix Arts Club",
-    "location": "Soho",
-    "moods": [
-      "cabaret",
-      "queer"
-    ],
-    "genres": [
-      "cabaret",
-      "drag",
-      "musical theatre",
-      "burlesque"
-    ],
-    "url": "https://phoenixartsclub.com",
-    "blurb": "London's legendary venue for cabaret and variety, presenting nightly drag, musical theatre, and burlesque shows to 100,000 cabaret lovers yearly.",
-    "last_verified": "2025-11-15",
-    "whisper": "Sequins and secrets shimmer beneath the West End’s skin.",
-    "arcana": "Cabaret & Glitter"
   },
   {
     "name": "The Place",
@@ -7920,27 +7901,6 @@
     "last_verified": "2025-01-18"
   },
   {
-    "name": "The Jago",
-    "location": "Dalston",
-    "moods": [
-      "global",
-      "rhythmic",
-      "diasporic",
-      "celebratory"
-    ],
-    "genres": [
-      "Afrobeat",
-      "reggae",
-      "world music",
-      "jazz"
-    ],
-    "url": "https://www.thejagodalston.com/",
-    "blurb": "At The Jago, the wheel spins between AfroJam nights and Gnawa jam sessions. This grassroots, multi‑functional space invites East London's diaspora to gather and celebrate the rhythms of Africa, Latin America and beyond. I wander in for nights where community trumps commerce and the dancefloor sways under strings of fairy lights. It's messy, warm and full of life; a place where a jam can morph into a street party.",
-    "whisper": "Afro grooves tumble into gnawa chants under Dalston's tin roof.",
-    "arcana": "Global Rhythms",
-    "last_verified": "2025-01-18"
-  },
-  {
     "name": "The Post Bar",
     "location": "Tottenham",
     "moods": [
@@ -7961,27 +7921,6 @@
     "last_verified": "2025-01-18"
   },
   {
-    "name": "Green Note",
-    "location": "Camden",
-    "moods": [
-      "global",
-      "cultural",
-      "connected",
-      "multicultural"
-    ],
-    "genres": [
-      "folk",
-      "roots",
-      "world music",
-      "jazz"
-    ],
-    "url": "https://www.greennote.co.uk/",
-    "blurb": "Green Note is Camden's candlelit refuge for folk and world music. Founded by two friends in 2005, this award‑winning vegetarian café‑bar hosts gigs every night from bluegrass to global jazz. I slip into its cosy basement to hear kora strings and Gaelic ballads, sipping a fair‑trade beer among friends. The room feels like a living room, and the music opens doors between cultures.",
-    "whisper": "Strings and stories entwine in Camden's candlelit parlour.",
-    "arcana": "Global Rhythms",
-    "last_verified": "2025-01-18"
-  },
-  {
     "name": "CLF Art Lounge",
     "location": "Peckham",
     "moods": [
@@ -7998,26 +7937,6 @@
     "url": "https://www.clfartlounge.com/",
     "blurb": "While its rooftop is being renovated, the CLF Art Lounge keeps Peckham buzzing. The intimate space holds 100 seated or 150 standing and features a bar, lush seating and a stage for live music and DJ performances. Their programme brings the finest local and international acts to a room that feels like a friend's loft. Come for Latin horns, funk drums or poetry—there's always something unexpected and soulful on offer.",
     "whisper": "A pop‑up lounge where Peckham's skyline dances to global beats.",
-    "arcana": "Global Rhythms",
-    "last_verified": "2025-01-18"
-  },
-  {
-    "name": "Luna Lounge",
-    "location": "Leytonstone",
-    "moods": [
-      "celebratory",
-      "multicultural",
-      "connected"
-    ],
-    "genres": [
-      "jazz",
-      "blues",
-      "rock",
-      "world music"
-    ],
-    "url": "https://www.lunalounge.info/",
-    "blurb": "Since 2004, Luna Lounge has been an independently owned live music venue in Leytonstone, hosting performances seven nights a week. Musicians from all over the world share its two floors, and the bar is stocked with craft beers, wines and cocktails. Their motto—no genre is unwelcome—makes it one of London's most diverse music spaces. I drop in for blues one night and Balkan folk the next, always leaving with new rhythms in my bones.",
-    "whisper": "Two floors, seven nights, a world of sounds in Leytonstone.",
     "arcana": "Global Rhythms",
     "last_verified": "2025-01-18"
   },
