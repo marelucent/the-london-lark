@@ -319,7 +319,78 @@ def ask_lark():
         else:
             print(f"   Direct mood match: {filters.get('mood')}")
 
-        # CONFIDENCE THRESHOLD CHECKS
+        # =====================================================================
+        # SAFETY TIER PRIORITY CHECK
+        # If distress or crisis detected, handle that FIRST before mood checks
+        # =====================================================================
+        if emotional_tier in ('distress', 'crisis'):
+            print(f"   🛡️ Safety override: {emotional_tier} tier detected, bypassing mood requirements")
+            
+            # For crisis/distress, we might still want to offer gentle venues
+            # Try to find some refuge/cosy venues
+            gentle_venues = []
+            try:
+                all_venues = load_parsed_venues()
+                # Look for venues in gentle arcana
+                gentle_arcana = [
+                    'Contemplative & Meditative',
+                    'Folk & Intimate', 
+                    'Grief & Grace',
+                    'Spiritual / Sacred / Mystical'
+                ]
+                gentle_venues = [v for v in all_venues if v.get('arcana') in gentle_arcana]
+                random.shuffle(gentle_venues)
+                gentle_venues = gentle_venues[:3]  # Take up to 3
+            except Exception as e:
+                print(f"   Could not load gentle venues: {e}")
+            
+            # Build responses with gentle venues if available
+            responses = []
+            if gentle_venues and emotional_tier == 'distress':
+                # For distress, include some gentle venue suggestions
+                for venue in gentle_venues:
+                    response_text = generate_response(venue, {'mood': venue.get('arcana')})
+                    responses.append({
+                        'text': response_text,
+                        'venue_name': venue.get('name', venue.get('display_name', '')),
+                        'area': venue.get('area', venue.get('location', '')),
+                        'website': venue.get('website', venue.get('url', ''))
+                    })
+            elif gentle_venues and emotional_tier == 'crisis':
+                # For crisis, just one gentle option after the resources
+                venue = gentle_venues[0]
+                response_text = generate_response(venue, {'mood': venue.get('arcana')})
+                responses.append({
+                    'text': response_text,
+                    'venue_name': venue.get('name', venue.get('display_name', '')),
+                    'area': venue.get('area', venue.get('location', '')),
+                    'website': venue.get('website', venue.get('url', ''))
+                })
+            
+            return jsonify({
+                'responses': responses,
+                'mood': None,
+                'confidence': 0.0,
+                'venue_count': len(responses),
+                'filters': filters,
+                'safety': {
+                    'tier': emotional_tier,
+                    'show_soft_footer': safety_config['show_soft_footer'],
+                    'show_support_box': safety_config['show_support_box'],
+                    'show_crisis_resources': safety_config['show_crisis_resources'],
+                    'lark_preamble': safety_config['lark_preamble']
+                },
+                'debug': {
+                    'reason': 'safety_tier_priority',
+                    'tier': emotional_tier,
+                    'keywords': safety_keywords
+                }
+            })
+
+        # =====================================================================
+        # CONFIDENCE THRESHOLD CHECKS (only reached if no safety override)
+        # =====================================================================
+        
         # If no mood detected at all (None with 0.0 confidence), reject
         if filters.get("mood") is None and mood_confidence == 0.0:
             print(f"   ❌ No recognizable mood keywords found")
@@ -334,6 +405,13 @@ def ask_lark():
                 'confidence': 0.0,
                 'venue_count': 0,
                 'filters': filters,
+                'safety': {
+                    'tier': emotional_tier,
+                    'show_soft_footer': safety_config['show_soft_footer'],
+                    'show_support_box': safety_config['show_support_box'],
+                    'show_crisis_resources': safety_config['show_crisis_resources'],
+                    'lark_preamble': safety_config['lark_preamble']
+                },
                 'debug': {
                     'reason': 'no_mood_detected',
                     'keywords_checked': user_prompt.lower().split()
@@ -354,6 +432,13 @@ def ask_lark():
                 'confidence': mood_confidence,
                 'venue_count': 0,
                 'filters': filters,
+                'safety': {
+                    'tier': emotional_tier,
+                    'show_soft_footer': safety_config['show_soft_footer'],
+                    'show_support_box': safety_config['show_support_box'],
+                    'show_crisis_resources': safety_config['show_crisis_resources'],
+                    'lark_preamble': safety_config['lark_preamble']
+                },
                 'debug': {
                     'reason': 'low_confidence',
                     'threshold': 0.3
