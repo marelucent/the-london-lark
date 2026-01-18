@@ -7918,5 +7918,167 @@
     "whisper": "An underground queer salon where cabaret meets Pastel de Nata.",
     "arcana": "Cabaret & Glitter",
     "last_verified": "2025-01-18"
+  },
+  {
+    "name": "The Jago",
+    "location": "Dalston",
+    "moods": [
+      "global",
+      "rhythmic",
+      "diasporic",
+      "celebratory"
+    ],
+    "genres": [
+      "Afrobeat",
+      "reggae",
+      "world music",
+      "jazz"
+    ],
+    "url": "https://www.thejagodalston.com/",
+    "blurb": "At The Jago, the wheel spins between AfroJam nights and Gnawa jam sessions. This grassroots, multi‑functional space invites East London's diaspora to gather and celebrate the rhythms of Africa, Latin America and beyond. I wander in for nights where community trumps commerce and the dancefloor sways under strings of fairy lights. It's messy, warm and full of life; a place where a jam can morph into a street party.",
+    "whisper": "Afro grooves tumble into gnawa chants under Dalston's tin roof.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "The Post Bar",
+    "location": "Tottenham",
+    "moods": [
+      "global",
+      "cultural",
+      "connected"
+    ],
+    "genres": [
+      "world music",
+      "Afrobeat",
+      "Latin",
+      "jazz"
+    ],
+    "url": "https://www.thepostbar.co.uk/",
+    "blurb": "Hidden behind a former post office, The Post Bar serves Tottenham as a café, bar and community arts venue. Their beer garden hosts open‑air gigs and DJ nights that bounce between Afrobeat, ska and Latin grooves. I love how the team keeps the programme wide and varied—anyone can propose an event and the vibe always feels inclusive. Grab a drink, find a spot beneath the fairy lights and let the rhythms connect you.",
+    "whisper": "A Tottenham yard where rhythms and neighbours mingle.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Green Note",
+    "location": "Camden",
+    "moods": [
+      "global",
+      "cultural",
+      "connected",
+      "multicultural"
+    ],
+    "genres": [
+      "folk",
+      "roots",
+      "world music",
+      "jazz"
+    ],
+    "url": "https://www.greennote.co.uk/",
+    "blurb": "Green Note is Camden's candlelit refuge for folk and world music. Founded by two friends in 2005, this award‑winning vegetarian café‑bar hosts gigs every night from bluegrass to global jazz. I slip into its cosy basement to hear kora strings and Gaelic ballads, sipping a fair‑trade beer among friends. The room feels like a living room, and the music opens doors between cultures.",
+    "whisper": "Strings and stories entwine in Camden's candlelit parlour.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "CLF Art Lounge",
+    "location": "Peckham",
+    "moods": [
+      "celebratory",
+      "global",
+      "expansive"
+    ],
+    "genres": [
+      "jazz",
+      "soul",
+      "world music",
+      "DJ sets"
+    ],
+    "url": "https://www.clfartlounge.com/",
+    "blurb": "While its rooftop is being renovated, the CLF Art Lounge keeps Peckham buzzing. The intimate space holds 100 seated or 150 standing and features a bar, lush seating and a stage for live music and DJ performances. Their programme brings the finest local and international acts to a room that feels like a friend's loft. Come for Latin horns, funk drums or poetry—there's always something unexpected and soulful on offer.",
+    "whisper": "A pop‑up lounge where Peckham's skyline dances to global beats.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Luna Lounge",
+    "location": "Leytonstone",
+    "moods": [
+      "celebratory",
+      "multicultural",
+      "connected"
+    ],
+    "genres": [
+      "jazz",
+      "blues",
+      "rock",
+      "world music"
+    ],
+    "url": "https://www.lunalounge.info/",
+    "blurb": "Since 2004, Luna Lounge has been an independently owned live music venue in Leytonstone, hosting performances seven nights a week. Musicians from all over the world share its two floors, and the bar is stocked with craft beers, wines and cocktails. Their motto—no genre is unwelcome—makes it one of London's most diverse music spaces. I drop in for blues one night and Balkan folk the next, always leaving with new rhythms in my bones.",
+    "whisper": "Two floors, seven nights, a world of sounds in Leytonstone.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Jamboree",
+    "location": "King's Cross",
+    "moods": [
+      "diasporic",
+      "celebratory",
+      "cultural"
+    ],
+    "genres": [
+      "folk",
+      "world music",
+      "cabaret",
+      "gypsy jazz"
+    ],
+    "url": "https://www.jamboreevenue.co.uk/",
+    "blurb": "After years in Limehouse, Jamboree found a permanent home in King's Cross, bringing its down‑to‑earth bohemia and music from every corner of the world to central London. The bar celebrates musical forms from around the globe, from European folk to cabaret and traditional dances. Step through heavy drapes into a mismatched den of lanterns, velvet and absinthe and you'll meet a rag‑tag family of eccentrics. I come for the Balkan jams and stay for the Mad Hatter's tea party atmosphere.",
+    "whisper": "Behind velvet drapes, bohemia clinks glasses with the world.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Folklore",
+    "location": "Hoxton",
+    "moods": [
+      "connected",
+      "cultural",
+      "expansive"
+    ],
+    "genres": [
+      "world music",
+      "folk",
+      "experimental",
+      "DJ sets"
+    ],
+    "url": "https://folklorehoxton.co.uk/",
+    "blurb": "Folklore is a live music venue with a difference, built around a contemporary interpretation of ancient wisdom that aims to reawaken our interconnectedness. Hidden on Hackney Road, it hosts world and experimental music nights, queer parties and storytelling sessions. I find myself drawn to its cosy stage where voices from different diasporas weave new myths. It feels like stepping into a modern temple dedicated to the collective beat.",
+    "whisper": "Ancient echoes meet queer futures in a Hackney hideaway.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Grow",
+    "location": "Hackney Wick",
+    "moods": [
+      "global",
+      "connected",
+      "expansive"
+    ],
+    "genres": [
+      "jazz",
+      "world music",
+      "DJ sets",
+      "community events"
+    ],
+    "url": "https://www.growhackney.co.uk/",
+    "blurb": "Grow is an independent, self‑organised music and arts venue, bar and kitchen in Hackney Wick, founded in 2014. It hosts a diverse cultural events programme that celebrates and nurtures both local and international talent, asking how to run a venue that prioritises people and planet over profit. In its canalside garden, jazz jams, African drumming circles and ethical supper clubs coexist. I head there for evenings that feel like a festival and a family gathering at once.",
+    "whisper": "Beside the canal, art and activism pulse with every beat.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2025-01-18"
   }
 ]
