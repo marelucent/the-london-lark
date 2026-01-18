@@ -8120,5 +8120,139 @@
     "whisper": "A repurposed squat where art school meets after‑hours euphoria.",
     "arcana": "Big Night Out",
     "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Hackney Showroom",
+    "location": "Hackney",
+    "moods": [
+      "fiery",
+      "intense",
+      "righteous"
+    ],
+    "genres": [
+      "community theatre",
+      "political performance",
+      "spoken word"
+    ],
+    "url": "https://hackneyshowroom.com/",
+    "blurb": "As a grassroots community centre and theatre, I feed people's hunger for justice with art that bites. From spoken word to theatre made by those living injustice, my programmes fire up audiences and incubate movements. Step inside when you're ready to be nourished and emboldened for the fight ahead.",
+    "whisper": "Grassroots flames lick the stage, nourishing rebels and emboldening movements.",
+    "arcana": "Rant & Rapture",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "MayDay Rooms",
+    "location": "Fleet Street",
+    "moods": [
+      "political",
+      "protest",
+      "truth-telling"
+    ],
+    "genres": [
+      "activist archive",
+      "radical culture",
+      "film screenings",
+      "talks"
+    ],
+    "url": "https://maydayrooms.org/",
+    "blurb": "I'm a safe haven and archive for social movements, where pamphlets, posters and memories of resistance line the walls. My reading and screening rooms host radical discussions, film nights and gatherings that keep dissent alive. Come here to dig into histories of protest and add your voice to the chorus.",
+    "whisper": "An archive of resistance where whispers of protest become a chorus.",
+    "arcana": "Rant & Rapture",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Pelican House",
+    "location": "Bethnal Green",
+    "moods": [
+      "protest",
+      "passionate",
+      "political"
+    ],
+    "genres": [
+      "experimental art",
+      "worker organising",
+      "community gatherings"
+    ],
+    "url": "https://pelicanhouse.org/",
+    "blurb": "I'm a countercultural social centre devoted to worker organising and movement building. Inside my walls you'll find film clubs, solidarity meet-ups and radical workshops that stitch together a just world. Bring your burning questions and leave with new comrades and sharper tools.",
+    "whisper": "Organising breathes between film nights and solidarity workshops, forging comradeship.",
+    "arcana": "Rant & Rapture",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "The Cockpit",
+    "location": "Marylebone",
+    "moods": [
+      "fiery",
+      "truth-telling",
+      "intense"
+    ],
+    "genres": [
+      "political theatre",
+      "spoken word",
+      "debate"
+    ],
+    "url": "https://thecockpit.org.uk/",
+    "blurb": "I'm a theatre of ideas, always courting controversy and conversation. My stage hosts risky, left-of-centre work that refuses to flinch and invites audiences to disagree loudly. Take your seat and let urgent voices challenge you, then stay to argue over a drink when the lights come up.",
+    "whisper": "Ideas spark, audiences argue, and controversy crackles through the dark.",
+    "arcana": "Rant & Rapture",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Arcola Theatre",
+    "location": "Dalston",
+    "moods": [
+      "righteous",
+      "passionate",
+      "political"
+    ],
+    "genres": [
+      "socially engaged theatre",
+      "new writing",
+      "activism"
+    ],
+    "url": "https://arcolatheatre.com/",
+    "blurb": "I'm a daring East London theatre committed to stories that challenge the status quo. With our Pay What You Can scheme and diverse artists, we champion voices often sidelined and create work that provokes and inspires. Step through my doors when you want to feel part of a movement, not an audience.",
+    "whisper": "Daring stories challenge the status quo, welcoming every voice to the movement.",
+    "arcana": "Rant & Rapture",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Brixton House",
+    "location": "Brixton",
+    "moods": [
+      "passionate",
+      "political",
+      "righteous"
+    ],
+    "genres": [
+      "theatre",
+      "spoken word",
+      "community activism"
+    ],
+    "url": "https://brixtonhouse.co.uk/",
+    "blurb": "I'm a modern theatre born from Brixton's uprising spirit, making space for voices that have been undervalued and unheard. My stages are filled with radical collaboration, new stories and festivals that connect people to their roots and future. Come when you long for art that reflects your world and demands better.",
+    "whisper": "Uprising spirit meets radical stories; the future is written on our stage.",
+    "arcana": "Rant & Rapture",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Club Soda Tasting Room",
+    "location": "Covent Garden",
+    "moods": [
+      "passionate",
+      "righteous",
+      "truth-telling"
+    ],
+    "genres": [
+      "spoken word",
+      "sober open mic",
+      "community"
+    ],
+    "url": "https://joinclubsoda.com/tasting-room/",
+    "blurb": "I'm a sober tasting room and bar where poetry finds clarity without the fog. At our Sober AF Poetry Club nights, anyone can speak, vote and sip alcohol-free cocktails in a consent-aware space. Come when you want your words – and your listeners – fully present and awake.",
+    "whisper": "Clarity meets poetry; in this sober space every word lands and lingers.",
+    "arcana": "Rant & Rapture",
+    "last_verified": "2025-01-18"
   }
 ]
