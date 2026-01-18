@@ -7744,5 +7744,179 @@
     "whisper": "True tales told aloud under stage lights — you’ll laugh, ache and leave lighter.",
     "arcana": "Word & Voice",
     "last_verified": "2025-01-15"
+  },
+  {
+    "name": "Phoenix Arts Club",
+    "location": "Soho",
+    "moods": [
+      "glamour",
+      "sparkling",
+      "theatrical"
+    ],
+    "genres": [
+      "cabaret",
+      "burlesque",
+      "drag",
+      "variety"
+    ],
+    "url": "https://phoenixartsclub.com",
+    "blurb": "Hidden beneath the Phoenix Theatre, I'm an independent hideaway where sequins and sweat mingle under low ceilings. Entertainers built me for other entertainers, and I re‑invest every pound into keeping the stage alive and accessible. Every night is a kaleidoscope: drag queens belt, burlesque stars wink, and musical misfits share the mic. I'm your secret cabaret den in the heart of Soho, where community comes before commerce and glitter never sleeps.",
+    "whisper": "A hidden theatre bar where sequins sweat and misfits shine.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "The Glory",
+    "location": "Haggerston",
+    "moods": [
+      "decadent",
+      "theatrical",
+      "seductive"
+    ],
+    "genres": [
+      "drag",
+      "cabaret",
+      "variety"
+    ],
+    "url": "https://theglory.co",
+    "blurb": "I'm an East End pub reborn as a queer performance house, run by drag royalty Jonny Woo and John Sizzle. In my basements and back rooms, lipsync battles, drag competitions and raucous cabaret swirl together under mirrored balls. Upstairs it's cosy pints and queer gossip; downstairs it's late‑night discos and Glory Lates where anything goes. I'm proudly independent and fiercely community‑led, a stage for every misfit who dares to sparkle.",
+    "whisper": "Drag queens, cheap pints and late‑night decadence under one glittering roof.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Royal Vauxhall Tavern",
+    "location": "Vauxhall",
+    "moods": [
+      "glamour",
+      "cabaret",
+      "decadent"
+    ],
+    "genres": [
+      "drag",
+      "cabaret",
+      "variety"
+    ],
+    "url": "https://www.rvt.org.uk",
+    "blurb": "Since the 1950s I've stood beside the railway arches as the 'Palladium of Drag', a home for London's queer community. Legends like Lily Savage cut their teeth on my stage and today I embrace every shade of cabaret: comedy, drag, live music and activism. Saved by a community led buy‑out, my freehold is held by people who love me. Within my walls you'll find history, sequins and a crowd that cheers like family.",
+    "whisper": "A railway tavern turned palace of drag and queer history.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Two Brewers",
+    "location": "Clapham",
+    "moods": [
+      "glitter",
+      "glamour",
+      "theatrical"
+    ],
+    "genres": [
+      "drag",
+      "cabaret",
+      "variety"
+    ],
+    "url": "https://www.the2brewers.com",
+    "blurb": "For over forty years I've been serving the LGBTQIA+ community with camp cabaret and drag extravaganzas. Seven nights a week my stage explodes with glitter and feathers, while the bar hums with laughter and long‑time friendships. I'm not a tourist trap – I'm a South London institution where queens, queers and allies pack in for karaoke, comedy and spectacular shows. Expect sequins on the floor and love in the air.",
+    "whisper": "South London's glitter‑soaked drag den that never sleeps.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Halfway to Heaven",
+    "location": "Charing Cross",
+    "moods": [
+      "burlesque",
+      "glitter",
+      "cabaret"
+    ],
+    "genres": [
+      "drag",
+      "cabaret"
+    ],
+    "url": "https://www.halfway2heaven.co.uk",
+    "blurb": "Upstairs I'm a friendly local pub, downstairs I'm a riot of feathers and wigs seven days a week. Loved by the LGBTQIA+ community since 1991, my basement stage hosts flamboyant cabaret every night, from cheeky drag to live music. We're a small family here, fiercely proud of our diversity and allies with Ask for Clive to say no to discrimination. Come for a pint, stay for the show, leave with glitter in your pocket.",
+    "whisper": "Downstairs is a cabaret secret: feathers, beer and family vibes.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "VFD",
+    "location": "Dalston",
+    "moods": [
+      "decadent",
+      "burlesque",
+      "sparkling"
+    ],
+    "genres": [
+      "drag",
+      "cabaret",
+      "club",
+      "variety"
+    ],
+    "url": "https://www.vfdalston.com",
+    "blurb": "Known affectionately as 'the basement of dreams', I'm an incubator of queer arts tucked under a kebab shop. I've nurtured emerging and superstar performers alike, with late‑night cabaret, drag shows and art happenings that blur nightlife and activism. Our Femmifesto commits us to being a safer space: positive consent, celebration of all bodies and social revolution through partying. Join us underground and let's conspire with glitter.",
+    "whisper": "A queer basement where art, bodies and revolution collide in sequins.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Clapham Grand",
+    "location": "Clapham Junction",
+    "moods": [
+      "glamour",
+      "theatrical",
+      "sparkling"
+    ],
+    "genres": [
+      "cabaret",
+      "drag",
+      "variety",
+      "music hall"
+    ],
+    "url": "https://claphamgrand.com",
+    "blurb": "A 1900s music hall reborn, I combine gilded balconies with disco balls and drag royalty. Once a cinema and bingo hall, I've returned to my variety roots with LGBTQ+ cabaret, RuPaul queens and Pride parties alongside live bands and club nights. I'm big enough for confetti cannons yet intimate enough for a queen to lock eyes with you. Expect old‑school decadence with a queer heart and a programme that treats drag like the art form it is.",
+    "whisper": "A Victorian music hall where drag queens reign and glitter rains down.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Zodiac Bar, Club & Karaoke",
+    "location": "Fitzrovia",
+    "moods": [
+      "sparkling",
+      "glitter",
+      "seductive"
+    ],
+    "genres": [
+      "drag",
+      "karaoke",
+      "cabaret"
+    ],
+    "url": "https://www.zodiacbarlondon.com",
+    "blurb": "Between Camden and Soho, I'm a trans‑owned, trans‑run venue that bloomed from pop‑up parties into a full‑time home. I welcome the entire LGBTQ+ family and our allies with a warm hug, nightly karaoke, quizzes and regular cabaret and drag bingo. Split across two levels, I offer chilled drinks upstairs and a basement club for private hire or late‑night mischief. We're independently run through community investment, so every note you sing helps support queer visibility and joy.",
+    "whisper": "Trans‑run karaoke bar where drag bingo and late‑night mischief thrive.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Love Affair Basement",
+    "location": "Bethnal Green",
+    "moods": [
+      "burlesque",
+      "glamour",
+      "seductive"
+    ],
+    "genres": [
+      "cabaret",
+      "drag",
+      "comedy",
+      "variety"
+    ],
+    "url": "https://www.loveaffairbasement.co.uk",
+    "blurb": "Born beneath a queer Portuguese deli, I'm a sanctuary for queer people by queer people. By day we host workshops, pop‑ups and private dining; by night we transform into a salon for cabaret, cinema, drag shows and comedy. Our underground space supports artists, women, trans and queer youth, offering an intimate stage with dinner and a side of debauchery. Come down the stairs for moody lighting, Pastel de Nata and a show that always bites back.",
+    "whisper": "An underground queer salon where cabaret meets Pastel de Nata.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2025-01-18"
   }
 ]
