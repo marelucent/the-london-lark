@@ -8080,5 +8080,45 @@
     "whisper": "Beside the canal, art and activism pulse with every beat.",
     "arcana": "Global Rhythms",
     "last_verified": "2025-01-18"
+  },
+  {
+    "name": "NT's Loft",
+    "location": "London Fields",
+    "moods": [
+      "communal",
+      "euphoric",
+      "electric"
+    ],
+    "genres": [
+      "funk & soul",
+      "disco",
+      "house",
+      "live music"
+    ],
+    "url": "https://ntsloft.com/",
+    "blurb": "Perched above the rooftops of London Fields, I'm a bar by day and a dancefloor by night with skyline views. During the afternoon you might hear funk and soul drifting over cocktails; after sunset the tempo quickens as DJs and live performers fire up the crowd. I attract the easygoing and the euphoric in equal measure, offering a laid‑back atmosphere that transforms into a propulsive party once the lights go low. Look out over the city and feel like it's all within reach.",
+    "whisper": "Skyline views, soul grooves and a rooftop that won't quit.",
+    "arcana": "Big Night Out",
+    "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Unlocked Shoreditch",
+    "location": "Shoreditch",
+    "moods": [
+      "electric",
+      "communal",
+      "propulsive"
+    ],
+    "genres": [
+      "multi-genre",
+      "electronic",
+      "club night",
+      "creative hub"
+    ],
+    "url": "https://unlockedshoreditch.com/",
+    "blurb": "I inhabit a former squat rave in Shoreditch that's been transformed into a multidisciplinary events space and creative hub. My programme features everything from melodic house to global bass. There's an art‑gallery energy in my brickwork and a club‑night intensity in my nights; our community of DJs, designers and dancers blurs the lines between scenes. Step through my doors and unlock something unexpected.",
+    "whisper": "A repurposed squat where art school meets after‑hours euphoria.",
+    "arcana": "Big Night Out",
+    "last_verified": "2025-01-18"
   }
 ]
