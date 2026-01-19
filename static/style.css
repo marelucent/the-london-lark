@@ -2166,8 +2166,73 @@ button {
    -------------------------------------------- */
 .results-container {
     padding: 1rem;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Venue cards in search results */
+.venue-card-result {
+    cursor: pointer;
+    transition: all 0.4s ease;
+    animation: fadeSlideIn 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.venue-card-result .venue-section {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+}
+
+.venue-card-result .venue-whisper {
+    font-family: var(--font-whisper);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--candlelight);
+    opacity: 0.8;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.venue-card-result .venue-blurb {
+    font-family: var(--font-whisper);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.6;
+    margin-top: 0.8rem;
+}
+
+/* Expanded state indicator */
+.venue-card-result.card-lg {
+    z-index: 10;
+}
+
+/* Safety boxes and intro text should span full width */
+.results-container .safety-support-box,
+.results-container .safety-crisis-box,
+.results-container .safety-soft-footer,
+.results-container .lark-intro,
+.results-container .empty-state {
+    width: 100%;
+    flex-basis: 100%;
+}
+
+/* Mobile: stack cards vertically */
+@media (max-width: 600px) {
+    .results-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .venue-card-result {
+        width: 90%;
+        max-width: 280px;
+    }
 }
 
 .results-intro {
