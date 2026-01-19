@@ -249,7 +249,7 @@
             <section id="drawView" class="view">
                 <div class="draw-container">
                     <!-- Face-down card -->
-                    <div class="arcana-card card-lg face-down" id="drawnCard" onclick="revealCard()">
+                    <div class="arcana-card card-lg face-down" id="drawnCard" onclick="revealCard(currentArcana)">
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
                         <div class="card-back-symbol">✦</div>
@@ -631,16 +631,14 @@
             }
         }
 
-        async function drawFromArcana() {
+        function drawFromArcana() {
             if (!currentArcana) return;
-            
+
             showView('draw');
             document.getElementById('drawnCard').style.display = 'flex';
             document.getElementById('revealedCard').style.display = 'none';
             document.getElementById('drawActions').style.display = 'none';
-            
-            // Automatically trigger reveal with filtered arcana
-            await revealCard(currentArcana);
+            // Face-down card shown — user taps to reveal (currentArcana is preserved)
         }
 
         // ============================================
