@@ -2803,11 +2803,90 @@ button {
 }
 
 .arcana-venues-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
+    padding: 1rem 0;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
+@media (min-width: 700px) {
+    .arcana-venues-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .arcana-venues-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Venue browse cards - mini tarot style */
+.venue-browse-card {
+    cursor: pointer;
+    min-height: 180px;
+    animation: fadeInUp 0.4s ease forwards;
+    opacity: 0;
+}
+
+.venue-browse-card .card-inner {
+    text-align: center;
+}
+
+.venue-browse-card .venue-name {
+    font-family: var(--font-title);
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+}
+
+.venue-browse-card .venue-name a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.venue-browse-card .venue-name a:hover {
+    color: var(--candlelight);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.venue-browse-card .venue-location {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--candlelight);
+    opacity: 0.6;
+    margin-bottom: 0.8rem;
+}
+
+.venue-browse-card .venue-whisper {
+    font-family: var(--font-whisper);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.venue-browse-card .venue-blurb {
+    font-family: var(--font-whisper);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+/* Expanded browse card */
+.venue-browse-card.card-lg {
+    min-height: 220px;
+    z-index: 10;
+}
+
+/* Legacy styles kept for compatibility */
 .venue-list-item {
     background: var(--parchment-dark);
     border: 1px solid var(--tobacco);

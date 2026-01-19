@@ -556,7 +556,7 @@
             const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
             const whisper = arcanaWhispers[mood] || '';
             const arcanaKey = getArcanaKey(mood);
-            
+
             // Update header
             const header = document.getElementById('arcanaVenuesHeader');
             header.innerHTML = `
@@ -572,45 +572,60 @@
                     </div>
                 </div>
             `;
-            
+
             // Load venues for this arcana
             const venuesList = document.getElementById('arcanaVenuesList');
             venuesList.innerHTML = '<p class="loading-venues">Gathering venues...</p>';
-            
+
             showView('arcanaVenues');
-            
+
             try {
                 const response = await fetch(`/arcana/${encodeURIComponent(mood)}`);
                 const data = await response.json();
-                
+
                 if (data.error) {
                     venuesList.innerHTML = '<p class="error-state">Could not find venues...</p>';
                     return;
                 }
-                
+
                 venuesList.innerHTML = '';
-                
+
                 data.venues.forEach((venue, index) => {
-                    const venueCard = document.createElement('div');
-                    venueCard.className = 'venue-list-item';
-                    venueCard.style.animationDelay = `${index * 80}ms`;
-                    
+                    const card = document.createElement('div');
+                    card.className = 'arcana-card card-sm venue-browse-card';
+                    card.setAttribute('data-arcana', arcanaKey);
+                    card.style.animationDelay = `${index * 50}ms`;
+
                     let venueLink = venue.name;
                     if (venue.website && venue.website.trim() && !venue.website.startsWith('(')) {
                         let url = venue.website;
                         if (!url.startsWith('http')) url = 'https://' + url;
-                        venueLink = `<a href="${url}" target="_blank" rel="noopener">${venue.name}</a>`;
+                        venueLink = `<a href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${venue.name}</a>`;
                     }
-                    
-                    venueCard.innerHTML = `
-                        <div class="venue-list-name">${venueLink}</div>
-                        <div class="venue-list-location">${venue.area || 'London'}</div>
-                        <div class="venue-list-whisper">${venue.whisper || ''}</div>
+
+                    const venueWhisper = venue.whisper || '';
+                    const venueBlurb = venue.blurb || venue.whisper || '';
+
+                    card.innerHTML = `
+                        <span class="corner-tr"></span>
+                        <span class="corner-bl"></span>
+                        <div class="card-inner">
+                            <div class="venue-name">${venueLink}</div>
+                            <div class="venue-location">${venue.area || 'London'}</div>
+                            <div class="venue-whisper">${venueWhisper}</div>
+                            <div class="venue-blurb" style="display: none;">${venueBlurb}</div>
+                        </div>
                     `;
-                    
-                    venuesList.appendChild(venueCard);
+
+                    // Click to expand/collapse
+                    card.onclick = (e) => {
+                        if (e.target.tagName === 'A') return;
+                        toggleCardExpansion(card);
+                    };
+
+                    venuesList.appendChild(card);
                 });
-                
+
             } catch (error) {
                 venuesList.innerHTML = `<p class="error-state">Something went awry: ${error.message}</p>`;
             }
