@@ -21,7 +21,13 @@
       "folky",
       "folk",
       "soulful",
-      "candlelit"
+      "candlelit",
+      "stripped-back",
+      "lo-fi",
+      "heartfelt",
+      "small",
+      "low-key",
+      "hushed"
     ],
     "vibe_notes": "Handheld heart music."
   },
@@ -41,7 +47,15 @@
       "cabaret",
       "drag",
       "LGBTQ",
-      "queer"
+      "queer",
+      "lesbian",
+      "trans",
+      "non-binary",
+      "sapphic",
+      "chosen family",
+      "queer joy",
+      "LGBTQIA+",
+      "gay-friendly"
     ],
     "vibe_notes": "A jubilant celebration of queer joy."
   },
@@ -63,7 +77,15 @@
       "wonder and awe",
       "wholesome",
       "all ages",
-      "awe"
+      "awe",
+      "spectacular",
+      "stunning",
+      "amazing",
+      "majestic",
+      "magnificent",
+      "sublime",
+      "jaw-dropping",
+      "overwhelming"
     ],
     "vibe_notes": "A miracle in stage lights."
   },
@@ -87,7 +109,14 @@
       "grief and grace",
       "aching",
       "raw",
-      "struggling"
+      "struggling",
+      "cathartic",
+      "processing",
+      "bereavement",
+      "solace",
+      "comfort",
+      "breakup",
+      "going through something"
     ],
     "vibe_notes": "A kind of catharsis."
   },
@@ -113,7 +142,15 @@
       "playful and weird",
       "bizarre",
       "weird",
-      "mischievous"
+      "mischievous",
+      "whimsical",
+      "wacky",
+      "zany",
+      "eccentric",
+      "silly",
+      "bonkers",
+      "kooky",
+      "left-field"
     ],
     "vibe_notes": "Theatre that tilts the world."
   },
@@ -136,7 +173,15 @@
       "revolution",
       "grassroots",
       "protest",
-      "activist"
+      "activist",
+      "urgent",
+      "defiant",
+      "subversive",
+      "resistance",
+      "social justice",
+      "equality",
+      "climate",
+      "confrontational"
     ],
     "vibe_notes": "Voices raised, truth revealed."
   },
@@ -151,7 +196,16 @@
       "reflective",
       "the thoughtful stage",
       "philosophical",
-      "intelligent"
+      "intelligent",
+      "nuanced",
+      "subtle",
+      "intellectual",
+      "literary",
+      "serious",
+      "deep",
+      "complex",
+      "probing",
+      "text-based"
     ],
     "vibe_notes": "Theatre that makes you lean in."
   },
@@ -167,7 +221,16 @@
       "sequins",
       "cabaret",
       "drag",
-      "queer"
+      "queer",
+      "feathers",
+      "vaudeville",
+      "variety",
+      "saucy",
+      "camp",
+      "flamboyant",
+      "dazzling",
+      "showgirl",
+      "fabulous"
     ],
     "vibe_notes": "Where glamour meets rebellion."
   },
@@ -183,7 +246,14 @@
       "night wanderer",
       "midnight",
       "nocturnal",
-      "late-night lark"
+      "late-night lark",
+      "after hours",
+      "night owl",
+      "insomniac",
+      "small hours",
+      "witching hour",
+      "2am",
+      "up late"
     ],
     "vibe_notes": "For when the city stays up with you."
   },
@@ -210,7 +280,16 @@
       "humor",
       "happy",
       "humour",
-      "stand up"
+      "stand up",
+      "laughter",
+      "laughing",
+      "lighthearted",
+      "light-hearted",
+      "silly",
+      "improv",
+      "sketch",
+      "witty",
+      "amusing"
     ],
     "vibe_notes": "A tonic for the tense."
   },
@@ -243,7 +322,15 @@
       "lively",
       "connection",
       "communal",
-      "group"
+      "group",
+      "shared",
+      "collective",
+      "interactive",
+      "participatory",
+      "date night",
+      "birthday",
+      "hen do",
+      "with friends"
     ],
     "vibe_notes": "Dancing, laughing, witnessing together."
   },
@@ -266,7 +353,16 @@
       "word",
       "language",
       "poetry",
-      "storytelling"
+      "storytelling",
+      "reading",
+      "readings",
+      "open mic",
+      "slam",
+      "monologue",
+      "recital",
+      "author",
+      "book",
+      "books"
     ],
     "vibe_notes": "The hush of the room, the lyric of the light."
   },
@@ -281,7 +377,15 @@
       "passionate",
       "monologue",
       "intense",
-      "rant"
+      "rant",
+      "fiery",
+      "fervent",
+      "impassioned",
+      "visceral",
+      "unfiltered",
+      "confessional",
+      "outpouring",
+      "polemic"
     ],
     "vibe_notes": "A sermon of sorts."
   },
@@ -298,7 +402,17 @@
       "big night out",
       "dancing",
       "club",
-      "party"
+      "party",
+      "disco",
+      "bass",
+      "beats",
+      "nightclub",
+      "drinks",
+      "cocktails",
+      "loud",
+      "sweaty",
+      "hedonistic",
+      "wild"
     ],
     "vibe_notes": "A crowd, a cocktail, a damn good night."
   },
@@ -313,7 +427,18 @@
       "cultural",
       "multicultural",
       "global",
-      "afrobeat"
+      "afrobeat",
+      "caribbean",
+      "reggae",
+      "african",
+      "asian",
+      "brazilian",
+      "salsa",
+      "samba",
+      "cumbia",
+      "dub",
+      "fusion",
+      "diasporic"
     ],
     "vibe_notes": "A passport for the soul."
   },
@@ -330,7 +455,15 @@
       "Victorian",
       "old London",
       "historic",
-      "candlelit"
+      "candlelit",
+      "Dickensian",
+      "Edwardian",
+      "Georgian",
+      "gaslight",
+      "cobbled",
+      "foggy",
+      "Thames",
+      "Sherlock"
     ],
     "vibe_notes": "London as you imagined it in books."
   },
@@ -346,7 +479,16 @@
       "throwback",
       "vintage",
       "1920s",
-      "art deco"
+      "art deco",
+      "1930s",
+      "1940s",
+      "1950s",
+      "1960s",
+      "mid-century",
+      "antique",
+      "golden age",
+      "timeless",
+      "glamorous"
     ],
     "vibe_notes": "A portal to another era."
   },
@@ -366,12 +508,21 @@
       "church",
       "temple",
       "devotional",
-      "occult"
+      "occult",
+      "holy",
+      "worship",
+      "reverent",
+      "sanctuary",
+      "chapel",
+      "divine",
+      "blessing",
+      "faith",
+      "pilgrimage"
     ],
     "vibe_notes": "A hush that feels holy."
   },
   "Body-Based / Movement-Led": {
-    "description": "Dance, circus, physical theatre â€” the body as language.",
+    "description": "Dance, circus, physical theatre — the body as language.",
     "synonyms": [
       "circus",
       "expressive",
@@ -388,7 +539,15 @@
       "somatic",
       "choreography",
       "embodied",
-      "body-based"
+      "body-based",
+      "acrobatic",
+      "ballet",
+      "contemporary dance",
+      "athletic",
+      "yoga",
+      "breathwork",
+      "physical",
+      "acrobatics"
     ],
     "vibe_notes": "When words aren't enough."
   },
@@ -420,7 +579,16 @@
       "heavy",
       "tender",
       "sadness",
-      "sorrow"
+      "sorrow",
+      "tragic",
+      "elegiac",
+      "poignant",
+      "moving",
+      "touching",
+      "emotional",
+      "weepy",
+      "tearful",
+      "cry"
     ],
     "vibe_notes": "Beauty that breaks your heart a little."
   },
@@ -473,7 +641,16 @@
       "galleries",
       "creative",
       "avant garde",
-      "eclectic"
+      "eclectic",
+      "fringe",
+      "alternative",
+      "indie",
+      "underground",
+      "emerging",
+      "niche",
+      "hidden",
+      "secret",
+      "surprising"
     ],
     "vibe_notes": "You never quite know what you'll find."
   },
@@ -516,7 +693,16 @@
       "eerie",
       "haunted",
       "ghostly",
-      "supernatural"
+      "supernatural",
+      "mysterious",
+      "forest",
+      "woodland",
+      "ancient",
+      "ancestral",
+      "goddess",
+      "solstice",
+      "equinox",
+      "full moon"
     ],
     "vibe_notes": "For when you want to howl at something."
   },
@@ -537,7 +723,17 @@
       "zen",
       "reflective",
       "calm",
-      "tranquil"
+      "tranquil",
+      "silent",
+      "silence",
+      "serene",
+      "gentle",
+      "hushed",
+      "grounded",
+      "centered",
+      "soothing",
+      "relaxing",
+      "restful"
     ],
     "vibe_notes": "Where silence speaks."
   }
