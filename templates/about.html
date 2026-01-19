@@ -6,17 +6,49 @@
     <title>About — The London Lark</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
-        .about-section {
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards;
+        .about-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
 
-        .about-section:nth-child(1) { animation-delay: 0.1s; }
-        .about-section:nth-child(2) { animation-delay: 0.3s; }
-        .about-section:nth-child(3) { animation-delay: 0.5s; }
-        .about-section:nth-child(4) { animation-delay: 0.7s; }
+        .about-poem {
+            text-align: center;
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--candlelight, #f4e4bc);
+            line-height: 2;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .about-poem p {
+            margin: 0;
+        }
+
+        .about-body {
+            font-family: var(--font-body, 'Crimson Text', serif);
+            font-size: 1.1rem;
+            color: var(--cream, #f5f0e6);
+            line-height: 1.9;
+        }
+
+        .about-body p {
+            margin-bottom: 1.8rem;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .about-body p:nth-child(1) { animation-delay: 0.1s; }
+        .about-body p:nth-child(2) { animation-delay: 0.2s; }
+        .about-body p:nth-child(3) { animation-delay: 0.3s; }
+        .about-body p:nth-child(4) { animation-delay: 0.4s; }
+        .about-body p:nth-child(5) { animation-delay: 0.5s; }
+        .about-body p:nth-child(6) { animation-delay: 0.6s; }
+        .about-body p:nth-child(7) { animation-delay: 0.7s; }
 
         @keyframes fadeInUp {
             to {
@@ -25,130 +57,117 @@
             }
         }
 
-        .about-hero {
-            text-align: center;
-            font-size: 1.5rem;
+        .about-body em {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
             font-style: italic;
-            color: #f0e68c;
-            margin-bottom: 4rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid rgba(232, 232, 232, 0.1);
-            line-height: 1.8;
+            color: var(--candlelight, #f4e4bc);
         }
 
-        .about-section h2 {
-            font-size: 1.3rem;
-            font-weight: 300;
-            color: #f0e68c;
-            margin-bottom: 1rem;
-            letter-spacing: 0.1em;
-        }
-
-        .about-section p {
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: #e8e8e8;
-            opacity: 0.9;
-        }
-
-        .about-section ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 1rem;
-        }
-
-        .about-section li {
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: #e8e8e8;
-            opacity: 0.9;
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.5rem;
-        }
-
-        .about-section li:before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: #f0e68c;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 3rem;
-            padding: 0.8rem 2rem;
-            background: linear-gradient(135deg, #f0e68c 0%, #daa520 100%);
-            color: #1a1a2e;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            letter-spacing: 0.08em;
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(240, 230, 140, 0.35);
-        }
-
-        footer {
-            margin-top: 4rem;
+        .about-divider {
             text-align: center;
+            color: var(--gold, #d4af37);
+            font-size: 1.2rem;
+            margin: 2.5rem 0;
+            opacity: 0.6;
+        }
+
+        .about-closing {
+            text-align: center;
+            margin-top: 3rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(232, 232, 232, 0.1);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .about-closing p {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--candlelight, #f4e4bc);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 1px solid var(--gold, #d4af37);
+            color: var(--gold, #d4af37);
+            text-decoration: none;
+            font-family: var(--font-title, 'Cinzel', serif);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            transition: all 0.4s ease;
+        }
+
+        .cta-button:hover {
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .page-footer {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .page-footer a {
+            color: var(--candlelight, #f4e4bc);
+            text-decoration: none;
+            font-family: var(--font-body, 'Crimson Text', serif);
+            font-size: 0.95rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-footer a:hover {
+            opacity: 1;
+            color: var(--gold, #d4af37);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🕊️ THE LONDON LARK</h1>
+            <h1 onclick="window.location='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
             <p class="tagline">About</p>
         </header>
 
-        <div class="about-hero">
-            The Lark is a companion for London's cultural undercurrent
+        <div class="about-container">
+            <div class="about-poem">
+                <p>Not all maps name the magic.</p>
+                <p>Not all doors bear a sign.</p>
+                <p>But the city has corners that lean in close</p>
+                <p>when they know you are the kind...</p>
+            </div>
+
+            <div class="about-body">
+                <p>I know the places that change you. Not the ones on the lists. The other ones — the rooms that hum with something, the corners where strangers become friends, the doors that only open if you know to knock.</p>
+
+                <p>I speak in moods, not ratings. Tell me you want somewhere <em>witchy and wild</em> or <em>a place to feel alive</em> or <em>I don't know, surprise me</em> — and I'll show you three cards from the deck.</p>
+
+                <p>I carry 23 arcana — ways of being in the city. The Fool for playful and weird. The Hermit for stillness. The Devil for late nights that linger. The Empress for folk and warmth.</p>
+
+                <p>And the 23rd? That's mine. The Lark — for romanticised London herself, the city as muse.</p>
+
+                <p>Each one holds venues that match its spirit.</p>
+
+                <div class="about-divider">✦</div>
+
+                <p>I notice when you're carrying something. I'm not a therapist, but I know which doors might help — and when to point you toward humans who can hold what I can't.</p>
+
+                <p>I'm for the seekers. The tender rebels. The mystically-minded and the melancholic. Anyone tired of scrolling endless reviews. People looking for places with soul.</p>
+            </div>
+
+            <div class="about-closing">
+                <p>What kind of night are you after?</p>
+                <a href="/" class="cta-button">Whisper to the Lark</a>
+            </div>
+
+            <div class="page-footer">
+                <a href="/resources">If you need support</a>
+            </div>
         </div>
-
-        <div class="about-content">
-            <div class="about-section">
-                <h2>How She Works</h2>
-                <ul>
-                    <li>Mood-based discovery (not algorithms or ratings)</li>
-                    <li>She interprets your emotional weather</li>
-                    <li>Returns 3 carefully chosen venues</li>
-                    <li>Speaks differently based on what you're seeking</li>
-                </ul>
-            </div>
-
-            <div class="about-section">
-                <h2>Who She's For</h2>
-                <ul>
-                    <li>The seekers and the tender rebels</li>
-                    <li>The mystically-minded and the melancholic</li>
-                    <li>Anyone tired of scrolling endless reviews</li>
-                    <li>People looking for places with soul</li>
-                </ul>
-            </div>
-
-            <div class="about-section">
-                <h2>Her Voice</h2>
-                <ul>
-                    <li>Poetic but practical</li>
-                    <li>Respects your inner world</li>
-                    <li>Time-aware (greets differently based on when you visit)</li>
-                    <li>Never overwhelming</li>
-                </ul>
-            </div>
-        </div>
-
-        <footer>
-            <a href="/" class="back-link">Ask the Lark</a>
-            <div style="margin-top: 1.5rem;">
-                <a href="/resources" class="footer-link" style="color: #b0c4de; text-decoration: none; font-size: 0.9rem; opacity: 0.7;">If you need support</a>
-            </div>
-        </footer>
     </div>
 </body>
 </html>
