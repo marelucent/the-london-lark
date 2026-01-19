@@ -284,9 +284,12 @@
 
             <!-- ASK THE LARK VIEW -->
             <section id="askView" class="view">
+                <!-- Results area (above input) -->
+                <div class="results-container" id="askResults"></div>
+
                 <div class="ask-container">
                     <p class="ask-prompt">Speak freely. She's listening.</p>
-                    
+
                     <div class="ask-input-area">
                         <textarea
                             id="userInput"
@@ -296,10 +299,7 @@
                         <button id="askButton" onclick="askLark()">Whisper to the Lark</button>
                     </div>
                 </div>
-                
-                <!-- Results area -->
-                <div class="results-container" id="askResults"></div>
-                
+
                 <div class="ask-actions">
                     <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
                 </div>
