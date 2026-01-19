@@ -2167,10 +2167,12 @@ button {
 .results-container {
     padding: 1rem;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
     gap: 1.5rem;
 }
 
@@ -2181,6 +2183,7 @@ button {
     animation: fadeSlideIn 0.5s ease forwards;
     opacity: 0;
     transform: translateY(20px);
+    flex-shrink: 0;
 }
 
 .venue-card-result .venue-section {
