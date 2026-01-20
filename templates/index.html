@@ -346,7 +346,7 @@
                 <!-- Draw actions -->
                 <div class="draw-actions" id="drawActions" style="display: none;">
                     <button class="action-btn" onclick="drawAnother()">Draw Another</button>
-                    <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
+                    <button class="action-btn secondary" onclick="returnToEntrance()">Back</button>
                 </div>
             </section>
 
@@ -382,10 +382,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="ask-actions">
-                    <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
-                </div>
             </section>
 
             <!-- BROWSE THE DECK VIEW -->
@@ -400,7 +396,7 @@
                     </div>
                     
                     <div class="browse-actions">
-                        <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
+                        <button class="action-btn secondary" onclick="returnToEntrance()">Back</button>
                     </div>
                 </div>
             </section>
@@ -429,7 +425,7 @@
                     <!-- Populated dynamically -->
                 </div>
                 <div class="crisis-actions">
-                    <button class="action-btn secondary" onclick="returnToEntrance()">Back to Paths</button>
+                    <button class="action-btn secondary" onclick="returnToEntrance()">Back</button>
                 </div>
             </section>
 
@@ -452,7 +448,7 @@
         // ============================================
         // STATE
         // ============================================
-        let currentView = 'entrance';
+        let currentView = 'ask';
         let currentCardData = null;
         let currentArcana = null;
         let placeholderInterval = null;
@@ -543,7 +539,9 @@
         }
 
         function returnToEntrance() {
-            showView('entrance');
+            // Return to Ask view (conversation-first default)
+            showView('ask');
+            setupAskView();
             // Reset draw card state
             document.getElementById('drawnCard').style.display = 'flex';
             document.getElementById('revealedCard').style.display = 'none';
@@ -551,8 +549,6 @@
             // Clear ask results
             document.getElementById('askResults').innerHTML = '';
             document.getElementById('userInput').value = '';
-            // Stop placeholder cycling
-            stopPlaceholderCycle();
         }
 
         // ============================================
@@ -561,6 +557,7 @@
         function choosePath(path) {
             switch(path) {
                 case 'draw':
+                    markAsVisited();
                     showView('draw');
                     // Reset card to face-down
                     document.getElementById('drawnCard').style.display = 'flex';
@@ -574,6 +571,7 @@
                     document.getElementById('userInput').focus();
                     break;
                 case 'browse':
+                    markAsVisited();
                     showView('browse');
                     loadFullDeck();
                     stopPlaceholderCycle();
@@ -593,8 +591,7 @@
                 // First visit: show intro, standard question
                 introEl.style.display = 'block';
                 promptEl.textContent = 'What kind of night are you after?';
-                // Mark as visited after they've seen the intro
-                localStorage.setItem('lark_visited', 'true');
+                // Note: lark_visited is set when user takes action (search/draw/browse)
             } else {
                 // Return visit: hide intro, time-aware greeting
                 introEl.style.display = 'none';
@@ -603,6 +600,10 @@
 
             // Start cycling placeholders
             startPlaceholderCycle();
+        }
+
+        function markAsVisited() {
+            localStorage.setItem('lark_visited', 'true');
         }
 
         function getTimeGreeting() {
@@ -939,13 +940,16 @@
             const input = document.getElementById('userInput');
             const prompt = input.value.trim();
             const resultsContainer = document.getElementById('askResults');
-            
+
             if (!prompt) return;
-            
+
+            // Mark as visited on first search
+            markAsVisited();
+
             // Disable input
             input.disabled = true;
             document.getElementById('askButton').disabled = true;
-            
+
             showLoading();
             
             try {
@@ -1218,7 +1222,7 @@
             }
             
             // Escape to go back
-            if (e.key === 'Escape' && currentView !== 'entrance') {
+            if (e.key === 'Escape' && currentView !== 'ask') {
                 if (currentView === 'arcanaVenues') {
                     showView('browse');
                 } else {
@@ -1231,7 +1235,9 @@
         // INIT
         // ============================================
         document.addEventListener('DOMContentLoaded', () => {
-            showView('entrance');
+            // Conversation-first: Ask view is the default landing
+            showView('ask');
+            setupAskView();
         });
     </script>
 </body>
