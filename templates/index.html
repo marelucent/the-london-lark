@@ -191,11 +191,79 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .crisis-contact {
                 flex-direction: column;
                 gap: 0.5rem;
             }
+        }
+
+        /* ============================================
+           ASK VIEW - CONVERSATION FIRST
+           ============================================ */
+
+        .ask-intro {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .ask-intro-text {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .ask-fallback {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .fallback-label {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.6;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .fallback-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .fallback-link {
+            font-family: var(--font-title, 'Cinzel', serif);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--gold, #d4af37);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .fallback-link:hover {
+            opacity: 1;
+        }
+
+        /* Placeholder fade animation */
+        #userInput {
+            transition: opacity 0.3s ease;
+        }
+
+        #userInput.placeholder-fade {
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -288,15 +356,30 @@
                 <div class="results-container" id="askResults"></div>
 
                 <div class="ask-container">
-                    <p class="ask-prompt">Speak freely. She's listening.</p>
+                    <!-- First visit intro (hidden for return visitors) -->
+                    <div class="ask-intro" id="askIntro">
+                        <p class="ask-intro-text">I know the places that change you. The rooms that hum with something. Tell me what you're after — or let me draw for you.</p>
+                    </div>
+
+                    <!-- Greeting line (different for first/return visits) -->
+                    <p class="ask-prompt" id="askPrompt">What kind of night are you after?</p>
 
                     <div class="ask-input-area">
                         <textarea
                             id="userInput"
-                            placeholder="I want to feel alive tonight..."
+                            placeholder="somewhere witchy and weird..."
                             rows="3"
                         ></textarea>
                         <button id="askButton" onclick="askLark()">Whisper to the Lark</button>
+                    </div>
+
+                    <!-- Fallback options -->
+                    <div class="ask-fallback">
+                        <span class="fallback-label">or if you'd rather...</span>
+                        <div class="fallback-links">
+                            <a href="#" onclick="choosePath('draw'); return false;" class="fallback-link">✦ Draw a card</a>
+                            <a href="#" onclick="choosePath('browse'); return false;" class="fallback-link">☰ Browse the deck</a>
+                        </div>
                     </div>
                 </div>
 
@@ -372,6 +455,23 @@
         let currentView = 'entrance';
         let currentCardData = null;
         let currentArcana = null;
+        let placeholderInterval = null;
+
+        // Time-aware greetings for return visitors
+        const timeGreetings = {
+            morning: ["The morning light found you here again.", "Back before noon — I like your style.", "Early bird, seeking worms of wonder."],
+            afternoon: ["The afternoon brought you back.", "Midday wanderer, what calls to you?", "The city hums. So do you."],
+            evening: ["The evening stirs something, doesn't it?", "Night approaches. Where shall we send you?", "The gloaming hour — my favourite."],
+            latenight: ["The late hours have their own magic.", "Still awake? So am I.", "The city's second life is beginning."]
+        };
+
+        // Cycling placeholders for search box
+        const askPlaceholders = [
+            "somewhere witchy and weird...",
+            "I want to feel alive tonight...",
+            "cosy, with candles and wine...",
+            "I don't know — surprise me..."
+        ];
 
         // Arcana mapping for display (with symbols!)
         const arcanaMap = {
@@ -451,6 +551,8 @@
             // Clear ask results
             document.getElementById('askResults').innerHTML = '';
             document.getElementById('userInput').value = '';
+            // Stop placeholder cycling
+            stopPlaceholderCycle();
         }
 
         // ============================================
@@ -464,15 +566,85 @@
                     document.getElementById('drawnCard').style.display = 'flex';
                     document.getElementById('revealedCard').style.display = 'none';
                     document.getElementById('drawActions').style.display = 'none';
+                    stopPlaceholderCycle();
                     break;
                 case 'ask':
                     showView('ask');
+                    setupAskView();
                     document.getElementById('userInput').focus();
                     break;
                 case 'browse':
                     showView('browse');
                     loadFullDeck();
+                    stopPlaceholderCycle();
                     break;
+            }
+        }
+
+        // ============================================
+        // ASK VIEW SETUP - First/Return Visit Logic
+        // ============================================
+        function setupAskView() {
+            const isFirstVisit = !localStorage.getItem('lark_visited');
+            const introEl = document.getElementById('askIntro');
+            const promptEl = document.getElementById('askPrompt');
+
+            if (isFirstVisit) {
+                // First visit: show intro, standard question
+                introEl.style.display = 'block';
+                promptEl.textContent = 'What kind of night are you after?';
+                // Mark as visited after they've seen the intro
+                localStorage.setItem('lark_visited', 'true');
+            } else {
+                // Return visit: hide intro, time-aware greeting
+                introEl.style.display = 'none';
+                promptEl.textContent = getTimeGreeting() + ' What is it tonight?';
+            }
+
+            // Start cycling placeholders
+            startPlaceholderCycle();
+        }
+
+        function getTimeGreeting() {
+            const hour = new Date().getHours();
+            let period;
+            if (hour >= 5 && hour < 12) period = 'morning';
+            else if (hour >= 12 && hour < 17) period = 'afternoon';
+            else if (hour >= 17 && hour < 22) period = 'evening';
+            else period = 'latenight';
+
+            const greetings = timeGreetings[period];
+            return greetings[Math.floor(Math.random() * greetings.length)];
+        }
+
+        function startPlaceholderCycle() {
+            const input = document.getElementById('userInput');
+            let index = 0;
+
+            // Set initial placeholder
+            input.placeholder = askPlaceholders[index];
+
+            // Clear any existing interval
+            stopPlaceholderCycle();
+
+            // Cycle through placeholders every 3.5 seconds
+            placeholderInterval = setInterval(() => {
+                // Only cycle if input is empty and focused or not focused
+                if (input.value === '') {
+                    input.classList.add('placeholder-fade');
+                    setTimeout(() => {
+                        index = (index + 1) % askPlaceholders.length;
+                        input.placeholder = askPlaceholders[index];
+                        input.classList.remove('placeholder-fade');
+                    }, 300);
+                }
+            }, 3500);
+        }
+
+        function stopPlaceholderCycle() {
+            if (placeholderInterval) {
+                clearInterval(placeholderInterval);
+                placeholderInterval = null;
             }
         }
 
