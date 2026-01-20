@@ -9,11 +9,17 @@ Matches on:
 - Mood tag (using full synonym list from mood_index.json)
 - Location (if given)
 - Group size compatibility
+
+Now with adjacency-based card drawing:
+- 2 primary arcana venues + 1 adjacent arcana venue
+- "She gives you what you searched for, and one door you didn't know to ask about."
 """
 
 import json
+import random
 from pathlib import Path
 from parse_venues import load_parsed_venues
+from emotional_geography import get_random_adjacent, TAROT_ADJACENCY
 
 # Load parsed venue profiles
 venue_data = load_parsed_venues()
@@ -192,7 +198,6 @@ def match_venues(filters):
         matches.append(normalized_venue)
 
     # Shuffle matches to add variety
-    import random
     random.shuffle(matches)
 
     # Deduplicate matches by venue name (prevents same venue appearing multiple times)
@@ -208,8 +213,245 @@ def match_venues(filters):
     if mood:
         print(f"   ✓ Found {len(deduplicated_matches)} venues matching '{mood}'")
 
-    # Return top 3 unique matches
+    # Return top 3 unique matches (basic matching, no adjacency)
     return deduplicated_matches[:3]
+
+
+def match_venues_with_adjacency(filters, all_venues=None):
+    """
+    Smart card drawing with adjacency logic.
+
+    Returns up to 3 venues:
+    - Card 1: Primary arcana venue
+    - Card 2: Primary arcana venue (different)
+    - Card 3: Adjacent arcana venue (from a neighboring arcana)
+
+    "She gives you what you searched for, and one door you didn't know to ask about."
+    """
+    mood = filters.get("mood")
+    location = filters.get("location")
+    group = filters.get("group")
+    budget = filters.get("budget")
+    genre = filters.get("genre")
+
+    # Load all venues if not provided
+    if all_venues is None:
+        all_venues = load_parsed_venues()
+
+    # Determine the primary arcana for adjacency purposes
+    # Priority: Use the mood filter if it's a valid arcana name
+    primary_arcana = None
+    if mood and mood in TAROT_ADJACENCY:
+        primary_arcana = mood
+
+    # Get all matches (using original matching logic)
+    all_matches = match_venues(filters)
+
+    # If we have fewer than 2 matches, just return what we have
+    if len(all_matches) < 2:
+        return all_matches
+
+    # Separate matches into primary arcana and others
+    primary_arcana_venues = []
+    other_venues = []
+
+    for venue in all_matches:
+        raw_data = venue.get("raw_data", {})
+        venue_arcana = raw_data.get("arcana")
+        if primary_arcana and venue_arcana == primary_arcana:
+            primary_arcana_venues.append(venue)
+        else:
+            other_venues.append(venue)
+
+    # Build result: prefer primary arcana venues for first 2 cards
+    result = []
+    seen_names = set()
+
+    # First, take up to 2 from primary arcana
+    for venue in primary_arcana_venues[:2]:
+        result.append(venue)
+        seen_names.add(venue.get("name", "").lower().strip())
+
+    # Fill remaining slots from other venues if needed
+    while len(result) < 2 and other_venues:
+        venue = other_venues.pop(0)
+        venue_name = venue.get("name", "").lower().strip()
+        if venue_name not in seen_names:
+            result.append(venue)
+            seen_names.add(venue_name)
+
+    if len(result) < 2:
+        return result
+
+    # If no primary arcana from mood, get it from the first venue
+    if not primary_arcana and result:
+        raw_data = result[0].get("raw_data", {})
+        primary_arcana = raw_data.get("arcana")
+
+    # Get a random adjacent arcana
+    adjacent_arcana = get_random_adjacent(primary_arcana) if primary_arcana else None
+
+    if adjacent_arcana:
+        print(f"   🔗 Primary arcana '{primary_arcana}' → adjacent '{adjacent_arcana}'")
+
+        # Find venues in the adjacent arcana
+        adjacent_candidates = []
+        for venue in all_venues:
+            venue_arcana = venue.get("arcana")
+            if venue_arcana == adjacent_arcana:
+                venue_name = venue.get("name", "").lower().strip()
+                if venue_name not in seen_names:
+                    # Apply location filter if specified
+                    if location:
+                        area = venue.get("area", "") or venue.get("location", "")
+                        tags = venue.get("tags", [])
+                        tags_str = " ".join(tags) if isinstance(tags, list) else str(tags)
+                        if location.lower() not in area.lower() and location.lower() not in tags_str.lower():
+                            continue
+
+                    adjacent_candidates.append(venue)
+
+        if adjacent_candidates:
+            # Pick a random adjacent venue
+            random.shuffle(adjacent_candidates)
+            adj_venue = adjacent_candidates[0]
+
+            # Normalize to expected format
+            normalized_adj = {
+                "name": adj_venue.get("name", "Unnamed venue"),
+                "area": adj_venue.get("area", adj_venue.get("location", "London")),
+                "vibe_note": adj_venue.get("tone_notes", adj_venue.get("blurb", "An experience beyond words")),
+                "typical_start_time": adj_venue.get("typical_start_time", ""),
+                "price": adj_venue.get("price", "TBC"),
+                "website": adj_venue.get("website", adj_venue.get("url", "")),
+                "whisper": adj_venue.get("whisper", ""),
+                "mood_tags": adj_venue.get("moods", adj_venue.get("mood_tags", [])),
+                "raw_data": adj_venue,
+                "is_adjacent": True,  # Flag to identify adjacent draws
+                "adjacent_from": primary_arcana
+            }
+            result.append(normalized_adj)
+            print(f"   ✨ Adjacent card drawn: {normalized_adj['name']} from '{adjacent_arcana}'")
+        else:
+            # No adjacent venues found, fall back to 3rd primary
+            if len(primary_matches) > 2:
+                result.append(primary_matches[2])
+                print(f"   ⚠️ No adjacent venues in '{adjacent_arcana}', using 3rd primary match")
+    else:
+        # No adjacency mapping found, fall back to 3rd primary
+        if len(primary_matches) > 2:
+            result.append(primary_matches[2])
+            print(f"   ⚠️ No adjacency map for '{primary_arcana}', using 3rd primary match")
+
+    return result
+
+
+def match_surprise_with_adjacency(all_venues=None):
+    """
+    Draw for "I don't know" / "surprise me" queries.
+
+    Returns up to 3 venues:
+    - Card 1: Random arcana (fate chooses)
+    - Card 2: Adjacent to Card 1 (first neighbor)
+    - Card 3: Adjacent to Card 1 (different neighbor)
+
+    Maximum variety across arcana.
+    """
+    if all_venues is None:
+        all_venues = load_parsed_venues()
+
+    if not all_venues:
+        return []
+
+    # Pick a random starting venue (Card 1)
+    random.shuffle(all_venues)
+    card1_raw = all_venues[0]
+    primary_arcana = card1_raw.get("arcana")
+
+    seen_names = {card1_raw.get("name", "").lower().strip()}
+
+    # Normalize Card 1
+    card1 = {
+        "name": card1_raw.get("name", "Unnamed venue"),
+        "area": card1_raw.get("area", card1_raw.get("location", "London")),
+        "vibe_note": card1_raw.get("tone_notes", card1_raw.get("blurb", "An experience beyond words")),
+        "typical_start_time": card1_raw.get("typical_start_time", ""),
+        "price": card1_raw.get("price", "TBC"),
+        "website": card1_raw.get("website", card1_raw.get("url", "")),
+        "whisper": card1_raw.get("whisper", ""),
+        "mood_tags": card1_raw.get("moods", card1_raw.get("mood_tags", [])),
+        "raw_data": card1_raw,
+        "is_fate_draw": True
+    }
+
+    result = [card1]
+    print(f"   🎲 Fate draw: '{card1['name']}' from '{primary_arcana}'")
+
+    # Get adjacent arcana list
+    adjacent_list = TAROT_ADJACENCY.get(primary_arcana, [])
+
+    if len(adjacent_list) >= 2:
+        # Pick 2 different adjacent arcana for Cards 2 and 3
+        random.shuffle(adjacent_list)
+        adj_arcana_1 = adjacent_list[0]
+        adj_arcana_2 = adjacent_list[1]
+
+        for i, adj_arcana in enumerate([adj_arcana_1, adj_arcana_2], start=2):
+            # Find venues in this adjacent arcana
+            adj_candidates = [
+                v for v in all_venues
+                if v.get("arcana") == adj_arcana
+                and v.get("name", "").lower().strip() not in seen_names
+            ]
+
+            if adj_candidates:
+                random.shuffle(adj_candidates)
+                adj_raw = adj_candidates[0]
+                seen_names.add(adj_raw.get("name", "").lower().strip())
+
+                adj_venue = {
+                    "name": adj_raw.get("name", "Unnamed venue"),
+                    "area": adj_raw.get("area", adj_raw.get("location", "London")),
+                    "vibe_note": adj_raw.get("tone_notes", adj_raw.get("blurb", "An experience beyond words")),
+                    "typical_start_time": adj_raw.get("typical_start_time", ""),
+                    "price": adj_raw.get("price", "TBC"),
+                    "website": adj_raw.get("website", adj_raw.get("url", "")),
+                    "whisper": adj_raw.get("whisper", ""),
+                    "mood_tags": adj_raw.get("moods", adj_raw.get("mood_tags", [])),
+                    "raw_data": adj_raw,
+                    "is_adjacent": True,
+                    "adjacent_from": primary_arcana
+                }
+                result.append(adj_venue)
+                print(f"   🔗 Adjacent card {i}: '{adj_venue['name']}' from '{adj_arcana}'")
+
+    # If we don't have 3 cards yet, fill with random venues
+    while len(result) < 3:
+        remaining = [
+            v for v in all_venues
+            if v.get("name", "").lower().strip() not in seen_names
+        ]
+        if remaining:
+            random.shuffle(remaining)
+            extra_raw = remaining[0]
+            seen_names.add(extra_raw.get("name", "").lower().strip())
+
+            extra = {
+                "name": extra_raw.get("name", "Unnamed venue"),
+                "area": extra_raw.get("area", extra_raw.get("location", "London")),
+                "vibe_note": extra_raw.get("tone_notes", extra_raw.get("blurb", "An experience beyond words")),
+                "typical_start_time": extra_raw.get("typical_start_time", ""),
+                "price": extra_raw.get("price", "TBC"),
+                "website": extra_raw.get("website", extra_raw.get("url", "")),
+                "whisper": extra_raw.get("whisper", ""),
+                "mood_tags": extra_raw.get("moods", extra_raw.get("mood_tags", [])),
+                "raw_data": extra_raw
+            }
+            result.append(extra)
+        else:
+            break
+
+    return result
 
 if __name__ == "__main__":
     test_filters = {
