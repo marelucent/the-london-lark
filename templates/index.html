@@ -265,6 +265,158 @@
         #userInput.placeholder-fade {
             opacity: 0.7;
         }
+
+        /* ============================================
+           CARE PATHWAY STYLES
+           ============================================ */
+
+        .care-pathway-container {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .care-preamble {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--gold, #d4af37);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .care-choices {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto 2rem auto;
+        }
+
+        @media (max-width: 500px) {
+            .care-choices {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+            }
+        }
+
+        .care-choice-btn {
+            padding: 1rem 1.25rem;
+            background: rgba(26, 23, 20, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 3px;
+            color: var(--candlelight, #f4e4bc);
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1rem;
+            font-style: italic;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .care-choice-btn:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold, #d4af37);
+            color: var(--gold, #d4af37);
+        }
+
+        .care-choice-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Resources footer for Tier 3 */
+        .resources-footer {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .resources-footer-text {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .resources-footer-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .resources-footer-contacts a {
+            color: var(--gold, #d4af37);
+            text-decoration: none;
+        }
+
+        .resources-footer-contacts a:hover {
+            text-decoration: underline;
+        }
+
+        .resources-footer-contacts span {
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.7;
+        }
+
+        /* ============================================
+           NULL STATE STYLES
+           ============================================ */
+
+        .null-state-container {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .null-preamble {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--gold, #d4af37);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .null-choices {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .null-choice-btn {
+            width: 100%;
+            padding: 0.9rem 1.5rem;
+            background: rgba(26, 23, 20, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 3px;
+            color: var(--candlelight, #f4e4bc);
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1rem;
+            font-style: italic;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .null-choice-btn:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold, #d4af37);
+            color: var(--gold, #d4af37);
+        }
+
+        .null-choice-btn:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 <body>
@@ -452,6 +604,7 @@
         let currentCardData = null;
         let currentArcana = null;
         let placeholderInterval = null;
+        let currentSafetyTier = null;  // Tracks current emotional tier for care pathway
 
         // Time-aware greetings for return visitors
         const timeGreetings = {
@@ -964,11 +1117,14 @@
                 
                 // Clear previous results
                 resultsContainer.innerHTML = '';
-                
+
+                // Store current safety tier for care pathway calls
+                currentSafetyTier = data.safety ? data.safety.tier : null;
+
                 // =====================================================
                 // SAFETY TIER HANDLING
                 // =====================================================
-                
+
                 // Handle crisis tier - show resources FIRST
                 if (data.safety && data.safety.show_crisis_resources) {
                     const crisisBox = document.createElement('div');
@@ -1009,22 +1165,26 @@
                     `;
                     resultsContainer.appendChild(crisisBox);
                 }
-                
-                // Handle distress tier - show support box above venues
-                if (data.safety && data.safety.show_support_box) {
-                    const supportBox = document.createElement('div');
-                    supportBox.className = 'safety-support-box';
-                    supportBox.innerHTML = `
-                        <p class="lark-says">${data.safety.lark_preamble || "That sounds really hard. I'm here — and so are others, if you need them."}</p>
-                        <div class="support-links">
-                            <a href="tel:116123" class="support-link"><span class="icon">📞</span> Samaritans: 116 123</a>
-                            <a href="sms:85258" class="support-link"><span class="icon">💬</span> Text SHOUT to 85258</a>
-                            <a href="/resources" class="more-link">more support →</a>
-                        </div>
-                    `;
-                    resultsContainer.appendChild(supportBox);
+
+                // Handle care pathway (Tier 2/3) - show preamble + choice buttons
+                if (data.safety && data.safety.show_care_pathway && data.safety.care_choices) {
+                    renderCarePathway(data.safety, resultsContainer);
+                    // Re-enable input
+                    input.disabled = false;
+                    document.getElementById('askButton').disabled = false;
+                    return;  // Wait for user choice
                 }
-                
+
+                // Handle null state - show presence and options
+                if (data.null_state && data.null_state.is_null) {
+                    renderNullState(data.null_state, resultsContainer);
+                    // Re-enable input
+                    input.disabled = false;
+                    document.getElementById('askButton').disabled = false;
+                    input.value = '';
+                    return;
+                }
+
                 // =====================================================
                 // VENUE RENDERING
                 // =====================================================
@@ -1036,29 +1196,29 @@
                         intro.textContent = data.intro;
                         resultsContainer.appendChild(intro);
                     }
-                    
+
                     // Render venue cards with staggered animation
                     data.responses.forEach((resp, index) => {
                         setTimeout(() => {
                             const card = createVenueCard(resp, data.mood);
                             resultsContainer.appendChild(card);
-                            
+
                             // After all venues, add soft footer if needed (Tier 2)
                             if (index === data.responses.length - 1) {
                                 if (data.safety && data.safety.show_soft_footer) {
                                     const softFooter = document.createElement('div');
                                     softFooter.className = 'safety-soft-footer';
                                     softFooter.innerHTML = `
-                                        If you need more than a venue tonight, <a href="/resources">others are here too</a>.
+                                        And if you need more than a place: <a href="/resources">Resources</a>
                                     `;
                                     resultsContainer.appendChild(softFooter);
                                 }
                             }
                         }, index * 200);
                     });
-                    
-                } else {
-                    // Empty state - no venues found
+
+                } else if (!data.safety?.show_crisis_resources) {
+                    // Empty state - no venues found (and not crisis)
                     resultsContainer.innerHTML += `
                         <div class="empty-state">
                             <p>The wind found no doors tonight, petal.</p>
@@ -1142,6 +1302,173 @@
                 card.classList.add('card-lg');
                 if (whisperEl) whisperEl.style.display = 'none';
                 if (blurbEl) blurbEl.style.display = 'block';
+            }
+        }
+
+        // ============================================
+        // CARE PATHWAY RENDERING
+        // ============================================
+        function renderCarePathway(safety, container) {
+            const careContainer = document.createElement('div');
+            careContainer.className = 'care-pathway-container';
+
+            // Preamble
+            const preamble = document.createElement('p');
+            preamble.className = 'care-preamble';
+            preamble.textContent = safety.lark_preamble || "I hear you.";
+            careContainer.appendChild(preamble);
+
+            // Choice buttons
+            const choicesDiv = document.createElement('div');
+            choicesDiv.className = 'care-choices';
+
+            safety.care_choices.forEach(choice => {
+                const btn = document.createElement('button');
+                btn.className = 'care-choice-btn';
+                btn.textContent = choice.label;
+                btn.onclick = () => handleCareChoice(choice.arcana, safety.tier);
+                choicesDiv.appendChild(btn);
+            });
+
+            careContainer.appendChild(choicesDiv);
+
+            // Resources footer for Tier 3 (distress)
+            if (safety.tier === 'distress' && safety.resources_footer) {
+                const footer = document.createElement('div');
+                footer.className = 'resources-footer';
+                footer.innerHTML = `
+                    <p class="resources-footer-text">${safety.resources_footer}</p>
+                    <div class="resources-footer-contacts">
+                        <span><strong>Samaritans:</strong> <a href="tel:116123">116 123</a> (free, 24/7)</span>
+                        <span><strong>Shout:</strong> Text <a href="sms:85258">SHOUT to 85258</a></span>
+                        <span><a href="https://mind.org.uk" target="_blank" rel="noopener">mind.org.uk</a></span>
+                    </div>
+                `;
+                careContainer.appendChild(footer);
+            }
+
+            container.appendChild(careContainer);
+        }
+
+        async function handleCareChoice(arcana, tier) {
+            const resultsContainer = document.getElementById('askResults');
+            showLoading();
+
+            try {
+                const response = await fetch('/care-pathway', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ arcana, tier })
+                });
+
+                const data = await response.json();
+                hideLoading();
+
+                if (data.error) {
+                    resultsContainer.innerHTML = `<div class="error-state">${data.error}</div>`;
+                    return;
+                }
+
+                // Clear the care pathway UI
+                resultsContainer.innerHTML = '';
+
+                // Render venues
+                if (data.responses && data.responses.length > 0) {
+                    data.responses.forEach((resp, index) => {
+                        setTimeout(() => {
+                            const card = createVenueCard(resp, resp.arcana || data.mood);
+                            resultsContainer.appendChild(card);
+
+                            // After all venues, add appropriate footer
+                            if (index === data.responses.length - 1) {
+                                // Soft footer for Tier 2
+                                if (data.safety && data.safety.show_soft_footer) {
+                                    const softFooter = document.createElement('div');
+                                    softFooter.className = 'safety-soft-footer';
+                                    softFooter.innerHTML = `
+                                        And if you need more than a place: <a href="/resources">Resources</a>
+                                    `;
+                                    resultsContainer.appendChild(softFooter);
+                                }
+
+                                // Resources footer for Tier 3
+                                if (data.safety && data.safety.resources_footer) {
+                                    const footer = document.createElement('div');
+                                    footer.className = 'resources-footer';
+                                    footer.innerHTML = `
+                                        <p class="resources-footer-text">${data.safety.resources_footer}</p>
+                                        <div class="resources-footer-contacts">
+                                            <span><strong>Samaritans:</strong> <a href="tel:116123">116 123</a> (free, 24/7)</span>
+                                            <span><strong>Shout:</strong> Text <a href="sms:85258">SHOUT to 85258</a></span>
+                                            <span><a href="https://mind.org.uk" target="_blank" rel="noopener">mind.org.uk</a></span>
+                                        </div>
+                                    `;
+                                    resultsContainer.appendChild(footer);
+                                }
+                            }
+                        }, index * 200);
+                    });
+                } else {
+                    resultsContainer.innerHTML = `
+                        <div class="empty-state">
+                            <p>The wind found no doors tonight, petal.</p>
+                            <p class="empty-subtext">Try another path, or speak differently.</p>
+                        </div>
+                    `;
+                }
+
+            } catch (error) {
+                hideLoading();
+                resultsContainer.innerHTML = `<div class="error-state">Something went awry: ${error.message}</div>`;
+            }
+        }
+
+        // ============================================
+        // NULL STATE RENDERING
+        // ============================================
+        function renderNullState(nullState, container) {
+            const nullContainer = document.createElement('div');
+            nullContainer.className = 'null-state-container';
+
+            // Preamble - warm presence
+            const preamble = document.createElement('p');
+            preamble.className = 'null-preamble';
+            preamble.textContent = nullState.preamble;
+            nullContainer.appendChild(preamble);
+
+            // Choice buttons
+            const choicesDiv = document.createElement('div');
+            choicesDiv.className = 'null-choices';
+
+            nullState.choices.forEach(choice => {
+                const btn = document.createElement('button');
+                btn.className = 'null-choice-btn';
+                btn.textContent = choice.label;
+                btn.onclick = () => handleNullChoice(choice.action);
+                choicesDiv.appendChild(btn);
+            });
+
+            nullContainer.appendChild(choicesDiv);
+            container.appendChild(nullContainer);
+        }
+
+        function handleNullChoice(action) {
+            switch (action) {
+                case 'draw_random':
+                    // Draw a random card (using therapeutic arcana if appropriate)
+                    choosePath('draw');
+                    break;
+                case 'browse':
+                    // Navigate to browse view
+                    choosePath('browse');
+                    break;
+                case 'clear_input':
+                    // Clear search and refocus
+                    document.getElementById('askResults').innerHTML = '';
+                    const input = document.getElementById('userInput');
+                    input.value = '';
+                    input.focus();
+                    break;
             }
         }
 

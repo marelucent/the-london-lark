@@ -10,7 +10,13 @@ Run this, then open http://localhost:5000 in your browser.
 from flask import Flask, render_template, request, jsonify
 from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
-from safety_detector import detect_emotional_state, get_tier_response_config
+from safety_detector import (
+    detect_emotional_state,
+    get_tier_response_config,
+    get_null_state_config,
+    get_therapeutic_arcana,
+    THERAPEUTIC_ARCANA
+)
 from venue_matcher import match_venues
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
 from parse_venues import load_parsed_venues
@@ -323,41 +329,57 @@ def ask_lark():
         # SAFETY TIER PRIORITY CHECK
         # If distress or crisis detected, handle that FIRST before mood checks
         # =====================================================================
-        if emotional_tier in ('distress', 'crisis'):
-            print(f"   🛡️ Safety override: {emotional_tier} tier detected, bypassing mood requirements")
-            
-            # For crisis/distress, we might still want to offer gentle venues
-            # Try to find some refuge/cosy venues
+
+        # Tier 2 (Emotional) and Tier 3 (Distress) - show care pathway with choices
+        if emotional_tier in ('emotional', 'distress'):
+            print(f"   🛡️ Care pathway: {emotional_tier} tier detected, showing choices")
+
+            return jsonify({
+                'responses': [],  # No venues yet - wait for choice
+                'mood': None,
+                'confidence': 0.0,
+                'venue_count': 0,
+                'filters': filters,
+                'safety': {
+                    'tier': emotional_tier,
+                    'show_soft_footer': safety_config.get('show_soft_footer', False),
+                    'show_support_box': False,  # Now using care pathway
+                    'show_crisis_resources': False,
+                    'show_care_pathway': safety_config.get('show_care_pathway', True),
+                    'care_choices': safety_config.get('care_choices', []),
+                    'resources_footer': safety_config.get('resources_footer'),
+                    'lark_preamble': safety_config.get('lark_preamble')
+                },
+                'debug': {
+                    'reason': 'care_pathway',
+                    'tier': emotional_tier,
+                    'keywords': safety_keywords
+                }
+            })
+
+        # Tier 4 (Crisis) - show resources first, then optionally gentle venues
+        if emotional_tier == 'crisis':
+            print(f"   🛡️ Crisis tier detected, showing resources first")
+
+            # For crisis, we might still want to offer gentle venues
             gentle_venues = []
             try:
                 all_venues = load_parsed_venues()
-                # Look for venues in gentle arcana
                 gentle_arcana = [
                     'Contemplative & Meditative',
-                    'Folk & Intimate', 
+                    'Folk & Intimate',
                     'Grief & Grace',
                     'Spiritual / Sacred / Mystical'
                 ]
                 gentle_venues = [v for v in all_venues if v.get('arcana') in gentle_arcana]
                 random.shuffle(gentle_venues)
-                gentle_venues = gentle_venues[:3]  # Take up to 3
+                gentle_venues = gentle_venues[:1]  # Just one gentle option for crisis
             except Exception as e:
                 print(f"   Could not load gentle venues: {e}")
-            
-            # Build responses with gentle venues if available
+
+            # Build response with optional gentle venue
             responses = []
-            if gentle_venues and emotional_tier == 'distress':
-                # For distress, include some gentle venue suggestions
-                for venue in gentle_venues:
-                    response_text = generate_response(venue, {'mood': venue.get('arcana')})
-                    responses.append({
-                        'text': response_text,
-                        'venue_name': venue.get('name', venue.get('display_name', '')),
-                        'area': venue.get('area', venue.get('location', '')),
-                        'website': venue.get('website', venue.get('url', ''))
-                    })
-            elif gentle_venues and emotional_tier == 'crisis':
-                # For crisis, just one gentle option after the resources
+            if gentle_venues:
                 venue = gentle_venues[0]
                 response_text = generate_response(venue, {'mood': venue.get('arcana')})
                 responses.append({
@@ -366,7 +388,7 @@ def ask_lark():
                     'area': venue.get('area', venue.get('location', '')),
                     'website': venue.get('website', venue.get('url', ''))
                 })
-            
+
             return jsonify({
                 'responses': responses,
                 'mood': None,
@@ -375,13 +397,16 @@ def ask_lark():
                 'filters': filters,
                 'safety': {
                     'tier': emotional_tier,
-                    'show_soft_footer': safety_config['show_soft_footer'],
-                    'show_support_box': safety_config['show_support_box'],
-                    'show_crisis_resources': safety_config['show_crisis_resources'],
-                    'lark_preamble': safety_config['lark_preamble']
+                    'show_soft_footer': False,
+                    'show_support_box': False,
+                    'show_crisis_resources': True,
+                    'show_care_pathway': False,
+                    'care_choices': None,
+                    'resources_footer': None,
+                    'lark_preamble': safety_config.get('lark_preamble')
                 },
                 'debug': {
-                    'reason': 'safety_tier_priority',
+                    'reason': 'crisis_tier',
                     'tier': emotional_tier,
                     'keywords': safety_keywords
                 }
@@ -391,29 +416,33 @@ def ask_lark():
         # CONFIDENCE THRESHOLD CHECKS (only reached if no safety override)
         # =====================================================================
         
-        # If no mood detected at all (None with 0.0 confidence), reject
+        # If no mood detected at all (None with 0.0 confidence), show null state with presence
         if filters.get("mood") is None and mood_confidence == 0.0:
-            print(f"   ❌ No recognizable mood keywords found")
+            print(f"   ❌ No recognizable mood keywords found - showing null state with presence")
+            null_config = get_null_state_config()
             return jsonify({
-                'responses': [{
-                    'text': "I tilt my head... those words don't quite sing to me, petal. Could you describe the mood you're seeking? Perhaps something melancholic, intimate, queer, folk-like, or late-night?",
-                    'venue_name': None,
-                    'area': None,
-                    'website': None
-                }],
+                'responses': [],  # No venues, but she stays present
                 'mood': None,
                 'confidence': 0.0,
                 'venue_count': 0,
                 'filters': filters,
+                'null_state': {
+                    'is_null': True,
+                    'preamble': null_config['preamble'],
+                    'choices': null_config['choices']
+                },
                 'safety': {
                     'tier': emotional_tier,
-                    'show_soft_footer': safety_config['show_soft_footer'],
-                    'show_support_box': safety_config['show_support_box'],
-                    'show_crisis_resources': safety_config['show_crisis_resources'],
-                    'lark_preamble': safety_config['lark_preamble']
+                    'show_soft_footer': safety_config.get('show_soft_footer', False),
+                    'show_support_box': safety_config.get('show_support_box', False),
+                    'show_crisis_resources': safety_config.get('show_crisis_resources', False),
+                    'show_care_pathway': False,
+                    'care_choices': None,
+                    'resources_footer': None,
+                    'lark_preamble': None
                 },
                 'debug': {
-                    'reason': 'no_mood_detected',
+                    'reason': 'null_state_with_presence',
                     'keywords_checked': user_prompt.lower().split()
                 }
             })
@@ -511,6 +540,80 @@ def ask_lark():
             'error': f"I stumbled: {str(e)}",
             'responses': []
         }), 500
+
+
+@app.route('/care-pathway', methods=['POST'])
+def care_pathway():
+    """
+    Handle care pathway choice selection.
+    Returns 3 venues from the specified arcana(s).
+    """
+    try:
+        data = request.json or {}
+        arcana_list = data.get('arcana', [])
+        tier = data.get('tier', 'emotional')
+
+        if not arcana_list:
+            return jsonify({
+                'error': "No arcana specified",
+                'responses': []
+            }), 400
+
+        # Handle "therapeutic_random" - pick random from therapeutic arcana
+        if arcana_list == "therapeutic_random" or "therapeutic_random" in arcana_list:
+            arcana_list = [random.choice(THERAPEUTIC_ARCANA)]
+
+        # Load venues from the specified arcana
+        all_venues = load_parsed_venues()
+        matching_venues = [
+            v for v in all_venues
+            if v.get('arcana') in arcana_list
+        ]
+
+        if not matching_venues:
+            # Fallback to all therapeutic arcana if no matches
+            matching_venues = [
+                v for v in all_venues
+                if v.get('arcana') in THERAPEUTIC_ARCANA
+            ]
+
+        # Shuffle and take up to 3
+        random.shuffle(matching_venues)
+        selected_venues = matching_venues[:3]
+
+        # Build responses
+        responses = []
+        for venue in selected_venues:
+            response_text = generate_response(venue, {'mood': venue.get('arcana')})
+            responses.append({
+                'text': response_text,
+                'venue_name': venue.get('name', venue.get('display_name', '')),
+                'area': venue.get('area', venue.get('location', '')),
+                'website': venue.get('website', venue.get('url', '')),
+                'arcana': venue.get('arcana'),
+                'whisper': venue.get('whisper', '')
+            })
+
+        # Get safety config for footer handling
+        safety_config = get_tier_response_config(tier)
+
+        return jsonify({
+            'responses': responses,
+            'mood': arcana_list[0] if arcana_list else None,
+            'venue_count': len(responses),
+            'safety': {
+                'tier': tier,
+                'show_soft_footer': safety_config.get('show_soft_footer', False),
+                'resources_footer': safety_config.get('resources_footer')
+            }
+        })
+
+    except Exception as e:
+        return jsonify({
+            'error': f"Something went awry: {str(e)}",
+            'responses': []
+        }), 500
+
 
 if __name__ == '__main__':
     print("\n" + "="*60)
