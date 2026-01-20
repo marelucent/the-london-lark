@@ -593,12 +593,17 @@ def ask_lark():
             # Return up to 3 matches
             for venue in matches[:3]:
                 response = generate_response(venue, filters)
+                # Get the venue's actual arcana (may differ from searched mood for adjacent draws)
+                raw_data = venue.get('raw_data', {})
+                venue_arcana = raw_data.get('arcana', filters.get('mood'))
                 responses.append({
                     'text': response,
                     'venue_name': venue.get('name', ''),
                     'area': venue.get('area', ''),
                     'website': venue.get('website', ''),
-                    'whisper': venue.get('whisper', '')
+                    'whisper': venue.get('whisper', ''),
+                    'arcana': venue_arcana,
+                    'is_adjacent': venue.get('is_adjacent', False)
                 })
         else:
             # No matches

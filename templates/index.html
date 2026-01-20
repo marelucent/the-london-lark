@@ -1246,7 +1246,7 @@
                     // Render venue cards with staggered animation
                     data.responses.forEach((resp, index) => {
                         setTimeout(() => {
-                            const card = createVenueCard(resp, data.mood);
+                            const card = createVenueCard(resp, resp.arcana || data.mood);
                             resultsContainer.appendChild(card);
 
                             // After all venues, add soft footer if needed (Tier 2)
@@ -1563,7 +1563,7 @@
                 
                 data.responses.forEach((resp, index) => {
                     setTimeout(() => {
-                        const card = createVenueCard(resp, data.mood);
+                        const card = createVenueCard(resp, resp.arcana || data.mood);
                         resultsContainer.appendChild(card);
                     }, index * 200);
                 });
