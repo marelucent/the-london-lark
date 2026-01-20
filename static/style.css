@@ -2220,7 +2220,8 @@ button {
     margin-top: 0.8rem;
 }
 
-/* Safety boxes and intro text should span full width */
+/* Preamble, safety boxes, and intro text should span full width */
+.results-container .lark-preamble-section,
 .results-container .safety-support-box,
 .results-container .safety-crisis-box,
 .results-container .safety-soft-footer,
@@ -2228,7 +2229,7 @@ button {
 .results-container .empty-state {
     width: 100%;
     flex-basis: 100%;
-    flex-shrink: 1;
+    flex-shrink: 0;
 }
 
 /* Mobile: stack cards vertically */

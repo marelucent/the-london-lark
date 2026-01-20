@@ -185,6 +185,7 @@ def match_venues(filters):
             "typical_start_time": venue.get("typical_start_time", ""),
             "price": venue.get("price", "TBC"),
             "website": venue.get("website", venue.get("url", "")),  # Added website field
+            "whisper": venue.get("whisper", ""),  # Venue's unique whisper text
             "mood_tags": mood_tags,
             "raw_data": venue  # Keep original data for reference
         }
