@@ -11545,5 +11545,216 @@
     "whisper": "Spices under your fingertips, incense drying beside your cup of tea.",
     "arcana": "Curious Encounters",
     "last_verified": "2026-01-21"
+  },
+  {
+    "name": "London LGBTQ+ Community Centre",
+    "location": "Bankside",
+    "moods": [
+      "inclusive",
+      "cathartic",
+      "held",
+      "community"
+    ],
+    "genres": [
+      "conscious breathwork",
+      "breath circle",
+      "somatic release"
+    ],
+    "url": "https://londonlgbtqcentre.org/",
+    "blurb": "The London LGBTQ+ Community Centre isn't just a café and hub – it regularly turns into a breathwork sanctuary. Iva's weekend sessions start with shaking and movement before dropping into a 40-minute conscious connected breath circle and a gentle sharing round. Guidelines are clear, contraindications are explained and the vibe is supportive, queer-affirming and trauma-informed. If you've never breathed like this among your community, expect tears, laughter and a sense of coming home.",
+    "whisper": "Shake, breathe, share – the simplest rituals become profound when held in queer company.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "We The Conscious",
+    "location": "Hackney Downs",
+    "moods": [
+      "immersive",
+      "transformative",
+      "modern",
+      "held"
+    ],
+    "genres": [
+      "conscious breathwork",
+      "somatic exploration",
+      "sound journey"
+    ],
+    "url": "https://wetheconscious.com/",
+    "blurb": "Tucked inside a converted printworks at Hackney Downs Studios, We The Conscious is a breath-led studio built around a quadraphonic sound system and soft lighting. Weekly group journeys and private sessions weave circular breathing with psychosomatic inquiry, sensory tools and curated music to recalibrate the nervous system. It's not yoga and it's not therapy – it's a modern ritual for those who want to feel everything.",
+    "whisper": "Quadraphonic waves, dim light, and breath as anchor – Hackney's sound-bath for your lungs.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Soul Studio",
+    "location": "Primrose Hill",
+    "moods": [
+      "gentle",
+      "nurturing",
+      "deep",
+      "trusting"
+    ],
+    "genres": [
+      "somatic breathwork",
+      "trauma-informed",
+      "circle"
+    ],
+    "url": "https://souls.tudio/",
+    "blurb": "In a tucked-away warehouse in Primrose Hill, Jasmine St Cliere hosts monthly Somatic Breathwork Circles. Each evening begins with intention setting, a 60-minute conscious breathing journey and time for integration and sharing. Jasmine is a trauma-informed practitioner, so expect plenty of blankets, a slow pace and space to feel whatever comes. It's intimate work in a neighbourhood not known for getting raw – but it's what makes this circle so precious.",
+    "whisper": "A warehouse in NW1 where time slows and your breath remembers stories your mind forgot.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Hello Studio",
+    "location": "Finsbury Park",
+    "moods": [
+      "communal",
+      "grounded",
+      "energising"
+    ],
+    "genres": [
+      "conscious connected breathwork",
+      "group circle"
+    ],
+    "url": "https://hellostud.io/",
+    "blurb": "On the first Sunday of every month, Hello Studio opens its doors in Finsbury Park for a Conscious Connected Breathwork circle. The sessions include a guided meditation, an hour of circular breathing accompanied by music and a closing sharing circle. Health contraindications are explained in advance and the space feels more like a friend's living room than a studio – pillows, blankets and a palpable sense of safety abound. It's affordable, no-nonsense breathwork for a North London neighbourhood.",
+    "whisper": "In a cosy room above the Hornsey Road, strangers breathe like family and leave lighter.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Indaba Yoga",
+    "location": "Marylebone",
+    "moods": [
+      "transformative",
+      "educational",
+      "structured"
+    ],
+    "genres": [
+      "somatic breathwork",
+      "pranayama",
+      "workshop"
+    ],
+    "url": "https://www.indabayoga.com/",
+    "blurb": "Better known for yoga, Indaba's cosy studio near Baker Street also hosts deep breathwork workshops led by teachers like Rebecca Dennis and Alan Dolan. Upcoming events explore somatic breathing techniques, the science of the nervous system and the connection between breath and trauma. The Marylebone location is easy to reach, the facilitators have decades of experience and the sessions sell out for a reason. For those who like a bit of theory with their transcendence, Indaba delivers.",
+    "whisper": "Hayes Place, candles flicker – and the city's noise dissolves into the cadence of your breath.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Leanna Raspini at The London Clinic",
+    "location": "Mayfair",
+    "moods": [
+      "bespoke",
+      "nurturing",
+      "intimate"
+    ],
+    "genres": [
+      "somatic breathwork",
+      "therapeutic",
+      "1:1 session"
+    ],
+    "url": "https://leannaraspini.com/",
+    "blurb": "Somatic therapist Leanna Raspini offers private breathwork, TRE and somatic therapy sessions from her London Clinic near Hanover Square in Mayfair. Her site describes bespoke healing programmes designed to resolve stress, reconnect you with your body and gently guide you back to wholeness. If you need a carefully tailored, one-on-one breath journey rather than a circle, this quiet clinic may be the place.",
+    "whisper": "Soft cushions, warm tea and someone who listens while your breath does the talking.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Regulate Breathwork at The Hare and the Moon",
+    "location": "Twickenham",
+    "moods": [
+      "empowering",
+      "community",
+      "grounded"
+    ],
+    "genres": [
+      "conscious breathwork",
+      "men's circle",
+      "workshop"
+    ],
+    "url": "https://regulatebreathwork.co.uk/events",
+    "blurb": "Transformational Breath leader Shane hosts regular introduction workshops and men's circles at The Hare and the Moon sanctuary on Twickenham's green. The sessions invite participants to step into their personal power, reconnect with their bodies and breathe more freely. It's friendly and collaborative, with other practitioners joining to hold a space that feels both magical and down-to-earth.",
+    "whisper": "A quiet sanctuary off the high street where men drop their guard and let breath lead the way.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Breath Odyssey at Say Hello Studio",
+    "location": "Finsbury Park",
+    "moods": [
+      "cathartic",
+      "exploratory",
+      "communal"
+    ],
+    "genres": [
+      "conscious connected breathwork",
+      "group workshop"
+    ],
+    "url": "https://www.breathodyssey.com/general-1",
+    "blurb": "Breath Odyssey's founder Alex McQueen runs occasional in-person group breathwork sessions at Say Hello Studio on Hornsey Road. An upcoming workshop on 4 January 2026 invites participants to a two-hour conscious breath dive with guided meditation, circular breathing and integration. The N7 studio is simple and homely, making it easy to feel safe while exploring the edges of your breath.",
+    "whisper": "Two hours, one breath and a room full of strangers who leave as friends.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Luv Yourself Space",
+    "location": "Canning Town",
+    "moods": [
+      "restorative",
+      "intimate",
+      "spacious"
+    ],
+    "genres": [
+      "kundalini & breathwork",
+      "energy work",
+      "retreat"
+    ],
+    "url": "https://natalialuvyourself.com/",
+    "blurb": "In the Royal Docks, facilitator Natalia Bareikis has created Luv Yourself Space – a quiet, heart-led sanctuary near Canning Town. Here she hosts group Kundalini/life-force activation sessions, seasonal breathwork immersions and 1:1 energy recalibration sessions. With soft lighting, plenty of plants and a slow, ceremonial pace, it's a place to let your nervous system soften and explore breath as medicine.",
+    "whisper": "A little oasis by the docks where breath, movement and subtle energy meet.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Seven Sisters Sanctuary",
+    "location": "Seven Sisters / Tottenham",
+    "moods": [
+      "oasis",
+      "calm",
+      "nourishing",
+      "connected"
+    ],
+    "genres": [
+      "transformational breath",
+      "cacao & sound",
+      "retreat"
+    ],
+    "url": "https://www.arisebreathwork.com/events",
+    "blurb": "Arise Breathwork founder Brenna Duncan runs most of her in-person sessions in a cosy studio she calls Seven Sisters Sanctuary. The events page describes it as a welcoming oasis where she collaborates with sound therapist Michelle Cade to host Heart Opening cacao, breath and sound journeys. Upcoming events range from day retreats and full moon journeys to half-day breath & nature immersions, all starting with a deeply nourishing breathwork session.",
+    "whisper": "A hidden studio in North London where cacao, sound and breath weave their spells.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "WellNest (Fire & Ice / Rewind & Revive)",
+    "location": "London Bridge",
+    "moods": [
+      "revitalising",
+      "invigorating",
+      "balanced"
+    ],
+    "genres": [
+      "breathwork",
+      "sauna & ice bath",
+      "contrast therapy"
+    ],
+    "url": "https://www.wellnest.london/guided-hot-cold-session",
+    "blurb": "WellNest's 'Fire & Ice' sessions on Crucifix Lane are equal parts breathwork and contrast therapy. Participants begin with calming breathwork to prepare the body before moving through rounds in a Himalayan salt sauna and cold plunge pods. Huminga Wellness' monthly 'Rewind & Revive' events, also hosted at WellNest, start with grounding meditation and vitality breathwork, then lead into sauna and ice baths to reset the nervous system. It's the Wim Hof principle without the machismo – a soft, heart-led way to build resilience.",
+    "whisper": "Sweat, plunge, breathe – your nervous system recalibrated in two hours.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
   }
 ]
