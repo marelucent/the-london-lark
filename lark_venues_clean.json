@@ -10831,5 +10831,225 @@
     "whisper": "An invitation you can decline. An embrace you can trust.",
     "arcana": "Body-Based / Movement-Led",
     "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Stories & Supper",
+    "location": "Walthamstow",
+    "moods": [
+      "communal",
+      "cross-cultural",
+      "nourishing",
+      "hopeful"
+    ],
+    "genres": [
+      "refugee supper club",
+      "storytelling",
+      "shared table"
+    ],
+    "url": "https://www.storiesandsupper.co.uk",
+    "blurb": "A refugee-led supper club in East London where the food comes with a side of migration stories. They bring refugees, asylum-seekers and local residents together over long tables to share dishes and memories and to change the narrative about migration. The evenings are slow and generous – you'll leave knowing a recipe and a life story you didn't before.",
+    "whisper": "Her recipe crossed borders; now it crosses your table.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "South Norwood Community Kitchen",
+    "location": "South Norwood",
+    "moods": [
+      "welcoming",
+      "solidarity",
+      "nourishing",
+      "grassroots"
+    ],
+    "genres": [
+      "community kitchen",
+      "pay-what-you-can",
+      "shared meal"
+    ],
+    "url": "https://www.southnorwoodcommunitykitchen.co.uk",
+    "blurb": "At the Socco Cheta Community Hub near Norwood Junction, volunteers turn surplus food into plates of comfort and connection. The South Norwood Community Kitchen runs a community café Tuesday to Friday and a two-course community meal on Saturdays, serving pay-what-you-can dishes and inviting anyone to linger in the garden or play board games. Project lead Emma Gardiner says it's about good food bringing people together and building power. Expect a bustling, friendly room where strangers are neighbours.",
+    "whisper": "Three different pasta bakes and a dozen new friends.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Kindred – Community Dinner",
+    "location": "Hammersmith",
+    "moods": [
+      "warm",
+      "social",
+      "uplifting",
+      "inclusive"
+    ],
+    "genres": [
+      "community dinner",
+      "shared table",
+      "monthly gathering"
+    ],
+    "url": "https://www.wearekindred.com",
+    "blurb": "Kindred is a co-working and event space that believes in the social alchemy of the dinner table. On one Monday each month they host a free communal dinner, offering a sharing meal, a drink and optional games so Londoners can connect. Founder Anna Anderson created the dinners to remove financial barriers and focus simply on meeting others over food. Donations support Nourish Hub, but the invitation is open to all.",
+    "whisper": "A Monday night without small talk – just shared dishes and real conversation.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Khalsa Jatha – Central Gurdwara",
+    "location": "Notting Hill",
+    "moods": [
+      "humble",
+      "spiritual",
+      "inclusive",
+      "generous"
+    ],
+    "genres": [
+      "langar",
+      "free meal",
+      "faith community"
+    ],
+    "url": "https://www.khalsajatha.com",
+    "blurb": "The Sikh practice of langar finds daily expression at Khalsa Jatha, the oldest gurdwara in the UK. In the downstairs dining hall, volunteers serve hot vegetarian meals to anyone who walks in, from early until late. There's no booking, no payment and no hierarchy – just the simple ritual of covering your head, removing your shoes and sharing a plate with strangers. It's food as equality and welcome.",
+    "whisper": "Sit cross-legged, cover your head, and pass the roti to a stranger.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Refettorio Felix at St Cuthbert's Centre",
+    "location": "Earls Court",
+    "moods": [
+      "nourishing",
+      "dignified",
+      "caring",
+      "creative"
+    ],
+    "genres": [
+      "community kitchen",
+      "surplus food",
+      "three-course meal"
+    ],
+    "url": "https://www.refettoriofelix.com",
+    "blurb": "This airy canteen in a church hall turns food waste into restaurant-style lunches. Founded in 2017 as part of chef Massimo Bottura's Food for Soul project, Refettorio Felix provides a three-course lunch to socially vulnerable people using surplus ingredients. Michelin-star chefs often volunteer in the kitchen, and guests can even train in hospitality. It's a meal that restores both body and dignity, served on long tables where everyone eats together.",
+    "whisper": "Surplus turned into a feast, with dignity plated alongside dessert.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Nourish Hub",
+    "location": "Shepherd's Bush",
+    "moods": [
+      "colourful",
+      "supportive",
+      "inclusive",
+      "vibrant"
+    ],
+    "genres": [
+      "community hub",
+      "donate-what-you-can",
+      "cooking workshops"
+    ],
+    "url": "https://www.nourishhub.org.uk",
+    "blurb": "UKHarvest's Nourish Hub is a bright, open kitchen and café in West London where rescued food becomes community. Since opening in 2022 it has offered daily lunches on a 'donate as you are able' basis, breakfast clubs, monthly community suppers and educational programmes. Manager Ffion Hayward notes that the Hub is open to everybody and provides a safe, supportive space for those seeking help. Pull up a chair and trade recipes while you eat.",
+    "whisper": "Donate what you can; take away more than a meal.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Sufra NW London Community Kitchen",
+    "location": "Stonebridge (Brent)",
+    "moods": [
+      "community",
+      "warm",
+      "diverse",
+      "festive"
+    ],
+    "genres": [
+      "community kitchen",
+      "free meal",
+      "themed dinners"
+    ],
+    "url": "https://www.sufra-nwlondon.org.uk/our-services/community-kitchen/",
+    "blurb": "Sufra's Community Kitchen is more than a meal – it's a neighbourhood living room. Open all year round, it serves hundreds of guests every week and aims to build community while sharing a delicious meal. Guests simply turn up to enjoy free, freshly cooked two- or three-course meals in a welcoming setting. The kitchen hosts themed dinner nights for festivals like Christmas, Ramadan and Diwali, celebrating the borough's cultural mix.",
+    "whisper": "No booking, no questions – just come hungry and sit down.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Notting Hill Community Church – Dinner Club",
+    "location": "Notting Hill",
+    "moods": [
+      "compassionate",
+      "uplifting",
+      "hopeful",
+      "friendly"
+    ],
+    "genres": [
+      "community dinner",
+      "free meal",
+      "volunteer-run"
+    ],
+    "url": "https://nhcclondon.com",
+    "blurb": "In a leafy corner of Kensington Park Road, this evangelical church sets a long table every fortnight. The Dinner Club offers a free three-course meal to people feeling isolated or experiencing food poverty and aims to offer hope, light and love. It's more than just nourishment – guests are invited to linger, talk and even volunteer. Thursdays at 5.30 pm become a ritual of care.",
+    "whisper": "Soup, main, dessert – and someone who learns your name.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "FoodCycle Marylebone",
+    "location": "Marylebone",
+    "moods": [
+      "friendly",
+      "inclusive",
+      "casual",
+      "uplifting"
+    ],
+    "genres": [
+      "community meal",
+      "volunteer-cooked",
+      "vegetarian"
+    ],
+    "url": "https://foodcycle.org.uk/location/foodcycle-marylebone/",
+    "blurb": "Every Wednesday evening, volunteers transform surplus food into a vegetarian feast at St Paul's Church in Marylebone. FoodCycle invites everyone to join the table for a free, tasty community meal, cooked by local volunteers and served family-style. There's no booking and no barrier – guests come for the food or for the company, meeting neighbours they might never otherwise encounter. It's simple, heartfelt hospitality.",
+    "whisper": "A seat waiting for you, whatever your story.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Laurence's Larder Community Kitchen",
+    "location": "Kilburn",
+    "moods": [
+      "caring",
+      "homely",
+      "inclusive",
+      "unpretentious"
+    ],
+    "genres": [
+      "community kitchen",
+      "free lunch",
+      "volunteer-run"
+    ],
+    "url": "https://www.laurenceslarder.org.uk/hot-meals",
+    "blurb": "On Thursday mornings the doors at Christ Church in Kilburn open for tea, conversation and a cooked lunch. Laurence's Larder – run with Sufra – serves a sit-down two-course meal, with meat and vegetarian options, followed by dessert. There's no referral, no payment and no reservation; volunteers cook with seasonal produce and invite anyone to the table. It's a small act of kindness repeated weekly.",
+    "whisper": "Walk in for a hot drink, stay for lunch and a chat.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Migrateful (London Cookery Classes)",
+    "location": "Various (London)",
+    "moods": [
+      "cross-cultural",
+      "hands-on",
+      "joyful",
+      "empowering"
+    ],
+    "genres": [
+      "refugee-led cooking class",
+      "communal cooking",
+      "shared meal"
+    ],
+    "url": "https://www.migrateful.org/classes/london/",
+    "blurb": "Migrateful is an award-winning charity supporting migrants and refugees on their journey to integration by enabling them to teach cookery classes. In London, their family-style classes take participants on a journey of flavours and cultural stories; you'll cook authentic dishes together and end by eating the food you've made. It's hands-on, laid-back and deeply human: a kitchen where languages mix and strangers become friends.",
+    "whisper": "Rolling chapatis while stories rise and simmer.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2026-01-20"
   }
 ]
