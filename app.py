@@ -29,11 +29,12 @@ import os
 
 # Import voice profile system for debug info (v2 with 8 voice families)
 try:
-    from poetic_templates_v2 import get_profile_name
+    from poetic_templates_v2 import get_profile_name, get_opening
     HAS_VOICE_PROFILES = True
 except ImportError:
     HAS_VOICE_PROFILES = False
     get_profile_name = lambda x: "GENERAL"
+    get_opening = lambda x: None
 
 app = Flask(__name__)
 
@@ -491,6 +492,11 @@ def ask_lark():
         metrics = get_metrics()
         metrics.log_query(filters, mood_confidence, len(matches))
 
+        # Generate opening line (the Lark's preamble)
+        opening_line = None
+        if HAS_VOICE_PROFILES and filters.get("mood"):
+            opening_line = get_opening(filters.get("mood"))
+
         # Generate responses
         responses = []
         if matches:
@@ -501,7 +507,8 @@ def ask_lark():
                     'text': response,
                     'venue_name': venue.get('name', ''),
                     'area': venue.get('area', ''),
-                    'website': venue.get('website', '')
+                    'website': venue.get('website', ''),
+                    'whisper': venue.get('whisper', '')
                 })
         else:
             # No matches
@@ -520,6 +527,7 @@ def ask_lark():
             'venue_count': len(matches),
             'filters': filters,
             'voice_profile': voice_profile_info,
+            'opening_line': opening_line,
             'safety': {
                 'tier': emotional_tier,
                 'show_soft_footer': safety_config['show_soft_footer'],

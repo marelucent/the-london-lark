@@ -365,6 +365,41 @@
         }
 
         /* ============================================
+           LARK PREAMBLE (Opening Line)
+           ============================================ */
+
+        .lark-preamble-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem 1rem;
+        }
+
+        .lark-opening-line {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--gold, #d4af37);
+            line-height: 1.8;
+            margin: 0 0 1rem 0;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .user-whispered {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1rem;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .user-whispered em {
+            color: var(--cream, #f5f0e6);
+            opacity: 1;
+        }
+
+        /* ============================================
            NULL STATE STYLES
            ============================================ */
 
@@ -1189,7 +1224,18 @@
                 // VENUE RENDERING
                 // =====================================================
                 if (data.responses && data.responses.length > 0) {
-                    // Show Lark's intro text if present
+                    // Show Lark's opening line (preamble) if present
+                    if (data.opening_line) {
+                        const preambleSection = document.createElement('div');
+                        preambleSection.className = 'lark-preamble-section';
+                        preambleSection.innerHTML = `
+                            <p class="lark-opening-line">"${data.opening_line}"</p>
+                            <p class="user-whispered">You whispered: <em>${prompt}</em></p>
+                        `;
+                        resultsContainer.appendChild(preambleSection);
+                    }
+
+                    // Show Lark's intro text if present (legacy)
                     if (data.intro) {
                         const intro = document.createElement('p');
                         intro.className = 'lark-intro';
