@@ -9464,5 +9464,989 @@
     "whisper": "Watch closely; draw simply; feel your mind go quiet.",
     "arcana": "Curious Encounters",
     "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Shamha Vibration C.I.C.",
+    "location": "Brixton",
+    "moods": [
+      "uplifting",
+      "communal",
+      "alive",
+      "encouraging"
+    ],
+    "genres": [
+      "drumming circle",
+      "community percussion",
+      "wellbeing session"
+    ],
+    "url": "https://services.thejoyapp.com/en/listings/13898-drumming-for-wellbeing",
+    "blurb": "A circle of drums, a room that warms quickly, and the simplest permission: just turn up and play. Hands find rhythm before the mind can argue. The beat becomes shared breath - lively, forgiving, and a little bit brave. Good for shaking the day out of your shoulders and remembering you have a voice in the room.",
+    "whisper": "Your hands remember what your mind forgot: how to belong in a rhythm.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Wuntanara",
+    "location": "Catford",
+    "moods": [
+      "joyful",
+      "rooted",
+      "rhythmic",
+      "welcoming"
+    ],
+    "genres": [
+      "west african drumming",
+      "djembe workshop",
+      "group percussion"
+    ],
+    "url": "https://www.wuntanara.com/",
+    "blurb": "West African drums, taught with warmth and a steady pulse - the kind that meets beginners kindly and still thrills the seasoned. You learn by doing, by listening, by laughing at the wobble and finding the groove anyway. It's not performance-first; it's life-first. Come to be re-tuned by rhythm and carried a little by the group.",
+    "whisper": "A drumline that steadies you - and then lifts you.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Flow Community Drumming CIC",
+    "location": "Wimbledon",
+    "moods": [
+      "friendly",
+      "low-pressure",
+      "supported",
+      "bright"
+    ],
+    "genres": [
+      "relaxed drum circle",
+      "community drumming",
+      "wellbeing workshop"
+    ],
+    "url": "https://flowcommunitydrumming.co.uk/",
+    "blurb": "This is drumming with the stiffness gently taken out of it. A relaxed circle where you're guided into simple patterns, then invited to play with them - no auditions, no ego, no rush. The sound builds like a shared laugh: messy at first, then suddenly together. For days when you need connection without too much conversation.",
+    "whisper": "No right notes - just a pulse you can step into.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Samba4Fun",
+    "location": "Forest Gate",
+    "moods": [
+      "energising",
+      "playful",
+      "bold",
+      "collective"
+    ],
+    "genres": [
+      "samba drumming",
+      "rhythm workshop",
+      "percussion for wellbeing"
+    ],
+    "url": "https://services.thejoyapp.com/en/listings/13898-drumming-for-wellbeing",
+    "blurb": "Samba is a kind of happiness you can feel in your ribs. The grooves are taught in a way that gets you playing quickly - then the room turns into a bright engine of sound. It's loud, fizzy, and surprisingly therapeutic: the nervous system loves a steady pattern it can trust. Bring your whole self; leave a little lighter.",
+    "whisper": "A bright roar of rhythm - like your body shouting yes.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "London School of Samba",
+    "location": "Waterloo",
+    "moods": [
+      "upbeat",
+      "confident",
+      "sweaty",
+      "together"
+    ],
+    "genres": [
+      "samba drumming class",
+      "group percussion",
+      "rhythm training"
+    ],
+    "url": "https://www.londonschoolofsamba.co.uk/drumming/",
+    "blurb": "A room full of drums and instant momentum - you're making a groove before you've had time to get shy. It's structured enough to feel safe, but wild enough to feel alive. You'll likely sweat, smile, and surprise yourself. Perfect when you want your mood shifted by sheer rhythmic force.",
+    "whisper": "You don't learn the rhythm - you get carried by it.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Sound Intent",
+    "location": "Tottenham",
+    "moods": [
+      "soothing",
+      "dreamy",
+      "grounding",
+      "hushed"
+    ],
+    "genres": [
+      "sound bath",
+      "gong bath",
+      "deep rest"
+    ],
+    "url": "https://soundintent.co.uk/",
+    "blurb": "A soft-lit cocoon where sound does the holding. Gongs and overtone-rich instruments roll through you like weather - loosening what's clenched, quieting what's noisy. You don't have to 'do' anything here except arrive and let the vibrations do their slow work. For nervous systems that need gentleness more than pep talks.",
+    "whisper": "Lie down. Let the sound unhook you, one knot at a time.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "London Gong Baths",
+    "location": "Angel",
+    "moods": [
+      "calming",
+      "restorative",
+      "spacious",
+      "steady"
+    ],
+    "genres": [
+      "gong bath",
+      "sound bath",
+      "nervous system soothing"
+    ],
+    "url": "https://www.londongong.co.uk/",
+    "blurb": "A Saturday reset in Angel: lie down, breathe, and let the gong do what language can't. The sound arrives in waves - big, shimmering, oddly tender - and leaves you feeling rinsed clean. This is quiet medicine for the over-thought and over-held. Come to be softened back into yourself.",
+    "whisper": "The gong turns your mind into a wide, quiet sky.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Emra Sound Healing",
+    "location": "Finchley",
+    "moods": [
+      "gentle",
+      "held",
+      "reverent",
+      "soft"
+    ],
+    "genres": [
+      "sound bath",
+      "crystal bowls",
+      "deep relaxation"
+    ],
+    "url": "https://www.emrasoundhealing.com/",
+    "blurb": "A carefully held sound space - not spectacle, but sanctuary. Crystal bowls and grounding tones invite the body to unclench and the mind to stop scanning. You leave with that particular quiet glow: present, calmer, slightly reassembled. Good for anyone who wants healing without being fussed over.",
+    "whisper": "A quiet recalibration - like being tuned back to your own note.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Sound Mysterium",
+    "location": "Chalk Farm",
+    "moods": [
+      "mystical",
+      "floaty",
+      "tender",
+      "unhurried"
+    ],
+    "genres": [
+      "sound bath",
+      "gong immersion",
+      "meditative listening"
+    ],
+    "url": "https://soundmysterium.com/",
+    "blurb": "This is the kind of sound night that feels like stepping out of linear time. Gongs, bowls, and resonant textures move through the room with ceremonial patience - not flashy, just deep. You come out a little quieter, a little more porous to beauty. Ideal for anyone who wants their week rinsed into something softer.",
+    "whisper": "Sound like moonlight: slow, silver, and strangely intimate.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "7Breaths Meditation Studio",
+    "location": "Fitzrovia",
+    "moods": [
+      "soothing",
+      "clean",
+      "centred",
+      "kind"
+    ],
+    "genres": [
+      "sound class",
+      "meditation",
+      "breath-led practice"
+    ],
+    "url": "https://www.7breathsmeditation.com/",
+    "blurb": "A bright, calm studio where the edges of you can finally drop. Their sound classes sit neatly alongside meditation and breathwork - a gentle ladder down into the body. You don't have to know what you're doing: the room is designed to carry you. Best for quiet repair, not big catharsis.",
+    "whisper": "A small room of calm, where your breath stops performing.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "The London Sound Healer",
+    "location": "Muswell Hill",
+    "moods": [
+      "nurturing",
+      "restful",
+      "warm",
+      "safe"
+    ],
+    "genres": [
+      "sound bath",
+      "singing bowls",
+      "restorative relaxation"
+    ],
+    "url": "https://www.thelondonsoundhealer.com/",
+    "blurb": "A soft landing for frazzled minds and tired bodies. The sound is guided with care - bowls and resonant instruments that coax the nervous system into trust. It's intimate in the best way: not intense, not performative, just quietly effective. Come when you need tenderness more than transformation.",
+    "whisper": "A lullaby for grown-ups who've been carrying too much.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Muswell Health Gong Bath",
+    "location": "Bounds Green",
+    "moods": [
+      "grounding",
+      "gentle",
+      "restorative",
+      "held"
+    ],
+    "genres": [
+      "gong bath",
+      "sound therapy",
+      "weekly session"
+    ],
+    "url": "https://www.muswellhealth.uk/gong-bath-muswell-hill/",
+    "blurb": "A weekly Wednesday exhale: lie down and let the gong wash the week out of your muscles. This one feels practical as well as poetic - a steady rhythm of care you can return to. You don't need the right words for what's wrong; you just need to show up. Leave calmer, heavier in your body, lighter in your head.",
+    "whisper": "A midweek unravelling - where sound does the carrying.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Lapidus London",
+    "location": "Various London venues",
+    "moods": [
+      "supportive",
+      "reflective",
+      "gentle",
+      "communal"
+    ],
+    "genres": [
+      "writing for wellbeing",
+      "journaling",
+      "poetry circle",
+      "therapeutic writing"
+    ],
+    "url": "https://lapidus-london.webnode.page/events/",
+    "blurb": "A small, steady gathering where words are allowed to be unfinished - and still true. You'll write from prompts, share only if you wish, and feel the quiet relief of being witnessed without fixing. Less 'performance', more permission. For the days you need language to hold what your body already knows.",
+    "whisper": "A room where your words can shake - and still be welcome.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Lapidus International",
+    "location": "Online",
+    "moods": [
+      "safe",
+      "curious",
+      "held",
+      "honest"
+    ],
+    "genres": [
+      "therapeutic writing",
+      "reflective writing",
+      "writing circle",
+      "writing for wellbeing"
+    ],
+    "url": "https://lapidus.org.uk/event/",
+    "blurb": "A wide doorway into therapeutic writing - with sessions that keep the tone tender and confidential. Expect prompts, poems, and the kind of silence that doesn't rush you. You can share, or not; both are equally respected. For anyone who wants to meet themselves on the page, gently.",
+    "whisper": "You don't have to share - just arrive, pen in hand.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "City Lit",
+    "location": "Covent Garden",
+    "moods": [
+      "thoughtful",
+      "grounding",
+      "steady",
+      "encouraging"
+    ],
+    "genres": [
+      "therapeutic writing",
+      "reflective writing",
+      "writing workshop",
+      "group learning"
+    ],
+    "url": "https://www.citylit.ac.uk/courses/working-with-therapeutic-writing-advanced",
+    "blurb": "For the writer who wants more than craft - who wants the page to become a place of meaning. City Lit's therapeutic writing strand invites careful reflection, deep listening, and structured exercises that open the emotional grain of a story. It's not about being 'good'. It's about being real, with support around you.",
+    "whisper": "A classroom that feels like a quiet confession booth.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "The Gestalt Centre",
+    "location": "Bloomsbury",
+    "moods": [
+      "liberating",
+      "brave",
+      "alive",
+      "supportive"
+    ],
+    "genres": [
+      "therapeutic writing",
+      "creative therapy",
+      "writing workshop",
+      "embodied reflection"
+    ],
+    "url": "https://gestaltcentre.org.uk/course/writing-as-creative-therapy/",
+    "blurb": "This is writing as a door you push with your shoulder - and it opens. A practical, participatory weekend that uses Gestalt principles to loosen the stuck places: the blocks, the silence, the old shame. You'll write, you'll share (only if you choose), and you'll leave with language that feels more like breath than performance.",
+    "whisper": "Write through the block - until something living answers back.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "London Lit Lab",
+    "location": "Online",
+    "moods": [
+      "tender",
+      "courageous",
+      "supported",
+      "reflective"
+    ],
+    "genres": [
+      "therapeutic writing",
+      "writing after trauma",
+      "writing circle",
+      "guided journaling"
+    ],
+    "url": "https://www.tickettailor.com/events/londonlitlab",
+    "blurb": "Trauma-informed, warm, and quietly powerful - these are sessions that treat writing as a way back to yourself. You'll be guided with care, invited into story without being shoved, and held in a small-group atmosphere where 'enough' is always enough. For anyone who needs gentleness around the tender edges of memory.",
+    "whisper": "Slow writing, soft guidance - a way back to your own voice.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Workshops for Self-Discovery",
+    "location": "Various London venues",
+    "moods": [
+      "curious",
+      "safe",
+      "cathartic",
+      "gentle"
+    ],
+    "genres": [
+      "therapeutic creative writing",
+      "journaling",
+      "writing prompts",
+      "group reflection"
+    ],
+    "url": "https://www.workshopsforselfdiscovery.com/",
+    "blurb": "Therapeutic creative writing that's built for humans, not 'writers'. Prompts open the door; free-writing does the rest - surprising, honest, sometimes a little wild. Your work can stay private, or be witnessed. Either way, the point is the same: to let the page tell the truth more easily than your mouth can.",
+    "whisper": "Prompts as keys - the page as a safe room.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Therapy and Counselling",
+    "location": "Online",
+    "moods": [
+      "contained",
+      "supportive",
+      "quiet",
+      "restorative"
+    ],
+    "genres": [
+      "therapeutic writing group",
+      "therapeutic journaling",
+      "expressive writing",
+      "small group"
+    ],
+    "url": "https://therapyandcounselling.co.uk/therapeutic-writing-group-2025-6/",
+    "blurb": "A small online circle where writing is used as a gentle kind of therapy: prompt, response, reflection - with confidentiality and care. It's structured enough to feel safe, spacious enough to let real feeling rise. Come if you need somewhere to put the things you've been carrying, without being hurried.",
+    "whisper": "A private room in the week - made of words and consent.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "St Margaret's House",
+    "location": "Bethnal Green",
+    "moods": [
+      "empowering",
+      "warm",
+      "communal",
+      "brave"
+    ],
+    "genres": [
+      "writing circle",
+      "expressive writing",
+      "women-led space",
+      "creative wellbeing"
+    ],
+    "url": "https://www.stmargaretshouse.org.uk/events/ignite-london-write-like-a-grrrl",
+    "blurb": "A women-led writing space with a little spark in its ribs - less 'perfect paragraph', more voice returning to the throat. You'll write in company, with encouragement rather than critique, and you'll leave with something that feels like you. For anyone who's been quiet too long.",
+    "whisper": "A match struck in the dark - and suddenly you're writing.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Our Place (Action on Disability)",
+    "location": "Fulham",
+    "moods": [
+      "welcoming",
+      "supportive",
+      "low-pressure",
+      "kind"
+    ],
+    "genres": [
+      "writing for wellbeing",
+      "creative writing",
+      "community group",
+      "guided prompts"
+    ],
+    "url": "https://www.actionondisability.org.uk/our-place-activities/",
+    "blurb": "A friendly community space where writing is used for wellbeing, connection, and a little lightness. Expect encouragement, accessible pacing, and an atmosphere that doesn't ask you to be impressive - only present. For anyone who wants the steadiness of a regular group and the relief of being met warmly.",
+    "whisper": "Gentle words, friendly faces - a place to land midweek.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Battersea Park Library",
+    "location": "Battersea",
+    "moods": [
+      "uplifting",
+      "grounding",
+      "fresh",
+      "reflective"
+    ],
+    "genres": [
+      "writing for wellbeing",
+      "poetry workshop",
+      "walking and writing",
+      "community event"
+    ],
+    "url": "https://www.wandsworth.gov.uk/leisure-and-culture/libraries/find-a-library/battersea-park-library/",
+    "blurb": "A neighbourhood library that sometimes becomes a gentle studio: walk, notice, return, write. The best version of 'creative writing' - not performative, but attentive; not lofty, but alive. For anyone who needs words to come back through the senses, one step at a time.",
+    "whisper": "Walk it out, write it down - let the park soften the sentence.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Woolwich Front Room",
+    "location": "Woolwich",
+    "moods": [
+      "friendly",
+      "steady",
+      "supportive",
+      "connected"
+    ],
+    "genres": [
+      "writing group",
+      "community storytelling",
+      "creative wellbeing",
+      "drop-in"
+    ],
+    "url": "https://www.greenwichlearns.org.uk/woolwich-front-room",
+    "blurb": "A community 'front room' in the truest sense - where people gather, make, speak, and slowly belong. When writing happens here, it's not about polish; it's about having a voice in the room and a place at the table. Come for gentle connection and the kind of creativity that builds community stitch by stitch.",
+    "whisper": "A front room with a kettle-on feeling - stories welcome here.",
+    "arcana": "Word & Voice",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Walworth Garden",
+    "location": "Elephant & Castle",
+    "moods": [
+      "grounding",
+      "supported",
+      "hopeful",
+      "steady"
+    ],
+    "genres": [
+      "therapeutic horticulture",
+      "community gardening",
+      "garden therapy"
+    ],
+    "url": "https://walworthgarden.org.uk/gardening-therapy",
+    "blurb": "A patch of green that doesn't ask you to be shiny. You come as you are, put your hands in soil, and let the day soften around you. The work is small, real, and quietly communal - the kind that rebuilds a person without making a fuss about it.",
+    "whisper": "Hands in soil; breath returns to its proper pace.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Growing Out London",
+    "location": "Battersea",
+    "moods": [
+      "safe",
+      "restorative",
+      "gentle",
+      "reconnected"
+    ],
+    "genres": [
+      "social horticulture",
+      "therapeutic gardening",
+      "wellbeing programme"
+    ],
+    "url": "https://www.thrive.org.uk/how-we-help/regional-centres-and-programmes/london/growing-out",
+    "blurb": "A weekly rhythm in a real garden - not a workshop, not a performance, just life tended slowly. You'll learn by doing, side-by-side with others, held by the simple steadiness of plants and seasons. For days when you need nature to meet you halfway.",
+    "whisper": "A weekly return to green, with people who don't need you to explain.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "OmVed Gardens",
+    "location": "Highgate",
+    "moods": [
+      "wonderstruck",
+      "nourished",
+      "calm",
+      "curious"
+    ],
+    "genres": [
+      "nature-based wellbeing",
+      "garden events",
+      "mindfulness"
+    ],
+    "url": "https://omvedgardens.com/events",
+    "blurb": "A living pocket of ecology and imagination - more sanctuary than attraction. You wander, listen, and let small beauties do their quiet work on your nervous system. Come for the gardens; stay for the sense that the city can still hold softness.",
+    "whisper": "A sanctuary where the city loosens its grip.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Heath Hands",
+    "location": "Hampstead Heath",
+    "moods": [
+      "clearheaded",
+      "soothed",
+      "present",
+      "held"
+    ],
+    "genres": [
+      "forest bathing",
+      "guided health walk",
+      "nature volunteering"
+    ],
+    "url": "https://www.heath-hands.org.uk/whatson",
+    "blurb": "The Heath, but with a gentle hand on your shoulder: a guided way back into birdsong, breath, and the longer view. Some days it's a health walk, some days it's forest bathing - always it's the permission to slow down. You leave feeling slightly more yourself than when you arrived.",
+    "whisper": "Step by step, the mind unclenches.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "The Garden Classroom",
+    "location": "Islington",
+    "moods": [
+      "supported",
+      "light",
+      "steady",
+      "open"
+    ],
+    "genres": [
+      "wellbeing walk",
+      "nature connection",
+      "community gardening"
+    ],
+    "url": "https://www.thegardenclassroom.org.uk/community/wellbeing-walks/",
+    "blurb": "Gentle guided walks with pauses built in - the kind of slow attention that makes a park feel like a refuge. You'll notice small things (a leaf's geometry, a robin's insistence) and feel your shoulders drop without being told to relax. It's low-pressure companionship with the living world.",
+    "whisper": "Small noticing. Big relief.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "TCV Green Gym (London)",
+    "location": "London-wide",
+    "moods": [
+      "energised",
+      "useful",
+      "uplifted",
+      "connected"
+    ],
+    "genres": [
+      "conservation volunteering",
+      "outdoor exercise",
+      "green space care"
+    ],
+    "url": "https://www.tcv.org.uk/london/green-gym-london/",
+    "blurb": "Not the gym you dread - the kind where the workout is planting, clearing, building, restoring. You move your body for something bigger than aesthetics, and somehow that feels like relief. Dirt under your nails, breath in your lungs, a small repaired corner of London behind you.",
+    "whisper": "Exercise that leaves the world better - and you, too.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "London Wildlife Trust",
+    "location": "London-wide",
+    "moods": [
+      "curious",
+      "reverent",
+      "rebalanced",
+      "awake"
+    ],
+    "genres": [
+      "guided nature walk",
+      "wildlife learning",
+      "seasonal events"
+    ],
+    "url": "https://www.wildlondon.org.uk/events",
+    "blurb": "A doorway into the wild seams of the city - wetlands, woods, canalsides, hidden habitats. You don't need expertise; you just need the willingness to look properly. Their events make London feel less like concrete, more like a living thing you belong to.",
+    "whisper": "London, but wilder - if you know where to look.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Camley Street Natural Park",
+    "location": "King's Cross",
+    "moods": [
+      "surprised",
+      "quiet",
+      "restored",
+      "tender"
+    ],
+    "genres": [
+      "urban nature reserve",
+      "nature events",
+      "wildlife watching"
+    ],
+    "url": "https://www.wildlondon.org.uk/nature-reserves/camley-street-natural-park",
+    "blurb": "A green hush tucked beside the canal - improbably close to stations and crowds. Inside, time slows: reeds, birds, small movements in the water. A good place to remember that even central London has breathing spaces.",
+    "whisper": "A hush of reeds and water, right beside the rush.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Floating Garden by Global Generation",
+    "location": "King's Cross",
+    "moods": [
+      "softened",
+      "inspired",
+      "buoyant",
+      "connected"
+    ],
+    "genres": [
+      "community gardening",
+      "nature workshops",
+      "canal-side wellbeing"
+    ],
+    "url": "https://www.globalgeneration.org.uk/our-gardens/floating-garden",
+    "blurb": "A garden that floats - and somehow that changes your whole mood before you've even stepped aboard. You come to tend, to learn, to share a small, practical kind of hope with others. Water beneath you, green around you, and the sense that community can be handmade.",
+    "whisper": "Greenness on water - a strange little medicine.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "ParkBathe",
+    "location": "SE London",
+    "moods": [
+      "calm",
+      "unhurried",
+      "reassured",
+      "settled"
+    ],
+    "genres": [
+      "forest bathing",
+      "mindful walk",
+      "peer-led wellbeing"
+    ],
+    "url": "https://www.eventbrite.co.uk/o/parkbathe-34393467709",
+    "blurb": "An hour-long slow walk that treats the park like a remedy, not a route. You're guided into senses - bark texture, winter light, leaf-litter smells - the simple spell of paying attention. Especially good if your system is tired and you need gentle care, not big transformation.",
+    "whisper": "Slow down until the park starts speaking back.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Cricklewood Library",
+    "location": "Cricklewood",
+    "moods": [
+      "soothed",
+      "curious",
+      "quiet",
+      "regulated"
+    ],
+    "genres": [
+      "forest bathing",
+      "guided nature practice",
+      "wellbeing workshop"
+    ],
+    "url": "https://www.cricklewoodlibrary.org.uk/event/forest-bathing-with-elisabetta-murgia/2026-03-13/",
+    "blurb": "A library that moonlights as a doorway to the woods - guided forest bathing sessions that take your mind off the railings of the day. It's the science of calm, delivered through softness: attention, breath, and the living world. Perfect for anyone who needs a gentle reset without a spiritual sales pitch.",
+    "whisper": "Calm, taught through trees and slow attention.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "human-nature: CleanUp Walk",
+    "location": "Camden",
+    "moods": [
+      "cleansed",
+      "purposeful",
+      "bright",
+      "together"
+    ],
+    "genres": [
+      "mindful litter-pick",
+      "community walk",
+      "canal-side nature care"
+    ],
+    "url": "https://www.eventbrite.co.uk/e/humannature-cleanup-walk-every-saturday-morning-tickets-1695154425519",
+    "blurb": "A small Saturday ritual: walk, pick, notice, restore. There's something quietly healing about caring for a place with your own hands - especially beside water, where the city's noise thins out. You leave with lighter thoughts and a cleaner stretch of towpath behind you.",
+    "whisper": "A cleansing walk - for the canal, and for you.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Badger Badger",
+    "location": "Deptford / West Norwood",
+    "moods": [
+      "welcoming",
+      "cosy",
+      "playful",
+      "easygoing"
+    ],
+    "genres": [
+      "board game cafe",
+      "board game social",
+      "roleplaying games",
+      "community nights"
+    ],
+    "url": "https://www.badgerbadger.org/",
+    "blurb": "A pub where the table is the invitation. You turn up, borrow a game, and suddenly you're laughing with strangers like old friends. Social nights make it easy to arrive solo and leave with a new little thread of connection. Come for a pint, stay for the moment you forget to check your phone.",
+    "whisper": "Turn up alone; leave with allies and a half-finished inside joke.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Dark Sphere Shepherd's Bush Megastore",
+    "location": "Shepherd's Bush",
+    "moods": [
+      "focused",
+      "nerdy",
+      "friendly",
+      "buzzy"
+    ],
+    "genres": [
+      "tabletop games",
+      "card game nights",
+      "open play",
+      "gaming calendar"
+    ],
+    "url": "https://www.darksphere.co.uk/shopSB.php",
+    "blurb": "A fluorescent little kingdom of cardboard worlds and tiny painted destinies. There's a calendar of game nights humming in the background, and tables where new faces become familiar mid-match. If you want connection with something to do in your hands, this is a good doorway. The vibe is quietly communal: you don't have to be brilliant - just willing.",
+    "whisper": "Connection, but with dice in your palm and a quest on the table.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Leisure Games",
+    "location": "Finchley",
+    "moods": [
+      "enthusiastic",
+      "welcoming",
+      "tinkery",
+      "social"
+    ],
+    "genres": [
+      "in-store gaming",
+      "open gaming",
+      "roleplaying events",
+      "card game nights"
+    ],
+    "url": "https://leisuregames.com/pages/in-store-gaming",
+    "blurb": "A proper games shop with the sweet bonus of actual gathering. Open gaming sessions mean you can drift in, find a table, and let the rules do the introductions. There's something tender about learning a new system beside someone who's also half-lost and laughing. For when you want community without small-talk pressure.",
+    "whisper": "Let the rulebook do the awkward first hello for you.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "London MindSports Centre",
+    "location": "Hammersmith",
+    "moods": [
+      "thoughtful",
+      "calm",
+      "companionable",
+      "steady"
+    ],
+    "genres": [
+      "mind sports",
+      "chess club nights",
+      "bridge",
+      "go"
+    ],
+    "url": "https://www.londonmindsportscentre.org.uk/",
+    "blurb": "A bright, quiet hive where connection happens through concentration. Chess, bridge, go - games that make the room go gently still, and somehow bring people closer for it. New visitors are met kindly, and the atmosphere feels like a club you can grow into. Come when you want company that doesn't demand performance.",
+    "whisper": "A roomful of minds humming together, soft as rain on glass.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "London Go Centre",
+    "location": "Hammersmith",
+    "moods": [
+      "quiet",
+      "absorbing",
+      "gentle",
+      "grounding"
+    ],
+    "genres": [
+      "go club",
+      "social go sessions",
+      "beginner friendly",
+      "tournaments"
+    ],
+    "url": "https://gocentre.londongo.club/",
+    "blurb": "Go is a strange kind of intimacy: you sit opposite someone and build a universe together. This centre offers steady sessions where you can learn, play, and slowly recognise faces. It's welcoming without fuss - a good place for people who like their connection subtle and sincere. Bring patience; it will be met.",
+    "whisper": "Two strangers, one board - and a world unfolding between you.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Sik Faan",
+    "location": "Kentish Town",
+    "moods": [
+      "warm",
+      "communal",
+      "nourishing",
+      "lively"
+    ],
+    "genres": [
+      "mahjong sessions",
+      "cafe gatherings",
+      "beginner sessions",
+      "community tables"
+    ],
+    "url": "https://sikfaan.com/",
+    "blurb": "Wholesome Cantonese comfort - plus mahjong tables where community is the main course. You can arrive as a beginner and be held gently into the game, learning in groups rather than under a spotlight. Food breaks the ice; the tiles do the rest. It's a pocket of London where belonging feels practical and real.",
+    "whisper": "Eat, learn, laugh - the tiles click and suddenly you're not alone.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Four Winds Mahjong Club",
+    "location": "Hackney / Euston",
+    "moods": [
+      "welcoming",
+      "bright",
+      "community-led",
+      "joyful"
+    ],
+    "genres": [
+      "mahjong club",
+      "weekly sessions",
+      "beginner teaching",
+      "community centre"
+    ],
+    "url": "https://www.fourwindsmahjong.club/",
+    "blurb": "A volunteer-led club where mahjong becomes a bridge - between strangers, generations, languages, and weekends. It's warm, lightly structured, and made for newcomers as much as old hands. You sit down, someone explains, the table starts to laugh, and suddenly you're part of the room. If you want connection with cultural heartbeat, this is it.",
+    "whisper": "A table of tiles, a circle of voices - belonging, piece by piece.",
+    "arcana": "Global Rhythms",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "The Heart of Gaming",
+    "location": "Croydon",
+    "moods": [
+      "nostalgic",
+      "energetic",
+      "friendly",
+      "playful"
+    ],
+    "genres": [
+      "arcade lounge",
+      "retro gaming",
+      "rhythm games",
+      "all-day play"
+    ],
+    "url": "https://www.heartofgaming.co.uk/",
+    "blurb": "A bright arcade sanctuary where joy is allowed to be uncomplicated. You pay in, play all day, and the room does that gorgeous thing arcades do: strangers cheering strangers, little alliances forming over shared favourites. It's loud in the best way - the sound of people remembering how to have fun together. Come for a reset.",
+    "whisper": "The kind of place where cheering for a stranger feels completely normal.",
+    "arcana": "Playful & Weird",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "NQ64 Soho",
+    "location": "Soho",
+    "moods": [
+      "neon",
+      "mischievous",
+      "loud",
+      "flirty"
+    ],
+    "genres": [
+      "arcade bar",
+      "retro consoles",
+      "arcade machines",
+      "late-night hangout"
+    ],
+    "url": "https://nq64.co.uk/soho/",
+    "blurb": "Neon-soaked nostalgia where the icebreaker is a joystick. You can wander in with one friend (or none), and end up trading tips with strangers between rounds. It's not soft - it's Soho - but it is connective, in that late-night way where everyone's a little more human. Come when you want play with a pulse.",
+    "whisper": "Neon, noise, and a stranger grinning as you steal their high score.",
+    "arcana": "Late-Night Lark",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Novelty Automation",
+    "location": "Holborn",
+    "moods": [
+      "quirky",
+      "delighted",
+      "curious",
+      "sly"
+    ],
+    "genres": [
+      "satirical arcade",
+      "coin-op machines",
+      "hands-on play",
+      "tiny museum"
+    ],
+    "url": "https://www.novelty-automation.com/",
+    "blurb": "A small cabinet of mischievous machines - homemade arcade games that feel like jokes told in engineering. People queue, laugh, explain the weirdness to each other, and swap that quick London intimacy: a shared smile with a stranger. Perfect for a date, a solo mooch, or a 'let's go somewhere odd' afternoon. Play here feels like permission.",
+    "whisper": "Put in a coin; receive a laugh you didn't know you needed.",
+    "arcana": "Playful & Weird",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "The Thieves",
+    "location": "Battersea",
+    "moods": [
+      "rowdy",
+      "playful",
+      "electric",
+      "high-spirited"
+    ],
+    "genres": [
+      "pub arcade",
+      "social games",
+      "group hangout",
+      "late-night entertainment"
+    ],
+    "url": "https://www.thethieves.pub/",
+    "blurb": "An adult playground with a pub heart - arcade, darts, pool, and the kind of giddy energy that makes friends fast. You come for 'a quick one' and accidentally end up staying all night because the room keeps offering new ways to play together. Best for groups, but still forgiving if you're bold enough to arrive solo. Mischief lives here.",
+    "whisper": "Steal back your night - one game, one grin, one reckless round.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "The Role Play Haven",
+    "location": "London-wide",
+    "moods": [
+      "supportive",
+      "welcoming",
+      "imaginative",
+      "safe"
+    ],
+    "genres": [
+      "tabletop roleplaying",
+      "beginner tables",
+      "community club",
+      "weekly sessions"
+    ],
+    "url": "https://www.rphaven.co.uk/",
+    "blurb": "A community-built doorway into D&D and tabletop worlds - designed so newcomers don't have to push through awkwardness alone. You sit at a table, the story starts, and suddenly you've got companions. It's connection with structure: a shared quest, a shared laugh, a shared 'same time next week?'. If you've been wanting to try RPGs, this is a kind first step.",
+    "whisper": "Sit down as strangers; leave as a party with a story to keep.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "London Gaming Market",
+    "location": "Bloomsbury",
+    "moods": [
+      "buzzy",
+      "nostalgic",
+      "treasure-hunty",
+      "friendly"
+    ],
+    "genres": [
+      "retro games fair",
+      "community market",
+      "collectors meetup",
+      "indie stalls"
+    ],
+    "url": "https://londongamingmarket.com/",
+    "blurb": "A periodic little festival of pixels, cartridges, odd finds, and shared geek joy. You browse, you chat, you show a stranger the thing you've just unearthed like it's a relic. It's less shopping and more pilgrimage with conversation. Go when you want people around you who light up over the same strange treasures.",
+    "whisper": "A room where nostalgia becomes a language strangers speak fluently.",
+    "arcana": "Nostalgic / Vintage / Retro",
+    "last_verified": "2026-01-20"
   }
 ]
