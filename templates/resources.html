@@ -88,10 +88,13 @@
         }
 
         .need-item {
+            display: block;
             padding: 1.2rem 1.5rem;
             background: rgba(212, 175, 55, 0.03);
             border-left: 2px solid rgba(212, 175, 55, 0.3);
             transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .need-item:hover {
@@ -113,6 +116,22 @@
             color: var(--cream, #f5f0e6);
             opacity: 0.8;
             line-height: 1.6;
+            margin: 0;
+        }
+
+        .need-item .arcana-link {
+            display: block;
+            font-family: var(--font-title, 'Cinzel', serif);
+            font-size: 0.75rem;
+            color: var(--gold, #d4af37);
+            letter-spacing: 0.1em;
+            margin-top: 0.8rem;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .need-item:hover .arcana-link {
+            opacity: 1;
         }
 
         /* Crisis section */
@@ -138,10 +157,11 @@
             content: "✦";
             position: absolute;
             left: 0;
-            top: 0;
+            top: 0.25em;
             color: var(--gold, #d4af37);
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             opacity: 0.6;
+            line-height: 1;
         }
 
         .resource-item .name {
@@ -300,30 +320,36 @@
             <div class="resources-section">
                 <h3>What Do You Need Right Now?</h3>
                 <div class="needs-grid">
-                    <div class="need-item">
+                    <a href="/" class="need-item">
                         <h4>To be still</h4>
                         <p>When you need quiet, space, time to breathe.</p>
-                    </div>
-                    <div class="need-item">
+                        <span class="arcana-link">Browse the Hermit</span>
+                    </a>
+                    <a href="/" class="need-item">
                         <h4>To move it through</h4>
                         <p>When your body is holding something your words can't reach.</p>
-                    </div>
-                    <div class="need-item">
+                        <span class="arcana-link">Browse the Hanged Man</span>
+                    </a>
+                    <a href="/" class="need-item">
                         <h4>To be held by others</h4>
                         <p>When you need to feel less alone.</p>
-                    </div>
-                    <div class="need-item">
+                        <span class="arcana-link">Browse Judgement</span>
+                    </a>
+                    <a href="/" class="need-item">
                         <h4>To laugh until it cracks</h4>
                         <p>When the heaviness needs breaking, not processing.</p>
-                    </div>
-                    <div class="need-item">
+                        <span class="arcana-link">Browse the Sun</span>
+                    </a>
+                    <a href="/" class="need-item">
                         <h4>To sit with grief</h4>
                         <p>When you're mourning, and need space to feel it.</p>
-                    </div>
-                    <div class="need-item">
+                        <span class="arcana-link">Browse Death</span>
+                    </a>
+                    <a href="/" class="need-item">
                         <h4>To touch the sacred</h4>
                         <p>When you need meaning, mystery, or something larger.</p>
-                    </div>
+                        <span class="arcana-link">Browse the Hierophant</span>
+                    </a>
                 </div>
             </div>
 
