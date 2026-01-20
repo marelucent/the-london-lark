@@ -11336,5 +11336,214 @@
     "whisper": "A farm where the only deadline is feeding time.",
     "arcana": "Contemplative & Meditative",
     "last_verified": "2026-01-21"
+  },
+  {
+    "name": "The Perfume Mistress at Walworth Garden",
+    "location": "Walworth",
+    "moods": [
+      "sensory",
+      "intimate",
+      "transformative"
+    ],
+    "genres": [
+      "perfume workshop",
+      "incense making",
+      "scent blending"
+    ],
+    "url": "https://theperfumemistress.com",
+    "blurb": "Natural perfumer Lucy Heale mixes scent like a poet mixes words. In small groups at Walworth Garden she invites you into the world of botanical aromas, teaching how resins, flowers and spices can be blended to tell stories. You'll play with essential oils and incense resins, explore top, heart and base notes, and blend a fragrance or incense that feels like a secret message to yourself. Curiosity is encouraged; perfection isn't. You leave with a bespoke scent and the memory of how your hands smelt of herbs and smoke long after the workshop ends.",
+    "whisper": "Botanical smoke and notes that cling to your wrists like a prayer.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Romor Designs Natural Dye Workshop",
+    "location": "Muswell Hill",
+    "moods": [
+      "ritualistic",
+      "earthy",
+      "meditative"
+    ],
+    "genres": [
+      "natural dyeing",
+      "plant dyes",
+      "textile art"
+    ],
+    "url": "https://www.eventbrite.co.uk/e/natural-dyeing-in-artists-studio-tickets-242866524337",
+    "blurb": "Textile artist Rubia Romero opens her studio to those who want to turn plants into colour. In this natural dye workshop you'll learn to prepare fabrics, mordant fibres and coax colour from bark, flowers and indigo. There's a vat of living indigo you'll coax to life, making cotton samples and a sample book as you work. The focus is on process – measuring, waiting, watching white cloth bloom blue – and the hush that falls when a colour appears from the vat. You leave with stained fingers and a sense that the plants have whispered something back.",
+    "whisper": "Blue hands, green heart – the indigo remembers you.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "HuqThat Henna Workshops",
+    "location": "East London",
+    "moods": [
+      "community",
+      "creative",
+      "cultural"
+    ],
+    "genres": [
+      "henna",
+      "mehndi",
+      "body art"
+    ],
+    "url": "https://huqthat.com",
+    "blurb": "The women behind HuqThat treat henna as both art and story. Their workshops – held in museums and community spaces across London – teach how to mix paste, roll cones and draw the fluid lines of traditional and contemporary mehndi. Alongside technique you learn the history and cultural significance of henna, sharing stories over cups of chai while your designs dry. It's a welcoming space that honours henna's roots and invites everyone to create their own patterns with respect and joy.",
+    "whisper": "Cinnamon, eucalyptus and the slow unfurling of vines on skin.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "West London Queer Project Drag Makeup Masterclass – Serve",
+    "location": "Chiswick",
+    "moods": [
+      "playful",
+      "transformative",
+      "joyful"
+    ],
+    "genres": [
+      "drag makeup",
+      "body art",
+      "queer arts"
+    ],
+    "url": "https://wlqp.org",
+    "blurb": "West London Queer Project's 'Serve' masterclass is drag makeup as ritual: a three-part course that starts with blocking brows and ends with contouring and colour that defies gender. NYX Professional Makeup sponsors the kit, but the real gift is guidance from seasoned drag artists who help you paint a new face, experiment with glitter and shape, and talk about the history of drag. Beginners are encouraged to play; the mirror becomes a portal, not a judge.",
+    "whisper": "Bold colours and laughter as a new face appears from the powder.",
+    "arcana": "Cabaret & Glitter",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Wicca Moon Workshops",
+    "location": "Eltham",
+    "moods": [
+      "ritualistic",
+      "magical",
+      "communal"
+    ],
+    "genres": [
+      "candle magic",
+      "herbalism",
+      "witchcraft"
+    ],
+    "url": "https://wiccamoon.co.uk",
+    "blurb": "At Wicca Moon, a pagan shop tucked into Eltham, workshops are taught by practising witches. You might learn candle magic, goddess rituals, divination or how to work with herbs and oils. Classes are small and hands-on, blending lore with practice; you'll dress candles, stir potions, meditate and call in energies. It feels like stepping into a coven – a safe, queer-friendly space where the old ways are honoured and the modern city fades away.",
+    "whisper": "Herbs crackle, candles drip and you feel the circle close.",
+    "arcana": "Witchy & Wild",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Stööki Jewellery Making Workshops",
+    "location": "Greenwich",
+    "moods": [
+      "creative",
+      "hands-on",
+      "empowering"
+    ],
+    "genres": [
+      "jewellery making",
+      "wax carving",
+      "artisanal craft"
+    ],
+    "url": "https://stooki.co.uk",
+    "blurb": "Stööki's craft makers believe jewellery should tell your story. At their two-hour workshops you carve your own ring or pendant in wax, add gemstones if you wish, then leave it to be cast in metal by the Stööki team. The atmosphere is relaxed and supportive – tunes on, tools in hand – and you leave with a piece that fits nobody else's finger but yours. It's adornment as self-expression rather than status.",
+    "whisper": "Wax under your fingernails, a future ring under your breath.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Yougi Perfume-Making Workshop",
+    "location": "Spitalfields",
+    "moods": [
+      "calming",
+      "sensory",
+      "meditative"
+    ],
+    "genres": [
+      "perfume blending",
+      "aromatherapy",
+      "scent workshop"
+    ],
+    "url": "https://yougi.co.uk",
+    "blurb": "In a bright studio off Spitalfields, Yougi's perfumers guide you through the alchemy of scent. The 90-minute workshop begins with an introduction to aromatherapy and the ways scent affects mood. You learn about top, heart and base notes, sniff ethically sourced essential oils and blend them into a fragrance that is wholly yours. The class is unhurried and mindful – more about how you want to feel than how you want to smell – and you leave with a bottle of your own perfume and a quiet grin.",
+    "whisper": "Inhale, exhale, blend; your own scent blooms between your palms.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Yougi Candle-Making Workshop",
+    "location": "Spitalfields",
+    "moods": [
+      "soothing",
+      "aromatic",
+      "slow"
+    ],
+    "genres": [
+      "candle making",
+      "aromatherapy",
+      "ritual craft"
+    ],
+    "url": "https://yougi.co.uk",
+    "blurb": "Yougi's candle workshops invite you to pour intention into wax. Using eco-soy wax and essential oils, you learn to melt, blend and pour your own aromatherapy candle. The scent combinations are personal – lavender for calm, citrus for joy – and the act of stirring wax becomes a kind of meditation. You leave with a candle to light when you need to remember the afternoon you melted, scented and solidified your mood.",
+    "whisper": "Melted wax cooling while your intentions harden alongside it.",
+    "arcana": "Witchy & Wild",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Perfumes & Palettes – Fragrance & Art Sessions",
+    "location": "Old Street",
+    "moods": [
+      "expressive",
+      "inclusive",
+      "therapeutic"
+    ],
+    "genres": [
+      "perfume workshop",
+      "art therapy",
+      "multi-sensory"
+    ],
+    "url": "https://perfumesandpalettes.com",
+    "blurb": "Perfumes & Palettes was born from co-founder Mecca Erica's need to process grief and anxiety through scent and art. Their sessions combine painting with fragrance blending, creating safe spaces where marginalised communities can explore feelings through colours and aromas. You might paint with your non-dominant hand while blending citrus and smoke, or share stories about memory and smell. It's less a class than a collective – scent and paint as tools for healing.",
+    "whisper": "Colours bleed into scent; stories bloom into art.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Walworth Garden Incense Making Workshop",
+    "location": "Walworth",
+    "moods": [
+      "sacred",
+      "earthy",
+      "contemplative"
+    ],
+    "genres": [
+      "incense making",
+      "botanical craft",
+      "ritual"
+    ],
+    "url": "https://walworthgarden.org.uk",
+    "blurb": "Held in the lush surroundings of Walworth Garden, this workshop delves into the ancient, devotional art of incense. You'll work with premium resins, herbs, fruits, flowers, seeds, spices and essential oils selected for their historic, therapeutic and magical resonance. Over a day you grind, blend and roll incense, learning about the cultural histories of smoke and scent. It feels part apothecary, part ritual – you leave with cones and sticks imbued with your own intention.",
+    "whisper": "Resin and spice ground between stone; smoke rising with your thoughts.",
+    "arcana": "Witchy & Wild",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Earth to Roots Incense Making Workshop",
+    "location": "Hackney",
+    "moods": [
+      "crafty",
+      "restorative",
+      "sensory"
+    ],
+    "genres": [
+      "incense making",
+      "herbalism",
+      "natural craft"
+    ],
+    "url": "https://earthtoroots.com/products/incense-making-workshop",
+    "blurb": "At Earth to Roots in Hackney you learn to make incense that's sustainable and soulful. The workshop covers the history of incense and the benefits of herbs, resins, spices and essential oils. You choose your own ingredients and, under gentle guidance, hand-roll cones and sticks, learning top tips for shaping and burning them. All tools, tea and water are provided, and you leave with your personalised incense and a leaflet so you can keep crafting at home. Reviews rave about the calming, healing atmosphere and the feeling that your hands have learned a new kind of prayer.",
+    "whisper": "Spices under your fingertips, incense drying beside your cup of tea.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-21"
   }
 ]
