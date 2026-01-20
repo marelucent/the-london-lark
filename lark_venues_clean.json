@@ -10721,5 +10721,115 @@
     "whisper": "Caller, band, floor — and suddenly you're not a stranger anymore.",
     "arcana": "Group Energy",
     "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Cuddle Workshop",
+    "location": "West Hampstead (Rooms Above)",
+    "moods": [
+      "tender",
+      "boundaried",
+      "warm",
+      "reassuring",
+      "human"
+    ],
+    "genres": [
+      "platonic touch",
+      "consent practice",
+      "boundary setting",
+      "facilitated group cuddle"
+    ],
+    "url": "https://www.cuddleworkshop.co.uk/",
+    "blurb": "A softly-held room where 'May I?' is the most important sentence you'll say all week. This is structured, facilitated, and strictly platonic — a careful little culture of asking, listening, and choosing. You'll practise boundaries first, and only then (if you want) move into gentle, consensual touch. The sweetness here isn't naïve; it's earned through clear agreements.",
+    "whisper": "Clear yes. Clear no. And somewhere in between — a safe exhale.",
+    "arcana": "Group Energy",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "TouchUnwind",
+    "location": "South Wimbledon (host) / mobile by arrangement",
+    "moods": [
+      "safe",
+      "attuned",
+      "steadying",
+      "gentle",
+      "private"
+    ],
+    "genres": [
+      "cuddle therapy",
+      "platonic touch",
+      "consent-led session",
+      "1:1 support"
+    ],
+    "url": "https://www.touchunwind.com/",
+    "blurb": "For when your nervous system wants quiet company more than conversation. Sessions are built on explicit consent — nothing is assumed, and touch is never owed. It can be simple as hand-holding, side-by-side presence, or a carefully chosen cuddle shape, all negotiated in real time. A calm, human kind of reset — guided by clarity, not pressure.",
+    "whisper": "Nothing to prove. Just breath, boundaries, and kind attention.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Swingland Dance Co.",
+    "location": "Balham (The Bedford) + South & West London locations",
+    "moods": [
+      "playful",
+      "welcoming",
+      "social",
+      "upbeat",
+      "connected"
+    ],
+    "genres": [
+      "lindy hop",
+      "swing dance",
+      "social dancing",
+      "beginner-friendly partner dance"
+    ],
+    "url": "https://www.swingland.com/",
+    "blurb": "A friendly doorway into partner dance where the room does the holding for you: music, laughter, and the shared agreement that everyone's learning. You don't need a partner, and you won't be left guessing — the night is designed to get you dancing, then keep you dancing. The best kind of wholesome mischief: strangers becoming allies via rhythm and a clean, courteous lead-and-follow conversation.",
+    "whisper": "A grin you didn't plan on. A hand you can trust. A song that carries you.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "SwingDanceUK",
+    "location": "Clerkenwell (City Sport, Goswell Road)",
+    "moods": [
+      "confident",
+      "friendly",
+      "safe",
+      "energised",
+      "inclusive"
+    ],
+    "genres": [
+      "swing dance",
+      "lindy hop",
+      "charleston",
+      "consent-aware social dance"
+    ],
+    "url": "https://swingdanceuk.com/",
+    "blurb": "A bright, structured swing school with an explicit 'safe space' backbone — so you can relax into the fun. Classes are social at heart: you rotate, you practise with different people, and you learn the small courtesies that make partner dance feel safe. Expect laughter, sweat, and that satisfying moment when your body realises it can do this.",
+    "whisper": "Joy, with a seatbelt: safe-space swing where you can actually let go.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Tango Amistoso",
+    "location": "Angel / Islington (Milonga Amistosa at Claremont Project)",
+    "moods": [
+      "intimate",
+      "respectful",
+      "grounded",
+      "attentive",
+      "grown-up"
+    ],
+    "genres": [
+      "argentine tango",
+      "milonga",
+      "social dance etiquette",
+      "partner connection"
+    ],
+    "url": "https://www.tango-amistoso.co.uk/",
+    "blurb": "Tango, when it's done well, is consent culture in motion: invitation, acceptance, listening, release. Here the traditions (like cabeceo) work as a built-in boundary system — a discreet way to say yes, or not today, without awkwardness. The atmosphere leans adult and focused, but still warm: connection without grabbing, closeness without entitlement. A night for careful chemistry and beautifully clear signals.",
+    "whisper": "An invitation you can decline. An embrace you can trust.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-20"
   }
 ]
