@@ -27,9 +27,9 @@ import random
 import json
 import os
 
-# Import voice profile system for debug info
+# Import voice profile system for debug info (v2 with 8 voice families)
 try:
-    from poetic_templates import get_profile_name
+    from poetic_templates_v2 import get_profile_name
     HAS_VOICE_PROFILES = True
 except ImportError:
     HAS_VOICE_PROFILES = False

@@ -18,6 +18,20 @@ import re
 import random
 from typing import Tuple, List, Optional, Dict
 
+# Import care voice functions from poetic_templates_v2 (HOLDING family)
+try:
+    from poetic_templates_v2 import (
+        get_opening as get_care_opening,
+        get_choices as get_care_choices,
+        get_choice_preamble,
+        get_resources_footer,
+        get_care_voice
+    )
+    HAS_CARE_VOICES = True
+except ImportError:
+    HAS_CARE_VOICES = False
+    get_care_voice = None
+
 # =============================================================================
 # KEYWORD DICTIONARIES
 # =============================================================================
@@ -294,6 +308,14 @@ def get_tier_response_config(tier: Optional[str]) -> dict:
         }
 
     elif tier == 'distress':
+        # Use v2 care voice system (HOLDING family) if available
+        if HAS_CARE_VOICES:
+            preamble = get_care_opening(tier='distress')
+            footer = get_resources_footer('distress')
+        else:
+            preamble = random.choice(TIER3_PREAMBLES)
+            footer = "And if you need more than a place tonight, there are people who can hold that too."
+
         return {
             'show_venues': False,  # Don't auto-show venues, wait for choice
             'venue_filter': 'refuge',
@@ -302,13 +324,17 @@ def get_tier_response_config(tier: Optional[str]) -> dict:
             'show_crisis_resources': False,
             'show_care_pathway': True,
             'care_choices': TIER3_CARE_CHOICES,
-            'resources_footer': (
-                "And if you need more than a place tonight, there are people who can hold that too."
-            ),
-            'lark_preamble': random.choice(TIER3_PREAMBLES)
+            'resources_footer': footer,
+            'lark_preamble': preamble
         }
 
     elif tier == 'emotional':
+        # Use v2 care voice system (HOLDING family) if available
+        if HAS_CARE_VOICES:
+            preamble = get_care_opening(tier='emotional')
+        else:
+            preamble = random.choice(TIER2_PREAMBLES)
+
         return {
             'show_venues': False,  # Don't auto-show venues, wait for choice
             'venue_filter': 'cosy',
@@ -318,7 +344,7 @@ def get_tier_response_config(tier: Optional[str]) -> dict:
             'show_care_pathway': True,
             'care_choices': TIER2_CARE_CHOICES,
             'resources_footer': None,
-            'lark_preamble': random.choice(TIER2_PREAMBLES)
+            'lark_preamble': preamble
         }
 
     elif tier == 'aesthetic':
@@ -352,12 +378,20 @@ def get_null_state_config() -> dict:
     """
     Get configuration for null state (no match found).
 
+    Uses v2 HOLDING family voice for warm presence.
+
     Returns dict with:
     - preamble: str (warm presence message)
     - choices: list (action buttons for user)
     """
+    # Use v2 care voice system (HOLDING family - Null State) if available
+    if HAS_CARE_VOICES:
+        preamble = get_care_opening(tier='null')
+    else:
+        preamble = random.choice(NULL_STATE_PREAMBLES)
+
     return {
-        'preamble': random.choice(NULL_STATE_PREAMBLES),
+        'preamble': preamble,
         'choices': [
             {"label": "Draw a card for me", "action": "draw_random"},
             {"label": "Show me the deck", "action": "browse"},

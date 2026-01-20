@@ -19,19 +19,22 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-# Import voice profile system
+# Import voice profile system (v2 with 8 voice families including HOLDING for care pathways)
 try:
-    from poetic_templates import (
+    from poetic_templates_v2 import (
         get_opening,
         get_venue_intro,
         get_rejection_message,
         get_profile_name,
-        VOICE_PROFILES,
-        MOOD_TO_PROFILE
+        get_current_voice_profile as get_voice_profile_info,
+        ARCANA_VOICES,
+        VOICE_FAMILIES
     )
     HAS_VOICE_PROFILES = True
 except ImportError:
     HAS_VOICE_PROFILES = False
+    ARCANA_VOICES = {}
+    VOICE_FAMILIES = {}
 
 # Load birdsong metaphors for structural variety
 BIRDSONG_METAPHORS = {}
@@ -260,7 +263,7 @@ def generate_response(venue, filters, response_type="Matchmaker", response_index
 
         # Mood-specific venue introduction
         if HAS_VOICE_PROFILES:
-            intro = get_venue_intro("warm", mood)
+            intro = get_venue_intro(mood)
             response_parts.append(f"{intro} {venue_name}.")
         elif mood and mood in FALLBACK_MOOD_PHRASES:
             intro = random.choice(FALLBACK_MOOD_PHRASES[mood])
@@ -489,22 +492,19 @@ def get_current_voice_profile(mood):
     """
     Get information about the current voice profile being used.
 
+    Uses the v2 voice system with 8 families and 23 arcana.
+
     Args:
-        mood: The mood tag
+        mood: The mood tag (arcana name)
 
     Returns:
-        Dict with profile name and description, or None
+        Dict with family, arcana, and description, or None
     """
     if not HAS_VOICE_PROFILES:
         return None
 
-    profile_name = get_profile_name(mood)
-    if profile_name in VOICE_PROFILES:
-        return {
-            "name": profile_name,
-            "description": VOICE_PROFILES[profile_name]["description"]
-        }
-    return {"name": "GENERAL", "description": "Default Lark voice"}
+    # Use the v2 function which returns family, arcana, description
+    return get_voice_profile_info(mood)
 
 # Example usage
 if __name__ == "__main__":
