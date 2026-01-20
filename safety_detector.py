@@ -15,7 +15,8 @@ not a suicide hotline. Tiered, gentle, human.
 """
 
 import re
-from typing import Tuple, List, Optional
+import random
+from typing import Tuple, List, Optional, Dict
 
 # =============================================================================
 # KEYWORD DICTIONARIES
@@ -39,13 +40,13 @@ AESTHETIC_KEYWORDS = {
 
 # TIER 2: EMOTIONAL WEIGHT
 # Genuine emotional difficulty, but not crisis
-# Response: Warm/cosy venues + soft footer linking to resources
+# Response: Warm preamble → Choice buttons → Arcana venues → Soft footer
 EMOTIONAL_KEYWORDS = {
     # Sadness
     "i'm sad", "i am sad", "feeling sad", "feeling down", "feeling low",
     "feeling blue", "heavy heart", "heavy-hearted", "heartache",
     "a bit sad", "a bit low", "a bit down", "bit sad", "bit low", "bit down",
-    # Loneliness  
+    # Loneliness
     "lonely", "i'm lonely", "so lonely", "feeling lonely", "alone tonight",
     "feeling alone", "no one to talk to", "isolated", "disconnected",
     "need company", "need connection", "need people",
@@ -57,15 +58,21 @@ EMOTIONAL_KEYWORDS = {
     "going through a lot", "not myself", "off today", "struggling a bit",
     "need comfort", "need some comfort", "need somewhere gentle", "need somewhere quiet",
     "feeling fragile", "fragile today", "tender today",
-    "want to be around people", "need to be around people", "don't want to be alone"
+    "want to be around people", "need to be around people", "don't want to be alone",
+    # Expanded keywords (from brief)
+    "rough week", "hard time", "overwhelmed",
+    "anxious", "stressed", "burned out", "burnout",
+    "bit lost", "lost lately", "feeling lost",
+    "need to get out of my head", "stuck", "feeling stuck", "restless",
+    "get out of my head", "clear my head"
 }
 
 # TIER 3: DISTRESS
 # Clear emotional difficulty requiring gentle support
-# Response: Gentle refuge venues + visible (but warm) support box
+# Response: Warm preamble → Choice buttons → Arcana venues → Visible resources
 DISTRESS_KEYWORDS = {
     # Struggling language
-    "i'm struggling", "i am struggling", "really struggling", 
+    "i'm struggling", "i am struggling", "really struggling",
     "can't cope", "cannot cope", "barely coping", "not coping",
     "falling apart", "breaking", "i'm breaking", "feel broken",
     "at my limit", "can't do this", "can't take it",
@@ -76,8 +83,12 @@ DISTRESS_KEYWORDS = {
     "i need help", "need support", "don't know what to do",
     "don't know where to turn", "nowhere to turn",
     # Overwhelm
-    "overwhelmed", "too much", "can't breathe", "drowning",
-    "spiralling", "spiraling", "losing it", "losing my mind"
+    "too much", "can't breathe", "drowning",
+    "spiralling", "spiraling", "losing it", "losing my mind",
+    # Expanded keywords (from brief)
+    "breaking down", "at my limit",
+    "nothing helps", "so tired of this", "exhausted by everything",
+    "don't know what to do anymore"
 }
 
 # TIER 4: CRISIS
@@ -97,6 +108,88 @@ CRISIS_KEYWORDS = {
     # Danger
     "in danger", "not safe", "unsafe", "emergency"
 }
+
+# =============================================================================
+# CARE PATHWAY CONFIGURATIONS
+# =============================================================================
+
+# Tier 2 (Emotional) preambles - rotated randomly
+TIER2_PREAMBLES = [
+    "That sounds like a lot to carry.",
+    "I hear you. Let's find the right place for tonight.",
+    "I'm glad you told me."
+]
+
+# Tier 3 (Distress) preambles - rotated randomly
+TIER3_PREAMBLES = [
+    "I hear you. I'm with you.",
+    "That sounds heavy. Let me be your compass tonight.",
+    "You don't need to know what you need — I can hold the map."
+]
+
+# Null state preambles - rotated randomly
+NULL_STATE_PREAMBLES = [
+    "I'm not quite sure what you're after — but I'd love to find it with you.",
+    "That's not ringing a bell, but let's wander and see what calls.",
+    "Tell me more? Or I could draw a card and see what finds you.",
+    "Hmm, I'm not certain — but I have a few guesses."
+]
+
+# Tier 2 care pathway choices - maps button labels to arcana
+TIER2_CARE_CHOICES = [
+    {
+        "label": "Somewhere quiet",
+        "arcana": ["Contemplative & Meditative"]  # Hermit
+    },
+    {
+        "label": "Somewhere to move",
+        "arcana": ["Body-Based / Movement-Led"]  # Hanged Man
+    },
+    {
+        "label": "Something to make me laugh",
+        "arcana": ["Comic Relief", "Playful & Weird"]  # Sun, Fool
+    },
+    {
+        "label": "Let's wander",
+        "arcana": "therapeutic_random"  # Random draw from therapeutic arcana
+    }
+]
+
+# Tier 3 care pathway choices - maps button labels to arcana
+TIER3_CARE_CHOICES = [
+    {
+        "label": "Somewhere quiet to sit with it",
+        "arcana": ["Contemplative & Meditative", "Grief & Grace", "Melancholic Beauty"]  # Hermit, Death, Tower
+    },
+    {
+        "label": "Somewhere to let it out",
+        "arcana": ["Body-Based / Movement-Led", "Rant & Rapture"]  # Hanged Man, Justice
+    },
+    {
+        "label": "Somewhere to be held by others",
+        "arcana": ["Group Energy", "Folk & Intimate"]  # Judgement, Empress
+    },
+    {
+        "label": "Draw for me",
+        "arcana": "therapeutic_random"  # Random draw from therapeutic arcana
+    }
+]
+
+# Therapeutic arcana for random draws (excludes energetic/chaotic arcana)
+THERAPEUTIC_ARCANA = [
+    "Contemplative & Meditative",  # Hermit
+    "Grief & Grace",               # Death
+    "Body-Based / Movement-Led",   # Hanged Man
+    "Word & Voice",                # Temperance
+    "Spiritual / Sacred / Mystical",  # Hierophant
+    "Group Energy",                # Judgement
+    "Melancholic Beauty",          # Tower
+    "Wonder & Awe",                # Star
+    "Folk & Intimate"              # Empress
+]
+
+# Excluded from therapeutic random: Devil, Chariot, Magician, Fool, Lovers, World, Lark
+
 
 # =============================================================================
 # DETECTION FUNCTIONS
@@ -171,7 +264,7 @@ def detect_emotional_state(query_text: str) -> Tuple[Optional[str], List[str]]:
 def get_tier_response_config(tier: Optional[str]) -> dict:
     """
     Get response configuration for a given tier.
-    
+
     Returns dict with:
     - show_venues: bool (whether to show venue results)
     - venue_filter: str | None (e.g., 'refuge' for gentle venues)
@@ -179,8 +272,11 @@ def get_tier_response_config(tier: Optional[str]) -> dict:
     - show_support_box: bool (visible but warm support)
     - show_crisis_resources: bool (prominent crisis info)
     - lark_preamble: str | None (what the Lark says before venues)
+    - show_care_pathway: bool (whether to show choice buttons)
+    - care_choices: list | None (choice button configurations)
+    - resources_footer: str | None (warm resources message for Tier 3)
     """
-    
+
     if tier == 'crisis':
         return {
             'show_venues': True,  # Optional gentle venue after resources
@@ -188,35 +284,43 @@ def get_tier_response_config(tier: Optional[str]) -> dict:
             'show_soft_footer': False,
             'show_support_box': False,
             'show_crisis_resources': True,
+            'show_care_pathway': False,  # Crisis gets immediate resources, not choices
+            'care_choices': None,
+            'resources_footer': None,
             'lark_preamble': (
                 "I hear you, petal. Before anything else — there are people "
                 "who want to help hold what you're carrying right now."
             )
         }
-    
+
     elif tier == 'distress':
         return {
-            'show_venues': True,
+            'show_venues': False,  # Don't auto-show venues, wait for choice
             'venue_filter': 'refuge',
             'show_soft_footer': False,
-            'show_support_box': True,
+            'show_support_box': False,  # Now using care pathway instead
             'show_crisis_resources': False,
-            'lark_preamble': (
-                "That sounds really hard. I'm here — and so are others, "
-                "if you need them."
-            )
+            'show_care_pathway': True,
+            'care_choices': TIER3_CARE_CHOICES,
+            'resources_footer': (
+                "And if you need more than a place tonight, there are people who can hold that too."
+            ),
+            'lark_preamble': random.choice(TIER3_PREAMBLES)
         }
-    
+
     elif tier == 'emotional':
         return {
-            'show_venues': True,
-            'venue_filter': 'cosy',  # Warm, gentle venues (not necessarily refuge)
-            'show_soft_footer': True,
+            'show_venues': False,  # Don't auto-show venues, wait for choice
+            'venue_filter': 'cosy',
+            'show_soft_footer': True,  # Still show soft footer after venues
             'show_support_box': False,
             'show_crisis_resources': False,
-            'lark_preamble': None  # No special preamble, just warm venues
+            'show_care_pathway': True,
+            'care_choices': TIER2_CARE_CHOICES,
+            'resources_footer': None,
+            'lark_preamble': random.choice(TIER2_PREAMBLES)
         }
-    
+
     elif tier == 'aesthetic':
         return {
             'show_venues': True,
@@ -224,9 +328,12 @@ def get_tier_response_config(tier: Optional[str]) -> dict:
             'show_soft_footer': False,
             'show_support_box': False,
             'show_crisis_resources': False,
+            'show_care_pathway': False,
+            'care_choices': None,
+            'resources_footer': None,
             'lark_preamble': None
         }
-    
+
     else:  # None — no emotional signal detected
         return {
             'show_venues': True,
@@ -234,8 +341,34 @@ def get_tier_response_config(tier: Optional[str]) -> dict:
             'show_soft_footer': False,
             'show_support_box': False,
             'show_crisis_resources': False,
+            'show_care_pathway': False,
+            'care_choices': None,
+            'resources_footer': None,
             'lark_preamble': None
         }
+
+
+def get_null_state_config() -> dict:
+    """
+    Get configuration for null state (no match found).
+
+    Returns dict with:
+    - preamble: str (warm presence message)
+    - choices: list (action buttons for user)
+    """
+    return {
+        'preamble': random.choice(NULL_STATE_PREAMBLES),
+        'choices': [
+            {"label": "Draw a card for me", "action": "draw_random"},
+            {"label": "Show me the deck", "action": "browse"},
+            {"label": "Let me try again", "action": "clear_input"}
+        ]
+    }
+
+
+def get_therapeutic_arcana() -> List[str]:
+    """Return the list of therapeutic arcana for random draws."""
+    return THERAPEUTIC_ARCANA.copy()
 
 
 # =============================================================================
