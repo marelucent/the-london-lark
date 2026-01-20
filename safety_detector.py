@@ -32,6 +32,17 @@ except ImportError:
     HAS_CARE_VOICES = False
     get_care_voice = None
 
+# Import shared need clusters for therapeutic spread drawing
+try:
+    from emotional_geography import (
+        SHARED_NEEDS,
+        get_therapeutic_spread_needs
+    )
+    HAS_SHARED_NEEDS = True
+except ImportError:
+    HAS_SHARED_NEEDS = False
+    SHARED_NEEDS = {}
+
 # =============================================================================
 # KEYWORD DICTIONARIES
 # =============================================================================
@@ -165,7 +176,7 @@ TIER2_CARE_CHOICES = [
     },
     {
         "label": "Let's wander",
-        "arcana": "therapeutic_random"  # Random draw from therapeutic arcana
+        "arcana": "therapeutic_spread"  # Draws from 3 different need clusters
     }
 ]
 
@@ -185,7 +196,7 @@ TIER3_CARE_CHOICES = [
     },
     {
         "label": "Draw for me",
-        "arcana": "therapeutic_random"  # Random draw from therapeutic arcana
+        "arcana": "therapeutic_spread"  # Draws from 3 different need clusters
     }
 ]
 
@@ -472,7 +483,7 @@ def is_cosy_venue(venue: dict) -> bool:
     # First check if it's a refuge (refuge is a subset of cosy)
     if is_potential_refuge_venue(venue):
         return True
-    
+
     # Combine text fields
     searchable_text = " ".join([
         venue.get('name', ''),
@@ -480,13 +491,87 @@ def is_cosy_venue(venue: dict) -> bool:
         venue.get('whisper', ''),
         " ".join(venue.get('moods', []))
     ]).lower()
-    
+
     # Check for cosy indicators
     for indicator in COSY_VENUE_INDICATORS:
         if indicator in searchable_text:
             return True
-    
+
     return False
+
+
+# =============================================================================
+# THERAPEUTIC SPREAD DRAWING (Shared Need Clusters)
+# =============================================================================
+
+def get_therapeutic_spread_arcana(tier: str = 'emotional') -> List[str]:
+    """
+    Get arcana for a therapeutic spread based on shared need clusters.
+
+    Instead of drawing 3 venues from the same sad arcana, draw one from each
+    of 3 different need clusters — three different medicines.
+
+    Args:
+        tier: 'emotional' (Tier 2) or 'distress' (Tier 3)
+
+    Returns:
+        List of 3 arcana names (one from each need cluster)
+    """
+    if not HAS_SHARED_NEEDS:
+        # Fallback to existing therapeutic arcana
+        return random.sample(THERAPEUTIC_ARCANA, min(3, len(THERAPEUTIC_ARCANA)))
+
+    # Get the need keys for this tier
+    if tier == 'distress':
+        # Tier 3: to_rest, to_be_held, to_witness_beauty
+        needs = ['to_rest', 'to_be_held', 'to_witness_beauty']
+    else:
+        # Tier 2: to_be_held, to_rest, to_feel_joy (softer mix)
+        needs = ['to_be_held', 'to_rest', 'to_feel_joy']
+
+    # Pick one random arcana from each need cluster
+    arcana_spread = []
+    used_arcana = set()
+
+    for need in needs:
+        cluster = SHARED_NEEDS.get(need, [])
+        if cluster:
+            # Filter out already used arcana for variety
+            available = [a for a in cluster if a not in used_arcana]
+            if available:
+                chosen = random.choice(available)
+                arcana_spread.append(chosen)
+                used_arcana.add(chosen)
+            elif cluster:
+                # All used, but still pick one
+                arcana_spread.append(random.choice(cluster))
+
+    return arcana_spread
+
+
+def get_care_pathway_arcana_spread(tier: str = 'emotional') -> dict:
+    """
+    Get the full therapeutic spread configuration for care pathways.
+
+    Returns dict with:
+    - arcana_spread: List of 3 arcana (one from each need cluster)
+    - needs_used: List of need names used for the spread
+    - description: Human-readable description of the spread
+    """
+    if tier == 'distress':
+        needs = ['to_rest', 'to_be_held', 'to_witness_beauty']
+        description = "Rest, connection, and beauty — three different medicines."
+    else:
+        needs = ['to_be_held', 'to_rest', 'to_feel_joy']
+        description = "Connection, rest, and a spark of joy."
+
+    arcana_spread = get_therapeutic_spread_arcana(tier)
+
+    return {
+        'arcana_spread': arcana_spread,
+        'needs_used': needs,
+        'description': description
+    }
 
 
 # =============================================================================

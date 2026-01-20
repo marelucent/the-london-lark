@@ -15,9 +15,12 @@ from safety_detector import (
     get_tier_response_config,
     get_null_state_config,
     get_therapeutic_arcana,
+    get_therapeutic_spread_arcana,
+    get_care_pathway_arcana_spread,
     THERAPEUTIC_ARCANA
 )
-from venue_matcher import match_venues
+from venue_matcher import match_venues, match_venues_with_adjacency, match_surprise_with_adjacency
+from emotional_geography import is_surprise_me_query
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
 from parse_venues import load_parsed_venues
 from lark_metrics import get_metrics
@@ -113,6 +116,88 @@ def get_placeholder():
         "Somewhere to feel alive..."
     ]
     return random.choice(placeholders)
+
+
+def handle_surprise_me_query():
+    """
+    Handle "I don't know" / "surprise me" queries with fate-based drawing.
+
+    Returns 3 venues:
+    - Card 1: Random arcana (fate chooses)
+    - Card 2: Adjacent to Card 1
+    - Card 3: Adjacent to Card 1 (different neighbor)
+
+    Maximum variety across arcana.
+    """
+    # Get surprise matches with adjacency
+    matches = match_surprise_with_adjacency()
+
+    if not matches:
+        return jsonify({
+            'responses': [{
+                'text': "The cards are silent tonight, petal. Try whispering something else?",
+                'venue_name': None,
+                'area': None,
+                'website': None
+            }],
+            'mood': None,
+            'confidence': 1.0,
+            'venue_count': 0,
+            'is_surprise': True
+        })
+
+    # Generate responses for each venue
+    responses = []
+    first_arcana = None
+
+    for i, venue in enumerate(matches):
+        # Get the arcana for voice profile
+        raw_data = venue.get('raw_data', {})
+        venue_arcana = raw_data.get('arcana', 'Romanticised London')
+
+        if i == 0:
+            first_arcana = venue_arcana
+
+        response_text = generate_response(venue, {'mood': venue_arcana})
+        responses.append({
+            'text': response_text,
+            'venue_name': venue.get('name', ''),
+            'area': venue.get('area', ''),
+            'website': venue.get('website', ''),
+            'whisper': venue.get('whisper', ''),
+            'is_adjacent': venue.get('is_adjacent', False),
+            'is_fate_draw': venue.get('is_fate_draw', False)
+        })
+
+    # Surprise me opening lines
+    surprise_openings = [
+        "Then let's see what the cards say...",
+        "The deck knows what you need, even if you don't.",
+        "Fate deals you these three...",
+        "Close your eyes. Point. Here's where your finger lands.",
+        "When you don't know, the city knows for you."
+    ]
+
+    return jsonify({
+        'responses': responses,
+        'mood': first_arcana,
+        'confidence': 1.0,
+        'venue_count': len(matches),
+        'is_surprise': True,
+        'opening_line': random.choice(surprise_openings),
+        'safety': {
+            'tier': None,
+            'show_soft_footer': False,
+            'show_support_box': False,
+            'show_crisis_resources': False,
+            'lark_preamble': None
+        },
+        'debug': {
+            'reason': 'surprise_me_query',
+            'drawing_method': 'fate_with_adjacency'
+        }
+    })
+
 
 @app.route('/')
 def home():
@@ -308,6 +393,11 @@ def ask_lark():
                 'venue_count': 0
             })
 
+        # Check for "I don't know" / "surprise me" queries BEFORE normal processing
+        if is_surprise_me_query(user_prompt):
+            print(f"   🎲 Surprise me query detected: '{user_prompt}'")
+            return handle_surprise_me_query()
+
         # Process through the pipeline
         filters = interpret_prompt(user_prompt)
 
@@ -484,9 +574,9 @@ def ask_lark():
         voice_profile_info = get_current_voice_profile(filters.get("mood"))
         print(f"   🎭 Voice profile: {voice_profile_name}")
 
-        # Match venues
-        matches = match_venues(filters)
-        print(f"   Matched {len(matches)} venues")
+        # Match venues with adjacency-based drawing (2 primary + 1 adjacent)
+        matches = match_venues_with_adjacency(filters)
+        print(f"   Matched {len(matches)} venues (with adjacency)")
 
         # Log metrics
         metrics = get_metrics()
@@ -554,12 +644,80 @@ def ask_lark():
 def care_pathway():
     """
     Handle care pathway choice selection.
-    Returns 3 venues from the specified arcana(s).
+    Returns 3 venues from specified arcana(s) or therapeutic spread.
+
+    For "therapeutic_random" / "therapeutic_spread":
+    - Draws from 3 different need clusters (not 3 from same arcana)
+    - Three different medicines, not "here's more sadness"
     """
     try:
         data = request.json or {}
         arcana_list = data.get('arcana', [])
         tier = data.get('tier', 'emotional')
+        use_spread = data.get('use_therapeutic_spread', False)
+
+        all_venues = load_parsed_venues()
+
+        # Handle therapeutic spread drawing (from need clusters)
+        if use_spread or arcana_list == "therapeutic_spread" or "therapeutic_spread" in arcana_list:
+            print(f"   🌿 Therapeutic spread requested for tier: {tier}")
+            spread_config = get_care_pathway_arcana_spread(tier)
+            arcana_spread = spread_config['arcana_spread']
+
+            # Draw one venue from each arcana in the spread
+            selected_venues = []
+            seen_names = set()
+
+            for arcana in arcana_spread:
+                candidates = [
+                    v for v in all_venues
+                    if v.get('arcana') == arcana
+                    and v.get('name', '').lower().strip() not in seen_names
+                ]
+                if candidates:
+                    random.shuffle(candidates)
+                    venue = candidates[0]
+                    selected_venues.append(venue)
+                    seen_names.add(venue.get('name', '').lower().strip())
+                    print(f"      ✓ From '{arcana}': {venue.get('name')}")
+
+            # Build responses
+            responses = []
+            for venue in selected_venues:
+                response_text = generate_response(venue, {'mood': venue.get('arcana')})
+                responses.append({
+                    'text': response_text,
+                    'venue_name': venue.get('name', venue.get('display_name', '')),
+                    'area': venue.get('area', venue.get('location', '')),
+                    'website': venue.get('website', venue.get('url', '')),
+                    'arcana': venue.get('arcana'),
+                    'whisper': venue.get('whisper', ''),
+                    'need_cluster': spread_config['needs_used'][selected_venues.index(venue)] if selected_venues.index(venue) < len(spread_config['needs_used']) else None
+                })
+
+            safety_config = get_tier_response_config(tier)
+
+            return jsonify({
+                'responses': responses,
+                'mood': 'therapeutic_spread',
+                'venue_count': len(responses),
+                'spread_description': spread_config['description'],
+                'safety': {
+                    'tier': tier,
+                    'show_soft_footer': safety_config.get('show_soft_footer', False),
+                    'resources_footer': safety_config.get('resources_footer')
+                },
+                'debug': {
+                    'needs_used': spread_config['needs_used'],
+                    'arcana_spread': arcana_spread
+                }
+            })
+
+        # Handle "therapeutic_random" - pick random from therapeutic arcana (legacy)
+        if arcana_list == "therapeutic_random" or "therapeutic_random" in arcana_list:
+            # Use the new spread-based drawing instead
+            spread_config = get_care_pathway_arcana_spread(tier)
+            arcana_list = spread_config['arcana_spread']
 
         if not arcana_list:
             return jsonify({
@@ -567,22 +725,19 @@ def care_pathway():
                 'responses': []
             }), 400
 
-        # Handle "therapeutic_random" - pick random from therapeutic arcana
-        if arcana_list == "therapeutic_random" or "therapeutic_random" in arcana_list:
-            arcana_list = [random.choice(THERAPEUTIC_ARCANA)]
-
-        # Load venues from the specified arcana
-        all_venues = load_parsed_venues()
+        # Load venues from the specified arcana (original behavior for specific choices)
         matching_venues = [
             v for v in all_venues
             if v.get('arcana') in arcana_list
         ]
 
         if not matching_venues:
-            # Fallback to all therapeutic arcana if no matches
+            # Fallback to therapeutic spread if no matches
+            spread_config = get_care_pathway_arcana_spread(tier)
+            fallback_arcana = spread_config['arcana_spread']
             matching_venues = [
                 v for v in all_venues
-                if v.get('arcana') in THERAPEUTIC_ARCANA
+                if v.get('arcana') in fallback_arcana
             ]
 
         # Shuffle and take up to 3
