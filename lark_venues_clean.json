@@ -11051,5 +11051,290 @@
     "whisper": "Rolling chapatis while stories rise and simmer.",
     "arcana": "Global Rhythms",
     "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Spitalfields City Farm",
+    "location": "Spitalfields (E1)",
+    "moods": [
+      "grounding",
+      "communal",
+      "gentle"
+    ],
+    "genres": [
+      "city farm",
+      "volunteering",
+      "beekeeping"
+    ],
+    "url": "https://www.spitalfieldscityfarm.org/",
+    "blurb": "Tucked behind Brick Lane's brick and bustle, Spitalfields City Farm is a patch of kindness where rare breed sheep graze beside greenhouse herbs. There's no ticket booth – just a gate into a space that invites you to sit on a hay bale or lend a hand. Awarded the Green Care Quality Mark, the farm prides itself on looking after its animals and visitors alike. Come by for a free wander, or roll up your sleeves and join the volunteer crew – the goats will make sure you take regular breaks.",
+    "whisper": "A corner of the city where pigs and people take it slow.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Hackney City Farm",
+    "location": "Hackney / Bethnal Green",
+    "moods": [
+      "earthy",
+      "welcoming",
+      "playful"
+    ],
+    "genres": [
+      "city farm",
+      "gardening",
+      "education"
+    ],
+    "url": "https://hackneycityfarm.co.uk/",
+    "blurb": "Since 1984 this little patch between Hackney and Bethnal Green has been teaching urbanites how to look after goats and broad beans with equal care. They encourage you to 'experience farming in the heart of the city', offering children and grown-ups the chance to get up close to friendly cows and to plant vegetables and herbs. It's free to visit, but a few coins in the donation pot help keep the pigs in fresh straw. Come for the animals and stay to learn how soil and community can change your day.",
+    "whisper": "A tiny farmyard teaching city hands to touch the earth again.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Stepney City Farm",
+    "location": "Stepney (Tower Hamlets)",
+    "moods": [
+      "restorative",
+      "lively",
+      "community"
+    ],
+    "genres": [
+      "city farm",
+      "growing food",
+      "arts & crafts"
+    ],
+    "url": "https://stepneycityfarm.org/",
+    "blurb": "On 4.5 acres in Tower Hamlets, Stepney City Farm feels like an accidental countryside. The gates are open Tuesday to Sunday and there's no booking required. You can meet donkeys and chickens, learn how to grow your own veg or try your hand at pottery and crafts. As an educational charity it cultivates wellbeing through ecological and high-welfare farming – a green space where the local community keeps the old skills alive while finding new ways to breathe.",
+    "whisper": "A farmers' market of feelings, with mud on your boots and clay under your nails.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Vauxhall City Farm",
+    "location": "Vauxhall (SE11)",
+    "moods": [
+      "cheerful",
+      "grounding",
+      "inclusive"
+    ],
+    "genres": [
+      "city farm",
+      "education",
+      "gardening"
+    ],
+    "url": "https://vauxhallcityfarm.org/",
+    "blurb": "Minutes from MI6 and the London Eye, this 1.5-acre farm brings a piece of the countryside to central London. Vauxhall City Farm is an educational charity that offers all the sights and smells of rural life, from alpacas to compost heaps. Free entry (donations welcome) and opening hours Tuesday–Sunday make it easy to drop in, volunteer or join a horticultural or crafts workshop. Grab a tea from the Old Dairy café and let the alpacas remind you not to take yourself too seriously.",
+    "whisper": "Alpacas and skyscrapers coexist here like old friends.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Mudchute Park & Farm",
+    "location": "Isle of Dogs (E14)",
+    "moods": [
+      "expansive",
+      "wonder",
+      "soothing"
+    ],
+    "genres": [
+      "large city farm",
+      "nature trails",
+      "horse riding"
+    ],
+    "url": "https://www.mudchute.org/",
+    "blurb": "Spread across 32 acres on the Isle of Dogs, Mudchute is one of the UK's largest urban farms. Tower Hamlets Council describes it as a community charity with a working farm, stables and nursery, open every day and free to visit. The fields roll out beneath Canary Wharf's skyline, with llamas, cows and sheep meandering through paddocks and riding lessons running in the arena. Pack a flask, wander the nature trails and feel the weird joy of hearing roosters crow against glass towers.",
+    "whisper": "Here the skyscrapers watch sheep graze without comment.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Kentish Town City Farm",
+    "location": "Kentish Town (NW5)",
+    "moods": [
+      "nurturing",
+      "accessible",
+      "nostalgic"
+    ],
+    "genres": [
+      "city farm",
+      "outdoor therapy",
+      "learning"
+    ],
+    "url": "https://ktcityfarm.org.uk/",
+    "blurb": "Founded in 1972 as the UK's first city farm, Kentish Town is a place where children, adults with special needs and anyone needing respite can find outdoor therapy and education. The farm is open every day 9am–5pm with free entry, and runs workshops for people with learning disabilities, gardening sessions and gentle animal encounters. Between the donkeys and the vegetable beds you'll find locals swapping stories, feeding guinea pigs and remembering that patience grows in the soil.",
+    "whisper": "The UK's first city farm still knows how to slow time down.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Surrey Docks Farm",
+    "location": "Rotherhithe (SE16)",
+    "moods": [
+      "inclusive",
+      "hands-on",
+      "gentle"
+    ],
+    "genres": [
+      "working farm",
+      "gardening",
+      "animal encounters"
+    ],
+    "url": "https://www.surreydocksfarm.org.uk/",
+    "blurb": "On the Thames Path in Rotherhithe, Surrey Docks Farm is a working city farm and charity that helps the whole community learn about farming, food and the natural environment. It's free to visit daily from 10am–4pm, and runs hands-on experience sessions where you can groom goats, walk a pony or even handle ferrets. Volunteers, garden plots and a herb garden make this more than a petting zoo – it's a place to dig, learn and find a quieter rhythm by the river.",
+    "whisper": "Goats nibble nettles while the Thames tide whispers by.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Deen City Farm",
+    "location": "Merton (South London)",
+    "moods": [
+      "friendly",
+      "educational",
+      "uplifting"
+    ],
+    "genres": [
+      "city farm",
+      "riding school",
+      "volunteering"
+    ],
+    "url": "https://www.deencityfarm.co.uk/",
+    "blurb": "Deen City Farm describes itself simply: an urban farm in the heart of South London. Beyond the goats and chickens there's a riding school, mobile farm and programmes that give locals educational and vocational opportunities. Families come for pony rides and holiday clubs; volunteers muck in with feeding and mucking out. It's not fancy – just honest work, fresh hay and an occasional whinny reminding you that not all therapy needs a couch.",
+    "whisper": "Horses here teach patience better than any app could.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Bee Urban (The Hive)",
+    "location": "Kennington Park (SE11)",
+    "moods": [
+      "buzzing",
+      "community-minded",
+      "earthy"
+    ],
+    "genres": [
+      "urban apiary",
+      "community garden",
+      "education"
+    ],
+    "url": "https://beeurban.org.uk/",
+    "blurb": "Bee Urban is a social enterprise that believes bees and people belong together. They focus on responsible urban beekeeping, horticulture and community growing, and emphasise that people are just as vital as the hives. At The Hive in Kennington Park they've created a forest garden of herbs, fruit and ornamentals. Volunteers and visitors can learn about beekeeping, organic gardening and sustainable living, meet the resident beekeepers and watch honey being harvested. It's a place where the city hum fades into the drone of bees and conversations over tea.",
+    "whisper": "Slip into a bee suit and hear a different kind of city buzz.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Roots and Shoots",
+    "location": "Kennington (SE11)",
+    "moods": [
+      "supportive",
+      "green",
+      "hopeful"
+    ],
+    "genres": [
+      "environmental charity",
+      "vocational training",
+      "wildlife garden"
+    ],
+    "url": "https://www.rootsandshoots.org.uk/",
+    "blurb": "Roots and Shoots turned a derelict site into a green oasis in Kennington. As an award-winning independent educational and environmental charity it offers vocational training programmes and environmental projects. Their biodiverse wildlife gardens provide a safe haven for people and nature to flourish. Visit for a plant sale, volunteer in the wildlife garden or just wander and let the plants teach you patience.",
+    "whisper": "A hidden garden where nettles and nerves are tended together.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Another Plant Swap",
+    "location": "Various London venues",
+    "moods": [
+      "joyful",
+      "social",
+      "generous"
+    ],
+    "genres": [
+      "plant swap",
+      "community event",
+      "houseplants"
+    ],
+    "url": "https://www.anotherplantswap.com/",
+    "blurb": "Plant lovers rarely meet their kind in the wild, so Another Plant Swap brings them together. The organisers invite houseplant enthusiasts to swap plants, share stories and build a thriving, sustainable community. The tagline – 'Come for the plants, stay for the friendships' – isn't just copy; the events are full of people who will happily tell you about the pothos that saved their sanity. Bring a cutting, leave with a new friend and a reminder that generous hearts grow the best leaves.",
+    "whisper": "Houseplants change hands like secrets at these joyful swaps.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Wormwood Scrubs Pony Centre",
+    "location": "Shepherd's Bush (W12)",
+    "moods": [
+      "compassionate",
+      "uplifting",
+      "inclusive"
+    ],
+    "genres": [
+      "equine therapy",
+      "riding school",
+      "volunteering"
+    ],
+    "url": "https://www.wormwoodscrubsponycentre.org.uk/",
+    "blurb": "Founded in 1989, this inner-city Riding for the Disabled Association school provides a safe space for children and young people, many with learning or physical disabilities. The centre's mission is to improve quality of life through riding and caring for ponies; over the years it has grown from three ponies to a stable yard with horses, ponies and two donkeys. Volunteers are integral and visitors are invited to help fundraise or simply offer a hand. It's a place where the simple act of brushing a pony can rebuild confidence.",
+    "whisper": "Ponies here listen better than most people you know.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "London Equine Therapy",
+    "location": "North London (Barnet)",
+    "moods": [
+      "reflective",
+      "empowering",
+      "calm"
+    ],
+    "genres": [
+      "equine therapy",
+      "wellbeing",
+      "training programme"
+    ],
+    "url": "https://www.londonequinetherapy.com/",
+    "blurb": "London Equine Therapy offers structured sessions where people work alongside horses to cultivate confidence and emotional well-being. Their 10-week programme teaches participants about equine-facilitated learning, with practitioners trained in mental health awareness and safeguarding. It's run by a small team of therapists and ponies in a quiet corner of north London. Expect to leave smelling slightly of hay and feeling unexpectedly lighter.",
+    "whisper": "A 10-week conversation with horses about who you really are.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Strength and Learning Through Horses",
+    "location": "Barnet (North London)",
+    "moods": [
+      "transformative",
+      "supportive",
+      "hopeful"
+    ],
+    "genres": [
+      "equine therapy",
+      "youth programmes",
+      "community"
+    ],
+    "url": "https://strengthandlearningthroughhorses.org/",
+    "blurb": "Strength and Learning Through Horses is building London's first purpose-built equine therapy centre. After losing their previous home they secured a lease on a derelict stable yard in Barnet and opened the new centre in spring 2023. They run equine-assisted therapy and wellbeing programmes that help young people gain confidence and emotional support while working with horses. Every donation goes towards stables and barns for horses and young people to use, creating a sanctuary where trust grows one hoofbeat at a time.",
+    "whisper": "A new home where horses help teenagers find their footing.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Freightliners City Farm",
+    "location": "Islington (N7)",
+    "moods": [
+      "easy-going",
+      "educational",
+      "accessible"
+    ],
+    "genres": [
+      "city farm",
+      "animal handling",
+      "community"
+    ],
+    "url": "https://www.freightlinersfarm.org.uk/",
+    "blurb": "Set among the terraces of Islington, Freightliners is an open-access city farm where individuals, friends and families can drop in and explore for free. Opening hours run Wednesday to Monday with free entry, and visitors can meet goats, pigs and chickens on a self-guided wander. Corporate team days are offered as rewarding, therapeutic experiences, and donations help keep the gates open. It's a no-frills place where you can watch a pig chew cud and remember what real time feels like.",
+    "whisper": "A farm where the only deadline is feeding time.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
   }
 ]
