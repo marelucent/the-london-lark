@@ -11756,5 +11756,210 @@
     "whisper": "Sweat, plunge, breathe – your nervous system recalibrated in two hours.",
     "arcana": "Body-Based / Movement-Led",
     "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Float Hub",
+    "location": "Shoreditch",
+    "moods": [
+      "still",
+      "deep",
+      "weightless",
+      "introspective"
+    ],
+    "genres": [
+      "float tank",
+      "sensory deprivation",
+      "isolation tank"
+    ],
+    "url": "https://www.floathub.co.uk/",
+    "blurb": "Hidden beneath Shoreditch you'll find six large float pods filled with body-temperature Epsom-salt water. For an hour there is no light, no sound and no gravity – just you and the quiet. The pods are big enough to stretch out and the water is filtered and cleaned between each session. It's less spa day, more private journey into weightlessness where thoughts have room to drift.",
+    "whisper": "In the dark, you discover how loud your mind can be.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Blissful Float Spa",
+    "location": "Kingston upon Thames",
+    "moods": [
+      "quiet",
+      "soothing",
+      "introspective",
+      "strange"
+    ],
+    "genres": [
+      "float tank",
+      "sensory deprivation"
+    ],
+    "url": "https://blissfulfloatspa.com/",
+    "blurb": "Kingston's float salon is all about stripping back stimulation. Their roomy tanks are filled with warm, saline water that lifts you until you hardly feel your body. In the darkness and silence, the spine decompresses and the nervous system calms; some guests drift into deep meditation while others simply enjoy having nothing to do. It's a low-key, neighbourhood spot where floating is the focus.",
+    "whisper": "Nothing touches you and yet you feel everything.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Nimaya Mindstation",
+    "location": "Farringdon",
+    "moods": [
+      "restorative",
+      "deep",
+      "still",
+      "curious"
+    ],
+    "genres": [
+      "float tank",
+      "sensory deprivation"
+    ],
+    "url": "https://www.nimaya.co.uk/floatation-therapy/",
+    "blurb": "This Farringdon recovery studio takes floating seriously. Their pods offer a low-stimulus environment where cortisol drops, circulation improves and creative thinking blooms. Each pod is housed in a private suite with its own shower, and you control the lighting and music to ease yourself in or out. A session here feels like pressing the mute button on London.",
+    "whisper": "Weightless water, silence and you.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "3 Tribes Floatation",
+    "location": "Borough",
+    "moods": [
+      "calm",
+      "strange",
+      "unplugged"
+    ],
+    "genres": [
+      "float tank",
+      "isolation tank"
+    ],
+    "url": "https://3tribes.co.uk/floatation",
+    "blurb": "Better known for yoga, 3 Tribes' Borough studio hides a floatation suite where you lie in a warm, salty pool and the world disappears. Their article describes floatation therapy as a way to remove external stimulation so the nervous system can rest. You choose whether to have gentle ambient light or complete darkness while your body drifts weightless. It's a surprising pocket of stillness in a busy fitness hub.",
+    "whisper": "Where yoga ends and floating begins.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Dans le Noir?",
+    "location": "Farringdon",
+    "moods": [
+      "playful",
+      "disorienting",
+      "intimate",
+      "curious"
+    ],
+    "genres": [
+      "dark dining",
+      "dining in the dark"
+    ],
+    "url": "https://london.danslenoir.com/en/",
+    "blurb": "Since 2006, this restaurant has served surprise menus in complete darkness, guided by blind or visually impaired hosts. You won't know what's on your plate until it meets your tongue, and conversation takes on a different tone when you can't see who you're talking to. It's funny, awkward and sometimes profound. By dessert you might be surprised at how much you've noticed without sight.",
+    "whisper": "Close your eyes and taste becomes a story.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Pitchblack Playback",
+    "location": "Various (Hammersmith & Homerton)",
+    "moods": [
+      "immersive",
+      "meditative",
+      "deep",
+      "quiet"
+    ],
+    "genres": [
+      "dark listening",
+      "sensory reduction"
+    ],
+    "url": "https://pitchblackplayback.com/",
+    "blurb": "At these album-listening sessions the lights go out, the phones go away, and the sound system does the talking. Pitchblack Playback invites audiences to experience classic albums, premieres or bespoke mixtapes in darkness and silence. London events take place in cinemas like Riverside Studios in Hammersmith and The Castle Cinema in Homerton, turning them into temples of deep listening. Think of it as a cinema for your ears.",
+    "whisper": "Let the music fill the space your eyes have left.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Mindspace Silent Meditation Retreats",
+    "location": "Brentford & Isleworth / Hammersmith",
+    "moods": [
+      "quiet",
+      "gentle",
+      "reflective"
+    ],
+    "genres": [
+      "silent retreat",
+      "meditation"
+    ],
+    "url": "https://www.mindspace.org.uk/silent-meditation-retreats/",
+    "blurb": "Mindspace runs day-long silent retreats in West London where participants keep silence between guided meditation sessions. Upcoming dates invite you to spend a day without speaking, allowing deep meditation and a sense of peace. These retreats are affordable and inclusive, with simple schedules and tea breaks held in silence. It's like stepping out of London without leaving it.",
+    "whisper": "Silence, tea, a floor cushion – nothing fancy, everything profound.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Sisters of Saint Andrew Retreat Centre",
+    "location": "Lewisham",
+    "moods": [
+      "peaceful",
+      "spiritual",
+      "still"
+    ],
+    "genres": [
+      "silent retreat",
+      "spiritual retreat"
+    ],
+    "url": "https://www.sisters-of-saint-andrew.com/retreat-centre",
+    "blurb": "This small Christian retreat centre in Lewisham describes itself as a 'quiet oasis of peace and stillness'. It welcomes individuals and small groups for silent retreats and personal reflection, offering simple accommodation and a garden to wander. You don't need to be religious to appreciate the space; the Sisters offer hospitality without preaching. It's an urban hermitage hiding in plain sight.",
+    "whisper": "The city hums outside while you sit with yourself.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Hammersmith Quaker Meeting",
+    "location": "Hammersmith",
+    "moods": [
+      "simple",
+      "quiet",
+      "welcoming"
+    ],
+    "genres": [
+      "silent worship",
+      "community stillness"
+    ],
+    "url": "https://hammersmithquakers.org.uk",
+    "blurb": "Every Sunday at 11 am the Friends gather in a modern meeting house with gardens and sustainable design. There are no sermons; everyone sits in silence together until someone feels moved to speak. Afterwards there's coffee and conversation. Quaker meetings are free, open to all and rooted in simplicity – a gentle invitation to share an hour of communal stillness in West London.",
+    "whisper": "Sit in silence with strangers and feel less alone.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Silent Walks",
+    "location": "Various (SE England)",
+    "moods": [
+      "solitary",
+      "connected",
+      "observant",
+      "calm"
+    ],
+    "genres": [
+      "silent walk",
+      "stillness practice"
+    ],
+    "url": "https://www.silentwalks.org.uk/",
+    "blurb": "A small group of walkers realised they loved company but didn't always want chatter, so they created Silent Walks. The walks take place in the countryside around London – you might start from a train from London Bridge, then spend nine miles walking with others in intentional silence. There's time to meditate, notice nature and mull over thoughts, with conversation saved for lunch. It's solitude with safety in numbers.",
+    "whisper": "Feet moving, mouths closed, thoughts roaming.",
+    "arcana": "Body-Based / Movement-Led",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "Heruka Kadampa Meditation Centre",
+    "location": "Golders Green",
+    "moods": [
+      "peaceful",
+      "focused",
+      "deep"
+    ],
+    "genres": [
+      "silent retreat",
+      "meditation"
+    ],
+    "url": "https://www.meditateinlondon.org/courses-retreats/relax-reset-recharge-silent-retreat/",
+    "blurb": "This Kadampa Buddhist centre runs regular silent day retreats in north London. Their 'Relax, Reset & Recharge' day invites you to unplug for a day of silence, with guided meditation sessions and silent break times. Participants eat, read and wander quietly between sessions, giving the mind space to settle. It's a structured yet gentle way to practise silence without leaving the city.",
+    "whisper": "A day without words can feel like a week's holiday.",
+    "arcana": "Contemplative & Meditative",
+    "last_verified": "2026-01-21"
   }
 ]
