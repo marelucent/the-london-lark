@@ -12,12 +12,17 @@ from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
 from safety_detector import (
     detect_emotional_state,
+    detect_care_state,
     get_tier_response_config,
     get_null_state_config,
     get_therapeutic_arcana,
     get_therapeutic_spread_arcana,
     get_care_pathway_arcana_spread,
-    THERAPEUTIC_ARCANA
+    get_state_preamble,
+    get_state_textures,
+    get_texture_arcana_pool,
+    THERAPEUTIC_ARCANA,
+    TEXTURE_ARCANA_MAPPING
 )
 from venue_matcher import match_venues, match_venues_with_adjacency, match_surprise_with_adjacency
 from emotional_geography import is_surprise_me_query
@@ -422,30 +427,44 @@ def ask_lark():
         # If distress or crisis detected, handle that FIRST before mood checks
         # =====================================================================
 
-        # Tier 2 (Emotional) and Tier 3 (Distress) - show care pathway with choices
+        # Tier 2 (Emotional) and Tier 3 (Distress) - show care pathway with context-aware textures
         if emotional_tier in ('emotional', 'distress'):
-            print(f"   🛡️ Care pathway: {emotional_tier} tier detected, showing choices")
+            # Detect which emotional state the user is in (ANGRY, LONELY, OVERWHELMED, GRIEF, LOW_HEAVY)
+            care_state, state_keywords = detect_care_state(user_prompt)
+            print(f"   🛡️ Care pathway: {emotional_tier} tier detected, state: {care_state}")
+            print(f"      State keywords: {state_keywords}")
+
+            # Get state-specific preamble and textures
+            state_preamble = get_state_preamble(care_state)
+            state_textures = get_state_textures(care_state)
+
+            # For distress tier, use the state preamble; for emotional tier, may use a softer variant
+            preamble = state_preamble if emotional_tier == 'distress' else state_preamble
 
             return jsonify({
-                'responses': [],  # No venues yet - wait for choice
+                'responses': [],  # No venues yet - wait for texture choice
                 'mood': None,
                 'confidence': 0.0,
                 'venue_count': 0,
                 'filters': filters,
                 'safety': {
                     'tier': emotional_tier,
+                    'care_state': care_state,
                     'show_soft_footer': safety_config.get('show_soft_footer', False),
                     'show_support_box': False,  # Now using care pathway
                     'show_crisis_resources': False,
-                    'show_care_pathway': safety_config.get('show_care_pathway', True),
-                    'care_choices': safety_config.get('care_choices', []),
+                    'show_care_pathway': True,
+                    'use_texture_cards': True,  # New: use texture cards instead of buttons
+                    'textures': state_textures,  # New: state-specific texture options
                     'resources_footer': safety_config.get('resources_footer'),
-                    'lark_preamble': safety_config.get('lark_preamble')
+                    'lark_preamble': preamble
                 },
                 'debug': {
                     'reason': 'care_pathway',
                     'tier': emotional_tier,
-                    'keywords': safety_keywords
+                    'care_state': care_state,
+                    'keywords': safety_keywords,
+                    'state_keywords': state_keywords
                 }
             })
 
@@ -650,19 +669,146 @@ def ask_lark():
 def care_pathway():
     """
     Handle care pathway choice selection.
-    Returns 3 venues from specified arcana(s) or therapeutic spread.
+    Returns 3 venues from specified arcana(s), texture selection, or therapeutic spread.
 
-    For "therapeutic_random" / "therapeutic_spread":
+    Supports both:
+    - Legacy: arcana list directly
+    - New: texture_key that maps to arcana pool
+
+    For "therapeutic_random" / "therapeutic_spread" / "let_me_draw_for_you":
     - Draws from 3 different need clusters (not 3 from same arcana)
     - Three different medicines, not "here's more sadness"
     """
     try:
         data = request.json or {}
         arcana_list = data.get('arcana', [])
+        texture_key = data.get('texture_key')  # New: texture card selection
         tier = data.get('tier', 'emotional')
         use_spread = data.get('use_therapeutic_spread', False)
 
         all_venues = load_parsed_venues()
+
+        # NEW: Handle texture_key selection (from texture cards)
+        if texture_key:
+            print(f"   🌸 Texture selection: '{texture_key}' for tier: {tier}")
+
+            # Get the texture configuration
+            texture_config = TEXTURE_ARCANA_MAPPING.get(texture_key)
+            if not texture_config:
+                return jsonify({
+                    'error': f"Unknown texture: {texture_key}",
+                    'responses': []
+                }), 400
+
+            arcana_pool = texture_config.get('arcana_pool', [])
+            texture_name = texture_config.get('texture', texture_key)
+
+            # Handle "let me draw for you" (therapeutic_spread)
+            if arcana_pool == 'therapeutic_spread':
+                print(f"      Using therapeutic spread for '{texture_key}'")
+                spread_config = get_care_pathway_arcana_spread(tier)
+                arcana_pool = spread_config['arcana_spread']
+
+                # Draw one venue from each arcana in the spread
+                selected_venues = []
+                seen_names = set()
+
+                for arcana in arcana_pool:
+                    candidates = [
+                        v for v in all_venues
+                        if v.get('arcana') == arcana
+                        and v.get('name', '').lower().strip() not in seen_names
+                    ]
+                    if candidates:
+                        random.shuffle(candidates)
+                        venue = candidates[0]
+                        selected_venues.append(venue)
+                        seen_names.add(venue.get('name', '').lower().strip())
+                        print(f"      ✓ From '{arcana}': {venue.get('name')}")
+
+                # Build responses
+                responses = []
+                for i, venue in enumerate(selected_venues):
+                    response_text = generate_response(venue, {'mood': venue.get('arcana')})
+                    responses.append({
+                        'text': response_text,
+                        'venue_name': venue.get('name', venue.get('display_name', '')),
+                        'area': venue.get('area', venue.get('location', '')),
+                        'website': venue.get('website', venue.get('url', '')),
+                        'arcana': venue.get('arcana'),
+                        'whisper': venue.get('whisper', ''),
+                        'need_cluster': spread_config['needs_used'][i] if i < len(spread_config['needs_used']) else None
+                    })
+
+                safety_config = get_tier_response_config(tier)
+
+                return jsonify({
+                    'responses': responses,
+                    'mood': 'therapeutic_spread',
+                    'venue_count': len(responses),
+                    'texture': texture_name,
+                    'spread_description': spread_config['description'],
+                    'safety': {
+                        'tier': tier,
+                        'show_soft_footer': safety_config.get('show_soft_footer', False),
+                        'resources_footer': safety_config.get('resources_footer')
+                    },
+                    'debug': {
+                        'texture_key': texture_key,
+                        'needs_used': spread_config['needs_used'],
+                        'arcana_spread': arcana_pool
+                    }
+                })
+
+            # Handle texture with specific arcana pool (draw one from each arcana, 2+1 if pool has 3)
+            print(f"      Arcana pool: {arcana_pool}")
+            selected_venues = []
+            seen_names = set()
+
+            # Draw one venue from each arcana in the pool (up to 3)
+            for arcana in arcana_pool[:3]:
+                candidates = [
+                    v for v in all_venues
+                    if v.get('arcana') == arcana
+                    and v.get('name', '').lower().strip() not in seen_names
+                ]
+                if candidates:
+                    random.shuffle(candidates)
+                    venue = candidates[0]
+                    selected_venues.append(venue)
+                    seen_names.add(venue.get('name', '').lower().strip())
+                    print(f"      ✓ From '{arcana}': {venue.get('name')}")
+
+            # Build responses
+            responses = []
+            for venue in selected_venues:
+                response_text = generate_response(venue, {'mood': venue.get('arcana')})
+                responses.append({
+                    'text': response_text,
+                    'venue_name': venue.get('name', venue.get('display_name', '')),
+                    'area': venue.get('area', venue.get('location', '')),
+                    'website': venue.get('website', venue.get('url', '')),
+                    'arcana': venue.get('arcana'),
+                    'whisper': venue.get('whisper', '')
+                })
+
+            safety_config = get_tier_response_config(tier)
+
+            return jsonify({
+                'responses': responses,
+                'mood': arcana_pool[0] if arcana_pool else None,
+                'venue_count': len(responses),
+                'texture': texture_name,
+                'safety': {
+                    'tier': tier,
+                    'show_soft_footer': safety_config.get('show_soft_footer', False),
+                    'resources_footer': safety_config.get('resources_footer')
+                },
+                'debug': {
+                    'texture_key': texture_key,
+                    'arcana_pool': arcana_pool
+                }
+            })
 
         # Handle therapeutic spread drawing (from need clusters)
         if use_spread or arcana_list == "therapeutic_spread" or "therapeutic_spread" in arcana_list:

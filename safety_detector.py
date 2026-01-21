@@ -139,7 +139,192 @@ CRISIS_KEYWORDS = {
 }
 
 # =============================================================================
-# CARE PATHWAY CONFIGURATIONS
+# EMOTIONAL STATE DETECTION (Context-Aware Care Pathways)
+# =============================================================================
+# Detects which emotional state the user is in for context-aware offerings
+# Instead of one fixed menu, detect state and show appropriate textures
+
+# Trigger phrases for each emotional state
+EMOTIONAL_STATE_TRIGGERS = {
+    "LOW_HEAVY": {
+        "feeling low", "feeling down", "struggling", "heavy", "sad", "down today",
+        "rough day", "hard time", "hard day", "bad day", "difficult day",
+        "a bit low", "bit low", "a bit sad", "bit sad", "a bit down", "bit down",
+        "i'm sad", "i am sad", "feeling sad", "heavy heart", "heavy-hearted"
+    },
+    "ANGRY": {
+        "angry", "furious", "so mad", "rage", "fuming", "livid", "seething",
+        "pissed off", "pissed", "frustrated", "enraged", "raging"
+    },
+    "LONELY": {
+        "lonely", "alone", "isolated", "no one", "on my own", "no friends",
+        "feeling alone", "feel alone", "so lonely", "i'm lonely", "all alone",
+        "disconnected", "by myself", "need company", "need connection"
+    },
+    "OVERWHELMED": {
+        "overwhelmed", "too much", "can't cope", "cannot cope", "cant cope", "anxious",
+        "everything's too loud", "drowning", "can't breathe", "cannot breathe", "cant breathe",
+        "spiralling", "spiraling", "losing it", "too loud", "suffocating",
+        "sensory overload", "overstimulated", "panic", "panicking"
+    },
+    "GRIEF": {
+        "grieving", "mourning", "loss", "someone died", "lost someone",
+        "they're gone", "miss them", "death of", "died", "passed away",
+        "bereavement", "funeral", "lost my", "missing them", "grief"
+    }
+}
+
+# =============================================================================
+# STATE-SPECIFIC PREAMBLES
+# =============================================================================
+
+STATE_PREAMBLES = {
+    "LOW_HEAVY": "That sounds like a lot to carry.",
+    "ANGRY": "That fire deserves somewhere to go.",
+    "LONELY": "I hear you. You don't have to be alone tonight.",
+    "OVERWHELMED": "It's too loud, isn't it. Let's find somewhere softer.",
+    "GRIEF": "I'm here. This is a tender place to be."
+}
+
+# =============================================================================
+# TEXTURE → ARCANA POOL MAPPINGS
+# =============================================================================
+# Each texture maps to a need cluster and an arcana pool for drawing venues
+
+TEXTURE_ARCANA_MAPPING = {
+    "somewhere_still": {
+        "texture": "Somewhere still",
+        "icon": "⟡",
+        "need_cluster": "to_rest",
+        "arcana_pool": ["Contemplative & Meditative", "Grief & Grace", "Nostalgic / Vintage / Retro"]
+    },
+    "somewhere_soft_to_land": {
+        "texture": "Somewhere soft to land",
+        "icon": "⟡",
+        "need_cluster": "to_rest",
+        "arcana_pool": ["Contemplative & Meditative", "Grief & Grace", "Nostalgic / Vintage / Retro"]
+    },
+    "somewhere_your_body_can_move": {
+        "texture": "Somewhere your body can move",
+        "icon": "∴",
+        "need_cluster": "to_move_through",
+        "arcana_pool": ["Body-Based / Movement-Led", "Punchy / Protest", "Rant & Rapture"]
+    },
+    "somewhere_brave": {
+        "texture": "Somewhere brave",
+        "icon": "∞",
+        "need_cluster": "to_rage_release",
+        "arcana_pool": ["Punchy / Protest", "Rant & Rapture", "Body-Based / Movement-Led"]
+    },
+    "somewhere_loud_and_alive": {
+        "texture": "Somewhere loud and alive",
+        "icon": "⛧",
+        "need_cluster": "to_let_loose",
+        "arcana_pool": ["Late-Night Lark", "Big Night Out", "Cabaret & Glitter"]
+    },
+    "somewhere_others_have_felt_this_too": {
+        "texture": "Somewhere others have felt this too",
+        "icon": "△",
+        "need_cluster": "to_be_with_others",
+        "arcana_pool": ["Group Energy", "Queer Revelry", "Big Night Out"]
+    },
+    "somewhere_to_be_among_others": {
+        "texture": "Somewhere to be among others",
+        "icon": "⚘",
+        "need_cluster": "to_be_held",
+        "arcana_pool": ["Folk & Intimate", "Group Energy", "Word & Voice"]
+    },
+    "somewhere_that_feels_like_belonging": {
+        "texture": "Somewhere that feels like belonging",
+        "icon": "◎",
+        "need_cluster": "to_feel_connected",
+        "arcana_pool": ["Global Rhythms", "Spiritual / Sacred / Mystical", "Wonder & Awe"]
+    },
+    "somewhere_with_beauty_in_it": {
+        "texture": "Somewhere with beauty in it",
+        "icon": "✦",
+        "need_cluster": "to_witness_beauty",
+        "arcana_pool": ["Wonder & Awe", "Melancholic Beauty", "Romanticised London"]
+    },
+    "let_me_draw_for_you": {
+        "texture": "Let me draw for you",
+        "icon": "❦",
+        "need_cluster": "therapeutic_spread",
+        "arcana_pool": "therapeutic_spread"  # Special handling - draws from all care clusters
+    }
+}
+
+# =============================================================================
+# STATE-SPECIFIC TEXTURE OPTIONS
+# =============================================================================
+# Each state has 4 texture options tailored to that emotional need
+
+STATE_TEXTURES = {
+    "LOW_HEAVY": [
+        "somewhere_still",
+        "somewhere_your_body_can_move",
+        "somewhere_to_be_among_others",
+        "let_me_draw_for_you"
+    ],
+    "ANGRY": [
+        "somewhere_brave",
+        "somewhere_loud_and_alive",
+        "somewhere_others_have_felt_this_too",
+        "let_me_draw_for_you"
+    ],
+    "LONELY": [
+        "somewhere_to_be_among_others",
+        "somewhere_that_feels_like_belonging",
+        "somewhere_with_beauty_in_it",
+        "let_me_draw_for_you"
+    ],
+    "OVERWHELMED": [
+        "somewhere_still",
+        "somewhere_soft_to_land",
+        "somewhere_with_beauty_in_it",
+        "let_me_draw_for_you"
+    ],
+    "GRIEF": [
+        "somewhere_still",
+        "somewhere_with_beauty_in_it",
+        "somewhere_to_be_among_others",
+        "let_me_draw_for_you"
+    ]
+}
+
+# =============================================================================
+# ARCANA ICONS (for texture cards)
+# =============================================================================
+
+ARCANA_ICONS = {
+    "Contemplative & Meditative": "⟡",   # Hermit (IX)
+    "Grief & Grace": "✿",                 # Death (XIII)
+    "Nostalgic / Vintage / Retro": "☾",  # Moon (XVIII)
+    "Body-Based / Movement-Led": "∴",    # Hanged Man (XII)
+    "Punchy / Protest": "∞",              # Strength (VIII)
+    "Rant & Rapture": "⚖",                # Justice (XI)
+    "Late-Night Lark": "⛧",               # Devil (XV)
+    "Big Night Out": "↑",                 # Chariot (VII)
+    "Cabaret & Glitter": "⚯",             # Lovers (VI)
+    "Group Energy": "△",                  # Judgement (XX)
+    "Queer Revelry": "◉",                 # World (XXI)
+    "Folk & Intimate": "⚘",               # Empress (III)
+    "Word & Voice": "≋",                  # Temperance (XIV)
+    "Global Rhythms": "◎",                # Wheel (X)
+    "Spiritual / Sacred / Mystical": "⚷", # Hierophant (V)
+    "Wonder & Awe": "✦",                  # Star (XVII)
+    "Melancholic Beauty": "↯",            # Tower (XVI)
+    "Romanticised London": "❦",           # The Lark (✦)
+    # Additional for completeness
+    "Playful & Weird": "✵",               # Fool (0)
+    "Curious Encounters": "✧",            # Magician (I)
+    "Witchy & Wild": "☽",                 # High Priestess (II)
+    "The Thoughtful Stage": "♛",          # Emperor (IV)
+    "Comic Relief": "☀"                   # Sun (XIX)
+}
+
+# =============================================================================
+# CARE PATHWAY CONFIGURATIONS (Legacy - kept for backward compatibility)
 # =============================================================================
 
 # Tier 2 (Emotional) preambles - rotated randomly
@@ -288,6 +473,112 @@ def detect_emotional_state(query_text: str) -> Tuple[Optional[str], List[str]]:
     
     # No emotional signals detected
     return (None, [])
+
+
+def detect_care_state(query_text: str) -> Tuple[str, List[str]]:
+    """
+    Detect which of the 5 emotional states the user is in.
+
+    Args:
+        query_text: The user's search query
+
+    Returns:
+        Tuple of (state, matched_keywords):
+        - state: 'ANGRY' | 'LONELY' | 'OVERWHELMED' | 'GRIEF' | 'LOW_HEAVY'
+        - matched_keywords: List of keywords that triggered the detection
+
+    Priority order: GRIEF > OVERWHELMED > ANGRY > LONELY > LOW_HEAVY (default)
+    (We check most specific emotional states first)
+    """
+    if not query_text or not query_text.strip():
+        return ('LOW_HEAVY', [])
+
+    text_normalised = _normalise_text(query_text)
+
+    # Check states in priority order (most specific first)
+
+    # GRIEF - check first as it's often very specific
+    grief_matches = []
+    for keyword in EMOTIONAL_STATE_TRIGGERS.get("GRIEF", set()):
+        if keyword.lower() in text_normalised:
+            grief_matches.append(keyword)
+    if grief_matches:
+        return ('GRIEF', grief_matches)
+
+    # OVERWHELMED - specific anxiety/sensory language
+    overwhelmed_matches = []
+    for keyword in EMOTIONAL_STATE_TRIGGERS.get("OVERWHELMED", set()):
+        if keyword.lower() in text_normalised:
+            overwhelmed_matches.append(keyword)
+    if overwhelmed_matches:
+        return ('OVERWHELMED', overwhelmed_matches)
+
+    # ANGRY - check before lonely as it's more actionable
+    angry_matches = []
+    for keyword in EMOTIONAL_STATE_TRIGGERS.get("ANGRY", set()):
+        if keyword.lower() in text_normalised:
+            angry_matches.append(keyword)
+    if angry_matches:
+        return ('ANGRY', angry_matches)
+
+    # LONELY - specific isolation language
+    lonely_matches = []
+    for keyword in EMOTIONAL_STATE_TRIGGERS.get("LONELY", set()):
+        if keyword.lower() in text_normalised:
+            lonely_matches.append(keyword)
+    if lonely_matches:
+        return ('LONELY', lonely_matches)
+
+    # LOW_HEAVY - check last (it's the default/catch-all)
+    low_heavy_matches = []
+    for keyword in EMOTIONAL_STATE_TRIGGERS.get("LOW_HEAVY", set()):
+        if keyword.lower() in text_normalised:
+            low_heavy_matches.append(keyword)
+    if low_heavy_matches:
+        return ('LOW_HEAVY', low_heavy_matches)
+
+    # Default to LOW_HEAVY if no specific match (for Tier 2/3 queries)
+    return ('LOW_HEAVY', [])
+
+
+def get_state_preamble(state: str) -> str:
+    """Get the state-specific preamble for the care pathway."""
+    return STATE_PREAMBLES.get(state, STATE_PREAMBLES['LOW_HEAVY'])
+
+
+def get_state_textures(state: str) -> List[dict]:
+    """
+    Get the 4 texture card configurations for a given emotional state.
+
+    Returns list of dicts with:
+    - texture_key: The key for this texture
+    - texture: Display text (e.g., "Somewhere still")
+    - icon: The arcana icon
+    - arcana_pool: List of arcana to draw from
+    """
+    texture_keys = STATE_TEXTURES.get(state, STATE_TEXTURES['LOW_HEAVY'])
+    textures = []
+
+    for key in texture_keys:
+        mapping = TEXTURE_ARCANA_MAPPING.get(key, {})
+        textures.append({
+            'texture_key': key,
+            'texture': mapping.get('texture', key),
+            'icon': mapping.get('icon', '✦'),
+            'arcana_pool': mapping.get('arcana_pool', 'therapeutic_spread'),
+            'need_cluster': mapping.get('need_cluster', '')
+        })
+
+    return textures
+
+
+def get_texture_arcana_pool(texture_key: str) -> List[str]:
+    """Get the arcana pool for a given texture key."""
+    mapping = TEXTURE_ARCANA_MAPPING.get(texture_key, {})
+    pool = mapping.get('arcana_pool', 'therapeutic_spread')
+    if pool == 'therapeutic_spread':
+        return 'therapeutic_spread'
+    return pool
 
 
 def get_tier_response_config(tier: Optional[str]) -> dict:
