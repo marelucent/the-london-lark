@@ -1392,8 +1392,8 @@
                     resultsContainer.appendChild(crisisBox);
                 }
 
-                // Handle care pathway (Tier 2/3) - show preamble + choice buttons
-                if (data.safety && data.safety.show_care_pathway && data.safety.care_choices) {
+                // Handle care pathway (Tier 2/3) - show preamble + texture cards or choice buttons
+                if (data.safety && data.safety.show_care_pathway && (data.safety.textures || data.safety.care_choices)) {
                     renderCarePathway(data.safety, resultsContainer);
                     // Re-enable input
                     input.disabled = false;
