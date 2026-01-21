@@ -325,12 +325,146 @@
             transform: scale(0.98);
         }
 
+        /* ============================================
+           TEXTURE CARDS (Context-Aware Care Pathways)
+           ============================================ */
+
+        .texture-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 700px) {
+            .texture-cards {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 340px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .texture-cards {
+                grid-template-columns: 1fr;
+                max-width: 180px;
+            }
+        }
+
+        .texture-card {
+            position: relative;
+            padding: 1.5rem 1rem;
+            min-height: 140px;
+            background: linear-gradient(135deg, rgba(13,13,13,0.9) 0%, rgba(26,23,20,0.95) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Corner flourishes (like venue cards) */
+        .texture-card::before,
+        .texture-card::after,
+        .texture-card .corner-tr,
+        .texture-card .corner-bl {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-color: rgba(212, 175, 55, 0.4);
+            border-style: solid;
+            transition: all 0.3s ease;
+        }
+
+        .texture-card::before {
+            top: 6px;
+            left: 6px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .texture-card::after {
+            bottom: 6px;
+            right: 6px;
+            border-width: 0 1px 1px 0;
+        }
+
+        .texture-card .corner-tr {
+            top: 6px;
+            right: 6px;
+            border-width: 1px 1px 0 0;
+        }
+
+        .texture-card .corner-bl {
+            bottom: 6px;
+            left: 6px;
+            border-width: 0 0 1px 1px;
+        }
+
+        .texture-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold, #d4af37);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+        }
+
+        .texture-card:hover::before,
+        .texture-card:hover::after,
+        .texture-card:hover .corner-tr,
+        .texture-card:hover .corner-bl {
+            border-color: var(--gold, #d4af37);
+        }
+
+        .texture-card:active {
+            transform: translateY(-2px);
+        }
+
+        .texture-icon {
+            font-size: 1.8rem;
+            color: var(--gold, #d4af37);
+            margin-bottom: 0.75rem;
+            line-height: 1;
+            opacity: 0.9;
+        }
+
+        .texture-phrase {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            line-height: 1.4;
+            max-width: 100%;
+        }
+
+        .texture-card:hover .texture-icon {
+            opacity: 1;
+        }
+
+        .texture-card:hover .texture-phrase {
+            color: var(--gold, #d4af37);
+        }
+
         /* Resources footer for Tier 3 */
         .resources-footer {
             margin-top: 2rem;
             padding: 1.5rem;
             text-align: center;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* Warmer resources footer - "here if you need" not "WARNING" */
+        .resources-footer-warm {
+            margin-top: 2.5rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-top: none;
+            border-radius: 4px;
+            background: transparent;
         }
 
         .resources-footer-text {
@@ -340,6 +474,16 @@
             color: var(--candlelight, #f4e4bc);
             opacity: 0.9;
             margin-bottom: 1rem;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .resources-footer-warm .resources-footer-text {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            color: var(--candlelight, #f4e4bc);
         }
 
         .resources-footer-contacts {
@@ -348,6 +492,12 @@
             justify-content: center;
             gap: 1.5rem;
             font-size: 0.9rem;
+        }
+
+        .resources-footer-warm .resources-footer-contacts {
+            gap: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.75;
         }
 
         .resources-footer-contacts a {
@@ -362,6 +512,27 @@
         .resources-footer-contacts span {
             color: var(--candlelight, #f4e4bc);
             opacity: 0.7;
+        }
+
+        .resources-footer-warm .resources-footer-contacts span {
+            opacity: 1;
+        }
+
+        /* Separator between contacts */
+        .resources-footer-warm .resources-footer-contacts span:not(:last-child)::after {
+            content: '·';
+            margin-left: 1rem;
+            color: rgba(212, 175, 55, 0.4);
+        }
+
+        @media (max-width: 500px) {
+            .resources-footer-contacts {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .resources-footer-warm .resources-footer-contacts span:not(:last-child)::after {
+                display: none;
+            }
         }
 
         /* ============================================
@@ -1384,26 +1555,63 @@
             preamble.textContent = safety.lark_preamble || "I hear you.";
             careContainer.appendChild(preamble);
 
-            // Choice buttons
-            const choicesDiv = document.createElement('div');
-            choicesDiv.className = 'care-choices';
+            // NEW: Render texture cards if use_texture_cards is true
+            if (safety.use_texture_cards && safety.textures && safety.textures.length > 0) {
+                const texturesDiv = document.createElement('div');
+                texturesDiv.className = 'texture-cards';
 
-            safety.care_choices.forEach(choice => {
-                const btn = document.createElement('button');
-                btn.className = 'care-choice-btn';
-                btn.textContent = choice.label;
-                btn.onclick = () => handleCareChoice(choice.arcana, safety.tier);
-                choicesDiv.appendChild(btn);
-            });
+                safety.textures.forEach(texture => {
+                    const card = document.createElement('div');
+                    card.className = 'texture-card';
+                    card.onclick = () => handleTextureChoice(texture.texture_key, safety.tier);
 
-            careContainer.appendChild(choicesDiv);
+                    // Add corner flourishes (like venue cards)
+                    const cornerTR = document.createElement('span');
+                    cornerTR.className = 'corner-tr';
+                    const cornerBL = document.createElement('span');
+                    cornerBL.className = 'corner-bl';
+                    card.appendChild(cornerTR);
+                    card.appendChild(cornerBL);
 
-            // Resources footer for Tier 3 (distress)
-            if (safety.tier === 'distress' && safety.resources_footer) {
+                    // Icon
+                    const icon = document.createElement('div');
+                    icon.className = 'texture-icon';
+                    icon.textContent = texture.icon || '✦';
+                    card.appendChild(icon);
+
+                    // Texture phrase
+                    const phrase = document.createElement('div');
+                    phrase.className = 'texture-phrase';
+                    phrase.textContent = texture.texture;
+                    card.appendChild(phrase);
+
+                    texturesDiv.appendChild(card);
+                });
+
+                careContainer.appendChild(texturesDiv);
+            }
+            // LEGACY: Render choice buttons if no texture cards
+            else if (safety.care_choices) {
+                const choicesDiv = document.createElement('div');
+                choicesDiv.className = 'care-choices';
+
+                safety.care_choices.forEach(choice => {
+                    const btn = document.createElement('button');
+                    btn.className = 'care-choice-btn';
+                    btn.textContent = choice.label;
+                    btn.onclick = () => handleCareChoice(choice.arcana, safety.tier);
+                    choicesDiv.appendChild(btn);
+                });
+
+                careContainer.appendChild(choicesDiv);
+            }
+
+            // Resources footer for Tier 3 (distress) - warmer styling
+            if (safety.tier === 'distress') {
                 const footer = document.createElement('div');
-                footer.className = 'resources-footer';
+                footer.className = 'resources-footer resources-footer-warm';
                 footer.innerHTML = `
-                    <p class="resources-footer-text">${safety.resources_footer}</p>
+                    <p class="resources-footer-text">And if you need more than a place tonight, there are people who can hold that too.</p>
                     <div class="resources-footer-contacts">
                         <span><strong>Samaritans:</strong> <a href="tel:116123">116 123</a> (free, 24/7)</span>
                         <span><strong>Shout:</strong> Text <a href="sms:85258">SHOUT to 85258</a></span>
@@ -1416,6 +1624,81 @@
             container.appendChild(careContainer);
         }
 
+        // NEW: Handle texture card selection
+        async function handleTextureChoice(textureKey, tier) {
+            const resultsContainer = document.getElementById('askResults');
+            showLoading();
+
+            try {
+                const response = await fetch('/care-pathway', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ texture_key: textureKey, tier })
+                });
+
+                const data = await response.json();
+                hideLoading();
+
+                if (data.error) {
+                    resultsContainer.innerHTML = `<div class="error-state">${data.error}</div>`;
+                    return;
+                }
+
+                // Clear the care pathway UI
+                resultsContainer.innerHTML = '';
+
+                // Render venues
+                if (data.responses && data.responses.length > 0) {
+                    data.responses.forEach((resp, index) => {
+                        setTimeout(() => {
+                            const card = createVenueCard(resp, resp.arcana || data.mood);
+                            resultsContainer.appendChild(card);
+
+                            // After all venues, add appropriate footer
+                            if (index === data.responses.length - 1) {
+                                // Soft footer for Tier 2
+                                if (data.safety && data.safety.show_soft_footer) {
+                                    const softFooter = document.createElement('div');
+                                    softFooter.className = 'safety-soft-footer';
+                                    softFooter.innerHTML = `
+                                        And if you need more than a place: <a href="/resources">Resources</a>
+                                    `;
+                                    resultsContainer.appendChild(softFooter);
+                                }
+
+                                // Resources footer for Tier 3 - warm version
+                                if (data.safety && (data.safety.resources_footer || tier === 'distress')) {
+                                    const footer = document.createElement('div');
+                                    footer.className = 'resources-footer resources-footer-warm';
+                                    footer.innerHTML = `
+                                        <p class="resources-footer-text">And if you need more than a place tonight, there are people who can hold that too.</p>
+                                        <div class="resources-footer-contacts">
+                                            <span><strong>Samaritans:</strong> <a href="tel:116123">116 123</a> (free, 24/7)</span>
+                                            <span><strong>Shout:</strong> Text <a href="sms:85258">SHOUT to 85258</a></span>
+                                            <span><a href="https://mind.org.uk" target="_blank" rel="noopener">mind.org.uk</a></span>
+                                        </div>
+                                    `;
+                                    resultsContainer.appendChild(footer);
+                                }
+                            }
+                        }, index * 200);
+                    });
+                } else {
+                    resultsContainer.innerHTML = `
+                        <div class="empty-state">
+                            <p>The wind found no doors tonight, petal.</p>
+                            <p class="empty-subtext">Try another path, or speak differently.</p>
+                        </div>
+                    `;
+                }
+
+            } catch (error) {
+                hideLoading();
+                resultsContainer.innerHTML = `<div class="error-state">Something went awry: ${error.message}</div>`;
+            }
+        }
+
+        // LEGACY: Handle care choice button selection (for backward compatibility)
         async function handleCareChoice(arcana, tier) {
             const resultsContainer = document.getElementById('askResults');
             showLoading();
@@ -1460,7 +1743,7 @@
                                 // Resources footer for Tier 3
                                 if (data.safety && data.safety.resources_footer) {
                                     const footer = document.createElement('div');
-                                    footer.className = 'resources-footer';
+                                    footer.className = 'resources-footer resources-footer-warm';
                                     footer.innerHTML = `
                                         <p class="resources-footer-text">${data.safety.resources_footer}</p>
                                         <div class="resources-footer-contacts">
