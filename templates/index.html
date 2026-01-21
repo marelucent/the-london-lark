@@ -642,11 +642,28 @@
         let currentSafetyTier = null;  // Tracks current emotional tier for care pathway
 
         // Time-aware greetings for return visitors
+        // Each entry is { greeting: "...", followup: "..." } to ensure time-appropriate phrasing
         const timeGreetings = {
-            morning: ["The morning light found you here again.", "Back before noon — I like your style.", "Early bird, seeking worms of wonder."],
-            afternoon: ["The afternoon brought you back.", "Midday wanderer, what calls to you?", "The city hums. So do you."],
-            evening: ["The evening stirs something, doesn't it?", "Night approaches. Where shall we send you?", "The gloaming hour — my favourite."],
-            latenight: ["The late hours have their own magic.", "Still awake? So am I.", "The city's second life is beginning."]
+            morning: [
+                { greeting: "The morning light found you here again.", followup: "What are you dreaming of?" },
+                { greeting: "Back before noon — I like your style.", followup: "What are you seeking?" },
+                { greeting: "Early bird, seeking worms of wonder.", followup: "What calls to you this morning?" }
+            ],
+            afternoon: [
+                { greeting: "The afternoon brought you back.", followup: "What does your afternoon need?" },
+                { greeting: "Midday wanderer.", followup: "What calls to you?" },
+                { greeting: "The city hums. So do you.", followup: "What are you after?" }
+            ],
+            evening: [
+                { greeting: "The evening stirs something, doesn't it?", followup: "What is it tonight?" },
+                { greeting: "Night approaches.", followup: "Where shall we send you?" },
+                { greeting: "The gloaming hour — my favourite.", followup: "What is it tonight?" }
+            ],
+            latenight: [
+                { greeting: "The late hours have their own magic.", followup: "What is it tonight?" },
+                { greeting: "Still awake? So am I.", followup: "What are you seeking?" },
+                { greeting: "The city's second life is beginning.", followup: "Where will you wander?" }
+            ]
         };
 
         // Cycling placeholders for search box
@@ -781,9 +798,10 @@
                 promptEl.textContent = 'What kind of night are you after?';
                 // Note: lark_visited is set when user takes action (search/draw/browse)
             } else {
-                // Return visit: hide intro, time-aware greeting
+                // Return visit: hide intro, time-aware greeting with appropriate followup
                 introEl.style.display = 'none';
-                promptEl.textContent = getTimeGreeting() + ' What is it tonight?';
+                const timeData = getTimeGreeting();
+                promptEl.textContent = timeData.greeting + ' ' + timeData.followup;
             }
 
             // Start cycling placeholders
@@ -803,7 +821,9 @@
             else period = 'latenight';
 
             const greetings = timeGreetings[period];
-            return greetings[Math.floor(Math.random() * greetings.length)];
+            const selected = greetings[Math.floor(Math.random() * greetings.length)];
+            // Return object with greeting and time-appropriate followup
+            return selected;
         }
 
         function startPlaceholderCycle() {

@@ -165,6 +165,7 @@ def handle_surprise_me_query():
             'area': venue.get('area', ''),
             'website': venue.get('website', ''),
             'whisper': venue.get('whisper', ''),
+            'arcana': venue_arcana,  # Include each venue's arcana for proper card styling
             'is_adjacent': venue.get('is_adjacent', False),
             'is_fate_draw': venue.get('is_fate_draw', False)
         })

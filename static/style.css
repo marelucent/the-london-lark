@@ -854,9 +854,11 @@ button {
     cursor: pointer;
     transition: all 0.5s ease;
     position: relative;
-    
+    overflow: hidden;
+    box-sizing: border-box;
+
     /* Gold rim glow + arcana colour atmosphere */
-    box-shadow: 
+    box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.3),
         0 0 25px rgba(212, 175, 55, 0.1),
         0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
@@ -928,6 +930,9 @@ button {
 .card-inner {
     position: relative;
     z-index: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .arcana-number {
@@ -1482,9 +1487,11 @@ button {
     cursor: pointer;
     transition: all 0.5s ease;
     position: relative;
-    
+    overflow: hidden;
+    box-sizing: border-box;
+
     /* Gold rim glow + arcana colour atmosphere */
-    box-shadow: 
+    box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.3),
         0 0 25px rgba(212, 175, 55, 0.1),
         0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
@@ -1556,6 +1563,9 @@ button {
 .card-inner {
     position: relative;
     z-index: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .arcana-number {
@@ -2189,6 +2199,9 @@ button {
     opacity: 0;
     transform: translateY(20px);
     flex-shrink: 0;
+    /* Mobile fix: prevent content overflow and ensure proper stacking */
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* Expanded card */
@@ -2238,13 +2251,39 @@ button {
 @media (max-width: 700px) {
     .results-container {
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         align-items: center;
+        gap: 1.5rem;
+        padding: 1rem 0.75rem;
     }
 
     .venue-card-result {
-        width: 240px !important;
-        min-width: 240px;
+        width: calc(100% - 2rem) !important;
+        max-width: 320px;
+        min-width: auto;
+        flex: 0 0 auto;
+        /* Ensure content stays within card on mobile */
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+    }
+
+    .venue-card-result.card-lg {
+        width: calc(100% - 1rem) !important;
+        max-width: 340px;
+        min-width: auto;
+    }
+
+    /* Ensure card inner content doesn't overflow */
+    .venue-card-result .card-inner {
+        overflow: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .venue-card-result .venue-blurb {
+        max-height: 200px;
+        overflow-y: auto;
     }
 }
 

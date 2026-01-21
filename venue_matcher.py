@@ -238,18 +238,24 @@ def match_venues_with_adjacency(filters, all_venues=None):
     if all_venues is None:
         all_venues = load_parsed_venues()
 
-    # Determine the primary arcana for adjacency purposes
-    # Priority: Use the mood filter if it's a valid arcana name
-    primary_arcana = None
-    if mood and mood in TAROT_ADJACENCY:
-        primary_arcana = mood
-
     # Get all matches (using original matching logic)
     all_matches = match_venues(filters)
 
     # If we have fewer than 2 matches, just return what we have
     if len(all_matches) < 2:
         return all_matches
+
+    # Determine the primary arcana for adjacency purposes
+    # Priority 1: Use the mood filter if it's a valid arcana name
+    # Priority 2: Get it from the FIRST matched venue (most relevant to user's query)
+    primary_arcana = None
+    if mood and mood in TAROT_ADJACENCY:
+        primary_arcana = mood
+    elif all_matches:
+        # Get arcana from the first matched venue
+        first_raw = all_matches[0].get("raw_data", {})
+        primary_arcana = first_raw.get("arcana")
+        print(f"   📍 Inferred primary arcana from first match: '{primary_arcana}'")
 
     # Separate matches into primary arcana and others
     primary_arcana_venues = []
@@ -263,6 +269,8 @@ def match_venues_with_adjacency(filters, all_venues=None):
         else:
             other_venues.append(venue)
 
+    print(f"   📊 Found {len(primary_arcana_venues)} primary + {len(other_venues)} other venues")
+
     # Build result: prefer primary arcana venues for first 2 cards
     result = []
     seen_names = set()
@@ -272,7 +280,7 @@ def match_venues_with_adjacency(filters, all_venues=None):
         result.append(venue)
         seen_names.add(venue.get("name", "").lower().strip())
 
-    # Fill remaining slots from other venues if needed
+    # Fill remaining slots from other venues if needed (to ensure we have 2 cards)
     while len(result) < 2 and other_venues:
         venue = other_venues.pop(0)
         venue_name = venue.get("name", "").lower().strip()
@@ -283,12 +291,7 @@ def match_venues_with_adjacency(filters, all_venues=None):
     if len(result) < 2:
         return result
 
-    # If no primary arcana from mood, get it from the first venue
-    if not primary_arcana and result:
-        raw_data = result[0].get("raw_data", {})
-        primary_arcana = raw_data.get("arcana")
-
-    # Get a random adjacent arcana
+    # Now get the 3rd card from an adjacent arcana
     adjacent_arcana = get_random_adjacent(primary_arcana) if primary_arcana else None
 
     if adjacent_arcana:
@@ -333,15 +336,21 @@ def match_venues_with_adjacency(filters, all_venues=None):
             result.append(normalized_adj)
             print(f"   ✨ Adjacent card drawn: {normalized_adj['name']} from '{adjacent_arcana}'")
         else:
-            # No adjacent venues found, fall back to 3rd primary
-            if len(primary_matches) > 2:
-                result.append(primary_matches[2])
+            # No adjacent venues found, fall back to 3rd primary or other
+            if len(primary_arcana_venues) > 2:
+                result.append(primary_arcana_venues[2])
                 print(f"   ⚠️ No adjacent venues in '{adjacent_arcana}', using 3rd primary match")
+            elif other_venues:
+                result.append(other_venues[0])
+                print(f"   ⚠️ No adjacent venues in '{adjacent_arcana}', using other match")
     else:
-        # No adjacency mapping found, fall back to 3rd primary
-        if len(primary_matches) > 2:
-            result.append(primary_matches[2])
+        # No adjacency mapping found, fall back to 3rd primary or other
+        if len(primary_arcana_venues) > 2:
+            result.append(primary_arcana_venues[2])
             print(f"   ⚠️ No adjacency map for '{primary_arcana}', using 3rd primary match")
+        elif other_venues:
+            result.append(other_venues[0])
+            print(f"   ⚠️ No adjacency map for '{primary_arcana}', using other match")
 
     return result
 
@@ -355,7 +364,7 @@ def match_surprise_with_adjacency(all_venues=None):
     - Card 2: Adjacent to Card 1 (first neighbor)
     - Card 3: Adjacent to Card 1 (different neighbor)
 
-    Maximum variety across arcana.
+    Maximum variety across arcana — never 3 from the same arcana.
     """
     if all_venues is None:
         all_venues = load_parsed_venues()
@@ -369,6 +378,7 @@ def match_surprise_with_adjacency(all_venues=None):
     primary_arcana = card1_raw.get("arcana")
 
     seen_names = {card1_raw.get("name", "").lower().strip()}
+    used_arcana = {primary_arcana}  # Track used arcana to ensure variety
 
     # Normalize Card 1
     card1 = {
@@ -408,6 +418,7 @@ def match_surprise_with_adjacency(all_venues=None):
                 random.shuffle(adj_candidates)
                 adj_raw = adj_candidates[0]
                 seen_names.add(adj_raw.get("name", "").lower().strip())
+                used_arcana.add(adj_arcana)
 
                 adj_venue = {
                     "name": adj_raw.get("name", "Unnamed venue"),
@@ -425,16 +436,29 @@ def match_surprise_with_adjacency(all_venues=None):
                 result.append(adj_venue)
                 print(f"   🔗 Adjacent card {i}: '{adj_venue['name']}' from '{adj_arcana}'")
 
-    # If we don't have 3 cards yet, fill with random venues
+    # If we don't have 3 cards yet, fill with venues from DIFFERENT arcana
     while len(result) < 3:
+        # Prefer venues from arcana we haven't used yet
         remaining = [
             v for v in all_venues
             if v.get("name", "").lower().strip() not in seen_names
+            and v.get("arcana") not in used_arcana
         ]
+
+        # If no venues from different arcana, fall back to any unseen venue
+        if not remaining:
+            remaining = [
+                v for v in all_venues
+                if v.get("name", "").lower().strip() not in seen_names
+            ]
+
         if remaining:
             random.shuffle(remaining)
             extra_raw = remaining[0]
+            extra_arcana = extra_raw.get("arcana")
             seen_names.add(extra_raw.get("name", "").lower().strip())
+            used_arcana.add(extra_arcana)
+            print(f"   🎯 Fallback card from '{extra_arcana}': '{extra_raw.get('name')}'")
 
             extra = {
                 "name": extra_raw.get("name", "Unnamed venue"),
