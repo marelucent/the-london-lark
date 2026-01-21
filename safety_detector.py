@@ -99,8 +99,12 @@ DISTRESS_KEYWORDS = {
     # Struggling language
     "i'm struggling", "i am struggling", "really struggling",
     "can't cope", "cannot cope", "barely coping", "not coping",
+    "struggling to cope", "don't know how to cope", "dont know how to cope",
     "falling apart", "breaking", "i'm breaking", "feel broken",
     "at my limit", "can't do this", "can't take it",
+    # Intensified low mood (escalated from emotional tier)
+    "feeling really low", "i'm feeling really low", "really low",
+    "feeling so low", "so low today", "really down", "feeling really down",
     # Hopelessness (but not crisis-level)
     "hopeless", "feeling hopeless", "no hope", "what's the point",
     "pointless", "meaningless", "empty inside", "numb",
