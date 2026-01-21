@@ -4265,7 +4265,7 @@
     "blurb": "Formerly Tricycle Theatre, now Kiln, where stories from around the world take centre stage in a Kilburn venue committed to diverse voices and bold narratives.",
     "moods": [
       "The Thoughtful Stage",
-      "Global Rhythms",
+      "Rant & Rapture",
       "Curious Encounters"
     ],
     "genres": [
@@ -4275,7 +4275,7 @@
     ],
     "last_verified": "2025-11-24",
     "whisper": "Where borders blur and bold stories blaze.",
-    "arcana": "Global Rhythms"
+    "arcana": "Rant & Rapture"
   },
   {
     "name": "Studio Crumb",
@@ -6329,26 +6329,6 @@
     "url": "https://earthackney.co.uk/",
     "blurb": "Occupying a restored 1930s cinema, EartH is a brutalist cathedral for genre-defying sound. Ethio-jazz pioneer Mulatu Astatke christened its stage and since then African artists like Songhoy Blues, Omah Lay and Petite Noir have made it their London home. Afrofuturist, Afro-Latino and Afro-European artists fill its cavernous hall with new histories and cosmic polyrhythms – a place where the future of the African diaspora is imagined in sound.",
     "whisper": "A dark cinema reborn as a temple of Afro-futurist dreams.",
-    "arcana": "Global Rhythms",
-    "last_verified": "2025-01-15"
-  },
-  {
-    "name": "Jamboree (Govend London)",
-    "location": "King’s Cross",
-    "moods": [
-      "communal",
-      "ancestral",
-      "connected"
-    ],
-    "genres": [
-      "Kurdish",
-      "Middle Eastern",
-      "folk",
-      "dance"
-    ],
-    "url": "https://www.jamboreevenuestudios.co.uk/",
-    "blurb": "Jamboree’s monthly Govend night is a celebration of Kurdish circle dance and Middle Eastern music. The evening invites the Kurdish community and curious Londoners to join hands, spin and stamp in time as live musicians play traditional melodies. Between dances you can share plates of Middle Eastern fusion food and swap stories. It’s a warm, inclusive space where you can learn a new step and feel part of a wider, borderless family.",
-    "whisper": "Circle dance winds around stories and spices in King’s Cross.",
     "arcana": "Global Rhythms",
     "last_verified": "2025-01-15"
   },
@@ -10320,7 +10300,7 @@
     "url": "https://www.fourwindsmahjong.club/",
     "blurb": "A volunteer-led club where mahjong becomes a bridge - between strangers, generations, languages, and weekends. It's warm, lightly structured, and made for newcomers as much as old hands. You sit down, someone explains, the table starts to laugh, and suddenly you're part of the room. If you want connection with cultural heartbeat, this is it.",
     "whisper": "A table of tiles, a circle of voices - belonging, piece by piece.",
-    "arcana": "Global Rhythms",
+    "arcana": "Playful & Weird",
     "last_verified": "2026-01-20"
   },
   {
@@ -10849,7 +10829,7 @@
     "url": "https://www.storiesandsupper.co.uk",
     "blurb": "A refugee-led supper club in East London where the food comes with a side of migration stories. They bring refugees, asylum-seekers and local residents together over long tables to share dishes and memories and to change the narrative about migration. The evenings are slow and generous – you'll leave knowing a recipe and a life story you didn't before.",
     "whisper": "Her recipe crossed borders; now it crosses your table.",
-    "arcana": "Global Rhythms",
+    "arcana": "Folk & Intimate",
     "last_verified": "2026-01-20"
   },
   {
@@ -11049,7 +11029,7 @@
     "url": "https://www.migrateful.org/classes/london/",
     "blurb": "Migrateful is an award-winning charity supporting migrants and refugees on their journey to integration by enabling them to teach cookery classes. In London, their family-style classes take participants on a journey of flavours and cultural stories; you'll cook authentic dishes together and end by eating the food you've made. It's hands-on, laid-back and deeply human: a kitchen where languages mix and strangers become friends.",
     "whisper": "Rolling chapatis while stories rise and simmer.",
-    "arcana": "Global Rhythms",
+    "arcana": "Folk & Intimate",
     "last_verified": "2026-01-20"
   },
   {
