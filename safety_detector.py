@@ -67,14 +67,19 @@ AESTHETIC_KEYWORDS = {
 # Genuine emotional difficulty, but not crisis
 # Response: Warm preamble → Choice buttons → Arcana venues → Soft footer
 EMOTIONAL_KEYWORDS = {
-    # Sadness
+    # Sadness / LOW_HEAVY
     "i'm sad", "i am sad", "feeling sad", "feeling down", "feeling low",
     "feeling blue", "heavy heart", "heavy-hearted", "heartache",
     "a bit sad", "a bit low", "a bit down", "bit sad", "bit low", "bit down",
-    # Loneliness
+    "sad today", "sad tonight", "heavy today", "heavy tonight",
+    "so sad", "really sad", "very sad", "feel sad",
+    "struggling", "i'm struggling", "really struggling",
+    # Loneliness / LONELY
     "lonely", "i'm lonely", "so lonely", "feeling lonely", "alone tonight",
     "feeling alone", "no one to talk to", "isolated", "disconnected",
     "need company", "need connection", "need people",
+    "alone", "feel alone", "i feel alone", "so alone", "all alone",
+    "on my own", "no one", "no friends", "by myself",
     # Tiredness/exhaustion (emotional, not physical)
     "exhausted", "drained", "worn out", "burnt out", "burned out",
     "running on empty", "nothing left", "so tired", "emotionally tired",
@@ -89,7 +94,22 @@ EMOTIONAL_KEYWORDS = {
     "anxious", "stressed", "burned out", "burnout",
     "bit lost", "lost lately", "feeling lost",
     "need to get out of my head", "stuck", "feeling stuck", "restless",
-    "get out of my head", "clear my head"
+    "get out of my head", "clear my head",
+    # ANGRY state triggers
+    "angry", "i'm angry", "so angry", "feeling angry", "really angry",
+    "furious", "so mad", "i'm mad", "rage", "raging", "fuming", "livid",
+    "seething", "pissed off", "pissed", "frustrated", "enraged",
+    # OVERWHELMED state triggers (additional)
+    "i'm overwhelmed", "so overwhelmed", "feeling overwhelmed",
+    "too much", "everything's too much", "everything is too much",
+    "too loud", "everything's too loud", "sensory overload", "overstimulated",
+    "panic", "panicking", "suffocating",
+    # GRIEF state triggers
+    "grieving", "i'm grieving", "mourning", "in mourning",
+    "loss", "dealing with loss", "processing loss",
+    "someone died", "lost someone", "lost my", "they're gone", "miss them",
+    "bereavement", "after the funeral", "since the funeral",
+    "grief", "full of grief", "heavy with grief"
 }
 
 # TIER 3: DISTRESS
