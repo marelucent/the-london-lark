@@ -68,7 +68,7 @@
     "blurb": "In a copper-lit haven in Haggerston, the botanicals wait. Juniper, cardamom, citrus peel - each a memory, each a promise. At 58 and Co, you craft not just gin, but story: choosing your blend, distilling on gleaming stills, sealing your own bottle with wax and wonder. There's laughter in the air and cocktail on the tongue - a heady blend of chemistry, history, and the quiet art of becoming spirit.",
     "last_verified": "2025-11-23",
     "whisper": "In a copper-lit haven in Haggerston, the botanicals wait.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "5Rhythms 'FIVE London' Workshop",
@@ -471,7 +471,7 @@
     "blurb": "A former Salvation Army hall mixing film, fine art, live music, and theatre, tearing down perceived walls between genres to celebrate diversity.",
     "last_verified": "2025-11-17",
     "whisper": "Art beats loud in the old chapel bones of Crouch End.",
-    "arcana": "Playful & Weird"
+    "arcana": "Wonder & Awe"
   },
   {
     "name": "artsdepot",
@@ -740,7 +740,7 @@
     "blurb": "The go-to place for boundary-pushing theatre, harnessing art and collective imagination to build a more inclusive, sustainable future.",
     "last_verified": "2025-11-15",
     "whisper": "A honeycomb of stages where stories split and shimmer.",
-    "arcana": "Playful & Weird"
+    "arcana": "The Thoughtful Stage"
   },
   {
     "name": "BAW Dance",
@@ -759,7 +759,7 @@
     "blurb": "In mirrored rooms across the city, hips sway and laughter spills. BAW Dance welcomes women and non-binary folk to twirl, shimmy, and ground themselves in sensual joy. With floorwork, belly dance, and burlesque, it's a gathering of softness and strength - movement as reclamation, community, and play.",
     "last_verified": "2025-11-23",
     "whisper": "In mirrored rooms across the city, hips sway and laughter spills.",
-    "arcana": "Playful & Weird"
+    "arcana": "Body-Based / Movement-Led"
   },
   {
     "name": "Bee Urban (The Hive)",
@@ -1189,7 +1189,7 @@
     "blurb": "In the heart of Tower Hill, beneath the glint of steel and stone, BrewDog's Outpost opens its doors to seekers of hops and stories. Beer School here is no dry lecture - it's frothy lore, malty memory, and the quiet thrill of brewing science shared over pints and laughter. Come for the learning, stay for the layered pours and rising cheer.",
     "last_verified": "2025-11-23",
     "whisper": "Hops, steel and stories flow together where Tower Hill meets tang and tangents.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "British Library (Late Reading Rooms)",
@@ -1878,26 +1878,6 @@
     "last_verified": "2025-01-18"
   },
   {
-    "name": "CLF Art Lounge & Roof Garden",
-    "location": "Peckham",
-    "moods": [
-      "curious",
-      "playful"
-    ],
-    "genres": [
-      "jazz",
-      "spoken word",
-      "comedy",
-      "film"
-    ],
-    "url": "https://www.clfartlounge.com",
-    "blurb": "A rooftop dreamscape above Peckham, where jazz floats through the night air and the city unfolds beneath fairy lights.",
-    "notes": "Currently running ground-floor pop-up while roof garden renovates (reopening spring 2026)",
-    "last_verified": "2025-11-15",
-    "whisper": "Up in the branches, jazz curls through the dusk and the drinks are never rushed.",
-    "arcana": "Playful & Weird"
-  },
-  {
     "name": "Club Are",
     "location": "East London",
     "url": "https://www.clubare.co",
@@ -1987,7 +1967,7 @@
     "blurb": "A Grade II-listed building hosting weekend children's shows and monthly blues club nights, a small-scale community arts hub.",
     "last_verified": "2025-11-15",
     "whisper": "A toybox of tales tucked into Merton’s old mill house.",
-    "arcana": "Playful & Weird"
+    "arcana": "Wonder & Awe"
   },
   {
     "name": "Comedy Cabin (Hoxton Cabin)",
@@ -2063,7 +2043,7 @@
     "blurb": "In a historic townhouse off Marylebone Lane, Cordon Bleu's short courses unfold with ceremony and steel. Here, the chop of blade and hush of butter on heat are acts of reverence. Classic sauces, delicate pastries, French precision - it's culinary ballet in white coats and quiet fire. For those who hunger not just to eat, but to *know*.",
     "last_verified": "2025-11-23",
     "whisper": "Whisks twirl and sauces whisper in this elegant school of flavour and flair.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Corner New Cross",
@@ -2219,7 +2199,7 @@
     "blurb": "In a North London kitchen kissed by spice and study, the Culinary Anthropologist teaches preservation like poetry. Pork becomes prosciutto, time is measured in cure and air, and salt holds centuries of secrets. This is meatcraft as memoir, a masterclass in transformation, where knife and knowledge meet with reverence.",
     "last_verified": "2025-11-23",
     "whisper": "Spice drifts, knives whisper — a kitchen where craft becomes communion.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Dalston Clay",
@@ -2600,7 +2580,7 @@
     "blurb": "Dalston's Dusty Knuckle, all flour-dust and firelight, opens its arms to the fermentation faithful. Here, Clare teaches the old art with modern laughter - kimchi that kicks, lemons softened by salt, jars cradled like secrets. Bread is broken, beers are poured, and the sour tang of learning lingers sweetly on the tongue. A place where bacteria bloom and strangers bond.",
     "last_verified": "2025-11-23",
     "whisper": "Dalston's Dusty Knuckle, all flour-dust and firelight, opens its arms to the fermentation faithful.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Dying to Know: End of Life Planning Presentation",
@@ -2948,7 +2928,7 @@
     "url": "https://www.filegumbo.org/",
     "blurb": "Cajun dancing is basically joy with an accordion in it. File Gumbo nights tend to feel like being folded into a travelling community: live music, two-steps, spins, and a grin you can't quite get rid of. Beginners get scooped up quickly — the dance is too fun to stay shy for long.",
     "whisper": "Accordion-lit joy; a dance that teaches you as it goes.",
-    "arcana": "Playful & Weird",
+    "arcana": "Global Rhythms",
     "last_verified": "2026-01-21"
   },
   {
@@ -4267,7 +4247,7 @@
     "blurb": "In Bermondsey's amber archways, apples become alchemy. At Hiver's taproom, you'll chop, crush, and press - turning crisp fruit into golden promise. Two bottles of your own cider leave with you, still whispering their slow-fermenting spell. The space hums with warmth, honey, and sticky joy. This is fermentation with fingerprints - autumn in a bottle, and a little wildness to keep.",
     "last_verified": "2025-11-23",
     "whisper": "In Bermondsey's amber archways, apples become alchemy.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Holotropic Breathwork – Experiential Weekend",
@@ -4603,7 +4583,7 @@
     "blurb": "Haringey's flagship arts venue for 45+ years, empowering diverse communities through circus, contemporary performance, and creative participation.",
     "last_verified": "2025-11-15",
     "whisper": "Trapeze dreams and fairy lights flicker from the Highgate redbrick.",
-    "arcana": "Playful & Weird"
+    "arcana": "Wonder & Awe"
   },
   {
     "name": "Jamboree",
@@ -4711,7 +4691,7 @@
     "blurb": "Beneath Peckham's arches, sake breathes. Kanpai - London's first sake brewery - pulses with rice and reverence. In the taproom, tastings unfold like poetry: crisp, umami-laced, each sip a glimpse into Japan's soul. For the devoted, there's more - a full-day ritual of brewing your own batch. Koji spores, polished grains, steam, and stillness. This is not quick consumption - it is a ceremony in yeast and patience.",
     "last_verified": "2025-11-23",
     "whisper": "Beneath Peckham's arches, sake breathes.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Kelechnekoff Pole Dance Studio",
@@ -5571,7 +5551,7 @@
     "blurb": "Charcuterie here is no afterthought - it is the whole slow gospel. At London Smoke & Cure, in a purpose-built Bermondsey studio, you'll grind, cure, season, and fill - hand-making salami that sings of time and salt. The air smells of pepper and promise. You'll sit down to a shared tasting, then leave with your own handmade links, cradled like treasure. Fermentation becomes faith. The meat, a memory.",
     "last_verified": "2025-11-23",
     "whisper": "Charcuterie here is no afterthought - it is the whole slow gospel.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "London Wildlife Trust",
@@ -5800,7 +5780,7 @@
     "blurb": "Down on the Bermondsey Beer Mile, a railway arch hums with malted intention. Mash Paddle hands you the grains, the paddle, the process - and says: go. You'll choose the style, stir the mash, watch the wort boil and bubble. It's earthy, heady, and satisfyingly real. Weeks later, you'll crack open your own cans - 24 of them - each one fizzing with your name, your labour, your laugh.",
     "last_verified": "2025-11-23",
     "whisper": "Down on the Bermondsey Beer Mile, a railway arch hums with malted intention.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Matchstick Piehouse",
@@ -6732,7 +6712,7 @@
     "url": "https://www.paintjamlondon.co.uk/pages/new-studio",
     "blurb": "Less \"quiet art class\", more \"colour as rebellion\". Paint Jam leans into spectacle — projections, music, a bit of chaos — and somehow that's exactly what makes it therapeutic. You don't have to be good; you just have to show up and let the mess turn into a painting.",
     "whisper": "Make a glorious mess — and call it medicine.",
-    "arcana": "Playful & Weird",
+    "arcana": "Group Energy",
     "last_verified": "2026-01-21"
   },
   {
@@ -7055,7 +7035,7 @@
     "blurb": "A leading arts charity championing innovation and emerging voices, hosting hundreds of productions while providing artist development and mentorship.",
     "last_verified": "2025-11-17",
     "whisper": "A launchpad for bold beginnings and beautifully strange stories.",
-    "arcana": "Playful & Weird"
+    "arcana": "The Thoughtful Stage"
   },
   {
     "name": "Poetry Café",
@@ -8082,7 +8062,7 @@
     "blurb": "A Grade II listed cultural hub presenting progressive theatre, music, dance, and circus while supporting artists through residencies.",
     "last_verified": "2025-11-15",
     "whisper": "Once civic, now electric — echoes of rule and rebellion fill the hall.",
-    "arcana": "Playful & Weird"
+    "arcana": "The Thoughtful Stage"
   },
   {
     "name": "Sik Faan",
@@ -8287,7 +8267,7 @@
     "blurb": "Weekends in Camden bloom with glaze and laughter at Social Pottery. Mugs and bowls are coaxed into being with joyful fingers, then adorned in colour and story. Here, perfection is beside the point - this is about texture, expression, and the giddy pleasure of shaping earth into joy.",
     "last_verified": "2025-11-23",
     "whisper": "Weekends in Camden bloom with glaze and laughter at Social Pottery.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Soho Theatre",
@@ -9328,7 +9308,7 @@
     "blurb": "A beloved misfit of the Islington comedy scene, The Bill Murray is part pub, part playground for the sharp, the strange, and the up-too-late. Run by Angel Comedy, it hosts everything from chaotic work-in-progress nights to polished stand-up with cult favourites. Expect sweat, snorts, and the occasional existential crisis with your pint. For the petal who likes their laughter with a side of weird.",
     "last_verified": "2025-11-23",
     "whisper": "A cultish corner of chaos where the comedy gods come to play.",
-    "arcana": "Playful & Weird"
+    "arcana": "Comic Relief"
   },
   {
     "name": "The Camden Club",
@@ -9412,7 +9392,7 @@
     "url": "https://www.thecastlefarringdon.co.uk/",
     "blurb": "A pub that can tip — on the right night — into a little pocket of dancing London. Think bluesy closeness, friendly rotation, and that easy, laughing intimacy that arrives when the music is doing the talking. Good for beginners who want warmth more than polish.",
     "whisper": "Low lights, close music — a soft kind of brave.",
-    "arcana": "Playful & Weird",
+    "arcana": "Folk & Intimate",
     "last_verified": "2026-01-21"
   },
   {
@@ -9703,7 +9683,7 @@
     "blurb": "Borough Market glows golden as dusk falls, and within it, The Ginger Pig sharpens its knives. In this carnivore's chapel, Josie teaches the art of sausage-making: pork, herbs, stuffing, and tying - all by hand. There's apricot and thyme, laughter and lard, and a feast to close the night. You'll leave with kilos of your own making - and the memory of meat transformed by care.",
     "last_verified": "2025-11-23",
     "whisper": "Borough Market glows golden as dusk falls, and within it, The Ginger Pig sharpens its knives.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "The Glory",
@@ -10615,7 +10595,7 @@
     "blurb": "Shoreditch's wine den wears no airs - just candlelight, laughter, and glasses that breathe. In this tenderly unruly masterclass, five natural wines unfold like characters in a play, each with its wild edge and wounded grace. A host murmurs tales of soil and maker, grape and gut. Come curious, leave changed. This is not drinking - it's listening, glass to lips.",
     "last_verified": "2025-11-23",
     "whisper": "Shoreditch's wine den wears no airs - just candlelight, laughter, and glasses that breathe.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Top Secret Comedy Club",
@@ -10770,7 +10750,7 @@
     "blurb": "In a North London studio, alchemy is sipped, not spilled. Seven whiskies - smoky, honeyed, brash and shy - are poured like myth into glass, each one a map of time and terrain. A cocktail to begin, and then a slow descent into the oak-aged depths. This is no frat boy fire - it's reverence in amber. For those who taste memory on the tongue.",
     "last_verified": "2025-11-23",
     "whisper": "In a North London studio, alchemy is sipped, not spilled.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Turner & George - Beef Butchery Class",
@@ -10786,7 +10766,7 @@
     "blurb": "When the butcher's lights dim, four aprons await. At Turner & George, this after-hours session slices straight into the primal - a whole fore-rib of beef, broken down by your hands and the master's blade. Each cut is explained with reverence. Then comes the feast: a steak dinner with wine, and parcels of meat to carry home like trophies. A carnivore's catechism, quietly taught in bone and flame.",
     "last_verified": "2025-11-23",
     "whisper": "When the butcher's lights dim, four aprons await.",
-    "arcana": "Playful & Weird"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Turning Earth Hoxton",
