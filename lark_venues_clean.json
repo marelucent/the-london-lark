@@ -54,6 +54,27 @@
     "arcana": "Curious Encounters"
   },
   {
+    "name": "56A Infoshop",
+    "location": "Walworth",
+    "moods": [
+      "scrappy",
+      "welcoming",
+      "anarchic",
+      "communal"
+    ],
+    "genres": [
+      "infoshop",
+      "radical archive",
+      "social centre",
+      "bookshop"
+    ],
+    "url": "https://56a.org.uk/",
+    "blurb": "For over thirty years 56A Infoshop has been a volunteer-run, DIY social centre tucked behind the Elephant & Castle markets. It shares a collectively-run building with a food co-op and bike workshop and offers radical books, zines and a massive open-access archive covering topics from anti-colonialism to queer politics. Drop in for free tea and coffee, peruse 70,000 pamphlets and chat with neighbours about local campaigns. The space fits about fifteen inside and more in the yard; meetings are free and the squatters' noticeboard still hums with whispered tips.",
+    "whisper": "A kettle sings as banners unfurl in a Walworth backroom.",
+    "arcana": "Punchy / Protest",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "58 and Co - Gin School Experience",
     "location": "Haggerston",
     "moods": [
@@ -184,6 +205,27 @@
     "whisper": "Ivy-wrapped graves where wildness reclaims the Victorian dead",
     "arcana": "Melancholic Beauty",
     "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Abney Park Chapel",
+    "location": "Stoke Newington",
+    "moods": [
+      "overgrown",
+      "haunting",
+      "restored",
+      "wild"
+    ],
+    "genres": [
+      "chapel",
+      "events",
+      "cemetery",
+      "community"
+    ],
+    "url": "https://abneypark.org/chapel",
+    "blurb": "Abney Park Cemetery is a tangle of ivy, toppled gravestones and winding paths where an abandoned Gothic chapel once crumbled into ruin. Restoration work has stabilised the Grade II listed chapel so it can once again host music, poetry and community gatherings. Hackney Council calls it a unique events space for up to 70 people - perfect for art exhibitions, screenings and intimate ceremonies. The wildness of the surrounding graveyard lends every event a whisper of the untamed.",
+    "whisper": "Trees reclaim the stones while voices fill the resurrected nave.",
+    "arcana": "Melancholic Beauty",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Ace Cafe London",
@@ -608,6 +650,27 @@
     "whisper": "Turn up alone; leave with allies and a half-finished inside joke.",
     "arcana": "Group Energy",
     "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Baitul Futuh Mosque",
+    "location": "Morden",
+    "moods": [
+      "majestic",
+      "welcoming",
+      "modern",
+      "community"
+    ],
+    "genres": [
+      "mosque",
+      "Ahmadiyya",
+      "prayer hall",
+      "community centre"
+    ],
+    "url": "https://www.alislam.org/mosque/baitul-futuh/",
+    "blurb": "Europe's largest purpose-built mosque sits beside the A24 in Morden on a 5.2-acre site. Built for fifteen million pounds through community donations, it opened in 2003 and can host around 4,000 worshippers with overall capacity for 14,000 people. Its huge silver dome, clad in Italian marble, shelters a prayer hall with a 16-metre dome inscribed with calligraphy. Beyond worship, the complex includes conference facilities, a library and youth spaces, making it a beating heart for the Ahmadiyya community.",
+    "whisper": "Under the marble dome, prayers rise like birds and community feels like family.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Banana Cabaret at The Bedford",
@@ -1267,6 +1330,27 @@
     "arcana": "Witchy & Wild"
   },
   {
+    "name": "Brompton Cemetery Chapel",
+    "location": "West Brompton",
+    "moods": [
+      "eerie",
+      "romantic",
+      "solemn",
+      "mossy"
+    ],
+    "genres": [
+      "cemetery",
+      "chapel",
+      "art",
+      "music"
+    ],
+    "url": "https://brompton-cemetery.org.uk/events.html",
+    "blurb": "Among the rotting tombs and overgrown catacombs of Brompton Cemetery, a small chapel hums with life. The Friends of Brompton Cemetery programme art and music events in this space and invite proposals from artists and musicians. Decaying monuments and collapsing catacombs lend the grounds an eerie, romantic air, and the catacombs are only opened once a year because of their disrepair. When music drifts from the chapel, stone angels seem to listen.",
+    "whisper": "Stone angels smile as violins play beneath crumbling vaults.",
+    "arcana": "Melancholic Beauty",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "Brompton Cemetery Tours",
     "location": "Kensington",
     "moods": [
@@ -1285,6 +1369,27 @@
     "last_verified": "2025-01-15"
   },
   {
+    "name": "Brunel Museum Thames Tunnel Shaft",
+    "location": "Rotherhithe",
+    "moods": [
+      "underground",
+      "industrial",
+      "resonant",
+      "historic"
+    ],
+    "genres": [
+      "concerts",
+      "theatre",
+      "opera",
+      "heritage"
+    ],
+    "url": "https://thebrunelmuseum.com/events/category/concerts-films-and-theatre/",
+    "blurb": "Deep beneath the Thames lies the Grand Entrance Hall of Brunel's pioneering Thames Tunnel. The 1843 shaft has been carefully adapted with a cantilevered staircase so audiences can descend into its soot-blackened brick cylinder. The Brunel Museum now programmes plays, operas and concerts in this raw industrial space; a 2023 event described the 'stunning new Tunnel Shaft space, 16 metres underground' where choral voices rang around the circular chamber. It's a hidden cathedral where engineering history meets performance.",
+    "whisper": "Deep below the river, songs reverberate off soot-blackened walls.",
+    "arcana": "Melancholic Beauty",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "Brutalist Tour - Evening Architectural Walk (Architectour Guide)",
     "location": "Hampstead",
     "moods": [
@@ -1300,6 +1405,27 @@
     "last_verified": "2025-11-23",
     "whisper": "Concrete glows beneath amber streetlight on this moody meander through London's Brutalist bones.",
     "arcana": "Curious Encounters"
+  },
+  {
+    "name": "Buddhapadipa Temple",
+    "location": "Wimbledon",
+    "moods": [
+      "serene",
+      "ornate",
+      "green",
+      "gentle"
+    ],
+    "genres": [
+      "Buddhist temple",
+      "Thai",
+      "Theravada",
+      "gardens"
+    ],
+    "url": "https://watbuddhapadipa.org/",
+    "blurb": "Set amid ponds and willow trees, Wat Buddhapadipa was the first Thai Buddhist temple in the UK. Built between 1979 and 1982 in ornate Thai style, it welcomes visitors daily from 9 a.m. to 5 p.m. and offers guided tours by appointment. The luminous ordination hall glitters with murals depicting the Buddha's life, and monks teach meditation and Theravada practices in English and Thai. It's a place where Londoners encounter Siamese architecture without leaving the city.",
+    "whisper": "Lotus ponds mirror spires; monks' chants float across the lawns like prayer flags.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Bush Hall",
@@ -2142,6 +2268,27 @@
     "last_verified": "2026-01-20"
   },
   {
+    "name": "Crossness Pumping Station",
+    "location": "Abbey Wood",
+    "moods": [
+      "industrial",
+      "majestic",
+      "raw",
+      "mysterious"
+    ],
+    "genres": [
+      "heritage",
+      "steaming days",
+      "museum",
+      "events"
+    ],
+    "url": "https://crossness.org.uk/",
+    "blurb": "Nicknamed the 'Cathedral on the Marshes', this Victorian sewage pumping station is a riot of ironwork and tiling. Built in 1865 and abandoned in 1953, it was rescued by volunteers who now open it for 'Steaming Days', guided tours and special events. Visitors wander through echoing engine halls, admire restored beam-engines and catch concerts or steampunk fairs amid the ornate rusted columns. It's grand, gritty and gloriously out of time.",
+    "whisper": "Steam engines slumber in gilded iron, awakened by laughter and brass.",
+    "arcana": "Melancholic Beauty",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "Cubitt Artists",
     "location": "Islington (Angel Mews)",
     "moods": [
@@ -2389,6 +2536,27 @@
     "whisper": "Cake, candles and a circle where death becomes part of our living.",
     "arcana": "Grief & Grace",
     "last_verified": "2025-01-15"
+  },
+  {
+    "name": "Decentre (Freedom Press)",
+    "location": "Whitechapel",
+    "moods": [
+      "intimate",
+      "radical",
+      "supportive",
+      "resourceful"
+    ],
+    "genres": [
+      "meeting room",
+      "community hub",
+      "radical library",
+      "event space"
+    ],
+    "url": "https://freedompress.org.uk/from-the-decentre-collective/",
+    "blurb": "Above the Freedom Bookshop in Angel Alley you'll find Decentre - part counter-info hub, part not-so-hipster hangout where Whitechapel's radicals gather. The volunteer collective turned a former storage room into a welcoming space for talks on housing struggles, immigration raids and squatting, plus art shows and poetry. Groups without funds can use the room for free; it holds up to 25 people and comes with zines, a projector, laminator and kettle. Decentre is run on anarchist principles and aims to support struggles for class and collective liberation.",
+    "whisper": "Up a narrow stair, conspiracies simmer over tea and zines.",
+    "arcana": "Punchy / Protest",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Deen City Farm",
@@ -3067,6 +3235,27 @@
     "last_verified": "2026-01-20"
   },
   {
+    "name": "Fo Guang Shan Temple London",
+    "location": "Fitzrovia",
+    "moods": [
+      "tranquil",
+      "inclusive",
+      "modern",
+      "cross-cultural"
+    ],
+    "genres": [
+      "Buddhist temple",
+      "Chinese",
+      "Mahayana",
+      "cultural centre"
+    ],
+    "url": "https://fgs.org.uk/",
+    "blurb": "Just off Oxford Street, the Fo Guang Shan Temple offers a quiet refuge from the commercial frenzy. Established in 1992 as a branch of the Taiwanese monastic order, it is also known as the International Buddhist Progress Society. The temple hosts meditation, chanting and Dharma talks in English and Mandarin, and its bookshop and tea area make it a gentle bridge between cultures. Step inside to hear the soft rhythm of a wooden fish drum and the hum of recited sutras.",
+    "whisper": "A calm pocket in the West End where tea cools slowly and vows are renewed.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "FOLD",
     "location": "Canning Town",
     "url": "https://fold.london",
@@ -3357,6 +3546,27 @@
     "last_verified": "2025-11-25",
     "whisper": "Bethnal Green brews fresh magic — low-budget, high spark.",
     "arcana": "The Thoughtful Stage"
+  },
+  {
+    "name": "Friends House (Quaker Meeting House)",
+    "location": "Euston",
+    "moods": [
+      "quiet",
+      "open",
+      "inclusive",
+      "simple"
+    ],
+    "genres": [
+      "Quaker meeting",
+      "library",
+      "cafe",
+      "conference centre"
+    ],
+    "url": "https://www.quaker.org.uk/about/friends-house",
+    "blurb": "Opposite Euston Station stands a 1920s building of Portland stone that houses the central offices of Britain's Quakers. Friends House offers worship space, a cafe, bookshop and library and serves as the principal venue for Quaker meetings. The unadorned meeting room invites visitors to sit in silence and wait for the still, small voice within. Upstairs are corridors filled with archives and activism; downstairs, strong coffee and kind eyes.",
+    "whisper": "Silence thick as velvet; a circle of chairs welcomes anyone who longs for stillness.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Friends of Nunhead Cemetery - Guided Tours & Bat Sighting Walks",
@@ -4325,6 +4535,27 @@
     "arcana": "Wonder & Awe"
   },
   {
+    "name": "House of Annetta",
+    "location": "Spitalfields",
+    "moods": [
+      "visionary",
+      "collective",
+      "experimental",
+      "grounded"
+    ],
+    "genres": [
+      "community centre",
+      "spatial justice hub",
+      "education project",
+      "archive"
+    ],
+    "url": "https://houseofannetta.org/home",
+    "blurb": "Set in a 1705 Huguenot merchant's house on Princelet Street, the House of Annetta honours the legacy of cybernetician and activist Annetta Pedretti while confronting London's land speculation. The project offers free and low-cost rooms to aligned organisations and challenges the privatisation of space by providing resources for meetings, workshops and exhibitions. It is a centre for spatial justice where artists, researchers and community groups explore new ways of living and learning together, from risograph printing to systems-thinking experiments. Even in winter hibernation, it hums with possibility.",
+    "whisper": "An old house dreaming up new worlds of space and solidarity.",
+    "arcana": "Punchy / Protest",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "House of Burlesque Academy",
     "location": "Covent Garden",
     "moods": [
@@ -4676,6 +4907,27 @@
     "arcana": "Nostalgic / Vintage / Retro"
   },
   {
+    "name": "Kadampa Meditation Centre London (Morden Temple)",
+    "location": "Morden",
+    "moods": [
+      "reverent",
+      "expansive",
+      "peaceful",
+      "uplifting"
+    ],
+    "genres": [
+      "Buddhist temple",
+      "Kadampa",
+      "courses",
+      "retreats"
+    ],
+    "url": "https://kadampalondon.org/",
+    "blurb": "Opened in 2016 on a quiet residential street, the Kadampa Temple in Morden serves as the spiritual heart of the London Kadampa community. The light-filled shrine hall accommodates around 200 people and hosts empowerments, retreats and day courses. Its design echoes traditional temples yet feels resolutely modern, with landscaped gardens and a buzzing cafe. Come for a class and stay for the sense of belonging that radiates from its walls.",
+    "whisper": "A golden stupa rises over Morden, inviting you to step inside and breathe out.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "Kanpai London - Sake Tasting & DIY Sake Brewing",
     "location": "Peckham",
     "moods": [
@@ -4952,6 +5204,27 @@
     "last_verified": "2026-01-20"
   },
   {
+    "name": "Lesnes Abbey Ruins",
+    "location": "Abbey Wood",
+    "moods": [
+      "sublime",
+      "ruined",
+      "open-air",
+      "wistful"
+    ],
+    "genres": [
+      "open-air theatre",
+      "ruins",
+      "community",
+      "heritage"
+    ],
+    "url": "https://secretldn.com/ruined-theatre-lesnes-abbey/",
+    "blurb": "The ruined arches of Lesnes Abbey stand among wildflowers and trees on the edge of Abbey Wood. Each summer the Ruined Theatre invites audiences to sit among the ravages of time and watch performances against the crumbling stone. Families picnic on the grass as actors move through the rubble, using the abbey's fractured walls as set and backdrop. It's a fleeting space where stories bloom from brokenness.",
+    "whisper": "Weathered stones cradle voices and laughter under open sky.",
+    "arcana": "Melancholic Beauty",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "Let's Discuss Death Festival",
     "location": "Tower Hamlets",
     "moods": [
@@ -4969,6 +5242,27 @@
     "whisper": "Marigolds, music and a cemetery walk that honours the unremembered.",
     "arcana": "Grief & Grace",
     "last_verified": "2025-01-15"
+  },
+  {
+    "name": "LGBTIQ+ Centre (The Outside Project)",
+    "location": "Borough",
+    "moods": [
+      "inclusive",
+      "restorative",
+      "queer",
+      "activist"
+    ],
+    "genres": [
+      "community centre",
+      "shelter",
+      "activist hub",
+      "support space"
+    ],
+    "url": "https://lgbtiqoutside.org/centre/",
+    "blurb": "The Outside Project's LGBTIQ+ Centre on Lant Street is both headquarters and safe harbour for London's queer homeless community. Open throughout the week, it hosts open and private meetings, hot-desking and support groups, and is home to multiple LGBTIQ+ and homelessness grassroots organisations. On Saturdays the centre throws open its doors for Open House, inviting anyone to share or develop a group or workshop and offering travel refunds to those on low or no income. With wheelchair access, quiet rooms and sensory toys, the space centres dignity, activism and care.",
+    "whisper": "A refuge where queerness and protest find shelter together.",
+    "arcana": "Punchy / Protest",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Liars’ League",
@@ -5067,6 +5361,27 @@
     "last_verified": "2025-11-23",
     "whisper": "Pixels bloom and joysticks sing in this temple of retro revelry.",
     "arcana": "Playful & Weird"
+  },
+  {
+    "name": "London Action Resource Centre (LARC)",
+    "location": "Whitechapel",
+    "moods": [
+      "defiant",
+      "collaborative",
+      "gritty",
+      "anarchist"
+    ],
+    "genres": [
+      "social centre",
+      "activist hub",
+      "infoshop",
+      "radical library"
+    ],
+    "url": "https://www.radical-guide.com/listing/london-action-resource-centre-larc/",
+    "blurb": "Tucked down Fieldgate Street in Whitechapel, LARC is a cooperatively owned building dedicated to furthering social justice and environmental struggles through direct action. Inside its unassuming brick shell you'll find a main hall for film nights and assemblies, a kitchen, an office with open-access computers and a radical reference archive - even a rooftop garden and a banner-making basement. This anti-capitalist space offers resources to self-organised, non-hierarchical projects; campaigns begin here and friendships deepen over pots of tea. It's where people stop spectating and start shaping the world together.",
+    "whisper": "The walls bristle with banners and whispers of action.",
+    "arcana": "Punchy / Protest",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "London Art Therapy Centre",
@@ -5535,6 +5850,27 @@
     "arcana": "Curious Encounters"
   },
   {
+    "name": "London Sri Murugan Temple",
+    "location": "Manor Park",
+    "moods": [
+      "vibrant",
+      "devotional",
+      "communal",
+      "colourful"
+    ],
+    "genres": [
+      "Hindu temple",
+      "Tamil",
+      "South Indian",
+      "festivals"
+    ],
+    "url": "https://www.londonsrimurugan.org.uk/",
+    "blurb": "This South Indian-style shrine in Manor Park began with monthly prayers held in rented halls. The community secured a site on Browning/Church Road in February 1984, and after years of fundraising the vision of a granite temple was realised in May 2005. Today it is a fully established working temple serving thousands of devotees with daily poojas, festival processions and annadhaanam (free food). Opening hours span morning and evening, and the temple's Tamil heritage infuses every carving, chant and flower garland.",
+    "whisper": "Drums, bells and jasmine braid through the air; deities gleam under strings of lights.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "London Wildlife Trust",
     "location": "London-wide",
     "moods": [
@@ -5726,6 +6062,27 @@
     "whisper": "A secret temple hides wonders and whispers; a gallows illusion chills the spine.",
     "arcana": "Cabaret & Glitter",
     "last_verified": "2025-01-15"
+  },
+  {
+    "name": "Mahavir Foundation Jain Temple (Kenton Derasar)",
+    "location": "Kenton",
+    "moods": [
+      "peaceful",
+      "minimal",
+      "contemplative",
+      "community"
+    ],
+    "genres": [
+      "Jain temple",
+      "derasar",
+      "community centre",
+      "prayer hall"
+    ],
+    "url": "https://mahavirfoundation.org/",
+    "blurb": "Hidden behind suburban houses on Kenton Road is a small Jain derasar, home to the Mahavir Foundation. Inside the simple hall, marble images of the Tirthankaras invite silent contemplation, and volunteers organise worship and community meals. It's a humble but vital hub for London's Jain diaspora.",
+    "whisper": "Quiet marble, soft lamp-light and the hum of a mantra barely whispered.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "MAS ARTS",
@@ -6036,6 +6393,27 @@
     "whisper": "A crypt where history and gags collide",
     "arcana": "Comic Relief",
     "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Museum of Homelessness",
+    "location": "Finsbury Park",
+    "moods": [
+      "courageous",
+      "community-led",
+      "reflective",
+      "urgent"
+    ],
+    "genres": [
+      "museum",
+      "activist space",
+      "archive",
+      "education"
+    ],
+    "url": "https://museumofhomelessness.org/news/activism-homelessness-and-a-new-kind-of-museum",
+    "blurb": "Based at Manor House Lodge inside Finsbury Park, the Museum of Homelessness is a community-led museum powered by people with lived experience of homelessness. Its founders view the collection as a tool to enable people to make social change and work through trauma rather than to preserve objects. Exhibitions, performances and archives explore homelessness and inequality; the museum's programmes, such as the 'State of the Nation' weekends, invite people from all walks of life to ask the questions that matter. It's a brave space where activism meets art and no one is invisible.",
+    "whisper": "Stories of loss and resilience gather under one roof.",
+    "arcana": "Punchy / Protest",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Music Tree Circles – Circle Singing",
@@ -8046,6 +8424,27 @@
     "arcana": "The Thoughtful Stage"
   },
   {
+    "name": "Shri Sanatan Hindu Mandir",
+    "location": "Wembley",
+    "moods": [
+      "ornate",
+      "devotional",
+      "vibrant",
+      "community"
+    ],
+    "genres": [
+      "Hindu temple",
+      "architecture",
+      "cultural hub",
+      "darshan"
+    ],
+    "url": "https://www.svnumandir.org/",
+    "blurb": "Standing on Ealing Road like a carved sandcastle, this temple was built according to the ancient Shilpa Shastras and opened in 2010. Its sandstone walls and domes were hand-carved in Gujarat and assembled without any steel framework, resulting in 210 pillars adorned with birds, animals and scenes from Hindu legends. Inside there are eleven inner shrines and carvings that honour figures from many faiths. The temple is open daily and feels both timeless and welcoming.",
+    "whisper": "Step through a lacework of stone into a world where gods and goddesses dance in relief.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "Sik Faan",
     "location": "Kentish Town",
     "moods": [
@@ -8556,6 +8955,27 @@
     "last_verified": "2025-01-15"
   },
   {
+    "name": "St George's Garrison Church",
+    "location": "Woolwich",
+    "moods": [
+      "contemplative",
+      "reverent",
+      "ruined",
+      "peaceful"
+    ],
+    "genres": [
+      "historic ruin",
+      "concerts",
+      "outdoor events",
+      "community"
+    ],
+    "url": "https://www.visitgreenwich.org.uk/things-to-do/st-georges-garrison-church-p1391711",
+    "blurb": "Bombed in both world wars, this Italian-Romanesque garrison church stands open to the sky. Conserved mosaics glitter beneath a modern canopy, and a contemplative garden softens the shattered walls. Run by a local trust, the evocative ruin hosts Sunday openings, midsummer music and open-air film nights, inviting locals to sit among the broken columns and listen to new voices. It's a rare sacred space where loss and renewal are celebrated together.",
+    "whisper": "Bombed walls under a modern canopy echo with new music.",
+    "arcana": "Melancholic Beauty",
+    "last_verified": "2026-01-21"
+  },
+  {
     "name": "St James Bar at Sofitel St James",
     "location": "St James's",
     "moods": [
@@ -8632,6 +9052,48 @@
     "whisper": "528 steps to where whispers travel and London spreads below",
     "arcana": "Wonder & Awe",
     "last_verified": "2025-01-18"
+  },
+  {
+    "name": "St Sarkis Armenian Church",
+    "location": "Kensington",
+    "moods": [
+      "intimate",
+      "historic",
+      "reverent",
+      "ornate"
+    ],
+    "genres": [
+      "Armenian church",
+      "Apostolic",
+      "architecture",
+      "community"
+    ],
+    "url": "https://st-sarkis.org/",
+    "blurb": "Tucked into Iverna Gardens, St Sarkis is the only church in England built in a traditional Armenian style. Philanthropist Calouste Gulbenkian funded its construction in 1922-1923 as a memorial to his parents, drawing inspiration from the 13th-century bell-tower of Haghpat Monastery. It serves as the seat of the Diocese of the Armenian Apostolic Church in the UK and offers liturgy every Sunday. The warm stone interior and carved khachkars make this a piece of Armenia in London.",
+    "whisper": "Incense curls through a domed nave; Armenian hymns drift beyond the garden walls.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
+  },
+  {
+    "name": "St Sophia's Greek Orthodox Cathedral",
+    "location": "Bayswater",
+    "moods": [
+      "byzantine",
+      "glowing",
+      "historic",
+      "communal"
+    ],
+    "genres": [
+      "Greek Orthodox cathedral",
+      "church",
+      "museum",
+      "heritage"
+    ],
+    "url": "https://stsophia.org.uk/",
+    "blurb": "On Moscow Road rises a yellow-brick basilica crowned with a copper dome. Built in 1878-79 and consecrated in 1882, this Grade I listed church served as the cathedral for Orthodox Christians in Western Europe and even for the Greek nation during the Second World War. Its interior shimmers with gilt mosaics, marble and a wooden iconostasis carved by Farmer & Brindley, while a small museum preserves treasures of London's Greek community. Open for prayer and occasional tours, it remains a living link between London and Constantinople.",
+    "whisper": "Gold and glass glow in half-light; Greek psalms echo beneath a copper dome.",
+    "arcana": "Spiritual / Sacred / Mystical",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Standpoint Gallery",
@@ -9020,6 +9482,26 @@
     "whisper": "A grin you didn't plan on. A hand you can trust. A song that carries you.",
     "arcana": "Body-Based / Movement-Led",
     "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Sylvia's Corner",
+    "location": "Stratford",
+    "moods": [
+      "determined",
+      "grassroots",
+      "feminist",
+      "welcoming"
+    ],
+    "genres": [
+      "social hub",
+      "housing activist base",
+      "community space"
+    ],
+    "url": "https://focuse15.org/sylvias-corner/",
+    "blurb": "Named for suffragette and socialist organiser Sylvia Pankhurst, this corner shop-turned-social hub in Stratford provides an affordable base for progressive campaigns fighting housing injustice in East London. Focus E15, founded by young mothers facing eviction, runs Sylvia's Corner and invites other groups to share the space and costs. The small shop is a crossroads for meetings, zine fairs and banner-painting sessions; its walls connect today's militant women with the revolutionary struggles of the past. Tables are strewn with leaflets and hope.",
+    "whisper": "A corner shop where prams and placards jostle happily.",
+    "arcana": "Punchy / Protest",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Tabard Pub & Theatre",
@@ -9514,6 +9996,27 @@
     "whisper": "Sequins soar, heels kick off and everyone sings along like it's the last night on earth.",
     "arcana": "Big Night Out",
     "last_verified": "2025-01-15"
+  },
+  {
+    "name": "The Feminist Library",
+    "location": "Peckham",
+    "moods": [
+      "nurturing",
+      "intersectional",
+      "inquisitive",
+      "solidary"
+    ],
+    "genres": [
+      "library",
+      "community space",
+      "activist hub",
+      "archive"
+    ],
+    "url": "https://feministlibrary.co.uk/",
+    "blurb": "Inside the Sojourner Truth Community Centre in Peckham, The Feminist Library houses one of the UK's richest collections of feminist books, journals, zines and ephemera and is run almost entirely by volunteers. It's more than shelves; it's a hub where lesbian history groups, queer poetry workshops, abolitionist teaching and organising meetings gather. Ground-floor and fully accessible, the library invites grassroots groups to meet and organise for liberation. Children are welcome, the toilets are gender-neutral and the spirit is intersectional.",
+    "whisper": "A softly lit refuge where stories sharpen into strategy.",
+    "arcana": "Punchy / Protest",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "The Fermentarium",
@@ -10618,6 +11121,27 @@
     "whisper": "Nothing to prove. Just breath, boundaries, and kind attention.",
     "arcana": "Body-Based / Movement-Led",
     "last_verified": "2026-01-20"
+  },
+  {
+    "name": "Tower Bridge Bascule Chambers",
+    "location": "Tower Bridge",
+    "moods": [
+      "secret",
+      "cathedral-like",
+      "subterranean",
+      "monumental"
+    ],
+    "genres": [
+      "concerts",
+      "film screenings",
+      "tours",
+      "engineering"
+    ],
+    "url": "https://www.towerbridge.org.uk/stories/the-bascule-chambers",
+    "blurb": "Hidden within the granite piers of Tower Bridge are two enormous halls where the bridge's counterweights swing. These cavernous brick-lined spaces are normally off-limits but open occasionally for behind-the-scenes tours. Tower Bridge has partnered with artists to hold concerts and film screenings in the cathedral-like chambers, and each event has enthralled visitors and captured their imaginations. When music rises beneath the Thames, the machinery becomes part of the orchestra.",
+    "whisper": "Beneath the river, brick vaults resonate with clandestine symphonies.",
+    "arcana": "Melancholic Beauty",
+    "last_verified": "2026-01-21"
   },
   {
     "name": "Tramshed",
