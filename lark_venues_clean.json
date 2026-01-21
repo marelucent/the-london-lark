@@ -217,7 +217,7 @@
     "blurb": "A community-run cinema in a former library, co-run by Rio Cinema, championing independent films and filmmaker events.",
     "last_verified": "2025-11-15",
     "whisper": "Golden velvet, shared hush — a screen-lit storyhouse reborn from silence.",
-    "arcana": "The Thoughtful Stage"
+    "arcana": "Nostalgic / Vintage / Retro"
   },
   {
     "name": "Aerial Relaxation Pods by Ecstatic Dance London",
@@ -546,7 +546,7 @@
     "last_verified": "2025-11-17",
     "blurb": "At Rivington Place, Autograph curates photography that doesn't just speak — it challenges, honours, and remembers. Centring global histories of identity, resistance, and belonging, the exhibitions here illuminate lives too often marginalised, with a lens that is both tender and unflinching. Come if you're seeking art as reckoning, as mirror, as invocation. This is a space where stories rise into light and stay.",
     "whisper": "Portraits breathe here — lens, light, and liberation entwined.",
-    "arcana": "Curious Encounters"
+    "arcana": "Wonder & Awe"
   },
   {
     "name": "Backyard Comedy Club",
@@ -796,7 +796,7 @@
     "blurb": "Belly Scratch at Underbelly Boulevard is a cabaret-style scratch night offering four artists up to twenty minutes each to bare the bones of a new show. You might see first scenes of a future fringe hit, a strange solo that refuses to behave, or a script read-through that suddenly takes flight. The room is built for risk and laughter, a cry soft as wingbeat in a velvet-clad basement, perfect for a petal who wants to feel the city's next ideas rumbling under their feet.",
     "last_verified": "2025-11-25",
     "whisper": "Cabaret chaos, queer joy — scratch gets saucy at the Underbelly.",
-    "arcana": "The Thoughtful Stage"
+    "arcana": "Cabaret & Glitter"
   },
   {
     "name": "Benjamin Franklin House – Historical Experience",
@@ -1397,7 +1397,7 @@
     "blurb": "Café OTO lives in the pause between one note and the next. A soft-lit refuge for the sonically strange, it offers sanctuary to sounds no one else dares cradle — free-jazz, drone, improvised everything. You might sip tea in a hush of reverence, or share glances over dark beer and starlit discord. Dalston's breath grows quiet here, listening.",
     "last_verified": "2025-11-23",
     "whisper": "Café OTO lives in the pause between one note and the next.",
-    "arcana": "Curious Encounters"
+    "arcana": "Folk & Intimate"
   },
   {
     "name": "Cahoots",
@@ -2159,7 +2159,7 @@
     "blurb": "Cubitt is a stitched-together constellation — studios, gallery, gathering ground. Here, artists teach each other how to live. Zines are made beside prints, queer anthologies are launched with reverence, and every wall is a question. It is both quiet and defiant, tender and revolutionary. Art here is less object than encounter — a shared breath in Angel Mews.",
     "last_verified": "2025-11-23",
     "whisper": "Cubitt is a stitched-together constellation — studios, gallery, gathering ground.",
-    "arcana": "Curious Encounters"
+    "arcana": "Wonder & Awe"
   },
   {
     "name": "Cuddle Workshop",
@@ -2298,7 +2298,7 @@
     "url": "https://www.darksphere.co.uk/shopSB.php",
     "blurb": "A fluorescent little kingdom of cardboard worlds and tiny painted destinies. There's a calendar of game nights humming in the background, and tables where new faces become familiar mid-match. If you want connection with something to do in your hands, this is a good doorway. The vibe is quietly communal: you don't have to be brilliant - just willing.",
     "whisper": "Connection, but with dice in your palm and a quest on the table.",
-    "arcana": "Curious Encounters",
+    "arcana": "Playful & Weird",
     "last_verified": "2026-01-20"
   },
   {
@@ -2406,7 +2406,7 @@
     "url": "https://www.deencityfarm.co.uk/",
     "blurb": "Deen City Farm describes itself simply: an urban farm in the heart of South London. Beyond the goats and chickens there's a riding school, mobile farm and programmes that give locals educational and vocational opportunities. Families come for pony rides and holiday clubs; volunteers muck in with feeding and mucking out. It's not fancy – just honest work, fresh hay and an occasional whinny reminding you that not all therapy needs a couch.",
     "whisper": "Horses here teach patience better than any app could.",
-    "arcana": "Folk & Intimate",
+    "arcana": "Wonder & Awe",
     "last_verified": "2026-01-21"
   },
   {
@@ -3863,7 +3863,7 @@
     "blurb": "In the plant-laced quiet of Well Street, Hackney Herbal tends the body and spirit alike. Calendula blooms in oil, lip balms stir with lavender, and sprays carry calm in each mist. These sessions are as soft as they are skilled - herbalism not just taught, but lived, gently and well.",
     "last_verified": "2025-11-23",
     "whisper": "In the plant-laced quiet of Well Street, Hackney Herbal tends the body and spirit alike.",
-    "arcana": "Folk & Intimate"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Hackney Showroom",
@@ -4155,7 +4155,7 @@
     "blurb": "Tucked in Brentford's gentle sprawl, Sara Ward's garden sings with bees, hens, and the quiet clink of curds forming. At Hen Corner, cheese making is homely magic - mozzarella stretched warm, camembert blooming in mould-soft hush. The day is generous: garden tours, homemade lunch, laughter over milk and culture. You'll leave with hands scented of whey, and heart full of old ways made new.",
     "last_verified": "2025-11-23",
     "whisper": "In Brentford’s bloom, milk turns to magic in a kitchen of kin and curds.",
-    "arcana": "Folk & Intimate"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Heruka Kadampa Meditation Centre",
@@ -4948,7 +4948,7 @@
     "url": "https://leisuregames.com/pages/in-store-gaming",
     "blurb": "A proper games shop with the sweet bonus of actual gathering. Open gaming sessions mean you can drift in, find a table, and let the rules do the introductions. There's something tender about learning a new system beside someone who's also half-lost and laughing. For when you want community without small-talk pressure.",
     "whisper": "Let the rulebook do the awkward first hello for you.",
-    "arcana": "Curious Encounters",
+    "arcana": "Playful & Weird",
     "last_verified": "2026-01-20"
   },
   {
@@ -5047,25 +5047,6 @@
     "last_verified": "2025-11-23",
     "whisper": "Cards flick, candles flicker — the arcana gathers here.",
     "arcana": "Witchy & Wild"
-  },
-  {
-    "name": "Lloyds of Kew",
-    "location": "Kew",
-    "url": "https://lloydskew.co.uk",
-    "blurb": "A rare and antiquarian bookshop specializing in botanical and horticultural texts, where leather-bound gardens bloom on every shelf.",
-    "moods": [
-      "Nostalgic / Vintage / Retro",
-      "Curious Encounters",
-      "The Thoughtful Stage"
-    ],
-    "genres": [
-      "bookshop",
-      "antiquarian",
-      "botanical"
-    ],
-    "last_verified": "2025-11-24",
-    "whisper": "Tales of empire, flora, and fire sleep in these gilded pages.",
-    "arcana": "The Thoughtful Stage"
   },
   {
     "name": "Loading Bar",
@@ -6443,7 +6424,7 @@
     "blurb": "Down a quiet court near the Strand, flames flicker and scents rise in a workshop scented with rosemary and rose. At Old Bexley, the craft of clean and candle is taught by hand - wax poured slow, soap stirred with care. The result? Bars and tapers infused with warmth and wonder.",
     "last_verified": "2025-11-23",
     "whisper": "Light, scent, silence — the spell begins in your hands.",
-    "arcana": "Folk & Intimate"
+    "arcana": "Curious Encounters"
   },
   {
     "name": "Old Operating Theatre Museum & Herb Garret",
@@ -6537,7 +6518,7 @@
     "last_verified": "2025-11-17",
     "blurb": "Nestled just off Richmond Green, Orange Tree Theatre invites you into its round — a space where actors are close enough to touch, and every glance lands. Their repertoire weaves bold new writing with reimagined classics, all staged with clarity and care. It's theatre without distance, for minds that like to lean in.",
     "whisper": "A round room, a hush, and the chance to see something before it blooms.",
-    "arcana": "Folk & Intimate"
+    "arcana": "The Thoughtful Stage"
   },
   {
     "name": "Ormside Projects",
@@ -6595,7 +6576,7 @@
     "blurb": "Beneath Brixton station, Otter Chaos glows warm and colourful, lined with 500 games and humming with laughter. Sourdough pizzas emerge from the oven as Catan settlements rise and D&D campaigns unfold in hushed corners. The atmosphere buzzes without pressing — a hideaway for first-timers and veterans alike, where craft cocktails and cooperative play make every evening feel like an accidental festival.",
     "last_verified": "2025-11-23",
     "whisper": "Where neon drips and mischief purrs — chaos never felt so cosy.",
-    "arcana": "Folk & Intimate"
+    "arcana": "Playful & Weird"
   },
   {
     "name": "Out-Spoken at Southbank Centre",
@@ -8669,7 +8650,7 @@
     "blurb": "Behind a modest Hoxton doorway, Standpoint hums with the urgency of new work. The walls here do not sell — they speak. Raw, defiant, and alive with intent, this artist-run sanctuary invites you into its process: the paint still drying, the idea mid-bloom. Come not to consume, but to witness. The air carries critique and care in equal measure.",
     "last_verified": "2025-11-23",
     "whisper": "Behind a modest Hoxton doorway, Standpoint hums with the urgency of new work.",
-    "arcana": "Curious Encounters"
+    "arcana": "Wonder & Awe"
   },
   {
     "name": "Stanley Arts",
@@ -8875,7 +8856,7 @@
     "blurb": "In a hush of East London, Studio Kühü gathers petals and silence to teach the delicate art of botanical print. Dyes made of ice and flower, silk steeped in pigment dreams - here, the palette is alive. Each cloth becomes a pressed poem, each workshop a breath of blooming stillness.",
     "last_verified": "2025-11-23",
     "whisper": "Touch, sound, and shadow meet in this softened space of becoming.",
-    "arcana": "Folk & Intimate"
+    "arcana": "Body-Based / Movement-Led"
   },
   {
     "name": "Studio Ma – Authentic Movement",
@@ -10013,7 +9994,7 @@
     "blurb": "Croydon's warmest hoard of dice and dreams — where campaign nights drift past closing time, and the shelves hold a thousand stories waiting to be played.",
     "last_verified": "2025-11-23",
     "whisper": "Dice clatter and laughter rises — Croydon’s heart beats in cardboard and crust.",
-    "arcana": "Folk & Intimate"
+    "arcana": "Playful & Weird"
   },
   {
     "name": "The Magic Hour (Sheraton Grand Park Lane)",
@@ -10520,7 +10501,7 @@
     "blurb": "In candlelight or soft morning sun, this yoga practice becomes a form of prayer. Trauma-informed, body-honouring, breath-led — Jane's sessions are less about poses and more about presence. Expect nervous system kindness, deep exhale, and the possibility of coming home to yourself.",
     "last_verified": "2025-11-23",
     "whisper": "In candlelight or soft morning sun, this yoga practice becomes a form of prayer.",
-    "arcana": "Folk & Intimate"
+    "arcana": "Contemplative & Meditative"
   },
   {
     "name": "The Jago",
@@ -10653,7 +10634,7 @@
     "blurb": "A community arts hub using performing arts to serve young people and adults with learning differences, fostering social cohesion through creativity.",
     "last_verified": "2025-11-15",
     "whisper": "Stories spark and bridges build under Woolwich skies.",
-    "arcana": "Curious Encounters"
+    "arcana": "Group Energy"
   },
   {
     "name": "Treadwell's Bookshop - Witchcraft Classes",
