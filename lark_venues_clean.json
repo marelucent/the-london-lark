@@ -55,7 +55,7 @@
   },
   {
     "name": "58 and Co - Gin School Experience",
-    "location": "Haggerston (E8)",
+    "location": "Haggerston",
     "moods": [
       "craft & making",
       "adult play",
@@ -72,7 +72,7 @@
   },
   {
     "name": "5Rhythms 'FIVE London' Workshop",
-    "location": "St Luke's Church, Hillmarton Road, London N7 9RE",
+    "location": "Holloway",
     "moods": [
       "fluid",
       "transformative",
@@ -147,7 +147,7 @@
   },
   {
     "name": "93 Feet East",
-    "location": "Brick Lane, East London",
+    "location": "Brick Lane",
     "moods": [
       "communal",
       "euphoric",
@@ -295,7 +295,7 @@
   },
   {
     "name": "Another Plant Swap",
-    "location": "Various London venues",
+    "location": "Various (London)",
     "moods": [
       "joyful",
       "social",
@@ -763,7 +763,7 @@
   },
   {
     "name": "Bee Urban (The Hive)",
-    "location": "Kennington Park (SE11)",
+    "location": "Kennington",
     "moods": [
       "buzzing",
       "community-minded",
@@ -1063,7 +1063,7 @@
   },
   {
     "name": "Bonnington Centre Death Caf\u00e9",
-    "location": "Vauxhall (SW8)",
+    "location": "Vauxhall",
     "moods": [
       "Folk & Intimate",
       "The Thoughtful Stage",
@@ -1157,7 +1157,7 @@
   },
   {
     "name": "BrewBox London - Home Brewing Workshop",
-    "location": "Walthamstow (E17)",
+    "location": "Walthamstow",
     "moods": [
       "craft & making",
       "curious",
@@ -1175,7 +1175,7 @@
   },
   {
     "name": "BrewDog Outpost Tower Hill - Beer School",
-    "location": "Tower Hill (EC3)",
+    "location": "Tower Hill",
     "moods": [
       "epicurean",
       "curious",
@@ -1421,7 +1421,7 @@
   },
   {
     "name": "Camden Art Centre - Natural Dyes Workshop",
-    "location": "271 Dale Avenue, London NW3 6DG",
+    "location": "Hampstead",
     "moods": [
       "craft & making",
       "sustainable"
@@ -1568,7 +1568,7 @@
   },
   {
     "name": "Ceilidh Liberation Front",
-    "location": "Grand Junction & various",
+    "location": "Various (London)",
     "url": "https://thenestcollective.co.uk/projects/ceilidhs",
     "blurb": "The Nest Collective transforms traditional ceilidh into radical sweat-busting party, breathing vigour into folk dance while honouring its roots.",
     "moods": [
@@ -1937,7 +1937,7 @@
   },
   {
     "name": "Club Stamina",
-    "location": "Various London",
+    "location": "Various (London)",
     "url": "https://www.instagram.com/clubstamina",
     "blurb": "DJ Mina Gal\u00e1n's night championing femme and trans talent through reggaeton, baile funk, and perreo, an antidote to techno-heavy exclusionary scenes.",
     "moods": [
@@ -2048,7 +2048,7 @@
   },
   {
     "name": "Cordon Bleu London - Culinary Short Courses",
-    "location": "Marylebone (W1)",
+    "location": "Marylebone",
     "moods": [
       "craft & making",
       "epicurean",
@@ -2205,7 +2205,7 @@
   },
   {
     "name": "Culinary Anthropologist - Charcuterie Masterclass",
-    "location": "Highbury (N5)",
+    "location": "Highbury",
     "moods": [
       "craft & making",
       "epicurean",
@@ -2736,7 +2736,7 @@
   },
   {
     "name": "Ecstatic Dance London - The Ritual",
-    "location": "Various London venues (often community halls and studios)",
+    "location": "Various (London)",
     "moods": [
       "ecstatic",
       "spiritual",
@@ -2932,7 +2932,7 @@
   },
   {
     "name": "File Gumbo (Cajun Music & Dance Club)",
-    "location": "Various (often central/east London)",
+    "location": "Various (London)",
     "moods": [
       "rowdy",
       "communal",
@@ -3165,7 +3165,7 @@
     "arcana": "Witchy & Wild"
   },
   {
-    "name": "Forage London - Wild Food and Nature Walk (E3)",
+    "name": "Forage London - Wild Food and Nature Walk",
     "location": "Tower Hamlets",
     "moods": [
       "curious",
@@ -3325,7 +3325,7 @@
   },
   {
     "name": "Freeweaver Studio",
-    "location": "Cordwainers Pop-Up, London Fields (E8)",
+    "location": "London Fields",
     "moods": [
       "meditative",
       "curious"
@@ -3343,7 +3343,7 @@
   },
   {
     "name": "Freightliners City Farm",
-    "location": "Islington (N7)",
+    "location": "Islington",
     "moods": [
       "easy-going",
       "educational",
@@ -3543,7 +3543,7 @@
   },
   {
     "name": "Global Co-operation House \u2013 Drop IN, Power UP",
-    "location": "Willesden (NW10)",
+    "location": "Willesden",
     "moods": [
       "restorative",
       "peaceful",
@@ -3677,7 +3677,7 @@
   },
   {
     "name": "Grief Rave & Grief Moves \u2013 The Fandangoe Discoteca x The Loss Project",
-    "location": "Touring (often Southbank Centre, SE1)",
+    "location": "Various (London)",
     "moods": [
       "Grief & Grace",
       "Ecstatic",
@@ -4162,7 +4162,7 @@
   },
   {
     "name": "Hen Corner - Introduction to Cheese Making",
-    "location": "Brentford (TW8)",
+    "location": "Brentford",
     "moods": [
       "craft & making",
       "curious",
@@ -4197,7 +4197,7 @@
   },
   {
     "name": "Hidden London Tours (London Transport Museum)",
-    "location": "Various underground locations",
+    "location": "Various (London)",
     "moods": [
       "mysterious",
       "nostalgic",
@@ -4365,7 +4365,7 @@
   },
   {
     "name": "How To Academy",
-    "location": "Various venues across London",
+    "location": "Various (London)",
     "moods": [
       "intellectual",
       "stimulating",
@@ -4552,7 +4552,7 @@
   },
   {
     "name": "Intelligence Squared",
-    "location": "Various London venues",
+    "location": "Various (London)",
     "moods": [
       "intellectual",
       "stimulating",
@@ -4734,7 +4734,7 @@
   },
   {
     "name": "Kentish Town City Farm",
-    "location": "Kentish Town (NW5)",
+    "location": "Kentish Town",
     "moods": [
       "nurturing",
       "accessible",
@@ -4892,7 +4892,7 @@
   },
   {
     "name": "Lapidus London",
-    "location": "Various London venues",
+    "location": "Various (London)",
     "moods": [
       "supportive",
       "reflective",
@@ -5051,7 +5051,7 @@
   },
   {
     "name": "Liminal 11 - Tarot & Mysticism Events",
-    "location": "Various venues across London",
+    "location": "Various (London)",
     "moods": [
       "playful",
       "mystical",
@@ -5130,7 +5130,7 @@
   },
   {
     "name": "London Balfolk",
-    "location": "Various (often Hackney/East)",
+    "location": "Various (London)",
     "moods": [
       "tender",
       "curious",
@@ -5151,7 +5151,7 @@
   },
   {
     "name": "London Barndance Company",
-    "location": "Various (across London)",
+    "location": "Various (London)",
     "moods": [
       "jolly",
       "inclusive",
@@ -5210,7 +5210,7 @@
   },
   {
     "name": "London Calligraphy",
-    "location": "Various venues across London (often central hotels and studios)",
+    "location": "Various (London)",
     "moods": [
       "refined",
       "contemplative"
@@ -5246,7 +5246,7 @@
   },
   {
     "name": "London Cheese Board - Cheese & Wine Pairing Evenings",
-    "location": "Elephant & Castle (SE1)",
+    "location": "Elephant & Castle",
     "moods": [
       "epicurean",
       "curious",
@@ -5264,7 +5264,7 @@
   },
   {
     "name": "London City Voices",
-    "location": "Multiple locations across central London and online",
+    "location": "Various (London)",
     "moods": [
       "Group Energy",
       "Big Night Out",
@@ -5301,7 +5301,7 @@
   },
   {
     "name": "London Forest Bathing & Nature Connection",
-    "location": "Various parks and woodlands",
+    "location": "Various (London)",
     "moods": [
       "mindful",
       "serene",
@@ -5480,7 +5480,7 @@
   },
   {
     "name": "London Review Bookshop & St. JOHN at the Bookshop",
-    "location": "Bloomsbury, WC1",
+    "location": "Bloomsbury",
     "moods": [
       "Poetic",
       "The Thoughtful Stage",
@@ -5613,7 +5613,7 @@
   },
   {
     "name": "Love & Loss \u2013 Grief Tending Rituals",
-    "location": "Various London locations",
+    "location": "Various (London)",
     "moods": [
       "grief-held",
       "mythic"
@@ -5729,7 +5729,7 @@
   },
   {
     "name": "Made in Hackney - Preserving & Pickling Workshops",
-    "location": "Hackney (E8)",
+    "location": "Hackney",
     "moods": [
       "craft & making",
       "earthy",
@@ -5979,7 +5979,7 @@
   },
   {
     "name": "Morocco\u00a0Bound Bookshop: Poetry & Spoken Word Open Mic",
-    "location": "Bermondsey / SE1",
+    "location": "Bermondsey",
     "moods": [
       "intimate",
       "spoken",
@@ -6038,7 +6038,7 @@
   },
   {
     "name": "Mudchute Park & Farm",
-    "location": "Isle of Dogs (E14)",
+    "location": "Isle of Dogs",
     "moods": [
       "expansive",
       "wonder",
@@ -6695,7 +6695,7 @@
   },
   {
     "name": "Paddy\u2019s Yard",
-    "location": "Coldharbour Lane, Brixton",
+    "location": "Brixton",
     "moods": [
       "diasporic",
       "celebratory",
@@ -6948,7 +6948,7 @@
   },
   {
     "name": "Pitchblack Playback",
-    "location": "Various (Hammersmith & Homerton)",
+    "location": "Various (London)",
     "moods": [
       "immersive",
       "meditative",
@@ -7363,7 +7363,7 @@
   },
   {
     "name": "Release: Boxing Through Grief \u2013 London Community Boxing",
-    "location": "Peckham (SE15)",
+    "location": "Peckham",
     "moods": [
       "Body-Based / Movement-Led",
       "Grief & Grace",
@@ -7556,7 +7556,7 @@
   },
   {
     "name": "Roots and Shoots",
-    "location": "Kennington (SE11)",
+    "location": "Kennington",
     "moods": [
       "supportive",
       "green",
@@ -7593,7 +7593,7 @@
   },
   {
     "name": "Rosslyn Hill Unitarian Chapel \u2013 Hampstead Death Caf\u00e9",
-    "location": "Hampstead (NW3)",
+    "location": "Hampstead",
     "moods": [
       "Grief & Grace",
       "Spiritual / Sacred / Mystical",
@@ -7666,7 +7666,7 @@
   },
   {
     "name": "Royal Docks Swim Series (RDSS) Evening Swim",
-    "location": "Love Open Water London Royal Docks, Dock Road, E16 1AH",
+    "location": "Royal Docks",
     "moods": [
       "wild",
       "adventurous",
@@ -8066,7 +8066,7 @@
   },
   {
     "name": "She's Lost Control - Ritual & Spiritual Workshops",
-    "location": "42 Valentine Road, London E9 7AD",
+    "location": "Homerton",
     "moods": [
       "ritual",
       "ethereal",
@@ -8127,7 +8127,7 @@
   },
   {
     "name": "Silent Walks",
-    "location": "Various (SE England)",
+    "location": "Various (London)",
     "moods": [
       "solitary",
       "connected",
@@ -8236,7 +8236,7 @@
   },
   {
     "name": "Skeptics in the Pub",
-    "location": "Various London pubs",
+    "location": "Various (London)",
     "moods": [
       "challenging",
       "questioning",
@@ -8329,7 +8329,7 @@
   },
   {
     "name": "Sole2Soul \u2013 Open Floor Movement & Embodied Voice",
-    "location": "Various London venues (Creating Connexions)",
+    "location": "Various (London)",
     "moods": [
       "expressive",
       "rooted"
@@ -8540,7 +8540,7 @@
   },
   {
     "name": "Spitalfields City Farm",
-    "location": "Spitalfields (E1)",
+    "location": "Spitalfields",
     "moods": [
       "grounding",
       "communal",
@@ -8863,7 +8863,7 @@
   },
   {
     "name": "Stress Project \u2013 Therapeutic Gardening",
-    "location": "Holloway, Islington",
+    "location": "Holloway",
     "moods": [
       "nurturing",
       "mindful"
@@ -9019,7 +9019,7 @@
   },
   {
     "name": "Surrey Docks Farm",
-    "location": "Rotherhithe (SE16)",
+    "location": "Rotherhithe",
     "moods": [
       "inclusive",
       "hands-on",
@@ -9197,7 +9197,7 @@
   },
   {
     "name": "Tea Ceremony Meditation (with Litha Rose)",
-    "location": "Various locations",
+    "location": "Various (London)",
     "moods": [
       "mindful",
       "reflective",
@@ -9711,7 +9711,7 @@
   },
   {
     "name": "The Ginger Pig - Sausage Making Class",
-    "location": "Borough Market (SE1)",
+    "location": "Borough Market",
     "moods": [
       "craft & making",
       "epicurean"
@@ -10546,7 +10546,7 @@
   },
   {
     "name": "Therapeutic Yoga Community Group \u2013 Jane O'Rourke",
-    "location": "Down to Earth Yoga, N19",
+    "location": "Archway",
     "moods": [
       "gentle",
       "trauma-informed"
@@ -10622,7 +10622,7 @@
   },
   {
     "name": "Top Cuv\u00e9e / Shop Cuv\u00e9e - Natural Wine Masterclass",
-    "location": "Shoreditch (E1)",
+    "location": "Shoreditch",
     "moods": [
       "epicurean",
       "curious",
@@ -10759,7 +10759,7 @@
   },
   {
     "name": "Truth to Power Caf\u00e9",
-    "location": "Various (touring)",
+    "location": "Various (London)",
     "moods": [
       "righteous",
       "activist",
@@ -11027,7 +11027,7 @@
   },
   {
     "name": "Vauxhall City Farm",
-    "location": "Vauxhall (SE11)",
+    "location": "Vauxhall",
     "moods": [
       "cheerful",
       "grounding",
@@ -11141,7 +11141,7 @@
   },
   {
     "name": "VQ Bloomsbury (24-Hour Caf\u00e9 & Diner)",
-    "location": "Bloomsbury, WC1",
+    "location": "Bloomsbury",
     "moods": [
       "Late-Night Lark",
       "Folk & Intimate"
@@ -11484,7 +11484,7 @@
   },
   {
     "name": "Workshops for Self-Discovery",
-    "location": "Various London venues",
+    "location": "Various (London)",
     "moods": [
       "curious",
       "safe",
@@ -11505,7 +11505,7 @@
   },
   {
     "name": "Wormwood Scrubs Pony Centre",
-    "location": "Shepherd's Bush (W12)",
+    "location": "Shepherd's Bush",
     "moods": [
       "compassionate",
       "uplifting",
