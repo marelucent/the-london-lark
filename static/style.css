@@ -2125,102 +2125,121 @@ button {
 /* Search-First Entrance Layout */
 .entrance-content {
     text-align: center;
-    padding: 2rem 1rem 3rem;
-    max-width: 500px;
+    padding: 2.5rem 1.5rem 3.5rem;
+    max-width: 480px;
     margin: 0 auto;
 }
 
-.entrance-prompt {
-    font-family: var(--font-body);
+.entrance-greeting {
+    font-family: var(--font-whisper);
     font-size: 1.1rem;
-    color: var(--cream);
-    margin: 2rem 0 1rem;
+    font-style: italic;
+    color: var(--candlelight);
+    margin: 2rem 0 1.5rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    min-height: 1.6em;
 }
 
 .entrance-search {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
 }
 
 .entrance-search textarea {
     width: 100%;
-    padding: 1rem;
-    background: var(--parchment-dark);
-    border: 1px solid var(--gold-dim);
-    border-radius: 4px;
+    padding: 1.2rem 1.4rem;
+    background: rgba(26, 23, 20, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
     color: var(--cream);
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.05rem;
     resize: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.4s ease;
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(212, 175, 55, 0.05);
 }
 
 .entrance-search textarea:focus {
     outline: none;
-    border-color: var(--gold);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(212, 175, 55, 0.15);
 }
 
 .entrance-search textarea::placeholder {
     color: var(--text-soft);
     font-style: italic;
-    opacity: 0.7;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
 }
 
 .entrance-search button {
-    padding: 0.9rem 2rem;
+    padding: 1rem 2.5rem;
     background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     color: var(--ink);
     font-family: var(--font-title);
     font-size: 0.9rem;
     letter-spacing: 0.1em;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
 }
 
 .entrance-search button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transform: translateY(-3px);
+    box-shadow:
+        0 6px 20px rgba(212, 175, 55, 0.3),
+        0 0 30px rgba(212, 175, 55, 0.15);
 }
 
 .entrance-alternatives {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .alternatives-label {
     display: block;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-family: var(--font-whisper);
+    font-size: 0.9rem;
+    font-style: italic;
     color: var(--text-soft);
-    margin-bottom: 0.8rem;
-    opacity: 0.7;
+    margin-bottom: 1rem;
+    opacity: 0.6;
 }
 
 .alternatives-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
 }
 
 .alt-link {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--gold-dim);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
 }
 
 .alt-link:hover {
     color: var(--gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .alt-separator {
     color: var(--gold-dim);
-    opacity: 0.5;
+    opacity: 0.4;
+    font-size: 0.8rem;
 }
 
 .who-is-she-link {
@@ -2783,12 +2802,17 @@ button {
     }
 
     .entrance-content {
-        padding: 1.5rem 1rem 2rem;
+        padding: 2rem 1rem 2.5rem;
     }
 
-    .entrance-prompt {
+    .entrance-greeting {
         font-size: 1rem;
-        margin: 1.5rem 0 0.8rem;
+        margin: 1.5rem 0 1.2rem;
+    }
+
+    .entrance-search textarea {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
     }
 
     .entrance-search button {
@@ -2797,6 +2821,7 @@ button {
 
     .alternatives-links {
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     .who-is-she-link {
