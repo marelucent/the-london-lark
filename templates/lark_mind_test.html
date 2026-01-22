@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lark Mind - Prototype</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Lark Mind Test Page Styles */
+        .lark-mind-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .prototype-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 3px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold, #d4af37);
+            margin-bottom: 1rem;
+        }
+
+        .lark-mind-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .lark-mind-header h1 {
+            font-family: var(--font-display, 'Cinzel', serif);
+            font-size: 2rem;
+            color: var(--cream, #f5f0e6);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .lark-mind-header p {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.8;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            min-height: 300px;
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        /* Message Bubbles */
+        .message {
+            padding: 1rem 1.25rem;
+            border-radius: 4px;
+            max-width: 85%;
+            line-height: 1.6;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--cream, #f5f0e6);
+        }
+
+        .message.lark {
+            align-self: flex-start;
+            background: rgba(26, 23, 20, 0.8);
+            border: 1px solid rgba(106, 106, 122, 0.3);
+            color: var(--candlelight, #f4e4bc);
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.1rem;
+        }
+
+        .message.lark em {
+            color: var(--gold, #d4af37);
+        }
+
+        .message.system {
+            align-self: center;
+            background: transparent;
+            border: none;
+            color: rgba(212, 175, 55, 0.6);
+            font-size: 0.85rem;
+            font-style: italic;
+            padding: 0.5rem;
+        }
+
+        /* Input Area */
+        .input-area {
+            display: flex;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            background: rgba(26, 23, 20, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            color: var(--cream, #f5f0e6);
+            font-family: var(--font-body, 'Libre Baskerville', serif);
+            font-size: 1rem;
+            resize: none;
+            min-height: 50px;
+            max-height: 150px;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--gold, #d4af37);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+        }
+
+        .chat-input::placeholder {
+            color: rgba(245, 240, 230, 0.4);
+            font-style: italic;
+        }
+
+        .send-button {
+            padding: 0.875rem 1.5rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 4px;
+            color: var(--gold, #d4af37);
+            font-family: var(--font-display, 'Cinzel', serif);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .send-button:hover:not(:disabled) {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.2) 100%);
+            border-color: var(--gold, #d4af37);
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Loading State */
+        .loading-dots {
+            display: inline-flex;
+            gap: 4px;
+        }
+
+        .loading-dots span {
+            width: 6px;
+            height: 6px;
+            background: var(--gold, #d4af37);
+            border-radius: 50%;
+            animation: pulse 1.4s infinite ease-in-out;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: 0s; }
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes pulse {
+            0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+            40% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Usage Stats */
+        .usage-stats {
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            background: rgba(26, 23, 20, 0.5);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: rgba(212, 175, 55, 0.6);
+            display: none;
+        }
+
+        .usage-stats.visible {
+            display: block;
+        }
+
+        /* Clear Button */
+        .clear-button {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 3px;
+            color: rgba(212, 175, 55, 0.6);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .clear-button:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            color: var(--gold, #d4af37);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: rgba(212, 175, 55, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--gold, #d4af37);
+        }
+
+        /* Error State */
+        .message.error {
+            background: rgba(180, 80, 80, 0.2);
+            border-color: rgba(180, 80, 80, 0.4);
+            color: #e8c4c4;
+        }
+    </style>
+</head>
+<body>
+    <div class="lark-mind-container">
+        <div class="lark-mind-header">
+            <span class="prototype-badge">Prototype</span>
+            <h1>Lark Mind</h1>
+            <p>A conversation with the Lark</p>
+        </div>
+
+        <div class="chat-container" id="chatContainer">
+            <!-- Greeting message -->
+            <div class="message lark">
+                <em>{{ greeting }}</em>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <textarea
+                class="chat-input"
+                id="chatInput"
+                placeholder="Tell her what you're seeking..."
+                rows="1"
+            ></textarea>
+            <button class="send-button" id="sendButton">Send</button>
+        </div>
+
+        <button class="clear-button" id="clearButton">Clear conversation</button>
+
+        <div class="usage-stats" id="usageStats">
+            <strong>Session usage:</strong>
+            <span id="totalTokens">0</span> tokens
+            (~<span id="estimatedCost">0.00</span>p)
+        </div>
+
+        <a href="/" class="back-link">&larr; Back to Lark Lite</a>
+    </div>
+
+    <script>
+        // =================================================================
+        // Lark Mind Chat Interface
+        // =================================================================
+
+        const chatContainer = document.getElementById('chatContainer');
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        const clearButton = document.getElementById('clearButton');
+        const usageStats = document.getElementById('usageStats');
+        const totalTokensEl = document.getElementById('totalTokens');
+        const estimatedCostEl = document.getElementById('estimatedCost');
+
+        // Conversation state
+        let messages = [];
+        let totalInputTokens = 0;
+        let totalOutputTokens = 0;
+
+        // Auto-resize textarea
+        chatInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+        });
+
+        // Send on Enter (Shift+Enter for newline)
+        chatInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        sendButton.addEventListener('click', sendMessage);
+        clearButton.addEventListener('click', clearConversation);
+
+        function addMessage(role, content, isError = false) {
+            const div = document.createElement('div');
+            div.className = `message ${role}${isError ? ' error' : ''}`;
+
+            // Parse markdown-style italics for Lark messages
+            if (role === 'lark') {
+                content = content.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            }
+
+            div.innerHTML = content;
+            chatContainer.appendChild(div);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return div;
+        }
+
+        function addLoadingMessage() {
+            const div = document.createElement('div');
+            div.className = 'message lark loading';
+            div.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
+            chatContainer.appendChild(div);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return div;
+        }
+
+        async function sendMessage() {
+            const content = chatInput.value.trim();
+            if (!content) return;
+
+            // Add user message to UI and state
+            addMessage('user', content);
+            messages.push({ role: 'user', content: content });
+
+            // Clear input
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+
+            // Disable input while waiting
+            chatInput.disabled = true;
+            sendButton.disabled = true;
+
+            // Show loading
+            const loadingDiv = addLoadingMessage();
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages: messages })
+                });
+
+                const data = await response.json();
+
+                // Remove loading message
+                loadingDiv.remove();
+
+                if (data.error) {
+                    addMessage('lark', `I stumbled, petal: ${data.error}`, true);
+                } else {
+                    // Add Lark's response
+                    addMessage('lark', data.response);
+                    messages.push({ role: 'assistant', content: data.response });
+
+                    // Update usage stats
+                    if (data.usage) {
+                        totalInputTokens += data.usage.input_tokens;
+                        totalOutputTokens += data.usage.output_tokens;
+                        updateUsageStats();
+                    }
+                }
+
+            } catch (err) {
+                loadingDiv.remove();
+                addMessage('lark', `Something went awry: ${err.message}`, true);
+            }
+
+            // Re-enable input
+            chatInput.disabled = false;
+            sendButton.disabled = false;
+            chatInput.focus();
+        }
+
+        function updateUsageStats() {
+            const totalTokens = totalInputTokens + totalOutputTokens;
+            // Sonnet pricing: $3/M input, $15/M output = ~0.3p/1K input, ~1.5p/1K output
+            const costPence = (totalInputTokens * 0.0003) + (totalOutputTokens * 0.0015);
+
+            totalTokensEl.textContent = totalTokens.toLocaleString();
+            estimatedCostEl.textContent = costPence.toFixed(2);
+            usageStats.classList.add('visible');
+        }
+
+        function clearConversation() {
+            messages = [];
+            totalInputTokens = 0;
+            totalOutputTokens = 0;
+
+            // Clear all messages except the greeting
+            chatContainer.innerHTML = '';
+            addMessage('lark', '<em>{{ greeting }}</em>');
+
+            usageStats.classList.remove('visible');
+            chatInput.focus();
+        }
+
+        // Focus input on load
+        chatInput.focus();
+    </script>
+</body>
+</html>

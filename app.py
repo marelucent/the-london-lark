@@ -29,6 +29,7 @@ from emotional_geography import is_surprise_me_query
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
 from parse_venues import load_parsed_venues
 from lark_metrics import get_metrics
+from lark_mind import chat_with_lark, get_time_aware_greeting as get_lark_mind_greeting
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import random
@@ -1142,6 +1143,50 @@ def care_pathway():
         return jsonify({
             'error': f"Something went awry: {str(e)}",
             'responses': []
+        }), 500
+
+
+# =============================================================================
+# LARK MIND - Conversational AI (Prototype)
+# =============================================================================
+
+@app.route('/lark-mind-test')
+def lark_mind_test():
+    """Serve the Lark Mind test page (hidden prototype)"""
+    greeting = get_lark_mind_greeting()
+    return render_template('lark_mind_test.html', greeting=greeting)
+
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    """
+    Lark Mind chat endpoint.
+
+    Expects JSON: { "messages": [{"role": "user", "content": "..."}, ...] }
+    Returns JSON: { "response": "...", "usage": {...}, "error": null }
+    """
+    try:
+        data = request.json or {}
+        messages = data.get('messages', [])
+
+        if not messages:
+            return jsonify({
+                'error': 'No messages provided',
+                'response': None
+            }), 400
+
+        # Call Lark Mind
+        result = chat_with_lark(messages)
+
+        if result.get('error'):
+            return jsonify(result), 500
+
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({
+            'error': f"Something went awry: {str(e)}",
+            'response': None
         }), 500
 
 
