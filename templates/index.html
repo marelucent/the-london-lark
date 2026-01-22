@@ -571,6 +571,26 @@
         }
 
         /* ============================================
+           CLARIFICATION PROMPT STYLES
+           ============================================ */
+
+        .lark-clarification {
+            text-align: center;
+            padding: 2rem 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .lark-asks {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--gold, #d4af37);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* ============================================
            NULL STATE STYLES
            ============================================ */
 
@@ -1408,6 +1428,29 @@
                     input.disabled = false;
                     document.getElementById('askButton').disabled = false;
                     input.value = '';
+                    return;
+                }
+
+                // =====================================================
+                // CONVERSATIONAL FALLBACKS (location-only, vague, no match)
+                // Show as prompt text, not as venue cards
+                // =====================================================
+                if (data.needs_clarification && data.responses && data.responses.length > 0) {
+                    const clarificationText = data.responses[0].text;
+
+                    const clarificationSection = document.createElement('div');
+                    clarificationSection.className = 'lark-clarification';
+                    clarificationSection.innerHTML = `
+                        <p class="lark-asks">${clarificationText}</p>
+                    `;
+                    resultsContainer.appendChild(clarificationSection);
+
+                    // Re-enable input and clear it for the follow-up
+                    input.disabled = false;
+                    document.getElementById('askButton').disabled = false;
+                    input.value = '';
+                    input.placeholder = 'Tell me more...';
+                    input.focus();
                     return;
                 }
 
