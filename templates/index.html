@@ -662,7 +662,7 @@
                     <h2 class="lark-headline">"I know the places that change you."</h2>
                     <p class="lark-subline">A poetic guide to London's hidden doors.</p>
 
-                    <p class="entrance-prompt">What are you after tonight?</p>
+                    <p class="entrance-greeting" id="entranceGreeting"></p>
 
                     <div class="entrance-search">
                         <textarea
@@ -1967,12 +1967,150 @@
         // ============================================
         // INIT
         // ============================================
+        // ============================================
+        // TIME-OF-DAY GREETINGS
+        // ============================================
+        const timeGreetings = {
+            morning: [
+                "The city stirs… but some doors only open for early hearts.",
+                "Morning light spills secrets if you rise with it.",
+                "You're up before the spell breaks. Good.",
+                "Early riser. The city rewards that.",
+                "Dawn seekers find different doors.",
+                "The morning holds quieter magic. What are you after?"
+            ],
+            afternoon: [
+                "While the city hurries, something slower waits.",
+                "You looked away from your inbox. The city noticed.",
+                "Boredom is a key. Want to see where it fits?",
+                "Midday wanderer. What calls to you?",
+                "The afternoon hums with possibility.",
+                "Between meetings, between worlds. What are you seeking?"
+            ],
+            evening: [
+                "Evening descends. Some lights glow for those who follow feeling.",
+                "The night is gathering herself. Want in?",
+                "Doors open differently after dusk.",
+                "The city changes after sunset. So might you.",
+                "Evening unfolds. What kind of night are you after?",
+                "Twilight seekers find the best corners."
+            ],
+            lateNight: [
+                "The clocks are quiet. But something's still humming.",
+                "You're awake. So is the city's underside.",
+                "The veil thins after midnight. Step through.",
+                "Night owl. The city has secrets for you.",
+                "The small hours hold different doors.",
+                "Still up? So is she. What are you seeking?"
+            ]
+        };
+
+        function getTimeOfDay() {
+            const hour = new Date().getHours();
+            if (hour >= 6 && hour < 12) return 'morning';
+            if (hour >= 12 && hour < 18) return 'afternoon';
+            if (hour >= 18 && hour < 24) return 'evening';
+            return 'lateNight';
+        }
+
+        function setTimeGreeting() {
+            const period = getTimeOfDay();
+            const greetings = timeGreetings[period];
+            const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+            const el = document.getElementById('entranceGreeting');
+            if (el) el.textContent = greeting;
+        }
+
+        // ============================================
+        // CYCLING PLACEHOLDER EXAMPLES
+        // ============================================
+        const placeholderExamples = [
+            // Feelings / Moods
+            "cosy, with candles and wine...",
+            "I want to feel alive...",
+            "somewhere to think...",
+            "I need to move my body...",
+            "something weird and wonderful...",
+            "I want to laugh...",
+            "somewhere dark and intimate...",
+            "I need stillness...",
+            "take me somewhere strange...",
+            "I'm feeling tender...",
+            // Specific Vibes
+            "witchy...",
+            "jazz and candlelight...",
+            "queer night out...",
+            "live music...",
+            "poetry...",
+            "grief and grace...",
+            "cabaret...",
+            "late night...",
+            // Emotional States
+            "I don't know what I want...",
+            "surprise me...",
+            "somewhere I can be alone but not lonely...",
+            "I need to feel something...",
+            // Combined
+            "cosy in Brixton...",
+            "something weird in Peckham...",
+            "dancing in Hackney..."
+        ];
+
+        let placeholderIndex = 0;
+        let placeholderInterval = null;
+
+        function cyclePlaceholder() {
+            const input = document.getElementById('entranceInput');
+            if (!input || document.activeElement === input) return;
+
+            // Fade out
+            input.style.transition = 'opacity 0.3s ease';
+            input.style.opacity = '0.3';
+
+            setTimeout(() => {
+                placeholderIndex = (placeholderIndex + 1) % placeholderExamples.length;
+                input.placeholder = placeholderExamples[placeholderIndex];
+                // Fade in
+                input.style.opacity = '1';
+            }, 300);
+        }
+
+        function startPlaceholderCycle() {
+            // Randomize starting point
+            placeholderIndex = Math.floor(Math.random() * placeholderExamples.length);
+            const input = document.getElementById('entranceInput');
+            if (input) input.placeholder = placeholderExamples[placeholderIndex];
+
+            // Cycle every 3.5 seconds
+            placeholderInterval = setInterval(cyclePlaceholder, 3500);
+        }
+
+        function stopPlaceholderCycleEntrance() {
+            if (placeholderInterval) {
+                clearInterval(placeholderInterval);
+                placeholderInterval = null;
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             // Entrance-first: show the search-first entrance
             showView('entrance');
 
+            // Set time-of-day greeting
+            setTimeGreeting();
+
+            // Start placeholder cycling
+            startPlaceholderCycle();
+
+            // Pause cycling when input is focused
+            const entranceInput = document.getElementById('entranceInput');
+            entranceInput.addEventListener('focus', stopPlaceholderCycleEntrance);
+            entranceInput.addEventListener('blur', () => {
+                if (!entranceInput.value) startPlaceholderCycle();
+            });
+
             // Enter key support for entrance search
-            document.getElementById('entranceInput').addEventListener('keydown', (e) => {
+            entranceInput.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
                     entranceAsk();
