@@ -12158,5 +12158,420 @@
     "whisper": "Trans‑run karaoke bar where drag bingo and late‑night mischief thrive.",
     "arcana": "Cabaret & Glitter",
     "last_verified": "2025-01-18"
+  },
+  {
+    "name": "Lafayette",
+    "location": "King's Cross",
+    "moods": [
+      "electric",
+      "euphoric",
+      "sweaty",
+      "alive"
+    ],
+    "genres": [
+      "live music",
+      "rock",
+      "indie",
+      "gigs"
+    ],
+    "url": "https://lafayettelondon.com",
+    "blurb": "The speakers feel like jet engines as guitars blaze; sweat drips from the balcony. You didn't come here to sit — the floor moves and the night moves you.",
+    "whisper": "Guitars roar and the floor becomes a living thing.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Electric Brixton",
+    "location": "Brixton",
+    "moods": [
+      "bass-heavy",
+      "euphoric",
+      "communal",
+      "intense"
+    ],
+    "genres": [
+      "live music",
+      "electronic",
+      "gigs",
+      "club nights"
+    ],
+    "url": "https://electricbrixton.uk.com",
+    "blurb": "A cavernous former cinema where the bass vibrates through your ribs; there are no seats because no one needs them. Hold onto the rail and let the crowd carry you.",
+    "whisper": "Bass vibrates through your bones in this cavernous temple.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "O2 Forum Kentish Town",
+    "location": "Kentish Town",
+    "moods": [
+      "nostalgic",
+      "electric",
+      "communal",
+      "triumphant"
+    ],
+    "genres": [
+      "live music",
+      "rock",
+      "indie",
+      "gigs"
+    ],
+    "url": "https://academymusicgroup.com/o2forumkentishtown",
+    "blurb": "Old cinema glamour meets rock-show chaos. You can fight your way to the front or lean from the balcony as the band roars. This place always feels like a homecoming.",
+    "whisper": "Art deco glamour meets rock chaos — every gig a homecoming.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "KOKO",
+    "location": "Camden",
+    "moods": [
+      "electric",
+      "glamorous",
+      "hedonistic",
+      "iconic"
+    ],
+    "genres": [
+      "live music",
+      "club nights",
+      "gigs",
+      "DJ sets"
+    ],
+    "url": "https://koko.co.uk",
+    "blurb": "Friday and Saturday nights turn this refurbished theatre into a high-octane dance hall; 150 gigs a year keep the energy electric. Arrive early, stay late, lose yourself under the proscenium.",
+    "whisper": "Camden's gilded theatre erupts — arrive early, lose yourself late.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "The Murder Express",
+    "location": "Bethnal Green",
+    "moods": [
+      "theatrical",
+      "glamorous",
+      "mysterious",
+      "playful"
+    ],
+    "genres": [
+      "immersive dining",
+      "murder mystery",
+      "theatrical experience"
+    ],
+    "url": "https://funicularproductions.com",
+    "blurb": "Step aboard a 1930s locomotive; chandeliers sway as actors whisper clues and the chef unveils each dramatic course. The line between dinner and theatre dissolves like sugar in a cocktail.",
+    "whisper": "Chandeliers sway, actors whisper — dinner becomes theatre.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Gingerline (Grand Expedition)",
+    "location": "Secret Location",
+    "moods": [
+      "adventurous",
+      "theatrical",
+      "surprising",
+      "euphoric"
+    ],
+    "genres": [
+      "immersive dining",
+      "secret location",
+      "theatrical experience"
+    ],
+    "url": "https://gingerline.co.uk",
+    "blurb": "The location is secret until the day. Once inside, you might find yourself flying in a hot-air balloon or battling aliens mid-banquet. At Gingerline, dinner is an expedition and you are the protagonist.",
+    "whisper": "Secret location, wild story — you are the protagonist.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Oriole Bar",
+    "location": "Farringdon",
+    "moods": [
+      "seductive",
+      "glamorous",
+      "intoxicating",
+      "nocturnal"
+    ],
+    "genres": [
+      "jazz bar",
+      "cocktails",
+      "live music",
+      "late night"
+    ],
+    "url": "https://www.oriolebar.com",
+    "blurb": "Descend into a lush den where cocktails smoke and trumpets scream. Late sets blur into early mornings; if you're not moving, you're missing the point.",
+    "whisper": "Cocktails smoke, trumpets scream — late sets blur to dawn.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Ronnie Scott's - Late Late Show",
+    "location": "Soho",
+    "moods": [
+      "legendary",
+      "electric",
+      "nocturnal",
+      "alive"
+    ],
+    "genres": [
+      "jazz",
+      "late night",
+      "live music"
+    ],
+    "url": "https://www.ronniescotts.co.uk",
+    "blurb": "After midnight the legends loosen their ties and the music catches fire. Lines queue down Frith Street because the Late Late Show is where jazz goes to dance.",
+    "whisper": "After midnight, ties loosen and jazz catches fire.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "606 Club",
+    "location": "Chelsea",
+    "moods": [
+      "soulful",
+      "sweaty",
+      "intimate",
+      "electric"
+    ],
+    "genres": [
+      "jazz",
+      "soul",
+      "latin",
+      "funk",
+      "live music"
+    ],
+    "url": "https://www.606club.co.uk",
+    "blurb": "Tucked beneath Chelsea, this institution dishes up soul, Latin, funk and jazz until your feet can't stop. Every night feels like a secret party — the music fizzes with energy.",
+    "whisper": "Beneath Chelsea, soul and funk fizz until feet give out.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "El Grande at Forge Bar",
+    "location": "City of London",
+    "moods": [
+      "euphoric",
+      "sweaty",
+      "joyful",
+      "communal"
+    ],
+    "genres": [
+      "salsa",
+      "latin dancing",
+      "live band",
+      "dance class"
+    ],
+    "url": "https://elgrande.co.uk",
+    "blurb": "Three rooms, two hours of classes and a live Latin band. By midnight your shirt is plastered to your back and the conga line is a living serpent.",
+    "whisper": "Three rooms, live Latin brass — the conga becomes a serpent.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Stompin' at the 100 Club",
+    "location": "Soho",
+    "moods": [
+      "vintage",
+      "joyful",
+      "sweaty",
+      "nostalgic"
+    ],
+    "genres": [
+      "swing dancing",
+      "lindy hop",
+      "live band",
+      "vintage"
+    ],
+    "url": "https://swingdanceuk.com",
+    "blurb": "Beneath Oxford Street, lindy hoppers spin and slide to brass-heavy bands. It's sweaty, joyous and gloriously vintage.",
+    "whisper": "Beneath Oxford Street, lindy hoppers spin to brass.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "London Ceilidh Club",
+    "location": "Paddington",
+    "moods": [
+      "joyful",
+      "communal",
+      "energetic",
+      "welcoming"
+    ],
+    "genres": [
+      "ceilidh",
+      "folk dancing",
+      "live band",
+      "social dance"
+    ],
+    "url": "https://ceilidhclub.com",
+    "blurb": "A caller shouts steps as the fiddle reels. No experience needed; you'll be whooping with strangers and stomping through 'Auld Lang Syne' by the end.",
+    "whisper": "A caller shouts, fiddles reel — strangers become friends.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Radio Rooftop",
+    "location": "Strand",
+    "moods": [
+      "glamorous",
+      "buzzing",
+      "skyline",
+      "electric"
+    ],
+    "genres": [
+      "rooftop bar",
+      "cocktails",
+      "DJ sets",
+      "skyline views"
+    ],
+    "url": "https://radiorooftop.com",
+    "blurb": "Wraparound glass, skyline stretching for miles and DJs spinning deep house; you feel like you're toasting London itself.",
+    "whisper": "Deep house and skyline stretching forever — toast London itself.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Sushisamba (Heron Tower)",
+    "location": "Bishopsgate",
+    "moods": [
+      "glamorous",
+      "dazzling",
+      "elevated",
+      "electric"
+    ],
+    "genres": [
+      "rooftop bar",
+      "cocktails",
+      "skyline views",
+      "Japanese fusion"
+    ],
+    "url": "https://sushisamba.com",
+    "blurb": "Elevator rockets to the 38th floor and suddenly you're in a rainforest of bamboo and neon. Order sake, find a corner on the terrace and watch the city glitter.",
+    "whisper": "38 floors up — bamboo, neon, sake, and London glittering below.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Seabird at The Hoxton Southwark",
+    "location": "South Bank",
+    "moods": [
+      "breezy",
+      "glamorous",
+      "golden-hour",
+      "social"
+    ],
+    "genres": [
+      "rooftop bar",
+      "oyster bar",
+      "cocktails",
+      "skyline views"
+    ],
+    "url": "https://www.seabirdlondon.com",
+    "blurb": "A tropical escape above the Thames; oysters on ice, Spanish vermouth and a sunset that melts into the horizon.",
+    "whisper": "Oysters, vermouth, and a sunset melting over the Thames.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Lyaness",
+    "location": "South Bank",
+    "moods": [
+      "experimental",
+      "electric",
+      "glamorous",
+      "daring"
+    ],
+    "genres": [
+      "cocktail bar",
+      "experimental drinks",
+      "Thames views"
+    ],
+    "url": "https://lyaness.com",
+    "blurb": "Electric blue bar, strange ingredients and views of the Thames. The bartenders are alchemists and every drink feels like a dare.",
+    "whisper": "Electric blue alchemy — every drink a dare, Thames glittering.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Scarfes Bar",
+    "location": "Holborn",
+    "moods": [
+      "sophisticated",
+      "mischievous",
+      "glamorous",
+      "warm"
+    ],
+    "genres": [
+      "cocktail bar",
+      "live jazz",
+      "hotel bar"
+    ],
+    "url": "https://scarfesbar.com",
+    "blurb": "Step through revolving doors into a world of caricatures and cocktails. Sip beside the fire while live jazz crackles — the room hums with mischief.",
+    "whisper": "Caricatures watch as jazz crackles by the fire — mischief hums.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Swift",
+    "location": "Soho",
+    "moods": [
+      "intimate",
+      "nocturnal",
+      "sophisticated",
+      "warm"
+    ],
+    "genres": [
+      "cocktail bar",
+      "whisky bar",
+      "aperitivo"
+    ],
+    "url": "https://barswift.com",
+    "blurb": "Aperitivo upstairs, whisky-den downstairs. Order an Irish Coffee, sink into a booth and let time blur.",
+    "whisper": "Aperitivo above, whisky below — time blurs in the booth.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "Connaught Bar",
+    "location": "Mayfair",
+    "moods": [
+      "glamorous",
+      "elegant",
+      "theatrical",
+      "refined"
+    ],
+    "genres": [
+      "cocktail bar",
+      "hotel bar",
+      "martini trolley"
+    ],
+    "url": "https://the-connaught.co.uk",
+    "blurb": "Mayfair elegance with a twist. Your martini arrives by trolley; the bartender raises the mixing glass overhead and pours with panache.",
+    "whisper": "Martini by trolley, poured overhead — Mayfair magic.",
+    "arcana": "Big Night Out",
+    "last_verified": "2026-01-22"
+  },
+  {
+    "name": "The Nest Collective",
+    "location": "Various",
+    "moods": [
+      "warm",
+      "communal",
+      "gentle",
+      "joyful"
+    ],
+    "genres": [
+      "folk music",
+      "ceilidh",
+      "balfolk",
+      "storytelling",
+      "fiddle sessions"
+    ],
+    "url": "https://thenestcollective.co.uk",
+    "blurb": "Where folk music comes to roost. Ceilidhs, balfolk, storytelling and fiddle sessions — The Nest gathers the warm-hearted and the light-footed.",
+    "whisper": "Folk music roosts here — warm hearts, light feet, stories shared.",
+    "arcana": "Folk & Intimate",
+    "last_verified": "2026-01-22"
   }
 ]
