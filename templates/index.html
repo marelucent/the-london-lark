@@ -659,10 +659,10 @@
             <!-- ENTRANCE: Portal Moment -->
             <section id="entranceView" class="view active">
                 <div class="portal-moment">
-                    <p class="opening-line" id="openingLine">{{ greeting }}</p>
-                    <p class="portal-question">How would you like to begin?</p>
+                    <h2 class="lark-headline">I know the places that change you.</h2>
+                    <p class="lark-subline">A poetic guide to London's hidden doors — 650+ venues, 23 moods, tuned to feeling, not algorithm.</p>
                 </div>
-                
+
                 <!-- The Three Paths -->
                 <div class="paths-container">
                     <div class="path-card" onclick="choosePath('draw')">
@@ -670,23 +670,35 @@
                         <span class="corner-bl"></span>
                         <div class="path-icon">✦</div>
                         <div class="path-title">DRAW A CARD</div>
-                        <div class="path-whisper">"Let fate decide"</div>
+                        <div class="path-whisper">Let the cards decide</div>
                     </div>
-                    
+
                     <div class="path-card" onclick="choosePath('ask')">
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
                         <div class="path-icon">❦</div>
                         <div class="path-title">ASK THE LARK</div>
-                        <div class="path-whisper">"Tell me what you seek"</div>
+                        <div class="path-whisper">Tell her your mood</div>
                     </div>
-                    
+
                     <div class="path-card" onclick="choosePath('browse')">
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
                         <div class="path-icon">☰</div>
                         <div class="path-title">BROWSE THE DECK</div>
-                        <div class="path-whisper">"Lay out the cards"</div>
+                        <div class="path-whisper">See all 23 moods</div>
+                    </div>
+                </div>
+
+                <!-- Who Is She? -->
+                <div class="who-is-she-container">
+                    <button class="who-is-she-toggle" onclick="toggleWhoIsShe()">
+                        <span class="toggle-icon">▸</span> Who is she?
+                    </button>
+                    <div class="who-is-she-content" id="whoIsSheContent">
+                        <p>The London Lark is a venue oracle — part mood board, part tarot deck, part tipsy friend who always knows the spot.</p>
+                        <p>She maps 650+ venues across 23 arcana (moods), from <em>Witchy & Wild</em> to <em>Big Night Out</em> to <em>Quietly Devastated</em>. You can draw a card at random, ask her what you're craving, or browse the full deck.</p>
+                        <p>She's not a review site. She's not an algorithm. She's a guide to London's hidden doors — the rooms that hum with something.</p>
                     </div>
                 </div>
             </section>
@@ -945,6 +957,14 @@
             // Clear ask results
             document.getElementById('askResults').innerHTML = '';
             document.getElementById('userInput').value = '';
+        }
+
+        // Toggle "Who is she?" expandable section
+        function toggleWhoIsShe() {
+            const toggle = document.querySelector('.who-is-she-toggle');
+            const content = document.getElementById('whoIsSheContent');
+            toggle.classList.toggle('active');
+            content.classList.toggle('expanded');
         }
 
         // ============================================
