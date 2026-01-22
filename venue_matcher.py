@@ -6,6 +6,8 @@ The London Lark — Venue Matcher
 Matches venue profiles to interpreted prompt filters.
 Draws from `lark_venues_clean.json`, a curated dataset of venues.
 Matches on:
+- Venue name (high priority - direct text match)
+- Venue blurb/whisper (medium priority - text match)
 - Mood tag (using full synonym list from mood_index.json)
 - Location (if given)
 - Group size compatibility
@@ -17,6 +19,7 @@ Now with adjacency-based card drawing:
 
 import json
 import random
+import re
 from pathlib import Path
 from parse_venues import load_parsed_venues
 from emotional_geography import get_random_adjacent, TAROT_ADJACENCY
@@ -75,6 +78,99 @@ def _poetic_line(venue, mood):
         f"• {venue['name']} in {venue['area']}: {venue['vibe_note']} "
         f"{mood_hint}{timing_phrase}."
     )
+
+
+def search_venue_text(search_text, venues, location=None):
+    """
+    Search venue names, blurbs, and whispers for matching text.
+
+    Returns a tuple of (name_matches, text_matches) where:
+    - name_matches: venues where search terms appear in the name (high priority)
+    - text_matches: venues where search terms appear in blurb/whisper (medium priority)
+
+    Both lists are filtered by location if specified.
+    """
+    if not search_text:
+        return [], []
+
+    # Clean and extract meaningful search words (ignore common stopwords)
+    stopwords = {
+        'a', 'an', 'the', 'in', 'on', 'at', 'for', 'to', 'of', 'and', 'or',
+        'is', 'are', 'was', 'were', 'be', 'been', 'being',
+        'i', 'me', 'my', 'we', 'our', 'you', 'your',
+        'something', 'somewhere', 'anything', 'anywhere', 'want', 'looking',
+        'find', 'show', 'tell', 'give', 'need', 'like', 'love',
+        'tonight', 'today', 'tomorrow', 'weekend', 'evening', 'night', 'day',
+        'london', 'near', 'around', 'nearby'
+    }
+
+    # Extract search terms
+    search_lower = search_text.lower()
+    # Remove punctuation and split
+    words = re.sub(r'[^\w\s-]', ' ', search_lower).split()
+    search_terms = [w for w in words if w not in stopwords and len(w) > 2]
+
+    # Also check for multi-word phrases (like "death cafe", "tarot reading")
+    multi_word_phrases = []
+    for phrase_len in [3, 2]:  # Check 3-word and 2-word phrases
+        for i in range(len(words) - phrase_len + 1):
+            phrase = ' '.join(words[i:i+phrase_len])
+            if phrase not in stopwords:
+                multi_word_phrases.append(phrase)
+
+    if not search_terms and not multi_word_phrases:
+        return [], []
+
+    print(f"   🔎 Text search terms: {search_terms[:5]}... phrases: {multi_word_phrases[:3]}...")
+
+    name_matches = []
+    text_matches = []
+
+    for venue in venues:
+        # Apply location filter if specified
+        if location:
+            area = venue.get("area", "") or venue.get("location", "")
+            tags = venue.get("tags", [])
+            tags_str = " ".join(tags) if isinstance(tags, list) else str(tags)
+            if location.lower() not in area.lower() and location.lower() not in tags_str.lower():
+                continue
+
+        venue_name = venue.get("name", "").lower()
+        venue_blurb = venue.get("blurb", "").lower()
+        venue_whisper = venue.get("whisper", "").lower()
+
+        # Check for multi-word phrase matches first (higher specificity)
+        name_phrase_match = any(phrase in venue_name for phrase in multi_word_phrases)
+        text_phrase_match = any(phrase in venue_blurb or phrase in venue_whisper for phrase in multi_word_phrases)
+
+        # Check for single-word matches
+        name_word_match = any(term in venue_name for term in search_terms)
+        text_word_match = any(term in venue_blurb or term in venue_whisper for term in search_terms)
+
+        if name_phrase_match or name_word_match:
+            name_matches.append(venue)
+        elif text_phrase_match or text_word_match:
+            text_matches.append(venue)
+
+    print(f"   📍 Text search found: {len(name_matches)} name matches, {len(text_matches)} blurb/whisper matches")
+
+    return name_matches, text_matches
+
+
+def normalize_venue(venue):
+    """Normalize venue data to expected format for responses."""
+    mood_tags = venue.get("moods", []) or venue.get("mood_tags", [])
+    return {
+        "name": venue.get("name", "Unnamed venue"),
+        "area": venue.get("area", venue.get("location", "London")),
+        "vibe_note": venue.get("tone_notes", venue.get("blurb", "An experience beyond words")),
+        "typical_start_time": venue.get("typical_start_time", ""),
+        "price": venue.get("price", "TBC"),
+        "website": venue.get("website", venue.get("url", "")),
+        "whisper": venue.get("whisper", ""),
+        "mood_tags": mood_tags,
+        "raw_data": venue
+    }
 
 
 def match_venues(filters):
@@ -226,6 +322,11 @@ def match_venues_with_adjacency(filters, all_venues=None):
     - Card 2: Primary arcana venue (different)
     - Card 3: Adjacent arcana venue (from a neighboring arcana)
 
+    Now with text search priority:
+    1. First check for name matches (high priority)
+    2. Then check blurb/whisper matches (medium priority)
+    3. Fall back to mood tag matching (standard behavior)
+
     "She gives you what you searched for, and one door you didn't know to ask about."
     """
     mood = filters.get("mood")
@@ -233,10 +334,82 @@ def match_venues_with_adjacency(filters, all_venues=None):
     group = filters.get("group")
     budget = filters.get("budget")
     genre = filters.get("genre")
+    search_text = filters.get("search_text", "")
 
     # Load all venues if not provided
     if all_venues is None:
         all_venues = load_parsed_venues()
+
+    # UPGRADE 2: Try text search first (name, blurb, whisper)
+    name_matches, text_matches = search_venue_text(search_text, all_venues, location)
+
+    # If we have name matches, prioritize them
+    if name_matches:
+        print(f"   ✨ Using name matches for query")
+        result = []
+        seen_names = set()
+        random.shuffle(name_matches)
+
+        for venue in name_matches[:3]:
+            venue_name = venue.get("name", "").lower().strip()
+            if venue_name not in seen_names:
+                result.append(normalize_venue(venue))
+                seen_names.add(venue_name)
+
+        # If we need more venues, add from text matches
+        if len(result) < 3 and text_matches:
+            random.shuffle(text_matches)
+            for venue in text_matches:
+                if len(result) >= 3:
+                    break
+                venue_name = venue.get("name", "").lower().strip()
+                if venue_name not in seen_names:
+                    result.append(normalize_venue(venue))
+                    seen_names.add(venue_name)
+
+        # If we still need more, try mood matching
+        if len(result) < 3 and mood:
+            mood_matches = match_venues(filters)
+            for venue in mood_matches:
+                if len(result) >= 3:
+                    break
+                venue_name = venue.get("name", "").lower().strip()
+                if venue_name not in seen_names:
+                    result.append(venue)  # Already normalized by match_venues
+                    seen_names.add(venue_name)
+
+        if result:
+            return result
+
+    # If we have text matches but no name matches, use them
+    if text_matches:
+        print(f"   ✨ Using blurb/whisper matches for query")
+        result = []
+        seen_names = set()
+        random.shuffle(text_matches)
+
+        for venue in text_matches[:3]:
+            venue_name = venue.get("name", "").lower().strip()
+            if venue_name not in seen_names:
+                result.append(normalize_venue(venue))
+                seen_names.add(venue_name)
+
+        # If we need more venues, try mood matching
+        if len(result) < 3 and mood:
+            mood_matches = match_venues(filters)
+            for venue in mood_matches:
+                if len(result) >= 3:
+                    break
+                venue_name = venue.get("name", "").lower().strip()
+                if venue_name not in seen_names:
+                    result.append(venue)  # Already normalized
+                    seen_names.add(venue_name)
+
+        if result:
+            return result
+
+    # Fall back to standard mood-based matching with adjacency
+    print(f"   📜 Falling back to mood-based matching")
 
     # Determine the primary arcana
     # If mood is a valid arcana name, use it directly

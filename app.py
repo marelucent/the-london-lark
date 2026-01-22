@@ -423,6 +423,95 @@ def ask_lark():
             print(f"   Direct mood match: {filters.get('mood')}")
 
         # =====================================================================
+        # CONVERSATIONAL FALLBACKS (Upgrade 4)
+        # Handle location-only, vague, or unclear queries with helpful questions
+        # =====================================================================
+
+        # Location-only query: "Brixton", "Hackney", "Peckham"
+        if filters.get("location_only") and emotional_tier is None:
+            location = filters.get("location")
+            print(f"   💬 Location-only query detected: '{location}'")
+
+            # Lark asks for mood/intent
+            location_prompts = [
+                f"{location} hums with secrets. What kind of night are you dreaming of?",
+                f"{location} has many doors. What are you seeking tonight?",
+                f"Ah, {location}... but what mood calls you there? Tell me more.",
+                f"{location} holds multitudes. Are you after something wild? Quiet? Strange?"
+            ]
+            import random
+            chosen_prompt = random.choice(location_prompts)
+
+            return jsonify({
+                'responses': [{
+                    'text': chosen_prompt,
+                    'venue_name': None,
+                    'area': None,
+                    'website': None
+                }],
+                'mood': None,
+                'confidence': 0.0,
+                'venue_count': 0,
+                'filters': filters,
+                'needs_clarification': True,
+                'clarification_type': 'location_only',
+                'safety': {
+                    'tier': emotional_tier,
+                    'show_soft_footer': False,
+                    'show_support_box': False,
+                    'show_crisis_resources': False,
+                    'lark_preamble': None
+                },
+                'debug': {
+                    'reason': 'location_only_query',
+                    'location': location
+                }
+            })
+
+        # Vague query: "something nice", "somewhere different", "anything interesting"
+        if filters.get("is_vague") and not filters.get("mood") and emotional_tier is None:
+            print(f"   💬 Vague query detected: '{user_prompt}'")
+
+            # Check for specific vague patterns
+            prompt_lower = user_prompt.lower()
+            if "nice" in prompt_lower:
+                clarification = "Nice can mean so many things... Cosy? Fancy? Quiet? Alive? Tell me more, darling."
+            elif "different" in prompt_lower:
+                clarification = "Different how? Stranger? Softer? Wilder? I'm all ears."
+            elif "interesting" in prompt_lower:
+                clarification = "Interesting... but in which direction? Curious? Challenging? Playful?"
+            elif "something" in prompt_lower or "somewhere" in prompt_lower:
+                clarification = "Something... but what kind? Help me find your door."
+            else:
+                clarification = "I'm intrigued, but I need a little more. What feeling are you chasing tonight?"
+
+            return jsonify({
+                'responses': [{
+                    'text': clarification,
+                    'venue_name': None,
+                    'area': None,
+                    'website': None
+                }],
+                'mood': None,
+                'confidence': 0.0,
+                'venue_count': 0,
+                'filters': filters,
+                'needs_clarification': True,
+                'clarification_type': 'vague_query',
+                'safety': {
+                    'tier': emotional_tier,
+                    'show_soft_footer': False,
+                    'show_support_box': False,
+                    'show_crisis_resources': False,
+                    'lark_preamble': None
+                },
+                'debug': {
+                    'reason': 'vague_query',
+                    'prompt': user_prompt
+                }
+            })
+
+        # =====================================================================
         # SAFETY TIER PRIORITY CHECK
         # If distress or crisis detected, handle that FIRST before mood checks
         # =====================================================================
@@ -527,12 +616,77 @@ def ask_lark():
         # CONFIDENCE THRESHOLD CHECKS (only reached if no safety override)
         # =====================================================================
         
-        # If no mood detected at all (None with 0.0 confidence), show null state with presence
+        # If no mood detected at all (None with 0.0 confidence), show conversational fallback
         if filters.get("mood") is None and mood_confidence == 0.0:
-            print(f"   ❌ No recognizable mood keywords found - showing null state with presence")
+            print(f"   ❌ No recognizable mood keywords found - asking for clarification")
+
+            # Try text search first - maybe they're looking for a specific venue by name
+            from venue_matcher import search_venue_text
+            from parse_venues import load_parsed_venues
+            all_venues = load_parsed_venues()
+            name_matches, text_matches = search_venue_text(user_prompt, all_venues, filters.get("location"))
+
+            # If we found text matches, return those instead of null state
+            if name_matches or text_matches:
+                print(f"   ✨ Found text matches despite no mood - using them")
+                matches = name_matches[:3] if name_matches else text_matches[:3]
+                from venue_matcher import normalize_venue
+                normalized = [normalize_venue(v) for v in matches]
+
+                responses = []
+                for venue in normalized:
+                    response = generate_response(venue, filters)
+                    raw_data = venue.get('raw_data', {})
+                    venue_arcana = raw_data.get('arcana', 'Unknown')
+                    responses.append({
+                        'text': response,
+                        'venue_name': venue.get('name', ''),
+                        'area': venue.get('area', ''),
+                        'website': venue.get('website', ''),
+                        'whisper': venue.get('whisper', ''),
+                        'arcana': venue_arcana,
+                        'is_adjacent': False
+                    })
+
+                return jsonify({
+                    'responses': responses,
+                    'mood': None,
+                    'confidence': 0.5,  # Medium confidence for text match
+                    'venue_count': len(responses),
+                    'filters': filters,
+                    'safety': {
+                        'tier': emotional_tier,
+                        'show_soft_footer': safety_config.get('show_soft_footer', False),
+                        'show_support_box': safety_config.get('show_support_box', False),
+                        'show_crisis_resources': safety_config.get('show_crisis_resources', False),
+                        'lark_preamble': None
+                    },
+                    'debug': {
+                        'reason': 'text_search_match',
+                        'name_matches': len(name_matches),
+                        'text_matches': len(text_matches)
+                    }
+                })
+
+            # No text matches either - offer conversational help
+            # Lark-voiced fallback messages
+            fallback_messages = [
+                "I'm not sure I found that door. Tell me more — or shall I draw for you?",
+                "That word is new to me. Shall I draw a card instead, or tell me what you're seeking?",
+                "I couldn't quite catch that. What kind of evening calls to you?",
+                "Hmm, I'm not finding a thread there. Could you say more about what you're after?"
+            ]
+            import random
+            chosen_message = random.choice(fallback_messages)
+
             null_config = get_null_state_config()
             return jsonify({
-                'responses': [],  # No venues, but she stays present
+                'responses': [{
+                    'text': chosen_message,
+                    'venue_name': None,
+                    'area': None,
+                    'website': None
+                }],
                 'mood': None,
                 'confidence': 0.0,
                 'venue_count': 0,
@@ -542,6 +696,8 @@ def ask_lark():
                     'preamble': null_config['preamble'],
                     'choices': null_config['choices']
                 },
+                'needs_clarification': True,
+                'clarification_type': 'no_match',
                 'safety': {
                     'tier': emotional_tier,
                     'show_soft_footer': safety_config.get('show_soft_footer', False),
@@ -553,17 +709,74 @@ def ask_lark():
                     'lark_preamble': None
                 },
                 'debug': {
-                    'reason': 'null_state_with_presence',
+                    'reason': 'null_state_with_clarification',
                     'keywords_checked': user_prompt.lower().split()
                 }
             })
 
-        # If confidence is very low (< 0.3), ask for clarification
+        # If confidence is very low (< 0.3), try text search first, then ask for clarification
         if mood_confidence < 0.3:
-            print(f"   ⚠️ Very low confidence ({mood_confidence}), asking for clarification")
+            print(f"   ⚠️ Very low confidence ({mood_confidence}), trying text search before asking")
+
+            # Try text search as fallback
+            from venue_matcher import search_venue_text
+            from parse_venues import load_parsed_venues
+            all_venues = load_parsed_venues()
+            name_matches, text_matches = search_venue_text(user_prompt, all_venues, filters.get("location"))
+
+            if name_matches or text_matches:
+                print(f"   ✨ Found text matches despite low confidence - using them")
+                matches = name_matches[:3] if name_matches else text_matches[:3]
+                from venue_matcher import normalize_venue
+                normalized = [normalize_venue(v) for v in matches]
+
+                responses = []
+                for venue in normalized:
+                    response = generate_response(venue, filters)
+                    raw_data = venue.get('raw_data', {})
+                    venue_arcana = raw_data.get('arcana', 'Unknown')
+                    responses.append({
+                        'text': response,
+                        'venue_name': venue.get('name', ''),
+                        'area': venue.get('area', ''),
+                        'website': venue.get('website', ''),
+                        'whisper': venue.get('whisper', ''),
+                        'arcana': venue_arcana,
+                        'is_adjacent': False
+                    })
+
+                return jsonify({
+                    'responses': responses,
+                    'mood': filters.get('mood'),
+                    'confidence': 0.5,  # Bump confidence for text match
+                    'venue_count': len(responses),
+                    'filters': filters,
+                    'safety': {
+                        'tier': emotional_tier,
+                        'show_soft_footer': safety_config['show_soft_footer'],
+                        'show_support_box': safety_config['show_support_box'],
+                        'show_crisis_resources': safety_config['show_crisis_resources'],
+                        'lark_preamble': safety_config['lark_preamble']
+                    },
+                    'debug': {
+                        'reason': 'text_search_fallback',
+                        'original_confidence': mood_confidence
+                    }
+                })
+
+            # No text matches - ask for clarification in Lark's voice
+            mood_detected = filters.get('mood', 'something')
+            clarification_messages = [
+                f"I hear a whisper of '{mood_detected}' in your words, but I'm not certain. What kind of night are you dreaming of?",
+                f"I sense something in '{mood_detected}'... but tell me more. What feeling are you chasing?",
+                f"'{mood_detected}' echoes faintly. Help me understand — what draws you tonight?"
+            ]
+            import random
+            chosen_message = random.choice(clarification_messages)
+
             return jsonify({
                 'responses': [{
-                    'text': f"I sense a whisper of '{filters.get('mood', 'something')}' in your words, but I'm not certain. Could you tell me more about the evening you're dreaming of?",
+                    'text': chosen_message,
                     'venue_name': None,
                     'area': None,
                     'website': None
@@ -572,6 +785,8 @@ def ask_lark():
                 'confidence': mood_confidence,
                 'venue_count': 0,
                 'filters': filters,
+                'needs_clarification': True,
+                'clarification_type': 'low_confidence',
                 'safety': {
                     'tier': emotional_tier,
                     'show_soft_footer': safety_config['show_soft_footer'],
