@@ -231,8 +231,11 @@ def interpret_prompt(prompt):
     else:
         group = None
 
-    # Location detection - check regions first, then specific areas
+    # Location detection - comprehensive London neighbourhoods
+    # Check regions first, then specific areas
     location = None
+
+    # Regions (broad areas)
     if "north london" in prompt_lower:
         location = "North London"
     elif "south london" in prompt_lower:
@@ -243,7 +246,168 @@ def interpret_prompt(prompt):
         location = "West London"
     elif "central london" in prompt_lower:
         location = "Central London"
-    # Specific neighborhoods - West London
+    elif "southeast london" in prompt_lower or "south east london" in prompt_lower:
+        location = "South East London"
+    elif "southwest london" in prompt_lower or "south west london" in prompt_lower:
+        location = "South West London"
+    elif "northeast london" in prompt_lower or "north east london" in prompt_lower:
+        location = "North East London"
+    elif "northwest london" in prompt_lower or "north west london" in prompt_lower:
+        location = "North West London"
+
+    # East London neighbourhoods
+    elif "shoreditch" in prompt_lower:
+        location = "Shoreditch"
+    elif "hackney" in prompt_lower:
+        location = "Hackney"
+    elif "dalston" in prompt_lower:
+        location = "Dalston"
+    elif "bethnal green" in prompt_lower:
+        location = "Bethnal Green"
+    elif "whitechapel" in prompt_lower:
+        location = "Whitechapel"
+    elif "mile end" in prompt_lower:
+        location = "Mile End"
+    elif "bow" in prompt_lower:
+        location = "Bow"
+    elif "limehouse" in prompt_lower:
+        location = "Limehouse"
+    elif "canary wharf" in prompt_lower:
+        location = "Canary Wharf"
+    elif "stratford" in prompt_lower:
+        location = "Stratford"
+    elif "walthamstow" in prompt_lower:
+        location = "Walthamstow"
+    elif "leyton" in prompt_lower:
+        location = "Leyton"
+    elif "leytonstone" in prompt_lower:
+        location = "Leytonstone"
+    elif "canning town" in prompt_lower:
+        location = "Canning Town"
+    elif "barking" in prompt_lower:
+        location = "Barking"
+    elif "stepney" in prompt_lower:
+        location = "Stepney"
+
+    # South London neighbourhoods
+    elif "brixton" in prompt_lower:
+        location = "Brixton"
+    elif "peckham" in prompt_lower:
+        location = "Peckham"
+    elif "deptford" in prompt_lower:
+        location = "Deptford"
+    elif "greenwich" in prompt_lower:
+        location = "Greenwich"
+    elif "lewisham" in prompt_lower:
+        location = "Lewisham"
+    elif "catford" in prompt_lower:
+        location = "Catford"
+    elif "bermondsey" in prompt_lower:
+        location = "Bermondsey"
+    elif "borough" in prompt_lower:
+        location = "Borough"
+    elif "southwark" in prompt_lower:
+        location = "Southwark"
+    elif "waterloo" in prompt_lower:
+        location = "Waterloo"
+    elif "elephant" in prompt_lower or "elephant and castle" in prompt_lower:
+        location = "Elephant and Castle"
+    elif "clapham" in prompt_lower:
+        location = "Clapham"
+    elif "balham" in prompt_lower:
+        location = "Balham"
+    elif "tooting" in prompt_lower:
+        location = "Tooting"
+    elif "streatham" in prompt_lower:
+        location = "Streatham"
+    elif "crystal palace" in prompt_lower:
+        location = "Crystal Palace"
+    elif "camberwell" in prompt_lower:
+        location = "Camberwell"
+    elif "dulwich" in prompt_lower:
+        location = "Dulwich"
+    elif "herne hill" in prompt_lower:
+        location = "Herne Hill"
+    elif "vauxhall" in prompt_lower:
+        location = "Vauxhall"
+    elif "kennington" in prompt_lower:
+        location = "Kennington"
+    elif "stockwell" in prompt_lower:
+        location = "Stockwell"
+    elif "new cross" in prompt_lower:
+        location = "New Cross"
+    elif "brockley" in prompt_lower:
+        location = "Brockley"
+    elif "forest hill" in prompt_lower:
+        location = "Forest Hill"
+    elif "sydenham" in prompt_lower:
+        location = "Sydenham"
+    elif "nunhead" in prompt_lower:
+        location = "Nunhead"
+    elif "honor oak" in prompt_lower:
+        location = "Honor Oak"
+
+    # North London neighbourhoods
+    elif "camden" in prompt_lower:
+        location = "Camden"
+    elif "islington" in prompt_lower:
+        location = "Islington"
+    elif "king's cross" in prompt_lower or "kings cross" in prompt_lower:
+        location = "King's Cross"
+    elif "finsbury park" in prompt_lower:
+        location = "Finsbury Park"
+    elif "stoke newington" in prompt_lower or "stokey" in prompt_lower:
+        location = "Stoke Newington"
+    elif "tottenham" in prompt_lower:
+        location = "Tottenham"
+    elif "hampstead" in prompt_lower:
+        location = "Hampstead"
+    elif "highgate" in prompt_lower:
+        location = "Highgate"
+    elif "muswell hill" in prompt_lower:
+        location = "Muswell Hill"
+    elif "crouch end" in prompt_lower:
+        location = "Crouch End"
+    elif "hornsey" in prompt_lower:
+        location = "Hornsey"
+    elif "archway" in prompt_lower:
+        location = "Archway"
+    elif "holloway" in prompt_lower:
+        location = "Holloway"
+    elif "kentish town" in prompt_lower:
+        location = "Kentish Town"
+    elif "tufnell park" in prompt_lower:
+        location = "Tufnell Park"
+    elif "wood green" in prompt_lower:
+        location = "Wood Green"
+    elif "turnpike lane" in prompt_lower:
+        location = "Turnpike Lane"
+    elif "angel" in prompt_lower and "islington" not in prompt_lower:
+        location = "Angel"
+    elif "highbury" in prompt_lower:
+        location = "Highbury"
+    elif "canonbury" in prompt_lower:
+        location = "Canonbury"
+    elif "kilburn" in prompt_lower:
+        location = "Kilburn"
+
+    # West London neighbourhoods
+    elif "notting hill" in prompt_lower:
+        location = "Notting Hill"
+    elif "portobello" in prompt_lower:
+        location = "Notting Hill"
+    elif "shepherd's bush" in prompt_lower or "shepherds bush" in prompt_lower:
+        location = "Shepherd's Bush"
+    elif "hammersmith" in prompt_lower:
+        location = "Hammersmith"
+    elif "fulham" in prompt_lower:
+        location = "Fulham"
+    elif "chelsea" in prompt_lower:
+        location = "Chelsea"
+    elif "kensington" in prompt_lower:
+        location = "Kensington"
+    elif "earl's court" in prompt_lower or "earls court" in prompt_lower:
+        location = "Earl's Court"
     elif "ealing" in prompt_lower:
         location = "Ealing"
     elif "chiswick" in prompt_lower:
@@ -252,41 +416,108 @@ def interpret_prompt(prompt):
         location = "Richmond"
     elif "kew" in prompt_lower:
         location = "Kew"
+    elif "wimbledon" in prompt_lower:
+        location = "Wimbledon"
+    elif "kingston" in prompt_lower:
+        location = "Kingston"
     elif "acton" in prompt_lower:
         location = "Acton"
     elif "twickenham" in prompt_lower:
         location = "Twickenham"
-    elif "kilburn" in prompt_lower:
-        location = "Kilburn"
+    elif "brentford" in prompt_lower:
+        location = "Brentford"
+    elif "putney" in prompt_lower:
+        location = "Putney"
+    elif "barnes" in prompt_lower:
+        location = "Barnes"
     elif "east sheen" in prompt_lower or "sheen" in prompt_lower:
         location = "East Sheen"
-    elif "wood green" in prompt_lower:
-        location = "Wood Green"
     elif "park royal" in prompt_lower:
         location = "Park Royal"
-    # Other specific neighborhoods
-    elif "camden" in prompt_lower:
-        location = "Camden"
-    elif "islington" in prompt_lower:
-        location = "Islington"
-    elif "brixton" in prompt_lower:
-        location = "Brixton"
-    elif "peckham" in prompt_lower:
-        location = "Peckham"
-    elif "dalston" in prompt_lower:
-        location = "Dalston"
-    elif "shoreditch" in prompt_lower or "hackney" in prompt_lower:
-        location = "East London"
-    elif "notting hill" in prompt_lower or "portobello" in prompt_lower:
-        location = "West London"
-    elif "deptford" in prompt_lower:
-        location = "Deptford"
-    elif "canning town" in prompt_lower:
-        location = "Canning Town"
-    elif "barking" in prompt_lower:
-        location = "Barking"
-    elif "stepney" in prompt_lower:
-        location = "Stepney"
+    elif "white city" in prompt_lower:
+        location = "White City"
+    elif "ladbroke grove" in prompt_lower:
+        location = "Ladbroke Grove"
+    elif "queens park" in prompt_lower or "queen's park" in prompt_lower:
+        location = "Queen's Park"
+    elif "kensal" in prompt_lower:
+        location = "Kensal"
+
+    # Central London neighbourhoods
+    elif "soho" in prompt_lower:
+        location = "Soho"
+    elif "covent garden" in prompt_lower:
+        location = "Covent Garden"
+    elif "leicester square" in prompt_lower:
+        location = "Leicester Square"
+    elif "piccadilly" in prompt_lower:
+        location = "Piccadilly"
+    elif "mayfair" in prompt_lower:
+        location = "Mayfair"
+    elif "westminster" in prompt_lower:
+        location = "Westminster"
+    elif "victoria" in prompt_lower:
+        location = "Victoria"
+    elif "pimlico" in prompt_lower:
+        location = "Pimlico"
+    elif "marylebone" in prompt_lower:
+        location = "Marylebone"
+    elif "fitzrovia" in prompt_lower:
+        location = "Fitzrovia"
+    elif "bloomsbury" in prompt_lower:
+        location = "Bloomsbury"
+    elif "holborn" in prompt_lower:
+        location = "Holborn"
+    elif "clerkenwell" in prompt_lower:
+        location = "Clerkenwell"
+    elif "farringdon" in prompt_lower:
+        location = "Farringdon"
+    elif "barbican" in prompt_lower:
+        location = "Barbican"
+    elif "the city" in prompt_lower or "city of london" in prompt_lower:
+        location = "City of London"
+    elif "bank" in prompt_lower:
+        location = "Bank"
+    elif "strand" in prompt_lower:
+        location = "Strand"
+    elif "temple" in prompt_lower:
+        location = "Temple"
+    elif "embankment" in prompt_lower:
+        location = "Embankment"
+    elif "st paul" in prompt_lower or "st. paul" in prompt_lower:
+        location = "St Paul's"
+
+    # Outer London areas
+    elif "wembley" in prompt_lower:
+        location = "Wembley"
+    elif "harrow" in prompt_lower:
+        location = "Harrow"
+    elif "croydon" in prompt_lower:
+        location = "Croydon"
+    elif "bromley" in prompt_lower:
+        location = "Bromley"
+    elif "woolwich" in prompt_lower:
+        location = "Woolwich"
+    elif "eltham" in prompt_lower:
+        location = "Eltham"
+    elif "enfield" in prompt_lower:
+        location = "Enfield"
+    elif "barnet" in prompt_lower:
+        location = "Barnet"
+    elif "ilford" in prompt_lower:
+        location = "Ilford"
+    elif "romford" in prompt_lower:
+        location = "Romford"
+    elif "sutton" in prompt_lower:
+        location = "Sutton"
+    elif "morden" in prompt_lower:
+        location = "Morden"
+    elif "bexley" in prompt_lower:
+        location = "Bexley"
+    elif "hounslow" in prompt_lower:
+        location = "Hounslow"
+    elif "uxbridge" in prompt_lower:
+        location = "Uxbridge"
 
     # Genre detection - try multi-word phrases first, then single words
     genre = None
@@ -307,6 +538,14 @@ def interpret_prompt(prompt):
                 genre = GENRE_KEYWORDS[clean_word]
                 break
 
+    # Determine query type for conversational fallbacks
+    location_only = location is not None and mood is None and genre is None
+
+    # Detect vague/unclear queries
+    vague_words = ["something", "somewhere", "anything", "whatever", "nice", "good", "different", "interesting"]
+    prompt_words = prompt_lower.split()
+    is_vague = any(word in prompt_words for word in vague_words) and mood is None
+
     return {
         "mood": mood,
         "time": time,
@@ -314,7 +553,9 @@ def interpret_prompt(prompt):
         "group": group,
         "genre": genre,
         "location": location,
-        "search_text": prompt  # Keep original prompt for name search fallback
+        "search_text": prompt,  # Keep original prompt for name search fallback
+        "location_only": location_only,  # Flag for conversational fallback
+        "is_vague": is_vague  # Flag for vague queries needing clarification
     }
 
 # Example usage
