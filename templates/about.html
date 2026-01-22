@@ -3,171 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — The London Lark</title>
+    <title>Who Is She? — The London Lark</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         .about-container {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 2rem 1.5rem 4rem;
+            text-align: center;
         }
 
-        .about-poem {
-            text-align: center;
-            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--candlelight, #f4e4bc);
-            line-height: 2;
+        .about-section {
             margin-bottom: 3rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        .about-poem p {
-            margin: 0;
-        }
-
-        .about-body {
-            font-family: var(--font-body, 'Crimson Text', serif);
-            font-size: 1.1rem;
-            color: var(--cream, #f5f0e6);
-            line-height: 1.9;
-        }
-
-        .about-body p {
-            margin-bottom: 1.8rem;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .about-body p:nth-child(1) { animation-delay: 0.1s; }
-        .about-body p:nth-child(2) { animation-delay: 0.2s; }
-        .about-body p:nth-child(3) { animation-delay: 0.3s; }
-        .about-body p:nth-child(4) { animation-delay: 0.4s; }
-        .about-body p:nth-child(5) { animation-delay: 0.5s; }
-        .about-body p:nth-child(6) { animation-delay: 0.6s; }
-        .about-body p:nth-child(7) { animation-delay: 0.7s; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .about-body em {
-            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
-            font-style: italic;
-            color: var(--candlelight, #f4e4bc);
-        }
-
-        .about-divider {
-            text-align: center;
-            color: var(--gold, #d4af37);
-            font-size: 1.2rem;
-            margin: 2.5rem 0;
-            opacity: 0.6;
-        }
-
-        .about-closing {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .about-closing p {
-            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
-            font-style: italic;
-            font-size: 1.15rem;
-            color: var(--candlelight, #f4e4bc);
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: transparent;
-            border: 1px solid var(--gold, #d4af37);
-            color: var(--gold, #d4af37);
-            text-decoration: none;
-            font-family: var(--font-title, 'Cinzel', serif);
+        .about-title {
+            font-family: var(--font-title);
             font-size: 0.9rem;
-            letter-spacing: 0.15em;
-            transition: all 0.4s ease;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
         }
 
-        .cta-button:hover {
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        .about-text {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--cream);
+            line-height: 1.8;
+            text-align: left;
+            margin-bottom: 1rem;
         }
 
-        .page-footer {
-            margin-top: 3rem;
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        .about-text:last-child {
+            margin-bottom: 0;
         }
 
-        .page-footer a {
-            color: var(--candlelight, #f4e4bc);
-            text-decoration: none;
-            font-family: var(--font-body, 'Crimson Text', serif);
+        .about-text em {
+            color: var(--candlelight);
+            font-style: italic;
+        }
+
+        .about-examples {
+            font-family: var(--font-body);
             font-size: 0.95rem;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
+            color: var(--text-soft);
+            line-height: 1.8;
+            text-align: left;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
         }
 
-        .page-footer a:hover {
-            opacity: 1;
-            color: var(--gold, #d4af37);
+        .about-examples li {
+            margin-bottom: 0.5rem;
+            list-style-type: disc;
+        }
+
+        .about-values {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--cream);
+            line-height: 1.8;
+            text-align: left;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+
+        .about-values li {
+            margin-bottom: 0.5rem;
+        }
+
+        .about-values li::before {
+            content: "• ";
+            color: var(--gold-dim);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--gold-dim);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 600px) {
+            .about-container {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .about-text {
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 onclick="window.location='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
-            <p class="tagline">About</p>
+            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
         </header>
 
-        <div class="about-container">
-            <div class="about-poem">
-                <p>Not all maps name the magic.</p>
-                <p>Not all doors bear a sign.</p>
-                <p>But the city has corners that lean in close</p>
-                <p>when they know you are the kind...</p>
-            </div>
+        <main class="about-container">
+            <section class="about-section">
+                <h2 class="about-title">✦ WHO IS SHE? ✦</h2>
+                <p class="about-text">Hello, petal. I'm the Lark.</p>
+                <p class="about-text">I know London's soulful corners — the queer-friendly, the strange, the secret. The places that hold you when you're grieving, or spark you when you're restless.</p>
+                <p class="about-text">I'm not a therapist, not a search engine. Just a companion who listens to what you're carrying and offers doors.</p>
+            </section>
 
-            <div class="about-body">
-                <p>I know the places that change you. Not the ones on the lists. The other ones — the rooms that hum with something, the corners where strangers become friends, the doors that only open if you know to knock.</p>
+            <section class="about-section">
+                <h2 class="about-title">✦ HOW TO USE HER ✦</h2>
+                <p class="about-text">Search by mood, not venue name. Tell me how you're feeling, what you're craving, what kind of night you need.</p>
+                <p class="about-text">Try:</p>
+                <ul class="about-examples">
+                    <li>"somewhere cosy with live music"</li>
+                    <li>"I want to feel alive"</li>
+                    <li>"witchy"</li>
+                    <li>"I need to move my body"</li>
+                </ul>
+                <p class="about-text">Or let fate decide — draw a card and see where she sends you.</p>
+                <p class="about-text">You can also browse the deck: 23 arcana, 23 moods, each a different door into London's undercurrent.</p>
+            </section>
 
-                <p>I speak in moods, not ratings. Tell me you want somewhere <em>witchy and wild</em> or <em>a place to feel alive</em> or <em>I don't know, surprise me</em> — and I'll show you three cards from the deck.</p>
+            <section class="about-section">
+                <h2 class="about-title">✦ WHAT SHE ISN'T ✦</h2>
+                <p class="about-text">She won't fix you. She's not a crisis line. But she'll walk beside you, and if you're in deep waters, there's a refuge here too.</p>
+                <p class="about-text">She's also not a search engine — she won't find you "the best pizza in Soho." She finds the places that <em>feel</em> right, not the places that rank well.</p>
+            </section>
 
-                <p>I carry 23 arcana — ways of being in the city. The Fool for playful and weird. The Hermit for stillness. The Devil for late nights that linger. The Empress for folk and warmth.</p>
+            <section class="about-section">
+                <h2 class="about-title">✦ THE LARKLINGS ✦</h2>
+                <p class="about-text">The people who tend her believe in:</p>
+                <ul class="about-values">
+                    <li>Soul before scale</li>
+                    <li>Consent always</li>
+                    <li>Poetry in implementation</li>
+                    <li>Transformation over matching</li>
+                </ul>
+                <p class="about-text">She holds 650+ venues across 23 moods — and she's still growing, still learning, still listening.</p>
+            </section>
 
-                <p>And the 23rd? That's mine. The Lark — for romanticised London herself, the city as muse.</p>
-
-                <p>Each one holds venues that match its spirit.</p>
-
-                <div class="about-divider">✦</div>
-
-                <p>I notice when you're carrying something. I'm not a therapist, but I know which doors might help — and when to point you toward humans who can hold what I can't.</p>
-
-                <p>I'm for the seekers. The tender rebels. The mystically-minded and the melancholic. Anyone tired of scrolling endless reviews. People looking for places with soul.</p>
-            </div>
-
-            <div class="about-closing">
-                <p>What kind of night are you after?</p>
-                <a href="/" class="cta-button">Whisper to the Lark</a>
-            </div>
-
-            <div class="page-footer">
-                <a href="/resources">If you need support</a>
-            </div>
-        </div>
+            <a href="/" class="back-link">— back to the Lark —</a>
+        </main>
     </div>
 </body>
 </html>
