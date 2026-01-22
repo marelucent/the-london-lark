@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The London Lark</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         /* ============================================
@@ -1968,9 +1969,9 @@
         // INIT
         // ============================================
         // ============================================
-        // TIME-OF-DAY GREETINGS
+        // ENTRANCE TIME-OF-DAY GREETINGS
         // ============================================
-        const timeGreetings = {
+        const entranceGreetings = {
             morning: [
                 "The city stirs… but some doors only open for early hearts.",
                 "Morning light spills secrets if you rise with it.",
@@ -2005,7 +2006,7 @@
             ]
         };
 
-        function getTimeOfDay() {
+        function getEntranceTimeOfDay() {
             const hour = new Date().getHours();
             if (hour >= 6 && hour < 12) return 'morning';
             if (hour >= 12 && hour < 18) return 'afternoon';
@@ -2013,9 +2014,9 @@
             return 'lateNight';
         }
 
-        function setTimeGreeting() {
-            const period = getTimeOfDay();
-            const greetings = timeGreetings[period];
+        function setEntranceGreeting() {
+            const period = getEntranceTimeOfDay();
+            const greetings = entranceGreetings[period];
             const greeting = greetings[Math.floor(Math.random() * greetings.length)];
             const el = document.getElementById('entranceGreeting');
             if (el) el.textContent = greeting;
@@ -2024,7 +2025,7 @@
         // ============================================
         // CYCLING PLACEHOLDER EXAMPLES
         // ============================================
-        const placeholderExamples = [
+        const entrancePlaceholders = [
             // Feelings / Moods
             "cosy, with candles and wine...",
             "I want to feel alive...",
@@ -2056,10 +2057,10 @@
             "dancing in Hackney..."
         ];
 
-        let placeholderIndex = 0;
-        let placeholderInterval = null;
+        let entrancePlaceholderIndex = 0;
+        let entrancePlaceholderInterval = null;
 
-        function cyclePlaceholder() {
+        function cycleEntrancePlaceholder() {
             const input = document.getElementById('entranceInput');
             if (!input || document.activeElement === input) return;
 
@@ -2068,27 +2069,27 @@
             input.style.opacity = '0.3';
 
             setTimeout(() => {
-                placeholderIndex = (placeholderIndex + 1) % placeholderExamples.length;
-                input.placeholder = placeholderExamples[placeholderIndex];
+                entrancePlaceholderIndex = (entrancePlaceholderIndex + 1) % entrancePlaceholders.length;
+                input.placeholder = entrancePlaceholders[entrancePlaceholderIndex];
                 // Fade in
                 input.style.opacity = '1';
             }, 300);
         }
 
-        function startPlaceholderCycle() {
+        function startEntrancePlaceholderCycle() {
             // Randomize starting point
-            placeholderIndex = Math.floor(Math.random() * placeholderExamples.length);
+            entrancePlaceholderIndex = Math.floor(Math.random() * entrancePlaceholders.length);
             const input = document.getElementById('entranceInput');
-            if (input) input.placeholder = placeholderExamples[placeholderIndex];
+            if (input) input.placeholder = entrancePlaceholders[entrancePlaceholderIndex];
 
             // Cycle every 3.5 seconds
-            placeholderInterval = setInterval(cyclePlaceholder, 3500);
+            entrancePlaceholderInterval = setInterval(cycleEntrancePlaceholder, 3500);
         }
 
-        function stopPlaceholderCycleEntrance() {
-            if (placeholderInterval) {
-                clearInterval(placeholderInterval);
-                placeholderInterval = null;
+        function stopEntrancePlaceholderCycle() {
+            if (entrancePlaceholderInterval) {
+                clearInterval(entrancePlaceholderInterval);
+                entrancePlaceholderInterval = null;
             }
         }
 
@@ -2097,16 +2098,16 @@
             showView('entrance');
 
             // Set time-of-day greeting
-            setTimeGreeting();
+            setEntranceGreeting();
 
             // Start placeholder cycling
-            startPlaceholderCycle();
+            startEntrancePlaceholderCycle();
 
             // Pause cycling when input is focused
             const entranceInput = document.getElementById('entranceInput');
-            entranceInput.addEventListener('focus', stopPlaceholderCycleEntrance);
+            entranceInput.addEventListener('focus', stopEntrancePlaceholderCycle);
             entranceInput.addEventListener('blur', () => {
-                if (!entranceInput.value) startPlaceholderCycle();
+                if (!entranceInput.value) startEntrancePlaceholderCycle();
             });
 
             // Enter key support for entrance search
