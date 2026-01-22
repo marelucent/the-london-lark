@@ -69,6 +69,131 @@
 }
 
 /* ============================================
+   ARCANA COLOUR CLASSES
+   Each arcana gets its own glow colour
+   ============================================ */
+.arcana-playful-weird {
+    --glow: rgba(244, 208, 63, 0.25);
+    --glow-intense: rgba(244, 208, 63, 0.4);
+    --arcana-border: var(--arcana-fool);
+}
+.arcana-curious-encounters {
+    --glow: rgba(212, 175, 55, 0.25);
+    --glow-intense: rgba(212, 175, 55, 0.4);
+    --arcana-border: var(--arcana-magician);
+}
+.arcana-witchy-wild {
+    --glow: rgba(74, 26, 74, 0.35);
+    --glow-intense: rgba(74, 26, 74, 0.55);
+    --arcana-border: var(--arcana-priestess);
+}
+.arcana-folk-intimate {
+    --glow: rgba(45, 90, 61, 0.3);
+    --glow-intense: rgba(45, 90, 61, 0.5);
+    --arcana-border: var(--arcana-empress);
+}
+.arcana-thoughtful-stage {
+    --glow: rgba(114, 47, 55, 0.3);
+    --glow-intense: rgba(114, 47, 55, 0.5);
+    --arcana-border: var(--arcana-emperor);
+}
+.arcana-spiritual-sacred {
+    --glow: rgba(184, 134, 11, 0.3);
+    --glow-intense: rgba(184, 134, 11, 0.5);
+    --arcana-border: var(--arcana-hierophant);
+}
+.arcana-cabaret-glitter {
+    --glow: rgba(233, 30, 99, 0.3);
+    --glow-intense: rgba(233, 30, 99, 0.5);
+    --arcana-border: var(--arcana-lovers);
+}
+.arcana-big-night-out {
+    --glow: rgba(0, 102, 255, 0.3);
+    --glow-intense: rgba(0, 102, 255, 0.5);
+    --arcana-border: var(--arcana-chariot);
+}
+.arcana-punchy-protest {
+    --glow: rgba(211, 84, 0, 0.3);
+    --glow-intense: rgba(211, 84, 0, 0.5);
+    --arcana-border: var(--arcana-strength);
+}
+.arcana-contemplative {
+    --glow: rgba(93, 109, 126, 0.3);
+    --glow-intense: rgba(93, 109, 126, 0.5);
+    --arcana-border: var(--arcana-hermit);
+}
+.arcana-global-rhythms {
+    --glow: rgba(230, 126, 34, 0.3);
+    --glow-intense: rgba(230, 126, 34, 0.5);
+    --arcana-border: var(--arcana-wheel);
+}
+.arcana-rant-rapture {
+    --glow: rgba(178, 34, 34, 0.3);
+    --glow-intense: rgba(178, 34, 34, 0.5);
+    --arcana-border: var(--arcana-justice);
+}
+.arcana-body-movement {
+    --glow: rgba(107, 142, 159, 0.3);
+    --glow-intense: rgba(107, 142, 159, 0.5);
+    --arcana-border: var(--arcana-hanged);
+}
+.arcana-grief-grace {
+    --glow: rgba(60, 60, 80, 0.4);
+    --glow-intense: rgba(60, 60, 80, 0.6);
+    --arcana-border: #3c3c50;
+}
+.arcana-word-voice {
+    --glow: rgba(212, 196, 131, 0.3);
+    --glow-intense: rgba(212, 196, 131, 0.5);
+    --arcana-border: var(--arcana-temperance);
+}
+.arcana-late-night {
+    --glow: rgba(139, 0, 0, 0.35);
+    --glow-intense: rgba(139, 0, 0, 0.55);
+    --arcana-border: var(--arcana-devil);
+}
+.arcana-melancholic {
+    --glow: rgba(112, 128, 144, 0.3);
+    --glow-intense: rgba(112, 128, 144, 0.5);
+    --arcana-border: var(--arcana-tower);
+}
+.arcana-wonder-awe {
+    --glow: rgba(26, 26, 58, 0.4);
+    --glow-intense: rgba(70, 70, 120, 0.5);
+    --arcana-border: #2a2a5a;
+}
+.arcana-nostalgic-vintage {
+    --glow: rgba(107, 123, 140, 0.3);
+    --glow-intense: rgba(107, 123, 140, 0.5);
+    --arcana-border: var(--arcana-moon);
+}
+.arcana-comic-relief {
+    --glow: rgba(241, 196, 15, 0.3);
+    --glow-intense: rgba(241, 196, 15, 0.5);
+    --arcana-border: var(--arcana-sun);
+}
+.arcana-group-energy {
+    --glow: rgba(93, 173, 226, 0.3);
+    --glow-intense: rgba(93, 173, 226, 0.5);
+    --arcana-border: var(--arcana-judgement);
+}
+.arcana-queer-revelry {
+    --glow: rgba(155, 89, 182, 0.3);
+    --glow-intense: rgba(155, 89, 182, 0.5);
+    --arcana-border: var(--arcana-world);
+}
+.arcana-romanticised-london {
+    --glow: rgba(255, 179, 71, 0.3);
+    --glow-intense: rgba(255, 179, 71, 0.5);
+    --arcana-border: var(--arcana-lark);
+}
+
+/* Apply arcana border colour on hover */
+.arcana-card[class*="arcana-"]:hover {
+    border-color: var(--arcana-border, var(--gold-bright));
+}
+
+/* ============================================
    RESET & BASE
    ============================================ */
 * {
@@ -865,12 +990,12 @@ button {
 }
 
 .arcana-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold-bright);
-    box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.4),
-        0 0 35px rgba(212, 175, 55, 0.2),
-        0 0 70px var(--glow-intense, rgba(212, 175, 55, 0.15));
+    transform: translateY(-4px);
+    border-color: var(--arcana-border, var(--gold-bright));
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35),
+        0 0 25px var(--glow, rgba(212, 175, 55, 0.2)),
+        0 0 50px var(--glow-intense, rgba(212, 175, 55, 0.15));
 }
 
 /* --------------------------------------------
@@ -920,7 +1045,7 @@ button {
 .arcana-card:hover::after,
 .arcana-card:hover .corner-tr,
 .arcana-card:hover .corner-bl {
-    border-color: var(--gold-bright);
+    border-color: var(--arcana-border, var(--gold-bright));
 }
 
 /* --------------------------------------------
@@ -1498,12 +1623,12 @@ button {
 }
 
 .arcana-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold-bright);
-    box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.4),
-        0 0 35px rgba(212, 175, 55, 0.2),
-        0 0 70px var(--glow-intense, rgba(212, 175, 55, 0.15));
+    transform: translateY(-4px);
+    border-color: var(--arcana-border, var(--gold-bright));
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35),
+        0 0 25px var(--glow, rgba(212, 175, 55, 0.2)),
+        0 0 50px var(--glow-intense, rgba(212, 175, 55, 0.15));
 }
 
 /* --------------------------------------------
@@ -1553,7 +1678,7 @@ button {
 .arcana-card:hover::after,
 .arcana-card:hover .corner-tr,
 .arcana-card:hover .corner-bl {
-    border-color: var(--gold-bright);
+    border-color: var(--arcana-border, var(--gold-bright));
 }
 
 /* --------------------------------------------
@@ -2332,15 +2457,15 @@ button {
    RESULTS DISPLAY
    -------------------------------------------- */
 .results-container {
-    padding: 1rem;
-    max-width: 800px;
-    margin: 0 auto 2rem auto;
+    padding: 1.5rem;
+    max-width: 850px;
+    margin: 0 auto 2.5rem auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
-    gap: 1.2rem;
+    gap: 1.8rem;
 }
 
 /* Venue cards in search results - fixed tarot card size */
@@ -2886,8 +3011,8 @@ button {
 .arcana-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1.2rem;
-    padding: 1rem 0 2rem;
+    gap: 1.5rem;
+    padding: 1.5rem 0 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -2914,7 +3039,7 @@ button {
 .arcana-card.card-sm {
     width: 100%;
     min-height: 200px;
-    padding: 1.2rem 1rem;
+    padding: 1.4rem 1.2rem;
     cursor: pointer;
     animation: fadeInUp 0.4s ease forwards;
     opacity: 0;
@@ -3197,11 +3322,20 @@ button {
     margin-bottom: 0.5rem;
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
     line-height: 1;
+    transition: all 0.4s ease;
 }
 
 .card-lg .arcana-symbol {
     font-size: 2.5rem;
     margin-bottom: 0.8rem;
+}
+
+/* Subtle breathing on hover */
+.arcana-card:hover .arcana-symbol {
+    text-shadow:
+        0 0 20px var(--glow, rgba(212, 175, 55, 0.5)),
+        0 0 40px var(--glow, rgba(212, 175, 55, 0.3));
+    transform: scale(1.05);
 }
 
 /* Special styling for certain symbols that may need font adjustment */

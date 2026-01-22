@@ -1111,9 +1111,10 @@
             const arcana = arcanaMap[arcanaData.mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
             const whisper = arcanaWhispers[arcanaData.mood] || '';
             const arcanaKey = getArcanaKey(arcanaData.mood);
-            
+            const arcanaColourClass = getArcanaColourClass(arcanaData.mood);
+
             const card = document.createElement('div');
-            card.className = 'arcana-card card-sm';
+            card.className = `arcana-card card-sm ${arcanaColourClass}`;
             card.setAttribute('data-arcana', arcanaKey);
             card.onclick = () => showArcanaVenues(arcanaData.mood);
             
@@ -1143,11 +1144,12 @@
             const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
             const whisper = arcanaWhispers[mood] || '';
             const arcanaKey = getArcanaKey(mood);
+            const arcanaColourClass = getArcanaColourClass(mood);
 
             // Update header
             const header = document.getElementById('arcanaVenuesHeader');
             header.innerHTML = `
-                <div class="arcana-card card-lg" data-arcana="${arcanaKey}">
+                <div class="arcana-card card-lg ${arcanaColourClass}" data-arcana="${arcanaKey}">
                     <span class="corner-tr"></span>
                     <span class="corner-bl"></span>
                     <div class="card-inner">
@@ -1179,7 +1181,7 @@
 
                 data.venues.forEach((venue, index) => {
                     const card = document.createElement('div');
-                    card.className = 'arcana-card card-sm venue-browse-card';
+                    card.className = `arcana-card card-sm venue-browse-card ${arcanaColourClass}`;
                     card.setAttribute('data-arcana', arcanaKey);
                     card.style.animationDelay = `${index * 50}ms`;
 
@@ -1284,9 +1286,12 @@
                 document.getElementById('cardVenueLocation').textContent = data.area || 'London';
                 document.getElementById('cardVenueBlurb').textContent = data.response || '';
                 
-                // Set arcana glow
+                // Set arcana glow and colour class
                 revealedCard.setAttribute('data-arcana', getArcanaKey(data.mood));
-                
+                // Remove any previous arcana colour classes
+                revealedCard.className = revealedCard.className.replace(/arcana-[\w-]+/g, '').trim();
+                revealedCard.classList.add(getArcanaColourClass(data.mood));
+
                 // Animate the reveal
                 drawnCard.style.display = 'none';
                 revealedCard.style.display = 'block';
@@ -1345,6 +1350,36 @@
                 'Romanticised London': 'lark'
             };
             return keyMap[mood] || 'lark';
+        }
+
+        // Get CSS class for arcana colour styling
+        function getArcanaColourClass(mood) {
+            const classMap = {
+                'Playful & Weird': 'arcana-playful-weird',
+                'Curious Encounters': 'arcana-curious-encounters',
+                'Witchy & Wild': 'arcana-witchy-wild',
+                'Folk & Intimate': 'arcana-folk-intimate',
+                'The Thoughtful Stage': 'arcana-thoughtful-stage',
+                'Spiritual / Sacred / Mystical': 'arcana-spiritual-sacred',
+                'Cabaret & Glitter': 'arcana-cabaret-glitter',
+                'Big Night Out': 'arcana-big-night-out',
+                'Punchy / Protest': 'arcana-punchy-protest',
+                'Contemplative & Meditative': 'arcana-contemplative',
+                'Global Rhythms': 'arcana-global-rhythms',
+                'Rant & Rapture': 'arcana-rant-rapture',
+                'Body-Based / Movement-Led': 'arcana-body-movement',
+                'Grief & Grace': 'arcana-grief-grace',
+                'Word & Voice': 'arcana-word-voice',
+                'Late-Night Lark': 'arcana-late-night',
+                'Melancholic Beauty': 'arcana-melancholic',
+                'Wonder & Awe': 'arcana-wonder-awe',
+                'Nostalgic / Vintage / Retro': 'arcana-nostalgic-vintage',
+                'Comic Relief': 'arcana-comic-relief',
+                'Group Energy': 'arcana-group-energy',
+                'Queer Revelry': 'arcana-queer-revelry',
+                'Romanticised London': 'arcana-romanticised-london'
+            };
+            return classMap[mood] || 'arcana-romanticised-london';
         }
 
         // ============================================
@@ -1538,9 +1573,10 @@
             const card = document.createElement('div');
             const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
             const arcanaKey = getArcanaKey(mood);
+            const arcanaColourClass = getArcanaColourClass(mood);
             const whisper = venue.whisper || arcanaWhispers[mood] || '';
 
-            card.className = 'arcana-card card-sm venue-card-result';
+            card.className = `arcana-card card-sm venue-card-result ${arcanaColourClass}`;
             card.setAttribute('data-arcana', arcanaKey);
 
             // Store venue data for expansion
