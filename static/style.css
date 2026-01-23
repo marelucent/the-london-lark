@@ -3400,3 +3400,248 @@ button {
         width: 100%;
     }
 }
+
+/* ============================================
+   CARD FOOTER ICONS
+   ============================================ */
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.card-footer-icon {
+    font-size: 1rem;
+    color: var(--gold);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.3rem;
+    position: relative;
+    background: none;
+    border: none;
+    font-family: inherit;
+}
+
+.card-footer-icon:hover {
+    opacity: 1;
+    transform: scale(1.15);
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+/* Filled state for love icon */
+.card-footer-icon.loved {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+/* Tooltip */
+.card-footer-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.4rem 0.6rem;
+    background: var(--parchment-dark);
+    border: 1px solid var(--gold-dim);
+    border-radius: 3px;
+    font-family: var(--font-whisper);
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--candlelight);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.card-footer-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 6px);
+}
+
+/* Confirmation message */
+.card-footer-confirm {
+    font-family: var(--font-whisper);
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--gold);
+    opacity: 0;
+    text-align: center;
+    margin-top: 0.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.card-footer-confirm.show {
+    opacity: 0.8;
+}
+
+/* Hide footer on small cards until expanded */
+.card-sm .card-footer {
+    display: none;
+}
+
+.card-lg .card-footer {
+    display: flex;
+}
+
+/* ============================================
+   LARK MODAL (for testimony & flag forms)
+   ============================================ */
+
+.lark-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 12, 10, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lark-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lark-modal-content {
+    background: var(--parchment-dark);
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.15);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.lark-modal.show .lark-modal-content {
+    transform: translateY(0);
+}
+
+.lark-modal-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.lark-modal-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.lark-modal-header h3 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.lark-modal-subtitle {
+    font-family: var(--font-whisper);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--candlelight);
+    text-align: center;
+    margin-bottom: 1.2rem;
+    opacity: 0.8;
+}
+
+.lark-modal-textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--gold-dim);
+    border-radius: 3px;
+    padding: 0.8rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--cream);
+    resize: vertical;
+    margin-bottom: 0.8rem;
+    box-sizing: border-box;
+}
+
+.lark-modal-textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.lark-modal-textarea::placeholder {
+    color: var(--candlelight);
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.lark-modal-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--gold-dim);
+    border-radius: 3px;
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+    box-sizing: border-box;
+}
+
+.lark-modal-input:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.lark-modal-input::placeholder {
+    color: var(--candlelight);
+    opacity: 0.5;
+}
+
+.lark-modal-options {
+    margin-bottom: 1rem;
+}
+
+.lark-modal-options label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--cream);
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.lark-modal-options label:hover {
+    color: var(--gold);
+}
+
+.lark-modal-options input[type="radio"] {
+    margin-right: 0.6rem;
+    accent-color: var(--gold);
+}
+
+.lark-modal-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: flex-end;
+}
+
+.lark-modal-actions .action-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}

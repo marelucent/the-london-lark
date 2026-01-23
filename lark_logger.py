@@ -36,6 +36,7 @@ CONVERSATION_LOG_FILE = LOGS_DIR / "conversations.jsonl"
 ERROR_LOG_FILE = LOGS_DIR / "errors.log"
 USAGE_LOG_FILE = LOGS_DIR / "usage.jsonl"
 ABUSE_LOG_FILE = LOGS_DIR / "abuse_flags.jsonl"
+FEEDBACK_LOG_FILE = LOGS_DIR / "feedback.jsonl"
 
 # Maximum log file size before rotation (10MB)
 MAX_LOG_SIZE = 10 * 1024 * 1024
@@ -448,12 +449,78 @@ class AbuseLogger:
 
 
 # =============================================================================
+# FEEDBACK LOGGING (Testimonies & Flags)
+# =============================================================================
+
+class FeedbackLogger:
+    """
+    Logs user feedback about venues: testimonies (love) and flags (issues).
+    """
+
+    def __init__(self):
+        LOGS_DIR.mkdir(exist_ok=True)
+
+    def log_testimony(
+        self,
+        venue: str,
+        text: str,
+        email: Optional[str] = None,
+        ip_hash: Optional[str] = None
+    ):
+        """Log a positive testimony about a venue."""
+        london_tz = ZoneInfo('Europe/London')
+        now = datetime.now(london_tz)
+
+        entry = {
+            "timestamp": now.isoformat(),
+            "type": "testimony",
+            "venue": venue,
+            "text": text[:2000] if text else None,
+            "email": email,
+            "ip_hash": ip_hash
+        }
+
+        try:
+            with open(FEEDBACK_LOG_FILE, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(entry) + '\n')
+        except Exception as e:
+            get_error_logger().error(f"Failed to write testimony: {e}")
+
+    def log_flag(
+        self,
+        venue: str,
+        reason: str,
+        details: Optional[str] = None,
+        ip_hash: Optional[str] = None
+    ):
+        """Log a flag/issue report about a venue."""
+        london_tz = ZoneInfo('Europe/London')
+        now = datetime.now(london_tz)
+
+        entry = {
+            "timestamp": now.isoformat(),
+            "type": "flag",
+            "venue": venue,
+            "reason": reason,
+            "details": details[:1000] if details else None,
+            "ip_hash": ip_hash
+        }
+
+        try:
+            with open(FEEDBACK_LOG_FILE, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(entry) + '\n')
+        except Exception as e:
+            get_error_logger().error(f"Failed to write flag: {e}")
+
+
+# =============================================================================
 # GLOBAL INSTANCES
 # =============================================================================
 
 _conversation_logger = None
 _usage_tracker = None
 _abuse_logger = None
+_feedback_logger = None
 
 
 def get_conversation_logger() -> ConversationLogger:
@@ -478,6 +545,14 @@ def get_abuse_logger() -> AbuseLogger:
     if _abuse_logger is None:
         _abuse_logger = AbuseLogger()
     return _abuse_logger
+
+
+def get_feedback_logger() -> FeedbackLogger:
+    """Get the feedback logger instance"""
+    global _feedback_logger
+    if _feedback_logger is None:
+        _feedback_logger = FeedbackLogger()
+    return _feedback_logger
 
 
 # =============================================================================
