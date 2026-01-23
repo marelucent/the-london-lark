@@ -1300,8 +1300,8 @@
                 
                 // Set arcana glow and colour class
                 revealedCard.setAttribute('data-arcana', getArcanaKey(data.mood));
-                // Remove any previous arcana colour classes
-                revealedCard.className = revealedCard.className.replace(/arcana-[\w-]+/g, '').trim();
+                // Remove any previous arcana colour classes (but not 'arcana-card' base class)
+                revealedCard.className = revealedCard.className.replace(/arcana-(?!card)[\w-]+/g, '').trim();
                 revealedCard.classList.add(getArcanaColourClass(data.mood));
 
                 // Animate the reveal
