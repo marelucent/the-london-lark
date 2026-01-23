@@ -694,7 +694,7 @@
                     <div class="arcana-card card-lg face-down" id="drawnCard" onclick="revealCard(currentArcana)">
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
-                        <div class="card-back-symbol">✦</div>
+                        <div class="card-back-symbol">❦</div>
                         <div class="card-back-prompt">tap when you're ready</div>
                     </div>
                     
@@ -1300,13 +1300,26 @@
                 
                 // Set arcana glow and colour class
                 revealedCard.setAttribute('data-arcana', getArcanaKey(data.mood));
-                // Remove any previous arcana colour classes (but not 'arcana-card' base class)
-                revealedCard.className = revealedCard.className.replace(/arcana-(?!card)[\w-]+/g, '').trim();
+                // Ensure base card classes are preserved and set new arcana colour
+                // Remove any previous arcana colour classes, collapse whitespace, then add new one
+                revealedCard.className = revealedCard.className
+                    .replace(/arcana-(?!card)[\w-]+/g, '')
+                    .replace(/card-reveal/g, '')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+                // Ensure base classes are present
+                if (!revealedCard.classList.contains('arcana-card')) {
+                    revealedCard.classList.add('arcana-card');
+                }
+                if (!revealedCard.classList.contains('card-lg')) {
+                    revealedCard.classList.add('card-lg');
+                }
                 revealedCard.classList.add(getArcanaColourClass(data.mood));
 
                 // Animate the reveal
                 drawnCard.style.display = 'none';
-                revealedCard.style.display = 'block';
+                revealedCard.style.display = 'flex';
+                revealedCard.style.flexDirection = 'column';
                 revealedCard.classList.add('card-reveal');
                 
                 // Show actions
