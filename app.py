@@ -35,6 +35,33 @@ from zoneinfo import ZoneInfo
 import random
 import json
 import os
+import time
+
+# Import logging and protection
+from lark_logger import (
+    get_conversation_logger,
+    get_usage_tracker,
+    get_abuse_logger,
+    log_chat_interaction,
+    log_ask_interaction,
+    generate_session_id
+)
+from lark_protection import (
+    get_rate_limiter,
+    get_budget_guard,
+    get_client_ip,
+    hash_ip,
+    check_and_flag_content,
+    validate_input,
+    validate_conversation_length,
+    rate_limited,
+    budget_protected,
+    validate_input_length,
+    protected_endpoint,
+    get_rate_limit_message,
+    MAX_INPUT_LENGTH,
+    MAX_TURNS_PER_CONVERSATION
+)
 
 # Import voice profile system for debug info (v2 with 8 voice families)
 try:
@@ -316,6 +343,7 @@ def get_arcana_venues(mood):
         }), 500
 
 @app.route('/surprise', methods=['POST'])
+@rate_limited
 def surprise_me():
     """Return a single random venue with first-person poetic response"""
     try:
@@ -380,10 +408,29 @@ def surprise_me():
         }), 500
 
 @app.route('/ask', methods=['POST'])
+@rate_limited
+@validate_input_length
 def ask_lark():
-    """Process a query and return the Lark's response"""
+    """
+    Process a query and return the Lark's response.
+
+    Protected by:
+    - Rate limiting (per IP)
+    - Input length validation
+    """
+    start_time = time.time()
+    session_id = request.json.get('session_id') or generate_session_id()
+    ip = get_client_ip()
+    ip_hash = hash_ip(ip)
+
     try:
         user_prompt = request.json.get('prompt', '').strip()
+
+        # Check for prompt injection/abuse (flag, don't block)
+        if user_prompt:
+            content_check = check_and_flag_content(user_prompt, session_id, ip_hash)
+            if content_check['flags']:
+                print(f"   Flags detected: {content_check['flags']}")
 
         # Safety check — detect emotional state before venue matching
         emotional_tier, safety_keywords = detect_emotional_state(user_prompt)
@@ -851,6 +898,20 @@ def ask_lark():
                 'website': None
             })
 
+        # Log successful interaction
+        response_time_ms = (time.time() - start_time) * 1000
+        first_response = responses[0].get('text', '') if responses else ''
+        log_ask_interaction(
+            session_id=session_id,
+            user_query=user_prompt,
+            lark_response=first_response,
+            response_time_ms=response_time_ms,
+            safety_tier=emotional_tier,
+            mood_detected=filters.get('mood'),
+            confidence=mood_confidence,
+            ip_hash=ip_hash
+        )
+
         return jsonify({
             'responses': responses,
             'mood': filters.get('mood'),
@@ -859,6 +920,7 @@ def ask_lark():
             'filters': filters,
             'voice_profile': voice_profile_info,
             'opening_line': opening_line,
+            'session_id': session_id,
             'safety': {
                 'tier': emotional_tier,
                 'show_soft_footer': safety_config['show_soft_footer'],
@@ -875,13 +937,28 @@ def ask_lark():
         })
 
     except Exception as e:
+        response_time_ms = (time.time() - start_time) * 1000
+        error_msg = f"I stumbled: {str(e)}"
+
+        # Log error
+        log_ask_interaction(
+            session_id=session_id,
+            user_query=user_prompt if 'user_prompt' in dir() else '',
+            lark_response='',
+            response_time_ms=response_time_ms,
+            error=error_msg,
+            ip_hash=ip_hash
+        )
+
         return jsonify({
-            'error': f"I stumbled: {str(e)}",
-            'responses': []
+            'error': error_msg,
+            'responses': [],
+            'session_id': session_id
         }), 500
 
 
 @app.route('/care-pathway', methods=['POST'])
+@rate_limited
 def care_pathway():
     """
     Handle care pathway choice selection.
@@ -1158,13 +1235,27 @@ def lark_mind_test():
 
 
 @app.route('/chat', methods=['POST'])
+@rate_limited
+@budget_protected
+@validate_input_length
 def chat():
     """
     Lark Mind chat endpoint.
 
     Expects JSON: { "messages": [{"role": "user", "content": "..."}, ...] }
     Returns JSON: { "response": "...", "usage": {...}, "error": null }
+
+    Protected by:
+    - Rate limiting (per IP)
+    - Daily budget cap
+    - Input length validation
+    - Conversation length limits
     """
+    start_time = time.time()
+    session_id = request.json.get('session_id') or generate_session_id()
+    ip = get_client_ip()
+    ip_hash = hash_ip(ip)
+
     try:
         data = request.json or {}
         messages = data.get('messages', [])
@@ -1172,21 +1263,163 @@ def chat():
         if not messages:
             return jsonify({
                 'error': 'No messages provided',
-                'response': None
+                'response': None,
+                'session_id': session_id
             }), 400
+
+        # Get the user's latest message for logging
+        user_query = messages[-1].get('content', '') if messages else ''
+
+        # Check for prompt injection/abuse (flag, don't block)
+        content_check = check_and_flag_content(user_query, session_id, ip_hash)
+        if content_check['flags']:
+            print(f"   Flags detected: {content_check['flags']}")
 
         # Call Lark Mind
         result = chat_with_lark(messages)
 
-        if result.get('error'):
-            return jsonify(result), 500
+        # Calculate response time
+        response_time_ms = (time.time() - start_time) * 1000
 
-        return jsonify(result)
+        # Extract response and usage
+        lark_response = result.get('response', '')
+        usage = result.get('usage', {})
+        input_tokens = usage.get('input_tokens', 0)
+        output_tokens = usage.get('output_tokens', 0)
+        error = result.get('error')
+
+        # Log the interaction
+        log_chat_interaction(
+            session_id=session_id,
+            user_query=user_query,
+            lark_response=lark_response or '',
+            input_tokens=input_tokens,
+            output_tokens=output_tokens,
+            response_time_ms=response_time_ms,
+            error=error,
+            ip_hash=ip_hash
+        )
+
+        if error:
+            return jsonify({**result, 'session_id': session_id}), 500
+
+        return jsonify({**result, 'session_id': session_id})
+
+    except Exception as e:
+        response_time_ms = (time.time() - start_time) * 1000
+        error_msg = f"Something went awry: {str(e)}"
+
+        # Log the error
+        log_chat_interaction(
+            session_id=session_id,
+            user_query=request.json.get('messages', [{}])[-1].get('content', '') if request.json else '',
+            lark_response='',
+            input_tokens=0,
+            output_tokens=0,
+            response_time_ms=response_time_ms,
+            error=error_msg,
+            ip_hash=ip_hash
+        )
+
+        return jsonify({
+            'error': error_msg,
+            'response': None,
+            'session_id': session_id
+        }), 500
+
+
+# =============================================================================
+# ADMIN ENDPOINTS - Usage Visibility
+# =============================================================================
+
+@app.route('/admin/usage', methods=['GET'])
+def usage_summary():
+    """
+    Returns usage statistics for monitoring and budgeting.
+
+    This is a simple admin endpoint - no authentication for now.
+    In production, you might want to add a simple token check.
+
+    Returns:
+    - Today's stats (conversations, tokens, cost)
+    - Last 7 days summary
+    - Lifetime totals
+    """
+    try:
+        tracker = get_usage_tracker()
+        summary = tracker.get_summary_report()
+
+        return jsonify({
+            'status': 'ok',
+            'usage': summary
+        })
 
     except Exception as e:
         return jsonify({
-            'error': f"Something went awry: {str(e)}",
-            'response': None
+            'status': 'error',
+            'error': str(e)
+        }), 500
+
+
+@app.route('/admin/budget', methods=['GET'])
+def budget_status():
+    """
+    Returns current budget status.
+
+    Returns:
+    - Daily limit
+    - Current spend
+    - Remaining budget
+    - Is within budget
+    """
+    try:
+        from lark_protection import get_budget_guard, DAILY_BUDGET_CAP_USD
+
+        guard = get_budget_guard()
+        is_within_budget, current_spend = guard.check_budget()
+
+        return jsonify({
+            'status': 'ok',
+            'budget': {
+                'daily_limit_usd': DAILY_BUDGET_CAP_USD,
+                'current_spend_usd': round(current_spend, 4),
+                'remaining_usd': round(guard.get_remaining_budget(), 4),
+                'is_within_budget': is_within_budget,
+                'percentage_used': round((current_spend / DAILY_BUDGET_CAP_USD) * 100, 1) if DAILY_BUDGET_CAP_USD > 0 else 0
+            }
+        })
+
+    except Exception as e:
+        return jsonify({
+            'status': 'error',
+            'error': str(e)
+        }), 500
+
+
+@app.route('/admin/health', methods=['GET'])
+def health_check():
+    """
+    Simple health check endpoint for monitoring.
+
+    Returns current status and basic metrics.
+    """
+    try:
+        tracker = get_usage_tracker()
+        today_stats = tracker.get_today_stats()
+
+        return jsonify({
+            'status': 'healthy',
+            'service': 'the-london-lark',
+            'today': {
+                'conversations': today_stats['conversations'],
+                'errors': today_stats['errors']
+            }
+        })
+
+    except Exception as e:
+        return jsonify({
+            'status': 'degraded',
+            'error': str(e)
         }), 500
 
 
