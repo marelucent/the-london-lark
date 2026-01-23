@@ -439,32 +439,32 @@ def get_time_aware_greeting():
     hour = now.hour
 
     if 6 <= hour <= 11:
-        return """*You're up early, wanderer. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.*
+        return """You're up early, wanderer. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
 
-*Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.*
+Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.
 
-*I don't linger long — but I listen well.*"""
+I don't linger long — but I listen well."""
 
     elif 12 <= hour <= 17:
-        return """*Afternoon, wanderer. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.*
+        return """Afternoon, wanderer. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
 
-*Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.*
+Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.
 
-*I don't linger long — but I listen well.*"""
+I don't linger long — but I listen well."""
 
     elif 18 <= hour <= 23:
-        return """*The night is gathering herself. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.*
+        return """The night is gathering herself. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
 
-*Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.*
+Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.
 
-*I don't linger long — but I listen well.*"""
+I don't linger long — but I listen well."""
 
     else:  # 0-5
-        return """*Still up? I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.*
+        return """Still up? I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
 
-*Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.*
+Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.
 
-*I don't linger long — but I listen well.*"""
+I don't linger long — but I listen well."""
 
 
 def load_condensed_venues():
