@@ -43,6 +43,7 @@ from lark_logger import (
     get_conversation_logger,
     get_usage_tracker,
     get_abuse_logger,
+    get_feedback_logger,
     log_chat_interaction,
     log_ask_interaction,
     generate_session_id
@@ -1344,6 +1345,76 @@ def chat():
             'response': None,
             'session_id': session_id
         }), 500
+
+
+# =============================================================================
+# FEEDBACK ENDPOINTS - Testimonies & Flags
+# =============================================================================
+
+@app.route('/feedback/testimony', methods=['POST'])
+def submit_testimony():
+    """
+    Log a positive testimony about a venue.
+    Called when users click the ✧ love icon and share their experience.
+    """
+    try:
+        data = request.get_json() or {}
+        venue = data.get('venue', '')
+        text = data.get('text', '')
+        email = data.get('email', '')
+
+        if not venue:
+            return jsonify({'error': 'Venue required'}), 400
+
+        # Get IP hash for basic tracking
+        ip_hash = hash_ip(get_client_ip(request))
+
+        # Log the testimony
+        feedback_logger = get_feedback_logger()
+        feedback_logger.log_testimony(
+            venue=venue,
+            text=text,
+            email=email if email else None,
+            ip_hash=ip_hash
+        )
+
+        return jsonify({'success': True})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/feedback/flag', methods=['POST'])
+def submit_flag():
+    """
+    Log a flag/issue report about a venue.
+    Called when users click the 🜃 flag icon to report problems.
+    """
+    try:
+        data = request.get_json() or {}
+        venue = data.get('venue', '')
+        reason = data.get('reason', 'other')
+        details = data.get('details', '')
+
+        if not venue:
+            return jsonify({'error': 'Venue required'}), 400
+
+        # Get IP hash for basic tracking
+        ip_hash = hash_ip(get_client_ip(request))
+
+        # Log the flag
+        feedback_logger = get_feedback_logger()
+        feedback_logger.log_flag(
+            venue=venue,
+            reason=reason,
+            details=details if details else None,
+            ip_hash=ip_hash
+        )
+
+        return jsonify({'success': True})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 # =============================================================================

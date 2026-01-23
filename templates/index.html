@@ -713,6 +713,12 @@
                                 <div class="venue-location" id="cardVenueLocation"></div>
                                 <div class="venue-blurb" id="cardVenueBlurb"></div>
                             </div>
+                            <div class="card-footer">
+                                <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" id="cardLoveBtn">✧</button>
+                                <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" id="cardFlagBtn">🜃</button>
+                                <button class="card-footer-icon" data-action="share" data-tooltip="share this door" id="cardShareBtn">↗</button>
+                            </div>
+                            <div class="card-footer-confirm" id="cardFooterConfirm"></div>
                         </div>
                     </div>
                 </div>
@@ -1203,12 +1209,18 @@
                             <div class="venue-location">${venue.area || 'London'}</div>
                             <div class="venue-whisper">${venueWhisper}</div>
                             <div class="venue-blurb" style="display: none;">${venueBlurb}</div>
+                            <div class="card-footer">
+                                <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.name}">✧</button>
+                                <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" data-venue="${venue.name}">🜃</button>
+                                <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.name}" data-arcana="${mood}">↗</button>
+                            </div>
+                            <div class="card-footer-confirm"></div>
                         </div>
                     `;
 
                     // Click to expand/collapse
                     card.onclick = (e) => {
-                        if (e.target.tagName === 'A') return;
+                        if (e.target.tagName === 'A' || e.target.classList.contains('card-footer-icon')) return;
                         toggleCardExpansion(card);
                     };
 
@@ -1604,12 +1616,18 @@
                         <div class="venue-whisper">${whisper}</div>
                         <div class="venue-blurb" style="display: none;">${venue.text || ''}</div>
                     </div>
+                    <div class="card-footer">
+                        <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.venue_name}">✧</button>
+                        <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" data-venue="${venue.venue_name}">🜃</button>
+                        <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.venue_name}" data-arcana="${mood}">↗</button>
+                    </div>
+                    <div class="card-footer-confirm"></div>
                 </div>
             `;
 
             // Click to expand/collapse
             card.onclick = (e) => {
-                if (e.target.tagName === 'A') return; // Don't toggle if clicking link
+                if (e.target.tagName === 'A' || e.target.classList.contains('card-footer-icon')) return;
                 toggleCardExpansion(card);
             };
 
@@ -2161,7 +2179,176 @@
                     askLark();
                 }
             });
+
+            // Card footer icon handlers (delegated)
+            document.addEventListener('click', handleCardFooterClick);
         });
+
+        // ============================================
+        // CARD FOOTER HANDLERS
+        // ============================================
+
+        async function handleCardFooterClick(e) {
+            const icon = e.target.closest('.card-footer-icon');
+            if (!icon) return;
+
+            e.stopPropagation();
+            const action = icon.dataset.action;
+            const venue = icon.dataset.venue || currentCardData?.venue_name;
+            const arcana = icon.dataset.arcana || currentCardData?.mood;
+
+            switch (action) {
+                case 'love':
+                    handleLoveClick(icon, venue);
+                    break;
+                case 'flag':
+                    handleFlagClick(icon, venue);
+                    break;
+                case 'share':
+                    handleShareClick(icon, venue, arcana);
+                    break;
+            }
+        }
+
+        function handleLoveClick(icon, venue) {
+            // Toggle loved state
+            const isLoved = icon.classList.toggle('loved');
+            icon.textContent = isLoved ? '✦' : '✧';
+
+            // Show confirmation
+            const card = icon.closest('.arcana-card');
+            const confirmEl = card.querySelector('.card-footer-confirm');
+            if (confirmEl) {
+                confirmEl.textContent = isLoved ? 'this one glows' : '';
+                confirmEl.classList.add('show');
+                setTimeout(() => confirmEl.classList.remove('show'), 2000);
+            }
+
+            // If loved, show testimony prompt
+            if (isLoved) {
+                showTestimonyForm(venue);
+            }
+        }
+
+        function handleFlagClick(icon, venue) {
+            showFlagForm(venue);
+        }
+
+        function handleShareClick(icon, venue, arcana) {
+            // Create shareable link - for now, link to arcana page
+            const slug = arcana ? encodeURIComponent(arcana) : '';
+            const url = `${window.location.origin}/arcana/${slug}`;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(url).then(() => {
+                const card = icon.closest('.arcana-card');
+                const confirmEl = card.querySelector('.card-footer-confirm');
+                if (confirmEl) {
+                    confirmEl.textContent = 'link copied — share this door';
+                    confirmEl.classList.add('show');
+                    setTimeout(() => confirmEl.classList.remove('show'), 2500);
+                }
+            }).catch(() => {
+                // Fallback for older browsers
+                alert('Link: ' + url);
+            });
+        }
+
+        // Testimony form
+        function showTestimonyForm(venue) {
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'lark-modal';
+            modal.innerHTML = `
+                <div class="lark-modal-content">
+                    <div class="lark-modal-header">
+                        <span class="lark-modal-icon">✦</span>
+                        <h3>This one glows</h3>
+                    </div>
+                    <p class="lark-modal-subtitle">Tell us about your visit to ${venue}</p>
+                    <textarea class="lark-modal-textarea" placeholder="What made this place special?" rows="4"></textarea>
+                    <input type="email" class="lark-modal-input" placeholder="Email (optional, for future features)">
+                    <div class="lark-modal-actions">
+                        <button class="action-btn secondary" onclick="closeLarkModal()">Maybe later</button>
+                        <button class="action-btn" onclick="submitTestimony('${venue.replace(/'/g, "\\'")}')">Share</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        // Flag form
+        function showFlagForm(venue) {
+            const modal = document.createElement('div');
+            modal.className = 'lark-modal';
+            modal.innerHTML = `
+                <div class="lark-modal-content">
+                    <div class="lark-modal-header">
+                        <span class="lark-modal-icon">🜃</span>
+                        <h3>Whisper to the Lark</h3>
+                    </div>
+                    <p class="lark-modal-subtitle">Something's not right about ${venue}?</p>
+                    <div class="lark-modal-options">
+                        <label><input type="radio" name="flagReason" value="closed"> This venue has closed</label>
+                        <label><input type="radio" name="flagReason" value="incorrect"> Information is incorrect</label>
+                        <label><input type="radio" name="flagReason" value="arcana"> Doesn't fit this arcana</label>
+                        <label><input type="radio" name="flagReason" value="other"> Other</label>
+                    </div>
+                    <textarea class="lark-modal-textarea" placeholder="Any details? (optional)" rows="3"></textarea>
+                    <div class="lark-modal-actions">
+                        <button class="action-btn secondary" onclick="closeLarkModal()">Cancel</button>
+                        <button class="action-btn" onclick="submitFlag('${venue.replace(/'/g, "\\'")}')">Send</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function closeLarkModal() {
+            const modal = document.querySelector('.lark-modal');
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.remove(), 300);
+            }
+        }
+
+        async function submitTestimony(venue) {
+            const modal = document.querySelector('.lark-modal');
+            const text = modal.querySelector('.lark-modal-textarea').value;
+            const email = modal.querySelector('.lark-modal-input').value;
+
+            try {
+                await fetch('/feedback/testimony', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ venue, text, email })
+                });
+            } catch (e) {
+                console.error('Failed to submit testimony:', e);
+            }
+
+            closeLarkModal();
+        }
+
+        async function submitFlag(venue) {
+            const modal = document.querySelector('.lark-modal');
+            const reason = modal.querySelector('input[name="flagReason"]:checked')?.value || 'other';
+            const details = modal.querySelector('.lark-modal-textarea').value;
+
+            try {
+                await fetch('/feedback/flag', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ venue, reason, details })
+                });
+            } catch (e) {
+                console.error('Failed to submit flag:', e);
+            }
+
+            closeLarkModal();
+        }
     </script>
 </body>
 </html>
