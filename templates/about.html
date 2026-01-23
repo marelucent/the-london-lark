@@ -8,31 +8,42 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         .about-container {
-            max-width: 600px;
+            max-width: 65ch;
             margin: 0 auto;
-            padding: 2rem 1.5rem 4rem;
+            padding: 3rem 2rem 5rem;
             text-align: center;
         }
 
         .about-section {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .about-section:last-of-type {
+            margin-bottom: 2rem;
         }
 
         .about-title {
             font-family: var(--font-title);
-            font-size: 0.9rem;
-            letter-spacing: 0.25em;
+            font-size: 1rem;
+            letter-spacing: 0.3em;
             color: var(--gold);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .about-title-symbol {
+            color: var(--gold);
+            opacity: 0.7;
         }
 
         .about-text {
             font-family: var(--font-body);
-            font-size: 1rem;
+            font-size: 1.15rem;
             color: var(--cream);
-            line-height: 1.8;
+            line-height: 1.85;
             text-align: left;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.92;
         }
 
         .about-text:last-child {
@@ -44,62 +55,118 @@
             font-style: italic;
         }
 
+        .about-text.intro {
+            font-family: var(--font-whisper);
+            font-size: 1.25rem;
+            font-style: italic;
+            text-align: center;
+            color: var(--candlelight);
+            margin-bottom: 2rem;
+        }
+
         .about-examples {
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            color: var(--text-soft);
-            line-height: 1.8;
+            font-family: var(--font-whisper);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--candlelight);
+            line-height: 2;
             text-align: left;
-            margin: 1rem 0;
-            padding-left: 1.5rem;
+            margin: 1.5rem 0 1.5rem 1.5rem;
+            padding-left: 1rem;
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            list-style: none;
         }
 
         .about-examples li {
             margin-bottom: 0.5rem;
-            list-style-type: disc;
+        }
+
+        .about-examples li::before {
+            content: '"';
+            color: var(--gold-dim);
+        }
+
+        .about-examples li::after {
+            content: '"';
+            color: var(--gold-dim);
         }
 
         .about-values {
             font-family: var(--font-body);
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             color: var(--cream);
-            line-height: 1.8;
+            line-height: 2;
             text-align: left;
-            margin: 1rem 0;
-            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            padding-left: 0;
             list-style: none;
         }
 
         .about-values li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
         }
 
         .about-values li::before {
-            content: "• ";
-            color: var(--gold-dim);
+            content: "✦";
+            color: var(--gold);
+            opacity: 0.6;
+            position: absolute;
+            left: 0;
+            font-size: 0.7rem;
+            top: 0.35rem;
+        }
+
+        .about-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+            margin: 3rem auto;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 2rem;
-            font-family: var(--font-body);
-            font-size: 0.9rem;
+            margin-top: 3rem;
+            font-family: var(--font-whisper);
+            font-size: 1rem;
+            font-style: italic;
             color: var(--gold-dim);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
         }
 
         .back-link:hover {
             color: var(--gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
         @media (max-width: 600px) {
             .about-container {
-                padding: 1.5rem 1rem 3rem;
+                padding: 2rem 1.5rem 4rem;
+            }
+
+            .about-title {
+                font-size: 0.9rem;
+                letter-spacing: 0.25em;
             }
 
             .about-text {
-                font-size: 0.95rem;
+                font-size: 1.05rem;
+            }
+
+            .about-text.intro {
+                font-size: 1.15rem;
+            }
+
+            .about-examples {
+                font-size: 1rem;
+                margin-left: 0.5rem;
+            }
+
+            .about-section {
+                margin-bottom: 3rem;
             }
         }
     </style>
@@ -112,34 +179,40 @@
 
         <main class="about-container">
             <section class="about-section">
-                <h2 class="about-title">✦ WHO IS SHE? ✦</h2>
-                <p class="about-text">Hello, petal. I'm the Lark.</p>
+                <h2 class="about-title"><span class="about-title-symbol">✦</span> WHO IS SHE? <span class="about-title-symbol">✦</span></h2>
+                <p class="about-text intro">Hello, petal. I'm the Lark.</p>
                 <p class="about-text">I know London's soulful corners — the queer-friendly, the strange, the secret. The places that hold you when you're grieving, or spark you when you're restless.</p>
                 <p class="about-text">I'm not a therapist, not a search engine. Just a companion who listens to what you're carrying and offers doors.</p>
             </section>
 
+            <div class="about-divider"></div>
+
             <section class="about-section">
-                <h2 class="about-title">✦ HOW TO USE HER ✦</h2>
+                <h2 class="about-title"><span class="about-title-symbol">✦</span> HOW TO USE HER <span class="about-title-symbol">✦</span></h2>
                 <p class="about-text">Search by mood, not venue name. Tell me how you're feeling, what you're craving, what kind of night you need.</p>
                 <p class="about-text">Try:</p>
                 <ul class="about-examples">
-                    <li>"somewhere cosy with live music"</li>
-                    <li>"I want to feel alive"</li>
-                    <li>"witchy"</li>
-                    <li>"I need to move my body"</li>
+                    <li>somewhere cosy with live music</li>
+                    <li>I want to feel alive</li>
+                    <li>witchy</li>
+                    <li>I need to move my body</li>
                 </ul>
                 <p class="about-text">Or let fate decide — draw a card and see where she sends you.</p>
                 <p class="about-text">You can also browse the deck: 23 arcana, 23 moods, each a different door into London's undercurrent.</p>
             </section>
 
+            <div class="about-divider"></div>
+
             <section class="about-section">
-                <h2 class="about-title">✦ WHAT SHE ISN'T ✦</h2>
+                <h2 class="about-title"><span class="about-title-symbol">✦</span> WHAT SHE ISN'T <span class="about-title-symbol">✦</span></h2>
                 <p class="about-text">She won't fix you. She's not a crisis line. But she'll walk beside you, and if you're in deep waters, there's a refuge here too.</p>
                 <p class="about-text">She's also not a search engine — she won't find you "the best pizza in Soho." She finds the places that <em>feel</em> right, not the places that rank well.</p>
             </section>
 
+            <div class="about-divider"></div>
+
             <section class="about-section">
-                <h2 class="about-title">✦ THE LARKLINGS ✦</h2>
+                <h2 class="about-title"><span class="about-title-symbol">✦</span> THE LARKLINGS <span class="about-title-symbol">✦</span></h2>
                 <p class="about-text">The people who tend her believe in:</p>
                 <ul class="about-values">
                     <li>Soul before scale</li>
@@ -150,7 +223,7 @@
                 <p class="about-text">She holds 650+ venues across 23 moods — and she's still growing, still learning, still listening.</p>
             </section>
 
-            <a href="/" class="back-link">— back to the Lark —</a>
+            <a href="/" class="back-link">← back to the Lark</a>
         </main>
     </div>
 </body>
