@@ -30,6 +30,7 @@ from response_generator import generate_response, get_current_voice_profile, gen
 from parse_venues import load_parsed_venues
 from lark_metrics import get_metrics
 from lark_mind import chat_with_lark, get_time_aware_greeting as get_lark_mind_greeting
+from card_parser import parse_response as parse_card_response
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import random
@@ -1288,6 +1289,14 @@ def chat():
         output_tokens = usage.get('output_tokens', 0)
         error = result.get('error')
 
+        # Parse response for venue cards and draws
+        parsed = parse_card_response(lark_response) if lark_response else {
+            'segments': [],
+            'raw_text': '',
+            'has_cards': False,
+            'has_draws': False
+        }
+
         # Log the interaction
         log_chat_interaction(
             session_id=session_id,
@@ -1303,7 +1312,16 @@ def chat():
         if error:
             return jsonify({**result, 'session_id': session_id}), 500
 
-        return jsonify({**result, 'session_id': session_id})
+        # Return enriched response with card/draw segments
+        return jsonify({
+            'response': parsed['raw_text'],  # Clean text without markers
+            'segments': parsed['segments'],   # Structured segments for rendering
+            'has_cards': parsed['has_cards'],
+            'has_draws': parsed['has_draws'],
+            'usage': usage,
+            'error': None,
+            'session_id': session_id
+        })
 
     except Exception as e:
         response_time_ms = (time.time() - start_time) * 1000
