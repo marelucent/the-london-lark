@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description }}">
+
+    <!-- Open Graph for sharing -->
+    <meta property="og:title" content="{{ arcana.name }} — The London Lark">
+    <meta property="og:description" content="{{ page_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .arcana-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* Hero card for the arcana */
+        .arcana-hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem 2rem;
+            background: var(--parchment-dark);
+            border: 1px solid var(--gold-dim);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .arcana-hero::before,
+        .arcana-hero::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: var(--gold-dim);
+            border-style: solid;
+        }
+
+        .arcana-hero::before {
+            top: 12px;
+            left: 12px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .arcana-hero::after {
+            bottom: 12px;
+            right: 12px;
+            border-width: 0 1px 1px 0;
+        }
+
+        .arcana-symbol {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .arcana-number {
+            font-family: var(--font-title);
+            font-size: 0.9rem;
+            color: var(--gold);
+            letter-spacing: 0.4em;
+            margin-bottom: 0.5rem;
+        }
+
+        .arcana-name {
+            font-family: var(--font-title);
+            font-size: 1.4rem;
+            color: var(--cream);
+            letter-spacing: 0.12em;
+            margin-bottom: 0.5rem;
+        }
+
+        .arcana-mood {
+            font-family: var(--font-whisper);
+            font-size: 1.15rem;
+            color: var(--candlelight);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .arcana-description {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--cream);
+            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .arcana-count {
+            font-family: var(--font-whisper);
+            font-size: 0.95rem;
+            color: var(--gold-dim);
+            font-style: italic;
+            margin-top: 1.5rem;
+        }
+
+        /* Venue grid */
+        .venues-section {
+            margin-top: 2rem;
+        }
+
+        .venues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .venue-card {
+            background: var(--parchment-dark);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 4px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .venue-card:hover {
+            border-color: var(--gold-dim);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .venue-name {
+            font-family: var(--font-title);
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+
+        .venue-location {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--candlelight);
+            opacity: 0.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .venue-whisper {
+            font-family: var(--font-whisper);
+            font-size: 0.95rem;
+            color: var(--cream);
+            font-style: italic;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .venue-blurb {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--cream);
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation */
+        .arcana-nav {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-link {
+            display: inline-block;
+            font-family: var(--font-whisper);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--gold-dim);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+            font-family: var(--font-whisper);
+            font-size: 1.1rem;
+            color: var(--candlelight);
+            font-style: italic;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .arcana-page {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .arcana-hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .arcana-symbol {
+                font-size: 2rem;
+            }
+
+            .arcana-name {
+                font-size: 1.2rem;
+            }
+
+            .venues-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-link {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+        </header>
+
+        <main class="arcana-page">
+            <!-- Arcana Hero Card -->
+            <div class="arcana-hero {{ arcana.css_class }}">
+                <div class="arcana-symbol">{{ arcana.symbol }}</div>
+                <div class="arcana-number">{{ arcana.number }}</div>
+                <div class="arcana-name">{{ arcana.name }}</div>
+                <div class="arcana-mood">{{ mood }}</div>
+                <p class="arcana-description">{{ arcana.description }}</p>
+                <p class="arcana-count">{{ venue_count }} venue{{ 's' if venue_count != 1 else '' }} in this arcana</p>
+            </div>
+
+            <!-- Venues Grid -->
+            <section class="venues-section">
+                {% if venues %}
+                <div class="venues-grid">
+                    {% for venue in venues %}
+                    <a href="/venue/{{ venue.slug }}" class="venue-card">
+                        <div class="venue-name">{{ venue.name }}</div>
+                        <div class="venue-location">{{ venue.location }}</div>
+                        {% if venue.whisper %}
+                        <div class="venue-whisper">{{ venue.whisper }}</div>
+                        {% endif %}
+                        {% if venue.blurb and not venue.whisper %}
+                        <div class="venue-blurb">{{ venue.blurb[:150] }}{% if venue.blurb|length > 150 %}...{% endif %}</div>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="empty-state">
+                    This arcana is gathering its venues. Check back soon, petal.
+                </div>
+                {% endif %}
+            </section>
+
+            <!-- Navigation -->
+            <nav class="arcana-nav">
+                <a href="/deck" class="nav-link">← Browse the Full Deck</a>
+                <a href="/" class="nav-link">Back to the Lark →</a>
+            </nav>
+        </main>
+    </div>
+</body>
+</html>

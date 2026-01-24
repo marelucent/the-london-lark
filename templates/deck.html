@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description }}">
+
+    <!-- Open Graph for sharing -->
+    <meta property="og:title" content="The Full Deck — The London Lark">
+    <meta property="og:description" content="{{ page_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .deck-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .deck-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .deck-title {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            color: var(--gold);
+            letter-spacing: 0.25em;
+            margin-bottom: 1rem;
+        }
+
+        .deck-subtitle {
+            font-family: var(--font-whisper);
+            font-size: 1.1rem;
+            color: var(--candlelight);
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .deck-count {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--gold-dim);
+            margin-top: 1rem;
+        }
+
+        /* Card Grid */
+        .deck-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .arcana-card {
+            background: var(--parchment-dark);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 4px;
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .arcana-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, var(--glow, rgba(212, 175, 55, 0.05)) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .arcana-card:hover {
+            border-color: var(--arcana-border, var(--gold));
+            transform: translateY(-4px);
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.3),
+                0 0 20px var(--glow, rgba(212, 175, 55, 0.15));
+        }
+
+        .arcana-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-symbol {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-number {
+            font-family: var(--font-title);
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 0.35em;
+            margin-bottom: 0.3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-name {
+            font-family: var(--font-title);
+            font-size: 0.9rem;
+            color: var(--cream);
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-mood {
+            font-family: var(--font-whisper);
+            font-size: 0.85rem;
+            color: var(--candlelight);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-count {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--gold-dim);
+            margin-top: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .deck-nav {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-link {
+            display: inline-block;
+            font-family: var(--font-whisper);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--gold-dim);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .deck-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 1rem;
+            }
+
+            .arcana-card {
+                padding: 1.25rem 1rem;
+            }
+
+            .card-symbol {
+                font-size: 1.5rem;
+            }
+
+            .card-name {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .deck-page {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .deck-title {
+                font-size: 1.1rem;
+                letter-spacing: 0.2em;
+            }
+
+            .deck-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .arcana-card {
+                padding: 1rem 0.75rem;
+            }
+
+            .card-symbol {
+                font-size: 1.3rem;
+            }
+
+            .card-number {
+                font-size: 0.65rem;
+            }
+
+            .card-name {
+                font-size: 0.7rem;
+            }
+
+            .card-mood {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+        </header>
+
+        <main class="deck-page">
+            <div class="deck-header">
+                <h2 class="deck-title">✦ THE FULL DECK ✦</h2>
+                <p class="deck-subtitle">23 arcana, 23 moods. Each card opens different doors into London's soul.</p>
+                <p class="deck-count">{{ total_venues }} venues across the deck</p>
+            </div>
+
+            <div class="deck-grid">
+                {% for card in deck %}
+                <a href="/arcana/{{ card.slug }}" class="arcana-card {{ card.css_class }}">
+                    <div class="card-symbol">{{ card.symbol }}</div>
+                    <div class="card-number">{{ card.number }}</div>
+                    <div class="card-name">{{ card.name }}</div>
+                    <div class="card-mood">{{ card.mood }}</div>
+                    <div class="card-count">{{ card.venue_count }} venue{{ 's' if card.venue_count != 1 else '' }}</div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <nav class="deck-nav">
+                <a href="/" class="nav-link">← Back to the Lark</a>
+            </nav>
+        </main>
+    </div>
+</body>
+</html>
