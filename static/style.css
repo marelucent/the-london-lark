@@ -2527,12 +2527,16 @@ button {
     margin-top: 0.8rem;
 }
 
-/* Preamble, safety boxes, and intro text should span full width */
+/* Preamble, safety boxes, bridge, and intro text should span full width */
 .results-container .lark-preamble-section,
 .results-container .safety-support-box,
 .results-container .safety-crisis-box,
 .results-container .safety-soft-footer,
 .results-container .lark-intro,
+.results-container .lark-clarification,
+.results-container .search-bridge,
+.results-container .results-draw-offer,
+.results-container .draw-offer,
 .results-container .empty-state {
     width: 100%;
     flex-basis: 100%;

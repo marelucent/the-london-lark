@@ -342,7 +342,18 @@ def match_venues_with_adjacency(filters, all_venues=None):
         all_venues = load_parsed_venues()
 
     # UPGRADE 2: Try text search first (name, blurb, whisper)
+    # BUT: If we have a mood identified, filter text results to that arcana
+    # This keeps bridge and results aligned ("THE HERMIT" bridge shows HERMIT venues)
     name_matches, text_matches = search_venue_text(search_text, all_venues, location)
+
+    # Filter text matches to the identified mood/arcana if we have one
+    if mood and mood in TAROT_ADJACENCY:
+        if name_matches:
+            name_matches = [v for v in name_matches if v.get("arcana") == mood]
+            print(f"   🎯 Filtered name matches to '{mood}': {len(name_matches)} venues")
+        if text_matches:
+            text_matches = [v for v in text_matches if v.get("arcana") == mood]
+            print(f"   🎯 Filtered text matches to '{mood}': {len(text_matches)} venues")
 
     # If we have name matches, prioritize them
     if name_matches:
@@ -368,7 +379,7 @@ def match_venues_with_adjacency(filters, all_venues=None):
                     result.append(normalize_venue(venue))
                     seen_names.add(venue_name)
 
-        # If we still need more, try mood matching
+        # If we still need more, try mood matching (from same arcana)
         if len(result) < 3 and mood:
             mood_matches = match_venues(filters)
             for venue in mood_matches:
