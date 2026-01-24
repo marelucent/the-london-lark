@@ -163,6 +163,7 @@
             padding: 1.5rem;
             transition: all 0.3s ease;
             text-decoration: none;
+            text-align: center;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -236,6 +237,13 @@
         .venue-link {
             text-decoration: none;
             display: block;
+        }
+
+        .venue-card-symbol {
+            font-size: 1.1rem;
+            color: var(--gold);
+            opacity: 0.6;
+            margin-bottom: 0.6rem;
         }
 
         .venue-name {
@@ -408,6 +416,7 @@
                         <span class="corner-tr"></span>
                         <span class="corner-bl"></span>
                         <div class="venue-card-content">
+                            <div class="venue-card-symbol">{{ arcana.symbol }}</div>
                             <a href="/venue/{{ venue.slug }}" class="venue-link">
                                 <div class="venue-name">{{ venue.name }}</div>
                                 <div class="venue-location">{{ venue.location }}</div>
