@@ -2402,6 +2402,16 @@ button {
     flex-wrap: wrap;
 }
 
+/* Revealed card styling (ensures frame is always visible) */
+#revealedCard {
+    min-height: 320px;
+    text-align: center;
+}
+
+#revealedCard .card-inner {
+    width: 100%;
+}
+
 /* Card reveal animation */
 .card-reveal {
     animation: cardReveal 0.6s ease forwards;
