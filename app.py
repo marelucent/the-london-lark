@@ -290,7 +290,7 @@ ARCANA_ORDER = [
 # SEARCH BRIDGE GENERATOR
 # =============================================================================
 # Creates the "emotional translation" bridge between a user's search and results.
-# Shows the Lark's working: echoing keywords, naming the arcana, explaining the mapping.
+# Option B: Describes which arcana the actual results came from.
 
 # Words to exclude from keyword echoing (common words that don't carry meaning)
 BRIDGE_STOP_WORDS = {
@@ -302,87 +302,67 @@ BRIDGE_STOP_WORDS = {
 }
 
 
-def generate_search_bridge(query, mood, confidence, filters=None):
+def generate_search_bridge(query, venues, confidence=1.0):
     """
-    Generate the bridge text that connects a search to its arcana results.
+    Generate the bridge text based on actual search results (Option B).
+
+    Instead of predicting an arcana, this describes which arcana
+    the actual matched venues came from.
+
+    Args:
+        query: The user's search query
+        venues: List of matched venue response dicts (with 'arcana' field)
+        confidence: Match confidence (for styling)
 
     Returns a dict with:
         - echo: poetic reflection of their keywords
-        - arcana_name: the tarot card name (e.g., "THE HERMIT")
-        - arcana_mood: the mood name (e.g., "Contemplative & Meditative")
-        - arcana_slug: URL slug for linking to the arcana page
-        - arcana_description: brief flavour of what this arcana means
+        - arcana_list: list of {name, mood, slug} for each unique arcana in results
         - transition: the line leading into results
-        - bridge_type: 'clear', 'partial', or 'none'
+        - bridge_type: 'found', 'none'
         - offer_draw: whether to offer a card draw instead
     """
     # Extract meaningful keywords from query
     words = query.lower().split()
     meaningful_words = [w.strip('.,!?;:"\'') for w in words if w.strip('.,!?;:"\'') not in BRIDGE_STOP_WORDS]
 
-    # No mood found - offer draw
-    if not mood or confidence == 0.0:
+    # No venues found - offer draw
+    if not venues:
         return {
-            'echo': _create_echo(meaningful_words, 'none'),
-            'arcana_name': None,
-            'arcana_mood': None,
-            'arcana_slug': None,
-            'arcana_description': None,
+            'echo': _create_echo(meaningful_words),
+            'arcana_list': [],
             'transition': None,
             'bridge_type': 'none',
             'offer_draw': True,
             'lark_message': _get_no_match_message(meaningful_words)
         }
 
-    # Get arcana data
-    arcana = ARCANA_DATA.get(mood, {})
-    arcana_name = arcana.get('name', 'THE LARK')
-    arcana_slug = arcana.get('slug', 'the-lark')
-    arcana_description = arcana.get('description', '')
+    # Extract unique arcana from the actual results
+    seen_arcana = set()
+    arcana_list = []
+    for venue in venues:
+        venue_arcana = venue.get('arcana')
+        if venue_arcana and venue_arcana not in seen_arcana:
+            seen_arcana.add(venue_arcana)
+            arcana_data = ARCANA_DATA.get(venue_arcana, {})
+            arcana_list.append({
+                'name': arcana_data.get('name', 'THE LARK'),
+                'mood': venue_arcana,
+                'slug': arcana_data.get('slug', 'the-lark'),
+                'description': arcana_data.get('description', '')
+            })
 
-    # Clear match (high confidence >= 0.7)
-    if confidence >= 0.7:
-        return {
-            'echo': _create_echo(meaningful_words, 'clear'),
-            'arcana_name': arcana_name,
-            'arcana_mood': mood,
-            'arcana_slug': arcana_slug,
-            'arcana_description': arcana_description,
-            'transition': _get_clear_transition(mood, arcana_name),
-            'bridge_type': 'clear',
-            'offer_draw': False,
-            'lark_message': None
-        }
-
-    # Partial resonance (moderate confidence 0.3-0.7)
-    if confidence >= 0.3:
-        return {
-            'echo': _create_echo(meaningful_words, 'partial'),
-            'arcana_name': arcana_name,
-            'arcana_mood': mood,
-            'arcana_slug': arcana_slug,
-            'arcana_description': arcana_description,
-            'transition': _get_partial_transition(mood, arcana_name),
-            'bridge_type': 'partial',
-            'offer_draw': False,
-            'lark_message': None
-        }
-
-    # Very low confidence - still show results but offer draw as alternative
+    # Generate the bridge
     return {
-        'echo': _create_echo(meaningful_words, 'uncertain'),
-        'arcana_name': arcana_name,
-        'arcana_mood': mood,
-        'arcana_slug': arcana_slug,
-        'arcana_description': arcana_description,
-        'transition': _get_uncertain_transition(mood, arcana_name),
-        'bridge_type': 'uncertain',
-        'offer_draw': True,
+        'echo': _create_echo(meaningful_words),
+        'arcana_list': arcana_list,
+        'transition': _get_results_transition(arcana_list),
+        'bridge_type': 'found',
+        'offer_draw': False,
         'lark_message': None
     }
 
 
-def _create_echo(keywords, bridge_type):
+def _create_echo(keywords):
     """Create a poetic echo of the user's keywords."""
     if not keywords:
         return None
@@ -390,111 +370,42 @@ def _create_echo(keywords, bridge_type):
     # Take up to 4 most meaningful keywords
     echo_words = keywords[:4]
 
-    if bridge_type == 'clear':
-        # Direct, affirming echo
-        if len(echo_words) == 1:
-            return f"{echo_words[0].title()}."
-        elif len(echo_words) == 2:
-            return f"{echo_words[0].title()}... {echo_words[1]}."
-        else:
-            middle = '... '.join(echo_words[:-1])
-            return f"{middle.capitalize()}... {echo_words[-1]}."
+    if len(echo_words) == 1:
+        return f"{echo_words[0].title()}."
+    elif len(echo_words) == 2:
+        return f"{echo_words[0].title()}... {echo_words[1]}."
+    else:
+        middle = '... '.join(echo_words[:-1])
+        return f"{middle.capitalize()}... {echo_words[-1]}."
 
-    elif bridge_type == 'partial':
-        # Questioning, sensing echo
-        if len(echo_words) == 1:
-            return f"{echo_words[0].title()}... I sense something there."
-        else:
-            joined = '... '.join(echo_words[:3])
-            return f"{joined.capitalize()}... there's a thread here."
 
-    elif bridge_type == 'uncertain':
-        # Tentative echo
-        if len(echo_words) == 1:
-            return f"{echo_words[0].title()}... let me see."
-        else:
-            joined = ', '.join(echo_words[:2])
-            return f"{joined.capitalize()}... an interesting path."
-
-    else:  # 'none'
-        # Acknowledging but not matching
-        if keywords:
-            joined = ', '.join(keywords[:2])
-            return f"{joined.capitalize()}..."
+def _get_results_transition(arcana_list):
+    """Get transition text describing which arcana the results came from."""
+    if not arcana_list:
         return None
 
+    arcana_names = [a['name'] for a in arcana_list]
 
-def _get_clear_transition(mood, arcana_name):
-    """Get transition text for clear matches."""
-    transitions = {
-        'Contemplative & Meditative': [
-            "Here are some doors where the world holds its breath.",
-            "Places where silence speaks.",
-            "Spaces to hear yourself think."
-        ],
-        'Folk & Intimate': [
-            "Here's where the warmth gathers.",
-            "Corners where the light is gentle.",
-            "Places that feel like coming home."
-        ],
-        'Late-Night Lark': [
-            "The night has some doors for you.",
-            "Where the city keeps its late hours.",
-            "Places that understand the witching hour."
-        ],
-        'Witchy & Wild': [
-            "Where the strange ones gather.",
-            "Places with a certain... knowing.",
-            "Doors that lead somewhere different."
-        ],
-        'Big Night Out': [
-            "The night awaits.",
-            "Lights down, volume up.",
-            "Here's where it all kicks off."
-        ],
-        'Queer Revelry': [
-            "Where the glitter falls and everyone belongs.",
-            "Spaces of chosen family.",
-            "Here's where the real party is."
-        ],
-        'Wonder & Awe': [
-            "Places that make you feel small and lit from within.",
-            "Where the ordinary becomes miraculous.",
-            "Doors to the magnificent."
-        ],
-        'Nostalgic / Vintage / Retro': [
-            "Portals to another time.",
-            "Where the past still breathes.",
-            "Places that remember."
-        ],
-    }
-
-    mood_transitions = transitions.get(mood, [
-        f"Here's what {arcana_name} has to offer.",
-        "Let me show you what I've found.",
-        "Some doors that might call to you."
-    ])
-
-    return random.choice(mood_transitions)
-
-
-def _get_partial_transition(mood, arcana_name):
-    """Get transition text for partial resonance matches."""
-    return random.choice([
-        f"Perhaps {arcana_name} speaks to this.",
-        f"I'm thinking {arcana_name} might be what you're after.",
-        f"There's something of {arcana_name} in your words.",
-        f"The cards suggest {arcana_name}."
-    ])
-
-
-def _get_uncertain_transition(mood, arcana_name):
-    """Get transition text for uncertain matches."""
-    return random.choice([
-        f"I'm reaching a bit, but {arcana_name} might hold something.",
-        f"This is a guess, but try {arcana_name}.",
-        f"The thread is faint, but it leads to {arcana_name}."
-    ])
+    if len(arcana_names) == 1:
+        return random.choice([
+            f"I found doors in {arcana_names[0]} that might suit...",
+            f"These all live in {arcana_names[0]}...",
+            f"{arcana_names[0]} holds what you're looking for..."
+        ])
+    elif len(arcana_names) == 2:
+        return random.choice([
+            f"I found doors in {arcana_names[0]} and {arcana_names[1]} that might suit...",
+            f"Your words echo in {arcana_names[0]} and {arcana_names[1]}...",
+            f"These live between {arcana_names[0]} and {arcana_names[1]}..."
+        ])
+    else:
+        # 3 or more arcana
+        all_but_last = ', '.join(arcana_names[:-1])
+        return random.choice([
+            f"I found doors in {all_but_last}, and {arcana_names[-1]} that might suit...",
+            f"Your words scatter across {all_but_last}, and {arcana_names[-1]}...",
+            f"These live in {all_but_last}, and {arcana_names[-1]}..."
+        ])
 
 
 def _get_no_match_message(keywords):
@@ -502,14 +413,14 @@ def _get_no_match_message(keywords):
     if keywords:
         keyword_echo = ', '.join(keywords[:2])
         return random.choice([
-            f"I don't recognise '{keyword_echo}' in my deck, but the cards are curious. Want me to draw for you instead?",
-            f"'{keyword_echo.title()}'... that's new to me. Shall I draw a card and let fate decide?",
+            f"I don't recognise '{keyword_echo}' in my deck, but the cards are curious.",
+            f"'{keyword_echo.title()}'... that's new to me.",
             f"I can't quite find a door for '{keyword_echo}', but the cards might know something I don't."
         ])
     return random.choice([
-        "I couldn't catch that, but the cards are shuffling. Want me to draw?",
-        "The words slipped past me. Shall I let the cards choose instead?",
-        "I didn't find a thread there. Let me draw for you?"
+        "I couldn't catch that, but the cards are shuffling.",
+        "The words slipped past me.",
+        "I didn't find a thread there."
     ])
 
 
@@ -1536,15 +1447,6 @@ def ask_lark():
         if HAS_VOICE_PROFILES and filters.get("mood"):
             opening_line = get_opening(filters.get("mood"))
 
-        # Generate the search bridge (emotional translation)
-        search_bridge = generate_search_bridge(
-            query=user_prompt,
-            mood=filters.get("mood"),
-            confidence=mood_confidence,
-            filters=filters
-        )
-        print(f"   🌉 Search bridge: {search_bridge.get('bridge_type')} (echo: {search_bridge.get('echo')})")
-
         # Generate responses
         responses = []
         if matches:
@@ -1573,6 +1475,15 @@ def ask_lark():
                 'area': None,
                 'website': None
             })
+
+        # Generate the search bridge AFTER we have results (Option B)
+        # This describes which arcana the actual results came from
+        search_bridge = generate_search_bridge(
+            query=user_prompt,
+            venues=responses,
+            confidence=mood_confidence
+        )
+        print(f"   🌉 Search bridge: {search_bridge.get('bridge_type')} (arcana: {[a['name'] for a in search_bridge.get('arcana_list', [])]})")
 
         # Log successful interaction
         response_time_ms = (time.time() - start_time) * 1000
