@@ -89,7 +89,7 @@ ARCANA_DATA = {
     'Playful & Weird': {
         'number': '0',
         'name': 'THE FOOL',
-        'symbol': '🃏',
+        'symbol': '◌',
         'slug': 'the-fool',
         'description': 'Where the strange becomes sanctuary. Venues that embrace the peculiar, the unexpected, the delightfully odd.',
         'css_class': 'arcana-playful-weird'
@@ -97,7 +97,7 @@ ARCANA_DATA = {
     'Curious Encounters': {
         'number': 'I',
         'name': 'THE MAGICIAN',
-        'symbol': '✧',
+        'symbol': '☿',
         'slug': 'the-magician',
         'description': 'Places that spark connection and serendipity. Where strangers become co-conspirators.',
         'css_class': 'arcana-curious-encounters'
@@ -105,7 +105,7 @@ ARCANA_DATA = {
     'Witchy & Wild': {
         'number': 'II',
         'name': 'THE HIGH PRIESTESS',
-        'symbol': '☽',
+        'symbol': '𓂀',
         'slug': 'the-high-priestess',
         'description': 'For those drawn to the mystical, the untamed, the edges of the known world.',
         'css_class': 'arcana-witchy-wild'
@@ -113,7 +113,7 @@ ARCANA_DATA = {
     'Folk & Intimate': {
         'number': 'III',
         'name': 'THE EMPRESS',
-        'symbol': '♠',
+        'symbol': '⚘',
         'slug': 'the-empress',
         'description': 'Warm rooms and close harmonies. Venues where music is passed hand to hand like bread.',
         'css_class': 'arcana-folk-intimate'
@@ -121,7 +121,7 @@ ARCANA_DATA = {
     'The Thoughtful Stage': {
         'number': 'IV',
         'name': 'THE EMPEROR',
-        'symbol': '♔',
+        'symbol': '◆',
         'slug': 'the-emperor',
         'description': 'Serious rooms for serious art. Where performance commands attention and respect.',
         'css_class': 'arcana-thoughtful-stage'
@@ -129,7 +129,7 @@ ARCANA_DATA = {
     'Spiritual / Sacred / Mystical': {
         'number': 'V',
         'name': 'THE HIEROPHANT',
-        'symbol': '☩',
+        'symbol': '⚷',
         'slug': 'the-hierophant',
         'description': 'Spaces that hold the sacred — whatever that means to you. Transcendence in many forms.',
         'css_class': 'arcana-spiritual-sacred'
@@ -137,7 +137,7 @@ ARCANA_DATA = {
     'Cabaret & Glitter': {
         'number': 'VI',
         'name': 'THE LOVERS',
-        'symbol': '💋',
+        'symbol': '⚯',
         'slug': 'the-lovers',
         'description': 'Sequins and spotlights. Where performance meets passion meets pure glamour.',
         'css_class': 'arcana-cabaret-glitter'
@@ -145,7 +145,7 @@ ARCANA_DATA = {
     'Big Night Out': {
         'number': 'VII',
         'name': 'THE CHARIOT',
-        'symbol': '⚡',
+        'symbol': '→',
         'slug': 'the-chariot',
         'description': 'When you want to disappear into sound and sweat and the pulse of the crowd.',
         'css_class': 'arcana-big-night-out'
@@ -153,7 +153,7 @@ ARCANA_DATA = {
     'Punchy / Protest': {
         'number': 'VIII',
         'name': 'STRENGTH',
-        'symbol': '✊',
+        'symbol': '∞',
         'slug': 'strength',
         'description': 'Music with teeth. Venues where art and activism are inseparable.',
         'css_class': 'arcana-punchy-protest'
@@ -161,7 +161,7 @@ ARCANA_DATA = {
     'Contemplative & Meditative': {
         'number': 'IX',
         'name': 'THE HERMIT',
-        'symbol': '🕯',
+        'symbol': '⟡',
         'slug': 'the-hermit',
         'description': 'For when you need to go quiet. Spaces that hold stillness and introspection.',
         'css_class': 'arcana-contemplative'
@@ -169,7 +169,7 @@ ARCANA_DATA = {
     'Global Rhythms': {
         'number': 'X',
         'name': 'WHEEL OF FORTUNE',
-        'symbol': '🌍',
+        'symbol': '◎',
         'slug': 'wheel-of-fortune',
         'description': 'The world comes to London. Venues celebrating music and culture from every corner.',
         'css_class': 'arcana-global-rhythms'
@@ -185,7 +185,7 @@ ARCANA_DATA = {
     'Body-Based / Movement-Led': {
         'number': 'XII',
         'name': 'THE HANGED MAN',
-        'symbol': '💃',
+        'symbol': '∴',
         'slug': 'the-hanged-man',
         'description': 'When your body needs to lead. Dance, movement, physical expression.',
         'css_class': 'arcana-body-movement'
@@ -193,7 +193,7 @@ ARCANA_DATA = {
     'Grief & Grace': {
         'number': 'XIII',
         'name': 'DEATH',
-        'symbol': '🥀',
+        'symbol': '✿',
         'slug': 'death',
         'description': 'For the heavy-hearted. Spaces that understand loss, endings, and gentle holding.',
         'css_class': 'arcana-grief-grace'
@@ -201,7 +201,7 @@ ARCANA_DATA = {
     'Word & Voice': {
         'number': 'XIV',
         'name': 'TEMPERANCE',
-        'symbol': '🎤',
+        'symbol': '≋',
         'slug': 'temperance',
         'description': 'The spoken and sung word. Venues where language is the main event.',
         'css_class': 'arcana-word-voice'
@@ -209,7 +209,7 @@ ARCANA_DATA = {
     'Late-Night Lark': {
         'number': 'XV',
         'name': 'THE DEVIL',
-        'symbol': '🌙',
+        'symbol': '⛧',
         'slug': 'the-devil',
         'description': 'For the night owls and the restless. When the city goes dark and you stay awake.',
         'css_class': 'arcana-late-night'
@@ -217,7 +217,7 @@ ARCANA_DATA = {
     'Melancholic Beauty': {
         'number': 'XVI',
         'name': 'THE TOWER',
-        'symbol': '🌧',
+        'symbol': '↯',
         'slug': 'the-tower',
         'description': 'Beautiful sadness. Venues that honour the bittersweet and the wistful.',
         'css_class': 'arcana-melancholic'
@@ -233,7 +233,7 @@ ARCANA_DATA = {
     'Nostalgic / Vintage / Retro': {
         'number': 'XVIII',
         'name': 'THE MOON',
-        'symbol': '📻',
+        'symbol': '☾',
         'slug': 'the-moon',
         'description': 'Time-slipped venues. Where the past lives on in loving detail.',
         'css_class': 'arcana-nostalgic-vintage'
@@ -241,7 +241,7 @@ ARCANA_DATA = {
     'Comic Relief': {
         'number': 'XIX',
         'name': 'THE SUN',
-        'symbol': '😂',
+        'symbol': '☀',
         'slug': 'the-sun',
         'description': 'Laughter as medicine. Comedy clubs and joyful chaos.',
         'css_class': 'arcana-comic-relief'
@@ -249,7 +249,7 @@ ARCANA_DATA = {
     'Group Energy': {
         'number': 'XX',
         'name': 'JUDGEMENT',
-        'symbol': '👥',
+        'symbol': '△',
         'slug': 'judgement',
         'description': 'Collective experience. Where the crowd becomes the event.',
         'css_class': 'arcana-group-energy'
@@ -257,7 +257,7 @@ ARCANA_DATA = {
     'Queer Revelry': {
         'number': 'XXI',
         'name': 'THE WORLD',
-        'symbol': '🏳️‍🌈',
+        'symbol': '◉',
         'slug': 'the-world',
         'description': 'Pride, joy, and belonging. Queer spaces and queer-celebrating venues.',
         'css_class': 'arcana-queer-revelry'
