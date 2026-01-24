@@ -1079,7 +1079,7 @@
             grid.innerHTML = '<p class="loading-deck">Shuffling the deck...</p>';
             
             try {
-                const response = await fetch('/arcana');
+                const response = await fetch('/api/arcana');
                 const data = await response.json();
                 
                 if (data.error) {
@@ -1122,7 +1122,7 @@
             const card = document.createElement('div');
             card.className = `arcana-card card-sm ${arcanaColourClass}`;
             card.setAttribute('data-arcana', arcanaKey);
-            card.onclick = () => showArcanaVenues(arcanaData.mood);
+            card.onclick = () => showArcanaVenues(arcanaData.mood, arcanaData.slug);
             
             // Staggered animation
             card.style.animationDelay = `${index * 50}ms`;
@@ -1145,7 +1145,7 @@
         // ============================================
         // ARCANA VENUES VIEW
         // ============================================
-        async function showArcanaVenues(mood) {
+        async function showArcanaVenues(mood, slug) {
             currentArcana = mood;
             const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
             const whisper = arcanaWhispers[mood] || '';
@@ -1175,7 +1175,7 @@
             showView('arcanaVenues');
 
             try {
-                const response = await fetch(`/arcana/${encodeURIComponent(mood)}`);
+                const response = await fetch(`/api/arcana/${encodeURIComponent(slug)}`);
                 const data = await response.json();
 
                 if (data.error) {
