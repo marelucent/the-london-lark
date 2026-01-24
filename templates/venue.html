@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description }}">
+
+    <!-- Open Graph for sharing -->
+    <meta property="og:title" content="{{ venue.name }} — The London Lark">
+    <meta property="og:description" content="{{ page_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .venue-page {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            text-align: center;
+        }
+
+        .venue-card-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 3rem;
+        }
+
+        /* Large venue card */
+        .venue-hero-card {
+            width: 320px;
+            max-width: 100%;
+            background: var(--parchment-dark);
+            border: 1px solid var(--gold-dim);
+            border-radius: 4px;
+            padding: 2rem 1.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.3),
+                0 0 25px rgba(212, 175, 55, 0.1),
+                0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
+        }
+
+        .venue-hero-card:hover {
+            border-color: var(--arcana-border, var(--gold-bright));
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.35),
+                0 0 25px var(--glow, rgba(212, 175, 55, 0.2)),
+                0 0 50px var(--glow-intense, rgba(212, 175, 55, 0.15));
+        }
+
+        /* Corner flourishes */
+        .venue-hero-card::before,
+        .venue-hero-card::after,
+        .venue-hero-card .corner-tr,
+        .venue-hero-card .corner-bl {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-color: var(--gold-dim);
+            border-style: solid;
+            transition: border-color 0.5s ease;
+            pointer-events: none;
+        }
+
+        .venue-hero-card::before {
+            content: '';
+            top: 12px;
+            left: 12px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .venue-hero-card::after {
+            content: '';
+            bottom: 12px;
+            right: 12px;
+            border-width: 0 1px 1px 0;
+        }
+
+        .venue-hero-card .corner-tr {
+            top: 12px;
+            right: 12px;
+            border-width: 1px 1px 0 0;
+        }
+
+        .venue-hero-card .corner-bl {
+            bottom: 12px;
+            left: 12px;
+            border-width: 0 0 1px 1px;
+        }
+
+        .venue-hero-card:hover::before,
+        .venue-hero-card:hover::after,
+        .venue-hero-card:hover .corner-tr,
+        .venue-hero-card:hover .corner-bl {
+            border-color: var(--arcana-border, var(--gold-bright));
+        }
+
+        /* Card content */
+        .card-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .arcana-symbol {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .arcana-number {
+            font-family: var(--font-title);
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 0.35em;
+            margin-bottom: 0.5rem;
+            opacity: 0.85;
+        }
+
+        .arcana-name {
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            color: var(--cream);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+        }
+
+        .arcana-mood {
+            font-family: var(--font-whisper);
+            font-size: 1.1rem;
+            color: var(--candlelight);
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+
+        .arcana-divider {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim) 30%, var(--gold-dim) 70%, transparent);
+            margin: 0 auto 1.2rem;
+        }
+
+        .venue-section {
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .venue-name {
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .venue-name a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .venue-name a:hover {
+            color: var(--candlelight);
+            border-bottom-color: var(--candlelight);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .venue-location {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--candlelight);
+            opacity: 0.7;
+            margin-bottom: 1rem;
+        }
+
+        .venue-blurb {
+            font-family: var(--font-whisper);
+            font-size: 1rem;
+            color: var(--cream);
+            font-style: italic;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Card footer */
+        .card-footer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .card-footer-icon {
+            font-size: 1.1rem;
+            color: var(--gold);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            position: relative;
+        }
+
+        .card-footer-icon:hover {
+            opacity: 1;
+            transform: scale(1.15);
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+        }
+
+        .card-footer-icon.loved {
+            opacity: 1;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+
+        .card-footer-confirm {
+            font-family: var(--font-whisper);
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--candlelight);
+            opacity: 0;
+            margin-top: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-footer-confirm.show {
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        .venue-nav {
+            margin-top: 2rem;
+        }
+
+        .arcana-link {
+            display: inline-block;
+            font-family: var(--font-whisper);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--gold-dim);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .arcana-link:hover {
+            color: var(--gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-family: var(--font-whisper);
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gold-dim);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .venue-page {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .venue-hero-card {
+                width: 100%;
+                padding: 1.8rem 1.4rem;
+            }
+
+            .arcana-symbol {
+                font-size: 1.8rem;
+            }
+
+            .venue-name {
+                font-size: 1rem;
+            }
+
+            .venue-blurb {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+        </header>
+
+        <main class="venue-page">
+            <div class="venue-card-container">
+                <div class="venue-hero-card {{ arcana_class }}" data-arcana="{{ arcana_key }}">
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
+                    <div class="card-inner">
+                        <div class="arcana-symbol">{{ arcana_info.symbol }}</div>
+                        <div class="arcana-number">{{ arcana_info.number }}</div>
+                        <div class="arcana-name">{{ arcana_info.name }}</div>
+                        <div class="arcana-mood">{{ arcana }}</div>
+                        <div class="arcana-divider"></div>
+                        <div class="venue-section">
+                            <div class="venue-name">
+                                {% if venue.url %}
+                                <a href="{{ venue.url if venue.url.startswith('http') else 'https://' + venue.url }}" target="_blank" rel="noopener">{{ venue.name }}</a>
+                                {% else %}
+                                {{ venue.name }}
+                                {% endif %}
+                            </div>
+                            <div class="venue-location">{{ venue.location or 'London' }}</div>
+                            {% if venue.whisper %}
+                            <div class="venue-blurb">{{ venue.whisper }}</div>
+                            {% elif venue.blurb %}
+                            <div class="venue-blurb">{{ venue.blurb }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-footer-icon" data-action="love" data-venue="{{ venue.name }}" title="this one glows">✧</button>
+                            <button class="card-footer-icon" data-action="flag" data-venue="{{ venue.name }}" title="something's wrong">🜃</button>
+                            <button class="card-footer-icon" data-action="share" data-venue="{{ venue.name }}" data-arcana="{{ arcana }}" title="share this door">↗</button>
+                        </div>
+                        <div class="card-footer-confirm"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="venue-nav">
+                <a href="/#browse" class="arcana-link" onclick="localStorage.setItem('selectedArcana', '{{ arcana }}'); return true;">More from {{ arcana_info.name }} →</a>
+                <br>
+                <a href="/" class="back-link">← back to the Lark</a>
+            </nav>
+        </main>
+    </div>
+
+    <script>
+        // Arcana CSS class mapping
+        const arcanaClassMap = {
+            'Playful & Weird': 'arcana-playful-weird',
+            'Curious Encounters': 'arcana-curious-encounters',
+            'Witchy & Wild': 'arcana-witchy-wild',
+            'Folk & Intimate': 'arcana-folk-intimate',
+            'The Thoughtful Stage': 'arcana-thoughtful-stage',
+            'Spiritual / Sacred / Mystical': 'arcana-spiritual-sacred',
+            'Cabaret & Glitter': 'arcana-cabaret-glitter',
+            'Big Night Out': 'arcana-big-night-out',
+            'Punchy / Protest': 'arcana-punchy-protest',
+            'Contemplative & Meditative': 'arcana-contemplative',
+            'Global Rhythms': 'arcana-global-rhythms',
+            'Rant & Rapture': 'arcana-rant-rapture',
+            'Body-Based / Movement-Led': 'arcana-body-movement',
+            'Grief & Grace': 'arcana-grief-grace',
+            'Word & Voice': 'arcana-word-voice',
+            'Late-Night Lark': 'arcana-late-night',
+            'Melancholic Beauty': 'arcana-melancholic',
+            'Wonder & Awe': 'arcana-wonder-awe',
+            'Nostalgic / Vintage / Retro': 'arcana-nostalgic-vintage',
+            'Comic Relief': 'arcana-comic-relief',
+            'Group Energy': 'arcana-group-energy',
+            'Queer Revelry': 'arcana-queer-revelry',
+            'Romanticised London': 'arcana-romanticised-london'
+        };
+
+        // Apply arcana colour class on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.querySelector('.venue-hero-card');
+            const arcana = '{{ arcana }}';
+            const cssClass = arcanaClassMap[arcana];
+            if (cssClass) {
+                card.classList.add(cssClass);
+            }
+        });
+
+        // Handle footer icon clicks
+        document.querySelectorAll('.card-footer-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const action = this.dataset.action;
+                const venue = this.dataset.venue;
+                const arcana = this.dataset.arcana;
+
+                switch (action) {
+                    case 'love':
+                        handleLove(this, venue);
+                        break;
+                    case 'flag':
+                        handleFlag(venue);
+                        break;
+                    case 'share':
+                        handleShare(venue);
+                        break;
+                }
+            });
+        });
+
+        function handleLove(icon, venue) {
+            const isLoved = icon.classList.toggle('loved');
+            icon.textContent = isLoved ? '✦' : '✧';
+
+            const confirmEl = document.querySelector('.card-footer-confirm');
+            if (confirmEl) {
+                confirmEl.textContent = isLoved ? 'this one glows' : '';
+                confirmEl.classList.add('show');
+                setTimeout(() => confirmEl.classList.remove('show'), 2000);
+            }
+
+            if (isLoved) {
+                showTestimonyForm(venue);
+            }
+        }
+
+        function handleFlag(venue) {
+            showFlagForm(venue);
+        }
+
+        function handleShare(venue) {
+            const url = window.location.href;
+
+            navigator.clipboard.writeText(url).then(() => {
+                const confirmEl = document.querySelector('.card-footer-confirm');
+                if (confirmEl) {
+                    confirmEl.textContent = 'link copied — share this door';
+                    confirmEl.classList.add('show');
+                    setTimeout(() => confirmEl.classList.remove('show'), 2500);
+                }
+            }).catch(() => {
+                alert('Link: ' + url);
+            });
+        }
+
+        // Testimony form modal
+        function showTestimonyForm(venue) {
+            const modal = document.createElement('div');
+            modal.className = 'lark-modal';
+            modal.innerHTML = `
+                <div class="lark-modal-content">
+                    <div class="lark-modal-header">
+                        <span class="lark-modal-icon">✦</span>
+                        <h3>This one glows</h3>
+                    </div>
+                    <p class="lark-modal-subtitle">Tell us about your visit to ${venue}</p>
+                    <textarea class="lark-modal-textarea" placeholder="What made this place special?" rows="4"></textarea>
+                    <input type="email" class="lark-modal-input" placeholder="Email (optional)">
+                    <div class="lark-modal-actions">
+                        <button class="action-btn secondary" onclick="closeLarkModal()">Maybe later</button>
+                        <button class="action-btn" onclick="submitTestimony('${venue.replace(/'/g, "\\'")}')">Share</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        // Flag form modal
+        function showFlagForm(venue) {
+            const modal = document.createElement('div');
+            modal.className = 'lark-modal';
+            modal.innerHTML = `
+                <div class="lark-modal-content">
+                    <div class="lark-modal-header">
+                        <span class="lark-modal-icon">🜃</span>
+                        <h3>Whisper to the Lark</h3>
+                    </div>
+                    <p class="lark-modal-subtitle">Something's not right about ${venue}?</p>
+                    <div class="lark-modal-options">
+                        <label><input type="radio" name="flagReason" value="closed"> This venue has closed</label>
+                        <label><input type="radio" name="flagReason" value="incorrect"> Information is incorrect</label>
+                        <label><input type="radio" name="flagReason" value="arcana"> Doesn't fit this arcana</label>
+                        <label><input type="radio" name="flagReason" value="other"> Other</label>
+                    </div>
+                    <textarea class="lark-modal-textarea" placeholder="Any details? (optional)" rows="3"></textarea>
+                    <div class="lark-modal-actions">
+                        <button class="action-btn secondary" onclick="closeLarkModal()">Cancel</button>
+                        <button class="action-btn" onclick="submitFlag('${venue.replace(/'/g, "\\'")}')">Submit</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function closeLarkModal() {
+            const modal = document.querySelector('.lark-modal');
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.remove(), 300);
+            }
+        }
+
+        async function submitTestimony(venue) {
+            const modal = document.querySelector('.lark-modal');
+            const text = modal.querySelector('textarea').value;
+            const email = modal.querySelector('input[type="email"]').value;
+
+            try {
+                await fetch('/feedback/testimony', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ venue, text, email })
+                });
+            } catch (e) {
+                console.error('Failed to submit testimony:', e);
+            }
+
+            closeLarkModal();
+        }
+
+        async function submitFlag(venue) {
+            const modal = document.querySelector('.lark-modal');
+            const reason = modal.querySelector('input[name="flagReason"]:checked')?.value || 'other';
+            const details = modal.querySelector('textarea').value;
+
+            try {
+                await fetch('/feedback/flag', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ venue, reason, details })
+                });
+            } catch (e) {
+                console.error('Failed to submit flag:', e);
+            }
+
+            closeLarkModal();
+        }
+    </script>
+</body>
+</html>

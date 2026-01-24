@@ -1212,7 +1212,7 @@
                             <div class="card-footer">
                                 <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.name}">✧</button>
                                 <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" data-venue="${venue.name}">🜃</button>
-                                <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.name}" data-arcana="${mood}">↗</button>
+                                <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.name}" data-arcana="${mood}" data-slug="${venue.slug || ''}">↗</button>
                             </div>
                             <div class="card-footer-confirm"></div>
                         </div>
@@ -1307,6 +1307,7 @@
                 if (shareBtn) {
                     shareBtn.setAttribute('data-venue', data.venue_name);
                     shareBtn.setAttribute('data-arcana', data.mood);
+                    shareBtn.setAttribute('data-slug', data.slug || '');
                 }
 
                 // Set arcana glow and colour class
@@ -1661,7 +1662,7 @@
                     <div class="card-footer">
                         <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.venue_name}">✧</button>
                         <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" data-venue="${venue.venue_name}">🜃</button>
-                        <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.venue_name}" data-arcana="${mood}">↗</button>
+                        <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.venue_name}" data-arcana="${mood}" data-slug="${venue.slug || ''}">↗</button>
                     </div>
                     <div class="card-footer-confirm"></div>
                 </div>
@@ -2277,14 +2278,23 @@
         }
 
         function handleShareClick(icon, venue, arcana) {
-            // Create shareable link - for now, link to arcana page
-            const slug = arcana ? encodeURIComponent(arcana) : '';
-            const url = `${window.location.origin}/arcana/${slug}`;
+            // Create shareable link - use venue page if slug available, otherwise arcana page
+            const venueSlug = icon.dataset.slug;
+            let url;
+
+            if (venueSlug) {
+                // Link to dedicated venue page
+                url = `${window.location.origin}/venue/${venueSlug}`;
+            } else {
+                // Fallback to arcana page
+                const arcanaSlug = arcana ? encodeURIComponent(arcana) : '';
+                url = `${window.location.origin}/arcana/${arcanaSlug}`;
+            }
 
             // Copy to clipboard
             navigator.clipboard.writeText(url).then(() => {
-                const card = icon.closest('.arcana-card');
-                const confirmEl = card.querySelector('.card-footer-confirm');
+                const card = icon.closest('.arcana-card') || icon.closest('.venue-hero-card');
+                const confirmEl = card?.querySelector('.card-footer-confirm');
                 if (confirmEl) {
                     confirmEl.textContent = 'link copied — share this door';
                     confirmEl.classList.add('show');
