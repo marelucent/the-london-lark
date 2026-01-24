@@ -44,6 +44,8 @@ from lark_logger import (
     get_usage_tracker,
     get_abuse_logger,
     get_feedback_logger,
+    get_page_view_logger,
+    get_analytics_reader,
     log_chat_interaction,
     log_ask_interaction,
     generate_session_id
@@ -75,6 +77,61 @@ except ImportError:
     get_opening = lambda x: None
 
 app = Flask(__name__)
+
+
+# =============================================================================
+# ANALYTICS MIDDLEWARE
+# =============================================================================
+
+# Paths to exclude from analytics tracking
+ANALYTICS_EXCLUDE_PATHS = {
+    '/static',
+    '/favicon.ico',
+    '/admin',
+    '/stats',
+    '/health',
+}
+
+ANALYTICS_EXCLUDE_EXTENSIONS = {
+    '.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.map'
+}
+
+
+@app.before_request
+def log_page_view():
+    """Log page views for analytics (excludes static assets and admin routes)"""
+    path = request.path
+
+    # Skip excluded paths
+    for excluded in ANALYTICS_EXCLUDE_PATHS:
+        if path.startswith(excluded):
+            return
+
+    # Skip static file extensions
+    for ext in ANALYTICS_EXCLUDE_EXTENSIONS:
+        if path.endswith(ext):
+            return
+
+    # Skip API POST requests (they're logged separately with more detail)
+    if request.method == 'POST':
+        return
+
+    # Log the page view
+    try:
+        logger = get_page_view_logger()
+        ip = get_client_ip()
+        visitor_hash = logger.hash_visitor_ip(ip)
+
+        logger.log_page_view(
+            path=path,
+            visitor_hash=visitor_hash,
+            referrer=request.referrer,
+            user_agent=request.user_agent.string if request.user_agent else None
+        )
+    except Exception:
+        # Don't let analytics errors break the site
+        pass
+
 
 def load_core_moods():
     """Load the 23 core mood buttons from mood_index.json"""
@@ -1510,6 +1567,230 @@ def health_check():
             'status': 'degraded',
             'error': str(e)
         }), 500
+
+
+# =============================================================================
+# STATS PAGE - Protected Analytics Dashboard
+# =============================================================================
+
+def check_stats_auth():
+    """
+    Check HTTP Basic Auth for stats page.
+    Uses STATS_USERNAME and STATS_PASSWORD environment variables.
+    """
+    auth = request.authorization
+    username = os.environ.get('STATS_USERNAME', 'keeper')
+    password = os.environ.get('STATS_PASSWORD')
+
+    # If no password is set, deny access (require explicit configuration)
+    if not password:
+        return False
+
+    if not auth:
+        return False
+
+    return auth.username == username and auth.password == password
+
+
+def require_stats_auth(f):
+    """Decorator to require authentication for stats routes"""
+    from functools import wraps
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if not check_stats_auth():
+            return (
+                'Authentication required to view stats.\n\n'
+                'Set STATS_USERNAME and STATS_PASSWORD environment variables.',
+                401,
+                {'WWW-Authenticate': 'Basic realm="Lark Stats"'}
+            )
+        return f(*args, **kwargs)
+    return decorated
+
+
+@app.route('/stats', methods=['GET'])
+@require_stats_auth
+def stats_page():
+    """
+    Simple analytics dashboard for The London Lark.
+
+    Protected by HTTP Basic Auth (set STATS_USERNAME and STATS_PASSWORD env vars).
+
+    Shows:
+    - Visitor counts (today, week, month)
+    - Page view counts
+    - Popular pages (last 7 days)
+    - Top referrers (last 7 days)
+    - Lark Mind conversation stats
+    """
+    try:
+        reader = get_analytics_reader()
+        stats = reader.get_full_stats()
+
+        # Format the stats page
+        overview = stats['overview']
+        popular = stats['popular_pages']
+        referrers = stats['top_referrers']
+        lark_mind = stats['lark_mind']
+
+        # Build simple HTML output
+        html = '''<!DOCTYPE html>
+<html>
+<head>
+    <title>The Lark's Visitors</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #e0d5c7;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #c9a959;
+            border-bottom: 1px solid #3a3a3a;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #9a8a6a;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px 12px;
+            border-bottom: 1px solid #3a3a3a;
+        }
+        th {
+            color: #c9a959;
+        }
+        .number {
+            font-family: monospace;
+            text-align: right;
+        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: #252525;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .stat-label {
+            color: #9a8a6a;
+            font-size: 0.9em;
+        }
+        .stat-value {
+            font-size: 1.8em;
+            color: #c9a959;
+            font-family: monospace;
+        }
+        .stat-secondary {
+            color: #7a7a6a;
+            font-size: 0.85em;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #3a3a3a;
+            color: #6a6a5a;
+            font-size: 0.85em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Lark's Visitors</h1>
+
+    <h2>Overview</h2>
+    <div class="overview-grid">
+        <div class="stat-box">
+            <div class="stat-label">Today</div>
+            <div class="stat-value">''' + str(overview['today']['unique_visitors']) + '''</div>
+            <div class="stat-secondary">''' + str(overview['today']['page_views']) + ''' page views</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">This Week</div>
+            <div class="stat-value">''' + str(overview['week']['unique_visitors']) + '''</div>
+            <div class="stat-secondary">''' + str(overview['week']['page_views']) + ''' page views</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-label">Last 30 Days</div>
+            <div class="stat-value">''' + str(overview['month']['unique_visitors']) + '''</div>
+            <div class="stat-secondary">''' + str(overview['month']['page_views']) + ''' page views</div>
+        </div>
+    </div>
+
+    <h2>Popular Pages (7 days)</h2>
+    <table>
+        <tr><th>Path</th><th class="number">Views</th></tr>
+'''
+
+        for page in popular[:10]:
+            html += f'        <tr><td>{page["path"]}</td><td class="number">{page["views"]}</td></tr>\n'
+
+        if not popular:
+            html += '        <tr><td colspan="2"><em>No data yet</em></td></tr>\n'
+
+        html += '''    </table>
+
+    <h2>Traffic Sources (7 days)</h2>
+    <table>
+        <tr><th>Referrer</th><th class="number">Visits</th></tr>
+'''
+
+        for ref in referrers[:10]:
+            html += f'        <tr><td>{ref["referrer"]}</td><td class="number">{ref["count"]}</td></tr>\n'
+
+        if not referrers:
+            html += '        <tr><td colspan="2"><em>No data yet</em></td></tr>\n'
+
+        html += '''    </table>
+
+    <h2>Lark Mind Conversations</h2>
+    <table>
+        <tr><th>Period</th><th class="number">Conversations</th></tr>
+        <tr><td>Today</td><td class="number">''' + str(lark_mind['today']) + '''</td></tr>
+        <tr><td>This Week</td><td class="number">''' + str(lark_mind['week']) + '''</td></tr>
+        <tr><td>Last 30 Days</td><td class="number">''' + str(lark_mind['month']) + '''</td></tr>
+        <tr><td>All Time</td><td class="number">''' + str(lark_mind['total']) + '''</td></tr>
+    </table>
+
+    <div class="footer">
+        Generated: ''' + stats['generated_at'] + '''<br>
+        <em>She doesn't need to count millions. She just wants to know if anyone's knocking.</em>
+    </div>
+</body>
+</html>'''
+
+        return html
+
+    except Exception as e:
+        return f'<h1>Error generating stats</h1><pre>{str(e)}</pre>', 500
+
+
+@app.route('/stats/json', methods=['GET'])
+@require_stats_auth
+def stats_json():
+    """
+    Return analytics stats as JSON (for programmatic access).
+    """
+    try:
+        reader = get_analytics_reader()
+        stats = reader.get_full_stats()
+        return jsonify(stats)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 if __name__ == '__main__':
