@@ -23,7 +23,7 @@
 
         .deck-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .deck-title {
@@ -49,193 +49,6 @@
             font-size: 0.9rem;
             color: var(--gold-dim);
             margin-top: 1rem;
-        }
-
-        /* Card Grid — centred, narrower layout */
-        .deck-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 140px);
-            gap: 2rem;
-            margin-top: 2rem;
-            justify-content: center;
-        }
-
-        @media (min-width: 550px) {
-            .deck-grid {
-                grid-template-columns: repeat(3, 150px);
-                gap: 2.5rem;
-            }
-        }
-
-        @media (min-width: 800px) {
-            .deck-grid {
-                grid-template-columns: repeat(4, 160px);
-                gap: 2.5rem;
-            }
-        }
-
-        /* Animation for cards */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .arcana-card {
-            background: var(--parchment-dark);
-            border: 1px solid var(--gold-dim, rgba(212, 175, 55, 0.4));
-            border-radius: 4px;
-            padding: 1.5rem 1.2rem;
-            aspect-ratio: 2 / 3;
-            text-align: center;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow:
-                0 4px 20px rgba(0, 0, 0, 0.3),
-                0 0 25px rgba(212, 175, 55, 0.1),
-                0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
-            animation: fadeInUp 0.4s ease forwards;
-            opacity: 0;
-        }
-
-        /* Staggered animation delays */
-        .arcana-card:nth-child(1) { animation-delay: 0ms; }
-        .arcana-card:nth-child(2) { animation-delay: 30ms; }
-        .arcana-card:nth-child(3) { animation-delay: 60ms; }
-        .arcana-card:nth-child(4) { animation-delay: 90ms; }
-        .arcana-card:nth-child(5) { animation-delay: 120ms; }
-        .arcana-card:nth-child(6) { animation-delay: 150ms; }
-        .arcana-card:nth-child(7) { animation-delay: 180ms; }
-        .arcana-card:nth-child(8) { animation-delay: 210ms; }
-        .arcana-card:nth-child(9) { animation-delay: 240ms; }
-        .arcana-card:nth-child(10) { animation-delay: 270ms; }
-        .arcana-card:nth-child(11) { animation-delay: 300ms; }
-        .arcana-card:nth-child(12) { animation-delay: 330ms; }
-        .arcana-card:nth-child(13) { animation-delay: 360ms; }
-        .arcana-card:nth-child(14) { animation-delay: 390ms; }
-        .arcana-card:nth-child(15) { animation-delay: 420ms; }
-        .arcana-card:nth-child(16) { animation-delay: 450ms; }
-        .arcana-card:nth-child(17) { animation-delay: 480ms; }
-        .arcana-card:nth-child(18) { animation-delay: 510ms; }
-        .arcana-card:nth-child(19) { animation-delay: 540ms; }
-        .arcana-card:nth-child(20) { animation-delay: 570ms; }
-        .arcana-card:nth-child(21) { animation-delay: 600ms; }
-        .arcana-card:nth-child(22) { animation-delay: 630ms; }
-        .arcana-card:nth-child(23) { animation-delay: 660ms; }
-
-        /* Corner flourishes */
-        .arcana-card::before,
-        .arcana-card::after,
-        .arcana-card .corner-tr,
-        .arcana-card .corner-bl {
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            border-color: var(--gold-dim, rgba(212, 175, 55, 0.4));
-            border-style: solid;
-            transition: border-color 0.4s ease;
-            pointer-events: none;
-        }
-
-        .arcana-card::before {
-            content: '';
-            top: 8px;
-            left: 8px;
-            border-width: 1px 0 0 1px;
-        }
-
-        .arcana-card::after {
-            content: '';
-            bottom: 8px;
-            right: 8px;
-            border-width: 0 1px 1px 0;
-        }
-
-        .arcana-card .corner-tr {
-            top: 8px;
-            right: 8px;
-            border-width: 1px 1px 0 0;
-        }
-
-        .arcana-card .corner-bl {
-            bottom: 8px;
-            left: 8px;
-            border-width: 0 0 1px 1px;
-        }
-
-        .arcana-card:hover {
-            border-color: var(--arcana-border, var(--gold));
-            transform: translateY(-4px);
-            box-shadow:
-                0 8px 25px rgba(0, 0, 0, 0.35),
-                0 0 25px var(--glow, rgba(212, 175, 55, 0.2)),
-                0 0 50px var(--glow-intense, rgba(212, 175, 55, 0.15));
-        }
-
-        .arcana-card:hover::before,
-        .arcana-card:hover::after,
-        .arcana-card:hover .corner-tr,
-        .arcana-card:hover .corner-bl {
-            border-color: var(--arcana-border, var(--gold));
-        }
-
-        .card-symbol {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-            color: var(--gold);
-            opacity: 0.9;
-        }
-
-        .card-number {
-            font-family: var(--font-title);
-            font-size: 0.7rem;
-            color: var(--gold);
-            letter-spacing: 0.35em;
-            margin-bottom: 0.3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-name {
-            font-family: var(--font-title);
-            font-size: 0.8rem;
-            color: var(--cream);
-            letter-spacing: 0.08em;
-            margin-bottom: 0.4rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-mood {
-            font-family: var(--font-whisper);
-            font-size: 0.75rem;
-            color: var(--candlelight);
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-            opacity: 0.8;
-            margin-bottom: 0.6rem;
-        }
-
-        .card-count {
-            font-family: var(--font-body);
-            font-size: 0.7rem;
-            color: var(--candlelight);
-            opacity: 0.5;
-            position: relative;
-            z-index: 1;
         }
 
         /* Navigation */
@@ -272,30 +85,6 @@
                 font-size: 1.1rem;
                 letter-spacing: 0.2em;
             }
-
-            .arcana-card {
-                padding: 1.2rem 1rem;
-            }
-
-            .card-symbol {
-                font-size: 1.5rem;
-            }
-
-            .card-number {
-                font-size: 0.6rem;
-            }
-
-            .card-name {
-                font-size: 0.7rem;
-            }
-
-            .card-mood {
-                font-size: 0.65rem;
-            }
-
-            .card-count {
-                font-size: 0.6rem;
-            }
         }
     </style>
 </head>
@@ -312,16 +101,18 @@
                 <p class="deck-count">{{ total_venues }} venues across the deck</p>
             </div>
 
-            <div class="deck-grid">
+            <div class="arcana-grid">
                 {% for card in deck %}
-                <a href="/arcana/{{ card.slug }}" class="arcana-card {{ card.css_class }}">
+                <a href="/arcana/{{ card.slug }}" class="arcana-card card-sm {{ card.css_class }}" style="animation-delay: {{ loop.index0 * 30 }}ms;">
                     <span class="corner-tr"></span>
                     <span class="corner-bl"></span>
-                    <div class="card-symbol">{{ card.symbol }}</div>
-                    <div class="card-number">{{ card.number }}</div>
-                    <div class="card-name">{{ card.name }}</div>
-                    <div class="card-mood">{{ card.mood }}</div>
-                    <div class="card-count">{{ card.venue_count }} venue{{ 's' if card.venue_count != 1 else '' }}</div>
+                    <div class="card-inner">
+                        <div class="arcana-symbol">{{ card.symbol }}</div>
+                        <div class="arcana-number">{{ card.number }}</div>
+                        <div class="arcana-name">{{ card.name }}</div>
+                        <div class="arcana-mood">{{ card.mood }}</div>
+                        <div class="arcana-count">{{ card.venue_count }} venue{{ 's' if card.venue_count != 1 else '' }}</div>
+                    </div>
                 </a>
                 {% endfor %}
             </div>
