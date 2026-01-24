@@ -37,6 +37,7 @@ ERROR_LOG_FILE = LOGS_DIR / "errors.log"
 USAGE_LOG_FILE = LOGS_DIR / "usage.jsonl"
 ABUSE_LOG_FILE = LOGS_DIR / "abuse_flags.jsonl"
 FEEDBACK_LOG_FILE = LOGS_DIR / "feedback.jsonl"
+ANALYTICS_LOG_FILE = LOGS_DIR / "analytics.jsonl"
 
 # Maximum log file size before rotation (10MB)
 MAX_LOG_SIZE = 10 * 1024 * 1024
@@ -514,6 +515,234 @@ class FeedbackLogger:
 
 
 # =============================================================================
+# PAGE VIEW ANALYTICS
+# =============================================================================
+
+class PageViewLogger:
+    """
+    Logs page views for simple analytics.
+    Privacy-focused: uses daily-salted IP hashes so visitors can't be tracked across days.
+    """
+
+    def __init__(self):
+        LOGS_DIR.mkdir(exist_ok=True)
+        self._daily_salt = None
+        self._salt_date = None
+
+    def _get_daily_salt(self) -> str:
+        """Get or generate a daily salt for IP hashing (changes each day)"""
+        today = date.today().isoformat()
+        if self._salt_date != today:
+            # Generate a new salt for today (pseudo-random based on date)
+            import hashlib
+            self._daily_salt = hashlib.sha256(f"lark_analytics_{today}".encode()).hexdigest()[:16]
+            self._salt_date = today
+        return self._daily_salt
+
+    def hash_visitor_ip(self, ip_address: str) -> str:
+        """Hash an IP with daily salt for privacy-preserving unique visitor counting"""
+        if not ip_address:
+            return "unknown"
+        import hashlib
+        daily_salt = self._get_daily_salt()
+        return hashlib.sha256(f"{daily_salt}{ip_address}".encode()).hexdigest()[:12]
+
+    def log_page_view(
+        self,
+        path: str,
+        visitor_hash: str,
+        referrer: Optional[str] = None,
+        user_agent: Optional[str] = None
+    ):
+        """
+        Log a single page view.
+
+        Args:
+            path: URL path (e.g., "/", "/arcana/the-fool")
+            visitor_hash: Daily-salted hash of visitor IP
+            referrer: Where they came from (if available)
+            user_agent: Browser info (optional)
+        """
+        london_tz = ZoneInfo('Europe/London')
+        now = datetime.now(london_tz)
+
+        entry = {
+            "timestamp": now.isoformat(),
+            "date": now.strftime("%Y-%m-%d"),
+            "time": now.strftime("%H:%M:%S"),
+            "path": path,
+            "referrer": referrer[:500] if referrer else None,  # Truncate long referrers
+            "visitor_hash": visitor_hash,
+            "user_agent": user_agent[:300] if user_agent else None  # Truncate long UAs
+        }
+
+        try:
+            with open(ANALYTICS_LOG_FILE, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(entry) + '\n')
+        except Exception as e:
+            get_error_logger().error(f"Failed to write analytics: {e}")
+
+
+class AnalyticsReader:
+    """
+    Reads and aggregates analytics data for the stats page.
+    """
+
+    def __init__(self):
+        pass
+
+    def _read_analytics_log(self) -> list:
+        """Read all entries from analytics.jsonl"""
+        entries = []
+        if not ANALYTICS_LOG_FILE.exists():
+            return entries
+
+        try:
+            with open(ANALYTICS_LOG_FILE, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        try:
+                            entries.append(json.loads(line))
+                        except json.JSONDecodeError:
+                            continue
+        except Exception:
+            pass
+        return entries
+
+    def _read_conversations_log(self) -> list:
+        """Read all entries from conversations.jsonl (for Lark Mind stats)"""
+        entries = []
+        if not CONVERSATION_LOG_FILE.exists():
+            return entries
+
+        try:
+            with open(CONVERSATION_LOG_FILE, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        try:
+                            entries.append(json.loads(line))
+                        except json.JSONDecodeError:
+                            continue
+        except Exception:
+            pass
+        return entries
+
+    def _filter_by_date_range(self, entries: list, days: int) -> list:
+        """Filter entries to those within the last N days"""
+        from datetime import timedelta
+        cutoff = (date.today() - timedelta(days=days)).isoformat()
+        return [e for e in entries if e.get('date', '') >= cutoff]
+
+    def _filter_today(self, entries: list) -> list:
+        """Filter entries to today only"""
+        today = date.today().isoformat()
+        return [e for e in entries if e.get('date', '') == today]
+
+    def get_visitor_counts(self, entries: list) -> dict:
+        """Count unique visitors and page views"""
+        visitors = set()
+        for e in entries:
+            vh = e.get('visitor_hash')
+            if vh:
+                visitors.add(vh)
+        return {
+            'unique_visitors': len(visitors),
+            'page_views': len(entries)
+        }
+
+    def get_popular_pages(self, entries: list, limit: int = 10) -> list:
+        """Get top pages by view count"""
+        from collections import Counter
+        paths = [e.get('path', '/') for e in entries]
+        counter = Counter(paths)
+        return [{'path': path, 'views': count} for path, count in counter.most_common(limit)]
+
+    def get_top_referrers(self, entries: list, limit: int = 10) -> list:
+        """Get top referrers, grouping by domain"""
+        from collections import Counter
+        from urllib.parse import urlparse
+
+        referrers = []
+        for e in entries:
+            ref = e.get('referrer')
+            if ref:
+                try:
+                    parsed = urlparse(ref)
+                    domain = parsed.netloc or ref
+                    # Clean up common subdomains
+                    if domain.startswith('www.'):
+                        domain = domain[4:]
+                    referrers.append(domain)
+                except Exception:
+                    referrers.append(ref)
+            else:
+                referrers.append('(direct)')
+
+        counter = Counter(referrers)
+        return [{'referrer': ref, 'count': count} for ref, count in counter.most_common(limit)]
+
+    def get_lark_mind_stats(self) -> dict:
+        """Get Lark Mind (chat) conversation stats"""
+        entries = self._read_conversations_log()
+
+        # Filter to chat endpoint only
+        chat_entries = [e for e in entries if e.get('endpoint') == '/chat']
+
+        today = date.today().isoformat()
+        from datetime import timedelta
+        week_ago = (date.today() - timedelta(days=7)).isoformat()
+        month_ago = (date.today() - timedelta(days=30)).isoformat()
+
+        today_chats = [e for e in chat_entries if e.get('date', '') == today]
+        week_chats = [e for e in chat_entries if e.get('date', '') >= week_ago]
+        month_chats = [e for e in chat_entries if e.get('date', '') >= month_ago]
+
+        return {
+            'today': len(today_chats),
+            'week': len(week_chats),
+            'month': len(month_chats),
+            'total': len(chat_entries)
+        }
+
+    def get_full_stats(self) -> dict:
+        """Get comprehensive analytics stats"""
+        from datetime import timedelta
+
+        all_entries = self._read_analytics_log()
+
+        # Time-based filters
+        today_entries = self._filter_today(all_entries)
+        week_entries = self._filter_by_date_range(all_entries, 7)
+        month_entries = self._filter_by_date_range(all_entries, 30)
+
+        # Get counts
+        today_counts = self.get_visitor_counts(today_entries)
+        week_counts = self.get_visitor_counts(week_entries)
+        month_counts = self.get_visitor_counts(month_entries)
+
+        # Get popular pages and referrers (last 7 days)
+        popular_pages = self.get_popular_pages(week_entries)
+        top_referrers = self.get_top_referrers(week_entries)
+
+        # Get Lark Mind stats
+        lark_mind = self.get_lark_mind_stats()
+
+        return {
+            'overview': {
+                'today': today_counts,
+                'week': week_counts,
+                'month': month_counts
+            },
+            'popular_pages': popular_pages,
+            'top_referrers': top_referrers,
+            'lark_mind': lark_mind,
+            'generated_at': datetime.now(ZoneInfo('Europe/London')).isoformat()
+        }
+
+
+# =============================================================================
 # GLOBAL INSTANCES
 # =============================================================================
 
@@ -521,6 +750,8 @@ _conversation_logger = None
 _usage_tracker = None
 _abuse_logger = None
 _feedback_logger = None
+_page_view_logger = None
+_analytics_reader = None
 
 
 def get_conversation_logger() -> ConversationLogger:
@@ -553,6 +784,22 @@ def get_feedback_logger() -> FeedbackLogger:
     if _feedback_logger is None:
         _feedback_logger = FeedbackLogger()
     return _feedback_logger
+
+
+def get_page_view_logger() -> PageViewLogger:
+    """Get the page view logger instance"""
+    global _page_view_logger
+    if _page_view_logger is None:
+        _page_view_logger = PageViewLogger()
+    return _page_view_logger
+
+
+def get_analytics_reader() -> AnalyticsReader:
+    """Get the analytics reader instance"""
+    global _analytics_reader
+    if _analytics_reader is None:
+        _analytics_reader = AnalyticsReader()
+    return _analytics_reader
 
 
 # =============================================================================
