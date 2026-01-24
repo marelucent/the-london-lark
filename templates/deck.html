@@ -61,7 +61,7 @@
 
         .arcana-card {
             background: var(--parchment-dark);
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            border: 1px solid var(--gold-dim, rgba(212, 175, 55, 0.4));
             border-radius: 4px;
             padding: 1.5rem 1rem;
             text-align: center;
@@ -70,30 +70,66 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.3),
+                0 0 25px rgba(212, 175, 55, 0.1),
+                0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
+        }
+
+        /* Corner flourishes */
+        .arcana-card::before,
+        .arcana-card::after,
+        .arcana-card .corner-tr,
+        .arcana-card .corner-bl {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-color: var(--gold-dim, rgba(212, 175, 55, 0.4));
+            border-style: solid;
+            transition: border-color 0.4s ease;
+            pointer-events: none;
         }
 
         .arcana-card::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, var(--glow, rgba(212, 175, 55, 0.05)) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            top: 8px;
+            left: 8px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .arcana-card::after {
+            content: '';
+            bottom: 8px;
+            right: 8px;
+            border-width: 0 1px 1px 0;
+        }
+
+        .arcana-card .corner-tr {
+            top: 8px;
+            right: 8px;
+            border-width: 1px 1px 0 0;
+        }
+
+        .arcana-card .corner-bl {
+            bottom: 8px;
+            left: 8px;
+            border-width: 0 0 1px 1px;
         }
 
         .arcana-card:hover {
             border-color: var(--arcana-border, var(--gold));
             transform: translateY(-4px);
             box-shadow:
-                0 8px 25px rgba(0, 0, 0, 0.3),
-                0 0 20px var(--glow, rgba(212, 175, 55, 0.15));
+                0 8px 25px rgba(0, 0, 0, 0.35),
+                0 0 25px var(--glow, rgba(212, 175, 55, 0.2)),
+                0 0 50px var(--glow-intense, rgba(212, 175, 55, 0.15));
         }
 
-        .arcana-card:hover::before {
-            opacity: 1;
+        .arcana-card:hover::before,
+        .arcana-card:hover::after,
+        .arcana-card:hover .corner-tr,
+        .arcana-card:hover .corner-bl {
+            border-color: var(--arcana-border, var(--gold));
         }
 
         .card-symbol {
@@ -240,6 +276,8 @@
             <div class="deck-grid">
                 {% for card in deck %}
                 <a href="/arcana/{{ card.slug }}" class="arcana-card {{ card.css_class }}">
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
                     <div class="card-symbol">{{ card.symbol }}</div>
                     <div class="card-number">{{ card.number }}</div>
                     <div class="card-name">{{ card.name }}</div>
