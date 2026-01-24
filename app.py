@@ -90,11 +90,15 @@ ANALYTICS_EXCLUDE_PATHS = {
     '/admin',
     '/stats',
     '/health',
+    '/robots.txt',
 }
 
 ANALYTICS_EXCLUDE_EXTENSIONS = {
     '.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.map'
 }
+
+# Bot detection patterns (case-insensitive)
+BOT_PATTERNS = {'bot', 'crawler', 'spider', 'scraper', 'curl', 'wget', 'python-requests', 'go-http-client', 'headless'}
 
 
 @app.before_request
@@ -114,6 +118,11 @@ def log_page_view():
 
     # Skip API POST requests (they're logged separately with more detail)
     if request.method == 'POST':
+        return
+
+    # Skip bot traffic
+    user_agent = request.user_agent.string.lower() if request.user_agent else ''
+    if any(bot in user_agent for bot in BOT_PATTERNS):
         return
 
     # Log the page view
@@ -315,6 +324,32 @@ def about():
 def resources():
     """Serve the support resources page"""
     return render_template('resources.html')
+
+
+@app.route('/robots.txt')
+def robots_txt():
+    """Serve robots.txt for web crawlers"""
+    robots = """# The London Lark - robots.txt
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /resources
+Allow: /arcana
+Allow: /arcana/
+
+# Block admin and API endpoints
+Disallow: /admin
+Disallow: /stats
+Disallow: /ask
+Disallow: /chat
+Disallow: /surprise
+Disallow: /care-pathway
+Disallow: /feedback
+
+# Be polite
+Crawl-delay: 1
+"""
+    return robots, 200, {'Content-Type': 'text/plain; charset=utf-8'}
 
 @app.route('/arcana', methods=['GET'])
 def get_all_arcana():
