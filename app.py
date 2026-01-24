@@ -27,7 +27,7 @@ from safety_detector import (
 from venue_matcher import match_venues, match_venues_with_adjacency, match_surprise_with_adjacency
 from emotional_geography import is_surprise_me_query
 from response_generator import generate_response, get_current_voice_profile, generate_surprise_response
-from parse_venues import load_parsed_venues
+from parse_venues import load_parsed_venues, get_venue_by_slug
 from lark_metrics import get_metrics
 from lark_mind import chat_with_lark, get_time_aware_greeting as get_lark_mind_greeting
 from card_parser import parse_response as parse_card_response
@@ -267,6 +267,7 @@ def handle_surprise_me_query():
             'website': venue.get('website', ''),
             'whisper': venue.get('whisper', ''),
             'arcana': venue_arcana,  # Include each venue's arcana for proper card styling
+            'slug': venue.get('slug', '') or venue.get('raw_data', {}).get('slug', ''),
             'is_adjacent': venue.get('is_adjacent', False),
             'is_fate_draw': venue.get('is_fate_draw', False)
         })
@@ -419,7 +420,8 @@ def get_arcana_venues(mood):
                 'area': venue.get('area', venue.get('location', 'London')),
                 'whisper': venue.get('whisper', ''),
                 'blurb': venue.get('blurb', venue.get('tone_notes', '')),
-                'website': venue.get('website', venue.get('url', ''))
+                'website': venue.get('website', venue.get('url', '')),
+                'slug': venue.get('slug', '')
             })
         
         # Sort alphabetically by name
@@ -435,6 +437,92 @@ def get_arcana_venues(mood):
         return jsonify({
             'error': f"Could not load venues: {str(e)}"
         }), 500
+
+
+@app.route('/venue/<slug>')
+def venue_page(slug):
+    """
+    Venue detail page — a dedicated page for each venue.
+
+    This makes venues shareable with their own URLs:
+    /venue/cafe-oto
+    /venue/the-place
+    /venue/cecil-sharps-house
+    """
+    venue = get_venue_by_slug(slug)
+
+    if not venue:
+        return render_template('404.html', message="This door doesn't exist... yet."), 404
+
+    # Get arcana info for the card styling
+    arcana = venue.get('arcana', 'Romanticised London')
+
+    # Arcana metadata for the template
+    arcana_map = {
+        'Playful & Weird': {'number': '0', 'name': 'THE FOOL', 'symbol': '🃏'},
+        'Curious Encounters': {'number': 'I', 'name': 'THE MAGICIAN', 'symbol': '✧'},
+        'Witchy & Wild': {'number': 'II', 'name': 'THE HIGH PRIESTESS', 'symbol': '☽'},
+        'Folk & Intimate': {'number': 'III', 'name': 'THE EMPRESS', 'symbol': '♠'},
+        'The Thoughtful Stage': {'number': 'IV', 'name': 'THE EMPEROR', 'symbol': '♔'},
+        'Spiritual / Sacred / Mystical': {'number': 'V', 'name': 'THE HIEROPHANT', 'symbol': '☩'},
+        'Cabaret & Glitter': {'number': 'VI', 'name': 'THE LOVERS', 'symbol': '💋'},
+        'Big Night Out': {'number': 'VII', 'name': 'THE CHARIOT', 'symbol': '⚡'},
+        'Punchy / Protest': {'number': 'VIII', 'name': 'STRENGTH', 'symbol': '✊'},
+        'Contemplative & Meditative': {'number': 'IX', 'name': 'THE HERMIT', 'symbol': '🕯'},
+        'Global Rhythms': {'number': 'X', 'name': 'WHEEL OF FORTUNE', 'symbol': '🌍'},
+        'Rant & Rapture': {'number': 'XI', 'name': 'JUSTICE', 'symbol': '⚖'},
+        'Body-Based / Movement-Led': {'number': 'XII', 'name': 'THE HANGED MAN', 'symbol': '💃'},
+        'Grief & Grace': {'number': 'XIII', 'name': 'DEATH', 'symbol': '🥀'},
+        'Word & Voice': {'number': 'XIV', 'name': 'TEMPERANCE', 'symbol': '🎤'},
+        'Late-Night Lark': {'number': 'XV', 'name': 'THE DEVIL', 'symbol': '🌙'},
+        'Melancholic Beauty': {'number': 'XVI', 'name': 'THE TOWER', 'symbol': '🌧'},
+        'Wonder & Awe': {'number': 'XVII', 'name': 'THE STAR', 'symbol': '✦'},
+        'Nostalgic / Vintage / Retro': {'number': 'XVIII', 'name': 'THE MOON', 'symbol': '📻'},
+        'Comic Relief': {'number': 'XIX', 'name': 'THE SUN', 'symbol': '😂'},
+        'Group Energy': {'number': 'XX', 'name': 'JUDGEMENT', 'symbol': '👥'},
+        'Queer Revelry': {'number': 'XXI', 'name': 'THE WORLD', 'symbol': '🏳️‍🌈'},
+        'Romanticised London': {'number': '✦', 'name': 'THE LARK', 'symbol': '❦'},
+    }
+
+    arcana_info = arcana_map.get(arcana, {'number': '✦', 'name': 'THE LARK', 'symbol': '❦'})
+
+    # CSS class for arcana styling
+    arcana_class_map = {
+        'Playful & Weird': 'arcana-playful-weird',
+        'Curious Encounters': 'arcana-curious-encounters',
+        'Witchy & Wild': 'arcana-witchy-wild',
+        'Folk & Intimate': 'arcana-folk-intimate',
+        'The Thoughtful Stage': 'arcana-thoughtful-stage',
+        'Spiritual / Sacred / Mystical': 'arcana-spiritual-sacred',
+        'Cabaret & Glitter': 'arcana-cabaret-glitter',
+        'Big Night Out': 'arcana-big-night-out',
+        'Punchy / Protest': 'arcana-punchy-protest',
+        'Contemplative & Meditative': 'arcana-contemplative',
+        'Global Rhythms': 'arcana-global-rhythms',
+        'Rant & Rapture': 'arcana-rant-rapture',
+        'Body-Based / Movement-Led': 'arcana-body-movement',
+        'Grief & Grace': 'arcana-grief-grace',
+        'Word & Voice': 'arcana-word-voice',
+        'Late-Night Lark': 'arcana-late-night',
+        'Melancholic Beauty': 'arcana-melancholic',
+        'Wonder & Awe': 'arcana-wonder-awe',
+        'Nostalgic / Vintage / Retro': 'arcana-nostalgic-vintage',
+        'Comic Relief': 'arcana-comic-relief',
+        'Group Energy': 'arcana-group-energy',
+        'Queer Revelry': 'arcana-queer-revelry',
+        'Romanticised London': 'arcana-romanticised-london',
+    }
+    arcana_class = arcana_class_map.get(arcana, 'arcana-romanticised-london')
+
+    return render_template('venue.html',
+        venue=venue,
+        arcana=arcana,
+        arcana_info=arcana_info,
+        arcana_class=arcana_class,
+        page_title=f"{venue.get('name')} — {arcana} | The London Lark",
+        page_description=venue.get('blurb', '')[:160]
+    )
+
 
 @app.route('/surprise', methods=['POST'])
 @rate_limited
@@ -492,6 +580,7 @@ def surprise_me():
             'area': normalized_venue["area"],
             'website': normalized_venue["website"],
             'mood': venue_arcana,
+            'slug': random_venue_raw.get('slug', ''),
             'is_surprise': True
         })
 
@@ -980,6 +1069,7 @@ def ask_lark():
                     'website': venue.get('website', ''),
                     'whisper': venue.get('whisper', ''),
                     'arcana': venue_arcana,
+                    'slug': venue.get('slug', '') or raw_data.get('slug', ''),
                     'is_adjacent': venue.get('is_adjacent', False)
                 })
         else:

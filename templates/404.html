@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost in the Fog — The London Lark</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .error-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .error-symbol {
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .error-title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .error-message {
+            font-family: var(--font-whisper);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--candlelight);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-family: var(--font-whisper);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--gold-dim);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--gold-dim);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+        </header>
+
+        <main class="error-container">
+            <div class="error-symbol">❦</div>
+            <h2 class="error-title">LOST IN THE FOG</h2>
+            <p class="error-message">
+                {% if message %}
+                {{ message }}
+                {% else %}
+                This door doesn't lead anywhere, petal. Perhaps it never did.
+                {% endif %}
+            </p>
+            <a href="/" class="back-link">← return to the Lark</a>
+        </main>
+    </div>
+</body>
+</html>

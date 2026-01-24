@@ -168,6 +168,7 @@ def normalize_venue(venue):
         "price": venue.get("price", "TBC"),
         "website": venue.get("website", venue.get("url", "")),
         "whisper": venue.get("whisper", ""),
+        "slug": venue.get("slug", ""),
         "mood_tags": mood_tags,
         "raw_data": venue
     }
