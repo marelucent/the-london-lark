@@ -51,19 +51,53 @@
             margin-top: 1rem;
         }
 
-        /* Card Grid */
+        /* Card Grid — matches homepage Browse the Deck */
         .deck-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 600px) {
+            .deck-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+
+        @media (min-width: 900px) {
+            .deck-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1100px) {
+            .deck-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        /* Animation for cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .arcana-card {
             background: var(--parchment-dark);
             border: 1px solid var(--gold-dim, rgba(212, 175, 55, 0.4));
             border-radius: 4px;
-            padding: 1.5rem 1rem;
+            padding: 1.4rem 1.2rem;
+            min-height: 200px;
             text-align: center;
             text-decoration: none;
             display: block;
@@ -74,7 +108,34 @@
                 0 4px 20px rgba(0, 0, 0, 0.3),
                 0 0 25px rgba(212, 175, 55, 0.1),
                 0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
+            animation: fadeInUp 0.4s ease forwards;
+            opacity: 0;
         }
+
+        /* Staggered animation delays */
+        .arcana-card:nth-child(1) { animation-delay: 0ms; }
+        .arcana-card:nth-child(2) { animation-delay: 30ms; }
+        .arcana-card:nth-child(3) { animation-delay: 60ms; }
+        .arcana-card:nth-child(4) { animation-delay: 90ms; }
+        .arcana-card:nth-child(5) { animation-delay: 120ms; }
+        .arcana-card:nth-child(6) { animation-delay: 150ms; }
+        .arcana-card:nth-child(7) { animation-delay: 180ms; }
+        .arcana-card:nth-child(8) { animation-delay: 210ms; }
+        .arcana-card:nth-child(9) { animation-delay: 240ms; }
+        .arcana-card:nth-child(10) { animation-delay: 270ms; }
+        .arcana-card:nth-child(11) { animation-delay: 300ms; }
+        .arcana-card:nth-child(12) { animation-delay: 330ms; }
+        .arcana-card:nth-child(13) { animation-delay: 360ms; }
+        .arcana-card:nth-child(14) { animation-delay: 390ms; }
+        .arcana-card:nth-child(15) { animation-delay: 420ms; }
+        .arcana-card:nth-child(16) { animation-delay: 450ms; }
+        .arcana-card:nth-child(17) { animation-delay: 480ms; }
+        .arcana-card:nth-child(18) { animation-delay: 510ms; }
+        .arcana-card:nth-child(19) { animation-delay: 540ms; }
+        .arcana-card:nth-child(20) { animation-delay: 570ms; }
+        .arcana-card:nth-child(21) { animation-delay: 600ms; }
+        .arcana-card:nth-child(22) { animation-delay: 630ms; }
+        .arcana-card:nth-child(23) { animation-delay: 660ms; }
 
         /* Corner flourishes */
         .arcana-card::before,
@@ -82,8 +143,8 @@
         .arcana-card .corner-tr,
         .arcana-card .corner-bl {
             position: absolute;
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-color: var(--gold-dim, rgba(212, 175, 55, 0.4));
             border-style: solid;
             transition: border-color 0.4s ease;
@@ -138,11 +199,12 @@
             position: relative;
             z-index: 1;
             color: var(--gold);
+            opacity: 0.9;
         }
 
         .card-number {
             font-family: var(--font-title);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--gold);
             letter-spacing: 0.35em;
             margin-bottom: 0.3rem;
@@ -152,28 +214,30 @@
 
         .card-name {
             font-family: var(--font-title);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--cream);
             letter-spacing: 0.08em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             position: relative;
             z-index: 1;
         }
 
         .card-mood {
             font-family: var(--font-whisper);
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--candlelight);
             font-style: italic;
             position: relative;
             z-index: 1;
+            opacity: 0.8;
+            margin-bottom: 0.6rem;
         }
 
         .card-count {
             font-family: var(--font-body);
-            font-size: 0.75rem;
-            color: var(--gold-dim);
-            margin-top: 0.8rem;
+            font-size: 0.7rem;
+            color: var(--candlelight);
+            opacity: 0.5;
             position: relative;
             z-index: 1;
         }
@@ -202,28 +266,8 @@
             text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
-        /* Tablet */
-        @media (max-width: 768px) {
-            .deck-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 1rem;
-            }
-
-            .arcana-card {
-                padding: 1.25rem 1rem;
-            }
-
-            .card-symbol {
-                font-size: 1.5rem;
-            }
-
-            .card-name {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Mobile */
-        @media (max-width: 480px) {
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
             .deck-page {
                 padding: 1.5rem 1rem 3rem;
             }
@@ -233,29 +277,21 @@
                 letter-spacing: 0.2em;
             }
 
-            .deck-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.75rem;
-            }
-
             .arcana-card {
-                padding: 1rem 0.75rem;
+                min-height: 180px;
+                padding: 1.2rem 1rem;
             }
 
             .card-symbol {
-                font-size: 1.3rem;
-            }
-
-            .card-number {
-                font-size: 0.65rem;
+                font-size: 1.5rem;
             }
 
             .card-name {
-                font-size: 0.7rem;
+                font-size: 0.75rem;
             }
 
             .card-mood {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
         }
     </style>
