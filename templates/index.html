@@ -793,6 +793,128 @@
         .null-choice-btn:active {
             transform: scale(0.98);
         }
+
+        /* ============================================
+           NULL STATE CHOICE CARDS
+           Card-styled options for no-match scenarios
+           ============================================ */
+
+        .null-choices-cards {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 1.2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .null-choice-card {
+            position: relative;
+            width: 140px;
+            min-height: 160px;
+            background: var(--parchment-dark, #1a1714);
+            border: 1px solid var(--gold-dim, rgba(212, 175, 55, 0.3));
+            border-radius: 4px;
+            padding: 1.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .null-choice-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold, #d4af37);
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.35),
+                0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .null-choice-card .corner-tr,
+        .null-choice-card .corner-bl {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-color: var(--gold-dim, rgba(212, 175, 55, 0.3));
+            border-style: solid;
+            transition: border-color 0.3s ease;
+            pointer-events: none;
+        }
+
+        .null-choice-card .corner-tr {
+            top: 8px;
+            right: 8px;
+            border-width: 1px 1px 0 0;
+        }
+
+        .null-choice-card .corner-bl {
+            bottom: 8px;
+            left: 8px;
+            border-width: 0 0 1px 1px;
+        }
+
+        .null-choice-card:hover .corner-tr,
+        .null-choice-card:hover .corner-bl {
+            border-color: var(--gold, #d4af37);
+        }
+
+        .null-card-icon {
+            font-size: 2rem;
+            color: var(--gold, #d4af37);
+            margin-bottom: 0.8rem;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .null-choice-card:hover .null-card-icon {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .null-card-label {
+            font-family: var(--font-display, 'Cinzel', serif);
+            font-size: 0.85rem;
+            color: var(--cream, #f5f0e6);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+
+        .null-card-sublabel {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.6;
+        }
+
+        /* Mobile: smaller cards */
+        @media (max-width: 500px) {
+            .null-choices-cards {
+                gap: 0.8rem;
+            }
+
+            .null-choice-card {
+                width: 100px;
+                min-height: 130px;
+                padding: 1rem 0.8rem;
+            }
+
+            .null-card-icon {
+                font-size: 1.5rem;
+            }
+
+            .null-card-label {
+                font-size: 0.75rem;
+            }
+
+            .null-card-sublabel {
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1699,16 +1821,31 @@
 
                     let clarificationHTML = `<p class="lark-asks">${clarificationText}</p>`;
 
-                    // For no-match, add a prominent draw offer
+                    // For no-match, add card-styled options
                     if (isNoMatch) {
                         clarificationHTML += `
-                            <div class="draw-offer">
-                                <a href="#" onclick="choosePath('draw'); return false;" class="draw-offer-link">
-                                    <span class="draw-offer-icon">✦</span>
-                                    <span class="draw-offer-text">Let me draw a card for you instead</span>
-                                </a>
-                                <span class="draw-offer-separator">or</span>
-                                <a href="#" onclick="choosePath('browse'); return false;" class="browse-offer-link">browse the full deck</a>
+                            <div class="null-choices-cards">
+                                <div class="null-choice-card" onclick="choosePath('draw')">
+                                    <span class="corner-tr"></span>
+                                    <span class="corner-bl"></span>
+                                    <div class="null-card-icon">✦</div>
+                                    <div class="null-card-label">Draw a card</div>
+                                    <div class="null-card-sublabel">Let fate decide</div>
+                                </div>
+                                <div class="null-choice-card" onclick="choosePath('browse')">
+                                    <span class="corner-tr"></span>
+                                    <span class="corner-bl"></span>
+                                    <div class="null-card-icon">☰</div>
+                                    <div class="null-card-label">Browse the deck</div>
+                                    <div class="null-card-sublabel">See all arcana</div>
+                                </div>
+                                <div class="null-choice-card" onclick="document.getElementById('askResults').innerHTML=''; document.getElementById('userInput').value=''; document.getElementById('userInput').focus();">
+                                    <span class="corner-tr"></span>
+                                    <span class="corner-bl"></span>
+                                    <div class="null-card-icon">↺</div>
+                                    <div class="null-card-label">Try again</div>
+                                    <div class="null-card-sublabel">New search</div>
+                                </div>
                             </div>
                         `;
                     }
@@ -1730,9 +1867,9 @@
                 // =====================================================
                 if (data.responses && data.responses.length > 0) {
                     // Show search bridge (emotional translation) if present
-                    if (data.search_bridge && data.search_bridge.bridge_type !== 'none') {
+                    if (data.search_bridge && data.search_bridge.bridge_type === 'found') {
                         const bridgeSection = document.createElement('div');
-                        bridgeSection.className = `search-bridge bridge-${data.search_bridge.bridge_type}`;
+                        bridgeSection.className = 'search-bridge bridge-found';
 
                         let bridgeHTML = '';
 
@@ -1741,24 +1878,23 @@
                             bridgeHTML += `<p class="bridge-echo">${data.search_bridge.echo}</p>`;
                         }
 
-                        // Arcana translation
-                        if (data.search_bridge.arcana_name) {
-                            const arcanaLink = data.search_bridge.arcana_slug
-                                ? `<a href="/arcana/${data.search_bridge.arcana_slug}" class="bridge-arcana-link">${data.search_bridge.arcana_name}</a>`
-                                : `<span class="bridge-arcana-name">${data.search_bridge.arcana_name}</span>`;
+                        // Build arcana links from the list
+                        if (data.search_bridge.arcana_list && data.search_bridge.arcana_list.length > 0) {
+                            const arcanaLinks = data.search_bridge.arcana_list.map(a =>
+                                `<a href="/arcana/${a.slug}" class="bridge-arcana-link">${a.name}</a>`
+                            );
 
-                            if (data.search_bridge.bridge_type === 'clear') {
-                                bridgeHTML += `<p class="bridge-translation">You're seeking ${arcanaLink}, I think — <span class="bridge-flavour">${data.search_bridge.arcana_description || ''}</span></p>`;
-                            } else if (data.search_bridge.bridge_type === 'partial') {
-                                bridgeHTML += `<p class="bridge-translation">I don't know that exactly, but it echoes something... ${arcanaLink}, perhaps? <span class="bridge-flavour">${data.search_bridge.arcana_description || ''}</span></p>`;
+                            // Join arcana names nicely
+                            let arcanaText;
+                            if (arcanaLinks.length === 1) {
+                                arcanaText = arcanaLinks[0];
+                            } else if (arcanaLinks.length === 2) {
+                                arcanaText = `${arcanaLinks[0]} and ${arcanaLinks[1]}`;
                             } else {
-                                bridgeHTML += `<p class="bridge-translation">The thread is faint, but it might lead to ${arcanaLink}.</p>`;
+                                arcanaText = arcanaLinks.slice(0, -1).join(', ') + ', and ' + arcanaLinks[arcanaLinks.length - 1];
                             }
-                        }
 
-                        // Transition
-                        if (data.search_bridge.transition) {
-                            bridgeHTML += `<p class="bridge-transition">${data.search_bridge.transition}</p>`;
+                            bridgeHTML += `<p class="bridge-translation">I found doors in ${arcanaText} that might suit...</p>`;
                         }
 
                         bridgeSection.innerHTML = bridgeHTML;
@@ -1783,13 +1919,18 @@
                         resultsContainer.appendChild(intro);
                     }
 
-                    // Render venue cards with staggered animation
+                    // Create a row container for venue cards
+                    const cardRow = document.createElement('div');
+                    cardRow.className = 'results-card-row';
+                    resultsContainer.appendChild(cardRow);
+
+                    // Render venue cards with staggered animation into the row
                     data.responses.forEach((resp, index) => {
                         setTimeout(() => {
                             const card = createVenueCard(resp, resp.arcana || data.mood);
-                            resultsContainer.appendChild(card);
+                            cardRow.appendChild(card);
 
-                            // After all venues, add footers
+                            // After all venues, add footers to the main container
                             if (index === data.responses.length - 1) {
                                 // For uncertain matches, offer a draw as alternative
                                 if (data.search_bridge && data.search_bridge.offer_draw) {
@@ -2152,16 +2293,29 @@
             preamble.textContent = nullState.preamble;
             nullContainer.appendChild(preamble);
 
-            // Choice buttons
+            // Choice cards (not buttons)
             const choicesDiv = document.createElement('div');
-            choicesDiv.className = 'null-choices';
+            choicesDiv.className = 'null-choices-cards';
 
-            nullState.choices.forEach(choice => {
-                const btn = document.createElement('button');
-                btn.className = 'null-choice-btn';
-                btn.textContent = choice.label;
-                btn.onclick = () => handleNullChoice(choice.action);
-                choicesDiv.appendChild(btn);
+            // Define card options with icons
+            const cardOptions = [
+                { action: 'draw_random', icon: '✦', label: 'Draw a card', sublabel: 'Let fate decide' },
+                { action: 'browse', icon: '☰', label: 'Browse the deck', sublabel: 'See all arcana' },
+                { action: 'clear_input', icon: '↺', label: 'Try again', sublabel: 'New search' }
+            ];
+
+            cardOptions.forEach(option => {
+                const card = document.createElement('div');
+                card.className = 'null-choice-card';
+                card.onclick = () => handleNullChoice(option.action);
+                card.innerHTML = `
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
+                    <div class="null-card-icon">${option.icon}</div>
+                    <div class="null-card-label">${option.label}</div>
+                    <div class="null-card-sublabel">${option.sublabel}</div>
+                `;
+                choicesDiv.appendChild(card);
             });
 
             nullContainer.appendChild(choicesDiv);

@@ -2474,8 +2474,19 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
-    gap: 1.8rem;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+/* Card row wrapper - keeps venue cards in a single row */
+.results-card-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
 }
 
 /* Venue cards in search results - fixed tarot card size */
@@ -2491,7 +2502,7 @@ button {
     opacity: 0;
     transform: translateY(20px);
     flex-shrink: 0;
-    /* Mobile fix: prevent content overflow and ensure proper stacking */
+    /* Prevent content overflow */
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -2551,6 +2562,12 @@ button {
         align-items: center;
         gap: 1.5rem;
         padding: 1rem 0.75rem;
+    }
+
+    .results-card-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
     }
 
     .venue-card-result {
