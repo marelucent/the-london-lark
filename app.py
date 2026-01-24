@@ -80,6 +80,213 @@ app = Flask(__name__)
 
 
 # =============================================================================
+# ARCANA DATA STRUCTURE
+# =============================================================================
+# Maps mood names to tarot card details for the 23 arcana.
+# Each arcana has: number, name, symbol, slug (for URLs), and description.
+
+ARCANA_DATA = {
+    'Playful & Weird': {
+        'number': '0',
+        'name': 'THE FOOL',
+        'symbol': '🃏',
+        'slug': 'the-fool',
+        'description': 'Where the strange becomes sanctuary. Venues that embrace the peculiar, the unexpected, the delightfully odd.',
+        'css_class': 'arcana-playful-weird'
+    },
+    'Curious Encounters': {
+        'number': 'I',
+        'name': 'THE MAGICIAN',
+        'symbol': '✧',
+        'slug': 'the-magician',
+        'description': 'Places that spark connection and serendipity. Where strangers become co-conspirators.',
+        'css_class': 'arcana-curious-encounters'
+    },
+    'Witchy & Wild': {
+        'number': 'II',
+        'name': 'THE HIGH PRIESTESS',
+        'symbol': '☽',
+        'slug': 'the-high-priestess',
+        'description': 'For those drawn to the mystical, the untamed, the edges of the known world.',
+        'css_class': 'arcana-witchy-wild'
+    },
+    'Folk & Intimate': {
+        'number': 'III',
+        'name': 'THE EMPRESS',
+        'symbol': '♠',
+        'slug': 'the-empress',
+        'description': 'Warm rooms and close harmonies. Venues where music is passed hand to hand like bread.',
+        'css_class': 'arcana-folk-intimate'
+    },
+    'The Thoughtful Stage': {
+        'number': 'IV',
+        'name': 'THE EMPEROR',
+        'symbol': '♔',
+        'slug': 'the-emperor',
+        'description': 'Serious rooms for serious art. Where performance commands attention and respect.',
+        'css_class': 'arcana-thoughtful-stage'
+    },
+    'Spiritual / Sacred / Mystical': {
+        'number': 'V',
+        'name': 'THE HIEROPHANT',
+        'symbol': '☩',
+        'slug': 'the-hierophant',
+        'description': 'Spaces that hold the sacred — whatever that means to you. Transcendence in many forms.',
+        'css_class': 'arcana-spiritual-sacred'
+    },
+    'Cabaret & Glitter': {
+        'number': 'VI',
+        'name': 'THE LOVERS',
+        'symbol': '💋',
+        'slug': 'the-lovers',
+        'description': 'Sequins and spotlights. Where performance meets passion meets pure glamour.',
+        'css_class': 'arcana-cabaret-glitter'
+    },
+    'Big Night Out': {
+        'number': 'VII',
+        'name': 'THE CHARIOT',
+        'symbol': '⚡',
+        'slug': 'the-chariot',
+        'description': 'When you want to disappear into sound and sweat and the pulse of the crowd.',
+        'css_class': 'arcana-big-night-out'
+    },
+    'Punchy / Protest': {
+        'number': 'VIII',
+        'name': 'STRENGTH',
+        'symbol': '✊',
+        'slug': 'strength',
+        'description': 'Music with teeth. Venues where art and activism are inseparable.',
+        'css_class': 'arcana-punchy-protest'
+    },
+    'Contemplative & Meditative': {
+        'number': 'IX',
+        'name': 'THE HERMIT',
+        'symbol': '🕯',
+        'slug': 'the-hermit',
+        'description': 'For when you need to go quiet. Spaces that hold stillness and introspection.',
+        'css_class': 'arcana-contemplative'
+    },
+    'Global Rhythms': {
+        'number': 'X',
+        'name': 'WHEEL OF FORTUNE',
+        'symbol': '🌍',
+        'slug': 'wheel-of-fortune',
+        'description': 'The world comes to London. Venues celebrating music and culture from every corner.',
+        'css_class': 'arcana-global-rhythms'
+    },
+    'Rant & Rapture': {
+        'number': 'XI',
+        'name': 'JUSTICE',
+        'symbol': '⚖',
+        'slug': 'justice',
+        'description': 'Spoken word, poetry, and the raw power of voice. Truth-telling rooms.',
+        'css_class': 'arcana-rant-rapture'
+    },
+    'Body-Based / Movement-Led': {
+        'number': 'XII',
+        'name': 'THE HANGED MAN',
+        'symbol': '💃',
+        'slug': 'the-hanged-man',
+        'description': 'When your body needs to lead. Dance, movement, physical expression.',
+        'css_class': 'arcana-body-movement'
+    },
+    'Grief & Grace': {
+        'number': 'XIII',
+        'name': 'DEATH',
+        'symbol': '🥀',
+        'slug': 'death',
+        'description': 'For the heavy-hearted. Spaces that understand loss, endings, and gentle holding.',
+        'css_class': 'arcana-grief-grace'
+    },
+    'Word & Voice': {
+        'number': 'XIV',
+        'name': 'TEMPERANCE',
+        'symbol': '🎤',
+        'slug': 'temperance',
+        'description': 'The spoken and sung word. Venues where language is the main event.',
+        'css_class': 'arcana-word-voice'
+    },
+    'Late-Night Lark': {
+        'number': 'XV',
+        'name': 'THE DEVIL',
+        'symbol': '🌙',
+        'slug': 'the-devil',
+        'description': 'For the night owls and the restless. When the city goes dark and you stay awake.',
+        'css_class': 'arcana-late-night'
+    },
+    'Melancholic Beauty': {
+        'number': 'XVI',
+        'name': 'THE TOWER',
+        'symbol': '🌧',
+        'slug': 'the-tower',
+        'description': 'Beautiful sadness. Venues that honour the bittersweet and the wistful.',
+        'css_class': 'arcana-melancholic'
+    },
+    'Wonder & Awe': {
+        'number': 'XVII',
+        'name': 'THE STAR',
+        'symbol': '✦',
+        'slug': 'the-star',
+        'description': 'Jaw-dropping spaces. Where you came for the art and left transformed.',
+        'css_class': 'arcana-wonder-awe'
+    },
+    'Nostalgic / Vintage / Retro': {
+        'number': 'XVIII',
+        'name': 'THE MOON',
+        'symbol': '📻',
+        'slug': 'the-moon',
+        'description': 'Time-slipped venues. Where the past lives on in loving detail.',
+        'css_class': 'arcana-nostalgic-vintage'
+    },
+    'Comic Relief': {
+        'number': 'XIX',
+        'name': 'THE SUN',
+        'symbol': '😂',
+        'slug': 'the-sun',
+        'description': 'Laughter as medicine. Comedy clubs and joyful chaos.',
+        'css_class': 'arcana-comic-relief'
+    },
+    'Group Energy': {
+        'number': 'XX',
+        'name': 'JUDGEMENT',
+        'symbol': '👥',
+        'slug': 'judgement',
+        'description': 'Collective experience. Where the crowd becomes the event.',
+        'css_class': 'arcana-group-energy'
+    },
+    'Queer Revelry': {
+        'number': 'XXI',
+        'name': 'THE WORLD',
+        'symbol': '🏳️‍🌈',
+        'slug': 'the-world',
+        'description': 'Pride, joy, and belonging. Queer spaces and queer-celebrating venues.',
+        'css_class': 'arcana-queer-revelry'
+    },
+    'Romanticised London': {
+        'number': '✦',
+        'name': 'THE LARK',
+        'symbol': '❦',
+        'slug': 'the-lark',
+        'description': 'The city as dream. Venues that embody the soul of London herself.',
+        'css_class': 'arcana-romanticised-london'
+    }
+}
+
+# Build reverse lookup: slug → mood name
+ARCANA_SLUG_TO_MOOD = {data['slug']: mood for mood, data in ARCANA_DATA.items()}
+
+# Ordered list for displaying the deck
+ARCANA_ORDER = [
+    'Playful & Weird', 'Curious Encounters', 'Witchy & Wild', 'Folk & Intimate',
+    'The Thoughtful Stage', 'Spiritual / Sacred / Mystical', 'Cabaret & Glitter',
+    'Big Night Out', 'Punchy / Protest', 'Contemplative & Meditative', 'Global Rhythms',
+    'Rant & Rapture', 'Body-Based / Movement-Led', 'Grief & Grace', 'Word & Voice',
+    'Late-Night Lark', 'Melancholic Beauty', 'Wonder & Awe', 'Nostalgic / Vintage / Retro',
+    'Comic Relief', 'Group Energy', 'Queer Revelry', 'Romanticised London'
+]
+
+
+# =============================================================================
 # ANALYTICS MIDDLEWARE
 # =============================================================================
 
@@ -352,12 +559,114 @@ Crawl-delay: 1
 """
     return robots, 200, {'Content-Type': 'text/plain; charset=utf-8'}
 
-@app.route('/arcana', methods=['GET'])
-def get_all_arcana():
-    """Return all 23 arcana with their venue counts for the Full Deck view"""
+# =============================================================================
+# DECK & ARCANA PAGES - Browse the Full Deck
+# =============================================================================
+
+@app.route('/deck')
+def deck_page():
+    """
+    The Full Deck — browse all 23 arcana.
+
+    A beautiful grid of all arcana cards with venue counts,
+    linking to individual arcana pages.
+    """
     try:
         all_venues = load_parsed_venues()
-        
+
+        # Count venues per arcana
+        arcana_counts = {}
+        for venue in all_venues:
+            arcana = venue.get('arcana', 'Romanticised London')
+            arcana_counts[arcana] = arcana_counts.get(arcana, 0) + 1
+
+        # Build ordered deck with full arcana data
+        deck = []
+        for mood in ARCANA_ORDER:
+            data = ARCANA_DATA.get(mood, {})
+            deck.append({
+                'mood': mood,
+                'name': data.get('name', mood),
+                'number': data.get('number', '✦'),
+                'symbol': data.get('symbol', '✦'),
+                'slug': data.get('slug', 'unknown'),
+                'css_class': data.get('css_class', 'arcana-romanticised-london'),
+                'venue_count': arcana_counts.get(mood, 0)
+            })
+
+        return render_template('deck.html',
+            deck=deck,
+            total_venues=len(all_venues),
+            page_title='The Full Deck — The London Lark',
+            page_description='23 arcana, 23 moods, 650+ venues. Browse the complete deck of London doors.'
+        )
+
+    except Exception as e:
+        return render_template('404.html', message=f"The deck is scattered: {str(e)}"), 500
+
+
+@app.route('/arcana/<slug>')
+def arcana_page(slug):
+    """
+    Individual arcana page — shows all venues for a specific arcana.
+
+    URLs use tarot names: /arcana/the-hermit, /arcana/the-fool, etc.
+    """
+    # Look up the mood name from the slug
+    mood = ARCANA_SLUG_TO_MOOD.get(slug)
+
+    if not mood:
+        return render_template('404.html',
+            message="This arcana doesn't exist in the deck."), 404
+
+    try:
+        all_venues = load_parsed_venues()
+
+        # Get arcana data
+        arcana_info = ARCANA_DATA.get(mood, {})
+
+        # Filter venues by arcana
+        matching_venues = [v for v in all_venues if v.get('arcana') == mood]
+
+        # Format venues for display
+        venues_list = []
+        for venue in matching_venues:
+            venues_list.append({
+                'name': venue.get('name', 'Unnamed'),
+                'location': venue.get('location', 'London'),
+                'whisper': venue.get('whisper', ''),
+                'blurb': venue.get('blurb', ''),
+                'url': venue.get('url', ''),
+                'slug': venue.get('slug', '')
+            })
+
+        # Sort alphabetically by name
+        venues_list.sort(key=lambda v: v['name'].lower())
+
+        return render_template('arcana.html',
+            mood=mood,
+            arcana=arcana_info,
+            venues=venues_list,
+            venue_count=len(venues_list),
+            page_title=f"{arcana_info.get('name', mood)} — The London Lark",
+            page_description=arcana_info.get('description', f"Venues for {mood}")[:160]
+        )
+
+    except Exception as e:
+        return render_template('404.html',
+            message=f"Could not load this arcana: {str(e)}"), 500
+
+
+# =============================================================================
+# API ENDPOINTS - JSON data for frontend
+# =============================================================================
+
+@app.route('/api/arcana', methods=['GET'])
+def api_all_arcana():
+    """API: Return all 23 arcana with their venue counts (JSON)"""
+    try:
+        all_venues = load_parsed_venues()
+
         # Count venues per arcana
         arcana_counts = {}
         for venue in all_venues:
@@ -365,74 +674,66 @@ def get_all_arcana():
             if arcana not in arcana_counts:
                 arcana_counts[arcana] = 0
             arcana_counts[arcana] += 1
-        
-        # Build response list
-        arcana_list = []
-        for mood, count in arcana_counts.items():
-            arcana_list.append({
-                'mood': mood,
-                'venue_count': count
-            })
-        
-        # Sort by the standard arcana order
-        arcana_order = [
-            'Playful & Weird', 'Curious Encounters', 'Witchy & Wild', 'Folk & Intimate',
-            'The Thoughtful Stage', 'Spiritual / Sacred / Mystical', 'Cabaret & Glitter',
-            'Big Night Out', 'Punchy / Protest', 'Contemplative & Meditative', 'Global Rhythms',
-            'Rant & Rapture', 'Body-Based / Movement-Led', 'Grief & Grace', 'Word & Voice',
-            'Late-Night Lark', 'Melancholic Beauty', 'Wonder & Awe', 'Nostalgic / Vintage / Retro',
-            'Comic Relief', 'Group Energy', 'Queer Revelry', 'Romanticised London'
-        ]
-        
-        # Create ordered list, including any arcana with 0 venues
+
+        # Create ordered list with slugs
         ordered_list = []
-        for mood in arcana_order:
-            count = arcana_counts.get(mood, 0)
+        for mood in ARCANA_ORDER:
+            data = ARCANA_DATA.get(mood, {})
             ordered_list.append({
                 'mood': mood,
-                'venue_count': count
+                'name': data.get('name', mood),
+                'slug': data.get('slug', 'unknown'),
+                'venue_count': arcana_counts.get(mood, 0)
             })
-        
+
         return jsonify({
             'arcana': ordered_list,
             'total_venues': len(all_venues)
         })
-        
+
     except Exception as e:
         return jsonify({
             'error': f"Could not load arcana: {str(e)}"
         }), 500
 
-@app.route('/arcana/<path:mood>', methods=['GET'])
-def get_arcana_venues(mood):
-    """Return all venues for a specific arcana"""
+
+@app.route('/api/arcana/<slug>', methods=['GET'])
+def api_arcana_venues(slug):
+    """API: Return all venues for a specific arcana (JSON)"""
+    # Look up the mood name from the slug
+    mood = ARCANA_SLUG_TO_MOOD.get(slug)
+
+    if not mood:
+        return jsonify({'error': 'Arcana not found'}), 404
+
     try:
         all_venues = load_parsed_venues()
-        
+
         # Filter venues by arcana
         matching_venues = [v for v in all_venues if v.get('arcana') == mood]
-        
+
         # Format for frontend
         venues_list = []
         for venue in matching_venues:
             venues_list.append({
-                'name': venue.get('display_name', venue.get('name', 'Unnamed')),
-                'area': venue.get('area', venue.get('location', 'London')),
+                'name': venue.get('name', 'Unnamed'),
+                'area': venue.get('location', 'London'),
                 'whisper': venue.get('whisper', ''),
-                'blurb': venue.get('blurb', venue.get('tone_notes', '')),
-                'website': venue.get('website', venue.get('url', '')),
+                'blurb': venue.get('blurb', ''),
+                'website': venue.get('url', ''),
                 'slug': venue.get('slug', '')
             })
-        
+
         # Sort alphabetically by name
         venues_list.sort(key=lambda v: v['name'].lower())
-        
+
         return jsonify({
             'mood': mood,
+            'arcana': ARCANA_DATA.get(mood, {}),
             'venue_count': len(venues_list),
             'venues': venues_list
         })
-        
+
     except Exception as e:
         return jsonify({
             'error': f"Could not load venues: {str(e)}"
@@ -454,72 +755,27 @@ def venue_page(slug):
     if not venue:
         return render_template('404.html', message="This door doesn't exist... yet."), 404
 
-    # Get arcana info for the card styling
-    arcana = venue.get('arcana', 'Romanticised London')
+    # Get arcana info from the centralized ARCANA_DATA
+    arcana_mood = venue.get('arcana', 'Romanticised London')
+    arcana_data = ARCANA_DATA.get(arcana_mood, ARCANA_DATA['Romanticised London'])
 
-    # Arcana metadata for the template
-    arcana_map = {
-        'Playful & Weird': {'number': '0', 'name': 'THE FOOL', 'symbol': '🃏'},
-        'Curious Encounters': {'number': 'I', 'name': 'THE MAGICIAN', 'symbol': '✧'},
-        'Witchy & Wild': {'number': 'II', 'name': 'THE HIGH PRIESTESS', 'symbol': '☽'},
-        'Folk & Intimate': {'number': 'III', 'name': 'THE EMPRESS', 'symbol': '♠'},
-        'The Thoughtful Stage': {'number': 'IV', 'name': 'THE EMPEROR', 'symbol': '♔'},
-        'Spiritual / Sacred / Mystical': {'number': 'V', 'name': 'THE HIEROPHANT', 'symbol': '☩'},
-        'Cabaret & Glitter': {'number': 'VI', 'name': 'THE LOVERS', 'symbol': '💋'},
-        'Big Night Out': {'number': 'VII', 'name': 'THE CHARIOT', 'symbol': '⚡'},
-        'Punchy / Protest': {'number': 'VIII', 'name': 'STRENGTH', 'symbol': '✊'},
-        'Contemplative & Meditative': {'number': 'IX', 'name': 'THE HERMIT', 'symbol': '🕯'},
-        'Global Rhythms': {'number': 'X', 'name': 'WHEEL OF FORTUNE', 'symbol': '🌍'},
-        'Rant & Rapture': {'number': 'XI', 'name': 'JUSTICE', 'symbol': '⚖'},
-        'Body-Based / Movement-Led': {'number': 'XII', 'name': 'THE HANGED MAN', 'symbol': '💃'},
-        'Grief & Grace': {'number': 'XIII', 'name': 'DEATH', 'symbol': '🥀'},
-        'Word & Voice': {'number': 'XIV', 'name': 'TEMPERANCE', 'symbol': '🎤'},
-        'Late-Night Lark': {'number': 'XV', 'name': 'THE DEVIL', 'symbol': '🌙'},
-        'Melancholic Beauty': {'number': 'XVI', 'name': 'THE TOWER', 'symbol': '🌧'},
-        'Wonder & Awe': {'number': 'XVII', 'name': 'THE STAR', 'symbol': '✦'},
-        'Nostalgic / Vintage / Retro': {'number': 'XVIII', 'name': 'THE MOON', 'symbol': '📻'},
-        'Comic Relief': {'number': 'XIX', 'name': 'THE SUN', 'symbol': '😂'},
-        'Group Energy': {'number': 'XX', 'name': 'JUDGEMENT', 'symbol': '👥'},
-        'Queer Revelry': {'number': 'XXI', 'name': 'THE WORLD', 'symbol': '🏳️‍🌈'},
-        'Romanticised London': {'number': '✦', 'name': 'THE LARK', 'symbol': '❦'},
+    # Build arcana_info for backward compatibility with template
+    arcana_info = {
+        'number': arcana_data.get('number', '✦'),
+        'name': arcana_data.get('name', 'THE LARK'),
+        'symbol': arcana_data.get('symbol', '❦')
     }
 
-    arcana_info = arcana_map.get(arcana, {'number': '✦', 'name': 'THE LARK', 'symbol': '❦'})
-
-    # CSS class for arcana styling
-    arcana_class_map = {
-        'Playful & Weird': 'arcana-playful-weird',
-        'Curious Encounters': 'arcana-curious-encounters',
-        'Witchy & Wild': 'arcana-witchy-wild',
-        'Folk & Intimate': 'arcana-folk-intimate',
-        'The Thoughtful Stage': 'arcana-thoughtful-stage',
-        'Spiritual / Sacred / Mystical': 'arcana-spiritual-sacred',
-        'Cabaret & Glitter': 'arcana-cabaret-glitter',
-        'Big Night Out': 'arcana-big-night-out',
-        'Punchy / Protest': 'arcana-punchy-protest',
-        'Contemplative & Meditative': 'arcana-contemplative',
-        'Global Rhythms': 'arcana-global-rhythms',
-        'Rant & Rapture': 'arcana-rant-rapture',
-        'Body-Based / Movement-Led': 'arcana-body-movement',
-        'Grief & Grace': 'arcana-grief-grace',
-        'Word & Voice': 'arcana-word-voice',
-        'Late-Night Lark': 'arcana-late-night',
-        'Melancholic Beauty': 'arcana-melancholic',
-        'Wonder & Awe': 'arcana-wonder-awe',
-        'Nostalgic / Vintage / Retro': 'arcana-nostalgic-vintage',
-        'Comic Relief': 'arcana-comic-relief',
-        'Group Energy': 'arcana-group-energy',
-        'Queer Revelry': 'arcana-queer-revelry',
-        'Romanticised London': 'arcana-romanticised-london',
-    }
-    arcana_class = arcana_class_map.get(arcana, 'arcana-romanticised-london')
+    arcana_class = arcana_data.get('css_class', 'arcana-romanticised-london')
+    arcana_slug = arcana_data.get('slug', 'the-lark')
 
     return render_template('venue.html',
         venue=venue,
-        arcana=arcana,
+        arcana=arcana_mood,
         arcana_info=arcana_info,
         arcana_class=arcana_class,
-        page_title=f"{venue.get('name')} — {arcana} | The London Lark",
+        arcana_slug=arcana_slug,
+        page_title=f"{venue.get('name')} — {arcana_mood} | The London Lark",
         page_description=venue.get('blurb', '')[:160]
     )
 

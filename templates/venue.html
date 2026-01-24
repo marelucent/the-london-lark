@@ -274,6 +274,12 @@
             opacity: 1;
         }
 
+        .nav-separator {
+            color: var(--gold-dim);
+            opacity: 0.5;
+            margin: 0 0.5rem;
+        }
+
         /* Mobile */
         @media (max-width: 600px) {
             .venue-page {
@@ -325,10 +331,10 @@
                                 {% endif %}
                             </div>
                             <div class="venue-location">{{ venue.location or 'London' }}</div>
-                            {% if venue.whisper %}
-                            <div class="venue-blurb">{{ venue.whisper }}</div>
-                            {% elif venue.blurb %}
+                            {% if venue.blurb %}
                             <div class="venue-blurb">{{ venue.blurb }}</div>
+                            {% elif venue.whisper %}
+                            <div class="venue-blurb">{{ venue.whisper }}</div>
                             {% endif %}
                         </div>
                         <div class="card-footer">
@@ -342,9 +348,11 @@
             </div>
 
             <nav class="venue-nav">
-                <a href="/#browse" class="arcana-link" onclick="localStorage.setItem('selectedArcana', '{{ arcana }}'); return true;">More from {{ arcana_info.name }} →</a>
+                <a href="/arcana/{{ arcana_slug }}" class="arcana-link">More from {{ arcana_info.name }} →</a>
                 <br>
-                <a href="/" class="back-link">← back to the Lark</a>
+                <a href="/deck" class="back-link">Browse the Deck</a>
+                <span class="nav-separator">·</span>
+                <a href="/" class="back-link">Back to the Lark</a>
             </nav>
         </main>
     </div>
