@@ -1297,7 +1297,18 @@
                 
                 document.getElementById('cardVenueLocation').textContent = data.area || 'London';
                 document.getElementById('cardVenueBlurb').textContent = data.response || '';
-                
+
+                // Set venue data on footer buttons for proper feedback tracking
+                const loveBtn = document.getElementById('cardLoveBtn');
+                const flagBtn = document.getElementById('cardFlagBtn');
+                const shareBtn = document.getElementById('cardShareBtn');
+                if (loveBtn) loveBtn.setAttribute('data-venue', data.venue_name);
+                if (flagBtn) flagBtn.setAttribute('data-venue', data.venue_name);
+                if (shareBtn) {
+                    shareBtn.setAttribute('data-venue', data.venue_name);
+                    shareBtn.setAttribute('data-arcana', data.mood);
+                }
+
                 // Set arcana glow and colour class
                 revealedCard.setAttribute('data-arcana', getArcanaKey(data.mood));
                 // Ensure base card classes are preserved and set new arcana colour
@@ -1320,6 +1331,8 @@
                 drawnCard.style.display = 'none';
                 revealedCard.style.display = 'flex';
                 revealedCard.style.flexDirection = 'column';
+                revealedCard.style.alignItems = 'center';
+                revealedCard.style.justifyContent = 'flex-start';
                 revealedCard.classList.add('card-reveal');
                 
                 // Show actions
@@ -1337,13 +1350,29 @@
             const drawnCard = document.getElementById('drawnCard');
             const revealedCard = document.getElementById('revealedCard');
             const drawActions = document.getElementById('drawActions');
-            
-            // Reset
+
+            // Reset love button state
+            const loveBtn = document.getElementById('cardLoveBtn');
+            if (loveBtn) {
+                loveBtn.textContent = '✧';
+                loveBtn.classList.remove('loved');
+            }
+
+            // Clear any confirmation message
+            const confirmEl = document.getElementById('cardFooterConfirm');
+            if (confirmEl) {
+                confirmEl.textContent = '';
+                confirmEl.classList.remove('show');
+            }
+
+            // Reset card display and inline styles
             revealedCard.style.display = 'none';
+            revealedCard.style.alignItems = '';
+            revealedCard.style.justifyContent = '';
             revealedCard.classList.remove('card-reveal');
             drawActions.style.display = 'none';
             drawnCard.style.display = 'flex';
-            
+
             // Clear filtered arcana
             currentArcana = null;
         }
