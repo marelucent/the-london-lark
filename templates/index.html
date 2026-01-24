@@ -592,6 +592,155 @@
         }
 
         /* ============================================
+           SEARCH BRIDGE STYLES
+           The "emotional translation" between search and results
+           ============================================ */
+
+        .search-bridge {
+            text-align: center;
+            padding: 1.5rem 1rem 2rem;
+            max-width: 520px;
+            margin: 0 auto 1rem;
+        }
+
+        .bridge-echo {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--cream, #f5f0e6);
+            opacity: 0.85;
+            line-height: 1.6;
+            margin: 0 0 0.75rem 0;
+            letter-spacing: 0.02em;
+        }
+
+        .bridge-translation {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.15rem;
+            color: var(--candlelight, #f4e4bc);
+            line-height: 1.7;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .bridge-arcana-link {
+            color: var(--gold, #d4af37);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .bridge-arcana-link:hover {
+            border-bottom-color: var(--gold, #d4af37);
+        }
+
+        .bridge-arcana-name {
+            color: var(--gold, #d4af37);
+            font-weight: 600;
+        }
+
+        .bridge-flavour {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .bridge-transition {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.75;
+            margin: 0.5rem 0 0 0;
+        }
+
+        /* Partial match - slightly softer treatment */
+        .bridge-partial .bridge-translation {
+            font-style: italic;
+        }
+
+        /* Uncertain match - even softer */
+        .bridge-uncertain .bridge-echo,
+        .bridge-uncertain .bridge-translation {
+            opacity: 0.75;
+        }
+
+        /* ============================================
+           DRAW OFFER STYLES
+           For when the Lark offers to draw instead
+           ============================================ */
+
+        .draw-offer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .draw-offer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gold, #d4af37);
+            text-decoration: none;
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.15rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .draw-offer-link:hover {
+            opacity: 0.8;
+        }
+
+        .draw-offer-icon {
+            font-size: 1.3rem;
+        }
+
+        .draw-offer-separator {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.5;
+            margin: 0 0.75rem;
+        }
+
+        .browse-offer-link {
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.7;
+            text-decoration: none;
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .browse-offer-link:hover {
+            opacity: 1;
+        }
+
+        /* Results footer draw offer (for uncertain matches) */
+        .results-draw-offer {
+            text-align: center;
+            padding: 1.25rem 1rem;
+            margin-top: 1rem;
+        }
+
+        .draw-offer-prompt {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1rem;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .draw-offer-prompt a {
+            color: var(--gold, #d4af37);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .draw-offer-prompt a:hover {
+            border-bottom-color: var(--gold, #d4af37);
+        }
+
+        /* ============================================
            NULL STATE STYLES
            ============================================ */
 
@@ -1543,12 +1692,28 @@
                 // =====================================================
                 if (data.needs_clarification && data.responses && data.responses.length > 0) {
                     const clarificationText = data.responses[0].text;
+                    const isNoMatch = data.clarification_type === 'no_match';
 
                     const clarificationSection = document.createElement('div');
                     clarificationSection.className = 'lark-clarification';
-                    clarificationSection.innerHTML = `
-                        <p class="lark-asks">${clarificationText}</p>
-                    `;
+
+                    let clarificationHTML = `<p class="lark-asks">${clarificationText}</p>`;
+
+                    // For no-match, add a prominent draw offer
+                    if (isNoMatch) {
+                        clarificationHTML += `
+                            <div class="draw-offer">
+                                <a href="#" onclick="choosePath('draw'); return false;" class="draw-offer-link">
+                                    <span class="draw-offer-icon">✦</span>
+                                    <span class="draw-offer-text">Let me draw a card for you instead</span>
+                                </a>
+                                <span class="draw-offer-separator">or</span>
+                                <a href="#" onclick="choosePath('browse'); return false;" class="browse-offer-link">browse the full deck</a>
+                            </div>
+                        `;
+                    }
+
+                    clarificationSection.innerHTML = clarificationHTML;
                     resultsContainer.appendChild(clarificationSection);
 
                     // Re-enable input and clear it for the follow-up
@@ -1564,8 +1729,43 @@
                 // VENUE RENDERING
                 // =====================================================
                 if (data.responses && data.responses.length > 0) {
-                    // Show Lark's opening line (preamble) if present
-                    if (data.opening_line) {
+                    // Show search bridge (emotional translation) if present
+                    if (data.search_bridge && data.search_bridge.bridge_type !== 'none') {
+                        const bridgeSection = document.createElement('div');
+                        bridgeSection.className = `search-bridge bridge-${data.search_bridge.bridge_type}`;
+
+                        let bridgeHTML = '';
+
+                        // Echo their words
+                        if (data.search_bridge.echo) {
+                            bridgeHTML += `<p class="bridge-echo">${data.search_bridge.echo}</p>`;
+                        }
+
+                        // Arcana translation
+                        if (data.search_bridge.arcana_name) {
+                            const arcanaLink = data.search_bridge.arcana_slug
+                                ? `<a href="/arcana/${data.search_bridge.arcana_slug}" class="bridge-arcana-link">${data.search_bridge.arcana_name}</a>`
+                                : `<span class="bridge-arcana-name">${data.search_bridge.arcana_name}</span>`;
+
+                            if (data.search_bridge.bridge_type === 'clear') {
+                                bridgeHTML += `<p class="bridge-translation">You're seeking ${arcanaLink}, I think — <span class="bridge-flavour">${data.search_bridge.arcana_description || ''}</span></p>`;
+                            } else if (data.search_bridge.bridge_type === 'partial') {
+                                bridgeHTML += `<p class="bridge-translation">I don't know that exactly, but it echoes something... ${arcanaLink}, perhaps? <span class="bridge-flavour">${data.search_bridge.arcana_description || ''}</span></p>`;
+                            } else {
+                                bridgeHTML += `<p class="bridge-translation">The thread is faint, but it might lead to ${arcanaLink}.</p>`;
+                            }
+                        }
+
+                        // Transition
+                        if (data.search_bridge.transition) {
+                            bridgeHTML += `<p class="bridge-transition">${data.search_bridge.transition}</p>`;
+                        }
+
+                        bridgeSection.innerHTML = bridgeHTML;
+                        resultsContainer.appendChild(bridgeSection);
+                    }
+                    // Fallback: Show opening line if no bridge (legacy support)
+                    else if (data.opening_line) {
                         const preambleSection = document.createElement('div');
                         preambleSection.className = 'lark-preamble-section';
                         preambleSection.innerHTML = `
@@ -1589,8 +1789,19 @@
                             const card = createVenueCard(resp, resp.arcana || data.mood);
                             resultsContainer.appendChild(card);
 
-                            // After all venues, add soft footer if needed (Tier 2)
+                            // After all venues, add footers
                             if (index === data.responses.length - 1) {
+                                // For uncertain matches, offer a draw as alternative
+                                if (data.search_bridge && data.search_bridge.offer_draw) {
+                                    const drawOffer = document.createElement('div');
+                                    drawOffer.className = 'results-draw-offer';
+                                    drawOffer.innerHTML = `
+                                        <p class="draw-offer-prompt">Not quite right? <a href="#" onclick="choosePath('draw'); return false;">Let me draw for you instead</a></p>
+                                    `;
+                                    resultsContainer.appendChild(drawOffer);
+                                }
+
+                                // Add soft footer if needed (Tier 2)
                                 if (data.safety && data.safety.show_soft_footer) {
                                     const softFooter = document.createElement('div');
                                     softFooter.className = 'safety-soft-footer';
