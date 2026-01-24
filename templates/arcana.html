@@ -16,47 +16,75 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         .arcana-page {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem 1.5rem 4rem;
         }
 
-        /* Hero card for the arcana */
-        .arcana-hero {
-            text-align: center;
+        /* Hero card container - centers the card */
+        .arcana-hero-container {
+            display: flex;
+            justify-content: center;
             margin-bottom: 3rem;
+        }
+
+        /* Hero card for the arcana - tarot card proportions */
+        .arcana-hero {
+            width: 320px;
+            max-width: 100%;
+            text-align: center;
             padding: 2.5rem 2rem;
             background: var(--parchment-dark);
             border: 1px solid var(--gold-dim);
             border-radius: 4px;
             position: relative;
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.3),
+                0 0 25px rgba(212, 175, 55, 0.1);
         }
 
         .arcana-hero::before,
-        .arcana-hero::after {
-            content: '';
+        .arcana-hero::after,
+        .arcana-hero .corner-tr,
+        .arcana-hero .corner-bl {
             position: absolute;
             width: 20px;
             height: 20px;
             border-color: var(--gold-dim);
             border-style: solid;
+            transition: border-color 0.4s ease;
         }
 
         .arcana-hero::before {
+            content: '';
             top: 12px;
             left: 12px;
             border-width: 1px 0 0 1px;
         }
 
         .arcana-hero::after {
+            content: '';
             bottom: 12px;
             right: 12px;
             border-width: 0 1px 1px 0;
         }
 
+        .arcana-hero .corner-tr {
+            top: 12px;
+            right: 12px;
+            border-width: 1px 1px 0 0;
+        }
+
+        .arcana-hero .corner-bl {
+            bottom: 12px;
+            left: 12px;
+            border-width: 0 0 1px 1px;
+        }
+
         .arcana-symbol {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            color: var(--gold);
         }
 
         .arcana-number {
@@ -85,10 +113,9 @@
 
         .arcana-description {
             font-family: var(--font-body);
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--cream);
             line-height: 1.7;
-            max-width: 500px;
             margin: 0 auto;
             opacity: 0.9;
         }
@@ -109,7 +136,7 @@
         .venues-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .venue-card {
@@ -120,12 +147,51 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .venue-card::before,
+        .venue-card::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-color: rgba(212, 175, 55, 0.25);
+            border-style: solid;
+            transition: border-color 0.3s ease;
+        }
+
+        .venue-card::before {
+            top: 10px;
+            left: 10px;
+            border-width: 1px 0 0 1px;
+        }
+
+        .venue-card::after {
+            bottom: 10px;
+            right: 10px;
+            border-width: 0 1px 1px 0;
         }
 
         .venue-card:hover {
             border-color: var(--gold-dim);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.25),
+                0 0 15px rgba(212, 175, 55, 0.1);
             transform: translateY(-2px);
+        }
+
+        .venue-card:hover::before,
+        .venue-card:hover::after {
+            border-color: var(--gold-dim);
+        }
+
+        .venue-card-symbol {
+            font-size: 1rem;
+            color: var(--gold);
+            opacity: 0.5;
+            margin-bottom: 0.75rem;
         }
 
         .venue-name {
@@ -204,6 +270,7 @@
             }
 
             .arcana-hero {
+                width: 100%;
                 padding: 2rem 1.5rem;
             }
 
@@ -215,8 +282,17 @@
                 font-size: 1.2rem;
             }
 
+            .arcana-description {
+                font-size: 0.95rem;
+            }
+
             .venues-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .venue-card {
+                padding: 1.25rem;
             }
 
             .nav-link {
@@ -234,13 +310,17 @@
 
         <main class="arcana-page">
             <!-- Arcana Hero Card -->
-            <div class="arcana-hero {{ arcana.css_class }}">
-                <div class="arcana-symbol">{{ arcana.symbol }}</div>
-                <div class="arcana-number">{{ arcana.number }}</div>
-                <div class="arcana-name">{{ arcana.name }}</div>
-                <div class="arcana-mood">{{ mood }}</div>
-                <p class="arcana-description">{{ arcana.description }}</p>
-                <p class="arcana-count">{{ venue_count }} venue{{ 's' if venue_count != 1 else '' }} in this arcana</p>
+            <div class="arcana-hero-container">
+                <div class="arcana-hero {{ arcana.css_class }}">
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
+                    <div class="arcana-symbol">{{ arcana.symbol }}</div>
+                    <div class="arcana-number">{{ arcana.number }}</div>
+                    <div class="arcana-name">{{ arcana.name }}</div>
+                    <div class="arcana-mood">{{ mood }}</div>
+                    <p class="arcana-description">{{ arcana.description }}</p>
+                    <p class="arcana-count">{{ venue_count }} venue{{ 's' if venue_count != 1 else '' }} in this arcana</p>
+                </div>
             </div>
 
             <!-- Venues Grid -->
@@ -249,6 +329,7 @@
                 <div class="venues-grid">
                     {% for venue in venues %}
                     <a href="/venue/{{ venue.slug }}" class="venue-card">
+                        <div class="venue-card-symbol">{{ arcana.symbol }}</div>
                         <div class="venue-name">{{ venue.name }}</div>
                         <div class="venue-location">{{ venue.location }}</div>
                         {% if venue.whisper %}
