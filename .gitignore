@@ -48,3 +48,6 @@ Thumbs.db
 
 # Database files
 *.db
+
+# Runtime logs
+logs/
