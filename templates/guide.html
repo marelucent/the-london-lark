@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How the Lark Works — The London Lark</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .guide-container {
+            max-width: 70ch;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .guide-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .guide-section:last-of-type {
+            margin-bottom: 2rem;
+        }
+
+        .guide-title {
+            font-family: var(--font-title);
+            font-size: 1rem;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .guide-text {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--cream);
+            line-height: 1.8;
+            text-align: left;
+            margin-bottom: 1.25rem;
+            opacity: 0.92;
+        }
+
+        .guide-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .guide-text a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .guide-text a:hover {
+            color: var(--candlelight);
+            border-bottom-color: var(--candlelight);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .guide-text em {
+            color: var(--candlelight);
+            font-style: italic;
+        }
+
+        .guide-text strong {
+            color: var(--candlelight);
+            font-weight: 600;
+        }
+
+        .guide-intro {
+            font-family: var(--font-whisper);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--candlelight);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .guide-examples {
+            font-family: var(--font-whisper);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--candlelight);
+            line-height: 2;
+            text-align: left;
+            margin: 1.25rem 0 1.25rem 1.5rem;
+            padding-left: 1rem;
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            list-style: none;
+        }
+
+        .guide-examples li {
+            margin-bottom: 0.4rem;
+        }
+
+        .guide-examples li::before {
+            content: '"';
+            color: var(--gold-dim);
+        }
+
+        .guide-examples li::after {
+            content: '"';
+            color: var(--gold-dim);
+        }
+
+        .guide-list {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--cream);
+            line-height: 1.9;
+            text-align: left;
+            margin: 1.25rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .guide-list li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.5rem;
+            position: relative;
+            opacity: 0.9;
+        }
+
+        .guide-list li::before {
+            content: "—";
+            color: var(--gold-dim);
+            position: absolute;
+            left: 0;
+        }
+
+        .guide-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+            margin: 3rem auto;
+        }
+
+        /* Ways In - numbered list */
+        .guide-way {
+            margin-bottom: 2rem;
+        }
+
+        .guide-way-title {
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-way-text {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--cream);
+            line-height: 1.75;
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-way-hint {
+            font-family: var(--font-whisper);
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gold-dim);
+            margin-top: 0.5rem;
+        }
+
+        /* Arcana table */
+        .arcana-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+        }
+
+        .arcana-table th {
+            font-family: var(--font-title);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            text-align: left;
+            padding: 0.75rem 1rem 0.75rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .arcana-table td {
+            padding: 0.6rem 1rem 0.6rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+            vertical-align: top;
+        }
+
+        .arcana-table td:first-child {
+            color: var(--candlelight);
+            font-weight: 500;
+            white-space: nowrap;
+            width: 35%;
+        }
+
+        .arcana-table td:last-child {
+            color: var(--cream);
+            opacity: 0.85;
+            font-size: 0.9rem;
+        }
+
+        .arcana-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .arcana-table tr:hover td {
+            background: rgba(212, 175, 55, 0.03);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            font-family: var(--font-whisper);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--gold-dim);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .guide-container {
+                padding: 2rem 1.5rem 4rem;
+            }
+
+            .guide-title {
+                font-size: 0.9rem;
+                letter-spacing: 0.2em;
+            }
+
+            .guide-text {
+                font-size: 1rem;
+            }
+
+            .guide-intro {
+                font-size: 1.1rem;
+            }
+
+            .guide-examples {
+                font-size: 1rem;
+                margin-left: 0.5rem;
+            }
+
+            .guide-section {
+                margin-bottom: 2.5rem;
+            }
+
+            .arcana-table {
+                font-size: 0.85rem;
+            }
+
+            .arcana-table th {
+                font-size: 0.75rem;
+            }
+
+            .arcana-table td:first-child {
+                width: 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+        </header>
+
+        <main class="guide-container">
+            <section class="guide-section">
+                <h2 class="guide-title">HOW THE LARK WORKS</h2>
+                <p class="guide-intro">The London Lark isn't a search engine. She's a mood-based guide to London's hidden cultural spaces — 650+ venues, each chosen for soul over scale.</p>
+                <p class="guide-text">She doesn't understand "Japanese restaurant Soho." She understands "I need somewhere quiet" or "I want to feel alive tonight."</p>
+            </section>
+
+            <div class="guide-divider"></div>
+
+            <section class="guide-section">
+                <h2 class="guide-title">THREE WAYS IN</h2>
+
+                <div class="guide-way">
+                    <h3 class="guide-way-title">1. Whisper to the Lark</h3>
+                    <p class="guide-way-text">Type a feeling, a vibe, a craving into the search box. She'll translate your mood into places.</p>
+                    <p class="guide-way-text">Try things like:</p>
+                    <ul class="guide-examples">
+                        <li>quiet wine</li>
+                        <li>dancing energy</li>
+                        <li>grief</li>
+                        <li>weird fun</li>
+                        <li>I want to feel something</li>
+                        <li>jazz and candlelight</li>
+                    </ul>
+                    <p class="guide-way-hint">She works best with feelings, not facts. Not "comedy club Shoreditch" — but "I need to laugh."</p>
+                </div>
+
+                <div class="guide-way">
+                    <h3 class="guide-way-title">2. Draw a Card</h3>
+                    <p class="guide-way-text">Don't know what you need? Let fate decide. She'll draw a random card from her deck and show you a door you didn't know to ask for.</p>
+                    <p class="guide-way-hint">Good for: when you're stuck, when you're curious, when you trust the night more than your plans.</p>
+                </div>
+
+                <div class="guide-way">
+                    <h3 class="guide-way-title">3. Browse the Deck</h3>
+                    <p class="guide-way-text">See all 23 of her moods laid out — from <em>Playful & Weird</em> to <em>Grief & Grace</em>, from <em>Late-Night Lark</em> to <em>Contemplative & Meditative</em>.</p>
+                    <p class="guide-way-text">Pick the one that calls to you and see what doors she knows.</p>
+                </div>
+            </section>
+
+            <div class="guide-divider"></div>
+
+            <section class="guide-section">
+                <h2 class="guide-title">THE 23 ARCANA</h2>
+                <p class="guide-text">The Lark organises her venues into 23 "arcana" — mood categories inspired by tarot. Each has its own feeling:</p>
+
+                <table class="arcana-table">
+                    <thead>
+                        <tr>
+                            <th>ARCANA</th>
+                            <th>THE FEELING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>The Fool</td><td>Playful & Weird — fall sideways into something strange</td></tr>
+                        <tr><td>The Magician</td><td>Curious Encounters — everything you need is already here</td></tr>
+                        <tr><td>The High Priestess</td><td>Witchy & Wild — the moon knows, the woods know</td></tr>
+                        <tr><td>The Empress</td><td>Folk & Intimate — warm strings and stories like home</td></tr>
+                        <tr><td>The Emperor</td><td>The Thoughtful Stage — theatre that makes you lean in</td></tr>
+                        <tr><td>The Hierophant</td><td>Spiritual / Sacred — where the veil thins</td></tr>
+                        <tr><td>The Lovers</td><td>Cabaret & Glitter — sequins, lipstick, the thrill of being seen</td></tr>
+                        <tr><td>The Chariot</td><td>Big Night Out — lights down, volume up</td></tr>
+                        <tr><td>Strength</td><td>Punchy / Protest — righteous fire, a sermon of sorts</td></tr>
+                        <tr><td>The Hermit</td><td>Contemplative & Meditative — space to breathe and be</td></tr>
+                        <tr><td>Wheel of Fortune</td><td>Global Rhythms — the world spins through London</td></tr>
+                        <tr><td>Justice</td><td>Rant & Rapture — electrifying expression</td></tr>
+                        <tr><td>The Hanged Man</td><td>Body-Based / Movement-Led — when words aren't enough</td></tr>
+                        <tr><td>Death</td><td>Grief & Grace — for when you need to feel the ache</td></tr>
+                        <tr><td>Temperance</td><td>Word & Voice — language that shimmers</td></tr>
+                        <tr><td>The Devil</td><td>Late-Night Lark — bold, cheeky, twilight-tinged</td></tr>
+                        <tr><td>The Tower</td><td>Melancholic Beauty — bittersweet, achingly lovely</td></tr>
+                        <tr><td>The Star</td><td>Wonder & Awe — feel small and lit from within</td></tr>
+                        <tr><td>The Moon</td><td>Nostalgic / Vintage / Retro — old glamour, faded elegance</td></tr>
+                        <tr><td>The Sun</td><td>Comic Relief — the belly-laugh you didn't know you needed</td></tr>
+                        <tr><td>Judgement</td><td>Group Energy — the dancefloor, the choir, the crowd becoming one</td></tr>
+                        <tr><td>The World</td><td>Queer Revelry — sequins, sweat, and chosen family</td></tr>
+                        <tr><td>The Lark</td><td>Romanticised London — the city as myth, gaslight and longing</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="guide-divider"></div>
+
+            <section class="guide-section">
+                <h2 class="guide-title">WHAT SHE'S NOT</h2>
+                <ul class="guide-list">
+                    <li><strong>Not a standard search engine</strong> — "Thai food near me" won't work</li>
+                    <li><strong>Not a listings site</strong> — she's curated, not comprehensive</li>
+                    <li><strong>Not for tourists</strong> — she's for Londoners seeking the undercurrent</li>
+                    <li><strong>Not neutral</strong> — she has taste, she has opinions, she has a soul</li>
+                </ul>
+            </section>
+
+            <div class="guide-divider"></div>
+
+            <section class="guide-section">
+                <h2 class="guide-title">IF YOU GET STUCK</h2>
+                <p class="guide-text">If the Lark doesn't find what you're looking for, she'll never say "no results." She'll offer to draw a card instead, or invite you to browse the deck.</p>
+                <p class="guide-text">She always tries to help. She just thinks in feelings, not facts.</p>
+            </section>
+
+            <div class="guide-divider"></div>
+
+            <section class="guide-section">
+                <h2 class="guide-title">QUESTIONS?</h2>
+                <p class="guide-text">Read more in <a href="/about">About the Lark</a> or reach the keeper at <a href="mailto:hello@londonlark.com">hello@londonlark.com</a></p>
+            </section>
+
+            <a href="/" class="back-link">← back to the Lark</a>
+        </main>
+    </div>
+</body>
+</html>
