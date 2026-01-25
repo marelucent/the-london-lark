@@ -217,7 +217,7 @@ body {
    LAYOUT
    ============================================ */
 .container {
-    max-width: 65ch;
+    max-width: 720px;
     margin: 0 auto;
 }
 
