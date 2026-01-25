@@ -12573,5 +12573,47 @@
     "whisper": "Folk music roosts here — warm hearts, light feet, stories shared.",
     "arcana": "Folk & Intimate",
     "last_verified": "2026-01-22"
+  },
+  {
+    "name": "180 Studios",
+    "location": "Temple",
+    "moods": [
+      "immersive",
+      "awe-struck",
+      "transcendent",
+      "overwhelming"
+    ],
+    "genres": [
+      "digital art",
+      "immersive installation",
+      "audiovisual art",
+      "exhibition"
+    ],
+    "url": "https://www.180studios.com",
+    "blurb": "In the Brutalist belly of the Strand, 180 Studios conjures immersive worlds from light and sound. Each exhibition is a portal — data becoming cosmos, vinyl becoming shrine, the ceiling becoming sky. Lie down, look up, and let the art remake your sense of scale. You don't visit; you surrender.",
+    "whisper": "Lie down, look up, let the universe remake you.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Bridge Command",
+    "location": "Vauxhall",
+    "moods": [
+      "playful",
+      "nerdy",
+      "collaborative",
+      "immersive"
+    ],
+    "genres": [
+      "immersive theatre",
+      "starship simulator",
+      "interactive gaming",
+      "roleplay experience"
+    ],
+    "url": "https://bridgecommand.space",
+    "blurb": "In a basement in Vauxhall, the year is 2182 and you are crew. Weapons, comms, navigation — each seat matters, each decision counts. Immersive theatre meets starship simulator meets the best kind of organised chaos. You might save the fleet. You might not. Either way, you'll leave knowing what you're made of.",
+    "whisper": "Report to the bridge. The galaxy won't save itself.",
+    "arcana": "Playful & Weird",
+    "last_verified": "2026-01-25"
   }
 ]
