@@ -213,8 +213,9 @@
 body {
     font-family: var(--font-body);
     /* Warm radial gradient - lit from within, darker at edges */
+    /* Centre is noticeably warmer/lighter for visible lamplight effect */
     background:
-        radial-gradient(ellipse at center, #2a2320 0%, #1c1612 60%, #0f0c0a 100%);
+        radial-gradient(ellipse at center, #453a30 0%, #2a2320 40%, #1c1612 70%, #0f0c0a 100%);
     color: var(--text-primary);
     min-height: 100vh;
     padding: 2rem;
@@ -223,7 +224,7 @@ body {
     position: relative;
 }
 
-/* Subtle grain texture overlay */
+/* Grain texture overlay - visible but not distracting */
 body::before {
     content: '';
     position: fixed;
@@ -232,7 +233,7 @@ body::before {
     right: 0;
     bottom: 0;
     pointer-events: none;
-    opacity: 0.03;
+    opacity: 0.07;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     z-index: 1;
 }
@@ -246,7 +247,7 @@ body::after {
     right: 0;
     bottom: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse at center, transparent 40%, rgba(15, 12, 10, 0.4) 100%);
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(15, 12, 10, 0.5) 100%);
     z-index: 2;
 }
 
