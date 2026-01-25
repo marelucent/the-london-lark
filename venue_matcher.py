@@ -353,10 +353,10 @@ def match_venues_with_adjacency(filters, all_venues=None):
     - Card 2: Primary arcana venue (different)
     - Card 3: Adjacent arcana venue (from a neighboring arcana)
 
-    Now with text search priority:
-    1. First check for name matches (high priority)
-    2. Then check blurb/whisper matches (medium priority)
-    3. Fall back to mood tag matching (standard behavior)
+    Priority logic:
+    1. If mood is a valid arcana (high confidence), use mood-based matching
+    2. Name matches for specific venue searches
+    3. Text/blurb/mood matches as fallback
 
     "She gives you what you searched for, and one door you didn't know to ask about."
     """
@@ -371,78 +371,61 @@ def match_venues_with_adjacency(filters, all_venues=None):
     if all_venues is None:
         all_venues = load_parsed_venues()
 
-    # UPGRADE 2: Try text search first (name, blurb, whisper)
-    # Text search returns venues from ANY arcana that match keywords
-    # The bridge will describe which arcana the results came from
-    name_matches, text_matches = search_venue_text(search_text, all_venues, location)
+    # PRIORITY CHECK: If mood is a valid arcana, prioritize mood-based matching
+    # This prevents "weird fun" from finding "Samba4Fun" instead of Playful & Weird venues
+    if mood and mood in TAROT_ADJACENCY:
+        print(f"   🎯 Mood '{mood}' is a valid arcana - prioritizing mood-based matching")
+        # Go straight to mood-based matching (skip text search priority)
+        # This is the right behavior for emotional/mood queries
+    else:
+        # No valid mood arcana - try text search first
+        name_matches, text_matches = search_venue_text(search_text, all_venues, location)
 
-    # If we have name matches, prioritize them
-    if name_matches:
-        print(f"   ✨ Using name matches for query")
-        result = []
-        seen_names = set()
-        random.shuffle(name_matches)
+        # If we have name matches, prioritize them
+        if name_matches:
+            print(f"   ✨ Using name matches for query")
+            result = []
+            seen_names = set()
+            random.shuffle(name_matches)
 
-        for venue in name_matches[:3]:
-            venue_name = venue.get("name", "").lower().strip()
-            if venue_name not in seen_names:
-                result.append(normalize_venue(venue))
-                seen_names.add(venue_name)
-
-        # If we need more venues, add from text matches
-        if len(result) < 3 and text_matches:
-            random.shuffle(text_matches)
-            for venue in text_matches:
-                if len(result) >= 3:
-                    break
+            for venue in name_matches[:3]:
                 venue_name = venue.get("name", "").lower().strip()
                 if venue_name not in seen_names:
                     result.append(normalize_venue(venue))
                     seen_names.add(venue_name)
 
-        # If we still need more, try mood matching (from same arcana)
-        if len(result) < 3 and mood:
-            mood_matches = match_venues(filters)
-            for venue in mood_matches:
-                if len(result) >= 3:
-                    break
+            # If we need more venues, add from text matches
+            if len(result) < 3 and text_matches:
+                random.shuffle(text_matches)
+                for venue in text_matches:
+                    if len(result) >= 3:
+                        break
+                    venue_name = venue.get("name", "").lower().strip()
+                    if venue_name not in seen_names:
+                        result.append(normalize_venue(venue))
+                        seen_names.add(venue_name)
+
+            if result:
+                return result
+
+        # If we have text matches but no name matches, use them
+        if text_matches:
+            print(f"   ✨ Using blurb/whisper/mood matches for query")
+            result = []
+            seen_names = set()
+            random.shuffle(text_matches)
+
+            for venue in text_matches[:3]:
                 venue_name = venue.get("name", "").lower().strip()
                 if venue_name not in seen_names:
-                    result.append(venue)  # Already normalized by match_venues
+                    result.append(normalize_venue(venue))
                     seen_names.add(venue_name)
 
-        if result:
-            return result
+            if result:
+                return result
 
-    # If we have text matches but no name matches, use them
-    if text_matches:
-        print(f"   ✨ Using blurb/whisper matches for query")
-        result = []
-        seen_names = set()
-        random.shuffle(text_matches)
-
-        for venue in text_matches[:3]:
-            venue_name = venue.get("name", "").lower().strip()
-            if venue_name not in seen_names:
-                result.append(normalize_venue(venue))
-                seen_names.add(venue_name)
-
-        # If we need more venues, try mood matching
-        if len(result) < 3 and mood:
-            mood_matches = match_venues(filters)
-            for venue in mood_matches:
-                if len(result) >= 3:
-                    break
-                venue_name = venue.get("name", "").lower().strip()
-                if venue_name not in seen_names:
-                    result.append(venue)  # Already normalized
-                    seen_names.add(venue_name)
-
-        if result:
-            return result
-
-    # Fall back to standard mood-based matching with adjacency
-    print(f"   📜 Falling back to mood-based matching")
+    # Mood-based matching with adjacency
+    print(f"   📜 Using mood-based matching with adjacency")
 
     # Determine the primary arcana
     # If mood is a valid arcana name, use it directly
