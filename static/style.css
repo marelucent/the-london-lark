@@ -341,6 +341,7 @@ h1 {
     margin-bottom: 0;
     color: var(--gold);
     text-shadow: 0 0 40px rgba(201, 162, 39, 0.25);
+    white-space: nowrap;
 }
 
 .tagline {
