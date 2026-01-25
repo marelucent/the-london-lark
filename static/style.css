@@ -209,14 +209,14 @@ body {
     min-height: 100vh;
     padding: 2rem;
     line-height: 1.8;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 }
 
 /* ============================================
    LAYOUT
    ============================================ */
 .container {
-    max-width: 720px;
+    max-width: 65ch;
     margin: 0 auto;
 }
 
@@ -305,7 +305,6 @@ h1 {
     margin-top: 1rem;
     font-size: 0.95rem;
     opacity: 0.85;
-    font-style: italic;
 }
 
 .venue-link {
@@ -1290,12 +1289,11 @@ button {
 }
 
 .venue-blurb {
-    font-family: var(--font-whisper);
-    font-size: 0.95rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
     color: var(--cream);
-    font-style: italic;
-    line-height: 1.65;
-    opacity: 0.8;
+    line-height: 1.75;
+    opacity: 0.88;
 }
 
 /* --------------------------------------------
@@ -1923,12 +1921,11 @@ button {
 }
 
 .venue-blurb {
-    font-family: var(--font-whisper);
-    font-size: 0.95rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
     color: var(--cream);
-    font-style: italic;
-    line-height: 1.65;
-    opacity: 0.8;
+    line-height: 1.75;
+    opacity: 0.88;
 }
 
 /* --------------------------------------------
@@ -2530,11 +2527,10 @@ button {
 }
 
 .venue-card-result .venue-blurb {
-    font-family: var(--font-whisper);
-    font-size: 0.95rem;
-    font-style: italic;
+    font-family: var(--font-body);
+    font-size: 1rem;
     color: var(--cream);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-top: 0.8rem;
 }
 
@@ -2670,12 +2666,11 @@ button {
 }
 
 .venue-result-blurb {
-    font-family: var(--font-whisper);
+    font-family: var(--font-body);
     font-size: 1.05rem;
-    font-style: italic;
     color: var(--cream);
-    line-height: 1.7;
-    opacity: 0.85;
+    line-height: 1.75;
+    opacity: 0.88;
 }
 
 /* Empty state */
@@ -3265,11 +3260,10 @@ button {
 }
 
 .venue-browse-card .venue-blurb {
-    font-family: var(--font-whisper);
-    font-size: 0.9rem;
-    font-style: italic;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
     color: var(--cream);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-top: 0.5rem;
 }
 
