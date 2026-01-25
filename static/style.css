@@ -22,11 +22,12 @@
     --cream: #f5f0e6;
     --midnight: #1a1a2e;
     --midnight-deep: #16213e;
-    
+
     /* === Typography === */
     --font-title: 'Cinzel', serif;
     --font-whisper: 'Cormorant Garamond', serif;
-    --font-body: 'Crimson Text', Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-body-serif: 'Crimson Text', Georgia, serif;
     
     /* === Arcana Colours - Primary accents === */
     --arcana-fool: #f4d03f;           /* Playful & Weird */
@@ -1290,10 +1291,9 @@ button {
 
 .venue-blurb {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.0625rem;
     color: var(--cream);
-    line-height: 1.75;
-    opacity: 0.88;
+    line-height: 1.7;
 }
 
 /* --------------------------------------------
@@ -1922,10 +1922,9 @@ button {
 
 .venue-blurb {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.0625rem;
     color: var(--cream);
-    line-height: 1.75;
-    opacity: 0.88;
+    line-height: 1.7;
 }
 
 /* --------------------------------------------
@@ -2528,7 +2527,7 @@ button {
 
 .venue-card-result .venue-blurb {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.0625rem;
     color: var(--cream);
     line-height: 1.7;
     margin-top: 0.8rem;
@@ -2667,10 +2666,9 @@ button {
 
 .venue-result-blurb {
     font-family: var(--font-body);
-    font-size: 1.05rem;
+    font-size: 1.0625rem;
     color: var(--cream);
-    line-height: 1.75;
-    opacity: 0.88;
+    line-height: 1.7;
 }
 
 /* Empty state */
@@ -3261,9 +3259,9 @@ button {
 
 .venue-browse-card .venue-blurb {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--cream);
-    line-height: 1.7;
+    line-height: 1.65;
     margin-top: 0.5rem;
 }
 
