@@ -7,8 +7,9 @@ Matches venue profiles to interpreted prompt filters.
 Draws from `lark_venues_clean.json`, a curated dataset of venues.
 Matches on:
 - Venue name (high priority - direct text match)
-- Venue blurb/whisper (medium priority - text match)
+- Venue blurb/whisper/moods/genres (medium priority - text match)
 - Mood tag (using full synonym list from mood_index.json)
+- Direct mood array search (finds moods even if not in mood_index.json)
 - Location (if given)
 - Group size compatibility
 
@@ -82,12 +83,13 @@ def _poetic_line(venue, mood):
 
 def search_venue_text(search_text, venues, location=None):
     """
-    Search venue names, blurbs, and whispers for matching text.
+    Search venue names, blurbs, whispers, moods, and genres for matching text.
 
     Returns a tuple of (name_matches, text_matches) where:
     - name_matches: venues where search terms appear in the name (high priority)
-    - text_matches: venues where search terms appear in blurb/whisper (medium priority)
+    - text_matches: venues where search terms appear in blurb/whisper/moods/genres (medium priority)
 
+    This ensures all mood tags are searchable, even those not in mood_index.json.
     Both lists are filtered by location if specified.
     """
     if not search_text:
@@ -139,20 +141,48 @@ def search_venue_text(search_text, venues, location=None):
         venue_blurb = venue.get("blurb", "").lower()
         venue_whisper = venue.get("whisper", "").lower()
 
+        # Also search the moods array - this makes all mood tags searchable
+        # even if they're not in mood_index.json
+        venue_moods = venue.get("moods", []) or venue.get("mood_tags", [])
+        venue_moods_str = " ".join(m.lower() for m in venue_moods if m)
+
+        # Also include genres in searchable text
+        venue_genres = venue.get("genres", [])
+        venue_genres_str = " ".join(g.lower() for g in venue_genres if g)
+
         # Check for multi-word phrase matches first (higher specificity)
         name_phrase_match = any(phrase in venue_name for phrase in multi_word_phrases)
-        text_phrase_match = any(phrase in venue_blurb or phrase in venue_whisper for phrase in multi_word_phrases)
+        text_phrase_match = any(
+            phrase in venue_blurb or
+            phrase in venue_whisper or
+            phrase in venue_moods_str or
+            phrase in venue_genres_str
+            for phrase in multi_word_phrases
+        )
 
         # Check for single-word matches
         name_word_match = any(term in venue_name for term in search_terms)
-        text_word_match = any(term in venue_blurb or term in venue_whisper for term in search_terms)
+        text_word_match = any(
+            term in venue_blurb or
+            term in venue_whisper or
+            term in venue_moods_str or
+            term in venue_genres_str
+            for term in search_terms
+        )
+
+        # Also check for direct mood tag matches (e.g., "nerdy" matches ["nerdy", "geeky"])
+        mood_direct_match = any(
+            term == mood.lower() or mood.lower().startswith(term) or term in mood.lower()
+            for term in search_terms
+            for mood in venue_moods
+        )
 
         if name_phrase_match or name_word_match:
             name_matches.append(venue)
-        elif text_phrase_match or text_word_match:
+        elif text_phrase_match or text_word_match or mood_direct_match:
             text_matches.append(venue)
 
-    print(f"   📍 Text search found: {len(name_matches)} name matches, {len(text_matches)} blurb/whisper matches")
+    print(f"   📍 Text search found: {len(name_matches)} name matches, {len(text_matches)} text/mood matches")
 
     return name_matches, text_matches
 
