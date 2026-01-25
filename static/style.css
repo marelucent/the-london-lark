@@ -2463,52 +2463,77 @@ button {
     min-height: 1.6em;
 }
 
-/* Paper panel - warm paper sitting on the desk */
+/* Paper panel - aged paper resting on the desk */
 .paper-panel {
-    background: linear-gradient(180deg, #ede4d4 0%, #e8dcc6 50%, #e0d4c0 100%);
-    border-radius: 12px;
+    /* Muted, aged parchment - not bright white */
+    background: linear-gradient(180deg,
+        rgba(207, 197, 181, 0.92) 0%,
+        rgba(199, 189, 173, 0.90) 50%,
+        rgba(191, 181, 165, 0.88) 100%);
+    border-radius: 10px;
     padding: 1.8rem 1.5rem 1.5rem;
     margin-top: 0.5rem;
-    /* Lifted off the background with soft shadow */
+    /* Soft, diffuse shadow - not hard-edged */
     box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.25),
-        0 8px 40px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
-    /* Subtle border for definition */
-    border: 1px solid rgba(139, 115, 85, 0.3);
+        0 2px 8px rgba(0, 0, 0, 0.12),
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 16px 48px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+    /* Subtle warm border */
+    border: 1px solid rgba(139, 115, 85, 0.2);
     position: relative;
+    overflow: hidden;
 }
 
-/* Inner bevel effect - lighter top edge */
+/* Paper texture overlay */
+.paper-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    border-radius: 10px;
+}
+
+/* Subtle top edge highlight */
 .paper-panel::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 10%, rgba(255, 255, 255, 0.5) 50%, transparent 90%);
-    border-radius: 12px 12px 0 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 15%, rgba(255, 255, 255, 0.25) 50%, transparent 85%);
+    border-radius: 10px 10px 0 0;
+    z-index: 1;
 }
 
 /* Adjust nested elements for paper context */
 .paper-panel .entrance-search {
     margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .paper-panel .entrance-alternatives {
     margin-top: 0;
     padding-top: 1rem;
-    border-top: 1px solid rgba(139, 115, 85, 0.2);
+    border-top: 1px solid rgba(139, 115, 85, 0.15);
+    position: relative;
+    z-index: 2;
 }
 
 .paper-panel .alternatives-label {
-    color: #6b5d4d;
+    color: #5a4d40;
 }
 
 .paper-panel .alt-link {
-    color: #8b7355;
+    color: #6b5a48;
 }
 
 .paper-panel .alt-link:hover {
