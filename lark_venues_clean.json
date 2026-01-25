@@ -3455,26 +3455,6 @@
     "last_verified": "2025-01-15"
   },
   {
-    "name": "Frameless",
-    "location": "Marble Arch",
-    "moods": [
-      "wonder",
-      "immersive",
-      "dreamy",
-      "artistic"
-    ],
-    "genres": [
-      "immersive art",
-      "digital experience",
-      "gallery"
-    ],
-    "url": "https://www.frameless.com/",
-    "blurb": "Four vast galleries transform masterpieces into environments you can walk through. At Frameless, Klimt's gold becomes a shimmering cave, Kandinsky's shapes pulse with sound, and you stand inside the colour fields that once hung flat on gallery walls. It's art as atmosphere, painting as weather system.",
-    "whisper": "Step inside the masterpieces — art as atmosphere",
-    "arcana": "Wonder & Awe",
-    "last_verified": "2025-01-18"
-  },
-  {
     "name": "Freelance Royalty Scratch Nights",
     "location": "Stratford (Theatre Royal Stratford East Bar)",
     "moods": [
@@ -12614,6 +12594,501 @@
     "blurb": "In a basement in Vauxhall, the year is 2182 and you are crew. Weapons, comms, navigation — each seat matters, each decision counts. Immersive theatre meets starship simulator meets the best kind of organised chaos. You might save the fleet. You might not. Either way, you'll leave knowing what you're made of.",
     "whisper": "Report to the bridge. The galaxy won't save itself.",
     "arcana": "Playful & Weird",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Lander 23",
+    "location": "Woolwich",
+    "moods": [
+      "immersive",
+      "nerdy",
+      "mission-driven",
+      "playful"
+    ],
+    "genres": [
+      "immersive theatre",
+      "interactive game",
+      "sci-fi roleplay"
+    ],
+    "url": "https://www.punchdrunk.com/",
+    "blurb": "A sci-fi world you don't just watch — you *enter*. You're briefed, enlisted, and gently swallowed by story: lights, sound, strangers-turned-crew, choices that matter. Come with a curious heart and a willingness to play along — the future here is made of people.",
+    "whisper": "Report for duty. The ship needs you.",
+    "arcana": "Playful & Weird",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "arebyte",
+    "location": "Camden",
+    "moods": [
+      "curious",
+      "futuristic",
+      "artsy",
+      "thoughtful"
+    ],
+    "genres": [
+      "digital art",
+      "new media",
+      "immersive installation"
+    ],
+    "url": "https://www.arebyte.com/",
+    "blurb": "A small portal for the strange-new: screens that breathe, machines that feel like myths, exhibitions that don't behave. arebyte is where digital art stops being shiny and starts being human again — intimate, uncanny, quietly mind-opening.",
+    "whisper": "Step closer. The future is whispering, not shouting.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Furtherfield Gallery",
+    "location": "Finsbury Park",
+    "moods": [
+      "curious",
+      "offbeat",
+      "welcoming",
+      "thoughtful"
+    ],
+    "genres": [
+      "digital art",
+      "tech culture",
+      "workshops"
+    ],
+    "url": "https://www.furtherfield.org/",
+    "blurb": "Tucked beside the park like a secret lab of ideas, Furtherfield is where art, technology, and community meet without the corporate chill. Expect playful provocation — and the kind of conversations that make the city feel brighter afterwards.",
+    "whisper": "A gallery like a glitch in the everyday — in the best possible way.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "South London Makerspace",
+    "location": "Herne Hill",
+    "moods": [
+      "collaborative",
+      "inventive",
+      "nerdy",
+      "friendly"
+    ],
+    "genres": [
+      "makerspace",
+      "workshops",
+      "digital fabrication"
+    ],
+    "url": "https://southlondonmakerspace.org/",
+    "blurb": "A railway-arch clubhouse for people who like making the future with their own hands. Tools, tinkering, gentle learning curves — and a community that feels genuinely pleased you showed up. If you've ever wanted to build something strange and real, start here.",
+    "whisper": "Bring an idea. Leave with sawdust, sparks, and a new kind of confidence.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "London Hackspace",
+    "location": "Park Royal",
+    "moods": [
+      "collaborative",
+      "curious",
+      "playful",
+      "welcoming"
+    ],
+    "genres": [
+      "hackspace",
+      "makerspace",
+      "open nights"
+    ],
+    "url": "https://london.hackspace.org.uk/",
+    "blurb": "A community workshop for the gloriously inquisitive — the kind of place where someone will help you debug your idea *and* offer you a cuppa. Open nights are a gentle way in: wander, chat, see what's being built, and feel your own mind light up.",
+    "whisper": "Come as you are. Curiosity is the only entry requirement.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "POW Workshops",
+    "location": "Park Royal",
+    "moods": [
+      "hands-on",
+      "industrious",
+      "inventive",
+      "grounded"
+    ],
+    "genres": [
+      "open workshop",
+      "making classes",
+      "creative tools"
+    ],
+    "url": "https://powworkshops.com/",
+    "blurb": "Not glossy tech — real craft, real tools, real people making things in London's industrial bones. POW feels like a permission slip to become the kind of person who can build, fix, shape, prototype. The future doesn't have to be virtual; it can be made of wood and metal and nerve.",
+    "whisper": "Make something that didn't exist this morning.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Makerversity",
+    "location": "Strand",
+    "moods": [
+      "inventive",
+      "curious",
+      "crafty",
+      "supportive"
+    ],
+    "genres": [
+      "makerspace",
+      "workshops",
+      "studio community"
+    ],
+    "url": "https://makerversity.co.uk/",
+    "blurb": "Inside Somerset House — behind the grand façade — there's a makers' hive. Makerversity is for designers, tinkerers, and idea-people who want to learn by doing, surrounded by others doing the same. It's practical magic: tools, skill, and momentum.",
+    "whisper": "A hidden workshop where big ideas become physical.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Create Space London",
+    "location": "Kensington",
+    "moods": [
+      "welcoming",
+      "creative",
+      "curious",
+      "hands-on"
+    ],
+    "genres": [
+      "makerspace",
+      "studios",
+      "workshops"
+    ],
+    "url": "https://www.createspacelondon.org/",
+    "blurb": "A charity-run home for makers who want room to breathe — and make. Less 'startup sheen', more 'let's build something together': studios, shared spaces, and a steady sense that creativity is a communal resource, not a luxury.",
+    "whisper": "A soft place to start building the thing you keep imagining.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Hone London",
+    "location": "Limehouse",
+    "moods": [
+      "industrious",
+      "inventive",
+      "collaborative",
+      "grounded"
+    ],
+    "genres": [
+      "makerspace",
+      "digital fabrication",
+      "workshops"
+    ],
+    "url": "https://hone.london/",
+    "blurb": "A makers' neighbourhood in East London — workshops and studios with a practical, future-building pulse. It's for people who want to learn tools, build prototypes, and be around others quietly making their lives more interesting.",
+    "whisper": "Where craft meets tomorrow — with good people beside you.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Swan Wharf Workshop",
+    "location": "Hackney Wick",
+    "moods": [
+      "industrial",
+      "hands-on",
+      "creative",
+      "resourceful"
+    ],
+    "genres": [
+      "woodworking",
+      "workshop",
+      "maker community"
+    ],
+    "url": "https://www.swanwharfworkshop.com/",
+    "blurb": "Hackney Wick's rough-edged making energy, in workshop form — wood, tools, and the satisfying feeling of learning something real. This is the analogue cousin of cyberpunk: city grit, creative grit, the joy of building instead of scrolling.",
+    "whisper": "Sawdust, courage, and a little London electricity.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Navrtar",
+    "location": "Ealing",
+    "moods": [
+      "immersive",
+      "playful",
+      "adventurous",
+      "social"
+    ],
+    "genres": [
+      "free-roam VR",
+      "VR arena",
+      "group experience"
+    ],
+    "url": "https://navrtar.com/",
+    "blurb": "A proper step-through-the-screen kind of place — free-roam VR that feels like you've been dropped inside the story. Best with friends, best with a little bravery, best when you want to forget your phone exists for an hour.",
+    "whisper": "Walk into the simulation. Trust your instincts.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Twist Museum",
+    "location": "Oxford Circus",
+    "moods": [
+      "wonder-struck",
+      "playful",
+      "surreal",
+      "curious"
+    ],
+    "genres": [
+      "interactive museum",
+      "immersive installation",
+      "perception play"
+    ],
+    "url": "https://www.twistmuseum.com/",
+    "blurb": "A pocket universe of perception tricks — light, illusions, and the delicious feeling that your senses might be lying to you. It's not sci-fi exactly, but it *feels* like stepping into a friendly simulation. Go when you want your brain to giggle.",
+    "whisper": "Reality bends gently here. Let it.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Now Play This",
+    "location": "Strand",
+    "moods": [
+      "playful",
+      "experimental",
+      "nerdy",
+      "curious"
+    ],
+    "genres": [
+      "games festival",
+      "interactive art",
+      "experimental play"
+    ],
+    "url": "https://nowplaythis.net/",
+    "blurb": "A festival for games that behave like art — odd little worlds, tender mechanics, playful experiments you can actually touch. Come to wander, to try things, to talk to strangers about the strange thing you just played. It's London at its most delightfully inventive.",
+    "whisper": "Press start on something beautifully unfamiliar.",
+    "arcana": "Playful & Weird",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Platform",
+    "location": "Shoreditch",
+    "moods": [
+      "neon",
+      "social",
+      "playful",
+      "late-night"
+    ],
+    "genres": [
+      "gaming bar",
+      "social play",
+      "group hangout"
+    ],
+    "url": "https://platform.social/",
+    "blurb": "A gaming bar that understands the point is *people*. Book a booth, pick a game, order something cold, and let the night turn into co-op storytelling. Perfect when you want pixel-bright camaraderie without the competitive snarl.",
+    "whisper": "Pixels and pints and people who get it.",
+    "arcana": "Late-Night Lark",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Wellcome Collection",
+    "location": "Euston",
+    "moods": [
+      "curious",
+      "future-facing",
+      "thoughtful",
+      "awe-struck"
+    ],
+    "genres": [
+      "museum",
+      "public events",
+      "speculative ideas"
+    ],
+    "url": "https://wellcomecollection.org/",
+    "blurb": "Not a tech venue, and yet — it's one of London's best places to think about the future: bodies, minds, medicine, ethics, the strange machinery of being human. Exhibitions and events here often feel like gentle sci-fi: questions you carry home in your pocket.",
+    "whisper": "A quiet place to meet the future without losing your humanity.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Frameless",
+    "location": "Marble Arch",
+    "moods": [
+      "awe-struck",
+      "immersive",
+      "dreamlike",
+      "spectacular"
+    ],
+    "genres": [
+      "digital art",
+      "immersive gallery"
+    ],
+    "url": "https://frameless.com/",
+    "blurb": "Step into masterpieces. Frameless takes you out of the white cube and into swirling colour and sound — four vast galleries of projection and music that let you walk through Monet's water-lilies or feel Van Gogh's night sky at your feet. Come early, stay as long as you like, and let art wash over you like weather.",
+    "whisper": "Colours bloom on every wall — you're inside the painting now.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Moco Museum London",
+    "location": "Marble Arch",
+    "moods": [
+      "curious",
+      "contemporary",
+      "immersive",
+      "exploratory"
+    ],
+    "genres": [
+      "digital art",
+      "immersive art museum"
+    ],
+    "url": "https://mocomuseum.com/locations/london/",
+    "blurb": "Amsterdam's counter-culture gallery has landed in London with a playful heart. Inside this townhouse, digital dreamscapes glow alongside interactive projections and new media works. It's more about how art makes you feel than what it means — expect mirrors, soundscapes and light shows that respond to your presence.",
+    "whisper": "Light, sound, and pixels dance as you move — art as conversation.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Science Gallery London",
+    "location": "London Bridge",
+    "moods": [
+      "inquisitive",
+      "awe-struck",
+      "playful",
+      "free"
+    ],
+    "genres": [
+      "interactive exhibition",
+      "digital art",
+      "science meets art"
+    ],
+    "url": "https://london.sciencegallery.com/",
+    "blurb": "Part exhibition, part playground — where cosmic questions meet mischievous grins. Sculptures ripple with sound and light, interactive installations conjure the unseen world, and poets and physicists whisper in the same breath. It's free, genuinely participatory, and staffed by people who love explaining why the world is stranger than we think.",
+    "whisper": "Waves, particles and poetry collide — the universe wants to play.",
+    "arcana": "Curious Encounters",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Lightroom",
+    "location": "King's Cross",
+    "moods": [
+      "spectacular",
+      "immersive",
+      "wondrous",
+      "cinematic"
+    ],
+    "genres": [
+      "digital art",
+      "immersive show venue"
+    ],
+    "url": "https://lightroom.uk/",
+    "blurb": "A cavernous black box behind Granary Square has become London's home for epic screen-based storytelling. Lightroom hosts huge projection-mapped shows that wrap you in film-score, narration and moving images that tower above and around you. It's as if IMAX and art installation had a beautifully behaved love-child.",
+    "whisper": "Dinosaurs swim overhead, astronauts drift past — let the walls disappear.",
+    "arcana": "Wonder & Awe",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "War of the Worlds: The Immersive Experience",
+    "location": "City of London",
+    "moods": [
+      "thrilling",
+      "adventurous",
+      "dramatic",
+      "immersive"
+    ],
+    "genres": [
+      "immersive theatre",
+      "VR experience",
+      "sci-fi"
+    ],
+    "url": "https://thewaroftheworldsimmersive.com/",
+    "blurb": "H.G. Wells meets steampunk and virtual reality in this fever-dream of a show. Actors and holograms lead you through abandoned Victorian houses, down the Thames on a VR boat ride under Martian attack, and into a secret bar where red weed grows on the walls. It's bonkers, joyous and far more than a tech demo.",
+    "whisper": "Martian tripods loom, the Thames floods red — hold on to someone you trust.",
+    "arcana": "Playful & Weird",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Avora",
+    "location": "Hackney",
+    "moods": [
+      "fantastical",
+      "immersive",
+      "social",
+      "bioluminescent"
+    ],
+    "genres": [
+      "immersive theatre",
+      "cocktail bar",
+      "sci-fi"
+    ],
+    "url": "https://www.avora-experience.co.uk/",
+    "blurb": "Don a jumpsuit and step through a portal into a glowing forest on Hackney Road. Avora is part sci-fi fairytale, part cocktail class: you're briefed in a laboratory, given mysterious substances that change colour in your glass, and then led into a bioluminescent world where actors guide you through a story of exploitation and resistance.",
+    "whisper": "Glowing plants, experimental cocktails and a choice that might save a planet.",
+    "arcana": "Playful & Weird",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "NQ64",
+    "location": "Soho",
+    "moods": [
+      "nostalgic",
+      "neon",
+      "playful",
+      "late-night"
+    ],
+    "genres": [
+      "retro gaming",
+      "cocktail bar",
+      "arcade"
+    ],
+    "url": "https://nq64.co.uk/",
+    "blurb": "Hidden on Berwick Street is a neon-splattered lair of old consoles and craft cocktails. NQ64 lets you button-bash Street Fighter, race Mario Kart or sink a pint while Pac-Man chomps beside you. The games are token-operated, the drinks punny, and the crowd a warm mix of nostalgic gamers and curious wanderers.",
+    "whisper": "Sip a cocktail while your friend crushes you at Pong.",
+    "arcana": "Late-Night Lark",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "Four Quarters",
+    "location": "Peckham",
+    "moods": [
+      "retro",
+      "social",
+      "gritty",
+      "community"
+    ],
+    "genres": [
+      "arcade bar",
+      "pinball",
+      "club nights"
+    ],
+    "url": "https://fourquarters.bar/",
+    "blurb": "London's original arcade bar keeps the spirit of the laundrette-cum-arcade alive. Four Quarters hosts lovingly restored cabinets from the 70s through to the 2000s, along with retro consoles, DJs on weekend nights and a fridge full of local beers. It feels like a friend's basement grown up — you trade quarters for credits and swap tips with the stranger beside you.",
+    "whisper": "Joystick jousting, craft beers and a roomful of nostalgic cheers.",
+    "arcana": "Nostalgic / Vintage / Retro",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "DNA VR",
+    "location": "Camden",
+    "moods": [
+      "adventurous",
+      "collaborative",
+      "immersive",
+      "nerdy"
+    ],
+    "genres": [
+      "VR arcade",
+      "VR escape room"
+    ],
+    "url": "https://www.dnavr.co.uk/",
+    "blurb": "London's first dedicated VR arcade feels like a hidden lab where anything is possible. At DNA VR you and up to nine friends can defend castles, dance to synth beats or dismantle nuclear warheads in story-driven VR escape rooms. Sessions are hosted by enthusiastic staff, and there's a real emphasis on playing together rather than competing.",
+    "whisper": "Strap in with friends — one minute puzzles, the next you're slaying dragons.",
+    "arcana": "Playful & Weird",
+    "last_verified": "2026-01-25"
+  },
+  {
+    "name": "OTHERWORLD",
+    "location": "Haggerston",
+    "moods": [
+      "futuristic",
+      "escapist",
+      "luxurious",
+      "social"
+    ],
+    "genres": [
+      "4D VR arcade",
+      "cocktail bar"
+    ],
+    "url": "https://www.other.world/",
+    "blurb": "Otherworld takes VR to the next level: private immersion pods with wind, heat and rumble effects transport you to a virtual island where you can dance with penguins, battle aliens or cook in enchanted forests. It's part sci-fi spa, part video-game playground, with a bar serving craft beer and inventive cocktails to ease you back into reality.",
+    "whisper": "A portal in a railway arch — step in and the world melts into dream.",
+    "arcana": "Late-Night Lark",
     "last_verified": "2026-01-25"
   }
 ]
