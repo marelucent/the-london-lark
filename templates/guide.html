@@ -27,7 +27,7 @@
             letter-spacing: 0.2em;
             color: var(--gold);
             margin-bottom: 1.5rem;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 0 20px rgba(201, 162, 39, 0.2);
         }
 
         .guide-text {
@@ -46,14 +46,14 @@
         .guide-text a {
             color: var(--gold);
             text-decoration: none;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
             transition: all 0.3s ease;
         }
 
         .guide-text a:hover {
             color: var(--candlelight);
             border-bottom-color: var(--candlelight);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.2);
         }
 
         .guide-text em {
@@ -85,7 +85,7 @@
             text-align: left;
             margin: 1.25rem 0 1.25rem 1.5rem;
             padding-left: 1rem;
-            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            border-left: 1px solid rgba(201, 162, 39, 0.2);
             list-style: none;
         }
 
@@ -180,12 +180,12 @@
             color: var(--gold);
             text-align: left;
             padding: 0.75rem 1rem 0.75rem 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
         }
 
         .arcana-table td {
             padding: 0.65rem 1rem 0.65rem 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.08);
             vertical-align: top;
         }
 
@@ -207,7 +207,7 @@
         }
 
         .arcana-table tr:hover td {
-            background: rgba(212, 175, 55, 0.03);
+            background: rgba(201, 162, 39, 0.03);
         }
 
         .back-link {
@@ -224,7 +224,7 @@
 
         .back-link:hover {
             color: var(--gold);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
         }
 
         @media (max-width: 600px) {
@@ -271,7 +271,12 @@
 <body>
     <div class="container">
         <header>
-            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+            <div class="title-block" onclick="window.location.href='/'" style="cursor: pointer;">
+                <span class="title-corner-tr"></span>
+                <span class="title-corner-bl"></span>
+                <span class="title-corner-br"></span>
+                <h1>✦ THE LONDON LARK ✦</h1>
+            </div>
         </header>
 
         <main class="guide-container">

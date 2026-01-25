@@ -12,16 +12,21 @@
    ============================================ */
 :root {
     /* === Foundation Palette === */
-    --ink: #0a0a0a;
-    --parchment-dark: #1a1714;
-    --parchment-mid: #2a2520;
+    /* Warm, aged aesthetic - candlelight, not backlight */
+    --ink: #0a0908;
+    --parchment-dark: #1c1612;
+    --parchment-mid: #2a2320;
     --tobacco: #3d3229;
-    --gold: #d4af37;
-    --amber: #c9a227;
+    --gold: #c9a227;
+    --gold-bright: #d4af37;
+    --amber: #b8952f;
+    --bronze: #8b7355;
     --candlelight: #f4e4bc;
     --cream: #f5f0e6;
-    --midnight: #1a1a2e;
-    --midnight-deep: #16213e;
+    --ivory: #ebe5d9;
+    /* Keep midnight for any legacy references, but map to warm tones */
+    --midnight: #1c1612;
+    --midnight-deep: #0f0c0a;
 
     /* === Typography === */
     --font-title: 'Cinzel', serif;
@@ -55,13 +60,15 @@
     --arcana-lark: #ffb347;           /* Romanticised London */
     
     /* === UI Colours === */
-    --text-primary: #e8e8e8;
-    --text-secondary: #b8b8b8;
-    --text-muted: #888888;
-    --border-subtle: rgba(232, 232, 232, 0.15);
-    --border-glow: rgba(240, 230, 140, 0.5);
-    --bg-card: rgba(255, 255, 255, 0.04);
-    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    /* Warm cream text, aged feel */
+    --text-primary: #f5f0e6;
+    --text-secondary: #d4cfc5;
+    --text-muted: #a89f94;
+    --text-soft: #8a8279;
+    --border-subtle: rgba(139, 115, 85, 0.25);
+    --border-glow: rgba(201, 162, 39, 0.5);
+    --bg-card: rgba(42, 35, 32, 0.6);
+    --bg-card-hover: rgba(42, 35, 32, 0.8);
     
     /* === Transitions === */
     --transition-fast: 0.2s ease;
@@ -79,8 +86,8 @@
     --arcana-border: var(--arcana-fool);
 }
 .arcana-curious-encounters {
-    --glow: rgba(212, 175, 55, 0.25);
-    --glow-intense: rgba(212, 175, 55, 0.4);
+    --glow: rgba(201, 162, 39, 0.25);
+    --glow-intense: rgba(201, 162, 39, 0.4);
     --arcana-border: var(--arcana-magician);
 }
 .arcana-witchy-wild {
@@ -205,12 +212,42 @@
 
 body {
     font-family: var(--font-body);
-    background: linear-gradient(135deg, var(--midnight) 0%, var(--midnight-deep) 100%);
+    /* Warm radial gradient - lit from within, darker at edges */
+    background:
+        radial-gradient(ellipse at center, #2a2320 0%, #1c1612 60%, #0f0c0a 100%);
     color: var(--text-primary);
     min-height: 100vh;
     padding: 2rem;
     line-height: 1.8;
     font-size: 1.1rem;
+    position: relative;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    z-index: 1;
+}
+
+/* Vignette effect - atmospheric darkening at edges */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(15, 12, 10, 0.4) 100%);
+    z-index: 2;
 }
 
 /* ============================================
@@ -219,6 +256,9 @@ body {
 .container {
     max-width: 720px;
     margin: 0 auto;
+    /* Ensure content is above texture overlays */
+    position: relative;
+    z-index: 10;
 }
 
 /* ============================================
@@ -231,14 +271,76 @@ header {
     border-bottom: 1px solid var(--border-subtle);
 }
 
+/* Title block with ornate frame */
+.title-block {
+    display: inline-block;
+    position: relative;
+    padding: 1.2rem 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Decorative border frame */
+.title-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid var(--bronze);
+    opacity: 0.6;
+}
+
+/* Corner flourishes - top left */
+.title-block::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid var(--gold);
+    border-left: 2px solid var(--gold);
+}
+
+/* Additional corner flourishes via spans */
+.title-corner-tr,
+.title-corner-bl,
+.title-corner-br {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.title-corner-tr {
+    top: -4px;
+    right: -4px;
+    border-top: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+}
+
+.title-corner-bl {
+    bottom: -4px;
+    left: -4px;
+    border-bottom: 2px solid var(--gold);
+    border-left: 2px solid var(--gold);
+}
+
+.title-corner-br {
+    bottom: -4px;
+    right: -4px;
+    border-bottom: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+}
+
 h1 {
     font-family: var(--font-title);
     font-size: 2.8rem;
     font-weight: 400;
     letter-spacing: 0.2em;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
     color: var(--gold);
-    text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+    text-shadow: 0 0 40px rgba(201, 162, 39, 0.25);
 }
 
 .tagline {
@@ -281,8 +383,8 @@ h1 {
 }
 
 .lark-message {
-    background: rgba(176, 196, 222, 0.08);
-    border-left: 3px solid #b0c4de;
+    background: rgba(139, 115, 85, 0.1);
+    border-left: 3px solid var(--bronze);
     margin-right: 2.5rem;
     animation-delay: 0.2s;
 }
@@ -377,28 +479,36 @@ h1 {
 textarea {
     width: 100%;
     padding: 1.4rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    color: var(--text-primary);
+    /* Parchment/aged paper feel */
+    background: linear-gradient(135deg, #f5f0e6 0%, #ebe5d9 100%);
+    border: 1px solid var(--bronze);
+    border-radius: 8px;
+    color: #2c2416;
     font-family: var(--font-body);
     font-size: 1.05rem;
     resize: vertical;
     min-height: 110px;
     transition: all var(--transition-slow);
     line-height: 1.7;
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 textarea:focus {
     outline: none;
-    border-color: var(--border-glow);
-    background: var(--bg-card-hover);
-    box-shadow: 0 0 20px rgba(240, 230, 140, 0.1);
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #f8f4ec 0%, #f0ebe2 100%);
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, 0.1),
+        0 0 0 3px rgba(201, 162, 39, 0.15),
+        0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 textarea::placeholder {
-    color: rgba(232, 232, 232, 0.35);
+    color: #6b5d4d;
     font-style: italic;
+    opacity: 0.8;
 }
 
 /* ============================================
@@ -431,7 +541,7 @@ button {
 
 #askButton:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(240, 230, 140, 0.35);
+    box-shadow: 0 6px 18px rgba(201, 162, 39, 0.4);
 }
 
 #askButton:active {
@@ -456,9 +566,9 @@ button {
 }
 
 .surprise-btn:hover {
-    background: rgba(240, 230, 140, 0.1);
+    background: rgba(201, 162, 39, 0.1);
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(240, 230, 140, 0.25);
+    box-shadow: 0 6px 18px rgba(201, 162, 39, 0.25);
 }
 
 .surprise-btn:active {
@@ -478,14 +588,14 @@ button {
 .mood-tags-container {
     margin-top: 2.5rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(232, 232, 232, 0.08);
+    border-top: 1px solid var(--border-subtle);
 }
 
 .mood-tags-label {
     text-align: center;
     font-family: var(--font-whisper);
     font-size: 1rem;
-    color: #b0c4de;
+    color: var(--text-secondary);
     opacity: 0.8;
     margin-bottom: 1.2rem;
     letter-spacing: 0.08em;
@@ -503,10 +613,10 @@ button {
 .mood-tag {
     display: inline-block;
     padding: 0.5rem 1.1rem;
-    background: rgba(176, 196, 222, 0.1);
-    border: 1px solid rgba(176, 196, 222, 0.25);
+    background: rgba(139, 115, 85, 0.1);
+    border: 1px solid rgba(139, 115, 85, 0.3);
     border-radius: 20px;
-    color: #b0c4de;
+    color: var(--text-secondary);
     font-family: var(--font-body);
     font-size: 0.85rem;
     cursor: pointer;
@@ -516,19 +626,19 @@ button {
 }
 
 .mood-tag:hover {
-    background: rgba(176, 196, 222, 0.2);
-    border-color: rgba(176, 196, 222, 0.5);
+    background: rgba(139, 115, 85, 0.2);
+    border-color: rgba(139, 115, 85, 0.5);
     color: var(--text-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(176, 196, 222, 0.15);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.15);
 }
 
 .mood-tag.active {
-    background: rgba(240, 230, 140, 0.2);
+    background: rgba(201, 162, 39, 0.2);
     border-color: var(--gold);
     color: var(--gold);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(240, 230, 140, 0.2);
+    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.2);
 }
 
 .mood-tag:active {
@@ -569,7 +679,7 @@ button {
 
 .loading-text {
     font-family: var(--font-whisper);
-    color: #b0c4de;
+    color: var(--candlelight);
     letter-spacing: 0.1em;
     font-size: 1rem;
     font-style: italic;
@@ -583,7 +693,7 @@ button {
     padding: 2rem;
     font-family: var(--font-whisper);
     font-style: italic;
-    color: #b0c4de;
+    color: var(--candlelight);
     line-height: 1.9;
 }
 
@@ -599,6 +709,65 @@ button {
 }
 
 /* ============================================
+   TESTIMONY SECTION
+   ============================================ */
+.testimony-section {
+    margin: 4rem auto 3rem;
+    padding: 2.5rem 2rem;
+    max-width: 560px;
+    text-align: center;
+    position: relative;
+}
+
+.testimony-flourish {
+    font-family: var(--font-whisper);
+    font-size: 1.2rem;
+    color: var(--bronze);
+    letter-spacing: 0.5em;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+}
+
+.testimony-quote {
+    font-family: var(--font-whisper);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--candlelight);
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 0 30px rgba(244, 228, 188, 0.1);
+}
+
+.testimony-attribution {
+    font-family: var(--font-whisper);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.testimony-flourish-end {
+    font-family: var(--font-whisper);
+    font-size: 1.2rem;
+    color: var(--bronze);
+    letter-spacing: 0.5em;
+    opacity: 0.6;
+    margin-top: 1.5rem;
+}
+
+/* ============================================
+   DECORATIVE FLOURISH DIVIDER
+   ============================================ */
+.flourish-divider {
+    text-align: center;
+    margin: 2rem 0;
+    font-family: var(--font-whisper);
+    font-size: 1rem;
+    color: var(--bronze);
+    letter-spacing: 0.4em;
+    opacity: 0.5;
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 .main-footer {
@@ -610,7 +779,7 @@ button {
 
 .footer-link {
     font-family: var(--font-body);
-    color: #b0c4de;
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
     letter-spacing: 0.08em;
@@ -624,7 +793,7 @@ button {
 }
 
 .footer-separator {
-    color: #b0c4de;
+    color: var(--text-muted);
     opacity: 0.5;
     margin: 0 0.5rem;
 }
@@ -751,8 +920,8 @@ button {
 }
 
 .crisis-distress {
-    background: rgba(176, 196, 222, 0.1);
-    border-left-color: #b0c4de;
+    background: rgba(139, 115, 85, 0.1);
+    border-left-color: var(--bronze);
 }
 
 .crisis-intro {
@@ -777,8 +946,8 @@ button {
 }
 
 .crisis-resources.important {
-    background: rgba(176, 196, 222, 0.08);
-    border: 1px solid rgba(176, 196, 222, 0.2);
+    background: rgba(139, 115, 85, 0.08);
+    border: 1px solid rgba(139, 115, 85, 0.2);
 }
 
 .resources-header {
@@ -835,7 +1004,7 @@ button {
 }
 
 .more-resources a {
-    color: #b0c4de;
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
     letter-spacing: 0.03em;
@@ -868,7 +1037,7 @@ button {
 .venue-intro-text {
     font-family: var(--font-whisper);
     font-size: 1rem;
-    color: #b0c4de;
+    color: var(--candlelight);
     font-style: italic;
     opacity: 0.9;
 }
@@ -879,10 +1048,10 @@ button {
     margin-top: 1rem;
     font-family: var(--font-whisper);
     font-size: 0.9rem;
-    color: #b0c4de;
+    color: var(--text-secondary);
     opacity: 0.75;
     font-style: italic;
-    border-top: 1px solid rgba(232, 232, 232, 0.08);
+    border-top: 1px solid var(--border-subtle);
     animation: fadeIn 0.8s ease forwards;
 }
 
@@ -985,8 +1154,8 @@ button {
     /* Gold rim glow + arcana colour atmosphere */
     box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.3),
-        0 0 25px rgba(212, 175, 55, 0.1),
-        0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
+        0 0 25px rgba(201, 162, 39, 0.1),
+        0 0 50px var(--glow, rgba(201, 162, 39, 0.08));
 }
 
 .arcana-card:hover {
@@ -994,8 +1163,8 @@ button {
     border-color: var(--arcana-border, var(--gold-bright));
     box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.35),
-        0 0 25px var(--glow, rgba(212, 175, 55, 0.2)),
-        0 0 50px var(--glow-intense, rgba(212, 175, 55, 0.15));
+        0 0 25px var(--glow, rgba(201, 162, 39, 0.2)),
+        0 0 50px var(--glow-intense, rgba(201, 162, 39, 0.15));
 }
 
 /* --------------------------------------------
@@ -1227,14 +1396,14 @@ button {
     font-size: 3rem;
     color: var(--gold);
     opacity: 0.5;
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
     transition: all 0.5s ease;
     margin-bottom: 1rem;
 }
 
 .arcana-card.face-down:hover .card-back-symbol {
     opacity: 0.85;
-    text-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
+    text-shadow: 0 0 50px rgba(201, 162, 39, 0.6);
     transform: scale(1.08);
 }
 
@@ -1258,7 +1427,7 @@ button {
 .venue-section {
     margin-top: 1.5rem;
     padding-top: 1.2rem;
-    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    border-top: 1px solid rgba(201, 162, 39, 0.15);
 }
 
 .venue-name {
@@ -1277,7 +1446,7 @@ button {
 
 .venue-name a:hover {
     color: var(--candlelight);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
 }
 
 .venue-location {
@@ -1313,8 +1482,8 @@ button {
     
     box-shadow: 
         0 4px 20px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(212, 175, 55, 0.12),
-        0 0 50px rgba(212, 175, 55, 0.08);
+        0 0 30px rgba(201, 162, 39, 0.12),
+        0 0 50px rgba(201, 162, 39, 0.08);
 }
 
 .path-card:hover {
@@ -1322,8 +1491,8 @@ button {
     border-color: var(--gold-bright);
     box-shadow: 
         0 15px 40px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(212, 175, 55, 0.25),
-        0 0 70px rgba(212, 175, 55, 0.15);
+        0 0 40px rgba(201, 162, 39, 0.25),
+        0 0 70px rgba(201, 162, 39, 0.15);
 }
 
 /* Corner flourishes for path cards */
@@ -1411,8 +1580,8 @@ button {
     --glow-intense: rgba(244, 208, 63, 0.3);
 }
 [data-arcana="magician"] { 
-    --glow: rgba(212, 175, 55, 0.12); 
-    --glow-intense: rgba(212, 175, 55, 0.25);
+    --glow: rgba(201, 162, 39, 0.12); 
+    --glow-intense: rgba(201, 162, 39, 0.25);
 }
 [data-arcana="priestess"] { 
     --glow: rgba(155, 107, 158, 0.18); 
@@ -1558,8 +1727,8 @@ button {
     --parchment-mid: #2a2520;
     --tobacco: #3d3229;
     --gold: #d4af37;
-    --gold-dim: rgba(212, 175, 55, 0.4);
-    --gold-bright: rgba(212, 175, 55, 0.8);
+    --gold-dim: rgba(201, 162, 39, 0.4);
+    --gold-bright: rgba(201, 162, 39, 0.8);
     --candlelight: #f4e4bc;
     --cream: #f5f0e6;
     --midnight: #1a1a2e;
@@ -1616,8 +1785,8 @@ button {
     /* Gold rim glow + arcana colour atmosphere */
     box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.3),
-        0 0 25px rgba(212, 175, 55, 0.1),
-        0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
+        0 0 25px rgba(201, 162, 39, 0.1),
+        0 0 50px var(--glow, rgba(201, 162, 39, 0.08));
 }
 
 .arcana-card:hover {
@@ -1625,8 +1794,8 @@ button {
     border-color: var(--arcana-border, var(--gold-bright));
     box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.35),
-        0 0 25px var(--glow, rgba(212, 175, 55, 0.2)),
-        0 0 50px var(--glow-intense, rgba(212, 175, 55, 0.15));
+        0 0 25px var(--glow, rgba(201, 162, 39, 0.2)),
+        0 0 50px var(--glow-intense, rgba(201, 162, 39, 0.15));
 }
 
 /* --------------------------------------------
@@ -1858,14 +2027,14 @@ button {
     font-size: 3rem;
     color: var(--gold);
     opacity: 0.5;
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
     transition: all 0.5s ease;
     margin-bottom: 1rem;
 }
 
 .arcana-card.face-down:hover .card-back-symbol {
     opacity: 0.85;
-    text-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
+    text-shadow: 0 0 50px rgba(201, 162, 39, 0.6);
     transform: scale(1.08);
 }
 
@@ -1889,7 +2058,7 @@ button {
 .venue-section {
     margin-top: 1.5rem;
     padding-top: 1.2rem;
-    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    border-top: 1px solid rgba(201, 162, 39, 0.15);
 }
 
 .venue-name {
@@ -1908,7 +2077,7 @@ button {
 
 .venue-name a:hover {
     color: var(--candlelight);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
 }
 
 .venue-location {
@@ -1944,8 +2113,8 @@ button {
     
     box-shadow: 
         0 4px 20px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(212, 175, 55, 0.12),
-        0 0 50px rgba(212, 175, 55, 0.08);
+        0 0 30px rgba(201, 162, 39, 0.12),
+        0 0 50px rgba(201, 162, 39, 0.08);
 }
 
 .path-card:hover {
@@ -1953,8 +2122,8 @@ button {
     border-color: var(--gold-bright);
     box-shadow: 
         0 15px 40px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(212, 175, 55, 0.25),
-        0 0 70px rgba(212, 175, 55, 0.15);
+        0 0 40px rgba(201, 162, 39, 0.25),
+        0 0 70px rgba(201, 162, 39, 0.15);
 }
 
 /* Corner flourishes for path cards */
@@ -2042,8 +2211,8 @@ button {
     --glow-intense: rgba(244, 208, 63, 0.3);
 }
 [data-arcana="magician"] { 
-    --glow: rgba(212, 175, 55, 0.12); 
-    --glow-intense: rgba(212, 175, 55, 0.25);
+    --glow: rgba(201, 162, 39, 0.12); 
+    --glow-intense: rgba(201, 162, 39, 0.25);
 }
 [data-arcana="priestess"] { 
     --glow: rgba(155, 107, 158, 0.18); 
@@ -2272,31 +2441,33 @@ button {
 .entrance-search textarea {
     width: 100%;
     padding: 1.2rem 1.4rem;
-    background: rgba(26, 23, 20, 0.6);
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 12px;
-    color: var(--cream);
+    /* Parchment/aged paper feel */
+    background: linear-gradient(135deg, #f5f0e6 0%, #ebe5d9 100%);
+    border: 1px solid var(--bronze);
+    border-radius: 8px;
+    color: #2c2416;
     font-family: var(--font-body);
     font-size: 1.05rem;
     resize: none;
     transition: all 0.4s ease;
     box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, 0.2),
-        0 0 0 1px rgba(212, 175, 55, 0.05);
+        inset 0 1px 3px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .entrance-search textarea:focus {
     outline: none;
-    border-color: rgba(212, 175, 55, 0.5);
+    border-color: var(--gold);
     box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(212, 175, 55, 0.15);
+        inset 0 1px 3px rgba(0, 0, 0, 0.1),
+        0 0 0 3px rgba(201, 162, 39, 0.15),
+        0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .entrance-search textarea::placeholder {
-    color: var(--text-soft);
+    color: #6b5d4d;
     font-style: italic;
-    opacity: 0.6;
+    opacity: 0.8;
     transition: opacity 0.3s ease;
 }
 
@@ -2311,14 +2482,14 @@ button {
     letter-spacing: 0.1em;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 2px 8px rgba(201, 162, 39, 0.25);
 }
 
 .entrance-search button:hover {
     transform: translateY(-3px);
     box-shadow:
-        0 6px 20px rgba(212, 175, 55, 0.3),
-        0 0 30px rgba(212, 175, 55, 0.15);
+        0 6px 20px rgba(201, 162, 39, 0.35),
+        0 0 30px rgba(201, 162, 39, 0.2);
 }
 
 .entrance-alternatives {
@@ -2354,7 +2525,7 @@ button {
 
 .alt-link:hover {
     color: var(--gold);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.35);
 }
 
 .alt-separator {
@@ -2653,7 +2824,7 @@ button {
 
 .venue-result-name a:hover {
     color: var(--candlelight);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
 }
 
 .venue-result-location {
@@ -2861,7 +3032,7 @@ button {
 
 .action-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
 }
 
 .action-btn.secondary {
@@ -2872,7 +3043,7 @@ button {
 
 .action-btn.secondary:hover {
     border-color: var(--gold);
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(201, 162, 39, 0.1);
 }
 
 /* --------------------------------------------
@@ -3010,7 +3181,7 @@ button {
 .venue-result-name a {
     color: var(--gold);
     text-decoration: none;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.4);
     padding-bottom: 1px;
     transition: all 0.3s ease;
 }
@@ -3019,7 +3190,7 @@ button {
 .venue-result-name a:hover {
     color: var(--candlelight);
     border-bottom-color: var(--candlelight);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
 }
 /* ============================================
    BROWSE THE DECK - FULL DECK VIEW
@@ -3237,7 +3408,7 @@ button {
 
 .venue-browse-card .venue-name a:hover {
     color: var(--candlelight);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
 }
 
 .venue-browse-card .venue-location {
@@ -3299,7 +3470,7 @@ button {
 .venue-list-name a {
     color: var(--gold);
     text-decoration: none;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.4);
     padding-bottom: 1px;
     transition: all 0.3s ease;
 }
@@ -3345,7 +3516,7 @@ button {
     font-size: 2.2rem;
     color: var(--gold);
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
     line-height: 1;
     transition: all 0.4s ease;
 }
@@ -3358,8 +3529,8 @@ button {
 /* Subtle breathing on hover */
 .arcana-card:hover .arcana-symbol {
     text-shadow:
-        0 0 20px var(--glow, rgba(212, 175, 55, 0.5)),
-        0 0 40px var(--glow, rgba(212, 175, 55, 0.3));
+        0 0 20px var(--glow, rgba(201, 162, 39, 0.5)),
+        0 0 40px var(--glow, rgba(201, 162, 39, 0.3));
     transform: scale(1.05);
 }
 
@@ -3386,7 +3557,7 @@ button {
 .path-card:hover .path-icon {
     opacity: 1;
     transform: scale(1.1);
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
 }
 
 
@@ -3436,7 +3607,7 @@ button {
     gap: 1.5rem;
     margin-top: 1rem;
     padding-top: 0.8rem;
-    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    border-top: 1px solid rgba(201, 162, 39, 0.1);
 }
 
 .card-footer-icon {
@@ -3455,13 +3626,13 @@ button {
 .card-footer-icon:hover {
     opacity: 1;
     transform: scale(1.15);
-    text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 12px rgba(201, 162, 39, 0.5);
 }
 
 /* Filled state for love icon */
 .card-footer-icon.loved {
     opacity: 1;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    text-shadow: 0 0 15px rgba(201, 162, 39, 0.6);
 }
 
 /* Tooltip */
@@ -3550,7 +3721,7 @@ button {
     padding: 2rem;
     max-width: 400px;
     width: 90%;
-    box-shadow: 0 0 50px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 50px rgba(201, 162, 39, 0.15);
     transform: translateY(20px);
     transition: transform 0.3s ease;
 }

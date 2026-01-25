@@ -54,14 +54,19 @@
         .back-link:hover {
             color: var(--gold);
             border-color: var(--gold);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+            <div class="title-block" onclick="window.location.href='/'" style="cursor: pointer;">
+                <span class="title-corner-tr"></span>
+                <span class="title-corner-bl"></span>
+                <span class="title-corner-br"></span>
+                <h1>✦ THE LONDON LARK ✦</h1>
+            </div>
         </header>
 
         <main class="error-container">
