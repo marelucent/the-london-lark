@@ -666,6 +666,11 @@ def about():
     """Serve the about page"""
     return render_template('about.html')
 
+@app.route('/guide')
+def guide():
+    """Serve the guide page - how the Lark works"""
+    return render_template('guide.html')
+
 @app.route('/resources')
 def resources():
     """Serve the support resources page"""
@@ -679,6 +684,7 @@ def robots_txt():
 User-agent: *
 Allow: /
 Allow: /about
+Allow: /guide
 Allow: /resources
 Allow: /arcana
 Allow: /arcana/
