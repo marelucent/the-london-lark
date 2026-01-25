@@ -41,16 +41,16 @@
             overflow: hidden;
             box-shadow:
                 0 4px 20px rgba(0, 0, 0, 0.3),
-                0 0 25px rgba(212, 175, 55, 0.1),
-                0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
+                0 0 25px rgba(201, 162, 39, 0.1),
+                0 0 50px var(--glow, rgba(201, 162, 39, 0.08));
         }
 
         .venue-hero-card:hover {
             border-color: var(--arcana-border, var(--gold-bright));
             box-shadow:
                 0 8px 25px rgba(0, 0, 0, 0.35),
-                0 0 25px var(--glow, rgba(212, 175, 55, 0.2)),
-                0 0 50px var(--glow-intense, rgba(212, 175, 55, 0.15));
+                0 0 25px var(--glow, rgba(201, 162, 39, 0.2)),
+                0 0 50px var(--glow-intense, rgba(201, 162, 39, 0.15));
         }
 
         /* Corner flourishes */
@@ -148,7 +148,7 @@
         .venue-section {
             margin-top: 1.5rem;
             padding-top: 1.2rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-top: 1px solid rgba(201, 162, 39, 0.15);
         }
 
         .venue-name {
@@ -162,14 +162,14 @@
         .venue-name a {
             color: var(--gold);
             text-decoration: none;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
             transition: all 0.3s ease;
         }
 
         .venue-name a:hover {
             color: var(--candlelight);
             border-bottom-color: var(--candlelight);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
         }
 
         .venue-location {
@@ -194,7 +194,7 @@
             gap: 1.5rem;
             margin-top: 1.5rem;
             padding-top: 1rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
         }
 
         .card-footer-icon {
@@ -212,12 +212,12 @@
         .card-footer-icon:hover {
             opacity: 1;
             transform: scale(1.15);
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+            text-shadow: 0 0 12px rgba(201, 162, 39, 0.5);
         }
 
         .card-footer-icon.loved {
             opacity: 1;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.6);
         }
 
         .card-footer-confirm {
@@ -252,7 +252,7 @@
 
         .arcana-link:hover {
             color: var(--gold);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
         }
 
         .back-link {
@@ -306,7 +306,12 @@
 <body>
     <div class="container">
         <header>
-            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+            <div class="title-block" onclick="window.location.href='/'" style="cursor: pointer;">
+                <span class="title-corner-tr"></span>
+                <span class="title-corner-bl"></span>
+                <span class="title-corner-br"></span>
+                <h1>✦ THE LONDON LARK ✦</h1>
+            </div>
         </header>
 
         <main class="venue-page">

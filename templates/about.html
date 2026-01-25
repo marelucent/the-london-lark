@@ -28,7 +28,7 @@
             letter-spacing: 0.3em;
             color: var(--gold);
             margin-bottom: 2rem;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 0 20px rgba(201, 162, 39, 0.2);
         }
 
         .about-title-symbol {
@@ -52,14 +52,14 @@
         .about-text a {
             color: var(--gold);
             text-decoration: none;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
             transition: all 0.3s ease;
         }
 
         .about-text a:hover {
             color: var(--candlelight);
             border-bottom-color: var(--candlelight);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.2);
         }
 
         .about-text em {
@@ -85,7 +85,7 @@
             text-align: left;
             margin: 1.5rem 0 1.5rem 1.5rem;
             padding-left: 1rem;
-            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            border-left: 1px solid rgba(201, 162, 39, 0.2);
             list-style: none;
         }
 
@@ -151,7 +151,7 @@
 
         .back-link:hover {
             color: var(--gold);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
         }
 
         @media (max-width: 600px) {
@@ -186,7 +186,12 @@
 <body>
     <div class="container">
         <header>
-            <h1 onclick="window.location.href='/'" style="cursor: pointer;">✦ THE LONDON LARK ✦</h1>
+            <div class="title-block" onclick="window.location.href='/'" style="cursor: pointer;">
+                <span class="title-corner-tr"></span>
+                <span class="title-corner-bl"></span>
+                <span class="title-corner-br"></span>
+                <h1>✦ THE LONDON LARK ✦</h1>
+            </div>
         </header>
 
         <main class="about-container">
