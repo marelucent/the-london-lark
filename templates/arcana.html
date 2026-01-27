@@ -243,8 +243,17 @@
         .venue-card-symbol {
             font-size: 1.1rem;
             color: var(--gold);
-            opacity: 0.6;
+            opacity: 0.7;
             margin-bottom: 0.6rem;
+            text-shadow: 0 0 12px var(--glow, rgba(212, 175, 55, 0.25));
+            transition: text-shadow 0.3s ease, opacity 0.3s ease;
+        }
+
+        .venue-card:hover .venue-card-symbol {
+            opacity: 0.9;
+            text-shadow:
+                0 0 15px var(--glow, rgba(212, 175, 55, 0.4)),
+                0 0 30px var(--glow-intense, rgba(212, 175, 55, 0.25));
         }
 
         .venue-name {

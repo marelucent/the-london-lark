@@ -3430,8 +3430,18 @@ a.arcana-card:active {
 .venue-browse-card .venue-card-symbol {
     font-size: 1rem;
     color: var(--gold);
-    opacity: 0.6;
+    opacity: 0.7;
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 12px var(--glow, rgba(212, 175, 55, 0.25));
+    transition: text-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+/* Enhance arcana glow on hover */
+.venue-browse-card:hover .venue-card-symbol {
+    opacity: 0.9;
+    text-shadow:
+        0 0 15px var(--glow, rgba(212, 175, 55, 0.4)),
+        0 0 30px var(--glow-intense, rgba(212, 175, 55, 0.25));
 }
 
 .venue-browse-card .venue-name {
@@ -3558,7 +3568,7 @@ a.arcana-card:active {
     font-size: 2.2rem;
     color: var(--gold);
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 15px var(--glow, rgba(212, 175, 55, 0.3));
     line-height: 1;
     transition: all 0.4s ease;
 }
