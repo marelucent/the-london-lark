@@ -79,116 +79,139 @@
     --glow: rgba(244, 208, 63, 0.5);
     --glow-intense: rgba(244, 208, 63, 0.7);
     --arcana-border: var(--arcana-fool);
+    --icon-color: #f4d03f;
 }
 .arcana-curious-encounters {
     --glow: rgba(212, 175, 55, 0.5);
     --glow-intense: rgba(212, 175, 55, 0.7);
     --arcana-border: var(--arcana-magician);
+    --icon-color: #d4af37;
 }
 .arcana-witchy-wild {
     --glow: rgba(138, 79, 138, 0.6);
     --glow-intense: rgba(138, 79, 138, 0.8);
     --arcana-border: var(--arcana-priestess);
+    --icon-color: #a86fa8;
 }
 .arcana-folk-intimate {
     --glow: rgba(76, 140, 96, 0.55);
     --glow-intense: rgba(76, 140, 96, 0.75);
     --arcana-border: var(--arcana-empress);
+    --icon-color: #5a9f6a;
 }
 .arcana-thoughtful-stage {
     --glow: rgba(160, 82, 95, 0.55);
     --glow-intense: rgba(160, 82, 95, 0.75);
     --arcana-border: var(--arcana-emperor);
+    --icon-color: #b8626f;
 }
 .arcana-spiritual-sacred {
     --glow: rgba(212, 175, 55, 0.55);
     --glow-intense: rgba(212, 175, 55, 0.75);
     --arcana-border: var(--arcana-hierophant);
+    --icon-color: #d4af37;
 }
 .arcana-cabaret-glitter {
     --glow: rgba(233, 80, 140, 0.55);
     --glow-intense: rgba(233, 80, 140, 0.75);
     --arcana-border: var(--arcana-lovers);
+    --icon-color: #e9508c;
 }
 .arcana-big-night-out {
     --glow: rgba(60, 130, 255, 0.55);
     --glow-intense: rgba(60, 130, 255, 0.75);
     --arcana-border: var(--arcana-chariot);
+    --icon-color: #4a8fff;
 }
 .arcana-punchy-protest {
     --glow: rgba(230, 110, 50, 0.55);
     --glow-intense: rgba(230, 110, 50, 0.75);
     --arcana-border: var(--arcana-strength);
+    --icon-color: #e67e32;
 }
 .arcana-contemplative {
     --glow: rgba(130, 145, 165, 0.55);
     --glow-intense: rgba(130, 145, 165, 0.75);
     --arcana-border: var(--arcana-hermit);
+    --icon-color: #9aaab8;
 }
 .arcana-global-rhythms {
     --glow: rgba(240, 150, 70, 0.55);
     --glow-intense: rgba(240, 150, 70, 0.75);
     --arcana-border: var(--arcana-wheel);
+    --icon-color: #f0a050;
 }
 .arcana-rant-rapture {
     --glow: rgba(200, 70, 70, 0.55);
     --glow-intense: rgba(200, 70, 70, 0.75);
     --arcana-border: var(--arcana-justice);
+    --icon-color: #c85050;
 }
 .arcana-body-movement {
     --glow: rgba(130, 170, 190, 0.55);
     --glow-intense: rgba(130, 170, 190, 0.75);
     --arcana-border: var(--arcana-hanged);
+    --icon-color: #82aabe;
 }
 .arcana-grief-grace {
     --glow: rgba(100, 100, 130, 0.6);
     --glow-intense: rgba(100, 100, 130, 0.8);
     --arcana-border: #3c3c50;
+    --icon-color: #7a7a9a;
 }
 .arcana-word-voice {
     --glow: rgba(220, 200, 140, 0.55);
     --glow-intense: rgba(220, 200, 140, 0.75);
     --arcana-border: var(--arcana-temperance);
+    --icon-color: #dcc88c;
 }
 .arcana-late-night {
     --glow: rgba(180, 50, 50, 0.55);
     --glow-intense: rgba(180, 50, 50, 0.75);
     --arcana-border: var(--arcana-devil);
+    --icon-color: #c04040;
 }
 .arcana-melancholic {
     --glow: rgba(140, 155, 175, 0.55);
     --glow-intense: rgba(140, 155, 175, 0.75);
     --arcana-border: var(--arcana-tower);
+    --icon-color: #9aacbe;
 }
 .arcana-wonder-awe {
     --glow: rgba(80, 80, 140, 0.6);
     --glow-intense: rgba(100, 100, 170, 0.8);
     --arcana-border: #2a2a5a;
+    --icon-color: #6a6aaa;
 }
 .arcana-nostalgic-vintage {
     --glow: rgba(140, 155, 175, 0.55);
     --glow-intense: rgba(140, 155, 175, 0.75);
     --arcana-border: var(--arcana-moon);
+    --icon-color: #9aacbe;
 }
 .arcana-comic-relief {
     --glow: rgba(250, 210, 70, 0.55);
     --glow-intense: rgba(250, 210, 70, 0.75);
     --arcana-border: var(--arcana-sun);
+    --icon-color: #fad246;
 }
 .arcana-group-energy {
     --glow: rgba(120, 190, 240, 0.55);
     --glow-intense: rgba(120, 190, 240, 0.75);
     --arcana-border: var(--arcana-judgement);
+    --icon-color: #78bef0;
 }
 .arcana-queer-revelry {
     --glow: rgba(175, 110, 200, 0.55);
     --glow-intense: rgba(175, 110, 200, 0.75);
     --arcana-border: var(--arcana-world);
+    --icon-color: #af6ec8;
 }
 .arcana-romanticised-london {
     --glow: rgba(255, 190, 100, 0.55);
     --glow-intense: rgba(255, 190, 100, 0.75);
     --arcana-border: var(--arcana-lark);
+    --icon-color: #ffbe64;
 }
 
 /* Apply arcana border colour on hover */
@@ -1597,94 +1620,117 @@ a.arcana-card:active {
 [data-arcana="fool"] {
     --glow: rgba(244, 208, 63, 0.5);
     --glow-intense: rgba(244, 208, 63, 0.7);
+    --icon-color: #f4d03f;
 }
 [data-arcana="magician"] {
     --glow: rgba(212, 175, 55, 0.5);
     --glow-intense: rgba(212, 175, 55, 0.7);
+    --icon-color: #d4af37;
 }
 [data-arcana="priestess"] {
     --glow: rgba(138, 79, 138, 0.6);
     --glow-intense: rgba(138, 79, 138, 0.8);
+    --icon-color: #a86fa8;
 }
 [data-arcana="empress"] {
     --glow: rgba(76, 140, 96, 0.55);
     --glow-intense: rgba(76, 140, 96, 0.75);
+    --icon-color: #5a9f6a;
 }
 [data-arcana="emperor"] {
     --glow: rgba(160, 82, 95, 0.55);
     --glow-intense: rgba(160, 82, 95, 0.75);
+    --icon-color: #b8626f;
 }
 [data-arcana="hierophant"] {
     --glow: rgba(212, 175, 55, 0.55);
     --glow-intense: rgba(212, 175, 55, 0.75);
+    --icon-color: #d4af37;
 }
 [data-arcana="lovers"] {
     --glow: rgba(233, 80, 140, 0.55);
     --glow-intense: rgba(233, 80, 140, 0.75);
+    --icon-color: #e9508c;
 }
 [data-arcana="chariot"] {
     --glow: rgba(60, 130, 255, 0.55);
     --glow-intense: rgba(60, 130, 255, 0.75);
+    --icon-color: #4a8fff;
 }
 [data-arcana="strength"] {
     --glow: rgba(230, 110, 50, 0.55);
     --glow-intense: rgba(230, 110, 50, 0.75);
+    --icon-color: #e67e32;
 }
 [data-arcana="hermit"] {
     --glow: rgba(130, 145, 165, 0.55);
     --glow-intense: rgba(130, 145, 165, 0.75);
+    --icon-color: #9aaab8;
 }
 [data-arcana="wheel"] {
     --glow: rgba(240, 150, 70, 0.55);
     --glow-intense: rgba(240, 150, 70, 0.75);
+    --icon-color: #f0a050;
 }
 [data-arcana="justice"] {
     --glow: rgba(200, 70, 70, 0.55);
     --glow-intense: rgba(200, 70, 70, 0.75);
+    --icon-color: #c85050;
 }
 [data-arcana="hanged"] {
     --glow: rgba(130, 170, 190, 0.55);
     --glow-intense: rgba(130, 170, 190, 0.75);
+    --icon-color: #82aabe;
 }
 [data-arcana="death"] {
     --glow: rgba(100, 100, 130, 0.6);
     --glow-intense: rgba(100, 100, 130, 0.8);
+    --icon-color: #7a7a9a;
 }
 [data-arcana="temperance"] {
     --glow: rgba(220, 200, 140, 0.55);
     --glow-intense: rgba(220, 200, 140, 0.75);
+    --icon-color: #dcc88c;
 }
 [data-arcana="devil"] {
     --glow: rgba(180, 50, 50, 0.55);
     --glow-intense: rgba(180, 50, 50, 0.75);
+    --icon-color: #c04040;
 }
 [data-arcana="tower"] {
     --glow: rgba(140, 155, 175, 0.55);
     --glow-intense: rgba(140, 155, 175, 0.75);
+    --icon-color: #9aacbe;
 }
 [data-arcana="star"] {
     --glow: rgba(80, 80, 140, 0.6);
     --glow-intense: rgba(100, 100, 170, 0.8);
+    --icon-color: #6a6aaa;
 }
 [data-arcana="moon"] {
     --glow: rgba(140, 155, 175, 0.55);
     --glow-intense: rgba(140, 155, 175, 0.75);
+    --icon-color: #9aacbe;
 }
 [data-arcana="sun"] {
     --glow: rgba(250, 210, 70, 0.55);
     --glow-intense: rgba(250, 210, 70, 0.75);
+    --icon-color: #fad246;
 }
 [data-arcana="judgement"] {
     --glow: rgba(120, 190, 240, 0.55);
     --glow-intense: rgba(120, 190, 240, 0.75);
+    --icon-color: #78bef0;
 }
 [data-arcana="world"] {
     --glow: rgba(175, 110, 200, 0.55);
     --glow-intense: rgba(175, 110, 200, 0.75);
+    --icon-color: #af6ec8;
 }
 [data-arcana="lark"] {
     --glow: rgba(255, 190, 100, 0.55);
     --glow-intense: rgba(255, 190, 100, 0.75);
+    --icon-color: #ffbe64;
 }
 
 /* --------------------------------------------
@@ -2228,94 +2274,117 @@ a.arcana-card:active {
 [data-arcana="fool"] {
     --glow: rgba(244, 208, 63, 0.5);
     --glow-intense: rgba(244, 208, 63, 0.7);
+    --icon-color: #f4d03f;
 }
 [data-arcana="magician"] {
     --glow: rgba(212, 175, 55, 0.5);
     --glow-intense: rgba(212, 175, 55, 0.7);
+    --icon-color: #d4af37;
 }
 [data-arcana="priestess"] {
     --glow: rgba(138, 79, 138, 0.6);
     --glow-intense: rgba(138, 79, 138, 0.8);
+    --icon-color: #a86fa8;
 }
 [data-arcana="empress"] {
     --glow: rgba(76, 140, 96, 0.55);
     --glow-intense: rgba(76, 140, 96, 0.75);
+    --icon-color: #5a9f6a;
 }
 [data-arcana="emperor"] {
     --glow: rgba(160, 82, 95, 0.55);
     --glow-intense: rgba(160, 82, 95, 0.75);
+    --icon-color: #b8626f;
 }
 [data-arcana="hierophant"] {
     --glow: rgba(212, 175, 55, 0.55);
     --glow-intense: rgba(212, 175, 55, 0.75);
+    --icon-color: #d4af37;
 }
 [data-arcana="lovers"] {
     --glow: rgba(233, 80, 140, 0.55);
     --glow-intense: rgba(233, 80, 140, 0.75);
+    --icon-color: #e9508c;
 }
 [data-arcana="chariot"] {
     --glow: rgba(60, 130, 255, 0.55);
     --glow-intense: rgba(60, 130, 255, 0.75);
+    --icon-color: #4a8fff;
 }
 [data-arcana="strength"] {
     --glow: rgba(230, 110, 50, 0.55);
     --glow-intense: rgba(230, 110, 50, 0.75);
+    --icon-color: #e67e32;
 }
 [data-arcana="hermit"] {
     --glow: rgba(130, 145, 165, 0.55);
     --glow-intense: rgba(130, 145, 165, 0.75);
+    --icon-color: #9aaab8;
 }
 [data-arcana="wheel"] {
     --glow: rgba(240, 150, 70, 0.55);
     --glow-intense: rgba(240, 150, 70, 0.75);
+    --icon-color: #f0a050;
 }
 [data-arcana="justice"] {
     --glow: rgba(200, 70, 70, 0.55);
     --glow-intense: rgba(200, 70, 70, 0.75);
+    --icon-color: #c85050;
 }
 [data-arcana="hanged"] {
     --glow: rgba(130, 170, 190, 0.55);
     --glow-intense: rgba(130, 170, 190, 0.75);
+    --icon-color: #82aabe;
 }
 [data-arcana="death"] {
     --glow: rgba(100, 100, 130, 0.6);
     --glow-intense: rgba(100, 100, 130, 0.8);
+    --icon-color: #7a7a9a;
 }
 [data-arcana="temperance"] {
     --glow: rgba(220, 200, 140, 0.55);
     --glow-intense: rgba(220, 200, 140, 0.75);
+    --icon-color: #dcc88c;
 }
 [data-arcana="devil"] {
     --glow: rgba(180, 50, 50, 0.55);
     --glow-intense: rgba(180, 50, 50, 0.75);
+    --icon-color: #c04040;
 }
 [data-arcana="tower"] {
     --glow: rgba(140, 155, 175, 0.55);
     --glow-intense: rgba(140, 155, 175, 0.75);
+    --icon-color: #9aacbe;
 }
 [data-arcana="star"] {
     --glow: rgba(80, 80, 140, 0.6);
     --glow-intense: rgba(100, 100, 170, 0.8);
+    --icon-color: #6a6aaa;
 }
 [data-arcana="moon"] {
     --glow: rgba(140, 155, 175, 0.55);
     --glow-intense: rgba(140, 155, 175, 0.75);
+    --icon-color: #9aacbe;
 }
 [data-arcana="sun"] {
     --glow: rgba(250, 210, 70, 0.55);
     --glow-intense: rgba(250, 210, 70, 0.75);
+    --icon-color: #fad246;
 }
 [data-arcana="judgement"] {
     --glow: rgba(120, 190, 240, 0.55);
     --glow-intense: rgba(120, 190, 240, 0.75);
+    --icon-color: #78bef0;
 }
 [data-arcana="world"] {
     --glow: rgba(175, 110, 200, 0.55);
     --glow-intense: rgba(175, 110, 200, 0.75);
+    --icon-color: #af6ec8;
 }
 [data-arcana="lark"] {
     --glow: rgba(255, 190, 100, 0.55);
     --glow-intense: rgba(255, 190, 100, 0.75);
+    --icon-color: #ffbe64;
 }
 
 /* --------------------------------------------
@@ -3457,11 +3526,12 @@ a.arcana-card:active {
     text-shadow:
         0 0 8px var(--glow, rgba(212, 175, 55, 0.5)),
         0 0 18px var(--glow, rgba(212, 175, 55, 0.35));
-    transition: text-shadow 0.3s ease, opacity 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease, opacity 0.3s ease;
 }
 
-/* Enhance arcana glow on hover */
+/* On hover: icon shifts to arcana color with intensified glow */
 .venue-browse-card:hover .venue-card-symbol {
+    color: var(--icon-color, var(--gold));
     opacity: 0.9;
     text-shadow:
         0 0 10px var(--glow-intense, rgba(212, 175, 55, 0.7)),
@@ -3598,7 +3668,7 @@ a.arcana-card:active {
         0 0 20px var(--glow, rgba(212, 175, 55, 0.4)),
         0 0 35px var(--glow, rgba(212, 175, 55, 0.25));
     line-height: 1;
-    transition: all 0.4s ease;
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .card-lg .arcana-symbol {
@@ -3606,8 +3676,9 @@ a.arcana-card:active {
     margin-bottom: 0.8rem;
 }
 
-/* Intensified glow on hover */
+/* On hover: icon shifts to arcana color with intensified glow */
 .arcana-card:hover .arcana-symbol {
+    color: var(--icon-color, var(--gold));
     text-shadow:
         0 0 10px var(--glow-intense, rgba(212, 175, 55, 0.7)),
         0 0 25px var(--glow-intense, rgba(212, 175, 55, 0.5)),

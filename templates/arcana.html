@@ -248,10 +248,11 @@
             text-shadow:
                 0 0 8px var(--glow, rgba(212, 175, 55, 0.5)),
                 0 0 18px var(--glow, rgba(212, 175, 55, 0.35));
-            transition: text-shadow 0.3s ease, opacity 0.3s ease;
+            transition: color 0.3s ease, text-shadow 0.3s ease, opacity 0.3s ease;
         }
 
         .venue-card:hover .venue-card-symbol {
+            color: var(--icon-color, var(--gold));
             opacity: 0.9;
             text-shadow:
                 0 0 10px var(--glow-intense, rgba(212, 175, 55, 0.7)),
