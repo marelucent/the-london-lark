@@ -5,7 +5,7 @@
 /* ============================================
    GOOGLE FONTS
    ============================================ */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+SC:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IM+Fell+English+SC&display=swap');
 
 /* ============================================
    CSS VARIABLES - THE LARK'S DESIGN SYSTEM
@@ -310,6 +310,23 @@ h1 {
     text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
     white-space: nowrap;
 }
+
+/* === FONT TEST OPTIONS === */
+/* Add one of these classes to h1 to test different title fonts */
+h1.font-cinzel-decorative {
+    font-family: 'Cinzel Decorative', serif;
+    letter-spacing: 0.15em;
+}
+h1.font-cormorant-sc {
+    font-family: 'Cormorant SC', serif;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+}
+h1.font-im-fell {
+    font-family: 'IM Fell English SC', serif;
+    letter-spacing: 0.12em;
+}
+/* === END FONT TEST === */
 
 .tagline {
     font-family: var(--font-whisper);
