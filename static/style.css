@@ -3862,3 +3862,91 @@ button {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
 }
+
+/* ===========================
+   HERO ALTAR PLATE + VIGNETTE
+   =========================== */
+
+.view.active { position: relative; }
+
+#entranceView.view.active::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 18%,
+      rgba(0,0,0,0.05) 0%,
+      rgba(0,0,0,0.35) 55%,
+      rgba(0,0,0,0.62) 100%);
+}
+
+/* Ensure content sits above the vignette overlay */
+#entranceView .entrance-content,
+#askView .ask-container,
+header { position: relative; z-index: 1; }
+
+/* The "altar" */
+.hero-plate{
+  margin: 2.2rem auto 0;
+  padding: 2rem 2rem;
+  max-width: 640px;
+  background: rgba(10, 8, 7, 0.44);
+  border: 1px solid rgba(212,175,55,0.22);
+  border-radius: 18px;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.38);
+  backdrop-filter: blur(6px);
+}
+
+/* Mobile breathing space */
+@media (max-width: 600px){
+  .hero-plate{
+    padding: 1.4rem 1.2rem;
+    border-radius: 14px;
+    max-width: 92%;
+  }
+}
+
+/* Quote legibility */
+#entranceView .lark-headline{
+  text-shadow: 0 1px 12px rgba(0,0,0,0.40);
+}
+
+/* Input: "relic", not default textbox */
+#entranceView textarea,
+#askView textarea{
+  background: rgba(0,0,0,0.26);
+  border: 1px solid rgba(212,175,55,0.25);
+  color: rgba(245,240,230,0.92);
+}
+
+#entranceView textarea::placeholder,
+#askView textarea::placeholder{
+  color: rgba(245,240,230,0.55);
+}
+
+#entranceView textarea:focus,
+#askView textarea:focus{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.16);
+  border-color: rgba(212,175,55,0.46);
+}
+
+/* Button: subtle wax-seal motion */
+#entranceView button,
+#askView button{
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+#entranceView button:hover,
+#askView button:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+#entranceView button:active,
+#askView button:active{
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
