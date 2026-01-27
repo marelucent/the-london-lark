@@ -3950,3 +3950,458 @@ header { position: relative; z-index: 1; }
   transform: translateY(0);
   filter: brightness(0.98);
 }
+
+/* ============================================
+   BROWSE CHOICE FLOW
+   ============================================ */
+
+/* Browse Choice Container */
+.browse-choice-container {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.browse-choice-title {
+    font-family: 'Cinzel Decorative', var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    margin-bottom: 2.5rem;
+}
+
+/* Choice Cards Grid */
+.choice-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.choice-card {
+    width: 260px;
+    background: var(--parchment-dark);
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(212, 175, 55, 0.08);
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.choice-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        0 0 35px rgba(212, 175, 55, 0.2),
+        0 0 60px rgba(212, 175, 55, 0.1);
+}
+
+/* Choice card corners */
+.choice-card::before,
+.choice-card::after,
+.choice-card .corner-tr,
+.choice-card .corner-bl {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: var(--gold-dim);
+    border-style: solid;
+    transition: border-color 0.4s ease;
+    pointer-events: none;
+}
+
+.choice-card::before {
+    content: '';
+    top: 12px;
+    left: 12px;
+    border-width: 1px 0 0 1px;
+}
+
+.choice-card::after {
+    content: '';
+    bottom: 12px;
+    right: 12px;
+    border-width: 0 1px 1px 0;
+}
+
+.choice-card .corner-tr {
+    top: 12px;
+    right: 12px;
+    border-width: 1px 1px 0 0;
+}
+
+.choice-card .corner-bl {
+    bottom: 12px;
+    left: 12px;
+    border-width: 0 0 1px 1px;
+}
+
+.choice-card:hover::before,
+.choice-card:hover::after,
+.choice-card:hover .corner-tr,
+.choice-card:hover .corner-bl {
+    border-color: var(--gold);
+}
+
+.choice-card-icon {
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    opacity: 0.85;
+}
+
+.choice-card-title {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--cream);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.8rem;
+}
+
+.choice-card-whisper {
+    font-family: var(--font-whisper);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--candlelight);
+    opacity: 0.75;
+    line-height: 1.5;
+}
+
+/* Escape hatch */
+.browse-escape {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--tobacco);
+}
+
+.escape-text {
+    font-family: var(--font-whisper);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--candlelight);
+    opacity: 0.6;
+}
+
+.escape-link {
+    font-family: var(--font-whisper);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--gold);
+    text-decoration: none;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.escape-link:hover {
+    color: var(--cream);
+    text-decoration: underline;
+}
+
+/* ============================================
+   MYSTERY DRAW VIEW
+   ============================================ */
+
+.mystery-draw-container {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mystery-header {
+    font-family: 'Cinzel Decorative', var(--font-title);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--candlelight);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+}
+
+.mystery-header::before,
+.mystery-header::after {
+    content: '◇';
+    margin: 0 0.8rem;
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+.mystery-cards {
+    margin-bottom: 2rem;
+}
+
+.shuffle-button {
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-family: var(--font-whisper);
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.shuffle-button:hover {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.08);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.shuffle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.shuffle-button:hover .shuffle-icon {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   VOICE FAMILIES VIEW
+   ============================================ */
+
+.families-container {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.families-header {
+    font-family: 'Cinzel Decorative', var(--font-title);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    margin-bottom: 2rem;
+}
+
+.family-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+}
+
+.family-card {
+    background: var(--parchment-dark);
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(212, 175, 55, 0.06);
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.family-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+/* Family card corners */
+.family-card::before,
+.family-card::after,
+.family-card .corner-tr,
+.family-card .corner-bl {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--gold-dim);
+    border-style: solid;
+    transition: border-color 0.4s ease;
+    pointer-events: none;
+}
+
+.family-card::before {
+    content: '';
+    top: 10px;
+    left: 10px;
+    border-width: 1px 0 0 1px;
+}
+
+.family-card::after {
+    content: '';
+    bottom: 10px;
+    right: 10px;
+    border-width: 0 1px 1px 0;
+}
+
+.family-card .corner-tr {
+    top: 10px;
+    right: 10px;
+    border-width: 1px 1px 0 0;
+}
+
+.family-card .corner-bl {
+    bottom: 10px;
+    left: 10px;
+    border-width: 0 0 1px 1px;
+}
+
+.family-card:hover::before,
+.family-card:hover::after,
+.family-card:hover .corner-tr,
+.family-card:hover .corner-bl {
+    border-color: var(--gold);
+}
+
+.family-symbol {
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    opacity: 0.9;
+}
+
+.family-name {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+}
+
+.family-whisper {
+    font-family: var(--font-whisper);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--candlelight);
+    opacity: 0.7;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.family-count {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--candlelight);
+    opacity: 0.45;
+}
+
+/* ============================================
+   FAMILY ARCANA VIEW
+   ============================================ */
+
+.family-arcana-container {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.family-arcana-header {
+    margin-bottom: 2rem;
+}
+
+.family-arcana-symbol {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    opacity: 0.85;
+}
+
+.family-arcana-title {
+    font-family: 'Cinzel Decorative', var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.family-arcana-whisper {
+    font-family: var(--font-whisper);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--candlelight);
+    opacity: 0.7;
+}
+
+.family-arcana-cards {
+    margin-bottom: 2rem;
+}
+
+/* ============================================
+   BROWSE FLOW RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .browse-choice-title,
+    .mystery-header,
+    .families-header,
+    .family-arcana-title {
+        font-size: 1.2rem;
+    }
+
+    .choice-cards {
+        gap: 1rem;
+    }
+
+    .choice-card {
+        width: 100%;
+        max-width: 280px;
+        padding: 1.5rem 1.2rem;
+    }
+
+    .choice-card-icon {
+        font-size: 1.8rem;
+    }
+
+    .choice-card-title {
+        font-size: 1rem;
+    }
+
+    .family-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .family-card {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .family-symbol {
+        font-size: 1.4rem;
+    }
+
+    .family-name {
+        font-size: 0.9rem;
+    }
+
+    .family-whisper {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .choice-card {
+        max-width: 100%;
+    }
+
+    .family-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}

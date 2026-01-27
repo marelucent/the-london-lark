@@ -1039,19 +1039,80 @@
                 </div>
             </section>
 
-            <!-- BROWSE THE DECK VIEW -->
+            <!-- BROWSE CHOICE VIEW (new landing for Browse the Deck) -->
+            <section id="browseChoiceView" class="view">
+                <div class="browse-choice-container">
+                    <h2 class="browse-choice-title">How would you like to wander?</h2>
+                    <div class="choice-cards" id="choiceCards">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <div class="browse-escape">
+                        <span class="escape-text">Or just tell me what you're seeking.</span>
+                        <a href="#" onclick="choosePath('ask'); return false;" class="escape-link">Ask the Lark</a>
+                    </div>
+                    <div class="browse-actions">
+                        <button class="action-btn secondary" onclick="returnToEntrance()">Back</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MYSTERY DRAW VIEW (random cards) -->
+            <section id="mysteryDrawView" class="view">
+                <div class="mystery-draw-container">
+                    <h2 class="mystery-header">Fate has chosen</h2>
+                    <div class="mystery-cards arcana-grid" id="mysteryCards">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <button class="shuffle-button" onclick="shuffleAndDrawCards()">
+                        <span class="shuffle-icon">↻</span> Shuffle again
+                    </button>
+                    <div class="browse-actions">
+                        <button class="action-btn secondary" onclick="showBrowseChoice()">Back to paths</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VOICE FAMILIES VIEW -->
+            <section id="voiceFamiliesView" class="view">
+                <div class="families-container">
+                    <h2 class="families-header">Eight temperaments await</h2>
+                    <div class="family-cards" id="familyCards">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <div class="browse-actions">
+                        <button class="action-btn secondary" onclick="showBrowseChoice()">Back to paths</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAMILY ARCANA VIEW -->
+            <section id="familyArcanaView" class="view">
+                <div class="family-arcana-container">
+                    <div class="family-arcana-header" id="familyArcanaHeader">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <div class="family-arcana-cards arcana-grid" id="familyArcanaCards">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <div class="browse-actions">
+                        <button class="action-btn secondary" onclick="showVoiceFamilies()">Back to families</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BROWSE THE DECK VIEW (full deck) -->
             <section id="browseView" class="view">
                 <div class="browse-container">
                     <p class="browse-prompt">The Full Deck</p>
                     <p class="browse-subtext">23 paths through London's soul. Choose your arcana.</p>
-                    
+
                     <!-- Arcana Grid -->
                     <div class="arcana-grid" id="arcanaGrid">
                         <!-- Populated dynamically -->
                     </div>
-                    
+
                     <div class="browse-actions">
-                        <button class="action-btn secondary" onclick="returnToEntrance()">Back</button>
+                        <button class="action-btn secondary" onclick="showBrowseChoice()">Back to paths</button>
                     </div>
                 </div>
             </section>
@@ -1184,6 +1245,50 @@
             'Romanticised London': { number: '✦', name: 'THE LARK', symbol: '❦' }
         };
 
+        // Voice Families - 8 temperaments grouping the arcana
+        const VOICE_FAMILIES = {
+            'Mythic': {
+                whisper: 'ancient, veiled, otherworldly',
+                symbol: '𓂀',
+                arcana: ['Witchy & Wild', 'Spiritual / Sacred / Mystical']
+            },
+            'Velvet': {
+                whisper: 'glamorous, intimate, winking',
+                symbol: '⚯',
+                arcana: ['Cabaret & Glitter', 'Late-Night Lark', 'Nostalgic / Vintage / Retro', 'Romanticised London']
+            },
+            'Wild': {
+                whisper: 'urgent, electric, alive',
+                symbol: '→',
+                arcana: ['Big Night Out', 'Punchy / Protest', 'Queer Revelry', 'Group Energy']
+            },
+            'Tender': {
+                whisper: 'warm, soft, belonging',
+                symbol: '⚘',
+                arcana: ['Folk & Intimate', 'Comic Relief', 'Wonder & Awe']
+            },
+            'Curious': {
+                whisper: 'strange, playful, experimental',
+                symbol: '◌',
+                arcana: ['Playful & Weird', 'Curious Encounters', 'Body-Based / Movement-Led']
+            },
+            'Sharp': {
+                whisper: 'precise, burning, intellectual',
+                symbol: '◆',
+                arcana: ['The Thoughtful Stage', 'Rant & Rapture', 'Word & Voice']
+            },
+            'Global': {
+                whisper: 'rhythmic, expansive, worldly',
+                symbol: '◎',
+                arcana: ['Global Rhythms', 'Melancholic Beauty']
+            },
+            'Threshold': {
+                whisper: 'liminal, quiet, held',
+                symbol: '✿',
+                arcana: ['Grief & Grace', 'Contemplative & Meditative']
+            }
+        };
+
         // Arcana whispers (taglines for each card)
         const arcanaWhispers = {
             'Playful & Weird': "Fall sideways into something strange",
@@ -1279,8 +1384,7 @@
                     break;
                 case 'browse':
                     markAsVisited();
-                    showView('browse');
-                    loadFullDeck();
+                    showBrowseChoice();
                     stopPlaceholderCycle();
                     break;
             }
@@ -1430,6 +1534,250 @@
             `;
             
             return card;
+        }
+
+        // ============================================
+        // BROWSE CHOICE FLOW
+        // ============================================
+
+        // Show the browse choice screen
+        function showBrowseChoice() {
+            showView('browseChoice');
+            renderBrowseChoiceCards();
+        }
+
+        // Render the 3 choice cards
+        function renderBrowseChoiceCards() {
+            const container = document.getElementById('choiceCards');
+            const choices = [
+                {
+                    id: 'mystery',
+                    icon: '◇',
+                    title: 'Dip into mystery',
+                    whisper: 'a handful of cards, fate-chosen',
+                    action: () => showMysteryDraw()
+                },
+                {
+                    id: 'thread',
+                    icon: '⟡',
+                    title: 'Follow a thread',
+                    whisper: 'eight temperaments, each with its own doors',
+                    action: () => showVoiceFamilies()
+                },
+                {
+                    id: 'everything',
+                    icon: '☰',
+                    title: 'See everything',
+                    whisper: 'the full deck, spread on velvet',
+                    action: () => { showView('browse'); loadFullDeck(); }
+                }
+            ];
+
+            container.innerHTML = '';
+            choices.forEach((choice, index) => {
+                const card = document.createElement('div');
+                card.className = 'choice-card';
+                card.style.animationDelay = `${index * 100}ms`;
+                card.onclick = choice.action;
+                card.innerHTML = `
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
+                    <div class="choice-card-icon">${choice.icon}</div>
+                    <div class="choice-card-title">${choice.title}</div>
+                    <div class="choice-card-whisper">${choice.whisper}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ============================================
+        // MYSTERY DRAW (Random Cards)
+        // ============================================
+
+        let mysteryDeckData = null; // Cache for arcana data
+
+        function showMysteryDraw() {
+            showView('mysteryDraw');
+            shuffleAndDrawCards();
+        }
+
+        async function shuffleAndDrawCards() {
+            const container = document.getElementById('mysteryCards');
+            container.innerHTML = '<p class="loading-deck">The deck stirs...</p>';
+
+            try {
+                // Fetch arcana data if not cached
+                if (!mysteryDeckData) {
+                    const response = await fetch('/api/arcana');
+                    mysteryDeckData = await response.json();
+                }
+
+                if (mysteryDeckData.error) {
+                    container.innerHTML = '<p class="error-state">The deck scattered... try again?</p>';
+                    return;
+                }
+
+                // Shuffle and pick 6-8 random cards
+                const shuffled = [...mysteryDeckData.arcana].sort(() => Math.random() - 0.5);
+                const count = Math.floor(Math.random() * 3) + 6; // 6, 7, or 8 cards
+                const drawn = shuffled.slice(0, count);
+
+                // Render cards
+                container.innerHTML = '';
+                drawn.forEach((arcanaData, index) => {
+                    const card = createMysteryCard(arcanaData, index);
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                container.innerHTML = `<p class="error-state">Something went awry: ${error.message}</p>`;
+            }
+        }
+
+        function createMysteryCard(arcanaData, index) {
+            const arcana = arcanaMap[arcanaData.mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
+            const arcanaColourClass = getArcanaColourClass(arcanaData.mood);
+
+            const card = document.createElement('a');
+            card.href = `/arcana/${arcanaData.slug}`;
+            card.className = `arcana-card card-sm ${arcanaColourClass}`;
+            card.style.animationDelay = `${index * 60}ms`;
+
+            card.innerHTML = `
+                <span class="corner-tr"></span>
+                <span class="corner-bl"></span>
+                <div class="card-inner">
+                    <div class="arcana-symbol">${arcana.symbol}</div>
+                    <div class="arcana-number">${arcana.number}</div>
+                    <div class="arcana-name">${arcana.name}</div>
+                    <div class="arcana-mood">${arcanaData.mood}</div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // ============================================
+        // VOICE FAMILIES (Follow a Thread)
+        // ============================================
+
+        let familyVenueCounts = null; // Cache for venue counts
+
+        async function showVoiceFamilies() {
+            showView('voiceFamilies');
+            await renderFamilyCards();
+        }
+
+        async function renderFamilyCards() {
+            const container = document.getElementById('familyCards');
+            container.innerHTML = '<p class="loading-deck">Gathering temperaments...</p>';
+
+            try {
+                // Fetch arcana data to get venue counts
+                if (!familyVenueCounts) {
+                    const response = await fetch('/api/arcana');
+                    const data = await response.json();
+                    if (!data.error) {
+                        familyVenueCounts = {};
+                        data.arcana.forEach(a => {
+                            familyVenueCounts[a.mood] = a.venue_count;
+                        });
+                    }
+                }
+
+                container.innerHTML = '';
+                const familyNames = Object.keys(VOICE_FAMILIES);
+
+                familyNames.forEach((familyName, index) => {
+                    const family = VOICE_FAMILIES[familyName];
+                    const doorCount = family.arcana.length;
+
+                    const card = document.createElement('div');
+                    card.className = 'family-card';
+                    card.style.animationDelay = `${index * 80}ms`;
+                    card.onclick = () => showFamilyArcana(familyName);
+
+                    card.innerHTML = `
+                        <span class="corner-tr"></span>
+                        <span class="corner-bl"></span>
+                        <div class="family-symbol">${family.symbol}</div>
+                        <div class="family-name">${familyName}</div>
+                        <div class="family-whisper">${family.whisper}</div>
+                        <div class="family-count">${doorCount} door${doorCount !== 1 ? 's' : ''}</div>
+                    `;
+
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                container.innerHTML = `<p class="error-state">Something went awry: ${error.message}</p>`;
+            }
+        }
+
+        async function showFamilyArcana(familyName) {
+            showView('familyArcana');
+            await renderFamilyArcanaCards(familyName);
+        }
+
+        async function renderFamilyArcanaCards(familyName) {
+            const family = VOICE_FAMILIES[familyName];
+            const headerContainer = document.getElementById('familyArcanaHeader');
+            const cardsContainer = document.getElementById('familyArcanaCards');
+
+            // Render header
+            headerContainer.innerHTML = `
+                <div class="family-arcana-symbol">${family.symbol}</div>
+                <h2 class="family-arcana-title">${familyName}</h2>
+                <p class="family-arcana-whisper">${family.whisper}</p>
+            `;
+
+            cardsContainer.innerHTML = '<p class="loading-deck">Opening doors...</p>';
+
+            try {
+                // Fetch arcana data if not cached
+                if (!mysteryDeckData) {
+                    const response = await fetch('/api/arcana');
+                    mysteryDeckData = await response.json();
+                }
+
+                if (mysteryDeckData.error) {
+                    cardsContainer.innerHTML = '<p class="error-state">The doors wouldn\'t open... try again?</p>';
+                    return;
+                }
+
+                cardsContainer.innerHTML = '';
+
+                // Filter and render arcana for this family
+                family.arcana.forEach((mood, index) => {
+                    const arcanaData = mysteryDeckData.arcana.find(a => a.mood === mood);
+                    if (arcanaData) {
+                        const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
+                        const arcanaColourClass = getArcanaColourClass(mood);
+
+                        const card = document.createElement('a');
+                        card.href = `/arcana/${arcanaData.slug}`;
+                        card.className = `arcana-card card-sm ${arcanaColourClass}`;
+                        card.style.animationDelay = `${index * 80}ms`;
+
+                        card.innerHTML = `
+                            <span class="corner-tr"></span>
+                            <span class="corner-bl"></span>
+                            <div class="card-inner">
+                                <div class="arcana-symbol">${arcana.symbol}</div>
+                                <div class="arcana-number">${arcana.number}</div>
+                                <div class="arcana-name">${arcana.name}</div>
+                                <div class="arcana-mood">${mood}</div>
+                                <div class="arcana-count">${arcanaData.venue_count} venues</div>
+                            </div>
+                        `;
+
+                        cardsContainer.appendChild(card);
+                    }
+                });
+
+            } catch (error) {
+                cardsContainer.innerHTML = `<p class="error-state">Something went awry: ${error.message}</p>`;
+            }
         }
 
         // ============================================
