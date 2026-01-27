@@ -208,7 +208,7 @@
 body {
     font-family: var(--font-body);
     background-color: var(--midnight-deep);
-    background-image: url('images/background.JPG');
+    background-image: url('images/bg.jpg');
     background-size: cover;
     background-position: top right;
     background-attachment: fixed;
