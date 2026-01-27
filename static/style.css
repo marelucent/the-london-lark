@@ -3237,6 +3237,7 @@ a.arcana-card:active {
     padding: 1.5rem 0 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: start;
 }
 
 @media (min-width: 600px) {
@@ -3391,6 +3392,7 @@ a.arcana-card:active {
     padding: 1rem 0;
     max-width: 1000px;
     margin: 0 auto;
+    align-items: start;
 }
 
 @media (min-width: 700px) {
