@@ -3,17 +3,18 @@
 Poetic Templates for The London Lark (v2)
 
 The Lark's voice shifts based on the arcana/mood being queried.
-23 distinct voices + 1 care pathway voice, organized into 8 voice families.
+23 distinct voices + 1 care pathway voice, organized into 9 voice families.
 
 Voice Families:
 1. MYTHIC — Ancient, ritualistic, veiled
-2. VELVET — Seductive, glamorous, winking
-3. WILD — Urgent, electric, transformative
-4. TENDER — Warm, soft, inclusive
-5. CURIOUS — Playful, strange, experimental
-6. SHARP — Precise, intellectual, burning
-7. GLOBAL — Rhythmic, expansive, connected
-8. HOLDING — Gentle, present, unhurried (for care pathways)
+2. THRESHOLD — Liminal, quiet, held
+3. VELVET — Seductive, glamorous, winking
+4. WILD — Urgent, electric, transformative
+5. TENDER — Warm, soft, inclusive
+6. CURIOUS — Playful, strange, experimental
+7. SHARP — Precise, intellectual, burning
+8. GLOBAL — Rhythmic, expansive, connected
+9. HOLDING — Gentle, present, unhurried (for care pathways)
 """
 
 import random
@@ -87,61 +88,65 @@ ARCANA_VOICES = {
         ],
     },
 
+    # ──────────────────────────────────────────────────────────────────────────
+    # THRESHOLD FAMILY — Liminal, quiet, held
+    # ──────────────────────────────────────────────────────────────────────────
+
     "Grief & Grace": {
-        "family": "MYTHIC",
+        "family": "THRESHOLD",
         "arcana": "XIII · Death",
         "description": "Tender, solemn, transformative. Where endings become beginnings.",
         "openings": [
-            "Some sorrows need company to become bearable.",
-            "Grief is not a problem to solve. It's a country to cross.",
-            "The heart breaks open, not apart. There's a difference.",
-            "Loss leaves a space. Sometimes that space becomes a door.",
-            "To mourn fully is to love fully. Both take courage.",
-            "The dead stay with us, you know. Just differently.",
-            "Sorrow, witnessed, becomes something almost holy.",
-            "Not all heaviness needs lifting. Some needs holding.",
+            "Some doors are for sitting with what's been lost.",
+            "Grief has its own geography. Let me show you.",
+            "There are rooms where sorrow is allowed to breathe.",
+            "You don't have to be okay here.",
+            "The city holds spaces for what hurts. Shall I show you one?",
+            "Some places know how to hold the heavy things.",
+            "This is tender ground. I'll walk softly.",
+            "Loss has its own doors. These are some of them.",
         ],
         "venue_intros": [
-            "A space to hold your sorrow:",
-            "Where grief finds company:",
-            "For the tender-hearted:",
-            "The gentle ones gather at",
-            "A refuge for mourning:",
-            "Where loss is welcome:",
+            "This one knows how to hold sorrow.",
+            "A place where grief is welcome at the table.",
+            "They understand what it is to carry something.",
+            "Here, you can bring your whole self — even the heavy parts.",
+            "Some places are built for what can't be fixed, only witnessed.",
+            "A room for the kind of quiet that comes after.",
         ],
         "rejections": [
-            "The grief-tenders are resting tonight, petal. Your sorrow is still valid.",
-            "No mourning circle appeared. But the morning will come.",
-            "I sought the tender spaces but they're closed tonight. Hold on.",
+            "I don't have quite the right door for that. But I'm still here.",
+            "My map doesn't reach there yet. Can you tell me more about what you need?",
+            "That's beyond my edges for now. But let's see what's nearby.",
         ],
     },
 
     "Contemplative & Meditative": {
-        "family": "MYTHIC",
+        "family": "THRESHOLD",
         "arcana": "IX · The Hermit",
         "description": "Still, deep, lantern-lit. The quiet that restores.",
         "openings": [
-            "Sometimes the loudest thing you can do is be still.",
-            "The noise will wait. It always does. Come, be quiet for a while.",
-            "Stillness isn't emptiness. It's fullness, waiting to be noticed.",
-            "The answers aren't out there. They're in here. In the hush.",
-            "Your nervous system is begging for mercy. I know a place.",
-            "The world is so loud. Let's find where it's quiet.",
-            "Rest isn't laziness. It's revolution.",
-            "Breathe. Again. There. That's the beginning.",
+            "Some doors open inward.",
+            "Stillness is harder to find than it should be. I know where it lives.",
+            "There are rooms where silence is the whole point.",
+            "The city is loud. But not everywhere.",
+            "Sometimes you need to disappear for a while. I understand.",
+            "Retreat isn't running away. It's turning toward yourself.",
+            "I know places where the noise stops.",
+            "Solitude can be a gift, if you find the right room for it.",
         ],
         "venue_intros": [
-            "A sanctuary of stillness:",
-            "Where quiet lives:",
-            "I've found the hush:",
-            "For your weary mind:",
-            "Silence gathers at",
-            "The calm waits at",
+            "Silence lives here.",
+            "A place to hear yourself think. Or not think at all.",
+            "The world gets very far away in here.",
+            "Stillness, offered without explanation.",
+            "Sometimes the best thing is a room that asks nothing of you.",
+            "A threshold between the noise and something softer.",
         ],
         "rejections": [
-            "Even the quiet places are full tonight, petal. Try the dawn.",
-            "No still waters found. The world is too stirred up just now.",
-            "I sought the silence but it's hiding. Tomorrow will be calmer.",
+            "I don't have quite the right door for that. But I'm still here.",
+            "My map doesn't reach there yet. Can you tell me more about what you need?",
+            "That's beyond my edges for now. But let's see what's nearby.",
         ],
     },
 
@@ -842,7 +847,12 @@ VOICE_FAMILIES = {
     "MYTHIC": {
         "description": "Ancient, ritualistic, veiled",
         "energy": "The old ways, the sacred, the liminal",
-        "arcana": ["Witchy & Wild", "Spiritual / Sacred / Mystical", "Grief & Grace", "Contemplative & Meditative"],
+        "arcana": ["Witchy & Wild", "Spiritual / Sacred / Mystical"],
+    },
+    "THRESHOLD": {
+        "description": "Liminal, quiet, held",
+        "energy": "For the spaces between",
+        "arcana": ["Grief & Grace", "Contemplative & Meditative"],
     },
     "VELVET": {
         "description": "Seductive, glamorous, winking",
@@ -1042,7 +1052,7 @@ def generate_surprise_response(venue: Dict) -> str:
 
 if __name__ == "__main__":
     print("=" * 70)
-    print("  THE LARK'S 8 VOICE FAMILIES — TEST")
+    print("  THE LARK'S 9 VOICE FAMILIES — TEST")
     print("=" * 70)
 
     # Show all families and their arcana
@@ -1086,5 +1096,5 @@ if __name__ == "__main__":
             print(f"  Footer: \"{get_resources_footer(tier)}\"")
 
     print("\n" + "=" * 70)
-    print("  All 8 voice families ready! 🕊️")
+    print("  All 9 voice families ready! 🕊️")
     print("=" * 70)
