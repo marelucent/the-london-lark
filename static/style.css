@@ -316,6 +316,15 @@ h1 {
     white-space: nowrap;
 }
 
+/* Header title image */
+.header-title-img {
+    display: block;
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+    margin: 0 auto 1rem auto;
+}
+
 /* === FONT TEST OPTIONS === */
 /* Add one of these classes to h1 to test different title fonts */
 h1.font-cinzel-decorative {

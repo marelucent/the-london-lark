@@ -922,7 +922,11 @@
         
         <!-- HEADER - The Lark's Mark -->
         <header>
-            <h1 class="font-cinzel-decorative" onclick="returnToEntrance()" style="cursor: pointer;">THE LONDON LARK</h1>
+            <img src="{{ url_for('static', filename='images/header_cropped.png') }}"
+                 alt="The London Lark"
+                 class="header-title-img"
+                 onclick="returnToEntrance()"
+                 style="cursor: pointer;">
         </header>
 
         <!-- MAIN CONTENT AREA -->
