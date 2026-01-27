@@ -2679,7 +2679,7 @@ a.arcana-card:active {
     width: 200px !important;
     min-width: 200px;
     max-width: 200px;
-    min-height: 260px;
+    height: 280px;
     cursor: pointer;
     transition: all 0.4s ease;
     animation: fadeSlideIn 0.5s ease forwards;
@@ -2689,6 +2689,14 @@ a.arcana-card:active {
     /* Prevent content overflow */
     overflow: hidden;
     box-sizing: border-box;
+}
+
+/* Truncate venue name for consistent card height */
+.venue-card-result:not(.card-lg) .venue-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Expanded card */
@@ -2728,6 +2736,14 @@ a.arcana-card:active {
     color: var(--cream);
     line-height: 1.7;
     margin-top: 0.8rem;
+}
+
+/* Truncate blurb in compact view for consistent card heights */
+.venue-card-result:not(.card-lg) .venue-blurb {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Preamble, safety boxes, bridge, and intro text should span full width */
@@ -3297,6 +3313,12 @@ a.arcana-card:active {
     font-size: 0.75rem;
     margin-bottom: 0.6rem;
     opacity: 0.8;
+    /* Truncate long mood names for consistent card height */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.2em;
 }
 
 .arcana-card.card-sm .arcana-count {
