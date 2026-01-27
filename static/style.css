@@ -2517,9 +2517,9 @@ a.arcana-card:active {
     font-family: var(--font-whisper);
     font-size: 0.9rem;
     font-style: italic;
-    color: var(--text-muted);
+    color: var(--candlelight);
     margin-bottom: 1rem;
-    opacity: 0.6;
+    opacity: 0.75;
 }
 
 .alternatives-links {
@@ -2532,16 +2532,18 @@ a.arcana-card:active {
 .alt-link {
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: var(--gold-dim);
+    color: var(--gold);
     text-decoration: none;
     transition: all 0.3s ease;
     padding: 0.3rem 0.5rem;
     border-radius: 4px;
+    opacity: 0.85;
 }
 
 .alt-link:hover {
-    color: var(--gold);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
+    color: var(--candlelight);
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
 }
 
 .alt-separator {
@@ -2663,12 +2665,12 @@ a.arcana-card:active {
 .results-card-row {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     gap: 1.2rem;
     width: 100%;
-    overflow-x: auto;
+    overflow: visible;
 }
 
 /* Venue cards in search results - fixed tarot card size */
@@ -3641,28 +3643,33 @@ a.arcana-card:active {
 }
 
 .card-footer-icon {
-    font-size: 1rem;
+    font-size: 1.15rem;
     color: var(--gold);
-    opacity: 0.5;
+    opacity: 0.65;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 0.3rem;
+    padding: 0.4rem 0.5rem;
     position: relative;
-    background: none;
-    border: none;
+    background: rgba(212, 175, 55, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 3px;
     font-family: inherit;
 }
 
 .card-footer-icon:hover {
     opacity: 1;
-    transform: scale(1.15);
-    text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+    transform: scale(1.1);
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.35);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
 /* Filled state for love icon */
 .card-footer-icon.loved {
     opacity: 1;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    background: rgba(212, 175, 55, 0.12);
+    border-color: rgba(212, 175, 55, 0.4);
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
 }
 
 /* Tooltip */
