@@ -2714,6 +2714,14 @@ a.arcana-card:active {
     margin-top: 0.5rem;
 }
 
+/* Truncate whisper in compact view for consistent card heights */
+.venue-card-result:not(.card-lg) .venue-whisper {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .venue-card-result .venue-blurb {
     font-family: var(--font-body);
     font-size: 1.0625rem;
