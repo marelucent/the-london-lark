@@ -1168,6 +1168,15 @@ button {
         0 0 50px var(--glow, rgba(212, 175, 55, 0.08));
 }
 
+/* Remove default link styling when card is an anchor */
+a.arcana-card,
+a.arcana-card:hover,
+a.arcana-card:visited,
+a.arcana-card:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 .arcana-card:hover {
     transform: translateY(-4px);
     border-color: var(--arcana-border, var(--gold-bright));
