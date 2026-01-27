@@ -1227,16 +1227,16 @@
         }
 
         function returnToEntrance() {
-            // Return to Ask view (conversation-first default)
-            showView('ask');
-            setupAskView();
+            // Return to entrance view (homepage)
+            showView('entrance');
             // Reset draw card state
             document.getElementById('drawnCard').style.display = 'flex';
             document.getElementById('revealedCard').style.display = 'none';
             document.getElementById('drawActions').style.display = 'none';
-            // Clear ask results
+            // Clear inputs and results
             document.getElementById('askResults').innerHTML = '';
             document.getElementById('userInput').value = '';
+            document.getElementById('entranceInput').value = '';
         }
 
         // Handle search from entrance page
