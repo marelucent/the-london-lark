@@ -448,6 +448,52 @@
             display: flex;
         }
 
+        /* Fix card content positioning - reduce top space */
+        .chat-card-container .arcana-card .card-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 0.5rem;
+        }
+
+        .chat-card-container .arcana-card .arcana-symbol {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .chat-card-container .arcana-card.card-sm .arcana-number {
+            margin-bottom: 0.2rem;
+        }
+
+        .chat-card-container .arcana-card.card-sm .arcana-name {
+            margin-bottom: 0.3rem;
+        }
+
+        .chat-card-container .arcana-card.card-sm .arcana-mood {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Ensure blurb shows on expanded cards */
+        .chat-card-container .arcana-card.card-lg .venue-blurb {
+            display: block !important;
+            font-family: var(--font-body, 'Libre Baskerville', serif);
+            font-size: 0.95rem;
+            color: var(--cream, #f5f0e6);
+            line-height: 1.6;
+            margin-top: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .chat-card-container .arcana-card.card-lg .venue-whisper {
+            display: none !important;
+        }
+
+        /* Disable card interactions during loading */
+        .chat-card-container.loading-active .arcana-card {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
         /* ============================================
            MOBILE OPTIMISATION
            ============================================ */
@@ -911,6 +957,9 @@
         }
 
         function toggleCardExpansion(card) {
+            // Don't allow expansion during response streaming
+            if (isWaitingForResponse) return;
+
             const isExpanded = card.classList.contains('card-lg');
             const whisperEl = card.querySelector('.venue-whisper');
             const blurbEl = card.querySelector('.venue-blurb');
@@ -1027,9 +1076,11 @@
             return div;
         }
 
+        let isWaitingForResponse = false;
+
         async function sendMessage() {
             const content = chatInput.value.trim();
-            if (!content) return;
+            if (!content || isWaitingForResponse) return;
 
             // Add user message to UI and state
             addMessage('user', content);
@@ -1039,9 +1090,13 @@
             chatInput.value = '';
             chatInput.style.height = 'auto';
 
-            // Disable input while waiting
+            // Disable input and card interactions while waiting
+            isWaitingForResponse = true;
             chatInput.disabled = true;
             sendButton.disabled = true;
+
+            // Disable card interactions during loading
+            document.querySelectorAll('.chat-card-container').forEach(c => c.classList.add('loading-active'));
 
             // Show loading
             const loadingDiv = addLoadingMessage();
@@ -1053,7 +1108,18 @@
                     body: JSON.stringify({ messages: messages })
                 });
 
-                const data = await response.json();
+                // Check if response is ok before parsing JSON
+                if (!response.ok) {
+                    throw new Error(`Server error: ${response.status}`);
+                }
+
+                const text = await response.text();
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch (parseError) {
+                    throw new Error('The Lark got tongue-tied. Try again?');
+                }
 
                 // Remove loading message
                 loadingDiv.remove();
@@ -1088,9 +1154,11 @@
                 addMessage('lark', `Something went awry: ${err.message}`, true);
             }
 
-            // Re-enable input
+            // Re-enable input and card interactions
+            isWaitingForResponse = false;
             chatInput.disabled = false;
             sendButton.disabled = false;
+            document.querySelectorAll('.chat-card-container').forEach(c => c.classList.remove('loading-active'));
             chatInput.focus();
         }
 
