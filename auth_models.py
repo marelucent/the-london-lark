@@ -114,33 +114,40 @@ class User(UserMixin):
 
     @staticmethod
     def create(email, password, display_name, invite_code):
-        """Create a new user."""
+        """Create a new user. Only marks invite code as used on full success."""
         password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
 
         conn = get_db()
         cursor = conn.cursor()
 
         try:
+            # Start transaction explicitly
+            cursor.execute('BEGIN TRANSACTION')
+
+            # Create user first
             cursor.execute('''
                 INSERT INTO users (email, password_hash, display_name, invite_code_used)
                 VALUES (?, ?, ?, ?)
-            ''', (email.lower(), password_hash, display_name, invite_code))
+            ''', (email.lower(), password_hash, display_name, invite_code.upper()))
 
             user_id = cursor.lastrowid
 
-            # Mark invite code as used
+            # Only mark invite code as used AFTER user is successfully created
             cursor.execute('''
                 UPDATE invite_codes
                 SET used_by = ?, used_at = CURRENT_TIMESTAMP, is_active = 0
                 WHERE code = ?
-            ''', (user_id, invite_code))
+            ''', (user_id, invite_code.upper()))
 
+            # Commit only if both operations succeeded
             conn.commit()
             conn.close()
 
             return User.get_by_id(user_id)
 
-        except sqlite3.IntegrityError:
+        except Exception:
+            # Rollback on ANY error - invite code stays available
+            conn.rollback()
             conn.close()
             return None
 
