@@ -115,7 +115,7 @@ def mind():
     if not current_user.is_authenticated:
         return render_template('mind_locked.html')
 
-    greeting = get_lark_mind_greeting()
+    greeting = get_lark_mind_greeting(name=current_user.display_name)
     return render_template('mind.html', greeting=greeting, user=current_user)
 
 

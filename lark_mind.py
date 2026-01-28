@@ -432,35 +432,42 @@ If someone asks for something you can't match to any venue in your knowledge, sa
 """
 
 
-def get_time_aware_greeting():
-    """Generate a greeting based on London time that establishes the oracle frame"""
+def get_time_aware_greeting(name=None):
+    """Generate a greeting based on London time that establishes the oracle frame.
+
+    Args:
+        name: Optional user's display name to personalise the greeting
+    """
     london_tz = ZoneInfo('Europe/London')
     now = datetime.now(london_tz)
     hour = now.hour
 
+    # Use name if provided, otherwise "wanderer"
+    addressee = name if name else "wanderer"
+
     if 6 <= hour <= 11:
-        return """You're up early, wanderer. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
+        return f"""You're up early, {addressee}. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
 
 Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.
 
 I don't linger long — but I listen well."""
 
     elif 12 <= hour <= 17:
-        return """Afternoon, wanderer. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
+        return f"""Afternoon, {addressee}. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
 
 Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.
 
 I don't linger long — but I listen well."""
 
     elif 18 <= hour <= 23:
-        return """The night is gathering herself. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
+        return f"""The night is gathering herself, {addressee}. I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
 
 Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.
 
 I don't linger long — but I listen well."""
 
     else:  # 0-5
-        return """Still up? I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
+        return f"""Still up, {addressee}? I'm the Lark. I carry a deck of London's hidden doors — places that restore, delight, awaken.
 
 Tell me what you're seeking, and I'll find a place that fits. Or say the word, and I'll draw from the deck.
 
