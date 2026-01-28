@@ -126,50 +126,46 @@
             border-top: 1px solid rgba(201, 162, 39, 0.2);
         }
 
-        .chat-input {
+        /* Chat input - override global textarea styles */
+        textarea.chat-input,
+        textarea.chat-input:focus,
+        textarea.chat-input:active {
             flex: 1;
-            padding: 0.875rem 1rem;
-            background: rgba(26, 23, 20, 0.6);
-            border: 1px solid rgba(201, 162, 39, 0.3);
-            border-radius: 4px;
-            color: var(--cream, #f5f0e6);
+            padding: 0.875rem 1rem !important;
+            background: #1a1714 !important;
+            border: 1px solid rgba(201, 162, 39, 0.3) !important;
+            border-radius: 4px !important;
+            color: #f5f0e6 !important;
+            -webkit-text-fill-color: #f5f0e6 !important;
             font-family: var(--font-body, 'Libre Baskerville', serif);
             font-size: 1rem;
             resize: none;
-            min-height: 50px;
+            min-height: 50px !important;
             max-height: 150px;
-        }
-
-        .chat-input:focus {
-            outline: none;
-            border-color: var(--gold, #d4af37);
-            box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.1);
-        }
-
-        .chat-input::placeholder {
-            color: rgba(245, 240, 230, 0.4);
-            font-style: italic;
-        }
-
-        /* Force dark background on mobile - prevents iOS/Android keyboard styling overrides */
-        .chat-input,
-        .chat-input:focus,
-        .chat-input:active {
+            box-shadow: none !important;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            background-color: #1a1714 !important;
-            color: #f5f0e6 !important;
-            -webkit-text-fill-color: #f5f0e6 !important;
             opacity: 1;
         }
 
+        textarea.chat-input:focus {
+            outline: none;
+            border-color: var(--gold, #d4af37) !important;
+            box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.1) !important;
+        }
+
+        textarea.chat-input::placeholder {
+            color: rgba(245, 240, 230, 0.4) !important;
+            font-style: italic;
+        }
+
         /* Ensure autofill doesn't override */
-        .chat-input:-webkit-autofill,
-        .chat-input:-webkit-autofill:focus {
+        textarea.chat-input:-webkit-autofill,
+        textarea.chat-input:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 1000px #1a1714 inset !important;
             -webkit-text-fill-color: #f5f0e6 !important;
-            background-color: #1a1714 !important;
+            background: #1a1714 !important;
         }
 
         .send-button {
