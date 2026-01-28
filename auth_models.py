@@ -25,14 +25,13 @@ SQLITE_PATH = 'lark_auth.db'
 def get_db():
     """Get database connection. Uses PostgreSQL if DATABASE_URL is set, else SQLite."""
     if USE_POSTGRES:
-        import psycopg2
-        import psycopg2.extras
-        # Render uses postgres:// but psycopg2 needs postgresql://
+        import psycopg
+        from psycopg.rows import dict_row
+        # Render uses postgres:// but psycopg needs postgresql://
         db_url = DATABASE_URL
         if db_url.startswith('postgres://'):
             db_url = db_url.replace('postgres://', 'postgresql://', 1)
-        conn = psycopg2.connect(db_url)
-        conn.cursor_factory = psycopg2.extras.RealDictCursor
+        conn = psycopg.connect(db_url, row_factory=dict_row)
         return conn
     else:
         import sqlite3
