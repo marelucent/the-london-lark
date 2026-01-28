@@ -473,8 +473,11 @@
             margin-bottom: 0.4rem;
         }
 
-        /* Chat venue cards - simple, static, clickable to venue page */
+        /* Chat venue cards - compact signposts in conversation */
         .chat-venue-card {
+            width: 140px !important;
+            min-width: 140px;
+            padding: 0.7rem 0.6rem !important;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
@@ -484,23 +487,48 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .chat-venue-card .venue-whisper {
-            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
-            font-style: italic;
-            font-size: 0.85rem;
-            color: var(--candlelight, #f4e4bc);
-            opacity: 0.85;
-            margin-top: 0.4rem;
-            line-height: 1.4;
+        .chat-venue-card .card-inner {
+            padding: 0;
+        }
+
+        .chat-venue-card .arcana-symbol {
+            font-size: 1.1rem !important;
+            margin-bottom: 0.2rem !important;
+        }
+
+        .chat-venue-card .arcana-header {
+            font-size: 0.65rem;
+            letter-spacing: 0.05em;
+            color: var(--gold, #d4af37);
+            opacity: 0.9;
+            margin-bottom: 0.3rem;
+        }
+
+        .chat-venue-card .arcana-divider {
+            margin: 0.3rem 0 !important;
+            opacity: 0.3;
         }
 
         .chat-venue-card .venue-name {
             font-family: var(--font-body, 'Libre Baskerville', serif);
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             color: var(--cream, #f5f0e6);
+            line-height: 1.3;
+            margin-bottom: 0.2rem;
         }
 
-        /* Remove number from chat cards - keep them minimal */
+        .chat-venue-card .venue-whisper {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            font-size: 0.75rem;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.8;
+            line-height: 1.3;
+        }
+
+        /* Hide individual arcana name/mood - we combine them */
+        .chat-venue-card .arcana-name,
+        .chat-venue-card .arcana-mood,
         .chat-venue-card .arcana-number {
             display: none;
         }
@@ -880,8 +908,7 @@
                     <span class="corner-bl"></span>
                     <div class="card-inner">
                         <div class="arcana-symbol">${arcana.symbol}</div>
-                        <div class="arcana-name">${arcana.name}</div>
-                        <div class="arcana-mood">${mood}</div>
+                        <div class="arcana-header">${arcana.name} · ${mood}</div>
                         <div class="arcana-divider"></div>
                         <div class="venue-section">
                             <div class="venue-name">${venue.name}</div>
@@ -921,8 +948,7 @@
                     <span class="corner-bl"></span>
                     <div class="card-inner">
                         <div class="arcana-symbol">${arcana.symbol}</div>
-                        <div class="arcana-name">${arcana.name}</div>
-                        <div class="arcana-mood">${mood}</div>
+                        <div class="arcana-header">${arcana.name} · ${mood}</div>
                         <div class="arcana-divider"></div>
                         <div class="venue-section">
                             <div class="venue-name">${venue.name}</div>
