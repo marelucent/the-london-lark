@@ -7,7 +7,8 @@ A simple web interface for The London Lark.
 Run this, then open http://localhost:5000 in your browser.
 """
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask_login import LoginManager, current_user
 from prompt_interpreter import interpret_prompt
 from mood_resolver import resolve_from_keywords
 from safety_detector import (
@@ -77,6 +78,31 @@ except ImportError:
     get_opening = lambda x: None
 
 app = Flask(__name__)
+
+# =============================================================================
+# AUTH CONFIGURATION
+# =============================================================================
+
+# Secret key for sessions (use environment variable in production)
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'lark-dev-secret-change-in-production')
+
+# Initialize Flask-Login
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'auth.login'
+
+# Initialize auth database and models
+from auth_models import init_auth_db, User, bcrypt
+bcrypt.init_app(app)
+init_auth_db()
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get_by_id(int(user_id))
+
+# Register auth blueprint
+from auth_routes import auth_bp
+app.register_blueprint(auth_bp)
 
 
 # =============================================================================
@@ -1823,9 +1849,8 @@ def care_pathway():
 
 @app.route('/lark-mind-test')
 def lark_mind_test():
-    """Serve the Lark Mind test page (hidden prototype)"""
-    greeting = get_lark_mind_greeting()
-    return render_template('lark_mind_test.html', greeting=greeting)
+    """Redirect old test URL to new /mind route"""
+    return redirect(url_for('auth.mind'))
 
 
 @app.route('/chat', methods=['POST'])

@@ -1,4 +1,6 @@
 Flask==2.3.0
+Flask-Login==0.6.3
+Flask-Bcrypt==1.0.1
 python-dateutil==2.8.2
 gunicorn==21.2.0
 anthropic>=0.39.0

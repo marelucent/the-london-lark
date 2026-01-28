@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lark Mind — The London Lark</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Lark Mind Page Styles */
+        .lark-mind-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .user-greeting {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px solid rgba(201, 162, 39, 0.25);
+            border-radius: 3px;
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            margin-bottom: 1rem;
+        }
+
+        .user-greeting a {
+            color: rgba(201, 162, 39, 0.6);
+            text-decoration: none;
+            margin-left: 0.75rem;
+            font-style: normal;
+            font-size: 0.8rem;
+        }
+
+        .user-greeting a:hover {
+            color: var(--gold, #d4af37);
+        }
+
+        .lark-mind-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .lark-mind-header h1 {
+            font-family: var(--font-display, 'Cinzel', serif);
+            font-size: 2rem;
+            color: var(--cream, #f5f0e6);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .lark-mind-header p {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.8;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            min-height: 300px;
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        /* Message Bubbles - scoped to avoid conflicts with main style.css */
+        .lark-mind-container .chat-message {
+            padding: 1rem 1.25rem;
+            border-radius: 4px;
+            max-width: 85%;
+            line-height: 1.6;
+            animation: larkFadeIn 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes larkFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lark-mind-container .chat-message.user {
+            align-self: flex-end;
+            background: rgba(201, 162, 39, 0.15);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            color: var(--cream, #f5f0e6);
+        }
+
+        .lark-mind-container .chat-message.lark {
+            align-self: flex-start;
+            background: rgba(26, 23, 20, 0.8);
+            border: 1px solid rgba(106, 106, 122, 0.3);
+            color: var(--candlelight, #f4e4bc);
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-size: 1.1rem;
+        }
+
+        .lark-mind-container .chat-message.lark em {
+            color: var(--gold, #d4af37);
+        }
+
+        .lark-mind-container .chat-message.system {
+            align-self: center;
+            background: transparent;
+            border: none;
+            color: rgba(201, 162, 39, 0.6);
+            font-size: 0.85rem;
+            font-style: italic;
+            padding: 0.5rem;
+        }
+
+        /* Input Area */
+        .input-area {
+            display: flex;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            background: rgba(26, 23, 20, 0.6);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 4px;
+            color: var(--cream, #f5f0e6);
+            font-family: var(--font-body, 'Libre Baskerville', serif);
+            font-size: 1rem;
+            resize: none;
+            min-height: 50px;
+            max-height: 150px;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--gold, #d4af37);
+            box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.1);
+        }
+
+        .chat-input::placeholder {
+            color: rgba(245, 240, 230, 0.4);
+            font-style: italic;
+        }
+
+        /* Force dark background on mobile - prevents iOS/Android keyboard styling overrides */
+        .chat-input,
+        .chat-input:focus,
+        .chat-input:active {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #1a1714 !important;
+            color: #f5f0e6 !important;
+            -webkit-text-fill-color: #f5f0e6 !important;
+            opacity: 1;
+        }
+
+        /* Ensure autofill doesn't override */
+        .chat-input:-webkit-autofill,
+        .chat-input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 1000px #1a1714 inset !important;
+            -webkit-text-fill-color: #f5f0e6 !important;
+            background-color: #1a1714 !important;
+        }
+
+        .send-button {
+            padding: 0.875rem 1.5rem;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(201, 162, 39, 0.1) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            border-radius: 4px;
+            color: var(--gold, #d4af37);
+            font-family: var(--font-display, 'Cinzel', serif);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .send-button:hover:not(:disabled) {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.3) 0%, rgba(201, 162, 39, 0.2) 100%);
+            border-color: var(--gold, #d4af37);
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Loading State */
+        .loading-dots {
+            display: inline-flex;
+            gap: 4px;
+        }
+
+        .loading-dots span {
+            width: 6px;
+            height: 6px;
+            background: var(--gold, #d4af37);
+            border-radius: 50%;
+            animation: pulse 1.4s infinite ease-in-out;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: 0s; }
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes pulse {
+            0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+            40% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Usage Stats */
+        .usage-stats {
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            background: rgba(26, 23, 20, 0.5);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: rgba(201, 162, 39, 0.6);
+            display: none;
+        }
+
+        .usage-stats.visible {
+            display: block;
+        }
+
+        /* Clear Button */
+        .clear-button {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 3px;
+            color: rgba(201, 162, 39, 0.6);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .clear-button:hover {
+            border-color: rgba(201, 162, 39, 0.4);
+            color: var(--gold, #d4af37);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: rgba(201, 162, 39, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--gold, #d4af37);
+        }
+
+        /* Error State */
+        .lark-mind-container .chat-message.error {
+            background: rgba(180, 80, 80, 0.2);
+            border-color: rgba(180, 80, 80, 0.4);
+            color: #e8c4c4;
+        }
+
+        /* Venue Cards in Chat */
+        .chat-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1rem 0;
+            animation: larkFadeIn 0.4s ease forwards;
+            opacity: 0;
+        }
+
+        .chat-card-container .arcana-card {
+            flex: 0 0 auto;
+            margin: 0;
+        }
+
+        /* Face-down cards for draws */
+        .chat-card-container .arcana-card.face-down {
+            cursor: pointer;
+        }
+
+        .chat-card-container .arcana-card.face-down .card-back {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 1rem;
+        }
+
+        .chat-card-container .arcana-card.face-down .card-back-symbol {
+            font-size: 2rem;
+            color: var(--gold, #d4af37);
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-card-container .arcana-card.face-down .card-back-prompt {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            color: var(--candlelight, #f4e4bc);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .chat-card-container .arcana-card.face-down:hover .card-back-symbol {
+            transform: scale(1.1);
+        }
+
+        /* Card flip animation */
+        .arcana-card.revealing {
+            animation: cardFlip 0.6s ease forwards;
+        }
+
+        @keyframes cardFlip {
+            0% { transform: rotateY(0deg); }
+            50% { transform: rotateY(90deg); }
+            100% { transform: rotateY(0deg); }
+        }
+
+        /* Draw prompt message */
+        .draw-prompt {
+            text-align: center;
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            color: var(--gold, #d4af37);
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        /* Override global CSS to show card footer on Lark Mind cards */
+        .chat-card-container .arcana-card.card-sm .card-footer {
+            display: flex;
+        }
+
+        /* ============================================
+           MOBILE OPTIMISATION
+           ============================================ */
+
+        @media (max-width: 768px) {
+            /* Use dynamic viewport height for keyboard-aware layout */
+            html, body {
+                height: 100%;
+                height: 100dvh;
+                overflow: hidden;
+            }
+
+            .lark-mind-container {
+                padding: 0.75rem;
+                min-height: 100vh;
+                min-height: 100dvh;
+                display: flex;
+                flex-direction: column;
+                box-sizing: border-box;
+            }
+
+            .lark-mind-header {
+                margin-bottom: 0.75rem;
+                padding-bottom: 0.75rem;
+                flex-shrink: 0;
+            }
+
+            .lark-mind-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .lark-mind-header p {
+                font-size: 0.9rem;
+                margin-bottom: 0;
+            }
+
+            .user-greeting {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Chat container fills available space */
+            .chat-container {
+                flex: 1;
+                min-height: 0;
+                max-height: none;
+                margin-bottom: 0.75rem;
+                padding-right: 0.25rem;
+            }
+
+            /* Tighter message bubbles */
+            .lark-mind-container .chat-message {
+                padding: 0.75rem 1rem;
+                max-width: 90%;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .lark-mind-container .chat-message.lark {
+                font-size: 1rem;
+            }
+
+            /* Fixed input area at bottom */
+            .input-area {
+                flex-shrink: 0;
+                padding-top: 0.75rem;
+                gap: 0.5rem;
+                position: sticky;
+                bottom: 0;
+                background: var(--deep-night, #0d0b09);
+                margin: 0 -0.75rem;
+                padding: 0.75rem;
+                border-top: 1px solid rgba(201, 162, 39, 0.2);
+            }
+
+            .chat-input {
+                padding: 0.75rem;
+                min-height: 44px;
+                font-size: 16px; /* Prevents iOS zoom on focus */
+            }
+
+            .send-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            /* Hide non-essential elements on mobile */
+            .clear-button {
+                display: none;
+            }
+
+            .usage-stats {
+                display: none !important;
+            }
+
+            .back-link {
+                display: none;
+            }
+
+            /* Tighter card display on mobile */
+            .chat-card-container {
+                margin: 0.5rem 0;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 400px) {
+            .lark-mind-container {
+                padding: 0.5rem;
+            }
+
+            .input-area {
+                margin: 0 -0.5rem;
+                padding: 0.5rem;
+            }
+
+            .lark-mind-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .lark-mind-container .chat-message {
+                padding: 0.6rem 0.8rem;
+                max-width: 92%;
+            }
+        }
+
+        /* Landscape mobile - even tighter */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .lark-mind-header {
+                display: none;
+            }
+
+            .lark-mind-container {
+                padding: 0.5rem;
+            }
+
+            .chat-container {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lark-mind-container">
+        <div class="lark-mind-header">
+            <span class="user-greeting">
+                Known to the Lark as {{ user.display_name }}
+                <a href="{{ url_for('auth.logout') }}">leave</a>
+            </span>
+            <h1>Lark Mind</h1>
+            <p>A conversation with the Lark</p>
+        </div>
+
+        <div class="chat-container" id="chatContainer">
+            <!-- Greeting message -->
+            <div class="chat-message lark">
+                <em>{{ greeting | replace("\n", "<br>") | safe }}</em>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <textarea
+                class="chat-input"
+                id="chatInput"
+                placeholder="Tell her what you're seeking..."
+                rows="1"
+            ></textarea>
+            <button class="send-button" id="sendButton">Send</button>
+        </div>
+
+        <button class="clear-button" id="clearButton">Clear conversation</button>
+
+        <div class="usage-stats" id="usageStats">
+            <strong>Session usage:</strong>
+            <span id="totalTokens">0</span> tokens
+            (~<span id="estimatedCost">0.00</span>p)
+        </div>
+
+        <a href="/" class="back-link">&larr; Back to The Lark</a>
+    </div>
+
+    <script>
+        // =================================================================
+        // Lark Mind Chat Interface
+        // =================================================================
+
+        const chatContainer = document.getElementById('chatContainer');
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        const clearButton = document.getElementById('clearButton');
+        const usageStats = document.getElementById('usageStats');
+        const totalTokensEl = document.getElementById('totalTokens');
+        const estimatedCostEl = document.getElementById('estimatedCost');
+
+        // Conversation state
+        let messages = [];
+        let totalInputTokens = 0;
+        let totalOutputTokens = 0;
+
+        // =================================================================
+        // Arcana Mappings (from main site)
+        // =================================================================
+        const arcanaMap = {
+            'Playful & Weird': { number: '0', name: 'THE FOOL', symbol: '◌' },
+            'Curious Encounters': { number: 'I', name: 'THE MAGICIAN', symbol: '☿' },
+            'Witchy & Wild': { number: 'II', name: 'THE HIGH PRIESTESS', symbol: '𓂀' },
+            'Folk & Intimate': { number: 'III', name: 'THE EMPRESS', symbol: '⚘' },
+            'The Thoughtful Stage': { number: 'IV', name: 'THE EMPEROR', symbol: '◆' },
+            'Spiritual / Sacred / Mystical': { number: 'V', name: 'THE HIEROPHANT', symbol: '⚷' },
+            'Cabaret & Glitter': { number: 'VI', name: 'THE LOVERS', symbol: '⚯' },
+            'Big Night Out': { number: 'VII', name: 'THE CHARIOT', symbol: '↑' },
+            'Punchy / Protest': { number: 'VIII', name: 'STRENGTH', symbol: '∞' },
+            'Contemplative & Meditative': { number: 'IX', name: 'THE HERMIT', symbol: '⟡' },
+            'Global Rhythms': { number: 'X', name: 'WHEEL OF FORTUNE', symbol: '◎' },
+            'Rant & Rapture': { number: 'XI', name: 'JUSTICE', symbol: '⚖' },
+            'Body-Based / Movement-Led': { number: 'XII', name: 'THE HANGED MAN', symbol: '∴' },
+            'Grief & Grace': { number: 'XIII', name: 'DEATH', symbol: '✿' },
+            'Word & Voice': { number: 'XIV', name: 'TEMPERANCE', symbol: '≋' },
+            'Late-Night Lark': { number: 'XV', name: 'THE DEVIL', symbol: '⛧' },
+            'Melancholic Beauty': { number: 'XVI', name: 'THE TOWER', symbol: '↯' },
+            'Wonder & Awe': { number: 'XVII', name: 'THE STAR', symbol: '✦' },
+            'Nostalgic / Vintage / Retro': { number: 'XVIII', name: 'THE MOON', symbol: '☾' },
+            'Comic Relief': { number: 'XIX', name: 'THE SUN', symbol: '☀' },
+            'Group Energy': { number: 'XX', name: 'JUDGEMENT', symbol: '△' },
+            'Queer Revelry': { number: 'XXI', name: 'THE WORLD', symbol: '◉' },
+            'Romanticised London': { number: '✦', name: 'THE LARK', symbol: '❦' }
+        };
+
+        const arcanaWhispers = {
+            'Playful & Weird': "Fall sideways into something strange",
+            'Curious Encounters': "Everything you need is already here",
+            'Witchy & Wild': "The moon knows. The woods know.",
+            'Folk & Intimate': "Warm strings and stories like home",
+            'The Thoughtful Stage': "Theatre that makes you lean in",
+            'Spiritual / Sacred / Mystical': "Where the veil thins and reverence rises",
+            'Cabaret & Glitter': "Feathers, fire, wit and want",
+            'Big Night Out': "The night is a vehicle and you're at the wheel",
+            'Punchy / Protest': "Voices raised, truth revealed",
+            'Contemplative & Meditative': "Slow, still, deeply felt",
+            'Global Rhythms': "Borders blur and culture sings",
+            'Rant & Rapture': "Electrifying expression, righteous fire",
+            'Body-Based / Movement-Led': "When words aren't enough",
+            'Grief & Grace': "For when you need to feel the ache",
+            'Word & Voice': "Language that shimmers",
+            'Late-Night Lark': "The city stays up with you",
+            'Melancholic Beauty': "Beauty that breaks your heart",
+            'Wonder & Awe': "Feel small and lit from within",
+            'Nostalgic / Vintage / Retro': "A portal to another era",
+            'Comic Relief': "The belly-laugh you didn't know you needed",
+            'Group Energy': "The crowd becoming one",
+            'Queer Revelry': "Sequins, sweat, and chosen family",
+            'Romanticised London': "London as you imagined it in books"
+        };
+
+        function getArcanaKey(mood) {
+            const keyMap = {
+                'Playful & Weird': 'fool',
+                'Curious Encounters': 'magician',
+                'Witchy & Wild': 'priestess',
+                'Folk & Intimate': 'empress',
+                'The Thoughtful Stage': 'emperor',
+                'Spiritual / Sacred / Mystical': 'hierophant',
+                'Cabaret & Glitter': 'lovers',
+                'Big Night Out': 'chariot',
+                'Punchy / Protest': 'strength',
+                'Contemplative & Meditative': 'hermit',
+                'Global Rhythms': 'wheel',
+                'Rant & Rapture': 'justice',
+                'Body-Based / Movement-Led': 'hanged-man',
+                'Grief & Grace': 'death',
+                'Word & Voice': 'temperance',
+                'Late-Night Lark': 'devil',
+                'Melancholic Beauty': 'tower',
+                'Wonder & Awe': 'star',
+                'Nostalgic / Vintage / Retro': 'moon',
+                'Comic Relief': 'sun',
+                'Group Energy': 'judgement',
+                'Queer Revelry': 'world',
+                'Romanticised London': 'lark'
+            };
+            return keyMap[mood] || 'lark';
+        }
+
+        function getArcanaColourClass(mood) {
+            const classMap = {
+                'Playful & Weird': 'arcana-playful-weird',
+                'Curious Encounters': 'arcana-curious-encounters',
+                'Witchy & Wild': 'arcana-witchy-wild',
+                'Folk & Intimate': 'arcana-folk-intimate',
+                'The Thoughtful Stage': 'arcana-thoughtful-stage',
+                'Spiritual / Sacred / Mystical': 'arcana-spiritual-sacred',
+                'Cabaret & Glitter': 'arcana-cabaret-glitter',
+                'Big Night Out': 'arcana-big-night-out',
+                'Punchy / Protest': 'arcana-punchy-protest',
+                'Contemplative & Meditative': 'arcana-contemplative',
+                'Global Rhythms': 'arcana-global-rhythms',
+                'Rant & Rapture': 'arcana-rant-rapture',
+                'Body-Based / Movement-Led': 'arcana-body-based',
+                'Grief & Grace': 'arcana-grief-grace',
+                'Word & Voice': 'arcana-word-voice',
+                'Late-Night Lark': 'arcana-late-night',
+                'Melancholic Beauty': 'arcana-melancholic',
+                'Wonder & Awe': 'arcana-wonder-awe',
+                'Nostalgic / Vintage / Retro': 'arcana-nostalgic',
+                'Comic Relief': 'arcana-comic-relief',
+                'Group Energy': 'arcana-group-energy',
+                'Queer Revelry': 'arcana-queer-revelry',
+                'Romanticised London': 'arcana-romanticised'
+            };
+            return classMap[mood] || 'arcana-romanticised';
+        }
+
+        // =================================================================
+        // Card Creation Functions
+        // =================================================================
+
+        function createChatVenueCard(venue, faceDown = false) {
+            const card = document.createElement('div');
+            const mood = venue.arcana || 'Romanticised London';
+            const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
+            const arcanaKey = getArcanaKey(mood);
+            const arcanaColourClass = getArcanaColourClass(mood);
+            const whisper = venue.whisper || arcanaWhispers[mood] || '';
+
+            if (faceDown) {
+                // Face-down card for draws
+                card.className = `arcana-card card-sm face-down ${arcanaColourClass}`;
+                card.setAttribute('data-arcana', arcanaKey);
+                card.dataset.venueData = JSON.stringify(venue);
+
+                card.innerHTML = `
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
+                    <div class="card-inner card-back">
+                        <div class="card-back-symbol">❦</div>
+                        <div class="card-back-prompt">tap to reveal</div>
+                    </div>
+                `;
+
+                // Click to reveal
+                card.onclick = () => revealCard(card, venue);
+            } else {
+                // Revealed card
+                card.className = `arcana-card card-sm venue-card-result ${arcanaColourClass}`;
+                card.setAttribute('data-arcana', arcanaKey);
+                card.dataset.venueBlurb = venue.blurb || '';
+                card.dataset.venueWebsite = venue.website || '';
+
+                let venueLink = venue.name;
+                if (venue.website && venue.website.trim()) {
+                    let url = venue.website;
+                    if (!url.startsWith('http')) url = 'https://' + url;
+                    venueLink = `<a href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${venue.name}</a>`;
+                }
+
+                card.innerHTML = `
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
+                    <div class="card-inner">
+                        <div class="arcana-symbol">${arcana.symbol}</div>
+                        <div class="arcana-number">${arcana.number}</div>
+                        <div class="arcana-name">${arcana.name}</div>
+                        <div class="arcana-mood">${mood}</div>
+                        <div class="arcana-divider"></div>
+                        <div class="venue-section">
+                            <div class="venue-name">${venueLink}</div>
+                            <div class="venue-whisper">${whisper}</div>
+                            <div class="venue-blurb" style="display: none;">${venue.blurb || ''}</div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.name}">✧</button>
+                            <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" data-venue="${venue.name}">🜃</button>
+                            <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.name}" data-arcana="${mood}">↗</button>
+                        </div>
+                        <div class="card-footer-confirm"></div>
+                    </div>
+                `;
+
+                // Click to expand/collapse
+                card.onclick = (e) => {
+                    if (e.target.tagName === 'A' || e.target.classList.contains('card-footer-icon')) return;
+                    toggleCardExpansion(card);
+                };
+            }
+
+            return card;
+        }
+
+        function revealCard(cardEl, venue) {
+            if (!cardEl.classList.contains('face-down')) return;
+
+            const mood = venue.arcana || 'Romanticised London';
+            const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
+            const arcanaKey = getArcanaKey(mood);
+            const arcanaColourClass = getArcanaColourClass(mood);
+            const whisper = venue.whisper || arcanaWhispers[mood] || '';
+
+            // Animate flip
+            cardEl.classList.add('revealing');
+
+            setTimeout(() => {
+                // Transform to revealed state
+                cardEl.classList.remove('face-down', 'revealing');
+                cardEl.classList.add('venue-card-result');
+
+                let venueLink = venue.name;
+                if (venue.website && venue.website.trim()) {
+                    let url = venue.website;
+                    if (!url.startsWith('http')) url = 'https://' + url;
+                    venueLink = `<a href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${venue.name}</a>`;
+                }
+
+                cardEl.innerHTML = `
+                    <span class="corner-tr"></span>
+                    <span class="corner-bl"></span>
+                    <div class="card-inner">
+                        <div class="arcana-symbol">${arcana.symbol}</div>
+                        <div class="arcana-number">${arcana.number}</div>
+                        <div class="arcana-name">${arcana.name}</div>
+                        <div class="arcana-mood">${mood}</div>
+                        <div class="arcana-divider"></div>
+                        <div class="venue-section">
+                            <div class="venue-name">${venueLink}</div>
+                            <div class="venue-whisper">${whisper}</div>
+                            <div class="venue-blurb" style="display: none;">${venue.blurb || ''}</div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.name}">✧</button>
+                            <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" data-venue="${venue.name}">🜃</button>
+                            <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.name}" data-arcana="${mood}">↗</button>
+                        </div>
+                        <div class="card-footer-confirm"></div>
+                    </div>
+                `;
+
+                cardEl.dataset.venueBlurb = venue.blurb || '';
+                cardEl.dataset.venueWebsite = venue.website || '';
+
+                // Setup expand/collapse
+                cardEl.onclick = (e) => {
+                    if (e.target.tagName === 'A' || e.target.classList.contains('card-footer-icon')) return;
+                    toggleCardExpansion(cardEl);
+                };
+            }, 300); // Half of animation duration
+        }
+
+        function toggleCardExpansion(card) {
+            const isExpanded = card.classList.contains('card-lg');
+            const whisperEl = card.querySelector('.venue-whisper');
+            const blurbEl = card.querySelector('.venue-blurb');
+
+            if (isExpanded) {
+                card.classList.remove('card-lg');
+                card.classList.add('card-sm');
+                if (whisperEl) whisperEl.style.display = 'block';
+                if (blurbEl) blurbEl.style.display = 'none';
+            } else {
+                card.classList.remove('card-sm');
+                card.classList.add('card-lg');
+                if (whisperEl) whisperEl.style.display = 'none';
+                if (blurbEl) blurbEl.style.display = 'block';
+            }
+        }
+
+        function renderSegments(segments) {
+            // Render mixed text and card segments
+            const container = document.createElement('div');
+            container.className = 'lark-response-segments';
+
+            segments.forEach((segment, index) => {
+                if (segment.type === 'text') {
+                    const textDiv = document.createElement('div');
+                    textDiv.className = 'chat-message lark';
+                    // Parse markdown-style italics
+                    let content = segment.content.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+                    textDiv.innerHTML = content;
+                    container.appendChild(textDiv);
+
+                } else if (segment.type === 'card') {
+                    const cardContainer = document.createElement('div');
+                    cardContainer.className = 'chat-card-container';
+                    const card = createChatVenueCard(segment.venue, false);
+                    cardContainer.appendChild(card);
+                    container.appendChild(cardContainer);
+
+                } else if (segment.type === 'draw') {
+                    const cardContainer = document.createElement('div');
+                    cardContainer.className = 'chat-card-container';
+
+                    // Add draw prompt based on type
+                    const drawPrompts = {
+                        'single': 'Fate has chosen...',
+                        'triad': 'Three cards drawn for you...',
+                        'shuffle': 'The deck speaks...',
+                        'spread': 'A full spread...'
+                    };
+                    const promptDiv = document.createElement('div');
+                    promptDiv.className = 'draw-prompt';
+                    promptDiv.textContent = drawPrompts[segment.draw_type] || 'The cards reveal...';
+                    cardContainer.appendChild(promptDiv);
+
+                    // Create face-down cards
+                    const cardsRow = document.createElement('div');
+                    cardsRow.style.display = 'flex';
+                    cardsRow.style.flexWrap = 'wrap';
+                    cardsRow.style.gap = '1rem';
+                    cardsRow.style.justifyContent = 'center';
+
+                    segment.venues.forEach((venue, i) => {
+                        const card = createChatVenueCard(venue, true);
+                        card.style.animationDelay = `${i * 100}ms`;
+                        cardsRow.appendChild(card);
+                    });
+
+                    cardContainer.appendChild(cardsRow);
+                    container.appendChild(cardContainer);
+                }
+            });
+
+            return container;
+        }
+
+        // Auto-resize textarea
+        chatInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 150) + 'px';
+        });
+
+        // Send on Enter (Shift+Enter for newline)
+        chatInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        sendButton.addEventListener('click', sendMessage);
+        clearButton.addEventListener('click', clearConversation);
+
+        function addMessage(role, content, isError = false) {
+            const div = document.createElement('div');
+            div.className = `chat-message ${role}${isError ? ' error' : ''}`;
+
+            // Parse markdown-style italics for Lark messages
+            if (role === 'lark') {
+                content = content.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            }
+
+            div.innerHTML = content;
+            chatContainer.appendChild(div);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return div;
+        }
+
+        function addLoadingMessage() {
+            const div = document.createElement('div');
+            div.className = 'chat-message lark loading';
+            div.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
+            chatContainer.appendChild(div);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            return div;
+        }
+
+        async function sendMessage() {
+            const content = chatInput.value.trim();
+            if (!content) return;
+
+            // Add user message to UI and state
+            addMessage('user', content);
+            messages.push({ role: 'user', content: content });
+
+            // Clear input
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+
+            // Disable input while waiting
+            chatInput.disabled = true;
+            sendButton.disabled = true;
+
+            // Show loading
+            const loadingDiv = addLoadingMessage();
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages: messages })
+                });
+
+                const data = await response.json();
+
+                // Remove loading message
+                loadingDiv.remove();
+
+                if (data.error) {
+                    addMessage('lark', `I stumbled, petal: ${data.error}`, true);
+                } else {
+                    // Check if we have segments with cards/draws
+                    if (data.segments && (data.has_cards || data.has_draws)) {
+                        // Render segments with cards
+                        const segmentsContainer = renderSegments(data.segments);
+                        chatContainer.appendChild(segmentsContainer);
+                        chatContainer.scrollTop = chatContainer.scrollHeight;
+                    } else {
+                        // Plain text response
+                        addMessage('lark', data.response);
+                    }
+
+                    // Store the raw response for conversation context
+                    messages.push({ role: 'assistant', content: data.response });
+
+                    // Update usage stats
+                    if (data.usage) {
+                        totalInputTokens += data.usage.input_tokens;
+                        totalOutputTokens += data.usage.output_tokens;
+                        updateUsageStats();
+                    }
+                }
+
+            } catch (err) {
+                loadingDiv.remove();
+                addMessage('lark', `Something went awry: ${err.message}`, true);
+            }
+
+            // Re-enable input
+            chatInput.disabled = false;
+            sendButton.disabled = false;
+            chatInput.focus();
+        }
+
+        function updateUsageStats() {
+            const totalTokens = totalInputTokens + totalOutputTokens;
+            // Sonnet pricing: $3/M input, $15/M output = ~0.3p/1K input, ~1.5p/1K output
+            const costPence = (totalInputTokens * 0.0003) + (totalOutputTokens * 0.0015);
+
+            totalTokensEl.textContent = totalTokens.toLocaleString();
+            estimatedCostEl.textContent = costPence.toFixed(2);
+            usageStats.classList.add('visible');
+        }
+
+        function clearConversation() {
+            messages = [];
+            totalInputTokens = 0;
+            totalOutputTokens = 0;
+
+            // Clear all messages and restore greeting
+            chatContainer.innerHTML = '';
+            addMessage('lark', '<em>{{ greeting | replace("\'", "\\\'") | replace("\n", "<br>") }}</em>');
+
+            usageStats.classList.remove('visible');
+            chatInput.focus();
+        }
+
+        // Focus input on load
+        chatInput.focus();
+
+        // ============================================
+        // MOBILE KEYBOARD HANDLING
+        // ============================================
+
+        // Detect virtual keyboard and scroll chat to bottom
+        let lastViewportHeight = window.visualViewport?.height || window.innerHeight;
+
+        function handleViewportResize() {
+            const currentHeight = window.visualViewport?.height || window.innerHeight;
+
+            // Keyboard opened (viewport shrunk significantly)
+            if (currentHeight < lastViewportHeight - 100) {
+                // Scroll chat to bottom to keep recent messages visible
+                setTimeout(() => {
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, 50);
+            }
+
+            lastViewportHeight = currentHeight;
+        }
+
+        // Listen to visualViewport resize (works best on mobile)
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', handleViewportResize);
+        } else {
+            window.addEventListener('resize', handleViewportResize);
+        }
+
+        // Also scroll when input is focused (keyboard appears)
+        chatInput.addEventListener('focus', () => {
+            setTimeout(() => {
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                // Scroll input into view on iOS
+                chatInput.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 300);
+        });
+
+        // ============================================
+        // CARD FOOTER HANDLERS
+        // ============================================
+
+        document.addEventListener('click', handleCardFooterClick);
+
+        function handleCardFooterClick(e) {
+            const icon = e.target.closest('.card-footer-icon');
+            if (!icon) return;
+
+            e.stopPropagation();
+            const action = icon.dataset.action;
+            const venue = icon.dataset.venue;
+            const arcana = icon.dataset.arcana;
+
+            switch (action) {
+                case 'love':
+                    handleLoveClick(icon, venue);
+                    break;
+                case 'flag':
+                    handleFlagClick(icon, venue);
+                    break;
+                case 'share':
+                    handleShareClick(icon, venue, arcana);
+                    break;
+            }
+        }
+
+        function handleLoveClick(icon, venue) {
+            const isLoved = icon.classList.toggle('loved');
+            icon.textContent = isLoved ? '✦' : '✧';
+
+            const card = icon.closest('.arcana-card');
+            const confirmEl = card.querySelector('.card-footer-confirm');
+            if (confirmEl) {
+                confirmEl.textContent = isLoved ? 'this one glows' : '';
+                confirmEl.classList.add('show');
+                setTimeout(() => confirmEl.classList.remove('show'), 2000);
+            }
+
+            if (isLoved) {
+                showTestimonyForm(venue);
+            }
+        }
+
+        function handleFlagClick(icon, venue) {
+            showFlagForm(venue);
+        }
+
+        function handleShareClick(icon, venue, arcana) {
+            const slug = arcana ? encodeURIComponent(arcana) : '';
+            const url = `${window.location.origin}/arcana/${slug}`;
+
+            navigator.clipboard.writeText(url).then(() => {
+                const card = icon.closest('.arcana-card');
+                const confirmEl = card.querySelector('.card-footer-confirm');
+                if (confirmEl) {
+                    confirmEl.textContent = 'link copied — share this door';
+                    confirmEl.classList.add('show');
+                    setTimeout(() => confirmEl.classList.remove('show'), 2500);
+                }
+            }).catch(() => {
+                alert('Link: ' + url);
+            });
+        }
+
+        function showTestimonyForm(venue) {
+            const modal = document.createElement('div');
+            modal.className = 'lark-modal';
+            modal.innerHTML = `
+                <div class="lark-modal-content">
+                    <div class="lark-modal-header">
+                        <span class="lark-modal-icon">✦</span>
+                        <h3>This one glows</h3>
+                    </div>
+                    <p class="lark-modal-subtitle">Tell us about your visit to ${venue}</p>
+                    <textarea class="lark-modal-textarea" placeholder="What made this place special?" rows="4"></textarea>
+                    <input type="email" class="lark-modal-input" placeholder="Email (optional, for future features)">
+                    <div class="lark-modal-actions">
+                        <button class="action-btn secondary" onclick="closeLarkModal()">Maybe later</button>
+                        <button class="action-btn" onclick="submitTestimony('${venue.replace(/'/g, "\\'")}')">Share</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function showFlagForm(venue) {
+            const modal = document.createElement('div');
+            modal.className = 'lark-modal';
+            modal.innerHTML = `
+                <div class="lark-modal-content">
+                    <div class="lark-modal-header">
+                        <span class="lark-modal-icon">🜃</span>
+                        <h3>Whisper to the Lark</h3>
+                    </div>
+                    <p class="lark-modal-subtitle">Something's not right about ${venue}?</p>
+                    <div class="lark-modal-options">
+                        <label><input type="radio" name="flagReason" value="closed"> This venue has closed</label>
+                        <label><input type="radio" name="flagReason" value="incorrect"> Information is incorrect</label>
+                        <label><input type="radio" name="flagReason" value="arcana"> Doesn't fit this arcana</label>
+                        <label><input type="radio" name="flagReason" value="other"> Other</label>
+                    </div>
+                    <textarea class="lark-modal-textarea" placeholder="Any details? (optional)" rows="3"></textarea>
+                    <div class="lark-modal-actions">
+                        <button class="action-btn secondary" onclick="closeLarkModal()">Cancel</button>
+                        <button class="action-btn" onclick="submitFlag('${venue.replace(/'/g, "\\'")}')">Send</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function closeLarkModal() {
+            const modal = document.querySelector('.lark-modal');
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.remove(), 300);
+            }
+        }
+
+        async function submitTestimony(venue) {
+            const modal = document.querySelector('.lark-modal');
+            const text = modal.querySelector('.lark-modal-textarea').value;
+            const email = modal.querySelector('.lark-modal-input').value;
+
+            try {
+                await fetch('/feedback/testimony', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ venue, text, email })
+                });
+            } catch (e) {
+                console.error('Failed to submit testimony:', e);
+            }
+
+            closeLarkModal();
+        }
+
+        async function submitFlag(venue) {
+            const modal = document.querySelector('.lark-modal');
+            const reason = modal.querySelector('input[name="flagReason"]:checked')?.value || 'other';
+            const details = modal.querySelector('.lark-modal-textarea').value;
+
+            try {
+                await fetch('/feedback/flag', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ venue, reason, details })
+                });
+            } catch (e) {
+                console.error('Failed to submit flag:', e);
+            }
+
+            closeLarkModal();
+        }
+    </script>
+</body>
+</html>

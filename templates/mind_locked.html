@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lark Mind — The London Lark</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .locked-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .locked-symbol {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(201, 162, 39, 0.3);
+            opacity: 0.8;
+        }
+
+        .locked-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .locked-message {
+            font-family: var(--font-whisper);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--candlelight);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .locked-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .locked-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(201, 162, 39, 0.1) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            border-radius: 4px;
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .locked-button:hover {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.3) 0%, rgba(201, 162, 39, 0.2) 100%);
+            border-color: var(--gold);
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+        }
+
+        .locked-button.secondary {
+            background: transparent;
+            border-color: rgba(201, 162, 39, 0.25);
+            color: rgba(201, 162, 39, 0.7);
+        }
+
+        .locked-button.secondary:hover {
+            background: rgba(201, 162, 39, 0.05);
+            border-color: rgba(201, 162, 39, 0.4);
+            color: var(--gold);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: rgba(201, 162, 39, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        .locked-note {
+            margin-top: 2rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: rgba(201, 162, 39, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="locked-container">
+        <div class="locked-symbol">&#10048;</div>
+        <h1 class="locked-title">Lark Mind</h1>
+
+        <p class="locked-message">
+            She opens her deeper doors only to those who've been invited — for now.
+        </p>
+
+        <div class="locked-actions">
+            <a href="{{ url_for('auth.login') }}" class="locked-button">I've been here before</a>
+            <a href="{{ url_for('auth.register') }}" class="locked-button secondary">I have an invitation</a>
+        </div>
+
+        <p class="locked-note">
+            Lark Mind is in quiet testing. Invitations are shared by hand.
+        </p>
+
+        <a href="/" class="back-link">&larr; Explore The Lark</a>
+    </div>
+</body>
+</html>

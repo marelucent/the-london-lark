@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return to the Lark — The London Lark</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .auth-symbol {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+        }
+
+        .auth-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 0.75rem;
+        }
+
+        .auth-subtitle {
+            font-family: var(--font-whisper);
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--candlelight);
+            opacity: 0.9;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+        }
+
+        .form-input {
+            padding: 0.875rem 1rem;
+            background: rgba(26, 23, 20, 0.8);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 4px;
+            color: var(--cream);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgba(245, 240, 230, 0.3);
+        }
+
+        .auth-button {
+            margin-top: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(201, 162, 39, 0.1) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            border-radius: 4px;
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .auth-button:hover {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.3) 0%, rgba(201, 162, 39, 0.2) 100%);
+            border-color: var(--gold);
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+        }
+
+        .auth-error {
+            padding: 0.875rem 1rem;
+            background: rgba(180, 80, 80, 0.15);
+            border: 1px solid rgba(180, 80, 80, 0.3);
+            border-radius: 4px;
+            color: #e8c4c4;
+            font-family: var(--font-whisper);
+            font-style: italic;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .auth-footer {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .auth-link {
+            color: rgba(201, 162, 39, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .auth-link:hover {
+            color: var(--gold);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: rgba(201, 162, 39, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-header">
+            <div class="auth-symbol">&#10048;</div>
+            <h1 class="auth-title">Lark Mind</h1>
+            <p class="auth-subtitle">Ah — you've been here before.</p>
+        </div>
+
+        {% if error %}
+        <div class="auth-error">{{ error }}</div>
+        {% endif %}
+
+        <form class="auth-form" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" type="email" id="email" name="email" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-input" type="password" id="password" name="password" required>
+            </div>
+
+            <button class="auth-button" type="submit">Enter</button>
+        </form>
+
+        <div class="auth-footer">
+            <a class="auth-link" href="{{ url_for('auth.register') }}">Have an invitation? Register here</a>
+        </div>
+
+        <a href="/" class="back-link">&larr; Back to The Lark</a>
+    </div>
+</body>
+</html>
