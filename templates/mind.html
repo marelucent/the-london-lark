@@ -549,15 +549,20 @@
                 height: 100%;
                 height: 100dvh;
                 overflow: hidden;
+                padding: 0;
+                margin: 0;
             }
 
             .lark-mind-container {
                 padding: 0.75rem;
-                min-height: 100vh;
-                min-height: 100dvh;
+                height: 100vh;
+                height: 100dvh;
+                max-height: 100vh;
+                max-height: 100dvh;
                 display: flex;
                 flex-direction: column;
                 box-sizing: border-box;
+                overflow: hidden;
             }
 
             .lark-mind-header {
@@ -586,8 +591,11 @@
                 flex: 1;
                 min-height: 0;
                 max-height: none;
-                margin-bottom: 0.75rem;
+                margin-bottom: 0;
                 padding-right: 0.25rem;
+                padding-bottom: 0.5rem;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
             /* Tighter message bubbles */
@@ -605,12 +613,8 @@
             /* Fixed input area at bottom */
             .input-area {
                 flex-shrink: 0;
-                padding-top: 0.75rem;
                 gap: 0.5rem;
-                position: sticky;
-                bottom: 0;
                 background: var(--deep-night, #0d0b09);
-                margin: 0 -0.75rem;
                 padding: 0.75rem;
                 border-top: 1px solid rgba(201, 162, 39, 0.2);
             }
@@ -653,7 +657,6 @@
             }
 
             .input-area {
-                margin: 0 -0.5rem;
                 padding: 0.5rem;
             }
 
