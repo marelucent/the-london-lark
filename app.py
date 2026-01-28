@@ -2034,6 +2034,45 @@ def submit_flag():
         return jsonify({'error': str(e)}), 500
 
 
+@app.route('/feedback/rating', methods=['POST'])
+def submit_rating():
+    """
+    Log a simple thumbs up/down rating.
+    Called from Lark Lite (after search) and Lark Mind (after conversation).
+    """
+    try:
+        data = request.get_json() or {}
+        page = data.get('page', '')  # 'lite' or 'mind'
+        rating = data.get('rating', '')  # 'up' or 'down'
+        comment = data.get('comment', '')
+
+        if not page or rating not in ('up', 'down'):
+            return jsonify({'error': 'Invalid rating'}), 400
+
+        # Get IP hash for basic tracking
+        ip_hash = hash_ip(get_client_ip(request))
+
+        # Get user_id if logged in
+        user_id = None
+        if hasattr(current_user, 'id') and current_user.is_authenticated:
+            user_id = current_user.id
+
+        # Log the rating
+        feedback_logger = get_feedback_logger()
+        feedback_logger.log_rating(
+            page=page,
+            rating=rating,
+            comment=comment if comment else None,
+            user_id=user_id,
+            ip_hash=ip_hash
+        )
+
+        return jsonify({'success': True})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 # =============================================================================
 # ADMIN ENDPOINTS - Usage Visibility
 # =============================================================================

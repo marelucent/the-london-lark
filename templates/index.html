@@ -951,6 +951,10 @@
                             <button id="entranceButton" onclick="entranceAsk()">Whisper to the Lark</button>
                         </div>
 
+                        <div class="lark-mind-invitation">
+                            <a href="/mind" class="mind-link">or speak with her directly...</a>
+                        </div>
+
                         <div class="entrance-alternatives">
                             <span class="alternatives-label">or if you'd rather...</span>
                             <div class="alternatives-links">
@@ -2319,6 +2323,23 @@
                                     `;
                                     resultsContainer.appendChild(softFooter);
                                 }
+
+                                // Add feedback prompt
+                                const feedbackPrompt = document.createElement('div');
+                                feedbackPrompt.className = 'lark-feedback-prompt';
+                                feedbackPrompt.innerHTML = `
+                                    <p class="feedback-question">Did she find you something good?</p>
+                                    <div class="feedback-buttons">
+                                        <button class="feedback-btn" data-rating="up" onclick="submitLiteFeedback('up', this)">&#128077;</button>
+                                        <button class="feedback-btn" data-rating="down" onclick="submitLiteFeedback('down', this)">&#128078;</button>
+                                    </div>
+                                    <div class="feedback-comment-area" id="liteFeedbackComment">
+                                        <textarea placeholder="What were you hoping for?" rows="2"></textarea>
+                                        <button onclick="submitLiteComment(this)">Send</button>
+                                    </div>
+                                    <p class="feedback-thanks" style="display: none;"></p>
+                                `;
+                                resultsContainer.appendChild(feedbackPrompt);
                             }
                         }, index * 200);
                     });
@@ -2343,6 +2364,61 @@
             document.getElementById('askButton').disabled = false;
             input.value = '';
             input.focus();
+        }
+
+        // ============================================
+        // FEEDBACK HANDLING (Lark Lite)
+        // ============================================
+        let liteFeedbackRating = null;
+
+        function submitLiteFeedback(rating, btn) {
+            liteFeedbackRating = rating;
+            const prompt = btn.closest('.lark-feedback-prompt');
+            const buttons = prompt.querySelectorAll('.feedback-btn');
+            const thanks = prompt.querySelector('.feedback-thanks');
+            const commentArea = prompt.querySelector('.feedback-comment-area');
+
+            // Mark selected
+            buttons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            // Send to server
+            fetch('/feedback/rating', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ page: 'lite', rating: rating })
+            }).catch(e => console.error('Feedback error:', e));
+
+            // Show response
+            if (rating === 'up') {
+                thanks.textContent = 'She heard you. Thank you, petal.';
+                thanks.style.display = 'block';
+                commentArea.classList.remove('show');
+            } else {
+                // Show comment box for negative feedback
+                commentArea.classList.add('show');
+                thanks.style.display = 'none';
+            }
+        }
+
+        function submitLiteComment(btn) {
+            const prompt = btn.closest('.lark-feedback-prompt');
+            const textarea = prompt.querySelector('.feedback-comment-area textarea');
+            const comment = textarea.value.trim();
+            const thanks = prompt.querySelector('.feedback-thanks');
+            const commentArea = prompt.querySelector('.feedback-comment-area');
+
+            if (comment) {
+                fetch('/feedback/rating', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ page: 'lite', rating: 'down', comment: comment })
+                }).catch(e => console.error('Feedback error:', e));
+            }
+
+            commentArea.classList.remove('show');
+            thanks.textContent = 'Noted. She\'ll try to do better.';
+            thanks.style.display = 'block';
         }
 
         function createVenueCard(venue, mood) {

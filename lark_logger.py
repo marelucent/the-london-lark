@@ -513,6 +513,34 @@ class FeedbackLogger:
         except Exception as e:
             get_error_logger().error(f"Failed to write flag: {e}")
 
+    def log_rating(
+        self,
+        page: str,
+        rating: str,
+        comment: Optional[str] = None,
+        user_id: Optional[int] = None,
+        ip_hash: Optional[str] = None
+    ):
+        """Log a simple thumbs up/down rating."""
+        london_tz = ZoneInfo('Europe/London')
+        now = datetime.now(london_tz)
+
+        entry = {
+            "timestamp": now.isoformat(),
+            "type": "rating",
+            "page": page,
+            "rating": rating,  # 'up' or 'down'
+            "comment": comment[:500] if comment else None,
+            "user_id": user_id,
+            "ip_hash": ip_hash
+        }
+
+        try:
+            with open(FEEDBACK_LOG_FILE, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(entry) + '\n')
+        except Exception as e:
+            get_error_logger().error(f"Failed to write rating: {e}")
+
 
 # =============================================================================
 # PAGE VIEW ANALYTICS

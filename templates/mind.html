@@ -260,6 +260,112 @@
             color: var(--gold, #d4af37);
         }
 
+        /* Mind Feedback Prompt */
+        .mind-feedback-prompt {
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            opacity: 0;
+            animation: fadeInSoft 0.5s ease forwards;
+        }
+
+        @keyframes fadeInSoft {
+            to { opacity: 1; }
+        }
+
+        .mind-feedback-prompt .feedback-question {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .mind-feedback-prompt .feedback-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .mind-feedback-prompt .feedback-btn {
+            background: transparent;
+            border: 1px solid rgba(201, 162, 39, 0.25);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .mind-feedback-prompt .feedback-btn:hover {
+            opacity: 1;
+            border-color: rgba(201, 162, 39, 0.5);
+            transform: scale(1.1);
+        }
+
+        .mind-feedback-prompt .feedback-btn.selected {
+            opacity: 1;
+            border-color: var(--gold, #d4af37);
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .mind-feedback-prompt .feedback-thanks {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--gold, #d4af37);
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .mind-feedback-prompt .feedback-comment-area {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .mind-feedback-prompt .feedback-comment-area.show {
+            display: block;
+            animation: fadeInSoft 0.3s ease forwards;
+        }
+
+        .mind-feedback-prompt .feedback-comment-area textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.75rem 1rem;
+            background: rgba(26, 23, 20, 0.6);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 8px;
+            color: var(--cream, #f5f0e6);
+            font-family: var(--font-body, 'Libre Baskerville', serif);
+            font-size: 0.9rem;
+            resize: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .mind-feedback-prompt .feedback-comment-area textarea::placeholder {
+            color: rgba(245, 240, 230, 0.4);
+            font-style: italic;
+        }
+
+        .mind-feedback-prompt .feedback-comment-area button {
+            padding: 0.4rem 1rem;
+            background: rgba(201, 162, 39, 0.15);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 4px;
+            color: var(--gold, #d4af37);
+            font-family: var(--font-body, 'Libre Baskerville', serif);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mind-feedback-prompt .feedback-comment-area button:hover {
+            background: rgba(201, 162, 39, 0.25);
+            border-color: var(--gold, #d4af37);
+        }
+
         /* Error State */
         .lark-mind-container .chat-message.error {
             background: rgba(180, 80, 80, 0.2);
@@ -523,6 +629,20 @@
         </div>
 
         <a href="/" class="back-link">&larr; Back to The Lark</a>
+
+        <!-- Feedback prompt - appears after conversation -->
+        <div class="mind-feedback-prompt" id="mindFeedback" style="display: none;">
+            <p class="feedback-question">Did she open the right door?</p>
+            <div class="feedback-buttons">
+                <button class="feedback-btn" data-rating="up" onclick="submitMindFeedback('up', this)">&#128077;</button>
+                <button class="feedback-btn" data-rating="down" onclick="submitMindFeedback('down', this)">&#128078;</button>
+            </div>
+            <div class="feedback-comment-area" id="mindFeedbackComment">
+                <textarea placeholder="What were you hoping for?" rows="2"></textarea>
+                <button onclick="submitMindComment(this)">Send</button>
+            </div>
+            <p class="feedback-thanks" style="display: none;"></p>
+        </div>
     </div>
 
     <script>
@@ -1195,6 +1315,78 @@
 
             closeLarkModal();
         }
+
+        // ============================================
+        // FEEDBACK HANDLING (Lark Mind)
+        // ============================================
+        let mindMessageCount = 0;
+        let mindFeedbackShown = false;
+
+        function showMindFeedbackIfReady() {
+            // Show feedback prompt after 2+ exchanges
+            if (mindMessageCount >= 2 && !mindFeedbackShown) {
+                mindFeedbackShown = true;
+                const feedbackEl = document.getElementById('mindFeedback');
+                feedbackEl.style.display = 'block';
+            }
+        }
+
+        function submitMindFeedback(rating, btn) {
+            const prompt = btn.closest('.mind-feedback-prompt');
+            const buttons = prompt.querySelectorAll('.feedback-btn');
+            const thanks = prompt.querySelector('.feedback-thanks');
+            const commentArea = prompt.querySelector('.feedback-comment-area');
+
+            // Mark selected
+            buttons.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            // Send to server
+            fetch('/feedback/rating', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ page: 'mind', rating: rating })
+            }).catch(e => console.error('Feedback error:', e));
+
+            // Show response
+            if (rating === 'up') {
+                thanks.textContent = 'She heard you. Thank you, petal.';
+                thanks.style.display = 'block';
+                commentArea.classList.remove('show');
+            } else {
+                // Show comment box for negative feedback
+                commentArea.classList.add('show');
+                thanks.style.display = 'none';
+            }
+        }
+
+        function submitMindComment(btn) {
+            const prompt = btn.closest('.mind-feedback-prompt');
+            const textarea = prompt.querySelector('.feedback-comment-area textarea');
+            const comment = textarea.value.trim();
+            const thanks = prompt.querySelector('.feedback-thanks');
+            const commentArea = prompt.querySelector('.feedback-comment-area');
+
+            if (comment) {
+                fetch('/feedback/rating', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ page: 'mind', rating: 'down', comment: comment })
+                }).catch(e => console.error('Feedback error:', e));
+            }
+
+            commentArea.classList.remove('show');
+            thanks.textContent = 'Noted. She\'ll try to do better.';
+            thanks.style.display = 'block';
+        }
+
+        // Hook into message sending to track exchanges
+        const originalSendMessage = sendMessage;
+        sendMessage = async function() {
+            await originalSendMessage();
+            mindMessageCount++;
+            showMindFeedbackIfReady();
+        };
     </script>
 </body>
 </html>
