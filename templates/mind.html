@@ -1359,8 +1359,9 @@
 
         async function submitTestimony(venue) {
             const modal = document.querySelector('.lark-modal');
-            const text = modal.querySelector('.lark-modal-textarea').value;
-            const email = modal.querySelector('.lark-modal-input').value;
+            if (!modal) return;
+            const text = modal.querySelector('.lark-modal-textarea')?.value || '';
+            const email = modal.querySelector('.lark-modal-input')?.value || '';
 
             try {
                 await fetch('/feedback/testimony', {
@@ -1377,8 +1378,9 @@
 
         async function submitFlag(venue) {
             const modal = document.querySelector('.lark-modal');
+            if (!modal) return;
             const reason = modal.querySelector('input[name="flagReason"]:checked')?.value || 'other';
-            const details = modal.querySelector('.lark-modal-textarea').value;
+            const details = modal.querySelector('.lark-modal-textarea')?.value || '';
 
             try {
                 await fetch('/feedback/flag', {
@@ -1404,12 +1406,13 @@
             if (mindMessageCount >= 2 && !mindFeedbackShown) {
                 mindFeedbackShown = true;
                 const feedbackEl = document.getElementById('mindFeedback');
-                feedbackEl.style.display = 'block';
+                if (feedbackEl) feedbackEl.style.display = 'block';
             }
         }
 
         function submitMindFeedback(rating, btn) {
             const prompt = btn.closest('.mind-feedback-prompt');
+            if (!prompt) return;
             const buttons = prompt.querySelectorAll('.feedback-btn');
             const thanks = prompt.querySelector('.feedback-thanks');
             const commentArea = prompt.querySelector('.feedback-comment-area');
@@ -1439,7 +1442,9 @@
 
         function submitMindComment(btn) {
             const prompt = btn.closest('.mind-feedback-prompt');
+            if (!prompt) return;
             const textarea = prompt.querySelector('.feedback-comment-area textarea');
+            if (!textarea) return;
             const comment = textarea.value.trim();
             const thanks = prompt.querySelector('.feedback-thanks');
             const commentArea = prompt.querySelector('.feedback-comment-area');

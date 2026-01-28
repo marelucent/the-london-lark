@@ -6,6 +6,8 @@ Login, register, logout, and protected mind route.
 """
 
 import os
+import time
+from collections import defaultdict
 from functools import wraps
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from flask_login import login_user, logout_user, login_required, current_user
@@ -13,6 +15,42 @@ from auth_models import User, InviteCode
 from lark_mind import get_time_aware_greeting as get_lark_mind_greeting
 
 auth_bp = Blueprint('auth', __name__)
+
+# =============================================================================
+# LOGIN RATE LIMITING
+# =============================================================================
+# Track failed login attempts: {ip: [(timestamp, email), ...]}
+_failed_logins = defaultdict(list)
+MAX_FAILED_ATTEMPTS = 5
+LOCKOUT_DURATION = 900  # 15 minutes
+
+
+def _get_client_ip():
+    """Get client IP, handling proxies."""
+    if request.headers.get('X-Forwarded-For'):
+        return request.headers.get('X-Forwarded-For').split(',')[0].strip()
+    return request.remote_addr or 'unknown'
+
+
+def _is_login_locked(ip):
+    """Check if IP is locked out due to too many failed attempts."""
+    now = time.time()
+    # Clean old attempts (older than lockout duration)
+    _failed_logins[ip] = [
+        (ts, email) for ts, email in _failed_logins[ip]
+        if now - ts < LOCKOUT_DURATION
+    ]
+    return len(_failed_logins[ip]) >= MAX_FAILED_ATTEMPTS
+
+
+def _record_failed_login(ip, email):
+    """Record a failed login attempt."""
+    _failed_logins[ip].append((time.time(), email))
+
+
+def _clear_failed_logins(ip):
+    """Clear failed login attempts after successful login."""
+    _failed_logins.pop(ip, None)
 
 # Admin password - set via environment variable, fallback for dev
 ADMIN_PASSWORD = os.environ.get('LARK_ADMIN_PASSWORD', 'lark-admin-dev')
@@ -35,6 +73,12 @@ def login():
         return redirect(url_for('auth.mind'))
 
     error = None
+    client_ip = _get_client_ip()
+
+    # Check if locked out
+    if _is_login_locked(client_ip):
+        error = "Too many attempts, love. Rest a moment and try again."
+        return render_template('login.html', error=error)
 
     if request.method == 'POST':
         email = request.form.get('email', '').strip()
@@ -45,11 +89,16 @@ def login():
         else:
             user = User.get_by_email(email)
             if user and user.check_password(password):
+                _clear_failed_logins(client_ip)
                 login_user(user)
                 next_page = request.args.get('next')
                 return redirect(next_page or url_for('auth.mind'))
             else:
-                error = "The Lark doesn't recognise those words."
+                _record_failed_login(client_ip, email)
+                if _is_login_locked(client_ip):
+                    error = "Too many attempts, love. Rest a moment and try again."
+                else:
+                    error = "The Lark doesn't recognise those words."
 
     return render_template('login.html', error=error)
 

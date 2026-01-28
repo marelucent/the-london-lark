@@ -608,8 +608,9 @@
 
         async function submitTestimony(venue) {
             const modal = document.querySelector('.lark-modal');
-            const text = modal.querySelector('textarea').value;
-            const email = modal.querySelector('input[type="email"]').value;
+            if (!modal) return;
+            const text = modal.querySelector('textarea')?.value || '';
+            const email = modal.querySelector('input[type="email"]')?.value || '';
 
             try {
                 await fetch('/feedback/testimony', {
@@ -627,8 +628,9 @@
 
         async function submitFlag(venue) {
             const modal = document.querySelector('.lark-modal');
+            if (!modal) return;
             const reason = modal.querySelector('input[name="flagReason"]:checked')?.value || 'other';
-            const details = modal.querySelector('textarea').value;
+            const details = modal.querySelector('textarea')?.value || '';
 
             try {
                 await fetch('/feedback/flag', {

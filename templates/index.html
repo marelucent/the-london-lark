@@ -1941,7 +1941,14 @@
                 if (data.website && data.website.trim() && !data.website.startsWith('(')) {
                     let url = data.website;
                     if (!url.startsWith('http')) url = 'https://' + url;
-                    venueName.innerHTML = `<a href="${url}" target="_blank" rel="noopener">${data.venue_name}</a>`;
+                    // Create link safely to avoid XSS
+                    venueName.textContent = '';
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.target = '_blank';
+                    link.rel = 'noopener';
+                    link.textContent = data.venue_name;
+                    venueName.appendChild(link);
                 } else {
                     venueName.textContent = data.venue_name;
                 }
