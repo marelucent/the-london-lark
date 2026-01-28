@@ -139,6 +139,27 @@
             font-style: italic;
         }
 
+        /* Force dark background on mobile - prevents iOS/Android keyboard styling overrides */
+        .chat-input,
+        .chat-input:focus,
+        .chat-input:active {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: #1a1714 !important;
+            color: #f5f0e6 !important;
+            -webkit-text-fill-color: #f5f0e6 !important;
+            opacity: 1;
+        }
+
+        /* Ensure autofill doesn't override */
+        .chat-input:-webkit-autofill,
+        .chat-input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 1000px #1a1714 inset !important;
+            -webkit-text-fill-color: #f5f0e6 !important;
+            background-color: #1a1714 !important;
+        }
+
         .send-button {
             padding: 0.875rem 1.5rem;
             background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(201, 162, 39, 0.1) 100%);
@@ -311,6 +332,149 @@
         /* Override global CSS to show card footer on Lark Mind cards */
         .chat-card-container .arcana-card.card-sm .card-footer {
             display: flex;
+        }
+
+        /* ============================================
+           MOBILE OPTIMISATION
+           ============================================ */
+
+        @media (max-width: 768px) {
+            /* Use dynamic viewport height for keyboard-aware layout */
+            html, body {
+                height: 100%;
+                height: 100dvh;
+                overflow: hidden;
+            }
+
+            .lark-mind-container {
+                padding: 0.75rem;
+                min-height: 100vh;
+                min-height: 100dvh;
+                display: flex;
+                flex-direction: column;
+                box-sizing: border-box;
+            }
+
+            .lark-mind-header {
+                margin-bottom: 0.75rem;
+                padding-bottom: 0.75rem;
+                flex-shrink: 0;
+            }
+
+            .lark-mind-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .lark-mind-header p {
+                font-size: 0.9rem;
+                margin-bottom: 0;
+            }
+
+            .prototype-badge {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.65rem;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Chat container fills available space */
+            .chat-container {
+                flex: 1;
+                min-height: 0;
+                max-height: none;
+                margin-bottom: 0.75rem;
+                padding-right: 0.25rem;
+            }
+
+            /* Tighter message bubbles */
+            .lark-mind-container .chat-message {
+                padding: 0.75rem 1rem;
+                max-width: 90%;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .lark-mind-container .chat-message.lark {
+                font-size: 1rem;
+            }
+
+            /* Fixed input area at bottom */
+            .input-area {
+                flex-shrink: 0;
+                padding-top: 0.75rem;
+                gap: 0.5rem;
+                position: sticky;
+                bottom: 0;
+                background: var(--deep-night, #0d0b09);
+                margin: 0 -0.75rem;
+                padding: 0.75rem;
+                border-top: 1px solid rgba(201, 162, 39, 0.2);
+            }
+
+            .chat-input {
+                padding: 0.75rem;
+                min-height: 44px;
+                font-size: 16px; /* Prevents iOS zoom on focus */
+            }
+
+            .send-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            /* Hide non-essential elements on mobile */
+            .clear-button {
+                display: none;
+            }
+
+            .usage-stats {
+                display: none !important;
+            }
+
+            .back-link {
+                display: none;
+            }
+
+            /* Tighter card display on mobile */
+            .chat-card-container {
+                margin: 0.5rem 0;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 400px) {
+            .lark-mind-container {
+                padding: 0.5rem;
+            }
+
+            .input-area {
+                margin: 0 -0.5rem;
+                padding: 0.5rem;
+            }
+
+            .lark-mind-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .lark-mind-container .chat-message {
+                padding: 0.6rem 0.8rem;
+                max-width: 92%;
+            }
+        }
+
+        /* Landscape mobile - even tighter */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .lark-mind-header {
+                display: none;
+            }
+
+            .lark-mind-container {
+                padding: 0.5rem;
+            }
+
+            .chat-container {
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -824,6 +988,43 @@
 
         // Focus input on load
         chatInput.focus();
+
+        // ============================================
+        // MOBILE KEYBOARD HANDLING
+        // ============================================
+
+        // Detect virtual keyboard and scroll chat to bottom
+        let lastViewportHeight = window.visualViewport?.height || window.innerHeight;
+
+        function handleViewportResize() {
+            const currentHeight = window.visualViewport?.height || window.innerHeight;
+
+            // Keyboard opened (viewport shrunk significantly)
+            if (currentHeight < lastViewportHeight - 100) {
+                // Scroll chat to bottom to keep recent messages visible
+                setTimeout(() => {
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, 50);
+            }
+
+            lastViewportHeight = currentHeight;
+        }
+
+        // Listen to visualViewport resize (works best on mobile)
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', handleViewportResize);
+        } else {
+            window.addEventListener('resize', handleViewportResize);
+        }
+
+        // Also scroll when input is focused (keyboard appears)
+        chatInput.addEventListener('focus', () => {
+            setTimeout(() => {
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                // Scroll input into view on iOS
+                chatInput.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 300);
+        });
 
         // ============================================
         // CARD FOOTER HANDLERS
