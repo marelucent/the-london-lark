@@ -314,7 +314,7 @@
                                 <span class="status-available">Available</span>
                             {% endif %}
                         </td>
-                        <td>{{ code.created_at[:10] if code.created_at else '-' }}</td>
+                        <td>{{ (code.created_at[:10] if code.created_at is string else code.created_at.strftime('%Y-%m-%d')) if code.created_at else '-' }}</td>
                         <td>
                             {% if code.is_active and not code.used_by %}
                             <form method="POST" action="{{ url_for('auth.admin_invites_revoke', code=code.code) }}" style="display:inline;">
