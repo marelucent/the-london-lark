@@ -2324,6 +2324,12 @@
                                     resultsContainer.appendChild(softFooter);
                                 }
 
+                                // Add Lark Mind invitation
+                                const mindInvite = document.createElement('div');
+                                mindInvite.className = 'lark-mind-invitation';
+                                mindInvite.innerHTML = `<a href="/mind" class="mind-link">or speak with her directly...</a>`;
+                                resultsContainer.appendChild(mindInvite);
+
                                 // Add feedback prompt
                                 const feedbackPrompt = document.createElement('div');
                                 feedbackPrompt.className = 'lark-feedback-prompt';
