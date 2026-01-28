@@ -5,12 +5,27 @@ Authentication routes for The London Lark.
 Login, register, logout, and protected mind route.
 """
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+import os
+from functools import wraps
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from flask_login import login_user, logout_user, login_required, current_user
 from auth_models import User, InviteCode
 from lark_mind import get_time_aware_greeting as get_lark_mind_greeting
 
 auth_bp = Blueprint('auth', __name__)
+
+# Admin password - set via environment variable, fallback for dev
+ADMIN_PASSWORD = os.environ.get('LARK_ADMIN_PASSWORD', 'lark-admin-dev')
+
+
+def admin_required(f):
+    """Decorator to require admin authentication."""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get('admin_authenticated'):
+            return redirect(url_for('auth.admin_login', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
@@ -102,3 +117,64 @@ def mind():
 
     greeting = get_lark_mind_greeting()
     return render_template('mind.html', greeting=greeting, user=current_user)
+
+
+# =============================================================================
+# ADMIN ROUTES
+# =============================================================================
+
+@auth_bp.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    """Admin login page."""
+    error = None
+
+    if request.method == 'POST':
+        password = request.form.get('password', '')
+        if password == ADMIN_PASSWORD:
+            session['admin_authenticated'] = True
+            next_url = request.args.get('next', url_for('auth.admin_invites'))
+            return redirect(next_url)
+        else:
+            error = "Incorrect password"
+
+    return render_template('admin_login.html', error=error)
+
+
+@auth_bp.route('/admin/logout')
+def admin_logout():
+    """Admin logout."""
+    session.pop('admin_authenticated', None)
+    return redirect(url_for('home'))
+
+
+@auth_bp.route('/admin/invites')
+@admin_required
+def admin_invites():
+    """View all invite codes."""
+    codes = InviteCode.get_all()
+    new_codes = session.pop('new_codes', None)
+    return render_template('admin_invites.html', codes=codes, new_codes=new_codes)
+
+
+@auth_bp.route('/admin/invites/create', methods=['POST'])
+@admin_required
+def admin_invites_create():
+    """Generate new invite codes."""
+    count = int(request.form.get('count', 1))
+    count = min(max(count, 1), 10)  # Clamp between 1-10
+
+    new_codes = []
+    for _ in range(count):
+        code = InviteCode.create(created_by='admin')
+        new_codes.append(code)
+
+    session['new_codes'] = new_codes
+    return redirect(url_for('auth.admin_invites'))
+
+
+@auth_bp.route('/admin/invites/revoke/<code>', methods=['POST'])
+@admin_required
+def admin_invites_revoke(code):
+    """Revoke an invite code."""
+    InviteCode.revoke(code)
+    return redirect(url_for('auth.admin_invites'))

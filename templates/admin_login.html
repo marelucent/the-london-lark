@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — The London Lark</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .admin-login-container {
+            max-width: 350px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .admin-login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .admin-login-header h1 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--cream);
+            margin: 0;
+        }
+
+        .admin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .admin-input {
+            padding: 0.875rem 1rem;
+            background: rgba(26, 23, 20, 0.8);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 4px;
+            color: var(--cream);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        .admin-input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .admin-button {
+            padding: 0.875rem 1rem;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(201, 162, 39, 0.1) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            border-radius: 4px;
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .admin-button:hover {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.3) 0%, rgba(201, 162, 39, 0.2) 100%);
+            border-color: var(--gold);
+        }
+
+        .admin-error {
+            padding: 0.75rem 1rem;
+            background: rgba(180, 80, 80, 0.15);
+            border: 1px solid rgba(180, 80, 80, 0.3);
+            border-radius: 4px;
+            color: #e8c4c4;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: rgba(201, 162, 39, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-login-container">
+        <div class="admin-login-header">
+            <h1>Admin Access</h1>
+        </div>
+
+        {% if error %}
+        <div class="admin-error">{{ error }}</div>
+        {% endif %}
+
+        <form class="admin-form" method="POST">
+            <input type="password" name="password" class="admin-input" placeholder="Password" required autofocus>
+            <button type="submit" class="admin-button">Enter</button>
+        </form>
+
+        <a href="/" class="back-link">&larr; Back</a>
+    </div>
+</body>
+</html>

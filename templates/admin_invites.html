@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite Codes — Lark Admin</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .admin-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .admin-header h1 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .admin-header p {
+            font-family: var(--font-whisper);
+            font-style: italic;
+            color: var(--candlelight);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Generate section */
+        .generate-section {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(201, 162, 39, 0.05);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 4px;
+        }
+
+        .generate-section label {
+            font-size: 0.9rem;
+            color: var(--candlelight);
+        }
+
+        .generate-section input[type="number"] {
+            width: 60px;
+            padding: 0.5rem;
+            background: rgba(26, 23, 20, 0.8);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 4px;
+            color: var(--cream);
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .generate-btn {
+            padding: 0.6rem 1.25rem;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(201, 162, 39, 0.1) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.4);
+            border-radius: 4px;
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .generate-btn:hover {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.3) 0%, rgba(201, 162, 39, 0.2) 100%);
+            border-color: var(--gold);
+        }
+
+        /* New codes display */
+        .new-codes {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(100, 180, 100, 0.1);
+            border: 1px solid rgba(100, 180, 100, 0.3);
+            border-radius: 4px;
+        }
+
+        .new-codes h3 {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            color: #a0d0a0;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .new-codes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .new-code-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .new-code-item code {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--cream);
+            letter-spacing: 0.1em;
+            background: rgba(26, 23, 20, 0.6);
+            padding: 0.4rem 0.75rem;
+            border-radius: 3px;
+        }
+
+        .copy-btn {
+            padding: 0.3rem 0.6rem;
+            background: transparent;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 3px;
+            color: rgba(201, 162, 39, 0.7);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .copy-btn.copied {
+            border-color: #a0d0a0;
+            color: #a0d0a0;
+        }
+
+        /* Codes table */
+        .codes-section h2 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--gold);
+            margin: 0 0 1rem 0;
+            letter-spacing: 0.05em;
+        }
+
+        .codes-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .codes-table th {
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .codes-table td {
+            padding: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--cream);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+        }
+
+        .codes-table tr:hover {
+            background: rgba(201, 162, 39, 0.03);
+        }
+
+        .codes-table code {
+            font-family: monospace;
+            letter-spacing: 0.05em;
+        }
+
+        .status-available {
+            color: #a0d0a0;
+        }
+
+        .status-used {
+            color: rgba(245, 240, 230, 0.4);
+        }
+
+        .status-revoked {
+            color: #d0a0a0;
+        }
+
+        .used-by {
+            font-size: 0.8rem;
+            color: rgba(245, 240, 230, 0.5);
+        }
+
+        .revoke-btn {
+            padding: 0.25rem 0.5rem;
+            background: transparent;
+            border: 1px solid rgba(180, 80, 80, 0.3);
+            border-radius: 3px;
+            color: rgba(180, 80, 80, 0.7);
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .revoke-btn:hover {
+            border-color: #d0a0a0;
+            color: #d0a0a0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(245, 240, 230, 0.4);
+            font-style: italic;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: rgba(201, 162, 39, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        /* Summary stats */
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: rgba(245, 240, 230, 0.6);
+        }
+
+        .stats span {
+            color: var(--cream);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Invite Codes</h1>
+            <p>Keys to the deeper doors</p>
+        </div>
+
+        <!-- Generate new codes -->
+        <form class="generate-section" method="POST" action="{{ url_for('auth.admin_invites_create') }}">
+            <label for="count">Generate</label>
+            <input type="number" id="count" name="count" value="1" min="1" max="10">
+            <label>new code(s)</label>
+            <button type="submit" class="generate-btn">Generate</button>
+        </form>
+
+        <!-- Show newly created codes -->
+        {% if new_codes %}
+        <div class="new-codes">
+            <h3>New codes created:</h3>
+            <div class="new-codes-list">
+                {% for code in new_codes %}
+                <div class="new-code-item">
+                    <code>{{ code }}</code>
+                    <button type="button" class="copy-btn" onclick="copyCode('{{ code }}', this)">copy</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Existing codes -->
+        <div class="codes-section">
+            <h2>All Codes</h2>
+
+            <div class="stats">
+                <div>Available: <span>{{ codes | selectattr('is_active') | rejectattr('used_by') | list | length }}</span></div>
+                <div>Used: <span>{{ codes | selectattr('used_by') | list | length }}</span></div>
+                <div>Total: <span>{{ codes | length }}</span></div>
+            </div>
+
+            {% if codes %}
+            <table class="codes-table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for code in codes %}
+                    <tr>
+                        <td>
+                            <code>{{ code.code }}</code>
+                            <button type="button" class="copy-btn" onclick="copyCode('{{ code.code }}', this)">copy</button>
+                        </td>
+                        <td>
+                            {% if code.used_by %}
+                                <span class="status-used">Used</span>
+                                <div class="used-by">by {{ code.used_by_email or 'user #' + code.used_by|string }}</div>
+                            {% elif not code.is_active %}
+                                <span class="status-revoked">Revoked</span>
+                            {% else %}
+                                <span class="status-available">Available</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ code.created_at[:10] if code.created_at else '-' }}</td>
+                        <td>
+                            {% if code.is_active and not code.used_by %}
+                            <form method="POST" action="{{ url_for('auth.admin_invites_revoke', code=code.code) }}" style="display:inline;">
+                                <button type="submit" class="revoke-btn" onclick="return confirm('Revoke this code?')">revoke</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="empty-state">No invite codes yet. Generate some above.</div>
+            {% endif %}
+        </div>
+
+        <a href="/" class="back-link">&larr; Back to The Lark</a>
+    </div>
+
+    <script>
+        function copyCode(code, button) {
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'copied';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = 'copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(() => {
+                // Fallback
+                prompt('Copy this code:', code);
+            });
+        }
+    </script>
+</body>
+</html>
