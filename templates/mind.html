@@ -473,28 +473,36 @@
             margin-bottom: 0.4rem;
         }
 
-        /* Card-sm (collapsed): show whisper, hide blurb */
-        .chat-card-container .arcana-card.card-sm .venue-whisper {
-            display: block !important;
+        /* Chat venue cards - simple, static, clickable to venue page */
+        .chat-venue-card {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .chat-card-container .arcana-card.card-sm .venue-blurb {
-            display: none !important;
+        .chat-venue-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        /* Card-lg (expanded): hide whisper, show blurb */
-        .chat-card-container .arcana-card.card-lg .venue-whisper {
-            display: none !important;
+        .chat-venue-card .venue-whisper {
+            font-family: var(--font-whisper, 'Cormorant Garamond', serif);
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--candlelight, #f4e4bc);
+            opacity: 0.85;
+            margin-top: 0.4rem;
+            line-height: 1.4;
         }
 
-        .chat-card-container .arcana-card.card-lg .venue-blurb {
-            display: block !important;
+        .chat-venue-card .venue-name {
             font-family: var(--font-body, 'Libre Baskerville', serif);
             font-size: 0.95rem;
             color: var(--cream, #f5f0e6);
-            line-height: 1.6;
-            margin-top: 0.75rem;
-            opacity: 0.9;
+        }
+
+        /* Remove number from chat cards - keep them minimal */
+        .chat-venue-card .arcana-number {
+            display: none;
         }
 
         /* Disable card interactions during loading */
@@ -861,46 +869,31 @@
                 // Click to reveal
                 card.onclick = () => revealCard(card, venue);
             } else {
-                // Revealed card
-                card.className = `arcana-card card-sm venue-card-result ${arcanaColourClass}`;
-                card.setAttribute('data-arcana', arcanaKey);
-                card.dataset.venueBlurb = venue.blurb || '';
-                card.dataset.venueWebsite = venue.website || '';
+                // Revealed card - simple, static, links to venue page
+                const slug = venue.slug || venue.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
 
-                let venueLink = venue.name;
-                if (venue.website && venue.website.trim()) {
-                    let url = venue.website;
-                    if (!url.startsWith('http')) url = 'https://' + url;
-                    venueLink = `<a href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${venue.name}</a>`;
-                }
+                card.className = `arcana-card card-sm chat-venue-card ${arcanaColourClass}`;
+                card.setAttribute('data-arcana', arcanaKey);
 
                 card.innerHTML = `
                     <span class="corner-tr"></span>
                     <span class="corner-bl"></span>
                     <div class="card-inner">
                         <div class="arcana-symbol">${arcana.symbol}</div>
-                        <div class="arcana-number">${arcana.number}</div>
                         <div class="arcana-name">${arcana.name}</div>
                         <div class="arcana-mood">${mood}</div>
                         <div class="arcana-divider"></div>
                         <div class="venue-section">
-                            <div class="venue-name">${venueLink}</div>
+                            <div class="venue-name">${venue.name}</div>
                             <div class="venue-whisper">${whisper}</div>
-                            <div class="venue-blurb">${venue.blurb || ''}</div>
                         </div>
-                        <div class="card-footer">
-                            <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.name}">✧</button>
-                            <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" data-venue="${venue.name}">🜃</button>
-                            <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.name}" data-arcana="${mood}">↗</button>
-                        </div>
-                        <div class="card-footer-confirm"></div>
                     </div>
                 `;
 
-                // Click to expand/collapse
-                card.onclick = (e) => {
-                    if (e.target.tagName === 'A' || e.target.classList.contains('card-footer-icon')) return;
-                    toggleCardExpansion(card);
+                // Click anywhere on card → go to venue page
+                card.style.cursor = 'pointer';
+                card.onclick = () => {
+                    window.location.href = '/venue/' + slug;
                 };
             }
 
@@ -912,55 +905,36 @@
 
             const mood = venue.arcana || 'Romanticised London';
             const arcana = arcanaMap[mood] || { number: '✦', name: 'THE LARK', symbol: '❦' };
-            const arcanaKey = getArcanaKey(mood);
-            const arcanaColourClass = getArcanaColourClass(mood);
             const whisper = venue.whisper || arcanaWhispers[mood] || '';
+            const slug = venue.slug || venue.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
 
             // Animate flip
             cardEl.classList.add('revealing');
 
             setTimeout(() => {
-                // Transform to revealed state
+                // Transform to revealed state - simple, links to venue page
                 cardEl.classList.remove('face-down', 'revealing');
-                cardEl.classList.add('venue-card-result');
-
-                let venueLink = venue.name;
-                if (venue.website && venue.website.trim()) {
-                    let url = venue.website;
-                    if (!url.startsWith('http')) url = 'https://' + url;
-                    venueLink = `<a href="${url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${venue.name}</a>`;
-                }
+                cardEl.classList.add('chat-venue-card');
 
                 cardEl.innerHTML = `
                     <span class="corner-tr"></span>
                     <span class="corner-bl"></span>
                     <div class="card-inner">
                         <div class="arcana-symbol">${arcana.symbol}</div>
-                        <div class="arcana-number">${arcana.number}</div>
                         <div class="arcana-name">${arcana.name}</div>
                         <div class="arcana-mood">${mood}</div>
                         <div class="arcana-divider"></div>
                         <div class="venue-section">
-                            <div class="venue-name">${venueLink}</div>
+                            <div class="venue-name">${venue.name}</div>
                             <div class="venue-whisper">${whisper}</div>
-                            <div class="venue-blurb">${venue.blurb || ''}</div>
                         </div>
-                        <div class="card-footer">
-                            <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.name}">✧</button>
-                            <button class="card-footer-icon" data-action="flag" data-tooltip="something's wrong" data-venue="${venue.name}">🜃</button>
-                            <button class="card-footer-icon" data-action="share" data-tooltip="share this door" data-venue="${venue.name}" data-arcana="${mood}">↗</button>
-                        </div>
-                        <div class="card-footer-confirm"></div>
                     </div>
                 `;
 
-                cardEl.dataset.venueBlurb = venue.blurb || '';
-                cardEl.dataset.venueWebsite = venue.website || '';
-
-                // Setup expand/collapse
-                cardEl.onclick = (e) => {
-                    if (e.target.tagName === 'A' || e.target.classList.contains('card-footer-icon')) return;
-                    toggleCardExpansion(cardEl);
+                // Click anywhere → go to venue page
+                cardEl.style.cursor = 'pointer';
+                cardEl.onclick = () => {
+                    window.location.href = '/venue/' + slug;
                 };
             }, 300); // Half of animation duration
         }

@@ -226,16 +226,30 @@ def parse_response(text: str) -> dict:
     }
 
 
+def _slugify(name: str) -> str:
+    """Convert venue name to URL-safe slug"""
+    import unicodedata
+    slug = unicodedata.normalize('NFKD', name)
+    slug = ''.join(c for c in slug if not unicodedata.combining(c))
+    slug = slug.lower()
+    slug = slug.replace("&", "and").replace("'", "").replace("'", "")
+    slug = re.sub(r'[^a-z0-9-]', '-', slug)
+    slug = re.sub(r'-+', '-', slug).strip('-')
+    return slug or "unnamed"
+
+
 def _format_venue(venue: dict) -> dict:
     """Format venue data for frontend consumption"""
+    name = venue.get('name', 'Unknown')
     return {
-        'name': venue.get('name', 'Unknown'),
+        'name': name,
         'arcana': venue.get('arcana', 'Romanticised London'),
         'location': venue.get('location', 'London'),
         'whisper': venue.get('whisper', ''),
         'blurb': venue.get('blurb', ''),
         'website': venue.get('url', ''),
-        'moods': venue.get('moods', [])
+        'moods': venue.get('moods', []),
+        'slug': venue.get('slug') or _slugify(name)
     }
 
 
