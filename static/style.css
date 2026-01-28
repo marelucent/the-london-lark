@@ -742,6 +742,48 @@ button {
 }
 
 /* ============================================
+   VENUE SUBMISSION INVITATION
+   ============================================ */
+.venue-invitation {
+    text-align: center;
+    margin: 3rem auto 1rem;
+    padding: 1.5rem 2rem;
+}
+
+.venue-invitation .invitation-divider {
+    font-size: 1.2rem;
+    color: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+
+.venue-invitation .invitation-question {
+    font-family: var(--font-whisper);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--candlelight);
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.venue-invitation .invitation-link {
+    font-family: var(--font-whisper);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-decoration: none;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+}
+
+.venue-invitation .invitation-link:hover {
+    opacity: 1;
+    color: var(--candlelight);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+/* ============================================
    TESTIMONY SECTION
    ============================================ */
 .testimony-section {
