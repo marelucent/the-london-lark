@@ -36,6 +36,24 @@
             font-size: 0.95rem;
         }
 
+        .admin-nav {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .admin-nav a {
+            color: rgba(201, 162, 39, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .admin-nav a:hover,
+        .admin-nav a.active {
+            color: var(--gold);
+        }
+
         /* Generate section */
         .generate-section {
             display: flex;
@@ -252,6 +270,11 @@
         <div class="admin-header">
             <h1>Invite Codes</h1>
             <p>Keys to the deeper doors</p>
+        </div>
+
+        <div class="admin-nav">
+            <a href="{{ url_for('auth.admin_invites') }}" class="active">Invite Codes</a>
+            <a href="{{ url_for('auth.admin_feedback') }}">Feedback</a>
         </div>
 
         <!-- Generate new codes -->

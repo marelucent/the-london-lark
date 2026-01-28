@@ -541,6 +541,25 @@ class FeedbackLogger:
         except Exception as e:
             get_error_logger().error(f"Failed to write rating: {e}")
 
+    def get_recent_feedback(self, limit: int = 100) -> list:
+        """Get recent feedback entries, newest first."""
+        entries = []
+        try:
+            if FEEDBACK_LOG_FILE.exists():
+                with open(FEEDBACK_LOG_FILE, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line:
+                            try:
+                                entries.append(json.loads(line))
+                            except json.JSONDecodeError:
+                                continue
+        except Exception as e:
+            get_error_logger().error(f"Failed to read feedback: {e}")
+
+        # Return newest first, limited
+        return list(reversed(entries))[:limit]
+
 
 # =============================================================================
 # PAGE VIEW ANALYTICS

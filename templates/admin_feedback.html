@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback — Lark Admin</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .admin-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .admin-header h1 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .admin-header p {
+            font-family: var(--font-whisper);
+            font-style: italic;
+            color: var(--candlelight);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .admin-nav a {
+            color: rgba(201, 162, 39, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .admin-nav a:hover,
+        .admin-nav a.active {
+            color: var(--gold);
+        }
+
+        /* Stats summary */
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: rgba(245, 240, 230, 0.6);
+            justify-content: center;
+        }
+
+        .stats span {
+            color: var(--cream);
+        }
+
+        .stats .positive {
+            color: #a0d0a0;
+        }
+
+        .stats .negative {
+            color: #d0a0a0;
+        }
+
+        /* Feedback list */
+        .feedback-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feedback-entry {
+            padding: 1rem 1.25rem;
+            background: rgba(26, 23, 20, 0.5);
+            border: 1px solid rgba(201, 162, 39, 0.15);
+            border-radius: 6px;
+        }
+
+        .feedback-entry .entry-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feedback-entry .rating {
+            font-size: 1.3rem;
+        }
+
+        .feedback-entry .page-badge {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .feedback-entry .page-badge.lite {
+            background: rgba(100, 150, 200, 0.2);
+            color: #a0c0e0;
+        }
+
+        .feedback-entry .page-badge.mind {
+            background: rgba(180, 100, 200, 0.2);
+            color: #d0a0e0;
+        }
+
+        .feedback-entry .timestamp {
+            font-size: 0.8rem;
+            color: rgba(245, 240, 230, 0.4);
+            margin-left: auto;
+        }
+
+        .feedback-entry .comment {
+            font-family: var(--font-whisper);
+            font-style: italic;
+            color: var(--candlelight);
+            font-size: 1rem;
+            padding: 0.75rem;
+            background: rgba(201, 162, 39, 0.05);
+            border-left: 2px solid rgba(201, 162, 39, 0.3);
+            margin-top: 0.5rem;
+        }
+
+        .feedback-entry .user-info {
+            font-size: 0.75rem;
+            color: rgba(245, 240, 230, 0.3);
+            margin-top: 0.5rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(245, 240, 230, 0.4);
+            font-style: italic;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: rgba(201, 162, 39, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Feedback</h1>
+            <p>What visitors whispered back</p>
+        </div>
+
+        <div class="admin-nav">
+            <a href="{{ url_for('auth.admin_invites') }}">Invite Codes</a>
+            <a href="{{ url_for('auth.admin_feedback') }}" class="active">Feedback</a>
+        </div>
+
+        {% set ratings = entries | selectattr('type', 'equalto', 'rating') | list %}
+        {% set ups = ratings | selectattr('rating', 'equalto', 'up') | list | length %}
+        {% set downs = ratings | selectattr('rating', 'equalto', 'down') | list | length %}
+
+        <div class="stats">
+            <div>Total: <span>{{ entries | length }}</span></div>
+            <div>Ratings: <span class="positive">{{ ups }}</span> / <span class="negative">{{ downs }}</span></div>
+        </div>
+
+        {% if entries %}
+        <div class="feedback-list">
+            {% for entry in entries %}
+            <div class="feedback-entry">
+                <div class="entry-header">
+                    {% if entry.type == 'rating' %}
+                        <span class="rating">{{ '👍' if entry.rating == 'up' else '👎' }}</span>
+                        <span class="page-badge {{ entry.page }}">{{ entry.page }}</span>
+                    {% elif entry.type == 'testimony' %}
+                        <span class="rating">✧</span>
+                        <span class="page-badge lite">testimony</span>
+                    {% elif entry.type == 'flag' %}
+                        <span class="rating">🜃</span>
+                        <span class="page-badge mind">flag</span>
+                    {% endif %}
+                    <span class="timestamp">{{ entry.timestamp[:16] | replace('T', ' ') }}</span>
+                </div>
+
+                {% if entry.type == 'rating' and entry.comment %}
+                    <div class="comment">"{{ entry.comment }}"</div>
+                {% elif entry.type == 'testimony' %}
+                    <div class="comment">
+                        <strong>{{ entry.venue }}</strong><br>
+                        "{{ entry.text }}"
+                    </div>
+                {% elif entry.type == 'flag' %}
+                    <div class="comment">
+                        <strong>{{ entry.venue }}</strong> — {{ entry.reason }}<br>
+                        {% if entry.details %}"{{ entry.details }}"{% endif %}
+                    </div>
+                {% endif %}
+
+                {% if entry.user_id %}
+                    <div class="user-info">User #{{ entry.user_id }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">No feedback yet. The silence speaks.</div>
+        {% endif %}
+
+        <a href="/" class="back-link">&larr; Back to The Lark</a>
+    </div>
+</body>
+</html>

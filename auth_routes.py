@@ -178,3 +178,13 @@ def admin_invites_revoke(code):
     """Revoke an invite code."""
     InviteCode.revoke(code)
     return redirect(url_for('auth.admin_invites'))
+
+
+@auth_bp.route('/admin/feedback')
+@admin_required
+def admin_feedback():
+    """View recent feedback entries."""
+    from lark_logger import get_feedback_logger
+    feedback_logger = get_feedback_logger()
+    entries = feedback_logger.get_recent_feedback(limit=100)
+    return render_template('admin_feedback.html', entries=entries)
