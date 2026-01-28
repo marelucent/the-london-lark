@@ -473,7 +473,20 @@
             margin-bottom: 0.4rem;
         }
 
-        /* Ensure blurb shows on expanded cards */
+        /* Card-sm (collapsed): show whisper, hide blurb */
+        .chat-card-container .arcana-card.card-sm .venue-whisper {
+            display: block !important;
+        }
+
+        .chat-card-container .arcana-card.card-sm .venue-blurb {
+            display: none !important;
+        }
+
+        /* Card-lg (expanded): hide whisper, show blurb */
+        .chat-card-container .arcana-card.card-lg .venue-whisper {
+            display: none !important;
+        }
+
         .chat-card-container .arcana-card.card-lg .venue-blurb {
             display: block !important;
             font-family: var(--font-body, 'Libre Baskerville', serif);
@@ -482,10 +495,6 @@
             line-height: 1.6;
             margin-top: 0.75rem;
             opacity: 0.9;
-        }
-
-        .chat-card-container .arcana-card.card-lg .venue-whisper {
-            display: none !important;
         }
 
         /* Disable card interactions during loading */
@@ -877,7 +886,7 @@
                         <div class="venue-section">
                             <div class="venue-name">${venueLink}</div>
                             <div class="venue-whisper">${whisper}</div>
-                            <div class="venue-blurb" style="display: none;">${venue.blurb || ''}</div>
+                            <div class="venue-blurb">${venue.blurb || ''}</div>
                         </div>
                         <div class="card-footer">
                             <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.name}">✧</button>
@@ -934,7 +943,7 @@
                         <div class="venue-section">
                             <div class="venue-name">${venueLink}</div>
                             <div class="venue-whisper">${whisper}</div>
-                            <div class="venue-blurb" style="display: none;">${venue.blurb || ''}</div>
+                            <div class="venue-blurb">${venue.blurb || ''}</div>
                         </div>
                         <div class="card-footer">
                             <button class="card-footer-icon" data-action="love" data-tooltip="this one glows" data-venue="${venue.name}">✧</button>
@@ -961,20 +970,17 @@
             if (isWaitingForResponse) return;
 
             const isExpanded = card.classList.contains('card-lg');
-            const whisperEl = card.querySelector('.venue-whisper');
-            const blurbEl = card.querySelector('.venue-blurb');
 
             if (isExpanded) {
+                // Collapse: switch to card-sm
                 card.classList.remove('card-lg');
                 card.classList.add('card-sm');
-                if (whisperEl) whisperEl.style.display = 'block';
-                if (blurbEl) blurbEl.style.display = 'none';
             } else {
+                // Expand: switch to card-lg
                 card.classList.remove('card-sm');
                 card.classList.add('card-lg');
-                if (whisperEl) whisperEl.style.display = 'none';
-                if (blurbEl) blurbEl.style.display = 'block';
             }
+            // CSS handles whisper/blurb visibility based on card class
         }
 
         function renderSegments(segments) {
